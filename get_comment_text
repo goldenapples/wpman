@@ -1,0 +1,46 @@
+Function Reference/get comment text « WordPress Codex
+-----------
+
+Retrieve the text of the current comment.
+
+Use
+[comment\_text](/Template_Tags/comment_text "Template Tags/comment text")
+to display the comment text.
+
+Usage
+-----
+
+` <?php get_comment_text( $comment_ID ) ?> `
+
+Parameters
+----------
+
+ `comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the comment for which to get the text.
+    Default: 0 (the current comment)
+
+Return
+------
+
+ `` `(string)`{style="color:gray"} 
+:   The comment content
+
+Example
+-------
+
+    <?php $current_comment = get_comment_text(); ?>
+
+Notes
+-----
+
+Changelog
+---------
+
+-   Since 1.5.0
+
+Source File
+-----------
+
+get\_comment\_text() is located in `wp-includes/comment-template.php`
+

@@ -1,0 +1,71 @@
+Function Reference/wp kses attr « WordPress Codex
+-----------
+
+Removes all attributes, if none are allowed for this element.
+
+If some are allowed it calls
+[`wp_kses_hair()`](/Function_Reference/wp_kses_hair "Function Reference/wp kses hair")
+to split them further, and then it builds up new
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") code from the
+data that
+[`wp_kses_hair()`](/Function_Reference/wp_kses_hair "Function Reference/wp kses hair")
+returns. It also removes '`<`' and '`>`' characters, if there are any
+left. One more thing it does is to check if the tag has a closing XHTML
+slash, and if it does, it puts one in the returned code as well.
+
+Usage
+-----
+
+` <?php wp_kses_attr( $element, $attr, $allowed_html, $allowed_protocols ) ?> `
+
+Parameters
+----------
+
+ `$element` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML")
+    element/tag
+    Default: *None*
+
+ `$attr` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML")
+    attributes from HTML element to closing HTML element tag
+    Default: *None*
+
+ `$allowed_html` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Allowed
+    [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") elements
+    Default: *None*
+
+ `$allowed_protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Allowed protocols to keep
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Sanitized [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML")
+    element
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_kses_attr()` is located in `wp-includes/kses.php`.
+

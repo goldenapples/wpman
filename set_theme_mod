@@ -1,0 +1,49 @@
+Function Reference/set theme mod « WordPress Codex
+-----------
+
+Creates or updates a modification setting for the current theme. Along
+with [get\_theme\_mod()](/get_theme_mod "get theme mod") this function
+sometimes offers theme developers a simpler alternative to the [Settings
+API](/Settings_API "Settings API") when there is a need to handle basic
+theme-specific settings.
+
+Usage
+-----
+
+` <?php set_theme_mod( $name, $value ) ?> `
+
+Parameters
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Theme modification name.
+    Default: *None*
+
+ `$value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Theme modification value.
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`set_theme_mod()` is located in `wp-includes/theme.php`
+

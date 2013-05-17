@@ -1,0 +1,127 @@
+Function Reference/posts nav link « WordPress Codex
+-----------
+
+Displays links for next and previous pages. Useful for providing "paged"
+navigation of index, category and archive pages.
+
+For displaying next and previous pages of posts see
+[next\_posts\_link()](/Function_Reference/next_posts_link "Function Reference/next posts link")
+and
+[previous\_posts\_link()](/Function_Reference/previous_posts_link "Function Reference/previous posts link").
+
+For displaying next and previous post navigation on individual posts,
+see
+[next\_post\_link()](/Template_Tags/next_post_link "Template Tags/next post link")
+and
+[previous\_post\_link()](/Template_Tags/previous_post_link "Template Tags/previous post link").
+
+Usage
+-----
+
+`  <?php posts_nav_link( $sep, $prelabel, $nextlabel ); ?> `
+
+Note: since weblog posts are traditionally listed in reverse
+chronological order (with most recent posts at the top), there is some
+ambiguity in the definition of "next page". WordPress defines "next
+page" as the "next page *toward the past*". In WordPress 1.5, the
+default
+[Kubrick](http://binarybonsai.com/kubrick "http://binarybonsai.com/kubrick")
+theme addresses this ambiguity by labeling the "next page" link as
+"previous entries". See [Example: Kubrick Theme
+Format](#Kubrick_Theme_Format).
+
+Parameters
+----------
+
+ \$sep 
+:   (*string*) Text displayed between the links.
+    -   Defaults to `' :: '` in 1.2.x.
+    -   Defaults to `' — '` in 1.5.
+
+ \$prelabel 
+:   (*string*) Link text for the previous page.
+    -   Defaults to `'<< Previous Page'` in 1.2.x.
+    -   Defaults to `'« Previous Page'` in 1.5.
+
+ \$nxtlabel 
+:   (*string*) Link text for the next page.
+    -   Defaults to `'Next Page >>'` in 1.2.x.
+    -   Defaults to `'Next Page »'` in 1.5
+
+Examples
+--------
+
+### Default Usage
+
+By default, the `posts_nav_link()` look like this:
+
+[« Previous Page](#Examples) — [Next Page »](#Examples)
+
+    <?php posts_nav_link(); ?>
+
+### In Centered DIV
+
+Displays previous and next page links ("previous page · next page")
+centered on the page.
+
+    <div style="text-align:center;">
+    <?php posts_nav_link(' &#183; ', 'previous page', 'next page'); ?>
+    </div>
+
+### Using Images
+
+    <?php posts_nav_link( ' ', '<img src="' . get_bloginfo('stylesheet_directory') . '/images/prev.jpg" />', '<img src="' . get_bloginfo('stylesheet_directory') . '/images/next.jpg" />' ); ?>
+
+### Kubrick Theme Format
+
+The
+[Kubrick](http://binarybonsai.com/kubrick "http://binarybonsai.com/kubrick")
+theme format for posts navigation, could be formatted this way. However,
+using posts\_nav\_link() in this way will result in unintended behavior,
+such as double stacked next and previous links that link to the
+incorrect sections.
+
+The Kubrick Theme actually uses
+[next\_posts\_link()](/Function_Reference/next_posts_link "Function Reference/next posts link")
+and
+[previous\_posts\_link()](/Function_Reference/previous_posts_link "Function Reference/previous posts link").
+
+*This is poor code and should not be used:*
+
+    <div class="navigation">
+    <div class="alignleft"><?php posts_nav_link('','','&laquo; Previous Entries') ?></div>
+    <div class="alignright"><?php posts_nav_link('','Next Entries &raquo;','') ?></div>
+    </div>
+
+*This is better code:*
+
+    <div class="navigation">
+    <div class="alignleft"><?php previous_posts_link('&laquo; Previous Entries') ?></div>
+    <div class="alignright"><?php next_posts_link('Next Entries &raquo;','') ?></div>
+    </div>
+
+### Customizing the Link Text
+
+You can change the text in each of the links and in the text in between
+the links.
+
+[You can go back to the previous page](#Examples) or [you can go forward
+to the next page](#Examples).
+
+    <p><?php posts_nav_link(' or ', 'You can go back
+     to the previous page', 'you can go 
+    forward to the next page'); ?>.</p>
+
+\
+
+Resources
+---------
+
+-   [Digging into Wordpress - Definitive Guide to WordPress Page
+    Navigation](http://digwp.com/2009/08/wordpress-page-navigation/ "http://digwp.com/2009/08/wordpress-page-navigation/")
+
+Source File
+-----------
+
+`posts_nav_link()` is located in `wp-includes/link-template.php`.
+

@@ -1,0 +1,76 @@
+Function Reference/the title attribute « WordPress Codex
+-----------
+
+Displays or returns the title of the current post. It somewhat
+duplicates the functionality of
+[`the_title()`](/Template_Tags/the_title "Template Tags/the title"), but
+provides a “clean” version of the title for use in HTML attributes by
+stripping [HTML](/Glossary#HTML "Glossary") tags with
+[`strip_tags()`](http://php.net/manual/en/function.strip-tags.php "http://php.net/manual/en/function.strip-tags.php")
+and by converting certain characters (including quotes) to their
+[character entity](/Glossary#Character_Entity "Glossary") equivalent
+with `esc_attr()`; it also uses [query-string style
+parameters](/Template_Tags/How_to_Pass_Tag_Parameters#Tags_with_query-string-style_parameters "Template Tags/How to Pass Tag Parameters").
+This tag must be within [The Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php the_title_attribute( $args ); ?> `
+
+Parameters
+----------
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to place before the title.
+    Default: *None*
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to place after the title.
+    Default: *None*
+
+ `$echo` 
+:   ([*Boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display the title (`TRUE`) or return it for use in PHP
+    (`FALSE`).
+    Default: `TRUE`
+
+Example
+-------
+
+### Inline with array args
+
+    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( array( 'before' => 'Permalink to: ', 'after' => '' ) ); ?>"><?php the_title(); ?></a>
+
+### Inline with text args
+
+    <?php
+    function child_do_post_title() {
+    ?>
+    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute( 'before=Permalink to: "&after="' ); ?>"><?php the_title(); ?></a>
+    <?php
+    }
+    ?>
+
+### PHP with text args
+
+    printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), get_the_title() );
+
+Notes
+-----
+
+-   See also:
+    [the\_title()](/Template_Tags/the_title "Template Tags/the title").
+
+Change Log
+----------
+
+-   Since: 2.3.0
+
+Source File
+-----------
+
+`the_title_attribute()` is located in `wp-includes/post-template.php`.
+

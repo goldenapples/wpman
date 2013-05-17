@@ -1,0 +1,78 @@
+Function Reference/admin url « WordPress Codex
+-----------
+
+The **admin\_url** template tag retrieves the url to the admin area for
+the current site with the appropriate protocol, 'https' if
+[is\_ssl()](/Function_Reference/is_ssl "Function Reference/is ssl") and
+'http' otherwise. If [scheme](#Parameters) is 'http' or 'https',
+is\_ssl() is overridden.
+
+In case of Wordpress Network setup, use
+[network\_admin\_url()](/Function_Reference/network_admin_url "Function Reference/network admin url")
+instead.
+
+Usage
+-----
+
+` <?php admin_url( $path, $scheme ); ?> `
+
+### Default Usage
+
+` <?php $url = admin_url(); ?> `
+
+Parameters
+----------
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path relative to the admin url.
+    Default: *None*
+
+ `$scheme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The scheme to use. Default is 'admin', which obeys
+    force\_ssl\_admin() and is\_ssl(). 'http' or 'https' can be passed
+    to force those schemes. The function uses get\_site\_url(), so
+    allowed values include any accepted by that function.
+    Default: 'admin'
+
+Return
+------
+
+ (string) 
+:   Admin url link with optional path appended.
+
+Examples
+--------
+
+    $url = admin_url();
+    echo $url;
+
+Output:
+[http://www.example.com/wp-admin/](http://www.example.com/wp-admin/ "http://www.example.com/wp-admin/")
+
+(protocol will be https when appropriate)
+
+    // generate url path to Posts -> Categories page in the admin and force https
+    $url = admin_url( 'edit-tags.php?taxonomy=category', 'https' );
+    echo $url;
+
+Output:
+[https://www.example.com/wp-admin/edit-tags.php?taxonomy=category](https://www.example.com/wp-admin/edit-tags.php?taxonomy=category "https://www.example.com/wp-admin/edit-tags.php?taxonomy=category")
+
+Notes
+-----
+
+-   Uses
+    [get\_admin\_url()](/Function_Reference/get_admin_url "Function Reference/get admin url")
+
+Changelog
+---------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source Code
+-----------
+
+`admin_url()` is located in `wp-includes/link-template.php`.
+

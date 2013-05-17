@@ -1,0 +1,38 @@
+Function Reference/is time « WordPress Codex
+-----------
+
+Test to see if the page is a time based archive page.
+
+Usage
+-----
+
+` <?php is_time(); ?> `
+
+Parameters
+----------
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+Notes
+-----
+
+-   See also `is_archive()` and [Category
+    Templates](/Category_Templates "Category Templates").
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`is_time()` is located in `wp-includes/functions.php`.
+

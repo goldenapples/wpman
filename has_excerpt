@@ -1,0 +1,34 @@
+Function Reference/has excerpt « WordPress Codex
+-----------
+
+Whether the current post has an excerpt.
+
+Usage
+-----
+
+` <?php has_excerpt( $id ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID
+    Default: Current post ID
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True if the post has an excerpt, false if it does not.
+
+Changelog
+---------
+
+Since: 2.3.0
+
+Source File
+-----------
+
+`comments_template()` is located in `wp-includes/post-template.php`.
+

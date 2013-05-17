@@ -1,0 +1,38 @@
+Function Reference/single post title « WordPress Codex
+-----------
+
+Displays or returns the title of the post when on a single post page
+([permalink](/Glossary#Permalink "Glossary") page). This tag can be
+useful for displaying post titles outside [The
+Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php single_post_title( $prefix, $display ); ?> `
+
+### Default Usage
+
+`  <?php single_post_title(); ?> `
+
+Parameters
+----------
+
+ `$prefix` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to place before the title.
+    Default: *None*
+
+ `$display` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Should the title be displayed (`TRUE`) or returned for
+    use in PHP (`FALSE`).
+    Default: `TRUE`
+
+Example
+-------
+
+    <h2><?php single_post_title('Current post: '); ?></h2>
+
+Current post: Single Post Title
+

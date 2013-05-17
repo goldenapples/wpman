@@ -1,0 +1,64 @@
+Function Reference/add metadata « WordPress Codex
+-----------
+
+Add metadata for the specified object in WordPress.
+
+**NOTE**: This is a generic, low level function and should **not** be
+used directly by plugins or themes. Instead, use the corresponding meta
+functions for the object type you're working with:
+
+-   [add\_post\_meta()](/Function_Reference/add_post_meta "Function Reference/add post meta")
+    for posts, pages and custom post types
+-   [add\_user\_meta()](/Function_Reference/add_user_meta "Function Reference/add user meta")
+    for users
+-   [add\_comment\_meta()](/Function_Reference/add_comment_meta "Function Reference/add comment meta")
+    for comments
+
+Usage
+-----
+
+` <?php add_metadata( $meta_type, $object_id, $meta_key, $meta_value ); ?> `
+
+Parameters
+----------
+
+ `$meta_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Type of object the metadata is for (e.g., comment,
+    post, or user). Always singular.
+    Default: *None*
+
+ `$object_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) The ID of the object metadata is for.
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) {{{3}}}
+    Default: *None*
+
+ `$meta_value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) {{{3}}}
+    Default: *None*
+
+ `$unique` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*Optional*) This determines whether the specified key can have
+    multiple entries for the specified object id. If false,
+    `add_metadata()` will add duplicate keys to the object. If true,
+    nothing will be added if the specified key already exists for the
+    specified id.
+    Default: False
+
+Change Log
+----------
+
+-   Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+Source File
+-----------
+
+`add_metadata()` is located in `wp-includes/meta.php`.
+

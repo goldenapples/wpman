@@ -1,0 +1,167 @@
+Function Reference/get taxonomies « WordPress Codex
+-----------
+
+Get a list of registered taxonomy objects.
+
+Usage
+-----
+
+`  <?php get_taxonomies( $args, $output, $operator ) ?> `
+
+Parameters
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of key -\> value arguments to match against
+    the taxonomies. Only taxonomies having attributes that match all
+    arguments are returned.
+    Default: *None*
+
+-   name
+-   object\_type (array)
+-   label
+-   singular\_label
+-   show\_ui
+-   show\_tagcloud
+-   public
+-   update\_count\_callback
+-   rewrite
+-   query\_var
+-   manage\_cap
+-   edit\_cap
+-   delete\_cap
+-   assign\_cap
+-   \_builtin
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The type of output to return, either taxonomy 'names'
+    or 'objects'.
+    Default: 'names'
+
+ `$operator` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Operator (and/or) to use with multiple \$args.
+    Default: and
+
+Return Value
+------------
+
+ array 
+:   A list of taxonomy names or objects. If returning names, you will
+    get an array of the taxonomy names such as
+
+<!-- -->
+
+    Array ( [special_taxonomy] => special_taxonomy [custom_taxonomy] => custom_taxonomy )
+
+If returning objects, you will get an array of objects such as:
+
+    Array ( [special_taxonomy] => stdClass Object  [custom_taxonomy] => stdClass Object  )
+
+wherein each object will contain the following fields:
+
+    stdClass Object ( 
+    [hierarchical] => 
+    [update_count_callback] =>  
+    [rewrite] => 
+    [query_var] => 
+    [public] => 
+    [show_ui] => 
+    [show_tagcloud] => 
+    [_builtin] => 
+    [labels] => stdClass Object ( 
+        [name] =>  
+        [singular_name] =>
+        [search_items] => 
+        [popular_items] => 
+        [all_items] => 
+        [parent_item] => 
+        [parent_item_colon] =>  
+        [edit_item] => 
+        [view_item] =>  
+        [update_item] => 
+        [add_new_item] => 
+        [new_item_name] => 
+        [separate_items_with_commas] => 
+        [add_or_remove_items] => 
+        [choose_from_most_used] => 
+        [menu_name] =>  
+        [name_admin_bar] =>  ) 
+    [show_in_nav_menus] => 
+    [cap] => stdClass Object ( 
+        [manage_terms] =>  
+        [edit_terms] =>  
+        [delete_terms] =>  
+        [assign_terms] =>  ) 
+    [name] =>  
+    [object_type] => Array () 
+    [label]  )
+
+Examples
+--------
+
+### Default Usage
+
+The call to **get\_taxonomies** returns the registered taxonomies.
+
+    <?php $taxonomies=get_taxonomies(); ?>
+
+### Output a list all registered taxonomies
+
+    <?php 
+    $taxonomies=get_taxonomies('','names'); 
+    foreach ($taxonomies as $taxonomy ) {
+      echo '<p>'. $taxonomy. '</p>';
+    }
+    ?>
+
+### Output a list of all public custom taxonomies
+
+This return all custom (not builtin) taxonomies.
+
+    <?php 
+    $args = array(
+      'public'   => true,
+      '_builtin' => false
+      
+    ); 
+    $output = 'names'; // or objects
+    $operator = 'and'; // 'and' or 'or'
+    $taxonomies = get_taxonomies( $args, $output, $operator ); 
+    if ( $taxonomies ) {
+      foreach ( $taxonomies  as $taxonomy ) {
+        echo '<p>' . $taxonomy . '</p>';
+      }
+    }
+    ?>
+
+### Output a named taxonomy
+
+This example uses the 'object' output to retrieve and display the
+taxonomy called 'genre':
+
+    <?php 
+    $args=array(
+      'name' => 'genre'
+    );
+    $output = 'objects'; // or objects
+    $taxonomies=get_taxonomies($args,$output); 
+    if  ($taxonomies) {
+      foreach ($taxonomies  as $taxonomy ) {
+        echo '<p>' . $taxonomy->name . '</p>';
+      }
+    }  
+    ?>
+
+Source File
+-----------
+
+`get_taxonomies()` is located in `wp-includes/taxonomy.php`.
+
+Change Log
+----------
+
+-   Since: 3.0.0
+

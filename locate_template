@@ -1,0 +1,58 @@
+Function Reference/locate template « WordPress Codex
+-----------
+
+Retrieve the name of the highest priority template file that exists.
+
+Searches in the `STYLESHEETPATH` before `TEMPLATEPATH` so that themes
+which inherit from a parent theme can just overload one file.
+
+Usage
+-----
+
+` <?php locate_template( $template_names, $load, $require_once ) ?> `
+
+Parameters
+----------
+
+ `$template_names` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Array of template files to search for in priority
+    order.
+    Default: *None*
+
+ `$load` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If `true` the template file will be loaded if it is
+    found.
+    Default: false
+
+ `$require_once` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If `true` the template file will be loaded with the php
+    `require_once` function. If `false` the template file will be loaded
+    with the php `require` function. This parameter has no effect if
+    `$load` is `false`.
+    Default: true
+
+Return Values
+-------------
+
+ (string) 
+:   The template filename if one is located, an empty string if not.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.7.0
+
+Source File
+-----------
+
+`locate_template()` is located in `wp-includes/template.php`.
+

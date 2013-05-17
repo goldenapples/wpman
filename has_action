@@ -1,0 +1,56 @@
+Function Reference/has action « WordPress Codex
+-----------
+
+Check if any action has been registered for a hook.
+
+Usage
+-----
+
+` <?php has_action( $tag, $function_to_check ) ?> `
+
+Parameters
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the action hook.
+    Default: *None*
+
+ `$function_to_check` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*optional*) If specified, return the priority of that function on
+    this hook or false if not attached.
+    Default: false
+
+Return Values
+-------------
+
+ (integer|boolean) 
+:   Optionally returns the priority on that hook for the specified
+    function.
+
+Examples
+--------
+
+Notes
+-----
+
+-   See
+    [`has_filter()`](/Function_Reference/has_filter "Function Reference/has filter")
+    has\_action is an alias of
+    [`has_filter()`](/Function_Reference/has_filter "Function Reference/has filter").
+-   Since this action is an alias of
+    [`has_filter()`](/Function_Reference/has_filter "Function Reference/has filter")
+    it also uses the global array \$wp\_filter that stores all of the
+    filters / actions.
+
+Change Log
+----------
+
+Since: 2.5
+
+Source File
+-----------
+
+`has_action()` is located in `wp-includes/plugin.php`.
+

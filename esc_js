@@ -1,0 +1,48 @@
+Function Reference/esc js « WordPress Codex
+-----------
+
+Escape single quotes, htmlspecialchar " \< \> &, and fix line endings.
+Escapes text strings for echoing in JS. It is intended to be used for
+inline JS (in a tag attribute, for example onclick="…"). Note that the
+strings have to be in single quotes. The filter ‘js\_escape’ is also
+applied here.
+
+Usage
+-----
+
+` <?php esc_js( $text ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to escape
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Escaped js string.
+
+Examples
+--------
+
+Example of an input tag within a form displayed on the front-end of the
+site, generated from a widget. The first php segment is using esc\_attr
+as it is an html attribute of input, while the next php segments is
+using esc\_js within inline Javascript.
+
+    <input type="text" value="<?php echo esc_attr( $instance['input_text'] ); ?>" id="subbox" onfocus="if ( this.value == '<?php echo esc_js( $instance['input_text'] ); ?>') { this.value = ''; }" onblur="if ( this.value == '' ) { this.value = '<?php echo esc_js( $instance['input_text'] ); ?>'; }" name="email" />
+
+Change Log
+----------
+
+Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`esc_js()` is located in `wp-includes/formatting.php`
+

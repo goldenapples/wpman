@@ -1,0 +1,66 @@
+Function Reference/wp logout url « WordPress Codex
+-----------
+
+This Template Tag returns the URL that allows the user to log out of the
+site.
+
+Usage
+-----
+
+`  <?php echo wp_logout_url( $redirect ); ?> `
+
+Parameters
+----------
+
+ `$redirect` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) URL to redirect to on logout.
+    Default: *None*
+
+Examples
+--------
+
+### Default Usage
+
+    <a href="<?php echo wp_logout_url(); ?>" title="Logout">Logout</a>
+
+### Logout and Redirect to Current Page
+
+    <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a>
+
+### Logout and Redirect to Homepage
+
+    <a href="<?php echo wp_logout_url( home_url() ); ?>" title="Logout">Logout</a>
+
+### Logout and Redirect to Another Site
+
+If you are using wp\_logout\_url to redirect to another site on logout
+(e.g. another subsite in a MultiSite network) you'll need to make use of
+the allowed\_redirect\_hosts filter
+
+    add_filter('allowed_redirect_hosts','allow_ms_parent_redirect');
+    function allow_ms_parent_redirect($allowed)
+    {
+        $allowed[] = 'multisiteparent.com';
+        return $allowed;
+    }
+
+    <a href="<?php echo wp_logout_url( 'http://multisiteparent.com' ); ?>" title="Logout">Logout</a>
+
+Notes
+-----
+
+-   Uses:
+    [apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls 'logout\_url' hook on HTML link content.
+
+Change Log
+----------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+Source File
+-----------
+
+`wp_logout_url()` is located in `wp-includes/general-template.php`.
+

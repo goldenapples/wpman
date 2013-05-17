@@ -1,0 +1,111 @@
+Function Reference/get comment « WordPress Codex
+-----------
+
+Takes a comment ID and returns the database record for that post. You
+can specify, by means of the `$output` parameter, how you would like the
+results returned.
+
+Usage
+-----
+
+` <?php get_comment( $id, $output ); ?> `
+
+Parameters
+----------
+
+ `$comment` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the comment you'd like to fetch. **You must
+    pass a variable containing an integer** (e.g. `$id`). A literal
+    integer (e.g. `7`) will cause a fatal error (*Only variables can be
+    passed for reference* or *Cannot pass parameter 1 by reference*).
+    Default: *None*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) How you'd like the result. *OBJECT* = an object,
+    *ARRAY\_A* = an associative array of keys to values, and *ARRAY\_N*
+    = a numerically indexed array of values.
+    Default: OBJECT
+
+Return
+------
+
+ `` `(object|array)`{style="color:gray"} 
+:   The fields returned are:
+ `comment_ID` 
+:   (*integer*) The comment ID
+ `comment_post_ID` 
+:   (*integer*) The post ID of the associated post
+ `comment_author` 
+:   (*string*) The comment author's name
+ `comment_author_email` 
+:   (*string*) The comment author's email
+ `comment_author_url` 
+:   (*string*) The comment author's webpage
+ `comment_author_IP` 
+:   (*string*) The comment author's IP
+ `comment_date` 
+:   (*string*) The datetime of the comment (`YYYY-MM-DD HH:MM:SS`)
+ `comment_date_gmt` 
+:   (*string*) The GMT datetime of the comment (`YYYY-MM-DD HH:MM:SS`)
+ `comment_content` 
+:   (*string*) The comment's contents
+ `comment_karma` 
+:   (*integer*) The comment's karma
+ `comment_approved` 
+:   (*string*) The comment approbation (0, 1 or 'spam')
+ `comment_agent` 
+:   (*string*) The comment's agent (browser, Operating System, etc.)
+ `comment_type` 
+:   (*string*) The comment's type if meaningfull (`pingback|trackback`),
+    and empty for normal comments
+ `comment_parent` 
+:   (*string*) The parent comment's ID
+ `user_id` 
+:   (*integer*) The comment author's ID if he is registered (0
+    otherwise)
+
+Example
+-------
+
+To get the author's name of a comment with ID 7:
+
+    <?php
+    $my_id = 7;
+    $comment_id_7 = get_comment( $my_id ); 
+    $name = $comment_id_7->comment_author;
+    ?> 
+
+Alternatively, specify the `$output` parameter:
+
+    <?php
+    $my_id = 7;
+    $comment_id_7 = get_comment( $my_id, ARRAY_A );
+    $name = $comment_id_7['comment_author'];
+    ?>
+
+    <?php
+    //  Correct: pass a dummy variable as post_id
+    $the_comment = & get_comment( $dummy_id = 7 );
+        
+    //  Incorrect: literal integer as post_id
+    $the_comment = & get_comment( 7 );
+    //  Fatal error: 'Only variables can be passed for reference' or 'Cannot pass parameter 1 by reference'
+    ?>
+
+Notes
+-----
+
+Uses \$wpdb
+
+Change Log
+----------
+
+Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+Source File
+-----------
+
+get\_comment() is located in `wp-includes/comment.php`
+

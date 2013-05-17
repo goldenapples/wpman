@@ -1,0 +1,43 @@
+Function Reference/get background color « WordPress Codex
+-----------
+
+Retrieve the custom background color for the current active theme.
+
+Usage
+-----
+
+` <?php get_background_color(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   The hex value of the background color without the preceding hash
+    tag.
+ (null) 
+:   Returns an empty string if custom backgrounds are not supported by
+    the current theme or if none is set and no default is given.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses: `BACKGROUND_COLOR`
+
+Change Log
+----------
+
+Since: 3.0.0
+
+Source File
+-----------
+
+`get_background_color` is located in `wp-includes/theme.php`.
+

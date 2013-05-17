@@ -1,0 +1,66 @@
+Function Reference/count many users posts « WordPress Codex
+-----------
+
+Returns the post counts for a list of user IDs. This is an O(n)
+operation, so it is preferred over
+[count\_user\_posts](/Function_Reference/count_user_posts "Function Reference/count user posts")()
+any time more than a single count is needed.
+
+Usage
+-----
+
+`  <?php count_many_users_posts( $users, $post_type, $public_only ); ?> `
+
+Parameters
+----------
+
+ `$users` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) List of ID values of the users whose post counts should
+    be retrieved.
+    Default: *None*
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Name of the post type
+    Default: null
+
+ `$public_only` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Bypasses checking capabilities of current user (False)
+    or returns posts only if they can be viewed by current user (True).
+    Default: False
+
+Return Value
+------------
+
+ (array) 
+:   Amount of posts each user has written.
+
+Example
+-------
+
+### Default Usage
+
+The call to `count_many_users_posts` returns the number of posts made by
+each user.
+
+    <?php
+    $users = array(1, 3, 9, 10);
+    $counts = count_many_users_posts($users);
+    echo 'Posts made by user 3: ' . $counts[3];
+    ?>
+
+Posts made by user 3: 143
+
+Change Log
+----------
+
+-   3.5.0: Added the public\_only parameter
+-   Since: 3.0.0
+
+Source File
+-----------
+
+`count_many_users_posts()` is located in `wp-includes/user.php`.
+

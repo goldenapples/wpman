@@ -1,0 +1,45 @@
+Function Reference/require wp db « WordPress Codex
+-----------
+
+Load the correct database class file.
+
+This function is used to load the database class file either at runtime
+or by wp-admin/setup-config.php We must globalise
+[`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") to ensure that
+it is defined globally by the inline code in wp-db.php.
+
+Usage
+-----
+
+` <?php require_wp_db() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+Change Log
+----------
+
+Since: 2.5.0
+
+Source File
+-----------
+
+`require_wp_db()` is located in `/wp-includes/load.php`.
+

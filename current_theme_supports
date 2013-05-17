@@ -1,0 +1,59 @@
+Function Reference/current theme supports « WordPress Codex
+-----------
+
+Checks a theme's support for a given [theme
+feature](/Theme_Features "Theme Features").
+
+Usage
+-----
+
+` <?php current_theme_supports( $feature ); ?> `
+
+Parameters
+----------
+
+ `$feature` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) the feature being checked
+    Default: *None*
+
+Features list:
+
+-   'custom-header'
+-   'custom-background'
+-   'post-thumbnails'
+-   'menus'
+-   'automatic-feed-links'
+-   'editor-style'
+-   'widgets'
+
+Return Values
+-------------
+
+ (boolean) 
+:   
+
+Examples
+--------
+
+    <?php 
+    if (current_theme_supports('custom-header')) {
+      // do something special when custom-header is supported...
+    }
+    ?>
+
+Notes
+-----
+
+-   Uses global: (`unknown type`) `$_wp_theme_features`
+
+Change Log
+----------
+
+-   Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+Source File
+-----------
+
+`current_theme_supports()` is located in `wp-includes/theme.php`.
+

@@ -1,0 +1,43 @@
+Function Reference/wp script is « WordPress Codex
+-----------
+
+Determine if a script has been registered, queued, printed, or is
+waiting to be printed.
+
+Usage
+-----
+
+` <?php wp_script_is( $handle, $list = 'queue' ); ?> `
+
+Parameters
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the script. Lowercase string.
+    Default: *None*
+
+ `$list` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The list to query. One of 'registered' (script was
+    registered through wp\_register\_script()), 'queue' (script was
+    enqueued), 'done' (script has been printed), or 'to\_do' (script has
+    not yet been printed)
+    Default: queue
+
+Return Values
+-------------
+
+ (bool) 
+:   True or false.
+
+Change Log
+----------
+
+Since: Unknown
+
+Source File
+-----------
+
+`wp_script_is()` is located in `wp-includes/functions.wp-scripts.php`.
+

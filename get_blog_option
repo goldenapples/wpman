@@ -1,0 +1,95 @@
+Function Reference/get blog option « WordPress Codex
+-----------
+
+Retrieve option value based on setting name and blog\_id.
+
+If the option does not exist or does not have a value, then the return
+value will be false. This is useful to check whether you need to install
+an option and is commonly used during installation of plugin options and
+to test whether upgrading is required. There is a filter called
+'blog\_option\_\$option' with the \$option being replaced with the
+option name. The filter takes two parameters. \$value and \$blog\_id. It
+returns \$value. The 'option\_\$option' filter in get\_option() is not
+called.
+
+Uses apply\_filters() Calls 'blog\_option\_\$optionname' with the option
+name value.
+
+Usage
+-----
+
+` <?php get_blog_option( $blog_id, $setting , $default ) ?> `
+
+Parameters
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) is the id of the blog.
+    Default: *None*
+
+ `$setting` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of option to retrieve. Should already be
+    SQL-escaped.
+    Default: *None*
+
+ `$default` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Default value returned if option not found.
+    Default: false
+
+Return Values
+-------------
+
+ `` `(mixed)`{style="color:gray"} 
+:   Value set for the option.
+
+Source File
+-----------
+
+get\_blog\_option() is located in `wp-includes/ms-blogs.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_blog\_option](http://codex.wordpress.org/Function_Reference/get_blog_option)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

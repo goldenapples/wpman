@@ -1,0 +1,98 @@
+Function Reference/the author meta « WordPress Codex
+-----------
+
+The
+[the\_author\_meta](/Template_Tags/the_author_meta "Template Tags/the author meta")
+Template Tag displays the desired meta data for a user. If this tag is
+used within [The Loop](/The_Loop "The Loop"), the user ID value need not
+be specified, and the displayed data is that of the current post author.
+A user ID can be specified if this tag is used outside [The
+Loop](/The_Loop "The Loop").
+
+If the meta field does not exist, nothing is printed.
+
+**NOTE:** Use `get_the_author_meta()` if you need to return (not
+display) the information.
+
+Usage
+-----
+
+`  <?php the_author_meta( $field, $userID ); ?> `
+
+Parameters
+----------
+
+ \$field 
+:   (*string*) Field name for the data item to be displayed. Valid
+    values:
+    -   `user_login`
+    -   `user_pass`
+    -   `user_nicename`
+    -   `user_email`
+    -   `user_url`
+    -   `user_registered`
+    -   `user_activation_key`
+    -   `user_status`
+    -   `display_name`
+    -   `nickname`
+    -   `first_name`
+    -   `last_name`
+    -   `description`
+    -   `jabber`
+    -   `aim`
+    -   `yim`
+    -   `user_level`
+    -   `user_firstname`
+    -   `user_lastname`
+    -   `user_description`
+    -   `rich_editing`
+    -   `comment_shortcuts`
+    -   `admin_color`
+    -   `plugins_per_page`
+    -   `plugins_last_view`
+    -   `ID`
+
+ \$userID 
+:   (*integer*) If the user ID fields is used, then this function
+    display the specific field for this user ID.
+
+Examples
+--------
+
+### Display the Author's AIM screenname
+
+Displays the value in the author's **AIM** (AOL Instant Messenger
+screenname) field.
+
+    <p>This author's AIM address is <?php the_author_meta('aim'); ?></p>
+
+### Display a User Email Address
+
+Displays the email address for user ID 25.
+
+    <p>The email address for user id 25 is <?php the_author_meta('user_email',25); ?></p>
+
+Advanced Uses
+-------------
+
+A plugin may add an additional field in the registration or manage
+users, which adds a new value in the wp\_usermeta (where wp\_ is your
+data base prefix. For this example we will use a Twitter ID if a plugin
+set meta\_key value to "twitter" and meta\_value to "wordpress" then
+
+    <p>This author's Twitter name is <?php the_author_meta('twitter'); ?></p>
+
+would return
+
+\<p\>This author's Twitter name is wordpress\</p\>
+
+Change Log
+----------
+
+Since: 2.8.0
+
+Source File
+-----------
+
+`the_author_meta()` is located in `wp-includes/author-template.php`.
+

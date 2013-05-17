@@ -1,0 +1,94 @@
+Function Reference/check ajax referer « WordPress Codex
+-----------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Verifies the AJAX request to prevent processing requests external of the
+blog.
+
+Usage
+-----
+
+` <?php check_ajax_referer( $action, $query_arg, $die ) ?> `
+
+Parameters
+----------
+
+ `$action` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Action
+    [nonce](http://en.wikipedia.org/wiki/Cryptographic_nonce "wikipedia:Cryptographic nonce")
+    Default: -1
+
+ `$query_arg` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) where to look for
+    [nonce](http://en.wikipedia.org/wiki/Cryptographic_nonce "wikipedia:Cryptographic nonce")
+    in `$_REQUEST` (since 2.5)
+    Default: false
+
+ `$die` 
+:   ([*unknown*](/How_to_Pass_Tag_Parameters#Unknown "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: true
+
+Return Values
+-------------
+
+ (bool) 
+:   If \$die is set to false this function will return true / false
+
+Examples
+--------
+
+In your main file, set the nonce like this:
+
+    <?php
+    //Set Your Nonce
+    $ajax_nonce = wp_create_nonce("my-special-string");
+    ?>
+
+    <script type="text/javascript">
+    jQuery(document).ready(function($){
+        var data = {
+            action: 'my_action',
+            security: '<?php echo $ajax_nonce; ?>',
+            my_string: 'Hello World!'
+        };
+        $.post(ajaxurl, data, function(response) {
+            alert("Response: " + response);
+        });
+    });
+    </script>
+
+\
+ In your ajax file, check the referrer like this:
+
+    add_action( 'wp_ajax_my_action', 'my_action_function' );
+    function my_action_function() {
+        check_ajax_referer( 'my-special-string', 'security' );
+        echo $_POST['my_string'];
+        die;
+    }
+
+Notes
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+-   If \$query\_arg is not specified (i.e. defaults to false), then the
+    function will look for the nonce in '\_ajax\_nonce'
+
+Change Log
+----------
+
+-   Since: [2.0.4](/Version_2.0.4 "Version 2.0.4")
+
+Source File
+-----------
+
+`check_ajax_referer()` is located in `wp-includes/pluggable.php`.
+

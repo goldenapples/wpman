@@ -1,0 +1,60 @@
+Function Reference/term description « WordPress Codex
+-----------
+
+First available with WordPress [Version
+2.8](/Version_2.8 "Version 2.8"), this template tag returns the
+description of a given term. A term ID and taxonomy are as parameters.
+If no term ID is passed, the description current queried term (e.g. post
+category or tag) will be returned.
+
+Usage
+-----
+
+` <?php echo term_description( $term_id, $taxonomy ) ?> `
+
+Parameters
+----------
+
+ `term_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*Optional*) The ID of the term to return a description.
+    Default: ID of current query term
+
+ `taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Optional*) The slug of the taxonomy the term belongs to. Valid
+    values:
+    -   `'category'`
+    -   `'post_tag'`
+    -   `'link_category'`
+    -   `A custom taxonomy slug`
+
+    Default: post\_tag
+
+Return Values
+-------------
+
+ (string) 
+:   Description of term.
+
+Examples
+--------
+
+The default usage returns the description of the current queried term.
+
+    <?php $description = term_description(); ?>
+
+Displays a description of the post tag ID 28.
+
+    <?php echo 'Term Description: ' . term_description('28','post_tag'); ?>
+
+Change Log
+----------
+
+-   Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`term_description()` is located in `wp-includes/category-template.php`.
+

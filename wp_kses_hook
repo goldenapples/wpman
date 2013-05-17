@@ -1,0 +1,58 @@
+Function Reference/wp kses hook « WordPress Codex
+-----------
+
+You add any
+[`kses`](http://sourceforge.net/projects/kses "http://sourceforge.net/projects/kses")
+hooks here.
+
+There is currently only one
+[`kses`](http://sourceforge.net/projects/kses "http://sourceforge.net/projects/kses")
+WordPress hook and it is called here. All parameters are passed to the
+hooks and expected to recieve a string.
+
+Usage
+-----
+
+` <?php wp_kses_hook( $string, $allowed_html, $allowed_protocols ) ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to filter through
+    [`kses`](http://sourceforge.net/projects/kses "http://sourceforge.net/projects/kses")
+    Default: *None*
+
+ `$allowed_html` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) List of allowed HTML elements
+    Default: *None*
+
+ `$allowed_protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Allowed protocol in links
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Filtered content through '`pre_kses`' hook
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_kses_hook()` is located in `wp-includes/kses.php`.
+

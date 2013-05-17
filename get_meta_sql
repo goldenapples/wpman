@@ -1,0 +1,76 @@
+Function Reference/get meta sql « WordPress Codex
+-----------
+
+Given a meta query, generates SQL clauses to be appended to a main
+query.
+
+Usage
+-----
+
+` <?php get_meta_sql( $meta_query, $type, $primary_table, $primary_id_column, $context ); ?> `
+
+Parameters
+----------
+
+ `$meta_query` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) A meta query.
+    Default: *None*
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Type of meta.
+    Default: *None*
+
+ `$primary_table` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Database table you want to append the query to.
+    Default: *None*
+
+ `$primary_id_column` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Database table primary id column.
+    Default: *None*
+
+ `$context` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*optional*) The main query object.
+    Default:
+
+Return Values
+-------------
+
+`(array)` array( 'join' =\> \$join\_sql, 'where' =\> \$where\_sql ).
+
+Examples
+--------
+
+    <?php  
+    $meta_query = array(
+        array(
+            'key' => 'color',
+            'value' => 'blue',
+            'compare' => 'NOT LIKE'
+        )
+    );
+    global $wpdb;
+    $meta_sql = get_meta_sql( $meta_query, 'post', $wpdb->posts, 'ID' );
+
+Output depending on the meta query:
+
+    Array
+    (
+        [join] =>  INNER JOIN wp_postmeta ON (wp_posts.ID = wp_postmeta.post_id)
+        [where] =>  AND ( (wp_postmeta.meta_key = 'color' AND CAST(wp_postmeta.meta_value AS CHAR) NOT LIKE '%blue%') )
+    )
+
+Change Log
+----------
+
+Since: 3.2.0
+
+Source File
+-----------
+
+`get_meta_sql()` is located in `wp-includes/meta.php`.
+

@@ -1,0 +1,88 @@
+Function Reference/add post type support « WordPress Codex
+-----------
+
+Registers support of certain feature(s) for a given [post
+type](/Post_Types "Post Types"). Each feature has a direct impact on the
+corresponding field displayed in the [post
+edit](/Writing_Posts "Writing Posts") screen, such as the editor or a
+meta box. Additionally, the 'revisions' feature dictates whether the
+post type will store
+[revisions](/Revision_Management "Revision Management"), and the
+'comments' feature dictates whether the
+[comments](/Comments_in_WordPress "Comments in WordPress") count will
+show on the post edit screen.
+
+Usage
+-----
+
+` <?php add_post_type_support( $post_type, $supports ) ?> `
+
+Parameters
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post type. (max. 20 characters)
+    Default: *None*
+
+ `$supports` 
+:   ([*string/array*](/How_to_Pass_Tag_Parameters#String.2Farray "How to Pass Tag Parameters"))
+    (*required*) Feature to add.
+    -   'title'
+    -   'editor' (content)
+    -   'author'
+    -   'thumbnail' (featured image) (current theme must also support
+        [Post Thumbnails](/Post_Thumbnails "Post Thumbnails"))
+    -   'excerpt'
+    -   'trackbacks'
+    -   'custom-fields'
+    -   'comments' (also will see comment count balloon on edit screen)
+    -   'revisions' (will store revisions)
+    -   'page-attributes' (~~template and~~ menu order) (hierarchical
+        must be true) *(the page template selector is [only available
+        for the page post
+        type](http://core.trac.wordpress.org/ticket/12759 "http://core.trac.wordpress.org/ticket/12759"))*
+    -   'post-formats' add post formats, see [Post
+        Formats](/Post_Formats "Post Formats")
+
+    Default: *None*
+
+Multisite
+---------
+
+To show the "Featured Image" meta box in mulsite installation, make sure
+you update the allowed upload file types, in Network Admin, [Network
+Admin Settings
+SubPanel\#Upload\_Settings](/Network_Admin_Settings_SubPanel#Upload_Settings "Network Admin Settings SubPanel"),
+Media upload buttons options. Default is off.
+
+Example
+-------
+
+This example adds support for excerpts in [Pages](/Pages "Pages")
+(assuming it is \*not\* showing under "Screen Options"):
+
+    <?php
+    add_action('init', 'my_custom_init');
+    function my_custom_init() {
+        add_post_type_support( 'page', 'excerpt' );
+    }
+    ?>
+
+Notes
+-----
+
+-   The function should be called using the
+    [init](/Plugin_API/Action_Reference/init "Plugin API/Action Reference/init")
+    action [hook](/Glossary#Hook "Glossary"), like in the above example.
+
+Change Log
+----------
+
+-   Since [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`add_post_type_support()` is located in `wp-includes/post.php`.
+

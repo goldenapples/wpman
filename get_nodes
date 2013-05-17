@@ -1,0 +1,128 @@
+Function Reference/get nodes « WordPress Codex
+-----------
+
+This function returns an array of all the
+[Toolbar](/Glossary#Toolbar "Glossary") items on the current page.
+Toolbar items are also called "nodes".
+
+The Toolbar replaces the [Admin Bar](/Glossary#Admin_Bar "Glossary")
+since WordPress [Version 3.3](/Version_3.3 "Version 3.3").
+
+**note**: This function is a method of the
+[WP\_Admin\_Bar](/Class_Reference/WP_Admin_Bar "Class Reference/WP Admin Bar")
+class and `$wp_admin_bar` global object, which may not exist except
+during the
+['admin\_bar\_menu'](/index.php?title=Plugin_API/Action_Reference/admin_bar_menu&action=edit&redlink=1 "Plugin API/Action Reference/admin bar menu (page does not exist)")
+or
+['wp\_before\_admin\_bar\_render'](/Plugin_API/Action_Reference/wp_before_admin_bar_render "Plugin API/Action Reference/wp before admin bar render")
+hooks.
+
+Usage
+-----
+
+` <?php $wp_admin_bar->get_nodes(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Examples
+--------
+
+### Add a Span Before the Title of All Toolbar Items
+
+This example adds an empty span with the class "my-class" before every
+Toolbar item's title. Put this in your theme's
+[functions.php](/Functions_File_Explained "Functions File Explained")
+file.
+
+      add_action( 'admin_bar_menu', 'all_toolbar_nodes', 999 );
+
+      function all_toolbar_nodes( $wp_admin_bar ) {
+
+        $all_toolbar_nodes = $wp_admin_bar->get_nodes();
+
+        foreach ( $all_toolbar_nodes  as $node ) {
+
+          // use the same node's properties
+          $args = $node;
+
+          // put a span before the title
+          $args->title = '<span class="my-class"></span>'.$node->title;
+
+          // update the Toolbar node
+          $wp_admin_bar->add_node($args);   
+        }
+      }
+
+### Display all Node ID's of the Current Page in the Toolbar
+
+This example will add all node ID's on the current page to a top-level
+Toolbar item called "Node ID's". This is for developers who want to find
+out what the node ID is for a specific node. Put this in your theme's
+[functions.php](/Functions_File_Explained "Functions File Explained")
+file.
+
+      // use 'wp_before_admin_bar_render' hook to also get nodes produced by plugins.
+      add_action( 'wp_before_admin_bar_render', 'add_all_node_ids_to_toolbar');
+      
+      function add_all_node_ids_to_toolbar() {
+      
+        global $wp_admin_bar;
+        $all_toolbar_nodes = $wp_admin_bar->get_nodes();
+            
+        if($all_toolbar_nodes){
+        
+          // add a top-level Toolbar item called "Node Id's" to the Toolbar
+          $args = array('id' => 'node_ids', 'title' => 'Node ID\'s');
+          $wp_admin_bar->add_node($args);
+          
+          // add all current parent node id's to the top-level node.
+          foreach ( $all_toolbar_nodes as $node  ) {
+            if(isset($node->parent) && $node->parent){
+            
+              $args = array(
+                'id' => 'node_id_'.$node->id, // prefix id with "node_id_" to make it a unique id
+                'title' => $node->id,
+                'parent' => 'node_ids'
+                // 'href' => $node->href,
+              );
+              // add parent node to node "node_ids"
+              $wp_admin_bar->add_node($args);
+            }
+          }
+          
+          // add all current Toolbar items to their parent node or to the top-level node
+          foreach ( $all_toolbar_nodes as $node  ) {
+          
+            $args = array(
+              'id' => 'node_id_'.$node->id, // prefix id with "node_id_" to make it a unique id
+              'title' => $node->id,
+              // 'href' => $node->href,
+            );
+            
+            if(isset($node->parent) && $node->parent){
+              $args['parent'] = 'node_id_'.$node->parent;
+            } else {
+              $args['parent'] = 'node_ids';
+            }
+            
+            $wp_admin_bar->add_node($args);
+          }
+        }
+      }
+
+Return Values
+-------------
+
+-   Array with node objects.
+
+Change Log
+----------
+
+Source File
+-----------
+
+`get_nodes()` is located in `wp-includes/class-wp-admin-bar.php`.
+

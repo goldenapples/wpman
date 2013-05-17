@@ -1,0 +1,114 @@
+Function Reference/add settings error « WordPress Codex
+-----------
+
+Register a settings error to be displayed to the user.
+
+Part of the [Settings API](/Settings_API "Settings API"). Use this to
+show messages to users about settings validation problems, missing
+settings or anything else.
+
+Settings errors should be added inside the `$sanitize_callback` function
+defined in
+[`register_setting()`](/Function_Reference/register_setting "Function Reference/register setting")
+for a given setting to give feedback about the submission.
+
+By default messages will show immediately after the submission that
+generated the error. Additional calls to `settings_errors()` can be used
+to show errors even when the settings page is first accessed.
+
+Usage
+-----
+
+` <?php add_settings_error( $setting, $code, $message, $type ) ?> `
+
+Parameters
+----------
+
+ `$setting` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Slug title of the setting to which this error applies.
+    Default: *None*
+
+ `$code` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Slug-name to identify the error. Used as part of 'id'
+    attribute in HTML output. A prefix of 'setting-error-' will be added
+    to the string in \$code and assigned to the 'id' attribute of the
+    outermost \<div\> for this error.
+    Default: *None*
+
+ `$message` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The formatted message text to display to the user (will
+    be shown inside styled \<div\> and \<p\>).
+    Default: *None*
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The type of message it is. \$type will be add an HTML
+    class of the same name of the outermost \<div\>. To add multiple
+    classes separate them with a space.
+    -   *error*
+    -   *updated*
+
+    Default: 'error'
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+    function change( $data ) {
+
+        $message = null;
+        $type = null;
+
+        if ( null == $data ) {
+
+            if ( false === get_option( 'myOption' ) ) {
+
+                add_option( 'myOption', $data );
+                $type = 'updated';
+                $message = __( 'Successfully saved', 'my-text-domain' );
+
+            } else {
+
+                update_option( 'myOption', $data );
+                $type = 'updated';
+                $message = __( 'Successfully updated', 'my-text-domain' );
+
+            }
+
+        } else {
+
+            $type = 'error';
+            $message = __( 'Data can not be empty', 'my-text-domain' );
+
+        }
+
+        add_settings_error(
+            'myUniqueIdentifyer',
+            esc_attr( 'settings_updated' ),
+            $message,
+            $type
+        );
+
+    }
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`add_settings_error()` is located in `wp-admin/includes/template.php`.
+

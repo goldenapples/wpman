@@ -1,0 +1,85 @@
+Function Reference/get shortcode regex « WordPress Codex
+-----------
+
+Returns regular expression used to search for shortcodes inside posts.
+
+This function combines all registered shortcode tags into a single
+regular expression.
+
+Usage
+-----
+
+``
+
+    <?php
+    function your_prefix_detect_shortcode()
+    {
+        global $post;
+        $pattern = get_shortcode_regex();
+
+        if (   preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
+            && array_key_exists( 2, $matches )
+            && in_array( 'your-shortcode', $matches[2] ) )
+        {
+            // shortcode is being used
+        }
+    }
+    add_action( 'wp', 'your_prefix_detect_shortcode' );
+    ?>
+
+This can only be used when \$post is available, of course.
+'[wp](http://adambrown.info/p/wp_hooks/hook/wp "http://adambrown.info/p/wp_hooks/hook/wp")'
+is the earliest action you can hook into to get access to it.
+
+Note: [The example that previously appeared on this
+page](http://www.nabble.com/Re%3A-checking-if-post-has-shortcode%2C-before-header-is-%09output--p26058406.html "http://www.nabble.com/Re%3A-checking-if-post-has-shortcode%2C-before-header-is-%09output--p26058406.html")
+used preg\_match() instead of preg\_match\_all(), so it only detected
+the first shortcode used on the page. You should update any code that
+uses that example with the current example in order to fix that bug.
+
+The following code is an adjustment of the first example, but able to
+also search all posts on the index page.
+
+``
+
+    function your_prefix_detect_shortcode()
+    {
+
+        global $wp_query;   
+        $posts = $wp_query->posts;
+        $pattern = get_shortcode_regex();
+        
+        
+        foreach ($posts as $post){
+            if (   preg_match_all( '/'. $pattern .'/s', $post->post_content, $matches )
+                && array_key_exists( 2, $matches )
+                && in_array( 'videoannotation', $matches[2] ) )
+            {
+                // enque my css and js
+                break;  
+            }    
+        }
+    }
+    add_action( 'wp', 'your_prefix_detect_shortcode' );
+
+Parameters
+----------
+
+None
+
+Return Values
+-------------
+
+ (string) 
+:   The shortcode search regular expression.
+
+Change Log
+----------
+
+Since: 2.5
+
+Source File
+-----------
+
+`get_shortcode_regex()` is located in `wp-includes/shortcodes.php`.
+

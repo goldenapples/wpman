@@ -1,0 +1,31 @@
+Function Reference/do settings sections « WordPress Codex
+-----------
+
+Prints out all settings sections added to a particular settings page.
+
+Usage
+-----
+
+\<?php do\_settings\_sections( \$page ) ?\>
+
+Parameters
+----------
+
+ `$page` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug name of the page whose settings sections you
+    want to output. This should match the page name used in
+    [`add_settings_section()`](/Function_Reference/add_settings_section "Function Reference/add settings section").
+    Default: *None*
+
+Notes
+-----
+
+This will output the section titles wrapped in h3 tags and the settings
+fields wrapped in tables.
+
+Source File
+-----------
+
+`do_settings_sections()` is located in `wp-admin/includes/template.php`.
+

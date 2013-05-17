@@ -1,0 +1,79 @@
+Function Reference/ 2ngettext « WordPress Codex
+-----------
+
+**This function is deprecated as of WordPress 2.8.0. Please use
+[\_n()](/index.php?title=Function_Reference/_n()&action=edit&redlink=1 "Function Reference/ n() (page does not exist)")
+instead.**
+
+Retrieve the plural or single form based on the amount.
+
+If the domain is not set in the `$l10n` list, then a comparsion will be
+made and either `$plural` or `$single` parameters returned.
+
+If the domain does exist, then the parameters `$single`, `$plural`, and
+`$number` will first be passed to the domain's ngettext method. Then it
+will be passed to the '`ngettext`' filter hook along with the same
+parameters. The expected type will be a string.
+
+Usage
+-----
+
+` <?php __ngettext( $single, $plural, $number, $domain ) ?> `
+
+Parameters
+----------
+
+ `$single` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text that will be used if `$number` is 1
+    Default: *None*
+
+ `$plural` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text that will be used if `$number` is not 1
+    Default: *None*
+
+ `$number` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The number to compare against to use either `$single`
+    or `$plural`
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The domain identifier the text should be retrieved in
+    Default: 'default'
+
+Return Values
+-------------
+
+ (string) 
+:   Either `$single` or `$plural` translated text
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`ngettext`' hook on domains text returned, along with
+    `$single`, `$plural`, and `$number` parameters. Expected to return
+    string.
+-   Uses global: (`array`) `$l10n` Gets list of domain translated string
+    (gettext\_reader) objects.
+-   *l10n* is an abbreviation for *localization*.
+-   This function name has two leading underscores in a row. In some
+    fonts it looks like one long underscore.
+
+Change Log
+----------
+
+Since: 1.2.0
+
+Source File
+-----------
+
+`__ngettext()` is located in `wp-includes/l10n.php`.
+

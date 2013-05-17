@@ -1,0 +1,51 @@
+Function Reference/comment date « WordPress Codex
+-----------
+
+Displays the date a comment was posted.
+
+Use
+[get\_comment\_date()](/Function_Reference/get_comment_date "Function Reference/get comment date")
+to retrieve the value.
+
+Usage
+-----
+
+`  <?php comment_date( $d, $comment_ID ); ?> `
+
+Parameters
+----------
+
+ `$d` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Formatting for the date.
+    Default: The date format set in WordPress. See [Formatting Date and
+    Time](/Formatting_Date_and_Time "Formatting Date and Time").
+
+ `$comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the comment for which to print the date.
+    Default: 0 (the current comment)
+
+Return Values
+-------------
+
+None. Echoes the return of get\_comment\_date()
+
+Example
+-------
+
+Displays the current comment date in the format "6-30-2004":
+
+    <div>Comment posted on <?php comment_date('n-j-Y'); ?></div>
+
+Changelog
+---------
+
+-    ? : Added the 'comment\_ID' parameter.
+-   Since: 0.71
+
+Source File
+-----------
+
+comment\_date() is located in `wp-includes/comment-template.php`
+

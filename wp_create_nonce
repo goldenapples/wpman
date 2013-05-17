@@ -1,0 +1,72 @@
+Function Reference/wp create nonce « WordPress Codex
+-----------
+
+Generates and returns a [nonce](/Glossary#Nonce "Glossary"). The nonce
+is generated based on the current time, the `$action` argument, and the
+current user ID.
+
+Since it is not difficult for crackers to guess the current time and
+user ID, you should give a hard to guess value as the `$action` argument
+or implement a way to generate and remember a random `$action` value for
+each form sent to a user and expect that value on the future form
+submit.
+
+Usage
+-----
+
+` <?php wp_create_nonce( $action ); ?> `
+
+Parameters
+----------
+
+ `$action` 
+:   ([*string/int*](/How_to_Pass_Tag_Parameters#String.2Fint "How to Pass Tag Parameters"))
+    (*optional*) Action name. Should give the context to what is taking
+    place. Optional but *recommended*.
+    Default: -1
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   The one use form token.
+
+Example
+-------
+
+    <?php $nonce= wp_create_nonce  ('my-nonce'); ?>
+    <a href='myplugin.php?_wpnonce=<?php echo $nonce ?>'> ...
+
+    <?php 
+    $nonce=$_REQUEST['_wpnonce'];
+    if (! wp_verify_nonce($nonce, 'my-nonce') ) die('Security check'); 
+    ?>
+
+Notes
+-----
+
+-   The function should be called using the
+    [init](/Plugin_API/Action_Reference/init "Plugin API/Action Reference/init")
+    or any subsequent action [hook](/Glossary#Hook "Glossary"). Calling
+    it outside of an action hook can lead to problems, see the [ticket
+    \#14024](http://core.trac.wordpress.org/ticket/14024 "http://core.trac.wordpress.org/ticket/14024")
+    for details.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    to apply the
+    [nonce\_user\_logged\_out](/Plugin_API/Filter_Reference/nonce_user_logged_out "Plugin API/Filter Reference/nonce user logged out")
+    filters on the current user ID used to generate a nonce.
+-   Uses:
+    [`wp_nonce_tick()`](/Function_Reference/wp_nonce_tick "Function Reference/wp nonce tick")
+    as a time-dependent factor to generate a nonce.
+
+Change Log
+----------
+
+-   Since: [2.0.3](/Version_2.0.3 "Version 2.0.3")
+
+Source File
+-----------
+
+`wp_nonce_field()` is located in `wp-includes/pluggable.php`.
+

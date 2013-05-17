@@ -1,0 +1,45 @@
+Function Reference/shortcode exists « WordPress Codex
+-----------
+
+Checks whether a specific short code exists.
+
+Parameters
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The short code to check for.
+    Default: *None*
+
+Return
+------
+
+ `` `(Bool)`{style="color:gray"} 
+:   True if the short code has been registered, false otherwise.
+
+Usage
+-----
+
+`  <?php if( shortcode_exists( 'gallery' ) ) { } ?> `
+
+Example
+-------
+
+    <?php
+
+    if( shortcode_exists( 'gallery' ) ) {
+        // The [gallery] short code exists.
+    }
+
+    ?>
+
+Change Log
+----------
+
+-   Since: [3.6.0](/Version_3.6 "Version 3.6")
+
+Source File
+-----------
+
+`shortcode_exists()` is located in `wp-includes/shortcodes.php`.
+

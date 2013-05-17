@@ -1,0 +1,43 @@
+Function Reference/do robots « WordPress Codex
+-----------
+
+Display the `robots.txt` file content.
+
+The echoed content should be with usage of the permalinks or for
+creating the `robots.txt` file.
+
+Usage
+-----
+
+` <?php do_robots() ?> `
+
+Parameters
+----------
+
+Accepts no parameters.
+
+Return Value
+------------
+
+This function does not return any value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses
+    [do\_action()](/Function_Reference/do_action "Function Reference/do action")
+    Calls `'do_robotstxt'` hook for displaying `robots.txt` rules.
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`do_robots()` is located in `wp-includes/functions.php`.
+

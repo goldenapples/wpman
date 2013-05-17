@@ -1,0 +1,119 @@
+Function Reference/the modified time « WordPress Codex
+-----------
+
+This tag displays the time (and date) a post was last modified and is
+similar to the functionality of
+[the\_time()](/Template_Tags/the_time "Template Tags/the time"), which
+displays the time (and date) a post was created. This tag must be used
+within [The Loop](/The_Loop "The Loop"). If no format parameter is
+specified, the **Default date format** (please note that says Date
+format) setting from
+[Administration](/Administration_Panels "Administration Panels") \>
+[Settings](/Administration_Panels#Settings "Administration Panels") \>
+[General](/Settings_General_SubPanel "Settings General SubPanel") is
+used for the display format.
+
+If the post or page is not yet modified, the modified time is the same
+as the creation time.
+
+If you want to display both the modified time and the creation time, you
+may want to use an `if` statement (e.g.
+`if (get_the_modified_time() != get_the_time())`) to avoid showing the
+same time/date twice.
+
+Use
+[get\_the\_modified\_time()](/Function_Reference/get_the_modified_time "Function Reference/get the modified time")
+to retrieve the value.
+
+Usage
+-----
+
+`  <?php the_modified_time( $d ); ?> `
+
+Parameters
+----------
+
+ `d` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The format the date is to display in. Defaults to the
+    date format configured in your WordPress options. See [Formatting
+    Date and
+    Time](/Formatting_Date_and_Time "Formatting Date and Time").
+    Default: F j, Y
+
+Examples
+--------
+
+### Default Usage
+
+Displays the time (date) the post was last modified, using the **Default
+date format** setting (e.g. F j, Y) from
+[Administration](/Administration_Panels "Administration Panels") \>
+[Settings](/Administration_Panels#Settings "Administration Panels") \>
+[General](/Settings_General_SubPanel "Settings General SubPanel").
+
+    <p>Last modified: <?php the_modified_time(); ?></p>
+
+Last modified: December 2, 2006
+
+\
+
+### Time in the 12-hour format (am/pm)
+
+If a post was modified at 10:36pm, this example displays the time the
+post was last modified using the 12-hour format parameter string
+`'g:i a'`.
+
+    <p>Time last modified: <?php the_modified_time('g:i a'); ?></p>
+
+Time last modified: 10:36 pm
+
+\
+
+### Time in the 24-hour format
+
+If a post was modified at 10:36pm, this example displays the time the
+post was last modified using the 24-hour format parameter string
+`'G:i'`.
+
+    <p>Time last modified: <?php the_modified_time('G:i'); ?></p>
+
+Time last modified: 22:36
+
+\
+
+### Date as Month Day, Year
+
+Displays the last modified time and date in the date format `'F j, Y'`
+(ex: December 2, 2006), which could be used to replace the tag
+[the\_modified\_date()](/Template_Tags/the_modified_date "Template Tags/the modified date").
+
+    <div>Last modified: <?php the_modified_time('F j, Y'); ?></div>
+
+Last modified: December 2, 2006
+
+\
+
+### Date and Time
+
+Displays the date and time.
+
+    <p>Modified: <?php the_modified_time('F j, Y'); ?> at <?php the_modified_time('g:i a'); ?></p>
+
+Modified: December 2, 2006 at 10:36 pm
+
+\
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+Source File
+-----------
+
+`the_modified_time()` is located in `wp-includes/general-template.php`
+

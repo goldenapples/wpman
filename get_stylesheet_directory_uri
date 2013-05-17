@@ -1,0 +1,70 @@
+Function Reference/get stylesheet directory uri « WordPress Codex
+-----------
+
+Retrieve
+[stylesheet](http://en.wikipedia.org/wiki/Cascading_Style_Sheets "http://en.wikipedia.org/wiki/Cascading_Style_Sheets")
+directory URI for the current theme/child theme. Checks for SSL.
+
+**Note:** Does not contain a trailing slash.
+
+Note that this returns a properly-formed
+[URI](http://en.wikipedia.org/wiki/Uniform_Resource_Identifier "http://en.wikipedia.org/wiki/Uniform_Resource_Identifier");
+in other words, it will be a web-address (starting with http:// or
+https:// for SSL). As such, it is most appropriately used for links,
+referencing additional stylesheets, or probably most commonly, images.
+
+In the event a child theme is being used, this function will return the
+child's theme directory URI. Use
+[` get_template_directory_uri()`](/Function_Reference/get_template_directory_uri "Function Reference/get template directory uri")
+to avoid being overridden by a child theme.
+
+If you want to include a local file in PHP, use
+[get\_stylesheet\_directory()](/Function_Reference/get_stylesheet_directory "Function Reference/get stylesheet directory")
+instead.
+
+Usage
+-----
+
+**Use the URI** ` <?php get_stylesheet_directory_uri(); ?> ` **Output
+the URI** ` <?php echo get_stylesheet_directory_uri(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ `uri` `(string)`{style="color:gray"} 
+:   Stylesheet directory URI.
+
+Examples
+--------
+
+**Image (HTML)**
+
+    <img src="<?php echo get_stylesheet_directory_uri() ?>/images/aternus.png" alt="" title="" width="" height="" />
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls `'stylesheet_directory_uri'` filter on stylesheet path and
+    name.
+-   Uses:
+    [`get_stylesheet()`](/Function_Reference/get_stylesheet "Function Reference/get stylesheet")
+-   Uses:
+    [`get_theme_root()`](/Function_Reference/get_theme_root "Function Reference/get theme root")
+
+Change Log
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+Source File
+-----------
+
+`get_stylesheet_directory_uri()` is located in `wp-includes/theme.php`.
+

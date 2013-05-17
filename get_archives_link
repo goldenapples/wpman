@@ -1,0 +1,120 @@
+Function Reference/get archives link « WordPress Codex
+-----------
+
+Retrieve archive link content based on predefined or custom code.
+
+The format can be one of four styles. The 'link' for head element,
+'option' for use in the select element, 'html' for use in list (either
+ol or ul HTML elements). Custom content is also supported using the
+before and after parameters.
+
+The 'link' format uses the link HTML element with the *archives*
+relationship. The before and after parameters are not used. The text
+parameter is used to describe the link.
+
+The 'option' format uses the option HTML element for use in select
+element. The value is the url parameter and the before and after
+parameters are used between the text description.
+
+The 'html' format, which is the default, uses the li HTML element for
+use in the list HTML elements. The before parameter is before the link
+and the after parameter is after the closing link.
+
+The custom format uses the before parameter before the link ('a' HTML
+element) and the after parameter after the closing link tag. If the
+above three values for the format are not used, then custom format is
+assumed.
+
+Usage
+-----
+
+` <?php get_archives_link( $url, $text, $format, $before, $after ); ?> `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) URL to archive.
+    Default: *None*
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Archive text description.
+    Default: *None*
+
+ `$format` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional, default is 'html'. Can be 'link', 'option',
+    'html', or custom.
+    Default: html
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional.
+    Default: empty string
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional.
+    Default: empty string
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   HTML link content for archive.
+
+Change Log
+----------
+
+Since: [1.0](/Version_1.0 "Version 1.0")
+
+Source File
+-----------
+
+`get_archives_link()` is located in `wp-includes/general-template.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_archives\_link](http://codex.wordpress.org/Function_Reference/get_archives_link)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

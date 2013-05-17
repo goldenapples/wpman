@@ -1,0 +1,51 @@
+Function Reference/get theme root uri « WordPress Codex
+-----------
+
+Retrieve URI for [themes](/Glossary#Theme "Glossary") directory.
+
+Does not have trailing slash.
+
+Usage
+-----
+
+` <?php get_theme_root_uri(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Themes URI. For example:
+
+        http://www.wordpress.org/wp-content/themes
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls `'theme_root_uri'` filter on uri.
+-   Uses:
+    [`content_url()`](/Function_Reference/content_url "Function Reference/content url")
+    to retrieve the `'themes'` uri.
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+    to retrieve `'siteurl'` option.
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_theme_root_uri()` is located in `wp-includes/theme.php`.
+

@@ -1,0 +1,58 @@
+Function Reference/get links list « WordPress Codex
+-----------
+
+Displays a nested [HTML](/Glossary#HTML "Glossary") unordered list of
+all links as defined in the [Links
+Manager](/Links_Manager "Links Manager"), sorted under [Link
+Category](/Link_Categories_SubPanel "Link Categories SubPanel")
+headings. **Note:** the Link Category headings are automatically
+generated inside of `<h2>` headings.
+
+**Note**: This tag does *not* respect the "Before Link", "Between Link
+and Description", and "After Link" settings defined for Link Categories
+in the [Links Manager](/Links_Manager "Links Manager"), Formatting (but
+respect Category Options, Show, Description). To get around this
+feature/limitation, see [Example
+2](/Template_Tags/wp_get_links#Include_Before_and_After_Text "Template Tags/wp get links")
+from `wp_get_links()`.
+
+Replace With
+------------
+
+[wp\_list\_bookmarks()](/Template_Tags/wp_list_bookmarks "Template Tags/wp list bookmarks").
+
+Usage
+-----
+
+`  <?php get_links_list('order'); ?> `
+
+Example
+-------
+
+Display links sorted by Link Category ID.
+
+    <?php get_links_list('id'); ?> 
+
+Automatically generates the `<li>` with an ID of the *Link Category*
+wrapped in an `<h2>` heading. It looks like this (links edited for
+space):
+
+    <li id="linkcat-1"><h2>Blogroll</h2>
+       <ul>
+          <li><a href="http://example1.com/">Blogroll Link 1</a></li>
+          <li><a href="http://example2.com/">Blogroll Link 2</a></li>
+          <li><a href="http://example3.com/">Blogroll Link 3</a></li>
+        </ul>
+    </li>
+
+Parameters
+----------
+
+ order 
+:   (*string*) Value to sort Link Categories by. Valid values:
+    -   `'name'` (Default)
+    -   `'id'`
+
+:   **Prefixing the above options with an underscore (ex:**`'_id'`**)
+    sorts links in reverse order.**
+

@@ -1,0 +1,34 @@
+Function Reference/delete post thumbnail « WordPress Codex
+-----------
+
+Delete the post thumbnail.
+
+Usage
+-----
+
+` <?php delete_post_thumbnail( $post ); ?> `
+
+Parameters
+----------
+
+ `$post` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*Post ID or object where thumbnail should be deleted.*) object
+    Default: required
+
+Return Values
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   False for failure. True for success.
+
+Change Log
+----------
+
+-   Since: [3.3](/Version_3.3 "Version 3.3")
+
+Source File
+-----------
+
+`delete_post_thumbnail()` is located in `wp-includes/post.php`.
+

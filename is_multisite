@@ -1,0 +1,31 @@
+Function Reference/is multisite « WordPress Codex
+-----------
+
+Determine whether Multisite support is enabled.
+
+Usage
+-----
+
+`  <?php if ( is_multisite() ) { echo 'Multisite is enabled'; } ?> `
+
+Parameters
+----------
+
+This function does not accept any parameters.
+
+Returns
+-------
+
+ (BOOLEAN) 
+:   True if Multisite is enabled, false otherwise
+
+Changelog
+---------
+
+Since: [Wordpress 3.0.0](/Version_3.0 "Version 3.0")
+
+Source Code
+-----------
+
+`is_multisite()` is located in `wp-includes/load.php`.
+

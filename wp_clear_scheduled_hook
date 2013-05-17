@@ -1,0 +1,57 @@
+Function Reference/wp clear scheduled hook « WordPress Codex
+-----------
+
+Un-schedules all previously-scheduled cron jobs using a particular hook
+name.
+
+Usage
+-----
+
+`  <?php wp_clear_scheduled_hook( 'my_schedule_hook' ); ?> `
+
+Parameters
+----------
+
+ `$hook` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of an action hook to execute.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Arguments to pass to the hook function(s)
+    Default: *None*
+
+Return Value
+------------
+
+No value is returned by this function.
+
+Examples
+--------
+
+### Clear a scheduled event
+
+    // If you previously added for example
+    // wp_schedule_single_event( time() + 3600, 'my_new_event' );
+
+    wp_clear_scheduled_hook( 'my_new_event' );
+
+    // or this if you created something like
+    // wp_schedule_single_event( time() + 3600, 'my_new_event', array( 'some_arg' ) );
+
+    wp_clear_scheduled_hook( 'my_new_event', array( 'some_arg' ) );
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`wp_clear_scheduled_hook()` is located in `wp-includes/cron.php`
+

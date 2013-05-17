@@ -1,0 +1,38 @@
+Function Reference/install themes feature list « WordPress Codex
+-----------
+
+Retrieve list of WordPress theme features (aka theme tags)
+
+Usage
+-----
+
+` <?php install_themes_feature_list() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (array) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.8.0
+
+Source File
+-----------
+
+`install_themes_feature_list()` is located in
+`/wp-admin/includes/theme-install.php`.
+

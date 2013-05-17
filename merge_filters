@@ -1,0 +1,45 @@
+Function Reference/merge filters « WordPress Codex
+-----------
+
+!!! THIS FUNCTION DOES NOT EXISTS ANYMORE !!!
+
+Old documentation :
+
+Merge the filter functions of a specific filter hook with generic filter
+functions.
+
+It is possible to defined generic filter functions using the filter hook
+*all*. These functions are called for every filter tag. This function
+merges the functions attached to the *all* hook with the functions of a
+specific hook defined by `$tag`.
+
+Usage
+-----
+
+`  <?php merge_filters($tag); ?> `
+
+Parameters
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The filter hook of which the functions should be
+    merged.
+    Default: *None*
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: ?
+
+Source File
+-----------
+
+`merge_filters()` is located in `wp-includes/plugin.php`.
+

@@ -1,0 +1,48 @@
+Function Reference/edit post « WordPress Codex
+-----------
+
+Update an existing post with values provided in \$\_POST. If you passed
+the post data in an argument, that argument is treated as an array of
+data keyed appropriately for turning into a post object. If post data is
+not passed, the \$\_POST object is used instead.
+
+Usage
+-----
+
+` <?php edit_post($post_data); ?> `
+
+### Default Usage
+
+` <?php edit_post($post_data); ?> `
+
+Parameters
+----------
+
+ `$post_data` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: null If not supplied, will apparently fallback to using the
+    \$\_POST global variable
+
+Return
+------
+
+ (string) 
+:   Post ID
+
+Filter
+------
+
+Examples
+--------
+
+Changelog
+---------
+
+-   Since: [1.5](/Version_1.5 "Version 1.5")
+
+Source Code
+-----------
+
+`edit_post()` is located in `wp-admin/includes/post.php`.
+

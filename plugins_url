@@ -1,0 +1,115 @@
+Function Reference/plugins url « WordPress Codex
+-----------
+
+Retrieves the absolute URL to the [plugins](/Glossary#Plugin "Glossary")
+directory (without the trailing slash) or, when using the `$path`
+argument, to a specific file under that directory. You can either
+specify the `$path` argument as a hardcoded path relative to the plugins
+directory, or conveniently pass
+[`__FILE__`](http://php.net/manual/en/language.constants.predefined.php "http://php.net/manual/en/language.constants.predefined.php")
+as the second argument to make the `$path` relative to the parent
+directory of the current PHP script file.
+
+Usage
+-----
+
+`  <?php plugins_url( $path, $plugin ); ?> `
+
+### Default Usage
+
+` <?php $url = plugins_url(); ?> `
+
+Parameters
+----------
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path to the plugin file of which URL you want to
+    retrieve, relative to the plugins directory or to `$plugin`
+    if specified.
+    Default: *None*
+
+ `$plugin` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path under the plugins directory of which parent
+    directory you want the `$path` to be relative to.
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Absolute URL to the plugins directory (without the trailing slash)
+    or optionally to a file under that directory.
+
+Example
+-------
+
+### Default Usage
+
+    <?php
+    $plugins_url = plugins_url();
+    ?>
+
+The `$plugins_url` variable will equal to the absolute URL to the
+plugins directory, e.g. *"http://www.example.com/wp-content/plugins"*.
+
+### Common Usage
+
+The `plugins_url()` function is commonly used in a [plugin
+file](/Writing_a_Plugin#Plugin_Files "Writing a Plugin"). Passing the
+[`__FILE__`](http://php.net/manual/en/language.constants.predefined.php "http://php.net/manual/en/language.constants.predefined.php")
+PHP magic constant in the place of `$plugin` parameter makes the `$path`
+relative to the parent directory of that file:
+
+    <?php
+    echo '<img src="' . plugins_url( 'images/wordpress.png' , __FILE__ ) . '" > ';
+    ?>
+
+The above might ouput this HTML markup:
+`<img src="http://www.example.com/wp-content/plugins/my-plugin/images/wordpress.png">`.
+
+If you are using the `plugins_url()` function in a file that is nested
+inside a subdirectory of your plugin directory, you should use PHP's
+[dirname()](http://php.net/manual/en/function.dirname.php "http://php.net/manual/en/function.dirname.php")
+function:
+
+    <?php
+    echo '<img src="' . plugins_url( 'images/wordpress.png' , dirname(__FILE__) ) . '" > ';
+    ?>
+
+Notes
+-----
+
+-   Uses the `WP_PLUGIN_URL` or, in the case the `$plugin` path begins
+    with the `WPMU_PLUGIN_DIR` path, the `WPMU_PLUGIN_URL` constant
+    internally, to compose the resultant URL. Note that the direct usage
+    of WordPress internal consants [is not
+    recommended](/Determining_Plugin_and_Content_Directories "Determining Plugin and Content Directories").
+-   Uses
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    to apply "plugins\_url" filters on the resultant URL, with the
+    following line of code:
+
+        return apply_filters('plugins_url', $url, $path, $plugin);
+
+-   The `plugins_url()` function should not be called in the global
+    context of plugins, but rather in a
+    [hook](/Glossary#Hook "Glossary") like "init" or "admin\_init" to
+    ensure that the "plugins\_url" filters are already hooked at the
+    time the function is called. This is vital for many site
+    configurations to work, and if `plugins_url()` is called in the
+    global context of a plugin file it cannot be filtered by other
+    plugins (though [mu-plugins](/Must_Use_Plugins "Must Use Plugins")
+    are able to filter it because they run before any other plugins).
+
+Change Log
+----------
+
+-   Since: [2.6.0](/Version_2.6 "Version 2.6")
+
+Source File
+-----------
+
+`plugins_url()` is located in `wp-includes/link-template.php`.
+

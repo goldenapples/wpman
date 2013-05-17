@@ -1,0 +1,73 @@
+Function Reference/wp delete comment « WordPress Codex
+-----------
+
+Trashes or deletes a comment.
+
+The comment is moved to trash instead of permanently deleted unless
+trash is disabled, item is already in the trash, or
+[\$force\_delete](/index.php?title=$force_delete&action=edit&redlink=1 "$force delete (page does not exist)")
+is true.
+
+The post comment count will be updated if the comment was approved and
+has a post ID available.
+
+Usage
+-----
+
+` <?php wp_delete_comment( $comment_id, $force_delete ) ?> `
+
+Parameters
+----------
+
+ `$comment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Comment ID
+    Default: *None*
+
+ `$force_delete` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Move comment to trash or delete.
+    Default: false
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   False if delete comment query failure, true on success.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'delete\_comment' hook on comment ID
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'wp\_set\_comment\_status' hook on comment ID with 'delete'
+    set for the second parameter
+-   Uses:
+    [`wp_transition_comment_status()`](/Function_Reference/wp_transition_comment_status "Function Reference/wp transition comment status")
+    Passes new and old comment status along with `$comment` object
+-   Uses:
+    [`get_comment()`](/Function_Reference/get_comment "Function Reference/get comment")
+-   Uses:
+    [`wp_update_comment_count()`](/Function_Reference/wp_update_comment_count "Function Reference/wp update comment count")
+    to decrease count on success.
+-   Uses:
+    [`clean_comment_cache()`](/Function_Reference/clean_comment_cache "Function Reference/clean comment cache")
+    to remove comment form cache on success.
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`wp_delete_comment()` is located in `wp-includes/comment.php`.
+

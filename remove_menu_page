@@ -1,0 +1,62 @@
+Function Reference/remove menu page « WordPress Codex
+-----------
+
+Remove a top level admin menu.
+
+Please be aware that this would not prevent a user from accessing these
+screens directly. Removing a menu does not replace the need to filter a
+user's permissions as appropriate.
+
+Usage
+-----
+
+` <?php remove_menu_page( $menu_slug ) ?> `
+
+Parameters
+----------
+
+ `$menu_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug of the menu (typically the name of the PHP
+    script for the built in menu items; example: edit-comments.php)
+    Default: *None*
+
+Return Values
+-------------
+
+ (array|boolean) 
+:   The removed menu on success, `false` if not found.
+
+Examples
+--------
+
+Removes the [Links Manager](/Links_Manager "Links Manager") and Tools
+menu items:
+
+    <?php
+        add_action( 'admin_menu', 'my_remove_menu_pages' );
+
+        function my_remove_menu_pages() {
+            remove_menu_page('link-manager.php');
+            remove_menu_page('tools.php');  
+        }
+    ?>
+
+Notes
+-----
+
+-   Uses global: (`unknown type`) `$menu`
+-   To remove **submenu items** in the admin, use
+    [remove\_submenu\_page](/remove_submenu_page "remove submenu page").
+    Using remove\_menu\_page() will not work for submenu items.
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`remove_menu_page()` is located in `/wp-admin/includes/plugin.php`.
+

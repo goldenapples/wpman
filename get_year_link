@@ -1,0 +1,65 @@
+Function Reference/get year link « WordPress Codex
+-----------
+
+Returns the yearly archive [URL](/Glossary#URI_and_URL "Glossary") to a
+specific year for use in [PHP](/Glossary#PHP "Glossary"). It does NOT
+display the URL. If year is set to `''`, the tag returns the URL for the
+current year's archive.
+
+Usage
+-----
+
+`  <?php get_year_link( $year ); ?> `
+
+Parameters
+----------
+
+ `year` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The year for the archive. Use `''` to assign current
+    year.
+    Default: *None*
+
+Examples
+--------
+
+### Year as Link
+
+Returns the URL for the current year's archive, displaying it as a link
+in the anchor tag by using the PHP echo command.
+
+    <a href="<?php echo get_year_link(''); ?>">Posts from this year</a>
+
+### Year as a variable
+
+Returns URL for the archive year 2003, assigning it to the variable
+\$year03. The variable can then be used elsewhere in a page.
+
+    <?php $year03 = get_year_link(2003); ?>
+
+### Using With PHP Variables
+
+PHP code block for use within [The Loop](/The_Loop "The Loop"): Assigns
+year to the variable \$arc\_year. This is used with the
+get\_year\_link() tag, which returns the URL as a link to the yearly
+archive for a post, displaying it within an anchor tag with the PHP echo
+command. See [Formatting Date and
+Time](/Formatting_Date_and_Time "Formatting Date and Time") for info on
+format strings used in
+[get\_the\_time()](/Function_Reference/get_the_time "Function Reference/get the time")
+tag.
+
+    <?php $archive_year = get_the_time('Y'); ?>
+
+    <a href="<?php echo get_year_link( $archive_year ); ?>"><?php the_time('Y'); ?> archive</a>
+
+Changelog
+---------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_year_link()` is located in `wp-includes/link-template.php`.
+

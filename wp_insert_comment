@@ -1,0 +1,76 @@
+Function Reference/wp insert comment « WordPress Codex
+-----------
+
+Inserts a comment to the database.
+
+The available `$commentdata` key names are '`comment_author_IP`',
+'`comment_date`', '`comment_date_gmt`', '`comment_parent`',
+'`comment_approved`', and '`user_id`'.
+
+Usage
+-----
+
+    <?php
+
+    $time = current_time('mysql');
+
+    $data = array(
+        'comment_post_ID' => 1,
+        'comment_author' => 'admin',
+        'comment_author_email' => 'admin@admin.com',
+        'comment_author_url' => 'http://',
+        'comment_content' => 'content here',
+        'comment_type' => '',
+        'comment_parent' => 0,
+        'user_id' => 1,
+        'comment_author_IP' => '127.0.0.1',
+        'comment_agent' => 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.10) Gecko/2009042316 Firefox/3.0.10 (.NET CLR 3.5.30729)',
+        'comment_date' => $time,
+        'comment_approved' => 1,
+    );
+
+    wp_insert_comment($data);
+
+    ?>
+
+Parameters
+----------
+
+ `$commentdata` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Contains information on the comment.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(integer)` 
+:   The new comment's ID.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`current_time()`](/Function_Reference/current_time "Function Reference/current time")
+-   Uses:
+    [`get_gmt_from_date()`](/Function_Reference/get_gmt_from_date "Function Reference/get gmt from date")
+-   Uses:
+    [`wp_update_comment_count()`](/Function_Reference/wp_update_comment_count "Function Reference/wp update comment count")
+-   Uses:Insers a record in the [comments
+    table](/Database_Description#Table:_wp_comments "Database Description")
+    in the database
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`wp_insert_comment()` is located in `wp-includes/comment.php`.
+

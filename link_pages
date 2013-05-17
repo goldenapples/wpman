@@ -1,0 +1,70 @@
+Function Reference/link pages « WordPress Codex
+-----------
+
+Displays page-links for paginated posts (i.e. includes the
+`<!--nextpage-->`
+[Quicktag](/Write_Post_SubPanel#Quicktags "Write Post SubPanel") one or
+more times). This tag must be within [The\_Loop](/The_Loop "The Loop").
+
+Replace With
+------------
+
+-   [wp\_link\_pages()](/Template_Tags/wp_link_pages "Template Tags/wp link pages")
+
+Usage
+-----
+
+`  <?php link_pages( $before, $after, $next_or_number, $nextpagelink, $previouspagelink, $pagelink, $more_file ); ?> `
+
+Parameters
+----------
+
+ before 
+:   (*string*) Text to put before all the links. Defaults to `'<br />'`.
+ after 
+:   (*string*) Text to put after all the links. Defaults to `'<br />'`.
+ next\_or\_number 
+:   (*string*) Indicates whether page numbers should be used. Valid
+    values are:
+    -   `'number'` (Default)
+    -   `'next'` (Valid in WordPress 1.5 or after)
+
+ nextpagelink 
+:   (*string*) Text for link to next page. Defaults to `'next page'`.
+    (Valid in WordPress 1.5 or after)
+ previouspagelink
+:   (*string*) Text for link to previous page. Defaults to
+    `'previous page'`. (Valid in WordPress 1.5 or after)
+ pagelink 
+:   (*string*) Format string for page numbers. `'%'` in the string will
+    be replaced with the number, so `'Page %'` would generate "Page 1",
+    "Page 2", etc. Defaults to `'%'`.
+ more\_file 
+:   (*string*) Page the links should point to. Defaults to the current
+    page.
+
+Examples
+--------
+
+### Default Usage
+
+Displays page-links by default with line breaks before and after, using
+*next page* and *previous page*, listing them with page numbers as *Page
+1, Page 2* and so on.
+
+    <?php link_pages(); ?>
+
+### Page-links in Paragraph Tags
+
+Displays page-links wrapped in paragraph tags.
+
+    <?php link_pages('<p>', '</p>', 'number', '', '', 'page %'); ?>
+
+Change Log
+----------
+
+-   Since: 0.71
+-   Deprecated: 2.1.0
+-   Replace By:
+    [wp\_link\_pages()](/Template_Tags/wp_link_pages "Template Tags/wp link pages")
+

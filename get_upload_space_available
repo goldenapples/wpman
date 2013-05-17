@@ -1,0 +1,38 @@
+Function Reference/get upload space available « WordPress Codex
+-----------
+
+Determines if there is any upload space left in the current blog's
+quota.
+
+Usage
+-----
+
+` <?php get_upload_space_available() ?> `
+
+Parameters
+----------
+
+This function does not accept any parameters
+
+Return Value
+------------
+
+ `` `(integer)`{style="color:gray"} 
+:   Upload space available in bytes
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`get_upload_space_available()` is located in `wp-admin/includes/ms.php`.
+

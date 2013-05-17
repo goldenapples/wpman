@@ -1,0 +1,52 @@
+Function Reference/get page link « WordPress Codex
+-----------
+
+Retrieves the permalink for the current page (if in [The
+Loop](/The_Loop "The Loop")) or any arbitrary page ID if passed as the
+first argument. All arguments are optional. All arguments default to
+`false`.
+
+If `$id` is passed, it will be the id of the page whose link is
+returned.
+
+`$leavename` can be used to toggle off the switching out of "%pagename%"
+in permalinks.
+
+`$sample` returns a sample permalink.
+
+Usage
+-----
+
+` <?php get_page_link($id, $leavename, $sample); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Page ID
+    Default: false
+
+ `$leavename` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to keep page name
+    Default: false
+
+ `$sample` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Is it a sample permalink?
+    Default: false
+
+Return Value
+------------
+
+ (string) 
+:   A string containing the permalink.
+
+Example
+-------
+
+This example will display a link named "Map", to page with id number 40.
+
+    <a href="<?php echo get_page_link(40); ?>">Map</a>
+

@@ -1,0 +1,50 @@
+Function Reference/wp filter kses « WordPress Codex
+-----------
+
+Sanitize content with allowed
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML")
+[Kses](http://sourceforge.net/projects/kses "http://sourceforge.net/projects/kses")
+rules.
+
+`wp_filter_kses` should generally be preferred over `wp_kses_data`
+because `wp_magic_quotes` escapes `$_GET`, `$_POST`, `$_COOKIE`,
+`$_SERVER`, and `$_REQUEST` fairly early in the hook system, shortly
+after 'plugins\_loaded' but earlier then 'init' or 'wp\_loaded'.
+
+Usage
+-----
+
+` <?php wp_filter_kses( $data ) ?> `
+
+Parameters
+----------
+
+ `$data` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to filter
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Filtered content
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`unknown`) `$allowedtags`
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_filter_kses()` is located in `wp-includes/kses.php`.
+

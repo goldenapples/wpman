@@ -1,0 +1,46 @@
+Function Reference/is blog installed « WordPress Codex
+-----------
+
+Test whether blog is already installed.
+
+The cache will be checked first. If you have a cache plugin, which saves
+the cache values, then this will work. If you use the default WordPress
+cache, and the database goes away, then you might have problems.
+
+Checks for the option siteurl for whether WordPress is installed.
+
+Usage
+-----
+
+` <?php is_blog_installed() ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Return Values
+-------------
+
+ (boolean) 
+:   Whether blog is already installed.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`is_blog_installed()` is located in `wp-includes/functions.php`.
+

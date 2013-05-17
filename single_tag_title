@@ -1,0 +1,56 @@
+Function Reference/single tag title « WordPress Codex
+-----------
+
+Displays or returns the tag title for the current archive page.
+
+Usage
+-----
+
+`  <?php single_tag_title( $prefix, $display ); ?> `
+
+### Default Usage
+
+`  <?php single_tag_title(); ?> `
+
+Parameters
+----------
+
+ `$prefix` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to output before the title.
+    Default: *None*
+
+ `$display` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display the title (`TRUE`), or return the title to be
+    used in PHP (`FALSE`).
+    Default: `TRUE`
+
+Examples
+--------
+
+This example displays the text "**Currently browsing**" followed by the
+tag title.
+
+    <p><?php single_tag_title('Currently browsing '); ?>.</p>
+
+Currently browsing WordPress.
+
+\
+ This example assigns the current tag title to the variable
+\$current\_tag for use in PHP.
+
+    <?php $current_tag = single_tag_title("", false); ?>
+
+Change Log
+----------
+
+-   [3.1.0](/Version_3.1 "Version 3.1"): uses
+    [single\_term\_title()](/Function_Reference/single_term_title "Function Reference/single term title")
+-   Since: [2.3.0](/Version_2.3 "Version 2.3")
+
+Source File
+-----------
+
+`single_tag_title()` is located in `wp-includes/general-template.php`.
+

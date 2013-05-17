@@ -1,0 +1,44 @@
+Function Reference/update posts count « WordPress Codex
+-----------
+
+Update a blog's post count.
+
+Usage
+-----
+
+` <?php update_posts_count( $deprecated ); ?> `
+
+Parameters
+----------
+
+ `$deprecated` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) do not pass a parameter to this function
+    Default: empty string
+
+Return Value
+------------
+
+This function does not return a value
+
+Examples
+--------
+
+Notes
+-----
+
+WordPress MS stores a blog's post count as an option so as to avoid
+extraneous COUNTs when a blog's details are fetched with
+get\_blog\_details(). This function is called when posts are published
+to make sure the count stays current.
+
+Change Log
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+Source File
+-----------
+
+`update_posts_count()` is located in `wp-includes/ms-functions.php`
+

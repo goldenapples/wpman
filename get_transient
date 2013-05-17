@@ -1,0 +1,63 @@
+Function Reference/get transient « WordPress Codex
+-----------
+
+Get the value of a [transient](/Transients_API "Transients API").
+
+If the transient does not exist or does not have a value, then the
+return value will be `false`.
+
+Usage
+-----
+
+` <?php get_transient( $transient ); ?> `
+
+Parameters
+----------
+
+ `$transient` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Transient name. Expected to not be SQL-escaped.
+    Default: *None*
+
+Return Values
+-------------
+
+ (mixed) 
+:   Value of transient. If the transient does not exist, does not have a
+    value, or has expired, then get\_transient will return `false`. This
+    should be checked using the identity operator ( === ) instead of the
+    normal equality operator, because an integer value of zero (or other
+    "empty" data) could be the data you're wanting to store. Because of
+    this "false" value, transients should not be used to hold plain
+    boolean values. Put them into an array or convert them to integers
+    instead.
+
+Examples
+--------
+
+### Example of using get\_transient, set\_transient and WP\_Query
+
+    <?php
+    // Get any existing copy of our transient data
+    if ( false === ( $special_query_results = get_transient( 'special_query_results' ) ) ) {
+      // It wasn't there, so regenerate the data and save the transient
+      $special_query_results = new WP_Query( 'cat=5&order=random&tag=tech&post_meta_key=thumbnail' );
+      set_transient( 'special_query_results', $special_query_results );
+    }
+
+    // Use the data like you would have normally...
+    ?>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.8](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`get_transient()` is located in `wp-includes/option.php`.
+

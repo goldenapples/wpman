@@ -1,0 +1,85 @@
+Function Reference/load template « WordPress Codex
+-----------
+
+Require once the template file with WordPress environment.
+
+The globals are set up for the template file to ensure that the
+WordPress environment is available from within the function. The query
+variables are also available.
+
+Usage
+-----
+
+` <?php load_template( $_template_file, $require_once ) ?> `
+
+Parameters
+----------
+
+ `$_template_file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Path to template file.
+    Default: *None*
+
+ `$require_once ` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to require\_once or require.
+    Default: true
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+### Loading a template in a plugin, but allowing theme and child theme to override template
+
+` `
+
+     if ( $overridden_template = locate_template( 'some-template.php' ) ) {
+       // locate_template() returns path to file
+       // if either the child theme or the parent theme have overridden the template
+       load_template( $overridden_template );
+     } else {
+       // If neither the child nor parent theme have overridden the template,
+       // we load the template from the 'templates' sub-directory of the directory this file is in
+       load_template( dirname( __FILE__ ) . '/templates/some-template.php' );
+     }
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+    to extract
+    [`extract()`](http://us.php.net/manual/en/function.extract.php "http://us.php.net/manual/en/function.extract.php")
+    global variables returned by the `query_vars` method while
+    protecting the current values in these global variables:
+    -   (`unknown type`) `$posts`
+    -   (`unknown type`) `$post`
+    -   (`boolean`) `$wp_did_header` Returns `true` if the WordPress
+        header was already loaded. See the `/wp-blog-header.php` file
+        for details.
+    -   (`boolean`) `$wp_did_template_redirect`
+    -   (`object`) `$wp_rewrite`
+    -   (`object`)
+        [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+    -   (`string`) `$wp_version` holds the installed WordPress version
+        number.
+    -   (`string`) `$wp`
+    -   (`string`) `$id`
+    -   (`string`) `$comment`
+    -   (`string`) `$user_ID`
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`load_template()` is located in `wp-includes/template.php`.
+

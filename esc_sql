@@ -1,0 +1,49 @@
+Function Reference/esc sql « WordPress Codex
+-----------
+
+An alias for `$wpdb->escape()`. Prepares a string for use as an SQL
+query. A glorified `addslashes()` that works with arrays.
+
+Usage
+-----
+
+`  <?php esc_sql( $sql ); ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) An unescaped SQL query string.
+    Default: *None*
+
+Return Value
+------------
+
+`(string)` Escaped value appropriate for use in a SQL query.
+
+Example
+-------
+
+    $name=esc_sql($name);
+    $status=esc_sql($status);
+    $wpdb->get_var( 
+      "SELECT something FROM table WHERE foo = '$name' and status = '$status'"
+    );
+
+Notes
+-----
+
+`$wpdb->prepare()` is generally preferred as it corrects some common
+formatting errors.
+
+Change Log
+----------
+
+Since: 2.8.0
+
+Source File
+-----------
+
+`esc_sql()` is located in `wp-includes/formatting.php`.
+

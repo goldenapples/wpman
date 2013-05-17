@@ -1,0 +1,56 @@
+Function Reference/human time diff « WordPress Codex
+-----------
+
+Determines the difference between two timestamps.
+
+The difference is returned in a human readable format such as "1 hour",
+"5 mins", "2 days".
+
+Usage
+-----
+
+` <?php human_time_diff( $from, $to ); ?> `
+
+Parameters
+----------
+
+ `$from` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Unix timestamp from which the difference begins.
+    Default: *None*
+
+ `$to` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Unix timestamp to end the time difference. Default
+    becomes
+    [`time()`](http://us2.php.net/manual/en/function.time.php "http://us2.php.net/manual/en/function.time.php")
+    if not set.
+    Default: ''
+
+Return Values
+-------------
+
+ (string) 
+:   Human readable time difference.
+
+Examples
+--------
+
+To print an entry's time ("2 days ago"):
+` <?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?> `
+For comments:
+` <?php echo human_time_diff( get_comment_time('U'), current_time('timestamp') ) . ' ago'; ?> `
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`human_time_diff()` is located in `wp-includes/formatting.php`.
+

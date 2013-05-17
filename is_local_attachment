@@ -1,0 +1,40 @@
+Function Reference/is local attachment « WordPress Codex
+-----------
+
+Check if the attachment URI is local one and is really an attachment.
+
+Usage
+-----
+
+` <?php is_local_attachment( $url ) ?> `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) URL to check
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`is_local_attachment()` is located in `wp-includes/post.php`.
+

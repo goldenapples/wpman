@@ -1,0 +1,39 @@
+Function Reference/is upload space available « WordPress Codex
+-----------
+
+Determines if there is any upload space left in the current blog's
+quota.
+
+Usage
+-----
+
+` <?php is_upload_space_available() ?> `
+
+Parameters
+----------
+
+This function does not accept any parameters
+
+Return Value
+------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True if space is available, false otherwise.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`is_upload_space_available()` is located in
+`wp-includes/ms-functions.php`.
+

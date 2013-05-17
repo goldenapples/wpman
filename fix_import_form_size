@@ -1,0 +1,40 @@
+Function Reference/fix import form size « WordPress Codex
+-----------
+
+Get the remaining upload space for this blog.
+
+Usage
+-----
+
+` <?php fix_import_form_size( $size ) ?> `
+
+Parameters
+----------
+
+ `$size` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Current max size in bytes
+    Default: *None*
+
+Return Value
+------------
+
+ `` `(integer)`{style="color:gray"} 
+:   Max size in bytes
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+Source File
+-----------
+
+`fix_import_form_size()` is located in `wp-admin/includes/ms.php`
+

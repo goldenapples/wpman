@@ -1,0 +1,54 @@
+Function Reference/get user by « WordPress Codex
+-----------
+
+Get `user` data by field and data.
+
+Usage
+-----
+
+` <?php $user = get_user_by( $field, $value ); ?> `
+
+Parameters
+----------
+
+ `$field` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) '`id`', '`slug`', '`email`', or '`login`'
+    Default: *None*
+
+ `$value` 
+:   ([*string|integer*](/How_to_Pass_Tag_Parameters#String.7Cinteger "How to Pass Tag Parameters"))
+    (*required*) Search for this field value
+    Default: *None*
+
+Return Values
+-------------
+
+ (mixed) 
+:   User object or false if no user is found. Will also return false if
+    `$field` does not exist.
+
+Examples
+--------
+
+### Default usage
+
+    $user = get_user_by( 'email', 'user@example.com' );
+    echo 'User is ' . $user->first_name . ' ' . $user->last_name;
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+Change Log
+----------
+
+Since: 2.8.0
+
+Source File
+-----------
+
+`get_user_by()` is located in `wp-includes/pluggable.php`.
+

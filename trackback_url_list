@@ -1,0 +1,52 @@
+Function Reference/trackback url list « WordPress Codex
+-----------
+
+Do [trackbacks](/Glossary#Trackback "Glossary") for a list of URLs.
+
+Usage
+-----
+
+` <?php trackback_url_list( $tb_list, $post_id ) ?> `
+
+Parameters
+----------
+
+ `$tb_list` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Comma separated list of URLs
+    Default: *None*
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`wp_get_single_post()`](/Function_Reference/wp_get_single_post "Function Reference/wp get single post")
+    on `$post_id`.
+-   Uses:
+    [`trackback()`](/Function_Reference/trackback "Function Reference/trackback")
+    on each trackback url.
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`trackback_url_list()` is located in `wp-includes/post.php`.
+

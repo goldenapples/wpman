@@ -1,0 +1,127 @@
+Function Reference/get post « WordPress Codex
+-----------
+
+Takes a post ID and returns the database record for that post. You can
+specify, by means of the `$output` parameter, how you would like the
+results returned.
+
+Usage
+-----
+
+` <?php get_post( $id, $output, $filter ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*integer or
+    object*](/How_to_Pass_Tag_Parameters#Integer_or_object "How to Pass Tag Parameters"))
+    (*optional*) The ID of the post you'd like to fetch, or an object
+    that specifies the post. By default the current post is fetched.
+    Default: null
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) How you'd like the result.
+    -   *OBJECT* - (*default*) returns a WP\_Post object
+    -   *ARRAY\_A* - Returns an associative array of field names to
+        values
+    -   *ARRAY\_N* - returns a numeric array of field values
+
+    Default: OBJECT
+
+ `$filter` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Filter the post.
+    -   *raw* - (*default*)
+
+    Default: raw
+
+Example
+-------
+
+To get the title for a post with ID 7:
+
+` <?php$post_7 = get_post(7); $title = $post_7->post_title;?> `
+
+Alternatively, specify the `$output` parameter:
+
+` <?php$post_7 = get_post(7, ARRAY_A);$title = $post_7['post_title'];?> `
+
+Return
+------
+
+Returns a `WP_Post` object, or `null` on failure.
+
+The fields returned are:
+
+ `ID` 
+:   (*integer*) The post ID
+ `post_author` 
+:   (*integer*) The post author's ID
+ `post_date` 
+:   (*string*) The datetime of the post (`YYYY-MM-DD HH:MM:SS`)
+ `post_date_gmt` 
+:   (*string*) The GMT datetime of the post (`YYYY-MM-DD HH:MM:SS`)
+ `post_content` 
+:   (*string*) The post's contents
+ `post_title` 
+:   (*string*) The post's title
+ `post_category` 
+:   (*integer*) The post category's ID. Note that this will always be 0
+    (zero) from wordpress 2.1 onwards. To determine a post's category or
+    categories, use
+    [get\_the\_category()](/Function_Reference/get_the_category "Function Reference/get the category").
+ `post_excerpt` 
+:   (*string*) The post excerpt
+ `post_status` 
+:   (*string*) The post status
+    (`publish|pending|draft|private|static|object|attachment|inherit|future|trash`)
+ `comment_status` 
+:   (*string*) The comment status (`open|closed|registered_only`)
+ `ping_status` 
+:   (*string*) The pingback/trackback status (`open|closed`)
+ `post_password` 
+:   (*string*) The post password
+ `post_name` 
+:   (*string*) The post's URL slug
+ `to_ping` 
+:   (*string*) URLs to be pinged
+ `pinged` 
+:   (*string*) URLs already pinged
+ `post_modified` 
+:   (*string*) The last modified datetime of the post
+    (`YYYY-MM-DD HH:MM:SS`)
+ `post_modified_gmt` 
+:   (*string*) The last modified GMT datetime of the post
+    (`YYYY-MM-DD HH:MM:SS`)
+ `post_content_filtered` 
+:   (*string*)
+ `post_parent` 
+:   (*integer*) The parent post's ID (for attachments, etc)
+ `guid` 
+:   (*string*) A link to the post. Note: One cannot rely upon the GUID
+    to be the permalink (as it was previous to version 2.5), Nor can you
+    expect it to be a valid link to the post. It's merely a unique
+    identifier, which so happens to be a link to the post at present.
+ `menu_order` 
+:   (*integer*)
+ `post_type` 
+:   (*string*) (`post|page|attachment`)
+ `post_mime_type` 
+:   (*string*) Mime Type (for attachments, etc)
+ `comment_count` 
+:   (*integer*) Number of comments
+
+Notes
+-----
+
+Before version 3.5, the first parameter `$post` was required to be a
+variable. For example, `get_post(7)` would cause a fatal error.
+
+Source File
+-----------
+
+`get_post()` is located in `wp-includes/post.php` and
+`wp-includes/class-wp-atom-server.php`.
+

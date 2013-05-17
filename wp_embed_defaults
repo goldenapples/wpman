@@ -1,0 +1,44 @@
+Function Reference/wp embed defaults « WordPress Codex
+-----------
+
+Create default array of embed parameters.
+
+The width defaults to the content width as specified by the theme. If
+the theme does not specify a content width, then 500px is used.
+
+The default height is 1.5 times the width, or 1000px, whichever is
+smaller. The 'embed\_defaults' filter can be used to adjust either of
+these values.
+
+Usage
+-----
+
+` <?php wp_embed_defaults(); ?> `
+
+Parameters
+----------
+
+This function does not accept parameters
+
+Return Values
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   Default embed parameters.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+Source File
+-----------
+
+`wp_embed_defaults()` is located in `wp-includes/media.php`
+

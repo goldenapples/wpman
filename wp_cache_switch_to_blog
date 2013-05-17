@@ -1,0 +1,33 @@
+Function Reference/wp cache switch to blog « WordPress Codex
+-----------
+
+Switch the interal blog id used to create keys in blog specific groups.
+
+Usage
+-----
+
+`  <?php wp_cache_switch_to_blog( $blog_id ) ?> `
+
+Parameters
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Blog ID.
+    Default: *None*
+
+Examples
+--------
+
+### Default Usage
+
+Change Log
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+Source File
+-----------
+
+`wp_cache_switch_to_blog()` is located in `wp-includes/cache.php`
+

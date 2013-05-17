@@ -1,0 +1,102 @@
+Function Reference/wp get attachment image src « WordPress Codex
+-----------
+
+Returns an array with the image attributes "url", "width" and "height",
+of an image attachment file.\
+ **Note:** For just the image src, use the first element in the returned
+array.
+
+Usage
+-----
+
+`  <?php wp_get_attachment_image_src( $attachment_id, $size, $icon ); ?> `
+
+Parameters
+----------
+
+ `$attachment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of the desired attachment.
+    Default: *None*
+
+ `$size` 
+:   ([*string/array*](/How_to_Pass_Tag_Parameters#String.2Farray "How to Pass Tag Parameters"))
+    (*optional*) Size of the image shown for an image attachment: either
+    a string keyword (thumbnail, medium, large or full) or a 2-item
+    array representing width and height in pixels, e.g. array(32,32). As
+    of Version 2.5, this parameter does not affect the size of media
+    icons, which are always shown at their original size.
+    Default: thumbnail
+
+ `$icon` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Use a media icon to represent the attachment.
+    Default: false
+
+Return Value
+------------
+
+ (array)
+:   An array containing:
+
+-   [0] =\> url
+-   [1] =\> width
+-   [2] =\> height
+
+or false, if no image is available.
+
+Examples
+--------
+
+### Default Usage
+
+    <?php 
+    $attachment_id = 8; // attachment ID
+
+    $image_attributes = wp_get_attachment_image_src( $attachment_id ); // returns an array
+    ?> 
+     
+    <img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
+
+### Change Icon Directory
+
+WordPress can use media icons to represent [attachment
+files](/Using_Image_and_File_Attachments "Using Image and File Attachments")
+on your blog and in the Admin interface, if those icons are available.
+For images it returns the thumbnail. For other media types It looks for
+image files named by media type (e.g. audio.jpg) in the directory:
+*wp-includes/images/crystal/*.
+
+This example shows how you can change this directory to a folder called
+"images" in your theme: *wp-content/themes/yourtheme/images*. Create the
+folder and put the "media type images" in there. To tell WordPress the
+directory has changed put this in the current theme's
+[functions.php](/Theme_Development#Functions_File "Theme Development")
+file:
+
+    add_filter( 'icon_dir', 'my_theme_icon_directory' );
+    add_filter( 'icon_dir_uri', 'my_theme_icon_uri' );
+
+    function my_theme_icon_directory( $icon_dir ) {
+        return get_stylesheet_directory() . '/images';
+    }
+
+    function my_theme_icon_uri( $icon_dir ) {
+        return get_stylesheet_directory_uri() . '/images'; 
+    }
+
+### Show the first image of the post
+
+find the full code here
+[get\_children()](/Function_Reference/get_children#Examples "Function Reference/get children").
+
+Change Log
+----------
+
+Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+`wp_get_attachment_image_src()` is located in `wp-includes/media.php`.
+

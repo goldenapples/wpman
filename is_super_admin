@@ -1,0 +1,49 @@
+Function Reference/is super admin « WordPress Codex
+-----------
+
+Determine if user is a network (super) admin. Will also check if user is
+admin if network mode is disabled.
+
+Usage
+-----
+
+`  <?php is_super_admin( $user_id ); ?> `
+
+Example
+-------
+
+    <?php
+    //Removes the "Edit" menu for users who are not Super Admins of a multisite network
+    if ( !is_super_admin() ) {
+        add_action( 'admin_init', 'my_remove_edit_menu' );
+    }
+    function my_remove_edit_menu() {
+        remove_menu_page('edit.php');
+    }
+    ?>
+
+Parameters
+----------
+
+ `$user_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The ID of a user.
+    Default: Defaults to the current user.
+
+Returns
+-------
+
+ (BOOLEAN) 
+:   True if the user is network (super) admin. Also returns True if
+    network mode is disabled and the user is an admin.
+
+Changelog
+---------
+
+Since: [WordPress 3.0.0](/Version_3.0 "Version 3.0")
+
+Source Code
+-----------
+
+`is_super_admin()` is located in `wp-includes/capabilities.php`.
+

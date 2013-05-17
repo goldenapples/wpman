@@ -1,0 +1,88 @@
+Function Reference/wp upload bits « WordPress Codex
+-----------
+
+Create a file in the upload folder with given content.
+
+If there is an error, then the key '`error`' will exist with the error
+message. If success, then the key '`file`' will have the unique file
+path, the '`url`' key will have the link to the new file. and the
+'`error`' key will be set to false.
+
+This function will not move an uploaded file to the upload folder. It
+will create a new file with the content in `$bits` parameter. If you
+move the upload file, read the content of the uploaded file, and then
+you can give the filename and content to this function, which will add
+it to the upload folder.
+
+The permissions will be set on the new file automatically by this
+function.
+
+Usage
+-----
+
+` <?php wp_upload_bits( $name, $deprecated, $bits, $time ) ?> `
+
+Parameters
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+ `$deprecated` 
+:   ([*null*](/How_to_Pass_Tag_Parameters#Null "How to Pass Tag Parameters"))
+    (*required*) Not used. Set to null.
+    Default: *None*
+
+ `$bits` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) File content
+    Default: *None*
+
+ `$time` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Time formatted in 'yyyy/mm'.
+    Default: null
+
+Return Values
+-------------
+
+The function returns an array with the following keys:
+
+file
+:   The file system path to the uploaded file (e.g.
+    /var/www/wordpress/wp-content/uploads/2010/03/example.pdf)
+url
+:   The URL to the uploaded file (e.g.
+    [http://example.com/wp-content/uploads/2010/03/example.pdf](http://example.com/wp-content/uploads/2010/03/example.pdf "http://example.com/wp-content/uploads/2010/03/example.pdf"))
+error
+:   When something goes wrong with the upload, the error message is
+    stored in this key. Otherwise set to false
+
+Examples
+--------
+
+Here's a simple example assuming the request was made from a form with a
+file field called field1:
+
+    $upload = wp_upload_bits($_FILES["field1"]["name"], null, file_get_contents($_FILES["field1"]["tmp_name"]));
+
+The function attempts to save a copy of the uploaded file to the upload
+directory set in the WordPress settings. It also performs security
+checks (file type, size, etc) and returns errors if any (see Return
+Values above). You might want to remove the tmp file after uploading.
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`wp_upload_bits()` is located in `wp-includes/functions.php`.
+

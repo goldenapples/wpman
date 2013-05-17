@@ -1,0 +1,52 @@
+Function Reference/post type supports « WordPress Codex
+-----------
+
+Checks a post type's support for a given feature.
+
+Usage
+-----
+
+`  <?php post_type_supports( $post_type, $supports ); ?> `
+
+Parameters
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post type. (max. 20 characters)
+    Default: *None*
+
+ `$supports` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Feature(s) to make available
+    Default: *None*
+
+-   'title'
+-   'editor' (content)
+-   'author'
+-   'thumbnail' (featured image) (current theme must also support [Post
+    Thumbnails](/Post_Thumbnails "Post Thumbnails"))
+-   'excerpt'
+-   'trackbacks'
+-   'custom-fields'
+-   'comments' (also will see comment count balloon on edit screen)
+-   'revisions' (will store revisions)
+-   'page-attributes' (template and menu order) (hierarchical must be
+    true)
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Change Log
+----------
+
+-   Since [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`post_type_supports()` is located in `wp-includes/post.php`.
+

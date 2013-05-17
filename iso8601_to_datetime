@@ -1,0 +1,53 @@
+Function Reference/iso8601 to datetime « WordPress Codex
+-----------
+
+Converts an iso8601 date to [MySQL
+DATETIME](http://dev.mysql.com/doc/refman/4.1/en/datetime.html "http://dev.mysql.com/doc/refman/4.1/en/datetime.html")
+format used by `post_date[_gmt]`.
+
+Usage
+-----
+
+` <?php iso8601_to_datetime( $date_string, $timezone ) ?> `
+
+Parameters
+----------
+
+ `$date_string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Date and time in ISO 8601 format.
+    Default: *None*
+
+ `$timezone` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) If set to GMT returns the time minus gmt\_offset.
+    Default is '`user`'.
+    Default: 'user'
+
+Return Values
+-------------
+
+ (string) 
+:   The date and time in [MySQL
+    DATETIME](http://dev.mysql.com/doc/refman/4.1/en/datetime.html "http://dev.mysql.com/doc/refman/4.1/en/datetime.html")
+    format - `Y-m-d H:i:s`.
+
+Examples
+--------
+
+Notes
+-----
+
+-   See Also: [ISO
+    8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`iso8601_to_datetime()` is located in `wp-includes/formatting.php`.
+

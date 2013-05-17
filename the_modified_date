@@ -1,0 +1,124 @@
+Function Reference/the modified date « WordPress Codex
+-----------
+
+This tag displays the date (and time) a post was last modified. This tag
+works just like
+[the\_modified\_time()](/Template_Tags/the_modified_time "Template Tags/the modified time"),
+which also displays the time/date a post was last modified. This tag
+must be used within [The Loop](/The_Loop "The Loop"). If no format
+parameter is specified, the **Default date format** (please note that
+says Date format) setting from
+[Administration](/Administration_Panels "Administration Panels") \>
+[Settings](/Administration_Panels#Settings "Administration Panels") \>
+[General](/Settings_General_SubPanel "Settings General SubPanel") is
+used for the display format.
+
+If the post or page is not yet modified, the modified date is the same
+as the creation date.
+
+Use
+[get\_the\_modified\_date()](/Function_Reference/get_the_modified_date "Function Reference/get the modified date")
+to retrieve the value.
+
+Usage
+-----
+
+`  <?php the_modified_date( $d, $before, $after, $echo ); ?> `
+
+Parameters
+----------
+
+ `$d` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The format the date is to display in. Defaults to the
+    date format configured in your WordPress settings. See [Formatting
+    Date and
+    Time](/Formatting_Date_and_Time "Formatting Date and Time").
+    Default: date format specified in
+    [Administration](/Administration_Panels "Administration Panels") \>
+    [Settings](/Administration_Panels#Settings "Administration Panels")
+    \> [General](/Settings_General_SubPanel "Settings General SubPanel")
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Output before the date.
+    Default: *None*
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Output after the date.
+    Default: *None*
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Default is display. Whether to echo the date or return
+    it.
+    Default: true
+
+-   *true* (default)
+-   *false*
+
+Examples
+--------
+
+### Default Usage
+
+Displays the date the post was last modified, using the **Default date
+format** setting (e.g. F j, Y) from
+[Administration](/Administration_Panels "Administration Panels") \>
+[Settings](/Administration_Panels#Settings "Administration Panels") \>
+[General](/Settings_General_SubPanel "Settings General SubPanel").
+
+    <p>Last modified: <?php the_modified_date(); ?></p>
+
+Last modified: December 2, 2006
+
+\
+
+### Date as Month Day, Year
+
+Displays the last modified date in the date format `'F j, Y'` (ex:
+December 2, 2006).
+
+    <div>Last modified: <?php the_modified_date('F j, Y'); ?></div>
+
+Last modified: December 2, 2006
+
+\
+
+### Date and Time
+
+Displays the date and time.
+
+    <p>Modified: <?php the_modified_date('F j, Y'); ?> at <?php the_modified_date('g:i a'); ?></p>
+
+Modified: December 2, 2006 at 10:36 pm
+
+\
+
+### Date with ^superscript^ or ~subscript~ number suffixes
+
+Displays the date with a superscript or subscript *st*, *nd*, *rd* or
+*th* after the day. Because characters from the alphabet are used to
+represent the date format types, each of the HTML tag characters need to
+be escaped using a back slash. Superscript HTML tag is `<sup>` and
+subscript is `<sub>`.
+
+    <p>Modified: <?php the_modified_date('j\<\s\u\p\>S\<\/\s\u\p\> M Y'); ?></p>
+
+Modified: 2^nd^ Dec 2006
+
+\
+
+Changelog
+---------
+
+-   [3.0.0](/Version_3.0 "Version 3.0"): Added `$before`, `$after` and
+    `$echo` parameters
+-   Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`the_modified_date()` is located in `wp-includes/general-template.php`.
+

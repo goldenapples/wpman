@@ -1,0 +1,41 @@
+Function Reference/attachment url to postid « WordPress Codex
+-----------
+
+Retrieve the post id for an attachment file URL.
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Permalink to check.
+    Default: *None*
+
+Return
+------
+
+ `` `(int)`{style="color:gray"} 
+:   Attachment ID if found, 0 if not.
+
+Usage
+-----
+
+`  <?php $attachment_id = attachment_url_to_postid( $image_url ); ?> `
+
+Example
+-------
+
+Description text
+
+    Example code
+
+Change Log
+----------
+
+-   Since: [3.6.0](/Version_3.6 "Version 3.6")
+
+Source File
+-----------
+
+`attachment_url_to_postid()` is located in `wp-whatever/file.php`.
+

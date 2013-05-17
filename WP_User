@@ -1,0 +1,234 @@
+Class Reference/WP User « WordPress Codex
+-----------
+
+The WordPress User Class allows accessing properties, roles and
+capabilities of a specific user.
+
+Usage
+-----
+
+To instantiate a specific user, you may use the class constructor :
+
+    <?php $users = new WP_User( $id [, $name [, $blog_id ] ] ); ?>
+
+You can also use the `wp_get_current_user` global function to get a
+`WP_User` object matching the current logged user.
+
+    <?php $current_user = wp_get_current_user(); ?>
+
+Constructor
+-----------
+
+The `WP_User` constructor allows the following parameters :
+
+-   **`id`** (*int*) - the user's id. Let empty to use login name
+    instead.
+-   **`name`** (*string*) - the user's login name. Ignored if id is set.
+-   **`blog_id`** (*int*) - the blog id on a multisite environment.
+    Defaults to the current blog id.
+
+The semantics seem rather fuzzy. If id is a WP\_User or other object, or
+an array of properties, it seems to clone it without touching the cache.
+Otherwise if id is a number it seems to try to read it possibly from the
+cache, or from the database using -\>get\_data\_by(), which can also
+update the cache. If id is empty it reads by login name.
+
+Public Properties
+-----------------
+
+-   **`ID`** (*int*) - the user's ID.
+-   **`caps`** (*array*) - the individual capabilities the user has been
+    given.
+-   **`cap_key`** (*string*) -
+-   **`roles`** (*array*) - the roles the user is part of.
+-   **`allcaps`** (*array*) - all capabilities the user has, including
+    individual and role based.
+-   **`first_name`** (*string*) - first name of the user.
+-   **`last_name`** (*string*) - last name of the user.
+
+*Note:* If called with the "id" or "name" parameter, the constructor
+queries the [wp\_users
+table](/Database_Description#Table:_wp_users "Database Description"). If
+successful, the additional row data become properties of the object:
+**user\_login**, **user\_pass**, **user\_nicename**, **user\_email**,
+**user\_url**, **user\_registered**, **user\_activation\_key**,
+**user\_status**, **display\_name**, **spam** (multisite only),
+**deleted** (multisite only).
+
+Magic Methods
+-------------
+
+### `__get( $key )`
+
+Magic method for accessing custom fields.
+
+Parameters 
+:   
+
+-   **`key`** (*string*) - property.
+
+Returns 
+:   (*string*) Single value of the property filtered.
+
+Since 
+:   3.3.0
+
+### `__isset( $key )`
+
+Determine whether a property or meta key is set from the users and
+usermeta tables.
+
+Parameters 
+:   
+
+-   **`key`** (*string*) - property.
+
+Returns 
+:   (*bool*) `true` if user has property, `false` otherwise.
+
+Since 
+:   3.3.0
+
+### `__set( $key, $value )`
+
+Magic method for setting custom fields.
+
+Parameters 
+:   
+
+-   **`key`** (*string*) - property.
+-   **`value`** (*string*) - value.
+
+Returns 
+:   Nothing.
+
+Since 
+:   3.3.0
+
+\
+
+Public Methods
+--------------
+
+### `exists()`
+
+Determine whether the user exists in the database.
+
+It actually tests !empty(ID), which will normally indicate that the user
+record was in the database at some stage. It does not access the
+database.
+
+Parameters 
+:   None
+
+Returns 
+:   (*bool*) `true` if user exists, `false` otherwise.
+
+Since 
+:   3.4.0
+
+### `get( $key )`
+
+Retrieve the value of a property or meta key from the users and usermeta
+tables.
+
+Parameters 
+:   
+
+-   **`key`** (*string*) - property.
+
+Returns 
+:   (*mixed*) String of the property filtered if single value, or array
+    if value is stored as a serialized array
+
+Since 
+:   3.3.0
+
+### `has_prop( $key )`
+
+Determine whether a property or meta key is set from the users and
+usermeta tables.
+
+Parameters 
+:   
+
+-   **`key`** (*string*) - property.
+
+Returns 
+:   (*bool*) `true` if user has property, `false` otherwise.
+
+Since 
+:   3.3.0
+
+### `get_role_caps()`
+
+Retrieve all of the role capabilities and merge with individual
+capabilities.
+
+All of the capabilities of the roles the user belongs to are merged with
+the users individual roles. This also means that the user can be denied
+specific roles that their role might have, but the specific user isn't
+granted permission to.
+
+Sets the `roles` and `allcaps` properties.
+
+Parameters 
+:   None
+
+Returns 
+:   Nothing
+
+Since 
+:   2.0.0
+
+### `add_role( $role )`
+
+Add role to user.
+
+Updates the user's meta data option with capabilities and roles.
+
+Parameters 
+:   
+
+-   **`role`** (*string*) - role name.
+
+Returns 
+:   Nothing
+
+Since 
+:   2.0.0
+
+### `remove_role($role)`
+
+Remove role from user.
+
+Parameters 
+:   
+
+-   **`role`** (*string*) - role name.
+
+Returns 
+:   Nothing
+
+Since 
+:   2.0.0
+
+### `set_role($role)`
+
+Set the role of the user.
+
+This will remove the previous roles of the user and assign the user the
+new one. You can set the role to an empty string and it will remove all
+of the roles from the user.
+
+Parameters 
+:   
+
+-   **`role`** (*string*) - role name.
+
+Returns 
+:   Nothing
+
+Since 
+:   2.0.0
+

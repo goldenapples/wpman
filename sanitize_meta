@@ -1,0 +1,71 @@
+Function Reference/sanitize meta « WordPress Codex
+-----------
+
+Applies filters that can be hooked to perform specific sanitization
+procedures for the particular metadata type and key. Does not sanitize
+anything on it's own. Custom filters must be hooked in to do the work.
+The filter hook tag has the form
+`"sanitize_{$meta_type}_meta_{$meta_key}"`.
+
+Usage
+-----
+
+`  <?php $clean_value = sanitize_meta( $meta_key, $meta_value, $meta_type ); ?> `
+
+Parameters
+----------
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The metadata key.
+    Default: *None*
+
+ `$meta_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The metadata value to be sanitized.
+    Default: *None*
+
+ `$meta_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The metadata type.
+    Default: *None*
+
+Return Value
+------------
+
+`(mixed)` Sanitized value as processed by any hooked filter functions.
+
+Example
+-------
+
+    $clean_value = sanitize_meta( 'birth-year', $user_input, 'user' );
+
+    add_filter('sanitize_user_meta_birth-year', 'ck_birth-year');
+    function ck_birth-year( $year ) {
+        $now = date("Y");
+        $then = $now - 115; //no users older than 115
+        if ( $then > $year || $year > $now ) {
+            wp_die("Invalid entry, go back and try again.");
+        }
+        return $year;
+    }
+
+Notes
+-----
+
+This function is called by
+[add\_meta\_data()](/Function_Reference/add_metadata "Function Reference/add metadata")
+and
+[update\_metadata()](/Function_Reference/update_metadata "Function Reference/update metadata")
+WordPress functions.
+
+Change Log
+----------
+
+Since: 3.1.3
+
+Source File
+-----------
+
+`sanitize_meta()` is located in `wp-includes/meta.php`.
+

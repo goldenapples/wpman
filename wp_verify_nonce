@@ -1,0 +1,58 @@
+Function Reference/wp verify nonce « WordPress Codex
+-----------
+
+Verify that a [nonce](/Glossary#Nonce "Glossary") is correct and
+unexpired with the respect to a specified action. The function is used
+to verify the nonce sent in the current request usually accessed by the
+`$_REQUEST` PHP variable.
+
+Usage
+-----
+
+` <?php wp_verify_nonce( $nonce, $action ); ?> `
+
+Parameters
+----------
+
+ `$nonce` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Nonce to verify.
+    Default: *None*
+
+ `$action` 
+:   ([*string/int*](/How_to_Pass_Tag_Parameters#String.2Fint "How to Pass Tag Parameters"))
+    (*optional*) Action name. Should give the context to what is taking
+    place and be the same when the nonce was created.
+    Default: -1
+
+Return Values
+-------------
+
+ `` `(boolean/integer)`{style="color:gray"} 
+:   Boolean *false* if the nonce is invalid. Otherwise, returns an
+    integer with the value of:
+
+-   *1* – if the nonce has been generated in the past 12 hours or less.
+-   *2* – if the nonce was generated between 12 and 24 hours ago.
+
+Example
+-------
+
+    <?php $nonce= wp_create_nonce( 'my-nonce' ); ?>
+    <a href='myplugin.php?_wpnonce=<?php echo $nonce; ?>'> ...
+
+    <?php 
+    $nonce = $_REQUEST['_wpnonce'];
+    if ( !wp_verify_nonce( $nonce, 'my-nonce' ) ) die( 'Security check' ); 
+    ?>
+
+Change Log
+----------
+
+Since: [2.0.3](/Version_2.0.3 "Version 2.0.3")
+
+Source File
+-----------
+
+`wp_verify_nonce` is defined in `wp-includes/pluggable.php`
+

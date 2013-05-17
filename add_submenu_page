@@ -1,0 +1,169 @@
+Function Reference/add submenu page « WordPress Codex
+-----------
+
+Add a sub menu page.
+
+**NOTE: If you're running into the "You do not have sufficient
+permissions to access this page." message in a `wp_die()` screen, then
+you've hooked too early. The hook you should use is `admin_menu`.**
+
+This function takes a capability which will be used to determine whether
+or not a page is included in the menu.
+
+The function which is hooked in to handle the output of the page must
+check that the user has the required capability as well.
+
+This function should normally be hooked in with one of the the
+admin\_menu actions depending on the menu where the sub menu is to
+appear:
+
+  -------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------
+  [admin\_menu](/Plugin_API/Action_Reference/admin_menu "Plugin API/Action Reference/admin menu")                            The normal, or site, administration menu
+  [user\_admin\_menu](/Plugin_API/Action_Reference/user_admin_menu "Plugin API/Action Reference/user admin menu")            The user administration menu
+  [network\_admin\_menu](/Plugin_API/Action_Reference/network_admin_menu "Plugin API/Action Reference/network admin menu")   The [network](/Glossary#Network "Glossary") administration menu
+  -------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------
+
+Usage
+-----
+
+` <?php add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function ); ?> `
+
+Parameters
+----------
+
+ `$parent_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug name for the parent menu (or the file name of
+    a standard WordPress admin page). Use `NULL` or set to
+    `'options.php'` if you want to create a page that doesn't appear in
+    any menu (see example below).
+    Default:
+
+Examples:
+
+1.  For *Dashboard*: `add_submenu_page( 'index.php', ... );` Also see
+    `add_dashboard_page()`
+2.  For *Posts*: `add_submenu_page( 'edit.php', ... );` Also see Also
+    see `add_posts_page()`
+3.  For *Media*: `add_submenu_page( 'upload.php', ... );` Also see
+    `add_media_page()`
+4.  For *Links*: `add_submenu_page( 'link-manager.php', ... );` Also see
+    `add_links_page()`
+5.  For *Pages*: `add_submenu_page( 'edit.php?post_type=page', ... );`
+    Also see `add_pages_page()`
+6.  For *Comments*: `add_submenu_page( 'edit-comments.php', ... );` Also
+    see `add_comments_page()`
+7.  For *Custom Post Types*:
+    `add_submenu_page( 'edit.php?post_type=your_post_type', ... );`
+8.  For *Appearance*: `add_submenu_page( 'themes.php', ... );` Also see
+    `add_theme_page()`
+9.  For *Plugins*: `add_submenu_page( 'plugins.php', ... );` Also see
+    `add_plugins_page()`
+10. For *Users*: `add_submenu_page( 'users.php', ... );` Also see
+    `add_users_page()`
+11. For *Tools*: `add_submenu_page( 'tools.php', ... );` Also see
+    `add_management_page()`
+12. For *Settings*: `add_submenu_page( 'options-general.php', ... );`
+    Also see `add_options_page()`
+
+ `$page_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be displayed in the title tags of the page
+    when the menu is selected
+    Default:
+
+ `$menu_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be used for the menu
+    Default:
+
+ `$capability` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The
+    [capability](/Roles_and_Capabilities "Roles and Capabilities")
+    required for this menu to be displayed to the user.
+    Default:
+
+ `$menu_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug name to refer to this menu by (should be
+    unique for this menu). If you want to NOT duplicate the parent menu
+    item, you need to set the name of the \$menu\_slug exactly the same
+    as the parent slug.
+    Default:
+
+ `$function` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*optional*) The function to be called to output the content for
+    this page.
+    Default:
+
+The function must be referenced in one of two ways:
+
+1.  if the function is a member of a class within the plugin it should
+    be referenced as `array( $this, 'function_name' )` if the class is
+    instantiated as an object or ` array( __CLASS__, 'function_name' )`
+    if its called statically
+2.  in all other cases, using the function name itself is sufficient
+
+Return values
+-------------
+
+ `string`
+:   The resulting page's hook\_suffix, or `false` if the user does not
+    have the capability required.
+
+Notes
+-----
+
+-   For \$menu\_slug please don't use \_\_FILE\_\_ it makes for an ugly
+    URL, and is a minor security nuance.
+
+-   Within the rendering function \$function you may want to access
+    parameters you used in `add_submenu_page()`, such as the
+    \$page\_title. Typically, these will work:
+    -   \$parent\_slug: `get_admin_page_parent()`
+    -   \$page\_title: `get_admin_page_title()`, or simply
+        `global $title`
+    -   \$menu\_slug: `global $plugin_page`
+
+Example
+-------
+
+    add_action('admin_menu', 'register_my_custom_submenu_page');
+
+    function register_my_custom_submenu_page() {
+        add_submenu_page( 'tools.php', 'My Custom Submenu Page', 'My Custom Submenu Page', 'manage_options', 'my-custom-submenu-page', 'my_custom_submenu_page_callback' ); 
+    }
+
+    function my_custom_submenu_page_callback() {
+        echo '<h3>My Custom Submenu Page</h3>';
+
+    }
+
+To hide your submenu link from a top level menu item to which it belongs
+you would instead do,
+
+    add_action('admin_menu', 'register_my_custom_submenu_page');
+
+    function register_my_custom_submenu_page() {
+       
+    add_submenu_page( 
+              null   //or 'options.php' 
+            , 'My Custom Submenu Page' 
+            , 'My Custom Submenu Page'
+            , 'manage_options'
+            , 'my-custom-submenu-page'
+            , 'my_custom_submenu_page_callback'
+        );
+
+    }
+
+Change Log
+----------
+
+Source File
+-----------
+
+`add_submenu_page()` is located in `wp-admin/includes/plugin.php`.
+

@@ -1,0 +1,66 @@
+Function Reference/ nx « WordPress Codex
+-----------
+
+A hybrid of [`_n()`](/Function_Reference/_n "Function Reference/ n") and
+[`_x()`](/Function_Reference/_x "Function Reference/ x"). It supports
+contexts and plurals.
+
+Usage
+-----
+
+` <?php _nx( $single, $plural, $number, $context, $domain ) ?> `
+
+Parameters
+----------
+
+ `$single` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text that will be used if `$number` is 1
+    Default: *None*
+
+ `$plural` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text that will be used if `$number` is not 1
+    Default: *None*
+
+ `$number` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) The number to compare against to use either `$single`
+    or `$plural`
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Context information for the translators
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text
+    Default: 'default'
+
+Return Values
+-------------
+
+ (string) 
+:   Either `$single` or `$plural` translated context string.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses the 'ngettext\_with\_context' filter.
+-   *l10n* is an abbreviation for *localization*.
+
+Change Log
+----------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`_nx()` is located in `wp-includes/l10n.php`.
+

@@ -1,0 +1,48 @@
+Function Reference/comment author « WordPress Codex
+-----------
+
+Displays the comment author name; that is, the one supplied by the
+commenter. If no name is provided (and "User must fill out name and
+email" is not enabled under [Discussion
+Options](/Discussion_Options#Before_a_comment_appears: "Discussion Options")),
+WordPress will assign "Anonymous" as comment author.
+
+Use
+[get\_comment\_author()](/Function_Reference/get_comment_author "Function Reference/get comment author")
+to retrieve the value.
+
+Usage
+-----
+
+`  <?php comment_author( $comment_ID ); ?> `
+
+Example
+-------
+
+    <div>Comment by <?php comment_author(); ?>:</div>
+
+Parameters
+----------
+
+ `comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the comment for which to print the author
+    Default: 0 (the current comment)
+
+Filters
+-------
+
+[apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+Calls 'comment\_author' on comment author before displaying
+
+Changelog
+---------
+
+-    ? : Added the 'comment\_ID' parameter.
+-   Since: 0.71
+
+Source Code
+-----------
+
+`comment_author()` is located in `wp-includes/comment-template.php`.
+

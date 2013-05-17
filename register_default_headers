@@ -1,0 +1,80 @@
+Function Reference/register default headers « WordPress Codex
+-----------
+
+Register a selection of default headers to be displayed by the custom
+header admin UI.
+
+The parameter `$headers` is required, to merge with already registered
+headers.
+
+Usage
+-----
+
+` <?php register_default_headers( $headers ); ?> `
+
+Parameters
+----------
+
+ `$headers` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Array of headers keyed by a string id. The ids point to
+    arrays containing 'url', 'thumbnail\_url', and 'description' keys.
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Edit the file `functions.php` inside your theme and add the following
+code, replacing the images and descriptions where required.
+
+The `%s` is replaced with your themes path, so place the images in your
+theme directory.
+
+    register_default_headers( array(
+        'wheel' => array(
+            'url' => '%s/images/headers/wheel.jpg',
+            'thumbnail_url' => '%s/images/headers/wheel-thumbnail.jpg',
+            'description' => __( 'Wheel', 'twentyeleven' )
+        ),
+        'shore' => array(
+            'url' => '%s/images/headers/shore.jpg',
+            'thumbnail_url' => '%s/images/headers/shore-thumbnail.jpg',
+            'description' => __( 'Shore', 'twentyeleven' )
+        ),
+        'trolley' => array(
+            'url' => '%s/images/headers/trolley.jpg',
+            'thumbnail_url' => '%s/images/headers/trolley-thumbnail.jpg',
+            'description' => __( 'Trolley', 'twentyeleven' )
+        )
+    ) );
+
+Note: The code above was lifted from the TwentyEleven theme files.
+
+To reference a image in a child theme (ie in the stylesheet directory),
+use %2\$s instead of %s.
+
+    register_default_headers( array(
+        'child' => array(
+            'url' => '%2$s/images/headers/child.jpg',
+            'thumbnail_url' => '%2$s/images/headers/child-thumbnail.jpg',
+            'description' => __( 'Child', 'twentyeleven' )
+        )
+        )
+    ) );
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`register_default_headers()` is located in `wp-includes/theme.php`.
+

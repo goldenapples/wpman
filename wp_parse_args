@@ -1,0 +1,138 @@
+Function Reference/wp parse args « WordPress Codex
+-----------
+
+**wp\_parse\_args** is a generic utility for merging together an array
+of arguments and an array of default values. It can also be given a URL
+query type string which will be converted into an array (i.e.
+"id=5&status=draft").
+
+It is used throughout WordPress to avoid having to worry about the logic
+of defaults and input, and produces a stable pattern for passing
+arguments around. Functions like
+[query\_posts](/Template_Tags/query_posts "Template Tags/query posts"),
+[wp\_list\_comments](/Template_Tags/wp_list_comments "Template Tags/wp list comments")
+and
+[get\_terms](/Function_Reference/get_terms "Function Reference/get terms")
+are common examples of the simplifying power of wp\_parse\_args.
+
+Functions that have an **\$args** based setting are able to infinitely
+expand the number of values that can potentially be passed into them,
+avoiding the annoyance of super-long function calls because there are
+too many arguments to keep track of, many of whose only function is to
+override usually-good defaults on rare occasions.
+
+Usage
+-----
+
+**wp\_parse\_args()** is used inside a function you are defining to
+process incoming arguments. Below is an example of how wp\_parse\_args()
+can merge an array of defaults with an array of mixed arguments.
+
+    /**
+     * Define the array of defaults
+     */ 
+    $defaults = array(
+        'type' => 'post',
+        'before' => "<p>",
+        'after' => "</p> \n",
+        'echo' => TRUE
+    );
+    /**
+     *  Parse incomming $args into an array and merge it with $defaults
+     */ 
+    $args = wp_parse_args( $args, $defaults );
+
+    /**
+     * OPTIONAL: Declare each item in $args as its own variable i.e. $type, $before.
+     */ 
+    extract( $args, EXTR_SKIP );
+
+Parameters
+----------
+
+ `$args` 
+:   ([*array/string*](/How_to_Pass_Tag_Parameters#Array.2Fstring "How to Pass Tag Parameters"))
+    (*required*) Query string or Array of mixed arguments that will
+    override the values in \$defaults.
+    Default: *None*
+
+Can be passed URL-query style
+
+    type=post&posts_per_page=5&cat=1
+
+Or as an array definition
+
+    array('type'=>'post', 'posts_per_page' => 5, 'cat' => '1')
+
+ `$defaults` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Array of default values that will be overriden by
+    \$args
+    Default: *None*
+
+Example
+-------
+
+Below is an example function using the wp\_parse\_args sytem to manage
+its single \$args argument, which could be given whatever values you
+wanted. In this case \$args stores detailed display overrides, a pattern
+found in many WordPress functions.
+
+    /**
+     * Define a new function that uses $args and wp_parse_args()
+     */
+    function explain_parse_args( $args ) {
+        $defaults = array (
+            'text' => 'wp_parse_args() merges $args into $defaults',
+            'before' => "<p>",
+            'after' => "</p> \n",
+            'echo' => TRUE
+        );
+        
+        // Parse incomming $args into an array and merge it with $defaults
+        $args = wp_parse_args( $args, $defaults );
+        
+        // OPTIONAL: Declare each item in $args as its own variable i.e. $type, $before.
+        extract( $args, EXTR_SKIP );
+
+        $output = $before . $text . $after;
+        
+        if (!$echo) 
+            return $output;
+        
+        echo $output;
+    }
+
+    /**
+     * Run our new function using the defaults (no $args)
+     * This would print out: 
+     *  <p>wp_parse_args() merges $args into $defaults</p>
+     */
+    explain_parse_args();
+
+    /**
+     * Run the function with some options overriden with an array
+     * This would echo the output with the modified text and before arguments:
+     *  <p class='specialclass'>A better explanation</p>
+     */
+    explain_parse_args( array (
+        'text' => "A better explanation",
+        'before' => "<p class='specialclass'>"
+    ) );
+
+    /**
+     * We can also pass in URL-style string-query and it will be converted
+     * This would set $args['echo'] to 1 and $args['text'] to 0 
+     */
+    explain_parse_args( 'echo=1&text=0' );
+
+Change Log
+----------
+
+Since: [2.2.0](/Version_2.2 "Version 2.2")
+
+Source File
+-----------
+
+`wp_parse_args()` is located in `wp-includes/functions.php`.
+

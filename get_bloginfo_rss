@@ -1,0 +1,83 @@
+Function Reference/get bloginfo rss « WordPress Codex
+-----------
+
+[RSS](http://en.wikipedia.org/wiki/Rss "wikipedia:Rss") container for
+the bloginfo function.
+
+You can retrieve anything that you can using the
+[`get_bloginfo()`](/Function_Reference/get_bloginfo "Function Reference/get bloginfo")
+function. Everything will be stripped of tags and characters converted,
+when the values are retrieved for use in the feeds.
+
+Usage
+-----
+
+` <?php get_bloginfo_rss( $show ) ?> `
+
+Parameters
+----------
+
+ `$show` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Informational detail about your blog. Valid values:
+    Default: ''
+
+-   `'name'` - Weblog title; set in General Options. (Default)
+-   `'description'` - Tagline for your blog; set in General Options.
+-   `'url'` - [URL](/Glossary#URI_and_URL "Glossary") for your blog's
+    web site address.
+-   `'rdf_url'` - URL for [RDF](/Glossary#RDF "Glossary")/RSS 1.0 feed.
+-   `'rss_url'` - URL for [RSS](/Glossary#RSS "Glossary") 0.92 feed.
+-   `'rss2_url'` - URL for RSS 2.0 feed.
+-   `'atom_url'` - URL for [Atom](/Glossary#Atom "Glossary") feed.
+-   `'comments_rss2_url'` - URL for comments RSS 2.0 feed.
+-   `'pingback_url'` - URL for [Pingback](/Glossary#PingBack "Glossary")
+    (XML-RPC file).
+-   `'admin_email'` - Administrator's email address; set in General
+    Options.
+-   `'charset'` - Character encoding for your blog; set in Reading
+    Options.
+-   `'version'` - Version of WordPress your blog uses.
+
+**The following work in WordPress version 1.5 or after:**
+
+-   `'html_type'` - "Content-type" for your blog.
+-   `'wpurl'` - URL for WordPress installation.
+-   `'template_url'` - URL for template in use.
+-   `'template_directory'` - URL for template's directory.
+-   `'stylesheet_url'` - URL for primary [CSS](/Glossary#CSS "Glossary")
+    file.
+-   `'stylesheet_directory'` - URL for stylesheet directory.
+
+Return Values
+-------------
+
+ (string) 
+:   
+
+Examples
+--------
+
+### RSS2 URL
+
+Assigns the URL of your blog's RSS2 feed to the variable \$rss2\_url.
+
+    <?php $rss2_url = get_bloginfo_rss('rss2_url'); ?>
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`get_bloginfo_rss`' hook with two parameters.
+
+Change Log
+----------
+
+Since: 1.5.1
+
+Source File
+-----------
+
+`get_bloginfo_rss()` is located in `wp-includes/feed.php`.
+

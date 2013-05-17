@@ -1,0 +1,53 @@
+Function Reference/wp get cookie login « WordPress Codex
+-----------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Gets the user cookie login.
+
+**This function is deprecated and should no longer be extended as it
+won't be used anywhere in WordPress. Also, plugins shouldn't use it
+either.**
+
+Usage
+-----
+
+` <?php wp_get_cookie_login() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (boolean) 
+:   Always returns false
+
+Examples
+--------
+
+Notes
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+-   **This function is deprecated and should no longer be extended as it
+    won't be used anywhere in WordPress. Also, plugins shouldn't use it
+    either.**
+
+Change Log
+----------
+
+-   Since: 2.0.4
+-   **Deprecated: 2.5.0**
+
+Source File
+-----------
+
+`wp_get_cookie_login()` is located in `wp-includes/pluggable.php`.
+

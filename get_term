@@ -1,0 +1,113 @@
+Function Reference/get term « WordPress Codex
+-----------
+
+Get all Term data from database by Term ID. To retrieve term data by
+name, slug or ID, use
+[get\_term\_by()](/Function_Reference/get_term_by "Function Reference/get term by")
+instead
+
+The usage of the get\_term function is to apply filters to a term
+object. It is possible to get a term object from the database before
+applying the filters.
+
+`$term` ID must be part of `$taxonomy`, to get from the database.
+Failure, might be able to be captured by the hooks. Failure would be the
+same value as [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+returns for the get\_row method.
+
+There are two hooks, one is specifically for each term, named
+'`get_term`', and the second is for the taxonomy name,
+'`term_$taxonomy`'. Both hooks gets the term object, and the taxonomy
+name as parameters. Both hooks are expected to return a Term object.
+
+'`get_term`' hook - Takes two parameters the term Object and the
+taxonomy name. Must return term object. Used in **`get_term()`** as a
+catch-all filter for every `$term`.
+
+'`get_$taxonomy`' hook - Takes two parameters the term Object and the
+taxonomy name. Must return term object. `$taxonomy` will be the taxonomy
+name, so for example, if '`category`', it would be '`get_category`' as
+the filter name. Useful for custom taxonomies or plugging into default
+taxonomies.
+
+Usage
+-----
+
+` <?php get_term( $term, $taxonomy, $output, $filter ) ?> `
+
+Parameters
+----------
+
+ `$term` 
+:   ([*integer|object*](/How_to_Pass_Tag_Parameters#Integer.7Cobject "How to Pass Tag Parameters"))
+    (*required*) If integer, will get from database. If object will
+    apply filters and return `$term`.
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Taxonomy name that `$term` is part of.
+    Default: *None*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Constant OBJECT, ARRAY\_A, or ARRAY\_N
+    Default: OBJECT
+
+ `$filter` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) default is raw or no WordPress defined filter will
+    applied.
+    Default: 'raw'
+
+Return Values
+-------------
+
+ (mixed|null|WP\_Error) 
+:   Term Row from database. Will return null if `$term` is empty. If
+    taxonomy does not exist then WP\_Error will be returned.
+
+Examples
+--------
+
+Get Term offers some handy information, but unfortunately lacks a link
+value.
+
+`$term = get_term( $term_id, $taxonomy );`
+
+Gives you term slug: e.g.: term-slug-example
+
+`$slug = $term->slug;`
+
+Gives you term name: e.g. Term Name Example
+
+`$name = $term->name;`
+
+Gives you term description: e.g. This is my new cool custom term.
+
+`$desc = $term->description;`
+
+Notes
+-----
+
+-   See
+    [`sanitize_term_field()`](/Function_Reference/sanitize_term_field "Function Reference/sanitize term field")
+    The `$context` param lists the available values for
+    [`get_term_by()`](/Function_Reference/get_term_by "Function Reference/get term by")
+    `$filter` param.
+-   Uses:
+    [`sanitize_term()`](/Function_Reference/sanitize_term "Function Reference/sanitize term")
+    Cleanses the term based on `$filter` context before returning.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+Change Log
+----------
+
+Since: 2.3.0
+
+Source File
+-----------
+
+`&get_term()` is located in `wp-includes/taxonomy.php`.
+

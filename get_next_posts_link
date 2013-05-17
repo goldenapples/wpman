@@ -1,0 +1,53 @@
+Function Reference/get next posts link « WordPress Codex
+-----------
+
+Return a link to the set of posts of the current page.
+
+Usage
+-----
+
+`  <?php echo get_next_posts_link( $label, $max_page ); ?> `
+
+Parameters
+----------
+
+ `$label` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The content for the link text
+    Default: Next Page »
+
+ `$max_page` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The max number of pages to split the posts into.
+    Default: 0
+
+Return Values
+-------------
+
+Link to next page if successful, otherwise null.
+
+Examples
+--------
+
+### Default Usage
+
+    <?php echo get_next_posts_link(); ?>
+
+### Custom Label
+
+    <?php echo get_next_posts_link('Go to next page'); ?>
+
+### Custom Label and Custom number of post pages
+
+    <?php echo get_next_posts_link('Go to next page',4); ?>
+
+Change Log
+----------
+
+Since 2.7.0
+
+Source File
+-----------
+
+`get_next_posts_link()` is located in `wp-includes/link-template.php`.
+

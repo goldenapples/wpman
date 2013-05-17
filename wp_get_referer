@@ -1,0 +1,45 @@
+Function Reference/wp get referer « WordPress Codex
+-----------
+
+Retrieve referer from '`_wp_http_referer`', HTTP referer, or current
+page respectively.
+
+Usage
+-----
+
+` <?php wp_get_referer() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string|boolean) 
+:   False on failure. Referer URL on success. If page "refered" (form
+    posted) to itself, returns false (because
+    \$\_SERVER['HTTP\_REFERER'] == \$\_REQUEST['\_wp\_http\_referer'])
+
+Examples
+--------
+
+` <?php if ( wp_get_referer() ){    wp_safe_redirect( wp_get_referer() );}else{    wp_safe_redirect( get_home_url() );}?> `
+
+Notes
+-----
+
+-   `HTTP referer` is a server variable. 'referer' is deliberately
+    miss-spelled.
+
+Change Log
+----------
+
+Since: 2.0.4
+
+Source File
+-----------
+
+`wp_get_referer()` is located in `wp-includes/functions.php`.
+

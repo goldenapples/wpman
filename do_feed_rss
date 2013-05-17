@@ -1,0 +1,44 @@
+Function Reference/do feed rss « WordPress Codex
+-----------
+
+Load the
+[RDF](http://en.wikipedia.org/wiki/Resource_Description_Framework "wikipedia:Resource Description Framework")
+[RSS](http://en.wikipedia.org/wiki/Rss "wikipedia:Rss") 1.0 Feed
+template.
+
+Usage
+-----
+
+` <?php do_feed_rss() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`load_template()`](/Function_Reference/load_template "Function Reference/load template")
+    to load feed template.
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`do_feed_rss()` is located in `wp-includes/functions.php`.
+

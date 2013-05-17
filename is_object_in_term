@@ -1,0 +1,56 @@
+Function Reference/is object in term « WordPress Codex
+-----------
+
+Determines if the given object is associated with any of the given
+terms.
+
+The given terms are checked against the object’s terms’ term\_ids, names
+and slugs. Terms given as integers will only be checked against the
+object’s terms’ term\_ids. If no terms are given, determines if object
+is associated with any terms in the given taxonomy.
+
+Usage
+-----
+
+` <?php is_object_in_term( $object_id, $taxonomy, $terms = null ) ?> `
+
+Parameters
+----------
+
+ `$object_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of the object to check. (post ID, link ID, etc.)
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) A single taxonomy name.
+    Default: *None*
+
+ `$terms` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The term ID, name or slug or an array of such.
+    Default: NULL
+
+Examples
+--------
+
+    <?php
+    if ( is_object_in_term( $post->ID, 'custom_taxonomy_name', 'term_name' ) ) :
+        echo 'YES';
+    else :
+        echo 'NO';
+    endif;
+    ?>
+
+Notes
+-----
+
+Changelog
+---------
+
+Source File
+-----------
+
+`is_object_in_term()` is located in `wp-includes/taxonomy.php`.
+

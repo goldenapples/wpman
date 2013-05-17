@@ -1,0 +1,110 @@
+Function Reference/wp add inline style « WordPress Codex
+-----------
+
+Adds extra CSS.
+
+Works only if the stylesheet has already been added. Accepts a string
+\$data containing the CSS. If two or more CSS code blocks are added to
+the same stylesheet \$handle, they will be printed in the order they
+were added, i.e. the latter added styles can redeclare the previous.
+
+Usage
+-----
+
+` <?php wp_add_inline_style( $handle, $data ); ?> `
+
+Parameters
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the script to which to add the extra styles.
+    Lowercase string.
+    Default: *None*
+
+ `$data` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) String containing the CSS to be added.
+    Default: *None*
+
+Examples
+--------
+
+`wp_add_inline_style` allows you to print extra stying whenever a
+certain stylesheet is loaded. For instance suppose a plug-in or theme
+makes use of the class `.mycolor` in a stylesheet to set a background
+color. This can be over-ridden by a user chosen color, stored in the
+database by using `wp_add_inline_style` to print the extra styling.
+
+\
+
+    <?php
+    function my_styles_method() {
+        wp_enqueue_script(
+            'custom-style',
+            get_template_directory_uri() . '/css/custom_script.css'
+        );
+            $color = get_theme_mod( 'my-custom-color' ); //E.g. #FF0000
+            $custom_css = "
+                    .mycolor{
+                            background: {$color};
+                    }";
+            wp_add_inline_style( 'custom-style', $custom_css );
+    }
+    add_action( 'wp_enqueue_scripts', 'my_styles_method' );
+    ?>
+
+Change Log
+----------
+
+Since: [3.3](/Version_3.3 "Version 3.3")
+
+Source File
+-----------
+
+`wp_add_inline_style()` is located in
+`wp-includes/functions.wp-styles.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_add\_inline\_style](http://codex.wordpress.org/Function_Reference/wp_add_inline_style)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

@@ -1,0 +1,46 @@
+Function Reference/get userdatabylogin « WordPress Codex
+-----------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Retrieve user info by login name.
+
+Usage
+-----
+
+` <?php get_userdatabylogin( $user_login ) ?> `
+
+Parameters
+----------
+
+ `$user_login` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) User's username
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean|object)` 
+:   False on failure. User DB row object on success.
+
+Notes
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+
+Change Log
+----------
+
+Since: 0.71. Deprecated since: 3.3.
+
+Source File
+-----------
+
+`get_userdatabylogin()` is located in
+`wp-includes/pluggable-deprecated.php`.
+

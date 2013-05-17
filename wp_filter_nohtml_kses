@@ -1,0 +1,44 @@
+Function Reference/wp filter nohtml kses « WordPress Codex
+-----------
+
+Strips all of the
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") in the
+content.
+
+Usage
+-----
+
+` <?php wp_filter_nohtml_kses( $data ) ?> `
+
+Parameters
+----------
+
+ `$data` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to strip all
+    [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") from
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Filtered content without any
+    [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML")
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_filter_nohtml_kses()` is located in `wp-includes/kses.php`.
+

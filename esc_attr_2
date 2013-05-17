@@ -1,0 +1,41 @@
+Function Reference/esc attr 2 « WordPress Codex
+-----------
+
+Retrieves the translation of \$text and escapes it for safe use in an
+attribute. If there is no translation, or the domain isn't loaded the
+original text is returned.
+
+Usage
+-----
+
+` <?php esc_attr__( $text, $domain ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to translate.
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text.
+    Default: 'default'
+
+Return Values
+-------------
+
+ (string) 
+:   Translated and escaped text.
+
+Change Log
+----------
+
+-   Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`esc_attr__()` is located in `wp-includes/l10n.php`.
+

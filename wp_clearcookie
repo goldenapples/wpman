@@ -1,0 +1,53 @@
+Function Reference/wp clearcookie « WordPress Codex
+-----------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Clears the authentication cookie, logging the user out.
+
+**This function is deprecated. Use
+[`wp_clear_auth_cookie()`](/Function_Reference/wp_clear_auth_cookie "Function Reference/wp clear auth cookie")
+instead.**
+
+Usage
+-----
+
+` <?php wp_clearcookie(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+-   **This function is deprecated. Use
+    [`wp_set_auth_cookie()`](/Function_Reference/wp_set_auth_cookie "Function Reference/wp set auth cookie")
+    instead.**
+
+Change Log
+----------
+
+-   Since: 1.5
+-   Deprecated: 2.5.0
+
+Source File
+-----------
+
+`wp_clearcookie()` is located in `wp-includes/pluggable.php`.
+

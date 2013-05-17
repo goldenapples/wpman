@@ -1,0 +1,82 @@
+Function Reference/ n « WordPress Codex
+-----------
+
+Retrieve the plural or single form based on the amount.
+
+If the domain is not set in the `$l10n` list, then a comparison will be
+made and either `$plural` or `$single` parameters returned.
+
+If the domain does exist, then the parameters `$single`, `$plural`, and
+`$number` will first be passed to the domain's `ngettext()` method. Then
+it will be passed to the 'ngettext' filter hook along with the same
+parameters. The expected type will be a string.
+
+Usage
+-----
+
+` <?php _n( $single, $plural, $number, $domain ) ?> `
+
+Parameters
+----------
+
+ `$single` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text that will be used if \$number is 1
+    Default: *None*
+
+ `$plural` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text that will be used if \$number is not 1
+    Default: *None*
+
+ `$number` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) The number to compare against to use either \$single or
+    \$plural
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text
+    Default: 'default'
+
+Return Values
+-------------
+
+ (string) 
+:   Either \$single or \$plural translated text.
+
+Examples
+--------
+
+Display either "1 star" or "x stars" for a star rating plugin.
+
+    $rating = '3';
+
+    $text = sprintf( _n( '1 star', '%s stars', $rating, 'appthemes' ), $rating );
+
+    // "3 stars"
+    echo $text;
+
+Example from /wp-admin/edit-comments.php without the use of a text
+domain for translation.
+
+    if ( $approved > 0 )
+        $messages[] = sprintf( _n( '%s comment approved', '%s comments approved', $approved ), $approved );
+
+Notes
+-----
+
+-   Uses the 'ngettext' filter.
+-   *l10n* is an abbreviation for *localization*.
+
+Change Log
+----------
+
+-   Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`_n()` is located in `wp-includes/l10n.php`.
+

@@ -1,0 +1,37 @@
+Function Reference/is dynamic sidebar « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the current [sidebar](/Sidebars "Sidebars") has active widgets. This is
+a boolean function, meaning it returns either TRUE or FALSE.
+
+Usage
+-----
+
+`  <?php is_dynamic_sidebar(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True if the current sidebar has active widgets, otherwise the
+    function returns false
+
+Examples
+--------
+
+Change Log
+----------
+
+Since: 2.2.0
+
+Source File
+-----------
+
+`is_dynamic_sidebar()` is located in `wp-includes/widgets.php`.
+

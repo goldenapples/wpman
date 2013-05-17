@@ -1,0 +1,75 @@
+Function Reference/wp embed register handler « WordPress Codex
+-----------
+
+Register an embed handler. If the site in question supports oEmbed,
+consider using
+[`wp_oembed_add_provider()`](/Function_Reference/wp_oembed_add_provider "Function Reference/wp oembed add provider")
+instead. See the [Embeds](/Embeds "Embeds") document for more details.
+
+This function should be called from a plugin or a theme's
+[`functions.php`](/Theme_Development#Theme_Functions_File "Theme Development")
+file.
+
+Usage
+-----
+
+`  <?php wp_embed_register_handler( $id, $regex, $callback, $priority ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) An internal ID/name for the handler. Needs to be
+    unique.
+    Default: *None*
+
+ `$regex` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The regex that will be used to see if this handler
+    should be used for a URL.
+    Default: *None*
+
+ `$callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) The callback function that will be called if the regex
+    is matched.
+    Default: *None*
+
+ `$priority` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Used to specify the order in which the registered
+    handlers will be tested (default: 10). Lower numbers correspond with
+    earlier testing, and handlers with the same priority are tested in
+    the order in which they were added to the action.
+    Default: 10
+
+Examples
+--------
+
+Register an embed handler for Forbes video embeds.
+
+    <?php
+
+    wp_embed_register_handler( 'forbes', '#http://(?:www|video)\.forbes\.com/(?:video/embed/embed\.html|embedvideo/)\?show=([\d]+)&format=frame&height=([\d]+)&width=([\d]+)&video=(.+?)($|&)#i', 'wp_embed_handler_forbes' );
+
+    function wp_embed_handler_forbes( $matches, $attr, $url, $rawattr ) {
+
+        $embed = sprintf(
+                '<iframe src="http://www.forbes.com/video/embed/embed.html?show=%1$s&format=frame&height=%2$s&width=%3$s&video=%4$s&mode=render" width="%3$spx" height="%2$spx" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"></iframe>',
+                esc_attr($matches[1]),
+                esc_attr($matches[2]),
+                esc_attr($matches[3]),
+                esc_attr($matches[4])
+                );
+
+        return apply_filters( 'embed_forbes', $embed, $matches, $attr, $url, $rawattr );
+    }
+
+    ?>
+
+Change Log
+----------
+
+Since: 2.9.0
+

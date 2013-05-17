@@ -1,0 +1,58 @@
+Function Reference/plugin basename « WordPress Codex
+-----------
+
+Gets the path to a plugin file or directory, relative to the
+[plugins](/Glossary#Plugin "Glossary") directory, without the leading
+and trailing slashes.
+
+Usage
+-----
+
+`  <?php plugin_basename($file); ?> `
+
+Parameters
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Absolute path to a plugin file or directory within the
+    plugins directory.
+    Default: *None*
+
+Return
+------
+
+ `` `(string)`{style="color:gray"} 
+:   Path to a plugin file or directory, relative to the plugins
+    directory (without the leading and trailing slashes).
+
+Example
+-------
+
+If your plugin file is located at
+*/home/www/wp-content/plugins/**my-plugin/my-plugin.php***, and you
+call:
+
+    $x = plugin_basename(__FILE__);
+
+The `$x` variable will equal to "***my-plugin/my-plugin.php***".
+
+Notes
+-----
+
+-   Uses both the `WP_PLUGIN_DIR` and `WPMU_PLUGIN_DIR` constants
+    internally, to test for and strip the plugins directory path from
+    the `$file` path. Note that the direct usage of WordPress internal
+    consants [is not
+    recommended](/Determining_Plugin_and_Content_Directories "Determining Plugin and Content Directories").
+
+Change Log
+----------
+
+-   Since: [1.5](/Version_1.5 "Version 1.5")
+
+Source File
+-----------
+
+`plugin_basename()` is located in `wp-includes/plugin.php`.
+

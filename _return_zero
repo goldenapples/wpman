@@ -1,0 +1,28 @@
+Function Reference/ return zero « WordPress Codex
+-----------
+
+Returns 0.
+
+Useful for returning 0 to filters easily.
+
+Usage
+-----
+
+``  <?php // This will add a filter on `example_filter` that returns 0add_filter('example_filter', '__return_zero'); ?>  ``
+
+Return Values
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   true
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`__return_zero()` is located in `wp-includes/functions.php`
+

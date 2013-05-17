@@ -1,0 +1,45 @@
+Function Reference/wp « WordPress Codex
+-----------
+
+Setup the WordPress query.
+
+Usage
+-----
+
+` <?php wp( $query_vars ) ?> `
+
+Parameters
+----------
+
+ `$query_vars` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Default WP\_Query arguments.
+    Default: ''
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`object`) `$wp`
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+-   Uses global: (`object`) `$wp_the_query`
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`wp()` is located in `wp-includes/functions.php`.
+

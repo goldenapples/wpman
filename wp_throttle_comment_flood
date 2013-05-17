@@ -1,0 +1,52 @@
+Function Reference/wp throttle comment flood « WordPress Codex
+-----------
+
+Determine whether comment should be blocked because of comment flood.
+
+Usage
+-----
+
+` <?php wp_throttle_comment_flood( $block, $time_lastcomment, $time_newcomment ) ?> `
+
+Parameters
+----------
+
+ `$block` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*required*) True if plugin is blocking comments.
+    Default: *None*
+
+ `$time_lastcomment` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Timestamp for last comment.
+    Default: *None*
+
+ `$time_newcomment` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Timestamp for new comment.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   Returns true if `$block` is true or if `$block` is false and
+    `$time_newcomment - $time_lastcomment < 15`. Returns false
+    otherwise.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_throttle_comment_flood()` is located in `wp-includes/comment.php`.
+

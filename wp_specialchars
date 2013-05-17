@@ -1,0 +1,62 @@
+Function Reference/wp specialchars « WordPress Codex
+-----------
+
+**This function is deprecated as of WordPress 2.8.0. Please use
+[esc\_html](/Function_Reference/esc_html "Function Reference/esc html")
+instead.**
+
+Converts a number of special characters into their HTML entities.
+
+Differs from
+[`htmlspecialchars`](http://us.php.net/manual/en/function.htmlspecialchars.php "http://us.php.net/manual/en/function.htmlspecialchars.php")
+as existing HTML entities will not be encoded. Specifically changes: `&`
+to `&#038;`, `<` to `&lt;` and `>` to `&gt;`.
+
+`$quotes` can be set to '`single`' to encode `'` to `&#039;`, '`double`'
+to encode `"` to `&quot;`, or '`1`' to do both. Default is `0` where no
+quotes are encoded.
+
+Usage
+-----
+
+` <?php wp_specialchars( $text, $quotes ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text which is to be encoded.
+    Default: *None*
+
+ `$quotes` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Converts single quotes if set to '`single`', double if
+    set to '`double`' or both if otherwise set.
+    Default: 0
+
+Return Values
+-------------
+
+ (string) 
+:   The encoded text with HTML entities.
+
+Examples
+--------
+
+Notes
+-----
+
+-   [`htmlspecialchars`](http://us.php.net/manual/en/function.htmlspecialchars.php "http://us.php.net/manual/en/function.htmlspecialchars.php")
+    (noted in the description) is a PHP built-in function.
+
+Change Log
+----------
+
+Since: 1.2.2
+
+Source File
+-----------
+
+`wp_specialchars()` is located in `wp-includes/formatting.php`.
+

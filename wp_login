@@ -1,0 +1,58 @@
+Function Reference/wp login « WordPress Codex
+-----------
+
+Checks a user's login information and logs them in if it checks out.
+
+Replace With
+------------
+
+-   [wp\_signon()](/Function_Reference/wp_signon "Function Reference/wp signon")
+
+Usage
+-----
+
+`  <?php  wp_login( $username, $password, $deprecated ); ?> `
+
+Parameters
+----------
+
+ \$username 
+:   (string) User's username
+
+ \$password 
+:   (string) User's password
+
+ \$deprecated 
+:   (string) Not used
+
+Return
+------
+
+ (bool) 
+:   False on login failure, true on successful check
+
+Use the global \$error to get the reason why the login failed. If the
+username is blank, no error will be set, so assume blank username on
+that case.
+
+Plugins extending this function should also provide the global \$error
+and set what the error is, so that those checking the global for why
+there was a failure can utilize it later.
+
+Examples
+--------
+
+Notes
+-----
+
+-   See Also:
+    [wp\_logout()](/Function_Reference/wp_logout "Function Reference/wp logout")
+
+Change Log
+----------
+
+-   Since: 1.2.2
+-   Deprecated: 2.5
+-   Replaced By:
+    [wp\_signon()](/Function_Reference/wp_signon "Function Reference/wp signon")
+

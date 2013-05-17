@@ -1,0 +1,56 @@
+Function Reference/wp hash « WordPress Codex
+-----------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Get hash of given string.
+
+Usage
+-----
+
+` <?php wp_hash( $data, $scheme ) ?> `
+
+Parameters
+----------
+
+ `$data` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Plain text to hash.
+    Default: *None*
+
+ `$scheme` 
+:   ([*unknown*](/How_to_Pass_Tag_Parameters#Unknown "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: 'auth'
+
+Return Values
+-------------
+
+ (string) 
+:   Hash of `$data`
+
+Examples
+--------
+
+Notes
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+-   Uses:
+    [`wp_salt()`](/Function_Reference/wp_salt "Function Reference/wp salt")
+    Get WordPress salt.
+
+Change Log
+----------
+
+Since: 2.0.4
+
+Source File
+-----------
+
+`wp_hash()` is located in `wp-includes/pluggable.php`.
+

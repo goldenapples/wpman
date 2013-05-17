@@ -1,0 +1,47 @@
+Function Reference/get super admins « WordPress Codex
+-----------
+
+Retrieve a list of super admins.
+
+Uses \$super\_admins Super admins global variable, if set.
+
+Usage
+-----
+
+`  <?php get_super_admins(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   List of super admin logins
+
+Examples
+--------
+
+### Display a list of super admin users
+
+    <?php
+    $super_admins = get_super_admins();
+    echo 'List of super-admin users:<ul>';
+    foreach ($super_admins as $admin) {
+      echo '<li>' . $admin . '</li>';
+    }
+    echo '</ul>';
+    ?>
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+get\_super\_admins() is located in `wp-includes/capabilities.php`
+

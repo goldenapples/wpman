@@ -1,0 +1,68 @@
+Function Reference/get the ID « WordPress Codex
+-----------
+
+Retrieve the numeric ID of the current post. This tag must be within
+[The Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php get_the_ID(); ?> `
+
+Parameters
+----------
+
+This tag has no parameters.
+
+Returns
+-------
+
+ `ID` `(int)`{style="color:gray"} 
+:   The ID of the current post.
+
+Examples
+--------
+
+### Store the ID
+
+The ID can be stored as a variable using
+`  <?php $postid = get_the_ID(); ?> `
+
+### Post Anchor Identifier
+
+`get_the_ID()` Can be used to provide a unique anchor in a script. For
+instance, a dynamically-generated drop down menu with actions for each
+post in an archive could have
+
+    <?php
+    $id = get_the_ID();
+    $dropdown = "<select name='dropdown-".$id."' >";
+    $dropdown .= "<option id='option1-". $id ."'>Option 1</option>";
+    $dropdown .= "</select>";
+    ?>
+
+This would allow us to use JavaScript to control the element as it has a
+unique ID, and when submitting it as a form through the POST or GET
+methods the dropdown box will be sent with a unique ID which allows the
+script to note which post it is working on. Alternatively a hidden
+variable could be sent which will allow the script to see which post the
+submission is referring to
+
+    <?php
+    echo '<input type="hidden" name="activepost" id="activepost" value="'.get_the_ID().'" />';
+    ?>
+
+If the ID is not called within PHP, then we can use
+[`the_ID`](/Template_Tags/the_ID "Template Tags/the ID") rather than
+`echo get_the_ID();`
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`get_the_ID()` is located in `wp-includes/post-template.php`.
+

@@ -1,0 +1,37 @@
+Function Reference/cache javascript headers « WordPress Codex
+-----------
+
+Set the headers for caching for 10 days with JavaScript content type.
+
+Usage
+-----
+
+` <?php cache_javascript_headers() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`cache_javascript_headers()` is located in `wp-includes/functions.php`.
+

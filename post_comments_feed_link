@@ -1,0 +1,53 @@
+Function Reference/post comments feed link « WordPress Codex
+-----------
+
+Prints out the comment feed link for a post. Link text is placed in the
+anchor. If no link text is specified, default text is used. If no post
+ID is specified, the current post is used.
+
+Usage
+-----
+
+`  <?php   post_comments_feed_link( $link_text = 'link_text', $post_id = 'post_id',         $feed = 'feed_type' );?> `
+
+Parameters
+----------
+
+ `$link_text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Descriptive text.
+    Default: 'Comments Feed'
+
+ `$post_id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Post ID.
+    Default: Current post
+
+ `$feed` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Type of feed. Possible values: atom, rdf, rss, rss2.
+    Default: rss2
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Link to the comment feed for the current post.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+post\_comments\_feed\_link() is located in
+`wp-includes/link-template.php`
+

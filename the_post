@@ -1,0 +1,51 @@
+Function Reference/the post « WordPress Codex
+-----------
+
+Iterate the post index in [The Loop](/The_Loop "The Loop"). Retrieves
+the next post, sets up the post, sets the 'in the loop' property to
+true.
+
+Usage
+-----
+
+` <?php the_post(); ?> `
+
+Parameters
+----------
+
+This function does not accept any parameters.
+
+Return Values
+-------------
+
+This function does not return any values.
+
+Examples
+--------
+
+    <?php
+    while ( have_posts() ) : the_post();
+        echo '<h2>';
+        the_title();
+        echo '</h2>';
+        the_content();
+    endwhile;
+    ?>
+
+Notes
+-----
+
+-   Uses: \$wp\_query
+-   See:
+    [WP\_Query::the\_post()](/Class_Reference/WP_Query "Class Reference/WP Query")
+
+Change Log
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+Source File
+-----------
+
+`the_post()` is located in `wp-includes/query.php`.
+

@@ -1,0 +1,41 @@
+Function Reference/the author lastname « WordPress Codex
+-----------
+
+This tag displays the last name for the author of a post. The **Last
+Name** field is set in the user's profile
+([Administration](/Administration_Panels "Administration Panels") \>
+[Profile](/Administration_Panels#Your_Profile "Administration Panels")
+\> [Your Profile](/Your_Profile_SubPanel "Your Profile SubPanel")). This
+tag must be used within [The Loop](/The_Loop "The Loop").
+
+Replace With
+------------
+
+-   [the\_author\_meta('last\_name')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+
+Usage
+-----
+
+`  <?php the_author_lastname(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Example
+-------
+
+Displays author's first and last name.
+
+    <p>Post author: 
+    <?php the_author_firstname(); ?> <?php the_author_lastname(); ?></p>
+
+Change Log
+----------
+
+-   Since: 0.71
+-   Deprecated: 2.8.0
+-   Replace By:
+    [the\_author\_meta('last\_name')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+

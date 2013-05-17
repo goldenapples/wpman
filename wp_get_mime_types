@@ -1,0 +1,42 @@
+Function Reference/wp get mime types « WordPress Codex
+-----------
+
+Retrieve list of mime types and file extensions.
+
+Usage
+-----
+
+    <?php $mime_types = wp_get_mime_types() ?>
+
+Parameters
+----------
+
+Return Values
+-------------
+
+ (array) 
+:   Array of mime types keyed by the file extension regex corresponding
+    to those types.
+
+Examples
+--------
+
+### Default Usage
+
+Notes
+-----
+
+Applies the filter `mime_types` to return value, passing the array of
+mime types. This filter should be used to add types, not remove them. To
+remove types use the `upload_mimes` filter.
+
+Change Log
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+Source File
+-----------
+
+`wp_get_mime_types()` is located in `wp-includes/functions.php`
+

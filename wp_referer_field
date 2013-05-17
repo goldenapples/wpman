@@ -1,0 +1,47 @@
+Function Reference/wp referer field « WordPress Codex
+-----------
+
+Retrieves or displays the referer hidden form field.
+
+The referer field value will be the value of the *'REQUEST\_URI'*
+element of the
+[\$\_SERVER](http://php.net/manual/en/reserved.variables.server.php "http://php.net/manual/en/reserved.variables.server.php")
+PHP superglobal variable, and the field name will be
+*'\_wp\_http\_referer'*, in case you wanted to check manually.
+
+Usage
+-----
+
+` <?php wp_referer_field( $echo ) ?> `
+
+Parameters
+----------
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to display or return the referer hidden form
+    field.
+    Default: true
+
+Return Values
+-------------
+
+ (string) 
+:   Referer field.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.0.4
+
+Source File
+-----------
+
+`wp_referer_field()` is located in `wp-includes/functions.php`.
+

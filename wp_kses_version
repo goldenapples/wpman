@@ -1,0 +1,40 @@
+Function Reference/wp kses version « WordPress Codex
+-----------
+
+This function returns the
+[`kses`](http://sourceforge.net/projects/kses "http://sourceforge.net/projects/kses")
+version number.
+
+Usage
+-----
+
+` <?php wp_kses_version() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   [`KSES`](http://sourceforge.net/projects/kses "http://sourceforge.net/projects/kses")
+    Version Number
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_kses_version()` is located in `wp-includes/kses.php`.
+

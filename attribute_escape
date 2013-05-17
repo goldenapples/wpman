@@ -1,0 +1,26 @@
+Function Reference/attribute escape « WordPress Codex
+-----------
+
+**This function is deprecated as of WordPress 2.8.0. Please use
+[esc\_attr](/Function_Reference/esc_attr "Function Reference/esc attr")
+instead.**
+
+This function escapes or encodes HTML special characters (including
+single and double quotes) for use in HTML attributes. It works like the
+standard PHP `htmlspecialchars` except that it doesn't double-encode
+HTML entities (i.e. `&amp;` will remain unchanged, rather than encoded
+to `&amp;amp;`).
+
+`attribute_escape` can be found in `/wp-includes/formatting.php`.
+
+Usage
+-----
+
+` <?php echo attribute_escape($text); ?> `
+
+Parameters
+----------
+
+`$text`
+:   (*string*) Text to be escaped.
+

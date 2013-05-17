@@ -1,0 +1,140 @@
+Function Reference/get the category « WordPress Codex
+-----------
+
+Returns an array of objects, one object for each category assigned to
+the post. This tag may be used outside [The Loop](/The_Loop "The Loop")
+by passing a post id as the parameter.
+
+This function only returns results from the default "category" taxonomy.
+For custom taxonomies use
+[get\_the\_terms](/Function_Reference/get_the_terms "Function Reference/get the terms").
+
+Usage
+-----
+
+    <?php get_the_category( $id ) ?>
+
+Parameters
+----------
+
+ `id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The post id.
+    Default: \$post-\>ID (The current post ID)
+
+Examples
+--------
+
+### Show All Categories as Links
+
+This outputs all the categories assigned to the post as links. Must be
+used inside the loop. You can also use the function
+[get\_the\_category\_list()](/Function_Reference/get_the_category_list "Function Reference/get the category list")
+for this.
+
+    <?php
+    $categories = get_the_category();
+    $separator = ' ';
+    $output = '';
+    if($categories){
+        foreach($categories as $category) {
+            $output .= '<a href="'.get_category_link( $category->term_id ).'" title="' . esc_attr( sprintf( __( "View all posts in %s" ), $category->name ) ) . '">'.$category->cat_name.'</a>'.$separator;
+        }
+    echo trim($output, $separator);
+    }
+    ?>
+
+### Show Category Images
+
+This outputs category images named after the `cat_ID` with the `alt`
+attribute set to `cat_name`. You can also use any of the other member
+variables instead.
+
+    <?php 
+    foreach((get_the_category()) as $category) { 
+        echo '<img src="http://example.com/images/' . $category->cat_ID . '.jpg" alt="' . $category->cat_name . '" />'; 
+    } 
+    ?>
+
+### Show the First Category Name Only
+
+    <?php
+    $category = get_the_category(); 
+    echo $category[0]->cat_name;
+    ?>
+
+(Echoes the first array ([0]) of \$category.)
+
+Make the first category link to the category page.
+
+    <?php 
+    $category = get_the_category(); 
+    if($category[0]){
+    echo '<a href="'.get_category_link($category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
+    }
+    ?>
+
+### Get the Post Categories From Outside the Loop
+
+    <?php
+    global $post;
+    $categories = get_the_category($post->ID);
+    var_dump($categories);
+    ?>
+
+Return Values
+-------------
+
+ `(array)` 
+:   Array of Category Objects
+
+### Member Variables in Returned Objects
+
+term\_id 
+:   string '1'
+name 
+:   string 'Cat Name'
+slug 
+:   string 'cat-slug'
+term\_group 
+:   string '0'
+term\_taxonomy\_id 
+:   string '1'
+taxonomy 
+:   string 'category'
+description 
+:   string **
+parent 
+:   string '0'
+count 
+:   string '1'
+object\_id 
+:   string '1'
+cat\_ID 
+:   string '1' - the category id (also stored as 'term\_id')
+category\_count 
+:   string '1' - the number of uses of this category (also stored as
+    'count')
+category\_description 
+:   string 'description' - the category description (also stored as
+    'description')
+cat\_name 
+:   string 'Cat Name' - the category name (also stored as 'name')
+category\_nicename 
+:   string 'cat-slug' - a slug generated from the category name (also
+    stored as 'slug')
+category\_parent 
+:   string '0' - the category id of the current category's parent. '0'
+    for no parents. (also stored as 'parent')
+
+Changelog
+---------
+
+-   Since: [0.71](/Version_0.71 "Version 0.71")
+
+Source Code
+-----------
+
+-   `get_the_category()` is located in
+    `wp-includes/category-template.php`
+

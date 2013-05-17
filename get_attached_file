@@ -1,0 +1,60 @@
+Function Reference/get attached file « WordPress Codex
+-----------
+
+Retrieve attached file path based on attachment ID.
+
+You can optionally send it through the 'get\_attached\_file' filter, but
+by default it will just return the file path unfiltered.
+
+The function works by getting the single post meta name, named
+'`_wp_attached_file`' and returning it. This is a convenience function
+to prevent looking up the meta name and provide a mechanism for sending
+the attached file name through a filter.
+
+Usage
+-----
+
+` <?php get_attached_file( $attachment_id, $unfiltered ); ?> `
+
+Parameters
+----------
+
+ `$attachment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Attachment ID.
+    Default: *None*
+
+ `$unfiltered` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to apply filters or not.
+    Default: false
+
+Return Values
+-------------
+
+ `(string)` 
+:   The file path to the attached file.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    to call **`get_attached_file()`** on file path and `$attachment_id`.
+-   Uses:
+    [`get_post_meta()`](/Function_Reference/get_post_meta "Function Reference/get post meta")
+    on `$attachment_id`, the '`_wp_attached_file`' meta name.
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`get_attached_file()` is located in `wp-includes/post.php`.
+

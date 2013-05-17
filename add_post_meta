@@ -1,0 +1,122 @@
+Function Reference/add post meta « WordPress Codex
+-----------
+
+Adds a [custom field](/Custom_Fields "Custom Fields") (also called
+*meta-data*) to a specified post which could be of any [post
+type](/Post_Types "Post Types"). A custom field is effectively a
+key–value pair.
+
+Note that if the given key already exists among custom fields of the
+specified post, another custom field with the same key is added unless
+the `$unique` argument is set to *true*, in which case, no changes are
+made. If you want to update the value of an existing key, use the
+`update_post_meta()` function instead.
+
+Usage
+-----
+
+`  <?php add_post_meta($post_id, $meta_key, $meta_value, $unique); ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the post to which a custom field should be
+    added.
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The key of the custom field which should be added.
+    Default: *None*
+
+ `$meta_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The value of the custom field which should be added. If
+    an array is given, it will be serialized into a string.
+    Default: *None*
+
+ `$unique` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether or not you want the key to stay unique. When
+    set to *true*, the custom field will not be added if the given key
+    already exists among custom fields of the specified post.
+    Default: false
+
+Return
+------
+
+ `` `(boolean)`{style="color:gray"} 
+:   Boolean *true*, except if the `$unique` argument was set to *true*
+    and a custom field with the given key already exists, in which case
+    *false* is returned.
+
+Examples
+--------
+
+### Default Usage
+
+    <?php add_post_meta(68, 'my_key', 47); ?>
+
+### Adding or Updating a Unique Custom Field
+
+Adds a new custom field if the key does not already exist, or updates
+the value of the custom field with that key otherwise.
+
+     <?php add_post_meta( 7, 'fruit', 'banana', true ) || update_post_meta( 7, 'fruit', 'banana' ); ?>
+
+The following will have the same effect:
+
+    <?php if ( ! update_post_meta (7, 'fruit', 'banana' ) ) add_post_meta( 7, 'fruit', 'banana' ); ?>
+
+### Other Examples
+
+Adds a new custom field only if a custom field with the given key does
+not already exists:
+
+    <?php add_post_meta(68, 'my_key', '47', true); ?>
+
+Adds several custom fields with different values but with the same key
+*'my\_key'*:
+
+    <?php add_post_meta(68, 'my_key', '47'); ?>
+    <?php add_post_meta(68, 'my_key', '682'); ?>
+    <?php add_post_meta(68, 'my_key', 'The quick, brown fox jumped over the lazy dog.'); ?>
+    ...
+
+For a more detailed example, see the `post_meta Functions Examples`
+page.
+
+### Making a Hidden Custom Field
+
+If you are a plugin or theme developer and you are planning to use
+custom fields to store parameters related to your plugin or template, it
+is interesting to note that WordPress will not show custom fields which
+have keys starting with an *"\_"* (underscore) in the custom fields list
+on the [post edit](/Writing_Posts "Writing Posts") screen or when using
+the `the_meta()` template function. This can be for example used to show
+these custom fields in an unusual way by using the `add_meta_box()`
+function.
+
+The following example:
+
+    <?php add_post_meta(68, '_color', 'red', true); ?>
+
+will add a unique custom field with the key name *'\_color'* and the
+value *'red'* but this custom field will not display in the post edit
+screen.
+
+In addition, if the `$meta_value` argument is an array, it will not be
+displayed on the page edit screen too.
+
+Source Code
+-----------
+
+`add_post_meta()` is located in `wp-includes/post.php`
+
+Change Log
+----------
+
+Since [1.5.0](/Version_1.5 "Version 1.5")
+

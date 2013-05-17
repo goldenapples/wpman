@@ -1,0 +1,70 @@
+Function Reference/zeroise « WordPress Codex
+-----------
+
+Add leading zeros when necessary.
+
+If you set the threshold to '`4`' and the number is '`10`', then you
+will get back '`0010`'. If you set the threshold to '`4`' and the number
+is '`5000`', then you will get back '`5000`'.
+
+Uses
+[sprintf](http://www.php.net/manual/en/function.sprintf.php "http://www.php.net/manual/en/function.sprintf.php")
+to append the amount of zeros based on the `$threshold` parameter and
+the size of the number. If the number is large enough, then no zeros
+will be appended.
+
+Usage
+-----
+
+` <?php zeroise( $number, $threshold ); ?> `
+
+Parameters
+----------
+
+ `$number` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Number to append zeros to if not greater than
+    threshold.
+    Default: *None*
+
+ `$threshold` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Digit places number needs to be to not have zeros
+    added.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Adds leading zeros to number if needed.
+
+Examples
+--------
+
+### Leading Zeros on Number of Comments
+
+This example allows you to add leading zeros tp the number of comments
+(used within the loop). In the particular example shown below, the
+threshold is set to 2, so single digit numbers will have a zero added,
+and numbers in the tens and higher will not. For example, 1 will be
+displayed as 01.
+
+    <?php
+        $comno = get_comments_number();
+        echo zeroise($comno, 2);
+    ?>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`zeroise()` is located in `wp-includes/formatting.php`.
+

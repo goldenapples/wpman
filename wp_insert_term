@@ -1,0 +1,116 @@
+Function Reference/wp insert term « WordPress Codex
+-----------
+
+Adds a new term to the database. Optionally marks it as an alias of an
+existing term.
+
+Error handling is assigned for the nonexistance of the \$taxonomy and
+\$term parameters before inserting. If both the term id and taxonomy
+exist previously, then an array will be returned that contains the term
+id and the contents of what is returned. The keys of the array are
+'term\_id' and 'term\_taxonomy\_id' containing numeric values.
+
+It is assumed that the term does not yet exist or the above will apply.
+The term will be first added to the term table and then related to the
+taxonomy if everything is well. If everything is correct, then several
+actions will be run prior to a filter and then several actions will be
+run after the filter is run.
+
+The arguments decide how the term is handled based on the \$args
+parameter. The following is a list of the available overrides and the
+defaults.
+
+'alias\_of' 
+:   There is no default, but if added, expected is the slug that the
+    term will be an alias of. Expected to be a string.
+
+'description' 
+:   There is no default. If exists, will be added to the database along
+    with the term. Expected to be a string.
+
+'parent' 
+:   Expected to be numeric and default is 0 (zero). Will assign value of
+    'parent' to the term.
+
+'slug' 
+:   Expected to be a string. The default is to use
+    sanitize\_title(\$term).
+
+If 'slug' argument exists then the slug will be checked to see if it is
+not a valid term. If that check succeeds (it is not a valid term), then
+it is added and the term id is given. If it fails, then a check is made
+to whether the taxonomy is hierarchical and the parent argument is not
+empty. If the second check succeeds, the term will be inserted and the
+term id will be given.
+
+Usage
+-----
+
+` <?php wp_insert_term( $term, $taxonomy, $args = array() ); ?> `
+
+Parameters
+----------
+
+ `$term` 
+:   ([*int|string*](/How_to_Pass_Tag_Parameters#Int.7Cstring "How to Pass Tag Parameters"))
+    (*required*) The term to add or update.
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The taxonomy to which to add the term.
+    Default: *None*
+
+ `$args` 
+:   ([*array|string*](/How_to_Pass_Tag_Parameters#Array.7Cstring "How to Pass Tag Parameters"))
+    (*optional*) Change the values of the inserted term
+    Default: *None*
+
+Return Values
+-------------
+
+ (array|WP\_Error) 
+:   The Term ID and Term Taxonomy ID. (Example:
+    `array('term_id'=>12,'term_taxonomy_id'=>34)`)
+
+Example
+-------
+
+    $parent_term = term_exists( 'fruits', 'product' ); // array is returned if taxonomy is given
+    $parent_term_id = $parent_term['term_id']; // get numeric term id
+    wp_insert_term(
+      'Apple', // the term 
+      'product', // the taxonomy
+      array(
+        'description'=> 'A yummy apple.',
+        'slug' => 'apple',
+        'parent'=> $parent_term_id
+      )
+    );
+
+Notes
+-----
+
+Hooks Used
+----------
+
+This function calls five different hooks:
+
+-   create\_term
+-   create\_taxonomy
+-   term\_id\_filter
+-   created\_term
+-   created\_\$taxonomy
+
+All five hooks are passed the term id and taxonomy id as parameters.
+
+Change Log
+----------
+
+Since: 2.3.0
+
+Source File
+-----------
+
+`wp_insert_term()` is located in `wp-includes/taxonomy.php`.
+

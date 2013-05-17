@@ -1,0 +1,41 @@
+Function Reference/is feed « WordPress Codex
+-----------
+
+Can be used to determine if the current query is for a
+[feed](/WordPress_Feeds "WordPress Feeds") (e.g. RSS).
+
+Usage
+-----
+
+` <?php   if ( is_feed() ) {      //Do stuff   } ?> `
+
+Parameters
+----------
+
+ `$feeds` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Optional feed types to check, either a string or array
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`is_feed()` is located in `wp-includes/query.php`.
+

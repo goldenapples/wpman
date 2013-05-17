@@ -1,0 +1,39 @@
+Function Reference/wp iframe « WordPress Codex
+-----------
+
+Add an iframe function to display content for the media upload page.
+
+Usage
+-----
+
+`  <?php wp_iframe( 'function_name' ) ?> `
+
+Examples
+--------
+
+If you wanted to add new tab in the media upload iframe, you could do
+something like:
+
+    // add the tab
+    add_filter('media_upload_tabs', 'my_upload_tab');
+    function my_upload_tab($tabs) {
+        $tabs['mytabname'] = "My Tab Name";
+        return $tabs;
+    }
+
+    // call the new tab with wp_iframe
+    add_action('media_upload_mytabname', 'add_my_new_form');
+    function add_my_new_form() {
+        wp_iframe( 'my_new_form' );
+    }
+
+    // the tab content
+    function my_new_form() {
+        echo '<p>Example HTML content goes here.</p>';
+    }
+
+Source File
+-----------
+
+`wp_iframe()` is located in `wp-admin/includes/media.php`.
+

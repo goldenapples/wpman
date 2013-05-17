@@ -1,0 +1,81 @@
+Function Reference/comments popup link « WordPress Codex
+-----------
+
+Displays a link to the comments popup window if
+[comments\_popup\_script()](/Template_Tags/comments_popup_script "Template Tags/comments popup script")
+is used, otherwise it displays a normal link to comments. This tag must
+be within [The Loop](/The_Loop "The Loop") or a comment loop.
+
+Usage
+-----
+
+`  <?php comments_popup_link( $zero, $one, $more, $css_class, $none ); ?> `
+
+Parameters
+----------
+
+ `$zero` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display when there are no comments.
+    Default: 'No Comments'
+
+ `$one` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display when there is one comment.
+    Default: '1 Comment'
+
+ `$more` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display when there are more than one comments.
+    `'%'` is replaced by the number of comments, so `'% so far'` is
+    displayed as "5 so far" when there are five comments.
+    Default: '% Comments'
+
+ `$css_class` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) CSS (stylesheet) class for the link.
+    Default: *None*
+
+ `$none` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display when comments are disabled.
+    Default: 'Comments Off'
+
+Examples
+--------
+
+### Text Response for Number of Comments
+
+Displays the comments popup link, using "No comments yet" for no
+comments, "1 comment" for one, "% comments" for more than one (%
+replaced by \# of comments), and "Comments are off for this post" if
+commenting is disabled. Additionally, `'comments-link'` is a custom
+[CSS](/Glossary#CSS "Glossary") class for the link.
+
+    <p>
+    <?php
+      comments_popup_link( 'No comments yet', '1 comment', '% comments', 'comments-link', 'Comments are off for this post');
+    ?>
+    </p>
+
+### Hide Comment Link When Comments Are Deactivated
+
+Hides the paragraph element \<p\>\</p\> that contains the
+comments\_popup\_link when comments are deactivated in the Write\>Post
+screen. Good for those who want enable/disable comments post by post.
+Must be used in the loop.
+
+    <?php
+    if ( comments_open() ) :
+      echo '<p>';
+      comments_popup_link( 'No comments yet', '1 comment', '% comments', 'comments-link', 'Comments are off for this post');
+      echo '</p>';
+    endif;
+    ?>
+
+Source File
+-----------
+
+`comments_popup_link()` is located in
+`wp-includes/comment-template.php`.
+

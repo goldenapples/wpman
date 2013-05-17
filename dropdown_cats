@@ -1,0 +1,137 @@
+Function Reference/dropdown cats « WordPress Codex
+-----------
+
+Displays a list of categories in a select (i.e dropdown) box.
+
+Replace With
+------------
+
+-   [wp\_dropdown\_categories()](/Template_Tags/wp_dropdown_categories "Template Tags/wp dropdown categories")
+
+Usage
+-----
+
+`  <?php dropdown_cats( $optionall, $all, $sort_column,              $sort_order, $optiondates, $optioncount,              $hide_empty, $optionnone, $selected, $hide ); ?> `
+
+Parameters
+----------
+
+ optionall 
+:   (*boolean*) Sets whether to have an option to display all
+    categories. Valid values:
+    -   `TRUE` (Default)
+    -   `FALSE`
+
+ all 
+:   (*string*) Text to display for the option to display all categories.
+    Defaults to `'All'`.
+ sort\_column 
+:   (*string*) Key to sort options by. Valid values:
+    -   `'ID'` (Default)
+    -   `'name'`
+
+ sort\_order 
+:   (*string*) Sort order for options. Valid values:
+    -   `'asc'` (Default)
+    -   `'desc'`
+
+ optiondates 
+:   (*boolean*) Sets whether to display the date of the last post in
+    each category. Valid values:
+    -   `TRUE`
+    -   `FALSE` (Default)
+
+ optioncount 
+:   (*boolean*) Sets whether to display a count of posts in each
+    category. Valid values:
+    -   `TRUE`
+    -   `FALSE` (Default)
+
+ hide\_empty 
+:   (*boolean*) Sets whether to hide (not display) categories with no
+    posts. Valid values:
+    -   `TRUE` (Default)
+    -   `FALSE`
+
+ optionnone 
+:   (*boolean*) Sets whether to have an option to display none of the
+    categories. Valid values:
+    -   `TRUE`
+    -   `FALSE` (Default)
+
+ selected 
+:   (*integer*) Sets the default selected category ID number. Defaults
+    to current category.
+ hide 
+:   (*integer*) Do not display this category (specified by category ID
+    number). There is no default.
+
+Examples
+--------
+
+### Dropdown with Submit Button
+
+Displays category select (dropdown) list in HTML form with a submit
+button, in a WordPress sidebar unordered list.
+
+    <li id="categories"><?php _e('Categories:'); ?>
+       <ul><li>
+       <form action="<?php echo $PHP_SELF ?>" method="get">
+       <?php dropdown_cats(); ?>
+       <input type="submit" name="submit" value="view" />
+       </form>
+       </li></ul>
+    </li>
+
+### Dropdown without Submit Button
+
+Displays category select (dropdown) in HTML form *without* a submit
+button.
+
+-   Download and install the plugin **Drop Down Categories** [found
+    here](http://typedby.com/archives/2004/06/22/dropdown-plugin-with-ability-to-exclude/ "http://typedby.com/archives/2004/06/22/dropdown-plugin-with-ability-to-exclude/").
+-   Add the following code to your header.php template file:
+
+<!-- -->
+
+    <script type="text/JavaScript">
+    <!-- function MM_jumpMenu(targ,selObj,restore){ //v3.0
+    eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+    if (restore) selObj.selectedIndex=0;
+    }
+    //-->
+    </script>
+
+-   Then add the following code to wherever you'd like the dropdown
+    categories to be displayed (for example, your sidebar.php file):
+
+<!-- -->
+
+    <form action="">
+    <select name="menu" onchange="MM_jumpMenu('parent',this,0)">
+    <option>Choose one</option>  
+    <?php dropdown_cats_exclude('name', 'asc'); ?> 
+    </select>
+    </form>
+
+Fixes
+-----
+
+When you choose a category when you are not on the main page, you will
+not move to that category. To fix this find the following line in the
+template where you are using Dropdown cats.
+`<form action="<?php echo $PHP_SELF ?>" method="get">` Replace it with :
+`<form action="<?bloginfo('url');?>/index.php" method="get">`
+
+This is a temporary fix to the problem, a real fix will probably come
+soon. This problem is usually only found on blogs using Apache Rewrite
+rules.
+
+Change Log
+----------
+
+-   Since: 0.71
+-   Deprecated: 2.1
+-   Replace By:
+    [wp\_dropdown\_categories()](/Template_Tags/wp_dropdown_categories "Template Tags/wp dropdown categories")
+

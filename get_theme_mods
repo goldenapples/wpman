@@ -1,0 +1,51 @@
+Function Reference/get theme mods « WordPress Codex
+-----------
+
+Retrieve all theme modification values for the current theme.
+
+If no theme mods have been set, will return boolean `false`.
+
+Usage
+-----
+
+` <?php get_theme_mods() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (array) 
+:   
+
+Example
+-------
+
+    $mods = get_theme_mods();
+    var_dump($mods);
+    // output example:
+    //    array(2) { ["header_textcolor"]=> string(3) "333" ["header_image"]=> string(20) "random-default-image" }
+    var_dump($mods['header_textcolor']);
+    // output example:
+    //    string(3) "333"
+
+Notes
+-----
+
+-   This method will update the options for theme mods which were
+    created in older WordPress versions that used the deprecated
+    `mods_$theme_name` option key to now use `theme_mod_$name`.
+
+Change Log
+----------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+Source File
+-----------
+
+`get_theme_mod()` is located in `wp-includes/theme.php`.
+

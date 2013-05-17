@@ -1,0 +1,88 @@
+Function Reference/remove action « WordPress Codex
+-----------
+
+This function is an alias to
+[remove\_filter()](/Function_Reference/remove_filter "Function Reference/remove filter").
+
+This function removes a function attached to a specified action hook.
+This method can be used to remove default functions attached to a
+specific action hook and possibly replace them with a substitute. See
+also
+[remove\_filter()](/Function_Reference/remove_filter "Function Reference/remove filter"),
+[add\_action()](/Function_Reference/add_action "Function Reference/add action")
+and
+[add\_filter()](/Function_Reference/add_filter "Function Reference/add filter").
+
+***Important:** To remove a hook, the `$function_to_remove` and
+`$priority` arguments must match when the hook was added. This goes for
+both filters and actions. No warning will be given on removal failure.*
+
+Usage
+-----
+
+` <?php remove_action( $tag, $function_to_remove, $priority, $accepted_args ); ?> `
+
+Parameters
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The action hook to which the function to be removed is
+    hooked.
+    Default: *None*
+
+ `$function_to_remove` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the function which should be removed.
+    Default: *None*
+
+ `$priority` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The priority of the function (as defined when the
+    function was originally hooked).
+    Default: 10
+
+ `$accepted_args` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The number of arguments the function accepts.
+    Default: 1
+
+Return
+------
+
+ (*boolean*) 
+:   Whether the function is removed.
+    -   `True` - The function was successfully removed.
+    -   `False` - The function could not be removed.
+
+Example
+-------
+
+This function is identical to the
+[remove\_filter()](/Function_Reference/remove_filter "Function Reference/remove filter")
+function.
+`  <?php remove_action($tag, $function_to_remove, $priority, $accepted_args); ?> `
+
+If an action has been added from within a *class*, for example by a
+plugin, removing it will require accessing the class variable.
+
+    global $my_class;
+    remove_action( 'the_content', array( $my_class, 'class_filter_function' ) );
+
+It is also worth noting that you may need to prioritise the removal of
+the action to a hook that occurs after the action is added. You cannot
+successfully remove the action before it has been added.
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.2.0
+
+Source File
+-----------
+
+`remove_action()` is located in `wp-includes/plugin.php`.
+

@@ -1,0 +1,118 @@
+Function Reference/check comment « WordPress Codex
+-----------
+
+`check_comment()` checks whether a comment passes internal checks set by
+WordPress
+[Comment\_Moderation](/Comment_Moderation "Comment Moderation").
+
+Usage
+-----
+
+` <?php   check_comment( $author, $email, $url, $comment, $user_ip,         $user_agent, $comment_type );?> `
+
+Parameters
+----------
+
+ `$author` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Comment author name.
+    Default: *None*
+
+ `$email` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Comment author email.
+    Default: *None*
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Comment author URL.
+    Default: *None*
+
+ `$comment` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Comment contents.
+    Default: *None*
+
+ `$user_ip` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Comment author [IP
+    address](/Glossary#IP_Address "Glossary").
+    Default: *None*
+
+ `$user_agent` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Comment author user agent.
+    Default: *None*
+
+ `$comment_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Comment type
+    ([`comment`](/Glossary#Comments "Glossary"),
+    [`trackback`](/Glossary#Trackback "Glossary"), or
+    [`pingback`](/Glossary#Pingback "Glossary")).
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   This function returns a single
+    [boolean](http://us2.php.net/manual/en/language.types.boolean.php "http://us2.php.net/manual/en/language.types.boolean.php")
+    value of either `true` or `false`.
+
+Returns `false` if in
+[Comment\_Moderation](/Comment_Moderation "Comment Moderation"):
+
+-   The Administrator must approve all messages,
+-   The number of external links is too high, or
+-   Any banned word, name, URL, e-mail, or IP is found in any parameter
+    except `$comment_type`.
+
+Returns `true` if the Administrator does not have to approve all
+messages and:
+
+-   `$comment_type` parameter is a
+    [`trackback`](/Glossary#Trackback "Glossary") or
+    [`pingback`](/Glossary#Pingback "Glossary") and part of the
+    [blogroll](/Glossary#Blogroll "Glossary"), or
+-   `$author` and `$email` parameters have been approved previously.
+
+Returns `true` in all other cases.
+
+Examples
+--------
+
+Simple use case
+
+     <?php 
+     $author = "John Charles Smith";
+     $email = "jsmith@example.com";
+     $url = "http://example.com";
+     $comment = "Excellent...";
+     $user_ip = "12.34.56.78";
+     $user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.79 Safari/535.11";
+     $comment_type = "comment";
+     if (check_comment( $author, $email, $url, $comment, $user_ip, $user_agent, $comment_type )) {
+       echo "The Comment robot says: Thank you for your comment.";
+     } else {
+       echo "The Comment robot says: This comment is NOT valid!";
+     } 
+    ?>
+
+Notes
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+
+Change Log
+----------
+
+-   Since: WordPress Version 1.2
+
+Source File
+-----------
+
+`check_comment()` is located in `wp-includes/comment.php`.
+

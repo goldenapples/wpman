@@ -1,0 +1,52 @@
+Function Reference/wp original referer field « WordPress Codex
+-----------
+
+Retrieve or display original referer hidden field for forms.
+
+The input name is '`_wp_original_http_referer`' and will be either the
+same value of
+[`wp_referer_field()`](/Function_Reference/wp_referer_field "Function Reference/wp referer field"),
+if that was posted already or it will be the current page, if it doesn't
+exist.
+
+Usage
+-----
+
+` <?php wp_original_referer_field( $echo, $jump_back_to ); ?> `
+
+Parameters
+----------
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to echo the original http referer.
+    Default: true
+
+ `$jump_back_to` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) default is '`current`'. Can be '`previous`' or page you
+    want to jump back to.
+    Default: 'current'
+
+Return Values
+-------------
+
+ (string) 
+:   Original referer field.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.0.4
+
+Source File
+-----------
+
+`wp_original_referer_field()` is located in `wp-includes/functions.php`.
+

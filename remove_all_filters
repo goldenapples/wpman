@@ -1,0 +1,48 @@
+Function Reference/remove all filters « WordPress Codex
+-----------
+
+Remove all of the hooks from a filter.
+
+Usage
+-----
+
+` <?php remove_all_filters( $tag, $priority ); ?> `
+
+Parameters
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The filter to remove hooks from.
+    Default: *None*
+
+ `$priority` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The priority number to remove.
+    Default: false
+
+Return Values
+-------------
+
+ (boolean) 
+:   True when finished.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`unknown type`) `$wp_filter`
+-   Uses global: (`unknown type`) `$merged_filters`
+
+Change Log
+----------
+
+Since: 2.7
+
+Source File
+-----------
+
+`remove_all_filters()` is located in `wp-includes/plugin.php`.
+

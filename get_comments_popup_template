@@ -1,0 +1,50 @@
+Function Reference/get comments popup template « WordPress Codex
+-----------
+
+Retrieve path of comment popup template in current or parent template.
+
+Checks for comment popup template file `comments-popup.php` in the
+current template, if it exists there, or in the parent template. If that
+fails, it may look for a deprecated default file in
+`wp-includes/theme-compat`.
+
+Usage
+-----
+
+` <?php get_comments_popup_template() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Returns the template path.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls `'comments_popup_template'` filter on path.
+-   Uses:
+    [`locate_template()`](/Function_Reference/locate_template "Function Reference/locate template")
+    to locate `'comments-popup.php'` file.
+
+Change Log
+----------
+
+Since: 1.5.0. After 3.0: Default file deprecated.
+
+Source File
+-----------
+
+`get_comments_popup_template()` is located in
+`wp-includes/template.php`.
+

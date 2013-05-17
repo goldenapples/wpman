@@ -1,0 +1,51 @@
+Function Reference/delete transient « WordPress Codex
+-----------
+
+Delete a transient
+
+Usage
+-----
+
+` <?php delete_transient( $transient ); ?> `
+
+Parameters
+----------
+
+ `$transient` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Transient name. Expected to not be SQL-escaped.
+    Default: *None*
+
+Return Values
+-------------
+
+ (boolean) 
+:   True if successful, false otherwise.
+
+Examples
+--------
+
+### Clearing our transient via the edit\_term hook
+
+    <?php
+    // Create a simple function to delete our transient
+    function edit_term_delete_transient() {
+         delete_transient( 'special_query_results' );
+    }
+    // Add the function to the edit_term hook so it runs when categories/tags are edited
+    add_action( 'edit_term', 'edit_term_delete_transient' );
+    ?>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.8](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`delete_transient()` is located in `wp-includes/option.php`.
+

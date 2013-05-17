@@ -1,0 +1,42 @@
+Function Reference/get current blog id « WordPress Codex
+-----------
+
+Retrieve the current blog id.
+
+Usage
+-----
+
+` <?php get_current_blog_id() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (integer) 
+:   Blog id
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`integer`) `$blog_id` The Blog ID.
+
+Change Log
+----------
+
+Since: 3.1.0
+
+In 3.4, moved from `/wp-includes/general-template.php` to
+`/wp-includes/load.php`
+
+Source File
+-----------
+
+`get_current_blog_id()` is located in `/wp-includes/load.php`.
+

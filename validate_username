@@ -1,0 +1,59 @@
+Function Reference/validate username « WordPress Codex
+-----------
+
+Checks whether username is valid.
+
+Usage
+-----
+
+` <?php validate_username( $username ) ?> `
+
+Parameters
+----------
+
+ `$username` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Username.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   Returns `true` if `$username` is valid, `false` if `$username` is
+    invalid.
+
+Examples
+--------
+
+    <?php
+    if (validate_username( $_POST['username'] )) {
+      // Go ahead and save the user...
+    }
+    ?>
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls
+    [`validate_username`](/Plugin_API/Filter_Reference#Database_Writes "Plugin API/Filter Reference")
+    hook on `$valid` check and `$username` as parameters.
+-   Uses:
+    [`sanitize_user()`](/Function_Reference/sanitize_user "Function Reference/sanitize user")
+
+Change Log
+----------
+
+Since: 2.0.1
+
+Source File
+-----------
+
+**Before** 3.0 \
+ `validate_username()` is located in `wp-includes/registration.php`.\
+\
+ **After** 3.0 \
+ `validate_username()` is located in `wp-includes/user.php`.
+

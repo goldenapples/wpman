@@ -1,0 +1,29 @@
+Function Reference/wp dequeue script « WordPress Codex
+-----------
+
+Remove an enqueued script.
+
+Usage
+-----
+
+` <?php wp_dequeue_script( $handle ); ?> `
+
+Parameters
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) no description
+    Default: *None*
+
+Change Log
+----------
+
+Since: [3.1](/Version_3.1 "Version 3.1")
+
+Source File
+-----------
+
+`wp_dequeue_script()` is located in
+`wp-includes/functions.wp-scripts.php`
+

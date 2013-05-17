@@ -1,0 +1,52 @@
+Function Reference/sanitize key « WordPress Codex
+-----------
+
+Sanitize a string key. Keys are used as internal identifiers.
+
+Lowercase alphanumeric characters, dashes and underscores are allowed.
+Uppercase characters will be converted to lowercase. After
+`sanitize_key()` has done its work, it passes the sanitized key through
+the
+[sanitize\_key](/index.php?title=Plugin_API/Filter_Reference/sanitize_key&action=edit&redlink=1 "Plugin API/Filter Reference/sanitize key (page does not exist)")
+filter.
+
+Usage
+-----
+
+` <?php sanitize_key( $key ); ?> `
+
+Parameters
+----------
+
+ `$key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) String key
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Sanitized key
+
+Examples
+--------
+
+Notes
+-----
+
+### Filters
+
+-   **`'sanitize_key'`**:\
+    `apply_filters( 'sanitize_key', $key, $raw_key )`
+
+Change Log
+----------
+
+Since: 3.0.0
+
+Source File
+-----------
+
+`sanitize_key()` is located in `/wp-includes/formatting.php`.
+

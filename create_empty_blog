@@ -1,0 +1,113 @@
+Function Reference/create empty blog « WordPress Codex
+-----------
+
+Creates a new, empty blog.
+
+Usage
+-----
+
+` <?php create_empty_blog( $domain, $path, $weblog_title, $site_id ) ?> `
+
+Parameters
+----------
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Domain name for blog.
+    Default: *None*
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Path to the blog.
+    Default: *None*
+
+ `$weblog_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Title for blog.
+    Default: *None*
+
+ `$site_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Site ID, if running multiple networks.
+    Default: 1
+
+Returns
+-------
+
+ `` `(integer)`{style="color:gray"} 
+:   The ID of the newly created blog
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`create_empty_blog()` is located in `wp-includes/ms-functions.php`
+
+See also
+--------
+
+-   [domain\_exists](/Function_Reference/domain_exists "Function Reference/domain exists")
+-   [insert\_blog](/Function_Reference/insert_blog "Function Reference/insert blog")
+
+See also index of [Function
+Reference](/Function_Reference "Function Reference") and index of
+[Template Tags](/Template_Tags "Template Tags").
+
+This page is [marked](/Category:Stubs "Category:Stubs") as incomplete.
+You can [help](/Codex:Contributing "Codex:Contributing") Codex by
+**[expanding
+it](http://codex.wordpress.org/index.php?title=Function_Reference/create_empty_blog&action=edit "http://codex.wordpress.org/index.php?title=Function_Reference/create_empty_blog&action=edit")**.
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/create\_empty\_blog](http://codex.wordpress.org/Function_Reference/create_empty_blog)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Stubs](/Category:Stubs "Category:Stubs") |
+[Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

@@ -1,0 +1,46 @@
+Function Reference/newuser notify siteadmin « WordPress Codex
+-----------
+
+Notifies the network admin that a new user has been activated.
+
+Usage
+-----
+
+` <?php newuser_notify_siteadmin( $user_id ) ?> `
+
+Parameters
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The new user ID
+    Default: *None*
+
+Return Value
+------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True on completion of email sent, False if registration notification
+    is 'No' or if malformed user email.
+
+Examples
+--------
+
+Notes
+-----
+
+Filter 'newuser\_notify\_siteadmin' to change the content of the
+notification email. Filter function is passed \$msg (the email message
+text), \$user (a WP\_User object for the new user)
+
+Change Log
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+Source File
+-----------
+
+`newuser_notify_siteadmin()` is located in
+`wp-includes/ms-functions.php`
+

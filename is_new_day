@@ -1,0 +1,44 @@
+Function Reference/is new day « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+today is a new day. This is a boolean function, meaning it returns TRUE
+when new day or FALSE if not a new day.
+
+Usage
+-----
+
+` <?php is_new_day(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Return Values
+-------------
+
+ (boolean) 
+:   TRUE (1) when new day, FALSE (0) if not a new day.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`string`) `$day` Holds the date of the day of the
+    current post during [The\_Loop](/The_Loop "The Loop").
+-   Uses global: (`string`) `$previousday` Holds the date of the day of
+    the previous post (if any) during [The\_Loop](/The_Loop "The Loop").
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`is_new_day()` is located in `wp-includes/functions.php`.
+

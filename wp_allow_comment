@@ -1,0 +1,56 @@
+Function Reference/wp allow comment « WordPress Codex
+-----------
+
+Validates whether this comment is allowed to be made or not.
+
+Usage
+-----
+
+` <?php wp_allow_comment( $commentdata ) ?> `
+
+Parameters
+----------
+
+ `$commentdata` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Contains information on the comment
+    Default: *None*
+
+Return Values
+-------------
+
+ `(mixed)` 
+:   Signifies the approval status (0|1|'spam')
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls 'pre\_comment\_approved' hook on the type of comment
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'check\_comment\_flood' hook on `$comment_author_IP`,
+    `$comment_author_email`, and `$comment_date_gmt`
+-   Uses: The `WP_User` object.
+-   Uses:
+    [`get_userdata()`](/Function_Reference/get_userdata "Function Reference/get userdata")
+-   Uses:
+    [`check_comment()`](/Function_Reference/check_comment "Function Reference/check comment")
+-   Uses:
+    [`wp_blacklist_check() to find spam.`](/Function_Reference/wp_blacklist_check "Function Reference/wp blacklist check")
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`wp_allow_comment()` is located in `wp-includes/comment.php`.
+

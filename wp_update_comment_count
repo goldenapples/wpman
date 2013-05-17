@@ -1,0 +1,62 @@
+Function Reference/wp update comment count « WordPress Codex
+-----------
+
+Updates the comment count for post(s).
+
+When `$do_deferred` is `false` (is by default) and the comments have
+been set to be deferred, `$post_id` will be added to a queue, which will
+be updated at a later date and only updated once per post ID.
+
+If the comments have not be set up to be deferred, then the post will be
+updated. When `$do_deferred` is set to true, then all previous deferred
+post IDs will be updated along with the current `$post_id`.
+
+Usage
+-----
+
+` <?php wp_update_comment_count( $post_id, $do_deferred ) ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID
+    Default: *None*
+
+ `$do_deferred` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to process previously deferred post comment
+    counts
+    Default: false
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure
+
+Examples
+--------
+
+Notes
+-----
+
+-   See
+    [`wp_update_comment_count_now()`](/Function_Reference/wp_update_comment_count_now "Function Reference/wp update comment count now")
+    for what could cause a false return value
+-   Uses:
+    [`wp_update_comment_count_now()`](/Function_Reference/wp_update_comment_count_now "Function Reference/wp update comment count now")
+-   Uses:
+    [`wp_defer_comment_counting()`](/Function_Reference/wp_defer_comment_counting "Function Reference/wp defer comment counting")
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_update_comment_count()` is located in `wp-includes/comment.php`.
+

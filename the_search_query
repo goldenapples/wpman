@@ -1,0 +1,46 @@
+Function Reference/the search query « WordPress Codex
+-----------
+
+Displays the search query for the current request, if a search was made.
+
+This function can be used safely within HTML attributes (as in the
+"search box" example, below).
+
+Use
+[get\_search\_query](/Template_Tags/get_search_query "Template Tags/get search query")
+to retrieve the value.
+
+Usage
+-----
+
+`  <?php the_search_query(); ?> `
+
+Examples
+--------
+
+### Show search query in search box
+
+If you have just performed a search, you can show the last query in the
+search box:
+
+    <form method="get" id="searchform" action="<?php bloginfo('url'); ?>/">
+      <div>
+        <input type="text" value="<?php the_search_query(); ?>" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="Search" />
+      </div>
+    </form>
+
+### Show search query in results page
+
+You can display the search string on search result pages
+
+    <p>You searched for " <?php the_search_query() ?> ". Here are the results:</p>
+
+Notes
+-----
+
+-   Uses:
+    [get\_search\_query()](/Function_Reference/get_search_query "Function Reference/get search query")
+-   Filter:
+    [get\_search\_query](/Plugin_API/Filter_Reference "Plugin API/Filter Reference")
+

@@ -1,0 +1,61 @@
+Function Reference/antispambot « WordPress Codex
+-----------
+
+Converts email addresses characters to [HTML
+entities](http://en.wikipedia.org/wiki/HTML_entities "wikipedia:HTML entities")
+to block spam bots.
+
+Usage
+-----
+
+` <?php antispambot( $emailaddy, $mailto ) ?> `
+
+Parameters
+----------
+
+ `$emailaddy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Email address.
+    Default: *None*
+
+ `$mailto` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) 0 or 1. Used for encoding.
+    Default: 0
+
+Return Values
+-------------
+
+ (string) 
+:   Converted email address.
+
+Examples
+--------
+
+### Default Usage
+
+    <?php
+    echo antispambot("john.doe@mysite.com");
+    ?>
+
+This will output the email like this in the HTML:
+
+    &#106;&#111;h&#110;&#46;&#100;&#111;&#101;&#64;mysit&#101;.&#99;&#111;&#109;
+
+And in their browser, people will still see it right:
+
+    john.doe@mysite.com
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`antispambot()` is located in `wp-includes/formatting.php`.
+

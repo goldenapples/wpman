@@ -1,0 +1,33 @@
+Function Reference/is trackback « WordPress Codex
+-----------
+
+Usage
+-----
+
+` <?php is_trackback(); ?> `
+
+Parameters
+----------
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`is_trackback()` is located in `wp-includes/functions.php`.
+

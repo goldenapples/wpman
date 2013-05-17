@@ -1,0 +1,55 @@
+Function Reference/get next post « WordPress Codex
+-----------
+
+Retrieve next post that is adjacent to current post.
+
+Usage
+-----
+
+` <?php get_next_post( $in_same_cat, $excluded_categories ) ?> `
+
+Parameters
+----------
+
+ `$in_same_cat` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether post should be in same category.
+    Default: false
+
+ `$excluded_categories` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Excluded categories IDs.
+    Default: ''
+
+Return Values
+-------------
+
+-   Post object if successful.
+-   Null if global `$post` is not set.
+-   Empty string if no corresponding post exists.
+
+Examples
+--------
+
+    <?php
+    $next_post = get_next_post();
+    if (!empty( $next_post )): ?>
+      <a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo $next_post->post_title; ?></a>
+    <?php endif; ?>
+
+Notes
+-----
+
+-   Uses:
+    [`get_adjacent_post()`](/Function_Reference/get_adjacent_post "Function Reference/get adjacent post")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_next_post()` is located in `wp-includes/link-template.php`.
+

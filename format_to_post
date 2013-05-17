@@ -1,0 +1,40 @@
+Function Reference/format to post « WordPress Codex
+-----------
+
+Holder for the '`format_to_post`' filter.
+
+Usage
+-----
+
+` <?php format_to_post( $content ) ?> `
+
+Parameters
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to pass through the filter.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Text returned from the '`format_to_post`' filter.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`format_to_post()` is located in `wp-includes/formatting.php`.
+

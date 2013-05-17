@@ -1,0 +1,59 @@
+Function Reference/update blog status « WordPress Codex
+-----------
+
+Update a blog details field.
+
+Usage
+-----
+
+` <?php update_blog_status( $blog_id, $pref, $value, $refresh ) ?> `
+
+Parameters
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Blog ID
+    Default: *None*
+
+ `$pref` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) A field name
+    Default: *None*
+
+ `$value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Value for `$pref`
+    Default: *None*
+
+ `$refresh` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to refresh the blog details cache. Default is
+    true.
+    Default: true
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+Change Log
+----------
+
+Since: 3.0.0
+
+Source File
+-----------
+
+`update_blog_status()` is located in `/wp-includes/ms-blogs.php`.
+

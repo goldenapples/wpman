@@ -1,0 +1,67 @@
+Function Reference/wp filter comment « WordPress Codex
+-----------
+
+Filters and sanitizes comment data.
+
+Sets the comment data '`filtered`' field to true when finished. This can
+be checked as to whether the comment should be filtered and to keep from
+filtering the same comment more than once.
+
+Usage
+-----
+
+` <?php wp_filter_comment( $commentdata ) ?> `
+
+Parameters
+----------
+
+ `$commentdata` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Contains information on the comment.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(array)` 
+:   Parsed comment information.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`pre_user_id`' hook on comment author's user ID
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`pre_comment_user_agent`' hook on comment author's user agent
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`pre_comment_author_name`' hook on comment author's name
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`pre_comment_content`' hook on the comment's content
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`pre_comment_user_ip`' hook on comment author's IP
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`pre_comment_author_url`' hook on comment author's URL
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`pre_comment_author_email`' hook on comment author's email
+    address
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`wp_filter_comment()` is located in `wp-includes/comment.php`.
+

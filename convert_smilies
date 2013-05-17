@@ -1,0 +1,50 @@
+Function Reference/convert smilies « WordPress Codex
+-----------
+
+Convert text equivalent of smilies to images.
+
+Will only convert smilies if the option '`use_smilies`' is `true` and
+the globals used in the function aren't empty.
+
+Usage
+-----
+
+` <?php convert_smilies( $text ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to convert smilies from text.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Converted content with text smilies replaced with images.
+
+Examples
+--------
+
+    echo convert_smilies("This smiley is going to show as an image... :) ");
+
+Notes
+-----
+
+-   Uses: `$wp_smiliessearch`, `$wp_smiliesreplace` Smiley replacement
+    arrays.
+-   Uses global: (`array`) `$wp_smiliessearch`
+-   Uses global: (`array`) `$wp_smiliesreplace`
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`convert_smilies()` is located in `wp-includes/formatting.php`.
+

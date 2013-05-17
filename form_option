@@ -1,0 +1,45 @@
+Function Reference/form option « WordPress Codex
+-----------
+
+Echo option value after sanitizing for forms.
+
+Usage
+-----
+
+` <?php form_option( $option ) ?> `
+
+Parameters
+----------
+
+ `$option` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Option name.
+    Default: *None*
+
+Return Values
+-------------
+
+ (Echo) 
+:   **echos** the value in a get\_option after its passed through
+    esc\_attr()
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`esc_attr()`](/Function_Reference/esc_attr "Function Reference/esc attr")
+    to sanitize option value.
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`form_option()` is located in `wp-includes/option.php`.
+

@@ -1,0 +1,116 @@
+Function Reference/get user meta « WordPress Codex
+-----------
+
+Retrieve a single meta field or all fields of user\_meta data for the
+given user. Uses
+[get\_metadata()](/Function_Reference/get_metadata "Function Reference/get metadata").
+This function replaces the deprecated
+[get\_usermeta()](/Function_Reference/get_usermeta "Function Reference/get usermeta")
+function.
+
+Usage
+-----
+
+` <?php get_user_meta($user_id, $key, $single);  ?> `
+
+Parameters
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the user whose data should be retrieved.
+    Default: *None*
+
+ `$key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The **meta\_key** in the [wp\_usermeta
+    table](/Database_Description#Table:_wp_usermeta "Database Description")
+    for the **meta\_value** to be returned. If left empty, will return
+    **all** user\_meta fields for the given user.
+    Default: (empty string)
+
+ `$single` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If true return value of meta data field, if false
+    return an array. This parameter has no effect if `$key` is left
+    blank.
+    Default: false
+
+Return Values
+-------------
+
+ (mixed) 
+:   Will be an array if \$single is false or will be value of meta data
+    field if \$single is true
+
+ NOTE
+:   If the meta value does not exist and \$single is true the function
+    will return an empty string. If \$single is false an empty array is
+    returned.
+
+Examples
+--------
+
+This example returns and then displays the last name for user id 9.
+
+    <?php 
+      $user_id = 9;
+      $key = 'last_name';
+      $single = true;
+      $user_last = get_user_meta( $user_id, $key, $single ); 
+      echo '<p>The '. $key . ' value for user id ' . $user_id . ' is: ' . $user_last . '</p>'; 
+    ?>
+
+The last\_name value for user id 9 is Franklin\
+
+\
+
+### Getting all meta data
+
+This example demonstrates leaving the `$key` argument blank, in order to
+retrieve all meta data for the given user (in this example, `user_id` =
+9):
+
+    <?php
+      $all_meta_for_user = get_user_meta( 9 );
+      print_r( $all_meta_for_user );
+    ?>
+
+Results:
+
+    Array ( [first_name] => Array ( [0] => Tom ) [last_name] => Array ( [0] => Auger) [nickname] => Array ( [0] => tomauger ) [description] => etc.... )
+
+**Note:** in order to access the data in this example, you need to
+dereference the array that is returned for each key, like so:
+
+    $last_name = $all_meta_for_user['last_name'][0];
+
+To avoid this, you may want to run a simple `array_map()` on the results
+of `get_user_meta()` in order to take only the first index of each
+result (this emulating what the `$single` argument does when `$key` is
+provided:
+
+      if( $all_meta_for_user = get_user_meta( $user_id ) ) 
+        $all_meta_for_user = array_map( function( $a ){ return $a[0]; }, get_user_meta( $user_id ) );
+
+      print_r( $all_meta_for_user );
+
+Results:
+
+    Array ( [first_name] => Tom [last_name] => Auger [nickname] => tomauger [description] => etc.... )
+
+Notes
+-----
+
+### Filters
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`get_user_meta()` is located in `wp-includes/user.php`.
+

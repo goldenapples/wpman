@@ -1,0 +1,76 @@
+Function Reference/get post thumbnail id « WordPress Codex
+-----------
+
+1.  If a featured image (formerly known as post thumbnail) is set -
+    Returns the ID of the featured image attached to the post
+2.  If no such attachment exists, the function returns null (Empty
+    value)
+
+**Note:** To enable featured images, see post thumbnails, the current
+theme must include `add_theme_support( 'post-thumbnails' );` in its
+`functions.php` file. See also [Post
+Thumbnails](/Post_Thumbnails "Post Thumbnails").
+
+Synopsis
+--------
+
+`(int) $id = get_post_thumbnail_id();`
+
+Usage
+-----
+
+`  <?php  $post_thumbnail_id = get_post_thumbnail_id( $post_id ); ?> `
+
+Parameters
+----------
+
+ `post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*Optional*) Post ID.
+    Default: *None*
+
+Examples
+--------
+
+### Show All attachments for the current post beside Thumb
+
+To get all attachments beside the thumb you can use this function with
+something like `get_posts()`.
+
+Do this inside [The\_Loop](/The_Loop "The Loop") (where \$post-\>ID is
+available).
+
+    <?php
+
+    $args = array(
+        'post_type'   => 'attachment',
+        'numberposts' => -1,
+        'post_status' => null,
+        'post_parent' => $post->ID,
+        'exclude'     => get_post_thumbnail_id()
+        );
+
+    $attachments = get_posts( $args );
+
+    if ( $attachments ) {
+        foreach ( $attachments as $attachment ) {
+            echo apply_filters( 'the_title', $attachment->post_title );
+            the_attachment_link( $attachment->ID, false );
+        }
+    }
+
+    ?>
+
+Notes
+-----
+
+"Post Thumbnail" is an outdated term for "Featured Image". This function
+returns the ID of the post's featured image. It does not return IDs of
+other images attached to posts that are thumbnail sized.
+
+Source File
+-----------
+
+`get_post_thumbnail_id()` is located in
+`wp-includes/post-thumbnail-template.php`.
+

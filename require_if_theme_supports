@@ -1,0 +1,47 @@
+Function Reference/require if theme supports « WordPress Codex
+-----------
+
+Checks a theme's support for a given feature before loading the
+functions which implement it.
+
+Usage
+-----
+
+` <?php require_if_theme_supports( $feature, $include ) ?> `
+
+Parameters
+----------
+
+ `$feature` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) the feature being checked
+    Default: *None*
+
+ `$include` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) the file containing the functions that implement the
+    feature
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.9.0
+
+Source File
+-----------
+
+`require_if_theme_supports()` is located in `wp-includes/theme.php`.
+

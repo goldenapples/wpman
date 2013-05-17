@@ -1,0 +1,115 @@
+Function Reference/paginate comments links « WordPress Codex
+-----------
+
+Create pagination links for the comments on the current post.
+
+Basically this is a macro to
+[paginate\_links()](/Function_Reference/paginate_links "Function Reference/paginate links")
+which sets the functional options of `paginate_links()` to make it work
+for comments. But you may use all the parameters of `paginate_links()`
+to style the output of `paginate_comments_links()`.
+
+Usage
+-----
+
+` <?php paginate_comments_links( $args ) ?> `
+
+Parameters
+----------
+
+ `$args` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*optional*) Optional args. See
+    [paginate\_links()](/Function_Reference/paginate_links "Function Reference/paginate links").
+    Default: array
+
+### Defaults
+
+` `
+
+-   'base' =\> add\_query\_arg( 'cpage', '%\#%' ),
+-   'format' =\> *,*
+-   'total' =\> \$max\_page,
+-   'current' =\> \$page,
+-   'echo' =\> true,
+-   'add\_fragment' =\> '\#comments'
+
+*Note:* Arguments passed in are merged to the defaults, via
+[wp\_parse\_args](/Function_Reference/wp_parse_args "Function Reference/wp parse args").\
+ These arguments are mostly to make the call of `paginate_links()` work,
+so be careful if you change them.
+
+Return Values
+-------------
+
+ (string) 
+:   Markup for pagination links.
+
+Examples
+--------
+
+### Enhanced Comment Display
+
+In version 2.7 WordPress added the [Enhanced Comment
+Display](/Migrating_Plugins_and_Themes_to_2.7/Enhanced_Comment_Display "Migrating Plugins and Themes to 2.7/Enhanced Comment Display")
+system to make comments.php files much simpler to write and edit. One is
+the ability to easily break comments into pages so that you don't end up
+with hundreds of comments all loading on every pageview.
+
+You will need to set up the options in SETTINGS \> DISCUSSION for paging
+to work.
+
+The easiest way to do so is with the following function, which prints
+out a link to the next and previous comment pages, as well as a numbered
+list of all the comment pages.
+
+    paginate_comments_links($args);
+
+It accepts a query-style list of arguments similar to `get_posts()` or
+`get_terms()`.
+
+If you want more control, you can also use the simpler next and previous
+functions:
+
+    next_comments_link($label="", $max_page = 0)
+
+and
+
+    previous_comments_link($label="")
+
+### Custom Prev-/Next-links
+
+To modify the Prev- and Next-links, you can use the options 'prev\_text'
+and 'next\_text'. These are provided by the function
+[paginate\_links()](/Function_Reference/paginate_links "Function Reference/paginate links").
+
+    paginate_comments_links('prev_text=back&next_text=forward')
+
+If you want to use HTML entities in your 'prev\_text' or 'next\_text',
+you will have to use the array-based syntax, as it is descriped on the
+[wp\_parse\_args()](/Function_Reference/wp_parse_args "Function Reference/wp parse args")-page:
+
+    paginate_comments_links( array('prev_text' => '&laquo;', 'next_text' => '&raquo;') )
+
+\
+
+Notes
+-----
+
+-   See
+    [`paginate_links()`](/Function_Reference/paginate_links "Function Reference/paginate links")
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+-   Uses global: (`object`) `$wp_rewrite`
+
+Change Log
+----------
+
+Since: 2.7.0
+
+Source File
+-----------
+
+`paginate_comments_links()` is located in
+`wp-includes/link-template.php`.
+

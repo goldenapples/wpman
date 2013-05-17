@@ -1,0 +1,52 @@
+Function Reference/get space used « WordPress Codex
+-----------
+
+Returns the space used by the current blog.
+
+Usage
+-----
+
+`  <?php $used = get_space_used()  ?> `
+
+Parameters
+----------
+
+Return Value
+------------
+
+ (integer) 
+:   Used space in megabytes
+
+Examples
+--------
+
+### Default Usage
+
+     <?php
+        $quota = get_space_allowed();
+        $used = get_space_used();
+
+        if ( $used > $quota ){
+           // do something they have used more than quota
+        }
+    ?>
+
+Filters
+-------
+
+-   `pre_get_space_used` can be used to provide an alternative way of
+    tracking storage space used. Returning `false` for this filter will
+    revert to default behavior (megabytes used in
+    [wp\_upload\_dir()](/Function_Reference/wp_upload_dir "Function Reference/wp upload dir")
+    location).
+
+Change Log
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+Source File
+-----------
+
+`get_space_used` is located in `wp-includes/ms-functions.php`
+

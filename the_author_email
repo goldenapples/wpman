@@ -1,0 +1,59 @@
+Function Reference/the author email « WordPress Codex
+-----------
+
+This tag displays the email address for the author of a post. The
+**E-mail** field is set in the user's profile
+([Administration](/Administration_Panels "Administration Panels") \>
+[Profile](/Administration_Panels#Your_Profile "Administration Panels")
+\> [Your Profile](/Your_Profile_SubPanel "Your Profile SubPanel")). This
+tag must be used within [The Loop](/The_Loop "The Loop").
+
+Note that the address is **not** encoded or protected in any way from
+harvesting by spambots. For this, see the [Secure From Spammers
+example](#Secure_From_Spammers).
+
+Replace With
+------------
+
+-   [the\_author\_meta('user\_email')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+
+Usage
+-----
+
+`  <?php the_author_email(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Examples
+--------
+
+### Mailto Link
+
+Displays author email address as a "mailto" link.
+
+    <a href="mailto:<?php the_author_email(); ?>">Contact the author</a>
+
+### Secure From Spammers
+
+This example partially 'obfuscates' address by using the internal
+function *antispambot()* to encode portions in [HTML character
+entities](/Fun_Character_Entities "Fun Character Entities") (these are
+read correctly by your browser). Note the example uses
+**get\_the\_author\_email()** function, because
+[the\_author\_email()](/Template_Tags/the_author_email "Template Tags/the author email")
+echoes the address before *antispambot()* can act upon it.
+
+    <a href="mailto:<?php echo antispambot(get_the_author_email()); ?>">email 
+     author</a>
+
+Change Log
+----------
+
+-   Since: 1.5.0
+-   Deprecated: 2.8.0
+-   Replace By:
+    [the\_author\_meta('user\_email')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+

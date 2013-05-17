@@ -1,0 +1,47 @@
+Function Reference/esc attr « WordPress Codex
+-----------
+
+Encodes the \<, \>, &, " and ' (less than, greater than, ampersand,
+double quote and single quote) characters. Will never double encode
+entities.
+
+Always use when escaping HTML attributes (especially form values) such
+as `alt`, `value`, `title`, etc. To escape and echo the value of a
+translation use
+[esc\_attr\_e()](/Function_Reference/esc_attr_e "Function Reference/esc attr e")
+instead.
+
+Usage
+-----
+
+`  <?php $fname = esc_attr( $fname ); ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text which is to be encoded.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   The encoded text with HTML entities.
+
+Examples
+--------
+
+    <?php echo '<input type="text" name="fname" value="' . esc_attr( $_POST['fname'] ) . '">';  ?>
+
+Change Log
+----------
+
+Since: 2.8.0
+
+Source File
+-----------
+
+`esc_attr()` is located in `wp-includes/formatting.php`.
+

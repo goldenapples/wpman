@@ -1,0 +1,54 @@
+Function Reference/format to edit « WordPress Codex
+-----------
+
+Acts on text which is about to be edited.
+
+Unless `$richedit` is set, it is simply a holder for the
+'`format_to_edit`' filter. If `$richedit` is set true
+[`htmlspecialchars`](http://us3.php.net/manual/en/function.htmlspecialchars.php "http://us3.php.net/manual/en/function.htmlspecialchars.php")
+will be run on the content, converting special characters to
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") entities.
+
+Usage
+-----
+
+` <?php format_to_edit( $content, $richedit ) ?> `
+
+Parameters
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text about to be edited.
+    Default: *None*
+
+ `$richedit` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether or not the `$content` should pass through
+    [`htmlspecialchars`](http://us3.php.net/manual/en/function.htmlspecialchars.php "http://us3.php.net/manual/en/function.htmlspecialchars.php").
+    Default: false
+
+Return Values
+-------------
+
+ (string) 
+:   The text after the filter (and possibly
+    [`htmlspecialchars`](http://us3.php.net/manual/en/function.htmlspecialchars.php "http://us3.php.net/manual/en/function.htmlspecialchars.php").)
+    has been run.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`format_to_edit()` is located in `wp-includes/formatting.php`.
+

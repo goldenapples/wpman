@@ -1,0 +1,41 @@
+Function Reference/get archive template « WordPress Codex
+-----------
+
+Retrieve path of archive template in current or parent template.
+
+Usage
+-----
+
+` <?php get_archive_template(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Returns result from
+    [`get_query_template('archive')`](/Function_Reference/get_query_template "Function Reference/get query template")
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`get_query_template()`](/Function_Reference/get_query_template "Function Reference/get query template")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_archive_template()` is located in `wp-includes/theme.php`.
+

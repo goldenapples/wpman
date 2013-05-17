@@ -1,0 +1,63 @@
+Function Reference/clean url « WordPress Codex
+-----------
+
+Checks and cleans a URL.
+
+A number of characters are removed from the URL. If the URL is for
+displaying (the default behaviour) ampersands (`&`) are also replaced.
+The '`clean_url`' filter is applied to the returned cleaned URL.
+
+Usage
+-----
+
+` <?php clean_url( $url, $protocols, $context ) ?> `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The URL to be cleaned.
+    Default: *None*
+
+ `$protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of acceptable protocols. Defaults to '`http`',
+    '`https`', '`ftp`', '`ftps`', '`mailto`', '`news`', '`irc`',
+    '`gopher`', '`nntp`', '`feed`', '`telnet`' if not set.
+    Default: null
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) How the URL will be used. Default is '`display`'.
+    Default: 'display'
+
+Return Values
+-------------
+
+ (string) 
+:   The cleaned `$url` after the '`cleaned_url`' filter is applied.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`wp_kses_bad_protocol()`](/Function_Reference/wp_kses_bad_protocol "Function Reference/wp kses bad protocol")
+    to only permit protocols in the URL set via `$protocols` or the
+    common ones set in the function.
+
+Changelog
+---------
+
+-   Deprecated: [3.0.0](/Version_3.0 "Version 3.0") use
+    [esc\_url()](/Function_Reference/esc_url "Function Reference/esc url")
+-   Since: 1.2.0
+
+Source File
+-----------
+
+`clean_url()` is located in `wp-includes/formatting.php`.
+

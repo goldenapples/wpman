@@ -1,0 +1,47 @@
+Function Reference/utf8 uri encode « WordPress Codex
+-----------
+
+Only alphanumerics and some special characters may be used in a URL (or
+URI, more on that difference elsewhere). This function will convert
+other characters to their Unicode values.
+
+Usage
+-----
+
+` <?php utf8_uri_encode( $utf8_string, $length ) ?> `
+
+Parameters
+----------
+
+ `$utf8_string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+ `$length` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Max length of the string
+    Default: 0
+
+Return Values
+-------------
+
+ (string) 
+:   String with Unicode encoded for URI.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`utf8_uri_encode()` is located in `wp-includes/formatting.php`.
+

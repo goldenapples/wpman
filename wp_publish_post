@@ -1,0 +1,54 @@
+Function Reference/wp publish post « WordPress Codex
+-----------
+
+Publish a post by transitioning the post status.
+
+**Note:** This function does not do anything except transition the post
+status. If you want to ensure `post_name` is set, use
+[`wp_update_post()`](/Function_Reference/wp_update_post "Function Reference/wp update post")
+instead.
+
+Usage
+-----
+
+` <?php wp_publish_post( $post_id ) ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(null)` 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    to initiate the following action hooks, passing `$post->ID` and
+    `$post` (post data) parameters:
+    -   'edit\_post'
+    -   [`'save_post'`](/Plugin_API/Action_Reference/save_post "Plugin API/Action Reference/save post")
+    -   [`'wp_insert_post'`](/Plugin_API/Action_Reference/wp_insert_post "Plugin API/Action Reference/wp insert post")
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_publish_post()` is located in `wp-includes/post.php`.
+

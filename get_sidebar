@@ -1,0 +1,86 @@
+Function Reference/get sidebar « WordPress Codex
+-----------
+
+[Includes](/Include_Tags "Include Tags") the `sidebar.php` template file
+from your current theme's directory. If a name (\$name) is specified
+then a specialized sidebar `sidebar-{name}.php` will be included.
+
+If the theme contains no `sidebar.php` file then the sidebar from the
+default theme `wp-includes/theme-compat/sidebar.php` will be included.
+
+Usage
+-----
+
+` <?php get_sidebar( $name ); ?> `
+
+Parameters
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Calls for `sidebar-name.php`.
+    Default: *None*
+
+Examples
+--------
+
+### Simple 404 page
+
+The following code is a simple example of a template for an "HTTP 404:
+Not Found" error (which you could include in your
+[Theme](/Theme_Development "Theme Development") as `404.php`).
+
+    <?php get_header(); ?>
+    <h2>Error 404 - Not Found</h2>
+    <?php get_sidebar(); ?>
+    <?php get_footer(); ?>
+
+### Left and Right Sidebars
+
+Two sidebars in one theme.
+
+    <?php get_header(); ?>
+    <?php get_sidebar('left'); ?>
+    <?php get_sidebar('right'); ?>
+    <?php get_footer(); ?>
+
+The file names for the right and left sidebars should be
+`sidebar-right.php` and `sidebar-left.php` respectively.
+
+### Multi sidebars
+
+Different sidebar for different pages.
+
+    <?php
+    if ( is_home() ) :
+        get_sidebar( 'home' );
+    elseif ( is_404() ) :
+        get_sidebar( '404' );
+    else :
+        get_sidebar();
+    endif;
+    ?>
+
+The file names for the home and 404 sidebars should be
+`sidebar-home.php` and `sidebar-404.php` respectively.
+
+Notes
+-----
+
+-   Uses:
+    [locate\_template()](/Function_Reference/locate_template "Function Reference/locate template")
+-   Uses:
+    [do\_action()](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'get\_sidebar' action.
+
+Change Log
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+-   [2.5.0](/Version_2.5 "Version 2.5") : Added the '`name`' parameters.
+
+Source File
+-----------
+
+`get_sidebar()` is located in `wp-includes/general-template.php`.
+

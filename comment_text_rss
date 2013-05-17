@@ -1,0 +1,43 @@
+Function Reference/comment text rss « WordPress Codex
+-----------
+
+Display the current comment content for use in the feeds.
+
+Usage
+-----
+
+` <?php comment_text_rss() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`comment_text_rss`' filter on comment content.
+-   Uses:
+    [`get_comment_text()`](/Function_Reference/get_comment_text "Function Reference/get comment text")
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`comment_text_rss()` is located in `wp-includes/feed.php`.
+

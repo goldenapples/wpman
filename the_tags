@@ -1,0 +1,95 @@
+Function Reference/the tags « WordPress Codex
+-----------
+
+This template tag displays a link to the tag or tags a post belongs to.
+If no tags are associated with the current entry, nothing is displayed.
+This tag should be used within [The Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php the_tags( $before, $sep, $after ); ?> `
+
+Parameters
+----------
+
+ \$before 
+:   (*string*) Text to display before the actual tags are displayed.
+    Defaults to **Tags:**
+ \$sep 
+:   (*string*) Text or character to display between each tag link. The
+    default is a comma (,) between each tag.
+ \$after 
+:   (*string*) Text to display after the last tag. The default is to
+    display nothing.
+
+Return Values
+-------------
+
+None.
+
+Examples
+--------
+
+### Default Usage
+
+The default usage lists tags with each tag (if more than one) separated
+by a comma (,) and preceded with the default text **Tags:**.
+
+    <p><?php the_tags(); ?></p>
+
+Tags: [WordPress](#Examples), [Computers](#Examples),
+[Blogging](#Examples)
+
+\
+
+### Separated by Commas
+
+Displays a list of the tags with a line break after it.
+
+     <?php the_tags('Tags:', ', ', '<br />'); ?> 
+
+### Separated by Arrow
+
+Displays links to tags with an arrow (\>) separating the tags and
+preceded with the text **Social tagging:**
+
+    <?php the_tags('Social tagging: ',' > '); ?>
+
+Social tagging: [WordPress](#Examples) \> [Computers](#Examples) \>
+[Blogging](#Examples)
+
+\
+
+### Separated by a Bullet
+
+Displays links to tags with a bullet (•) separating the tags and
+preceded with the text **Tagged with:** and followed by a line break.
+
+    <?php the_tags('Tagged with: ',' • ','<br />'); ?>
+
+Tagged with: [WordPress](#Examples) • [Computers](#Examples) •
+[Blogging](#Examples)
+
+\
+
+### A List Example
+
+Displays a list of the tags as an unordered list:
+
+    <?php the_tags('<ul><li>','</li><li>','</li></ul>'); ?>
+
+-   [WordPress](#Examples)
+-   [Computers](#Examples)
+-   [Blogging](#Examples)
+
+Source Code
+-----------
+
+-   `the_tags()` is located in `wp-includes/category-template.php`
+
+Change Log
+----------
+
+Since: 2.3.0
+

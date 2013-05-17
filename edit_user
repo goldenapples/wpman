@@ -1,0 +1,24 @@
+Function Reference/edit user « WordPress Codex
+-----------
+
+Update (or create) a user in the database with data from \$\_POST
+
+Usage
+-----
+
+` <?php edit_user( $userid ) ?> `
+
+Source File
+-----------
+
+`edit_user()` is located in `wp-admin/includes/user.php`.
+
+Uses
+----
+
+[sanitize\_text\_field](/Function_Reference/sanitize_text_field "Function Reference/sanitize text field")
+
+See also index of [Function
+Reference](/Function_Reference "Function Reference") and index of
+[Template Tags](/Template_Tags "Template Tags").
+

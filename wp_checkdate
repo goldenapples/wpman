@@ -1,0 +1,48 @@
+Function Reference/wp checkdate « WordPress Codex
+-----------
+
+Check if the supplied date is valid for the Gregorian calendar.
+
+Usage
+-----
+
+    wp_checkdate( $month, $day, $year, $source_date );
+
+Parameters
+----------
+
+ \$month 
+:   (*integer*) Month of the year (1-12)
+
+ \$day 
+:   (*integer*) Day of the month (1-31)
+
+ \$year 
+:   (*integer*) Year
+
+ \$source\_date 
+:   (*string*) A properly formed date such as `2008-10-24`
+
+Return
+------
+
+True if it is a valid Gregorian calendar date. False if not.
+
+Examples
+--------
+
+Notes
+-----
+
+Applies the filter wp\_checkdate to the return.
+
+Change Log
+----------
+
+-   Since [3.5.0](/Version_3.5 "Version 3.5")
+
+Source File
+-----------
+
+`wp_checkdate()` is located in `wp-includes/functions.php`.
+

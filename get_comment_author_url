@@ -1,0 +1,27 @@
+Function Reference/get comment author url « WordPress Codex
+-----------
+
+Returns the comment author's [URL](/Glossary#URI_and_URL "Glossary")
+(usually their web site), not linked. This tag must be within [The
+Loop](/The_Loop "The Loop"), or a comment loop.
+
+If the author provided no URL, this will return the URL of the current
+page instead.
+
+Usage
+-----
+
+`  <?php get_comment_author_url(); ?> `
+
+Example
+-------
+
+Returns the comment author's URL
+
+    <?php $comment_author = get_comment_author_url(); ?>
+
+Parameters
+----------
+
+This tag has no parameters.
+

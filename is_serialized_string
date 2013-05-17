@@ -1,0 +1,44 @@
+Function Reference/is serialized string « WordPress Codex
+-----------
+
+Check whether serialized data is of string type.
+
+Usage
+-----
+
+` <?php is_serialized_string( $data ) ?> `
+
+Parameters
+----------
+
+ `$data` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Serialized data
+    Default: *None*
+
+Return Values
+-------------
+
+ (boolean) 
+:   False if not a serialized string, true if it is.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Data might need to be *serialized* to allow it to be successfully
+    stored and retrieved from a database in a form that PHP can
+    understand.
+
+Change Log
+----------
+
+Since: 2.0.5
+
+Source File
+-----------
+
+`is_serialized_string()` is located in `wp-includes/functions.php`.
+

@@ -1,0 +1,72 @@
+Function Reference/wp get schedules « WordPress Codex
+-----------
+
+Retrieve supported and filtered Cron recurrences.
+
+The supported recurrences are '`hourly`', '`twicedaily`', and '`daily`'.
+A plugin may add more by hooking into the '`cron_schedules`' filter. The
+filter accepts an array of arrays. The outer array has a key that is the
+name of the schedule or for example '`weekly`'. The value is an array
+with two keys, one is '`interval`' and the other is '`display`'.
+
+The '`interval`' is a number in seconds of when the cron job should run.
+So for '`hourly`', the time is `3600` or `60*60`. For weekly, the value
+would be `60*60*24*7` or `604800`. The value of '`interval`' would then
+be `604800`.
+
+Usage
+-----
+
+` <?php wp_get_schedules(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (array) 
+:   
+
+Examples
+--------
+
+### display
+
+The '`display`' is the description. For the '`weekly`' key, the
+'`display`' would be
+
+    __( 'Once Weekly' );
+
+For your plugin, you will be passed an `array`. You can easily add a new
+interval schedule by doing the following using the '`cron_schedules`'
+filter.
+
+     add_filter( 'cron_schedules', 'cron_add_weekly' );
+     
+     function cron_add_weekly( $schedules ) {
+        // Adds once weekly to the existing schedules.
+        $schedules['weekly'] = array(
+            'interval' => 604800,
+            'display' => __( 'Once Weekly' )
+        );
+        return $schedules;
+     }
+
+\
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_get_schedules()` is located in `wp-includes/cron.php`.
+

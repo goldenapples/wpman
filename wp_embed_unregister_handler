@@ -1,0 +1,44 @@
+Function Reference/wp embed unregister handler « WordPress Codex
+-----------
+
+Unregister a previously registered embed handler.
+
+Usage
+-----
+
+` <?php wp_embed_unregister_handler( $id, $priority ) ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The handler ID that should be removed.
+    Default: *None*
+
+ `$priority` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The priority of the handler to be removed
+    Default: 10
+
+Return Values
+-------------
+
+No value is returned
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+Source File
+-----------
+
+`wp_embed_unregister_handler()` is located in `wp-includes/media.php`
+

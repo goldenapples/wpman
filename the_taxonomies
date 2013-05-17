@@ -1,0 +1,62 @@
+Function Reference/the taxonomies « WordPress Codex
+-----------
+
+This template tag can be used within The Loop to display Links for
+[taxonomies](/Custom_Taxonomies "Custom Taxonomies") and belonging Terms
+for a post without specifying the Post ID. You can also use it outside
+The Loop to display the taxonomies for a specific post.
+
+Usage
+-----
+
+`  <?php the_taxonomies( $args ); ?> `
+
+Parameters
+----------
+
+ `post` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The post ID to get taxonomies of.
+    Default: 0
+
+ `before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Display before taxonomies list.
+    Default: *None*
+
+ `sep` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optiona*) Separate every taxonomy with value in this.
+    Default: 'and' (in your language)
+
+ `after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Display this after the taxonomies list.
+    Default: *None*
+
+ `template` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Template used to display the taxonomies list.
+    Default: *None*
+
+Returns
+-------
+
+A List of Links to your Tags in the taxonomies
+
+Taxonomy Name: \<a
+href='[http://yourdomain.com/Term\_Slug/'](http://yourdomain.com/Term_Slug/' "http://yourdomain.com/Term_Slug/'")\>Term
+Name/a\>.
+
+\
+
+Example
+-------
+
+`  <?php the_taxonomies('before=<ul>&after=</ul>'); ?> `
+
+Source File
+-----------
+
+`the_taxonomies()` is located in `wp-includes/taxonomy.php`.
+

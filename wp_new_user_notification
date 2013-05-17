@@ -1,0 +1,93 @@
+Function Reference/wp new user notification « WordPress Codex
+-----------
+
+Notify the blog admin of a new user, normally via email and also send an
+email with login/password to the new user.
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Usage
+-----
+
+` <?php wp_new_user_notification( $user_id, $plaintext_pass ) ?> `
+
+Parameters
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) User ID
+    Default: *None*
+
+ `$plaintext_pass` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The user's plaintext password
+    Default: ''
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+    // Redefine user notification function
+    if ( !function_exists('wp_new_user_notification') ) {
+
+        function wp_new_user_notification( $user_id, $plaintext_pass = '' ) {
+
+            $user = new WP_User( $user_id );
+
+            $user_login = stripslashes( $user->user_login );
+            $user_email = stripslashes( $user->user_email );
+
+            $message  = sprintf( __('New user registration on %s:'), get_option('blogname') ) . "\r\n\r\n";
+            $message .= sprintf( __('Username: %s'), $user_login ) . "\r\n\r\n";
+            $message .= sprintf( __('E-mail: %s'), $user_email ) . "\r\n";
+
+            @wp_mail(
+                get_option('admin_email'),
+                sprintf(__('[%s] New User Registration'), get_option('blogname') ),
+                $message
+            );
+
+            if ( empty( $plaintext_pass ) )
+                return;
+
+            $message  = __('Hi there,') . "\r\n\r\n";
+            $message .= sprintf( __("Welcome to %s! Here's how to log in:"), get_option('blogname')) . "\r\n\r\n";
+            $message .= wp_login_url() . "\r\n";
+            $message .= sprintf( __('Username: %s'), $user_login ) . "\r\n";
+            $message .= sprintf( __('Password: %s'), $plaintext_pass ) . "\r\n\r\n";
+            $message .= sprintf( __('If you have any problems, please contact me at %s.'), get_option('admin_email') ) . "\r\n\r\n";
+            $message .= __('Adios!');
+
+            wp_mail(
+                $user_email,
+                sprintf( __('[%s] Your username and password'), get_option('blogname') ),
+                $message
+            );
+        }
+    }
+
+Notes
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+
+Change Log
+----------
+
+-   Since: [2.0](/Version_2.0 "Version 2.0")
+
+Source File
+-----------
+
+`wp_new_user_notification()` is located in `wp-includes/pluggable.php`.
+

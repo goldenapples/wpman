@@ -1,0 +1,128 @@
+Function Reference/wp terms checklist « WordPress Codex
+-----------
+
+Taxonomy independent version of
+[wp\_category\_checklist()](/Function_Reference/wp_category_checklist "Function Reference/wp category checklist")
+
+Usage
+-----
+
+` <?php wp_terms_checklist( $post_id, $args ); ?> `
+
+### Default Usage
+
+ `$post_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: 0
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: array()
+
+<!-- -->
+
+    <?php $args = array(
+        'descendants_and_self'  => 0,
+        'selected_cats'         => false,
+        'popular_cats'          => false,
+        'walker'                => null,
+        'taxonomy'              => 'category',
+        'checked_ontop'         => true
+    ); ?>
+
+Parameters
+----------
+
+ descendants\_and\_self 
+:   (*boolean*) Display only categories that apply to this post and
+    their children or display all categories. The default is *false*
+    (display all categories). Valid values:
+    -   `1 (True)`
+    -   `0 (False)` - Default
+
+ selected\_cats 
+:   (*array*) Default is 'false', no categories selected by default.
+    However, if \$post\_id is provided, categories already applied to
+    \$post\_id are selected by default. Otherwise, an array of category
+    ids specify which categories should be selected by default in the
+    list.
+
+ popular\_cats 
+:   (*array*) Default is 'false'. Shows top 10 categories by count.
+    Otherwise, an array of categories specify which categories should be
+    shown in the popular categories list.
+
+ walker 
+:   (*object*) Walker class to render the list with. Valid values:
+    -   `object` - an instance of a class that extends either
+        Walker\_Category or
+        [Walker](http://codex.wordpress.org/Function_Reference/Walker_Class "http://codex.wordpress.org/Function_Reference/Walker_Class")
+
+ taxonomy 
+:   (*string*) Taxonomy to return. This parameter added at [Version
+    3.0](/Version_3.0 "Version 3.0"). Valid values:
+    -   `category` - default
+    -   `taxonomy` - or any registered taxonomy
+
+ checked\_ontop 
+:   (*boolean*) Display checked categories at the top of the terms list
+    or not. The default is *true* (display checked categories at the top
+    of the terms list). Valid values:
+    -   `1 (True)` - Default
+    -   `0 (False)`
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`wp_terms_checklist()` is located in `wp-admin/includes/template.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_terms\_checklist](http://codex.wordpress.org/Function_Reference/wp_terms_checklist)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

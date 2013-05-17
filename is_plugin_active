@@ -1,0 +1,46 @@
+Function Reference/is plugin active « WordPress Codex
+-----------
+
+Checks if a plugin is activated.
+
+NOTE: defined in `wp-admin/includes/plugin.php`, so this is **only
+available from within the admin pages**. If you want to use this
+function from within a template, you will need to manually require
+plugin.php, an example is below.
+
+Usage
+-----
+
+In the Admin Area: ` <?php is_plugin_active($plugin) ?> ` In the front
+end, in a theme, etc...
+` <?php include_once( ABSPATH . 'wp-admin/includes/plugin.php' ); ?><?php is_plugin_active($plugin) ?> `
+
+Parameters
+----------
+
+ `$plugin` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the plugin sub-directory/file.
+    Default: *None*
+
+Return Values
+-------------
+
+True
+:   if plugin is activated, else `false`.
+
+Examples
+--------
+
+` <?php   If (is_plugin_active('plugin-directory/plugin-file.php')) {      //plugin is activated   }?> `
+
+Change Log
+----------
+
+Since [Version 2.5](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+`is_plugin_active()` is defined in `wp-admin/includes/plugin.php`.
+

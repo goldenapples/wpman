@@ -1,0 +1,39 @@
+Function Reference/background image « WordPress Codex
+-----------
+
+Display background image for the current active theme.
+
+Usage
+-----
+
+` <?php background_image(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+    <img src="<?php background_image(); ?>" />
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 3.0.0
+
+Source File
+-----------
+
+`background_color()` is located in `wp-includes/theme.php`.
+

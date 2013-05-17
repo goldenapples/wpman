@@ -1,0 +1,66 @@
+Function Reference/ nx noop « WordPress Codex
+-----------
+
+Register plural strings with context in POT file, but don't translate
+them.
+
+Usage
+-----
+
+` <?php _nx_noop( $singular, $plural, $context ) ?> `
+
+Parameters
+----------
+
+ `$singular` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Singular form to be i18ned
+    Default: *None*
+
+ `$plural` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Plural form to be i18ned
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Context information for the translators
+    Default: *None*
+
+Return Values
+-------------
+
+ (array) 
+:   Returns an array containing six items - singular value, plural value
+    and context.
+
+<!-- -->
+
+    array(
+        0          =>  $singular,
+        1          =>  $plural,
+        3          =>  $context
+        'singular' =>  $singular,
+        'plural'   =>  $plural,
+        'context'  =>  $context
+    )
+
+Examples
+--------
+
+Notes
+-----
+
+-   See
+    [`_n_noop()`](/Function_Reference/_n_noop "Function Reference/ n noop")
+
+Change Log
+----------
+
+-   Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+`_nx_noop()` is located in `/wp-includes/l10n.php`.
+

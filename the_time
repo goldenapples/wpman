@@ -1,0 +1,61 @@
+Function Reference/the time « WordPress Codex
+-----------
+
+Displays the time of the current post. This tag must be used within [The
+Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php the_time( $d ); ?> `
+
+Parameters
+----------
+
+ `$d` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The format the time is to display in. Defaults to the
+    time format configured in your WordPress options. See [Formatting
+    Date and
+    Time](/Formatting_Date_and_Time "Formatting Date and Time").
+    Default: *None*
+
+Examples
+--------
+
+### Default Usage
+
+Displays the time using your WordPress defaults.
+
+Time posted: \<?php the\_time(); ?\>
+
+### Time as AM/PM VS. 24H format
+
+Displays the time using the format parameter string `'09:18 am'` (ex:
+10:36 pm).
+
+    <p>Time posted: <?php the_time('g:i a'); ?></p>
+
+--
+
+Displays the time using the 24 hours format parameter string `'G:i'`
+(ex: 17:52).
+
+    <p>Time posted: <?php the_time('G:i'); ?></p>
+
+### Date as Month Day, Year
+
+Displays the time in the date format `'F j, Y'` (ex: December 2, 2004),
+which could be used to replace the tag
+[the\_date()](/Template_Tags/the_date "Template Tags/the date").
+
+    <div><?php the_time('F j, Y'); ?></div>
+
+### Date and Time
+
+Displays the date and time.
+
+    <p>Posted: <?php the_time('F j, Y'); ?> at <?php the_time('g:i a'); ?></p>
+
+Posted: July 17, 2007 at 7:19 am
+

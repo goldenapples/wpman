@@ -1,0 +1,57 @@
+Function Reference/force ssl login « WordPress Codex
+-----------
+
+Determine whether the login page should be viewed over SSL. This
+function relies on the
+[FORCE\_SSL\_LOGIN](/Administration_Over_SSL "Administration Over SSL")
+constant that is set in the [wp-config.php
+file](/Editing_wp-config.php "Editing wp-config.php") if you're using
+your site [over
+SSL](/Administration_Over_SSL "Administration Over SSL").
+
+The [force](#Parameters) parameter will change the [return
+value](#Returns) of this function until it is reset.
+
+Usage
+-----
+
+`  <?php force_ssl_login(); ?> `
+
+### Default Usage
+
+`  <?php if ( force_ssl_login() ) { echo 'Logins should be sent over SSL'; } ?> `
+
+### Changing the Return Value
+
+`  <?phpforce_ssl_login(true);if ( force_ssl_login() ) {  echo 'Logins should be sent over SSL';} else {  echo 'This code will never execute';}force_ssl_login(false);if ( force_ssl_login() ) {  echo 'This code will never execute';} else {  echo 'Logins should NOT be sent over SSL';}?> `
+
+### Resetting the Return Value
+
+`  <?php force_ssl_login(FORCE_SSL_LOGIN); ?> `
+
+Parameters
+----------
+
+ `$force` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If provided, the return value will be reset to this
+    value on the next call.
+    Default: *None*
+
+Returns
+-------
+
+ (boolean) 
+:   True if the login form should be submitted over SSL, false otherwise
+
+Changelog
+---------
+
+Since: [Wordpress
+2.6.0](/index.php?title=Version_2.6.0&action=edit&redlink=1 "Version 2.6.0 (page does not exist)")
+
+Source Code
+-----------
+
+`force_ssl_login()` is located in `wp-includes/functions.php`.
+

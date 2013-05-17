@@ -1,0 +1,53 @@
+Function Reference/wp get links « WordPress Codex
+-----------
+
+Displays links associated with a numeric link category ID. This tag uses
+the settings you specify in the [Links
+Manager](/Links_Manager "Links Manager") (pre-WordPress 2.1 only). For
+control over the formatting and display of your links within the tag's
+parameters, see
+[get\_links()](/Template_Tags/get_links "Template Tags/get links").
+
+Replace With
+------------
+
+-   [wp\_list\_bookmarks()](/Template_Tags/wp_list_bookmarks "Template Tags/wp list bookmarks")
+    accepts one or more numeric link categories through the 'category'
+    parameter.
+
+Usage
+-----
+
+`  <?php wp_get_links( $category ); ?> `
+
+Parameters
+----------
+
+ category 
+:   (*integer*) The numeric ID of the link category whose links will be
+    displayed. You must select a link category, if none is selected it
+    will generate an error.
+
+Examples
+--------
+
+### Links by Category Number
+
+Show links for link category 1.
+
+    <?php wp_get_links(1); ?>
+
+### Include Before and After Text
+
+Mimic the behavior of `get_links_list()` but *do* respect the "Before
+Link", "Between Link and Description", and "After Link" settings defined
+for Link Categories in the Links Manager.
+
+Change Log
+----------
+
+-   Since: 1.0.1
+-   Deprecated: 2.1
+-   Replace By:
+    [wp\_list\_bookmarks()](/Template_Tags/wp_list_bookmarks "Template Tags/wp list bookmarks")
+

@@ -1,0 +1,45 @@
+Function Reference/make url footnote « WordPress Codex
+-----------
+
+Strip [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") and put
+links at the bottom of stripped content.
+
+Searches for all of the links, strips them out of the content, and
+places them at the bottom of the content with numbers.
+
+Usage
+-----
+
+` <?php make_url_footnote( $content ) ?> `
+
+Parameters
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to get links
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") stripped
+    out of content with links at the bottom.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 0.71 Deprecated since: 2.9
+
+Source File
+-----------
+
+`make_url_footnote()` is located in `wp-includes/functions.php`.
+

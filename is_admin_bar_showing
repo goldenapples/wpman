@@ -1,0 +1,50 @@
+Function Reference/is admin bar showing « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the WordPress
+[Toolbar](/Administration_Screens#Toolbar "Administration Screens") is
+being displayed. This is a boolean function, meaning it returns either
+TRUE or FALSE.
+
+Usage
+-----
+
+` <?php is_admin_bar_showing(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+    <?php
+    if ( is_admin_bar_showing() ) {
+        // do something
+    }
+    ?>
+
+Notes
+-----
+
+-   This function will always return true in the WordPress admin.
+-   Uses `_get_admin_bar_pref()`.
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`is_admin_bar_showing()` is located in `wp-includes/admin-bar.php`.
+

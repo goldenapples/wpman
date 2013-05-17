@@ -1,0 +1,52 @@
+Function Reference/ ex « WordPress Codex
+-----------
+
+Displays translated string with gettext context
+
+Usage
+-----
+
+` <?php _ex( $text, $context, $domain ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to translate
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Context information for the translators
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text
+    Default: 'default'
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value. .
+
+Examples
+--------
+
+Notes
+-----
+
+-   *l10n* is an abbreviation for *localization*.
+
+Change Log
+----------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`_ex()` is located in `wp-includes/l10n.php`.
+

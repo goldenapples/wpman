@@ -1,0 +1,58 @@
+Function Reference/wp delete user « WordPress Codex
+-----------
+
+Remove user and optionally reassign posts and links to another user.
+
+If the `$reassign` parameter is not assigned to a User ID, then all
+posts will be deleted of that user. The action '`delete_user`' that is
+passed the User ID being deleted will be run after the posts are either
+reassigned or deleted. The user meta will also be deleted that are for
+that User ID.
+
+Usage
+-----
+
+` <?php wp_delete_user( $id, $reassign ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) User ID.
+    Default: *None*
+
+ `$reassign` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Reassign posts and links to new User ID.
+    Default: 'novalue'
+
+Return Values
+-------------
+
+ (boolean) 
+:   True when finished.
+
+Examples
+--------
+
+Notes
+-----
+
+-   If you wish to use this function in a plugin then you must include
+    the ./wp-admin/includes/user.php file in your plugin function, else
+    it will throw a 'call to undefined function' error
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   This is an Admin function.
+
+Change Log
+----------
+
+Since: 2.0
+
+Source File
+-----------
+
+`wp_delete_user()` is located in `wp-admin/includes/user.php`.
+

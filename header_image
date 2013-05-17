@@ -1,0 +1,37 @@
+Function Reference/header image « WordPress Codex
+-----------
+
+Display header image path.
+
+Usage
+-----
+
+` <?php header_image() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`header_image()` is located in `wp-includes/theme.php`.
+

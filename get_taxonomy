@@ -1,0 +1,94 @@
+Function Reference/get taxonomy « WordPress Codex
+-----------
+
+Just pass it the name of the taxonomy and it will: a) Check if the
+taxonomy exists b) Use global \$wp\_taxonomies to return an object
+containing the taxonomy's settings (metadata).
+
+Note that it does NOT return the list of terms associated with the
+taxonomy. To do this, you should use
+[wp\_list\_categories](http://codex.wordpress.org/Template_Tags/wp_list_categories#Display_Terms_in_a_custom_taxonomy "http://codex.wordpress.org/Template_Tags/wp_list_categories#Display_Terms_in_a_custom_taxonomy")
+
+Usage
+-----
+
+` <?php get_taxonomy($taxonomy) ?> `
+
+Parameters
+----------
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the taxonomy
+    Default: *None*
+
+Return Values
+-------------
+
+ `(object)` 
+:   on success.
+
+False on failure.
+
+Examples
+--------
+
+For example for a custom taxonomy named "features" associated with a
+custom post type named "rentals".
+
+     $rental_features = get_taxonomy('features');
+     print_r($rental_features);
+     
+     stdClass Object ( 
+     [hierarchical] => 
+     [update_count_callback] => 
+     [rewrite] => 
+         Array ( [slug] => features [with_front] => 1 ) 
+     [query_var] => features 
+     [public] => 1 
+     [show_ui] => 1 
+     [show_tagcloud] => 1 
+     [_builtin] => 
+     [labels] => 
+       stdClass Object ( 
+           [name] => Features 
+           [singular_name] => Feature 
+           [search_items] => Search Features 
+           [popular_items] => Popular Features 
+           [all_items] => All Features 
+           [parent_item] => Parent Feature 
+           [parent_item_colon] => Parent Feature: 
+           [edit_item] => Edit Feature 
+           [update_item] => Update Feature 
+           [add_new_item] => Add New Feature 
+           [new_item_name] => New Feature Name 
+           [separate_items_with_commas] => Separate Features with commas 
+           [add_or_remove_items] => Add or remove Features 
+           [choose_from_most_used] => Choose from the most used Features 
+        ) 
+     [show_in_nav_menus] => 1 
+     [label] => Features 
+     [singular_label] => Feature 
+     [cap] => 
+       stdClass Object ( 
+           [manage_terms] => manage_categories 
+           [edit_terms] => manage_categories 
+           [delete_terms] => manage_categories 
+           [assign_terms] => edit_posts 
+       ) 
+     [name] => features 
+     [object_type] => 
+       Array ( [0] => rentals [1] => rentals ) 
+    )
+
+Notes
+-----
+
+Change Log
+----------
+
+Source File
+-----------
+
+`get_taxonomy()` is located in `wp-includes/taxonomy.php`.
+

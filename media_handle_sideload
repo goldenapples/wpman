@@ -1,0 +1,83 @@
+Function Reference/media handle sideload « WordPress Codex
+-----------
+
+Handles a sideloaded file in the same way as an uploaded file is handled
+by
+[media\_handle\_upload()](/Function_Reference/media_handle_upload "Function Reference/media handle upload").
+
+Parameters
+----------
+
+ `$file_array` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Array similar to a \$\_FILES upload array.
+    Default: *None*
+
+ `$post_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) The post ID the media is associated with.
+    Default: *None*
+
+ `$desc` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Description of the sideloaded file.
+    Default: null
+
+ `$post_data` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Allows you to overwrite some of the attachment.
+    Default: null
+
+Return Value
+------------
+
+ (int|object)
+:   The ID of the attachment or a WP\_Error on failure.
+
+Examples
+--------
+
+(from the
+[media\_handle\_upload()](/Function_Reference/media_handle_upload "Function Reference/media handle upload")
+function)
+
+    <?php 
+        $url = "http://s.wordpress.org/style/images/wp3-logo.png";
+        $tmp = download_url( $url );
+        $post_id = 1;
+        $desc = "The WordPress Logo";
+
+        // Set variables for storage
+        // fix file filename for query strings
+        preg_match('/[^\?]+\.(jpg|JPG|jpe|JPE|jpeg|JPEG|gif|GIF|png|PNG)/', $file, $matches);
+        $file_array['name'] = basename($matches[0]);
+        $file_array['tmp_name'] = $tmp;
+
+        // If error storing temporarily, unlink
+        if ( is_wp_error( $tmp ) ) {
+            @unlink($file_array['tmp_name']);
+            $file_array['tmp_name'] = '';
+        }
+
+        // do the validation and storage stuff
+        $id = media_handle_sideload( $file_array, $post_id, $desc );
+
+        // If error storing permanently, unlink
+        if ( is_wp_error($id) ) {
+            @unlink($file_array['tmp_name']);
+            return $id;
+        }
+
+        $src = wp_get_attachment_url( $id );
+    ?>
+
+Change Log
+----------
+
+Since: [2.6.0](/Version_2.6 "Version 2.6")
+
+Source File
+-----------
+
+`media_sideload_image()` is located in `wp-admin/includes/media.php`.
+

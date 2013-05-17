@@ -1,0 +1,59 @@
+Function Reference/delete comment meta « WordPress Codex
+-----------
+
+Remove metadata matching criteria from a comment. You can match based on
+the key, or key and value. Removing based on key and value will keep
+from removing duplicate metadata with the same key. It also allows
+removing all metadata matching key, if needed.
+
+`delete_comment_meta()` allows you to delete any meta values stored
+against comments, which have been set using
+[add\_comment\_meta()](/Function_Reference/add_comment_meta "Function Reference/add comment meta").
+Similar method to
+[delete\_post\_meta()](/Function_Reference/delete_post_meta "Function Reference/delete post meta").
+
+Usage
+-----
+
+` <?php   delete_comment_meta( $comment_id, $meta_key, $meta_value );?> `
+
+Parameters
+----------
+
+ `$comment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Comment ID
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Metadata key
+    Default: *None*
+
+ `$meta_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Metadata value
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   False for failure. True for success.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+Source File
+-----------
+
+delete\_comment\_meta() is located in `wp-includes/comment.php`
+

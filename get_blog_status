@@ -1,0 +1,45 @@
+Function Reference/get blog status « WordPress Codex
+-----------
+
+Get a blog details field.
+
+Usage
+-----
+
+` <?php get_blog_status( $id, $pref ) ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The blog id
+    Default: *None*
+
+ `$pref` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) A field name
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(mixed)`{style="color:gray"} 
+:   The value from the field
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+get\_blog\_status() is located in `wp-includes/ms-blogs.php`
+

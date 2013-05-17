@@ -1,0 +1,159 @@
+Function Reference/wp get theme « WordPress Codex
+-----------
+
+Gets a WP\_Theme object for a theme.
+
+Usage
+-----
+
+` <?php $theme = wp_get_theme( $stylesheet, $theme_root ); ?> `
+
+Parameters
+----------
+
+ `$stylesheet` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Optional*) Directory name for the theme. Defaults to current
+    theme.
+    Default: Null
+
+ `$theme_root` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Optional*) Absolute path of the theme root to look in. If not
+    specified, the value returned by get\_raw\_theme\_root() will be
+    used.
+    Default: Null
+
+Return Values
+-------------
+
+This function returns an instance of the [WP\_Theme
+object](/Class_Reference/WP_Theme "Class Reference/WP Theme"), which
+includes the following properties:
+
+ Name 
+:   Theme name as given in theme's style.css
+ ThemeURI 
+:   The path to the theme's directory
+ Description 
+:   The description of the theme
+ Author 
+:   The theme's author
+ AuthorURI 
+:   The website of the theme author
+ Version 
+:   The version of the theme
+ Template 
+:   The folder name of the current theme
+ Status 
+:   If the theme is published
+ Tags 
+:   Tags used to describe the theme
+ TextDomain 
+:   The text domain used in the theme for translation purposes
+ DomainPath 
+:   Path to the theme translation files
+
+Examples
+--------
+
+### Echo the name of the current active theme.
+
+    <?php
+    echo wp_get_theme();
+    ?>
+
+### Echo the name of an installed theme.
+
+    <?php
+    $my_theme = wp_get_theme( 'twentyten' );
+    if ( $my_theme->exists() )
+        echo $my_theme;
+    ?>
+
+### Display the Current Theme's Version
+
+    <?php
+    $my_theme = wp_get_theme();
+    echo $my_theme->Name . " is version " . $my_theme->Version;
+    ?>
+
+### Display the Current Theme Author URI
+
+    <?php
+    $my_theme = wp_get_theme();
+    echo $my_theme->{'Author URI'};
+    ?>
+
+Or,
+
+    <?php
+    $my_theme = wp_get_theme();
+    echo $my_theme->get( 'AuthorURI' );
+    ?>
+
+### Get Other Data: Text Domain & Theme URI
+
+    <?php
+    $my_theme = wp_get_theme();
+    echo $my_theme->get( 'TextDomain' );
+    echo $my_theme->get( 'ThemeURI' );
+    ?>
+
+Change Log
+----------
+
+Since: 3.4.0
+
+Source File
+-----------
+
+`wp_get_theme()` is located in `wp-includes/theme.php`.
+
+See also index of [Function
+Reference](/Function_Reference "Function Reference") and index of
+[Template Tags](/Template_Tags "Template Tags").
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_get\_theme](http://codex.wordpress.org/Function_Reference/wp_get_theme)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

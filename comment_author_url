@@ -1,0 +1,46 @@
+Function Reference/comment author url « WordPress Codex
+-----------
+
+Displays the comment author's [URL](/Glossary#URI_and_URL "Glossary")
+(usually their web site), not linked.
+
+If the author provided no URL, this will display the URL of the current
+page instead. The tag
+[get\_comment\_author\_url](/Template_Tags/get_comment_author_url "Template Tags/get comment author url")
+returns an empty string in this case.
+
+Usage
+-----
+
+`  <?php comment_author_url( $comment_ID ); ?> `
+
+Example
+-------
+
+Displays comment author's URL as a link, using comment author's name as
+part of the link text.
+
+    <a href="<?php comment_author_url(); ?>">Visit 
+    <?php comment_author(); ?>'s site</a>
+
+Parameters
+----------
+
+ `comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the comment for which to print the author's
+    URL.
+    Default: 0 (the current comment)
+
+Filters
+-------
+
+[apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+Calls 'comment\_url' hook on the author email
+
+Changelog
+---------
+
+-    ? : Added the 'comment\_ID' parameter.
+-   Since: 0.71
+

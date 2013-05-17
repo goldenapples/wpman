@@ -1,0 +1,44 @@
+Function Reference/bool from yn « WordPress Codex
+-----------
+
+Whether input is yes or no. Must be '`y`' to be true.
+
+Usage
+-----
+
+` <?php bool_from_yn( $yn ) ?> `
+
+Parameters
+----------
+
+ `$yn` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Character string containing either '`y`' or '`n`'
+    Default: *None*
+
+Return Values
+-------------
+
+ (boolean) 
+:   `True` if yes, `false` on anything else
+
+Examples
+--------
+
+Notes
+-----
+
+-   '`y`' returns `true`,
+-   '`Y`' returns `true`,
+-   Everything else returns `false`.
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`bool_from_yn()` is located in `wp-includes/functions.php`.
+

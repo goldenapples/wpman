@@ -1,0 +1,62 @@
+Function Reference/wp create nav menu « WordPress Codex
+-----------
+
+Create a Navigation Menu. This function can be used to programmatically
+create navigation menu which will be added to the Menus page under
+Appearance.
+
+Usage
+-----
+
+` <?php $menu_id = wp_create_nav_menu($menu_name) ?> `
+
+Parameters
+----------
+
+ `$menu_name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The title of the menu to create.
+    Default: *None*
+
+Examples
+--------
+
+In order to create a menu use:
+
+    $menu_id = wp_create_nav_menu($menu_name);
+
+To check if a menu exists first and then create it if it doesn't exists,
+and finally add menu items to it, use:
+
+    // Check if the menu exists
+    $menu_exists = wp_get_nav_menu_object( $menu_name );
+
+    // If it doesn't exist, let's create it.
+    if( !$menu_exists){
+        $menu_id = wp_create_nav_menu($menu_name);
+
+        // Set up default menu items
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Home'),
+            'menu-item-classes' => 'home',
+            'menu-item-url' => home_url( '/' ), 
+            'menu-item-status' => 'publish'));
+
+        wp_update_nav_menu_item($menu_id, 0, array(
+            'menu-item-title' =>  __('Custom Page'),
+            'menu-item-url' => home_url( '/custom/' ), 
+            'menu-item-status' => 'publish'));
+
+    }
+
+Return Values
+-------------
+
+ (int|WP\_Error) 
+:   The Menu ID or WP Error Object in case of failure.
+
+Source File
+-----------
+
+`wp_create_nav_menu()` is located in `wp-includes/nav-menu.php`.
+

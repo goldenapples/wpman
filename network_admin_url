@@ -1,0 +1,85 @@
+Function Reference/network admin url « WordPress Codex
+-----------
+
+The **network\_admin\_url** template tag retrieves the url to the
+Network\_Admin area for the current site with the appropriate protocol,
+'https' if
+[is\_ssl()](/Function_Reference/is_ssl "Function Reference/is ssl") and
+'http' otherwise. If [scheme](#Parameters) is 'http' or 'https',
+is\_ssl() is overridden.
+
+If the site is not setup as
+[multisite](/Create_A_Network "Create A Network"),
+[admin\_url()](/Function_Reference/admin_url "Function Reference/admin url")
+will be used instead.
+
+Usage
+-----
+
+` <?php network_admin_url( $path, $scheme ); ?> `
+
+### Default Usage
+
+` <?php $url = network_admin_url(); ?> `
+
+Parameters
+----------
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path relative to the admin url.
+    Default: *None*
+
+ `$scheme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The scheme to use. Default is 'admin', which obeys
+    force\_ssl\_admin() and is\_ssl(). 'http' or 'https' can be passed
+    to force those schemes. The function uses network\_site\_url(), so
+    allowed values include any accepted by that function.
+    Default: 'admin'
+
+Return
+------
+
+ (string) 
+:   Admin url link with optional path appended.
+
+Examples
+--------
+
+    $url = network_admin_url();
+    echo $url;
+
+Output:
+[http://www.example.com/wp-admin/network/](http://www.example.com/wp-admin/network/ "http://www.example.com/wp-admin/network/")
+
+(protocol will be https when appropriate)
+
+    // generate url path to Users -> Add New page in the admin and force https
+    $url = network_admin_url( 'user-new.php', 'https' );
+    echo $url;
+
+Output:
+[https://www.example.com/wp-admin/network/user-new.php](https://www.example.com/wp-admin/network/user-new.php "https://www.example.com/wp-admin/network/user-new.php")
+
+Notes
+-----
+
+-   Uses
+    [network\_site\_url()](/Function_Reference/network_site_url "Function Reference/network site url")
+-   Uses
+    [is\_multisite()](/Function_Reference/is_multisite "Function Reference/is multisite")
+-   Uses
+    [admin\_url()](/Function_Reference/admin_url "Function Reference/admin url")
+    for single site installations
+
+Changelog
+---------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source Code
+-----------
+
+`network_admin_url()` is located in `wp-includes/link-template.php`.
+

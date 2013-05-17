@@ -1,0 +1,112 @@
+Function Reference/get archives « WordPress Codex
+-----------
+
+Displays a list of links to date-based archives. This tag can be used
+anywhere within a template.
+
+Replace With
+------------
+
+-   [wp\_get\_archives()](/Template_Tags/wp_get_archives "Template Tags/wp get archives")
+
+Usage
+-----
+
+`  <?php get_archives( $type, $limit, $format, $before, $after, $show_post_count ); ?> `
+
+Parameters
+----------
+
+ type 
+:   (*string*) The type of archive list to display. Defaults to
+    WordPress setting (defaults to `'monthly'` in 1.5). Valid values:
+    -   `'monthly'` (Default)
+    -   `'daily'`
+    -   `'weekly'`
+    -   `'postbypost'`
+
+ limit 
+:   (*integer*) Number of archives to get. Use `''` for no limit.
+ format 
+:   (*string*) Format for the archive list. Valid values:
+    -   `'html'` - In HTML list (\<li\>) tags. This is the default.
+    -   `'option'` - In select or dropdown option (\<option\>) tags.
+    -   `'link'` - Within link (\<link\>) tags.
+    -   `'custom'` - Custom list.
+
+ before 
+:   (*string*) Text to place before the link when using `'custom'` or
+    `'html'` for **format** option. Defaults to `''`.
+ after 
+:   (*string*) Text to place after the link when using `'custom'` or
+    `'html'` for **format** option. Defaults to `''`.
+ show\_post\_count 
+:   (*boolean*) Display number of posts in an archive (`TRUE`) or do not
+    (`FALSE`). For use when **type** is set to `'monthly'`. Defaults to
+    `FALSE`.
+
+Examples
+--------
+
+### Default Usage
+
+Displays archive links using defaults.
+
+    <?php get_archives(); ?>
+
+\
+
+### By Month with Post Count
+
+Displays all archives by month in an unordered list, with count of posts
+by month.
+
+    <ul>
+    <?php get_archives('monthly', '', 'html', '', '', TRUE); ?>
+    </ul>
+
+\
+
+### Displays Last 10 Posts In A List
+
+Displays a non-bulleted list of the last 10 posts separated by line
+breaks.
+
+    <?php get_archives('postbypost', '10', 'custom', '', '<br />'); ?>
+
+### Using Dropdown List
+
+Displays monthly archives in a dropdown list; the use of
+[javascript](/Glossary#JavaScript "Glossary") is required to have an
+archive selection open on the page.
+
+    <form id="archiveform" action="">
+    <select name="archive_chrono" onchange="window.location =
+    (document.forms.archiveform.archive_chrono[document.forms.archiveform.archive_chrono.selectedIndex].value);">
+    <option value=''>Select Month</option>
+    <?php get_archives('monthly','','option'); ?>
+    </select>
+    </form>
+
+You also can use piece of code below, that works better than the example
+above. It shows the months list, including the number of posts/month.
+
+     <select name="archivemenu" onChange="document.location.href=this.options[this.selectedIndex].value;">
+     <option value="">Select month</option>
+     <?php get_archives('monthly',,'option',,,'TRUE'); ?>
+     </select>
+
+### List of Limited Number of Recent Posts
+
+Displays a custom number of recent posts in an unordered list.
+
+     <ul><?php get_archives('postbypost','10','custom','<li>','</li>'); ?></ul>
+
+Change Log
+----------
+
+-   Since: 0.71
+-   Deprecated: [2.1.0](/Version_2.1 "Version 2.1")
+-   Replace By:
+    [wp\_get\_archives()](/Template_Tags/wp_get_archives "Template Tags/wp get archives")
+

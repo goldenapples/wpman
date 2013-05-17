@@ -1,0 +1,44 @@
+Function Reference/delete option « WordPress Codex
+-----------
+
+A safe way of removing a named option/value pair from the options
+database table.
+
+Usage
+-----
+
+` <?php delete_option( $option ); ?> `
+
+Parameters
+----------
+
+ `$option` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the option to be deleted. A list of valid
+    default options can be found at the [Option
+    Reference](/Option_Reference "Option Reference").
+    Default: *None*
+
+Return Value
+------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True, if option is successfully deleted. False on failure.
+
+Example
+-------
+
+### Delete a single option
+
+    <?php delete_option( 'my_option' ); ?>
+
+Change Log
+----------
+
+Since: [1.2.0](/Version_1.2 "Version 1.2")
+
+Source File
+-----------
+
+`delete_option()` is located in `wp-includes/option.php`.
+

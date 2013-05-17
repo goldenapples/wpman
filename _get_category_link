@@ -1,0 +1,61 @@
+Function Reference/get category link « WordPress Codex
+-----------
+
+Returns the correct url for a given Category ID.
+
+Usage
+-----
+
+` <?php get_category_link( $category_id ); ?> `
+
+Parameters
+----------
+
+ `$category_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The category ID whose link will be retrieved.
+    Default: *None*
+
+Return Values
+-------------
+
+ (URL) 
+:   `(string)` URL with a link to the category.
+
+Examples
+--------
+
+### Category Link
+
+    <?php
+        // Get the ID of a given category
+        $category_id = get_cat_ID( 'Category Name' );
+
+        // Get the URL of this category
+        $category_link = get_category_link( $category_id );
+    ?>
+
+    <!-- Print a link to this category -->
+    <a href="<?php echo esc_url( $category_link ); ?>" title="Category Name">Category Name</a>
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`category_link`' filter on category link and category ID.
+-   Uses global: (`unknown`) `$wp_rewrite`
+-   Using a nonexistent Category ID will return a link to the parent
+    directory. (eg:
+    [http://example.com/baseurl/archives/category/](http://example.com/baseurl/archives/category/ "http://example.com/baseurl/archives/category/"))
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`get_category_link()` is located in `wp-includes/category-template.php`.
+

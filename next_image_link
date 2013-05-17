@@ -1,0 +1,46 @@
+Function Reference/next image link « WordPress Codex
+-----------
+
+This creates a link to the next image attached to the current post.
+Whenever a series of images are linked to the attachment page, it will
+put a 'next image link' with the images when viewed in the attachment
+page.
+
+Usage
+-----
+
+Typically uses in `attachment.php`. In the WordPress default theme
+Twenty Eleven and Twenty Twelve, it is used in `image.php`.
+`  <?php next_image_link( $size, $text ); ?> `
+
+Parameters
+----------
+
+ `$size` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Size of image, either array or string. `0` or `none`
+    will default to `post_title` or `$text`.
+    Default: thumbnail
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) If included, link will reflect `$text` variable.
+    Default: false
+
+Examples
+--------
+
+### Default Usage
+
+     <?php next_image_link(); ?>
+
+### Working example
+
+     <div class="alignright"><?php next_image_link() ?></div>
+
+Change Log
+----------
+
+-   Since: 2.5.0
+-   2.8 added 2 parameters: \$size and \$text
+

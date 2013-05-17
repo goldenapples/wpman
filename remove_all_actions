@@ -1,0 +1,45 @@
+Function Reference/remove all actions « WordPress Codex
+-----------
+
+Remove all of the hooks from an action.
+
+Usage
+-----
+
+` <?php remove_all_actions( $tag, $priority ) ?> `
+
+Parameters
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The action to remove hooks from.
+    Default: *None*
+
+ `$priority` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The priority number to remove them from.
+    Default: false
+
+Return Values
+-------------
+
+ (boolean) 
+:   True when finished.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.7
+
+Source File
+-----------
+
+`remove_all_actions()` is located in `wp-includes/plugin.php`.
+

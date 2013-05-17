@@ -1,0 +1,80 @@
+Function Reference/get the time « WordPress Codex
+-----------
+
+Returns the time of the current post for use in
+[PHP](/Glossary#PHP "Glossary"). It does not display the time. To
+display the time of a post, use
+[the\_time()](/Template_Tags/the_time "Template Tags/the time"). This
+tag must be used within [The Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php get_the_time( $d, $post ); ?> `
+
+Parameters
+----------
+
+ `d` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The format used to display the time (and date). See
+    [Formatting Date and
+    Time](/Formatting_Date_and_Time "Formatting Date and Time") for
+    other time and date formats.
+    Default: Time Format configured in
+    [Administration](/Administration_Panels "Administration Panels") \>
+    [Settings](/Administration_Panels#General "Administration Panels")
+    \> [General](/Settings_General_SubPanel "Settings General SubPanel")
+
+ `post` 
+:   ([*integer/object*](/How_to_Pass_Tag_Parameters#Integer.2Fobject "How to Pass Tag Parameters"))
+    (*optional*) post ID or object.
+    Default: null. global `$post` object
+
+Return Values
+-------------
+
+ (string) 
+:   Returns the time according to the default or specified time format.
+
+Examples
+--------
+
+### Default Usage
+
+Returns the time of the current post using the WordPress default format,
+and displays it using the [PHP](/Glossary#PHP "Glossary") echo command.
+
+    <?php echo get_the_time(); ?>
+
+Returns the time of the post with ID \$post-\>ID in the WordPress
+default format.
+
+    <?php echo get_the_time('', $post->ID); ?>
+
+### Getting Unix Timestamp
+
+Assigns the local time of the current post in seconds (since January 1
+1970, known as the [Unix](/Glossary#Unix "Glossary") Epoch) to the
+variable \$u\_time.
+
+    <?php $local_timestamp = get_the_time('U'); ?>
+
+In most cases, you would probably want the epoch time for GMT (rather
+than for the local time zone), which you can get with the
+[get\_post\_time()](/Template_Tags/get_post_time "Template Tags/get post time")
+function, setting the `$gmt` option to `true`:
+
+    <?php $gmt_timestamp = get_post_time('U', true); ?>
+
+Changelog
+---------
+
+-    ? : Added the [*post* parameter](#Parameters).
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+Source File
+-----------
+
+`get_the_time()` is located in `wp-includes/general-template.php`
+

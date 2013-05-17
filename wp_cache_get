@@ -1,0 +1,51 @@
+Function Reference/wp cache get « WordPress Codex
+-----------
+
+Retrieves the cache contents from the cache by key and group.
+
+Usage
+-----
+
+` <?php wp_cache_get( $key, $group, $force, $found ); ?> `
+
+Parameters
+----------
+
+ `$key` 
+:   ([*int/string*](/How_to_Pass_Tag_Parameters#Int.2Fstring "How to Pass Tag Parameters"))
+    (*required*) the key to indicate the value.
+    Default: *None*
+
+ `$group` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) this is a way of grouping data within the cache. Allows
+    you to use the same key across different groups.
+    Default: *None*
+
+ `$force` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to force an update of the local cache from the
+    persistent cache (default is false)
+    Default: false
+
+ `$found` 
+:   ([*&boolean*](/How_to_Pass_Tag_Parameters#.26boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether key was found in the cache. Disambiguates a
+    return of false, a storable value
+    Default: *None*
+
+Return
+------
+
+`False` on failure to retrieve contents or the cache contents on success
+
+Change Log
+----------
+
+Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+Source File
+-----------
+
+`wp_cache_get()` is located in `wp-includes/cache.php`.
+

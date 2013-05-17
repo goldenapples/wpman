@@ -1,0 +1,52 @@
+Function Reference/get attachment template « WordPress Codex
+-----------
+
+Retrieve path of [attachment template](/Templates "Templates") in
+current or parent template.
+
+The attachment path first checks if the first part of the mime type
+exists. The second check is for the second part of the mime type. The
+last check is for both types separated by an underscore. If neither are
+found then the file `'attachment.php'` is checked and returned.
+
+Some examples for the `'text/plain'` mime type are `'text.php'`,
+`'plain.php'`, and finally `'text_plain.php'`.
+
+Usage
+-----
+
+` <?php get_attachment_template() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Returns path of attachment template in current or parent template.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`get_query_template()`](/Function_Reference/get_query_template "Function Reference/get query template")
+-   Uses global: (`object`) `$posts` a property of the
+    [`WP_Query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+    object.
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`get_attachment_template()` is located in `wp-includes/template.php`.
+

@@ -1,0 +1,53 @@
+Function Reference/wp mime type icon « WordPress Codex
+-----------
+
+Retrieve the icon for a [MIME
+type](http://en.wikipedia.org/wiki/MIME "wikipedia:MIME").
+
+Usage
+-----
+
+` <?php wp_mime_type_icon( $mime ) ?> `
+
+Parameters
+----------
+
+ `$mime` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) MIME type
+    Default: 0
+
+Return Values
+-------------
+
+ `(string|boolean)` 
+:   Returns a value from The filtered value after all hooked functions
+    are applied to it.
+
+Examples
+--------
+
+### Display the icon image of the video format
+
+    <?php
+    $img = wp_mime_type_icon('video/mp4');
+    ?>
+    <img src="<?php echo $img ?>" />
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    calls '`wp_mime_type_icon`' on `$icon`, `$mime` and `$post_id`
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_mime_type_icon()` is located in `wp-includes/post.php`.
+

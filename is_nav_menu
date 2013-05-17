@@ -1,0 +1,42 @@
+Function Reference/is nav menu « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the given id, slug, or name is a navigation menu. This is a boolean
+function, meaning it returns either TRUE or FALSE.
+
+Usage
+-----
+
+` <?php is_nav_menu( $id ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Menu ID, Menu Name or Menu Slug
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 3.0.0
+
+Source File
+-----------
+
+`is_nav_menu()` is located in `wp-includes/nav-menu.php`.
+

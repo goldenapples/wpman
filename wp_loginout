@@ -1,0 +1,57 @@
+Function Reference/wp loginout « WordPress Codex
+-----------
+
+Displays a login link, or if a user is logged in, displays a logout
+link. An optional, redirect argument can be used to redirect the user
+upon login or logout.
+
+Usage
+-----
+
+`  <?php wp_loginout( $redirect, $echo ); ?> `
+
+Parameters
+----------
+
+ `$redirect` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) URL to redirect to on login/logout. This parameter is
+    available since [Version 2.8](/Version_2.8 "Version 2.8").
+    Default: *None*
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If true, echos the link, if false, returns the link as
+    a string.
+    Default: true
+
+Example
+-------
+
+    <p><?php wp_loginout(); ?></p>
+
+Notes
+-----
+
+-   The \$redirect parameter is available since [Version
+    2.8](/Version_2.8 "Version 2.8").
+-   Uses:
+    [is\_user\_logged\_in()](/Function_Reference/is_user_logged_in "Function Reference/is user logged in")
+-   Uses:
+    [wp\_login\_url()](/Function_Reference/wp_login_url "Function Reference/wp login url")
+    and
+    [wp\_logout\_url()](/Function_Reference/wp_logout_url "Function Reference/wp logout url")
+-   Uses:
+    [apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls 'loginout' hook on HTML link content.
+
+Change Log
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+Source File
+-----------
+
+`wp_loginout()` is located in `wp-includes/general-template.php`.
+

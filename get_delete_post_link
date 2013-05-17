@@ -1,0 +1,47 @@
+Function Reference/get delete post link « WordPress Codex
+-----------
+
+Returns URL to move a post to the trash as string value.
+
+Can be used within the WordPress loop or outside of it. Can be used with
+pages, posts, attachments, and revisions.
+
+Usage
+-----
+
+`  <?php echo get_delete_post_link( $id ); ?> `
+
+Parameters
+----------
+
+ `id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The post ID
+    Default: *None*
+
+ `deprecated` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Not used.
+    Default:
+
+ `force_delete` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to bypass trash and force deletion.
+    Default: false
+
+Return Value
+------------
+
+ (string) 
+:   A string containing the permalink.
+
+Changelog
+---------
+
+-   Since: 2.9.0
+
+Source File
+-----------
+
+`get_delete_post_link()` is located in `wp-includes/link-template.php`
+

@@ -1,0 +1,138 @@
+Function Reference/update post meta « WordPress Codex
+-----------
+
+The function, **update\_post\_meta()**, updates the value of an existing
+meta key (custom field) for the specified post.
+
+This may be used in place of
+[add\_post\_meta()](/Function_Reference/add_post_meta "Function Reference/add post meta")
+function. The first thing this function will do is make sure that
+\$meta\_key already exists on \$post\_id. If it does not,
+add\_post\_meta(\$post\_id, \$meta\_key, \$meta\_value) is called
+instead and its result is returned.
+
+Returns meta\_id if the meta doesn't exist, otherwise returns true on
+success and false on failure. It also returns false if the value
+submitted is the same as the value that is already in the database.
+
+Please note that if your db collation is case insensitive (has with
+suffix \_ci) then update\_post\_meta and delete\_post\_meta and
+get\_posts will update/delete/query the meta records with keys that are
+upper or lower case. However get\_post\_meta will apparently be case
+sensitive due to wordpress caching. See
+[https://core.trac.wordpress.org/ticket/18210](https://core.trac.wordpress.org/ticket/18210 "https://core.trac.wordpress.org/ticket/18210")
+for more info.
+
+Usage
+-----
+
+`  <?php update_post_meta($post_id, $meta_key, $meta_value, $prev_value); ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the post which contains the field you will
+    edit.
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The key of the custom field you will edit.
+    Default: *None*
+
+ `$meta_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The new value of the custom field. A passed array will
+    be serialized into a string.
+    Default: *None*
+
+ `$prev_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The old value of the custom field you wish to change.
+    This is to differentiate between several fields with the same key.
+    If omitted, and there are multiple rows for this post and meta key,
+    all meta values will be updated.
+    Default: *Empty*
+
+Return Values
+-------------
+
+ (mixed) 
+:   Returns meta\_id if the meta doesn't exist, otherwise returns true
+    on success and false on failure. NOTE: If the meta\_value passed to
+    this function is the same as the value that is already in the
+    database, this function returns false.
+
+Examples
+--------
+
+### Default Usage
+
+    <?php update_post_meta(76, 'my_key', 'Steve'); ?>
+
+### Other Examples
+
+Assuming a post has an ID of 76, and the following 4 custom fields:
+
+[key\_1] =\> 'Happy'\
+ [key\_1] =\> 'Sad'\
+ [key\_2] =\> 'Gregory'\
+ [my\_key] =\> 'Steve'\
+
+To change `key_2`'s value to *Hans*:
+
+    <?php update_post_meta(76, 'key_2', 'Hans'); ?>
+
+To change `key_1`'s value from *Sad* to *Happy*:
+
+    <?php update_post_meta(76, 'key_1', 'Happy', 'Sad'); ?>
+
+The fields would now look like this:
+
+[key\_1] =\> 'Happy'\
+ [key\_1] =\> 'Happy'\
+ [key\_2] =\> 'Hans'\
+ [my\_key] =\> 'Steve'\
+
+***Note:** This function will update only the first field that matches
+the criteria.*
+
+To change the first `key_1`'s value from *Happy* to *Excited*:
+
+    <?php 
+      update_post_meta(76, 'key_1', 'Excited', 'Happy');
+
+      //Or
+
+      update_post_meta(76, 'key_1', 'Excited');
+
+      //To change all fields with the key "key_1":
+
+      $key1_values = get_post_custom_values('key_1', 76);
+      foreach ( $key1_values as $value )
+        update_post_meta(76, 'key_1', 'Excited', $value);
+    ?>
+
+\
+ Edit Page template
+
+    <?php 
+     update_post_meta($id, "_wp_page_template", "new_template.php");
+    ?>
+
+For a more detailed example, go to the [post\_meta Functions
+Examples](/Function_Reference/post_meta_Function_Examples "Function Reference/post meta Function Examples")
+page.
+
+Source Code
+-----------
+
+`update_post_meta()` is located in `wp-includes/post.php`
+
+Change Log
+----------
+
+Since [1.5.0](/Version_1.5 "Version 1.5")
+

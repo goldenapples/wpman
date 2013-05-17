@@ -1,0 +1,62 @@
+Function Reference/get calendar « WordPress Codex
+-----------
+
+Displays the calendar (defaults to current month/year). Days with posts
+are styled as such. This tag can be used anywhere within a template.
+
+Usage
+-----
+
+`  <?php get_calendar( $initial, $echo ); ?> `
+
+Parameters
+----------
+
+ `$initial` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If true, the day will be displayed using a one-letter
+    initial; if false, an abbreviation based on your localization will
+    be used.
+    Default: True
+
+-   `False` - causes "Sunday" to be displayed as "Sun"
+-   `True` - causes it to be "S"
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Determines whether or not the calendar should be
+    displayed.
+    Default: True
+
+-   `False` - Returns calendar, but does not echo it to screen
+-   `True` - Echo's calendar, but does not return it to a variable
+
+Examples
+--------
+
+### Default Usage
+
+Displays calendar highlighting any dates with posts.
+
+    <?php get_calendar(); ?>
+
+### Displays Weekday Abbrevations
+
+Display days using one-letter initial only; in 1.5, displays initial
+based on your WordPress [Localization](/Localization "Localization").
+
+    <?php get_calendar(true); ?>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [1.0.0](/Version_1.0 "Version 1.0")
+
+Source Code
+-----------
+
+`get_calendar()` is located in `wp-includes/general-template.php`.
+

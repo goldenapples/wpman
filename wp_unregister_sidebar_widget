@@ -1,0 +1,24 @@
+Function Reference/wp unregister sidebar widget « WordPress Codex
+-----------
+
+Remove widget from [sidebars](/Sidebars "Sidebars").
+
+Parameters
+----------
+
+ `$id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*Widget ID.*) string
+    Default: required
+
+Change Log
+----------
+
+Since: [2.2.0](/Version_2.2.0 "Version 2.2.0")
+
+Source File
+-----------
+
+wp\_unregister\_sidebar\_widget() is located in
+`wp-includes/widgets.php`
+

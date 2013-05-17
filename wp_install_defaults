@@ -1,0 +1,44 @@
+Function Reference/wp install defaults « WordPress Codex
+-----------
+
+Installs numerous default values into the database and sets up a few
+examples.
+
+Usage
+-----
+
+` <?php wp_install_defaults($user_id) ?> `
+
+Parameters
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ????
+    Default: *None*
+
+Return Value
+------------
+
+This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+???This function is called by installation and upgrade scripts, it is
+not intended to be used by plugin and theme developers. This page is
+provided for informational purposes only.???
+
+Change Log
+----------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`wp_install_defaults()` is located in `wp-admin/includes/upgrade.php`
+

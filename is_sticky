@@ -1,0 +1,50 @@
+Function Reference/is sticky « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the current post is a [Sticky Post](/Sticky_Posts "Sticky Posts")
+meaning the "Stick this post to the front page" check box has been
+checked for the post. This is a boolean function, meaning it returns
+either TRUE or FALSE.
+
+Usage
+-----
+
+` <?php is_sticky($post_ID); ?> `
+
+Parameters
+----------
+
+ `$post_ID` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The post ID
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+    is_sticky();
+    // When any Sticky Post page is being displayed.
+
+    is_sticky('17');
+    // When Sticky Post 17 (ID) is being displayed.
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+Source File
+-----------
+
+`is_sticky()` is located in `wp-includes/post.php`.
+

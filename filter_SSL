@@ -1,0 +1,40 @@
+Function Reference/filter SSL « WordPress Codex
+-----------
+
+Formats an URL to use https. Useful as a filter.
+
+Usage
+-----
+
+` <?php filter_SSL( $url ) ?> `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The URL to format
+    Default: *None*
+
+Return Value
+------------
+
+ `` `(string)`{style="color:gray"} 
+:   the formatted URL
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.8.5](/Version_2.8.5 "Version 2.8.5")
+
+Source File
+-----------
+
+`filter_SSL()` is located in `wp-includes/ms-functions.php`
+

@@ -1,0 +1,497 @@
+Function Reference/wp nav menu « WordPress Codex
+-----------
+
+Displays a navigation menu created in the
+[Appearance](/Administration_Panels#Appearance "Administration Panels")
+→ [Menus](/Appearance_Menus_SubPanel "Appearance Menus SubPanel") panel.
+
+Given a `theme_location` parameter, the function displays the menu
+assigned to that location, or nothing if no such location exists or no
+menu is assigned to it.
+
+If not given a `theme_location` parameter, the function displays
+
+-   the menu matching the ID, slug, or name given by the `menu`
+    parameter, if that menu has at least 1 item;
+-   otherwise, the first non-empty menu;
+-   otherwise, output of the function given by the `fallback_cb`
+    parameter (`wp_page_menu()`, by default);
+-   otherwise nothing.
+
+**Note:** As of [3.5](/Version_3.5 "Version 3.5"), if there are no menu
+items, no HTML markup will be output.
+
+Usage
+-----
+
+`  <?php wp_nav_menu( $args ); ?> `
+
+### Usage (Showing Default Values)
+
+    <?php
+
+    $defaults = array(
+        'theme_location'  => '',
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => '',
+        'container_id'    => '',
+        'menu_class'      => 'menu',
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => ''
+    );
+
+    wp_nav_menu( $defaults );
+
+    ?>
+
+Parameters
+----------
+
+ `$theme_location` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The location in the theme to be used--must be
+    registered with
+    [register\_nav\_menu()](/Function_Reference/register_nav_menu "Function Reference/register nav menu")
+    in order to be selectable by the user
+    Default: *None*
+
+ `$menu` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The menu that is desired; accepts (matching in order)
+    id, slug, name
+    Default: *None*
+
+ `$container` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Whether to wrap the ul, and what to wrap it with.
+    Allowed tags are `div` and `nav`. Use **false** for no container
+    e.g. `'container' => false`
+    Default: div
+
+ `$container_class` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The class that is applied to the container
+    Default: menu-{menu slug}-container
+
+ `$container_id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The ID that is applied to the container
+    Default: *None*
+
+ `$menu_class` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The class that is applied to the `ul` element which
+    encloses the menu items. Multiple classes can be separated with
+    spaces. Formerly known as \$wrap\_class.
+    Default: menu
+
+ `$menu_id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The ID that is applied to the `ul` element which
+    encloses the menu items. Formerly known as \$wrap\_id.
+    Default: menu-{menu slug}; when there are duplicates, the next
+    values are menu-{menu slug}-1, menu-{menu slug}-2, etc.
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to echo the menu or return it. For returning
+    menu use '0'
+    Default: true
+
+ `$fallback_cb` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) If the menu doesn't exist, the fallback function to
+    use. Set to false for no fallback. **Note:** Passes \$args to the
+    custom function.
+    Default: wp\_page\_menu
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Output text before the \<a\> of the link
+    Default: *None*
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Output text after the \</a\> of the link
+    Default: *None*
+
+ `$link_before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Output text before the link text
+    Default: *None*
+
+ `$link_after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Output text after the link text
+    Default: *None*
+
+ `$items_wrap` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Evaluated as the format string argument of a sprintf()
+    expression. The format string incorporates the other parameters by
+    numbered token. %1\$s is expanded to the value of the 'menu\_id'
+    parameter, %2\$s is expanded to the value of the 'menu\_class'
+    parameter, and %3\$s is expanded to the value of the list items. If
+    a numbered token is omitted from the format string, the related
+    parameter is omitted from the menu markup.
+    Default: `<ul id="%1$s" class="%2$s">%3$s</ul>`
+
+ `$depth` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) How many levels of the hierarchy are to be included
+    where 0 means all. -1 displays links at any depth and arranges them
+    in a single, flat list.
+    Default: 0
+
+ `$walker` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*optional*) Custom walker object to use (Note: You must pass an
+    actual object to use, not a string)
+    Default: `new Walker_Nav_Menu`
+
+Examples
+--------
+
+### Default example
+
+    <div class="access">
+      <?php wp_nav_menu(); ?>
+    </div>
+
+### Targeting a specific Menu
+
+    <?php wp_nav_menu( array('menu' => 'Project Nav' )); ?>
+
+### Used in the Twenty Ten theme
+
+    <div id="access" role="navigation">
+
+        <?php /*
+
+        Allow screen readers / text browsers to skip the navigation menu and
+        get right to the good stuff. */ ?>
+
+        <div class="skip-link screen-reader-text">
+            <a href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentyten' ); ?>">
+            <?php _e( 'Skip to content', 'twentyten' ); ?></a>
+        </div>
+
+        <?php /*
+
+        Our navigation menu.  If one isn't filled out, wp_nav_menu falls
+        back to wp_page_menu.  The menu assigned to the primary position is
+        the one used.  If none is assigned, the menu with the lowest ID is
+        used. */
+
+        wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
+
+    </div><!-- #access -->
+
+### Removing the Navigation Container
+
+In order to remove navigation container, theme location specified in
+functions.php and used among arguments in function wp\_nav\_menu ( eg.
+'theme\_location' =\> 'primary-menu' ) must have a menu assigned to it
+in administration! Otherwise argument 'container' =\> 'false' is
+ignored.
+
+    <?php
+    function my_wp_nav_menu_args( $args = '' )
+    {
+        $args['container'] = false;
+        return $args;
+    } // function
+
+    add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
+    ?>
+
+OR
+
+    <?php wp_nav_menu( array( 'container' => '' ) ); ?>
+
+### Removing the ul wrap
+
+This example will remove the ul around the list items.
+
+    <?php wp_nav_menu( array( 'items_wrap' => '%3$s' ) ); ?>
+
+### Adding a Word at the Beginning of the Menu
+
+This example will allow you to add the word of your choice to the
+beginning of your menu as a list item. In this example, the word "Menu:"
+is added at the beginning. You may want to set an id on the list item
+("item-id" in this example) so that you can use CSS to style it.
+
+    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '<ul><li id="item-id">Menu: </li>%3$s</ul>' ) ); ?>
+
+### Adding Conditional Classes to Menu Items
+
+This example would let you add a custom class to a menu item based on
+the condition you specify. Don't forget to change the condition.
+
+    <?php
+    add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+    function special_nav_class($classes, $item){
+         if(is_single() && $item->title == "Blog"){ //Notice you can change the conditional from is_single() and $item->title
+                 $classes[] = "special-class";
+         }
+         return $classes;
+    }
+    ?>
+
+I was trying to customize the look of a specific menu item: Blog on
+single post pages. After rethinking the code above, it is much simpler
+to use the body class .single if you can. In my case it works. But
+nonetheless, the above code is really handy.
+
+#### Using a Custom Walker Function
+
+For deeper conditional classes, you'll need to use a custom walker
+function (created in the `'walker' => new Your_Walker_Function`
+argument).
+
+The easiest way to build a new walker function is to copy the default
+class (`Walker_Nav_Menu`) from `\wp-includes\nav-menu-template.php` and
+simply customize what you need.
+
+##### Example
+
+This [custom walker
+function](http://shinraholdings.com/62/custom-nav-menu-walker-function/#example-code "http://shinraholdings.com/62/custom-nav-menu-walker-function/#example-code")
+will add several conditional classes to your nav menu (i.e. sub-menu,
+even/odd, etc):
+
+``
+
+    class themeslug_walker_nav_menu extends Walker_Nav_Menu {
+      
+    // add classes to ul sub-menus
+    function start_lvl( &$output, $depth ) {
+        // depth dependent classes
+        $indent = ( $depth > 0  ? str_repeat( "\t", $depth ) : '' ); // code indent
+        $display_depth = ( $depth + 1); // because it counts the first submenu as 0
+        $classes = array(
+            'sub-menu',
+            ( $display_depth % 2  ? 'menu-odd' : 'menu-even' ),
+            ( $display_depth >=2 ? 'sub-sub-menu' : '' ),
+            'menu-depth-' . $display_depth
+            );
+        $class_names = implode( ' ', $classes );
+      
+        // build html
+        $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
+    }
+      
+    // add main/sub classes to li's and links
+     function start_el( &$output, $item, $depth, $args ) {
+        global $wp_query;
+        $indent = ( $depth > 0 ? str_repeat( "\t", $depth ) : '' ); // code indent
+      
+        // depth dependent classes
+        $depth_classes = array(
+            ( $depth == 0 ? 'main-menu-item' : 'sub-menu-item' ),
+            ( $depth >=2 ? 'sub-sub-menu-item' : '' ),
+            ( $depth % 2 ? 'menu-item-odd' : 'menu-item-even' ),
+            'menu-item-depth-' . $depth
+        );
+        $depth_class_names = esc_attr( implode( ' ', $depth_classes ) );
+      
+        // passed classes
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $class_names = esc_attr( implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) ) );
+      
+        // build html
+        $output .= $indent . '<li id="nav-menu-item-'. $item->ID . '" class="' . $depth_class_names . ' ' . $class_names . '">';
+      
+        // link attributes
+        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+        $attributes .= ' class="menu-link ' . ( $depth > 0 ? 'sub-menu-link' : 'main-menu-link' ) . '"';
+      
+        $item_output = sprintf( '%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+            $args->before,
+            $attributes,
+            $args->link_before,
+            apply_filters( 'the_title', $item->title, $item->ID ),
+            $args->link_after,
+            $args->after
+        );
+      
+        // build html
+        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+    }
+    }
+
+### Different menus for logged-in users
+
+This example would cause a menu to show for logged-in users and a
+different menu for users not logged-in.
+
+    <?php
+    if ( is_user_logged_in() ) {
+         wp_nav_menu( array( 'theme_location' => 'logged-in-menu' ) );
+    } else {
+         wp_nav_menu( array( 'theme_location' => 'logged-out-menu' ) );
+    }
+    ?>
+
+\
+
+### How to add a parent class for menu item
+
+Sometimes you may need to add a class to a menu item if it has submenus.
+
+    add_filter( 'wp_nav_menu_objects', 'add_menu_parent_class' );
+    function add_menu_parent_class( $items ) {
+        
+        $parents = array();
+        foreach ( $items as $item ) {
+            if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
+                $parents[] = $item->menu_item_parent;
+            }
+        }
+        
+        foreach ( $items as $item ) {
+            if ( in_array( $item->ID, $parents ) ) {
+                $item->classes[] = 'menu-parent-item'; 
+            }
+        }
+        
+        return $items;    
+    }
+
+Menu Item CSS Classes
+---------------------
+
+The following classes are applied to menu items, i.e. to the HTML `<li>`
+tags, generated by wp\_nav\_menu():
+
+### All Menu Items
+
+-   **.menu-item**\
+    This class is added to every menu item.
+-   **.menu-item-object-`{object}`**\
+    This class is added to every menu item, where `{object}` is either a
+    post type or a taxonomy.
+    -   **.menu-item-object-category**\
+        This class is added to menu items that correspond to a category.
+    -   **.menu-item-object-tag**\
+        This class is added to menu items that correspond to a tag.
+    -   **.menu-item-object-page**\
+        This class is added to menu items that correspond to static
+        pages.
+    -   **.menu-item-object-`{custom}`**\
+        This class is added to menu items that correspond to a custom
+        post type or a custom taxonomy.
+
+-   **.menu-item-type-`{type}`**\
+    This class is added to every menu item, where `{type}` is either
+    "post\_type" or "taxonomy".
+    -   **.menu-item-type-post\_type**\
+        This class is added to menu items that correspond to post types:
+        i.e. static pages or custom post types.
+    -   **.menu-item-type-taxonomy**\
+        This class is added to menu items that correspond to taxonomies:
+        i.e. categories, tags, or custom taxonomies.
+
+### Current-Page Menu Items
+
+-   **.current-menu-item**\
+    This class is added to menu items that correspond to the currently
+    rendered page.
+
+### Current-Page Parent Menu Items
+
+-   **.current-menu-parent**\
+    This class is added to menu items that correspond to the
+    hierarchical parent of the currently rendered page.
+-   **.current-{object}-parent**\
+    This class is added to menu items that correspond to the hierachical
+    parent of the currently rendered object, where `{object}`
+    corresponds to the the value used for .menu-item-object-`{object}`.
+-   **.current-{type}-parent**\
+    This class is added to menu items that correspond to the hierachical
+    parent of the currently rendered type, where `{type}` corresponds to
+    the the value used for .menu-item-type-`{type}`.
+
+### Current-Page Ancestor Menu Items
+
+-   **.current-menu-ancestor**\
+    This class is added to menu items that correspond to a hierarchical
+    ancestor of the currently rendered page.
+-   **.current-{object}-ancestor**\
+    This class is added to menu items that correspond to a hierachical
+    ancestor of the currently rendered object, where `{object}`
+    corresponds to the the value used for .menu-item-object-`{object}`.
+-   **.current-{type}-ancestor**\
+    This class is added to menu items that correspond to a hierachical
+    ancestor of the currently rendered type, where `{type}` corresponds
+    to the the value used for .menu-item-type-`{type}`.
+
+### Site Front Page Menu Items
+
+-   **.menu-item-home**\
+    This class is added to menu items that correspond to the site front
+    page.
+
+### Backward Compatibility with `wp_page_menu()`
+
+The following classes are added to maintain backward compatibility with
+the
+[wp\_page\_menu()](/Function_Reference/wp_page_menu "Function Reference/wp page menu")
+function output:
+
+-   **.page\_item**\
+    This class is added to menu items that correspond to a static page.
+-   **.page-item-`$ID`**\
+    This class is added to menu items that correspond to a static page,
+    where `$ID` is the static page ID.
+-   **.current\_page\_item**\
+    This class is added to menu items that correspond to the currently
+    rendered static page.
+-   **.current\_page\_parent**\
+    This class is added to menu items that correspond to the
+    hierarchical parent of the currently rendered static page.
+-   **.current\_page\_ancestor**\
+    This class is added to menu items that correspond to a hierarchical
+    ancestor of the currently rendered static page.
+
+Change Log
+----------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"): If a menu has no items, don't
+    output any markup.
+-   Since [3.0.0](/Version_3.0 "Version 3.0")
+
+Source file
+-----------
+
+`wp_nav_menu()` is located in `wp-includes/nav-menu-template.php`.
+
+Resources
+---------
+
+-   [How to add navigation menus to existing themes and preserve
+    backward
+    compatibility](http://www.nkuttler.de/2010/06/08/wp_nav_menu-wordpress-3-0/ "http://www.nkuttler.de/2010/06/08/wp_nav_menu-wordpress-3-0/")
+-   [Excellent article on nav menus by Justin
+    Tadlock](http://justintadlock.com/archives/2010/06/01/goodbye-headaches-hello-menus "http://justintadlock.com/archives/2010/06/01/goodbye-headaches-hello-menus")
+-   [Excellent explanation of the \$items\_wrap argument by Thomas
+    Scholz from
+    toscho.de](http://wordpress.stackexchange.com/questions/19245/any-docs-for-wp-nav-menus-items-wrap-argument/19247#19247 "http://wordpress.stackexchange.com/questions/19245/any-docs-for-wp-nav-menus-items-wrap-argument/19247#19247")
+-   [Excellent explanation for walkers and
+    such](http://wordpress.stackexchange.com/questions/14037/menu-items-description/14039#14039 "http://wordpress.stackexchange.com/questions/14037/menu-items-description/14039#14039")
+-   [Detailed explanation of
+    fallback\_cb](http://wordpress.stackexchange.com/questions/64515/fall-back-for-main-menu/64526#64526 "http://wordpress.stackexchange.com/questions/64515/fall-back-for-main-menu/64526#64526")
+

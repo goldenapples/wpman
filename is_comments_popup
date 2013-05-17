@@ -1,0 +1,37 @@
+Function Reference/is comments popup « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks when
+in Comments Popup window. This is a boolean function, meaning it returns
+either TRUE or FALSE.
+
+Usage
+-----
+
+` <?php is_comments_popup(); ?> `
+
+Parameters
+----------
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`is_comments_popup()` is located in `wp-includes/functions.php`.
+

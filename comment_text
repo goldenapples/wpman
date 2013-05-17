@@ -1,0 +1,52 @@
+Function Reference/comment text « WordPress Codex
+-----------
+
+Displays the text of a comment. Use
+[get\_comment\_text()](/Function_Reference/get_comment_text "Function Reference/get comment text")
+to return a value instead of displaying it.
+
+Usage
+-----
+
+`  <?php comment_text( $comment_ID ); ?> `
+
+Parameters
+----------
+
+ `comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the comment for which to print the text.
+    Default: 0 (the current comment)
+
+Return Value
+------------
+
+None.
+
+Example
+-------
+
+Displays the comment text with the comment author in a list (\<li\>)
+tag.
+
+    <li>Comment by <?php comment_author(); ?>:<br /> 
+    <?php comment_text(); ?></li>
+
+Filters
+-------
+
+[apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+Passes the comment content through the 'comment\_text' hook before
+display
+
+Changelog
+---------
+
+-    ? : Added the 'comment\_ID' parameter.
+-   Since: 0.71
+
+Source File
+-----------
+
+`comment_text()` is located in `wp-includes/comment-template.php`.
+

@@ -1,0 +1,59 @@
+Function Reference/post type exists « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if a
+post type exists by passing a post type name an argument. This is a
+boolean function and uses a global `$wp_post_types` variable for
+checking the post type existence, meaning it returns either TRUE if the
+post type exists or FALSE if it doesn't exist. The post type must be a
+[registered post
+type](/Function_Reference/register_post_type "Function Reference/register post type").
+
+Usage
+-----
+
+` <?php post_type_exists( $post_type ); ?> `
+
+Parameters
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post type.
+    Default: *None*
+
+Return Value
+------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+    if(post_type_exists('book')) {
+      echo 'the Book post type exists';
+    }
+
+    $exists = post_type_exists('post');
+    //returns true
+
+    $exists = post_type_exists('page');
+    //returns true
+
+    $exists = post_type_exists('book');
+    //returns true if book is a registered post type
+
+    $exists = post_type_exists('xyz');
+    //returns false if xyz is not a registered post type
+
+Change Log
+----------
+
+-   Since [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`post_type_exists()` is located in `wp-includes/post.php`.
+

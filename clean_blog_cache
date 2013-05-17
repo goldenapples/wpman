@@ -1,0 +1,34 @@
+Function Reference/clean blog cache « WordPress Codex
+-----------
+
+Cleans the cache objects of the blog.
+
+Usage
+-----
+
+` <?php clean_blog_cache( $blog ); ?> `
+
+Parameters
+----------
+
+ `$blog` 
+:   ([*Object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*required*) The blog details as returned from `get_blog_details()`
+    Default: *None*
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+-   Since [3.5.0](/Version_3.5 "Version 3.5")
+
+Source File
+-----------
+
+`clean_blog_cache()` is located in `wp-includes/ms-blogs.php`.
+

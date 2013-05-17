@@ -1,0 +1,50 @@
+Function Reference/esc attr e « WordPress Codex
+-----------
+
+Displays translated text that has been escaped for safe use in an
+attribute. Encodes \< \> & " ' (less than, greater than, ampersand,
+double quote, single quote). Will never double encode entities.
+
+If you need the value for use in PHP, use
+[\_\_()](/Function_Reference/_2 "Function Reference/ 2") and escape the
+value with
+[esc\_attr()](/Function_Reference/esc_attr "Function Reference/esc attr")
+when output into an attribute.
+
+Usage
+-----
+
+` <?php esc_attr_e( $text, $domain ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text which is to be encoded.
+    Default: *None*
+
+ `$textdomain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text.
+    Default: 'default'
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Change Log
+----------
+
+-   Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`esc_attr_e()` is located in `wp-includes/l10n.php`.
+

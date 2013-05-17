@@ -1,0 +1,49 @@
+Function Reference/get blog details « WordPress Codex
+-----------
+
+Retrieve the details for a blog from the blogs table and blog options.
+
+Usage
+-----
+
+` <?php get_blog_details( $fields, $get_all ); ?> `
+
+Parameters
+----------
+
+ `$fields` 
+:   ([*int|string|array*](/How_to_Pass_Tag_Parameters#Int.7Cstring.7Carray "How to Pass Tag Parameters"))
+    (*optional*) A blog ID, a blog slug, or an array of fields to query
+    against. If not specified the current blog ID is used.
+    Default: null
+
+ `$get_all` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to retrieve all details or only the details in
+    the blogs table.
+    Default: true
+
+Return Value
+------------
+
+ `` `(WP_Object_Cache object)`{style="color:gray"} 
+:   Blog details
+
+Examples
+--------
+
+Notes
+-----
+
+Uses global \$wpdb
+
+Changelog
+---------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`get_blog_details()` is located in `wp-includes/ms-blogs.php`.
+

@@ -1,0 +1,79 @@
+Function Reference/get permalink « WordPress Codex
+-----------
+
+Returns the [permalink](/Glossary#Permalink "Glossary") to a post or
+page for use in [PHP](/Glossary#PHP "Glossary"). It does NOT display the
+permalink and can be used outside of [The Loop](/The_Loop "The Loop").
+On failure returns `false`.
+
+Note that when used outside The Loop on a posts page (index, archive,
+etc.) without the ID parameter, it will return the URL of the last post
+in The Loop, *not* the permalink for the current page. See:
+[http://core.trac.wordpress.org/ticket/9963](http://core.trac.wordpress.org/ticket/9963 "http://core.trac.wordpress.org/ticket/9963")
+
+Usage
+-----
+
+`  <?php $permalink = get_permalink( $id ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The integer ID for a post or page, or a post object
+    Default: The current post ID, when used in [The
+    Loop](/The_Loop "The Loop").
+
+Return Values
+-------------
+
+ (string) 
+:   The permalink URL.
+
+Examples
+--------
+
+    <a href="<?php echo get_permalink( 268 ); ?>">My link to a post or page</a>
+
+### Default Usage
+
+The permalink for current post (used within [The
+Loop](/The_Loop "The Loop")). As the tag does not display the permalink,
+the example uses the PHP echo command.
+
+    Permalink for this post:
+    <?php echo get_permalink(); ?>
+
+### Link to Specific Post
+
+Returns the permalinks of two specific posts (post IDs 1 and 10) as
+hypertext links within an informational list. As above, tag uses the PHP
+echo command to display the permalink.
+
+    <ul>
+    <li>MyBlog info:
+        <ul>
+        <li><a href="<?php echo get_permalink(1); ?>">About MyBlog</a></li>
+        <li><a href="<?php echo get_permalink(10); ?>">About the owner</a></li>
+        </ul>
+    </li>
+    </ul>
+
+### Pass in a post object instead of an ID
+
+This shows how you can you can get the permalink with the page title
+instead of the ID.
+
+    <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Monthly Events' ) ) ); ?>">Monthly Events</a>
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`get_permalink()` is located in `wp-includes/link-template.php`.
+

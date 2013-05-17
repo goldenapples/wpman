@@ -1,0 +1,61 @@
+Function Reference/esc url « WordPress Codex
+-----------
+
+Always use esc\_url when sanitizing URLs (in text nodes, attribute nodes
+or anywhere else). Rejects URLs that do not have one of the provided
+whitelisted protocols (defaulting to http, https, ftp, ftps, mailto,
+news, irc, gopher, nntp, feed, and telnet), eliminates invalid
+characters, and removes dangerous characters. This function encodes
+characters as HTML entities: use it when generating an (X)HTML or XML
+document. Encodes ampersands (&) and single quotes (') as numeric entity
+references (&\#038, &\#039).
+
+Replaces the deprecated clean\_url().
+
+Usage
+-----
+
+` <?php esc_url( $url, $protocols, $_context ); ?> `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The URL to be cleaned.
+    Default: *None*
+
+ `$protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of acceptable protocols. Defaults to '`http`',
+    '`https`', '`ftp`', '`ftps`', '`mailto`', '`news`', '`irc`',
+    '`gopher`', '`nntp`', '`feed`', '`telnet`' if not set.
+    Default: null
+
+ `$_context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) How the URL will be used. Default is '`display`'.
+    Default: 'display'
+
+Return Values
+-------------
+
+ (string) 
+:   The cleaned `$url` after the '`cleaned_url`' filter is applied.
+
+Examples
+--------
+
+Notes
+-----
+
+Changelog
+---------
+
+-   Since: 2.8
+
+Source File
+-----------
+
+`esc_url()` is located in `wp-includes/formatting.php`.
+

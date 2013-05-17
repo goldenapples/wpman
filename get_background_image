@@ -1,0 +1,39 @@
+Function Reference/get background image « WordPress Codex
+-----------
+
+Retrieve the custom background image for the current active theme.
+
+Usage
+-----
+
+` <?php get_background_image(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses: `BACKGROUND_IMAGE`
+
+Change Log
+----------
+
+Since: 3.0.0
+
+Source File
+-----------
+
+`get_background_image` is located in `wp-includes/theme.php`.
+

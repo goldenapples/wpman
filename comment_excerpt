@@ -1,0 +1,39 @@
+Function Reference/comment excerpt « WordPress Codex
+-----------
+
+Displays an excerpt (maximum of 20 words) of a comment's text.
+
+Use
+[get\_comment\_excerpt](/index.php?title=Template_Tags/get_comment_excerpt&action=edit&redlink=1 "Template Tags/get comment excerpt (page does not exist)")
+to retrieve the value.
+
+Usage
+-----
+
+`  <?php comment_excerpt( $comment_ID ); ?> `
+
+Example
+-------
+
+    <p>Latest comment: <?php comment_excerpt(); ?></p>
+
+Parameters
+----------
+
+ `comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the comment for which to print the excerpt.
+    Default: 0 (the current comment)
+
+Filters
+-------
+
+[apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+Calls 'comment\_excerpt' hook before displaying excerpt
+
+Changelog
+---------
+
+-    ? : Added the 'comment\_ID' parameter.
+-   Since: 1.2.0
+

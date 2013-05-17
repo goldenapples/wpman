@@ -1,0 +1,46 @@
+Function Reference/update blog details « WordPress Codex
+-----------
+
+Update the details for a blog. Updates the blogs table for a given blog
+id.
+
+Usage
+-----
+
+` <?php update_blog_details( $blog_id, $details ) ?> `
+
+Parameters
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Blog ID
+    Default: *None*
+
+ `$details` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Array of details keyed by blogs table field names.
+    Default: Array()
+
+Return Values
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True if update succeeds, false otherwise.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+update\_blog\_details() is located in `wp-includes/ms-blogs.php`
+

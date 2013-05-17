@@ -1,0 +1,64 @@
+Function Reference/get query var « WordPress Codex
+-----------
+
+Retrieve variable in the
+[`WP_Query`](/Class_Reference/WP_Query "Class Reference/WP Query") class
+of the global \$wp\_query object.
+
+Usage
+-----
+
+` <?php get_query_var( $var ) ?> `
+
+Parameters
+----------
+
+ `$var` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The variable key to retrieve.
+    Default: *None*
+
+Return Values
+-------------
+
+ (mixed) 
+:   
+
+Examples
+--------
+
+### Getting Current Pagination Number
+
+
+    <?php  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;  ?>
+
+    <h1>Currently Browsing Page <?php echo $paged; ?></h1>
+
+For getting the current pagination number on a [static front
+page](/Creating_a_Static_Front_Page "Creating a Static Front Page")
+(Page template) you have to use the 'page' query variable:
+
+    <?php  $paged = (get_query_var('page')) ? get_query_var('page') : 1;  ?>
+    <h1>Currently Browsing Page <?php echo $paged; ?> On a static front page</h1>
+
+Note: The query variable 'page' holds the pagenumber for a single
+paginated Post or Page that includes the `<!--nextpage-->` Quicktag in
+the post content.
+
+Notes
+-----
+
+-   See `WP_Query::get()`
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_query_var()` is located in `wp-includes/query.php`.
+

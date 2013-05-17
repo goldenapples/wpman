@@ -1,0 +1,55 @@
+Function Reference/sanitize file name « WordPress Codex
+-----------
+
+Sanitizes a filename replacing whitespace with dashes
+
+Removes special characters that are illegal in filenames on certain
+operating systems and special characters requiring special escaping to
+manipulate at the command line. Replaces spaces and consecutive dashes
+with a single dash. Trim period, dash and underscore from beginning and
+end of filename.
+
+The special characters are passed through the
+[sanitize\_file\_name\_chars](/index.php?title=Plugin_API/Filter_Reference/sanitize_file_name_chars&action=edit&redlink=1 "Plugin API/Filter Reference/sanitize file name chars (page does not exist)")
+filter before removing them from the file name, allowing plugins to
+change which characters are considered invalid. After
+`sanitize_file_name()` has done its work, it passes the sanitized file
+name through the
+[sanitize\_file\_name](/index.php?title=Plugin_API/Filter_Reference/sanitize_file_name&action=edit&redlink=1 "Plugin API/Filter Reference/sanitize file name (page does not exist)")
+filter.
+
+Usage
+-----
+
+` <?php sanitize_file_name( $name ) ?> `
+
+Parameters
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The file name
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Sanitized file name
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.1](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`sanitize_file_name()` is located in `wp-includes/formatting.php`
+

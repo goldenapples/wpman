@@ -1,0 +1,56 @@
+Function Reference/clean post cache « WordPress Codex
+-----------
+
+Will clean the post in the cache.
+
+Cleaning means delete from the cache of the post. Will call to clean the
+term object cache associated with the post ID.
+
+clean\_post\_cache will call itself recursively for each child post.
+
+Will not run if `$_wp_suspend_cache_invalidation` is not empty. See
+[`wp_suspend_cache_invalidation()`](/Function_Reference/wp_suspend_cache_invalidation "Function Reference/wp suspend cache invalidation").
+
+Usage
+-----
+
+` <?php clean_post_cache( $id ) ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The Post ID in the cache to clean
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls '`clean_post_cache`' on post ID.
+-   Uses global: (`boolean`) `$_wp_suspend_cache_invalidation`
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses wp\_cache\_delete
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`clean_post_cache()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,90 @@
+Function Reference/wp register style « WordPress Codex
+-----------
+
+A safe way to register a CSS style file for later use with
+[wp\_enqueue\_style()](/Function_Reference/wp_enqueue_style "Function Reference/wp enqueue style").
+
+Usage
+-----
+
+` <?php wp_register_style( $handle, $src, $deps, $ver, $media ) ?> `
+**Use the `wp_enqueue_scripts` action to call this function.** Calling
+it outside of an action can lead to problems. See
+[\#17916](http://core.trac.wordpress.org/ticket/17916 "http://core.trac.wordpress.org/ticket/17916")
+for details.
+
+Parameters
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the stylesheet (which should be unique as it is
+    used to identify the script in the whole system).
+    Default: *None*
+
+ `$src` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) URL to the stylesheet. Example:
+    '[http://example.com/css/mystyle.css'](http://example.com/css/mystyle.css' "http://example.com/css/mystyle.css'").
+    You should never hardcode URLs to local styles, use [Function
+    Reference/plugins\_url](/Function_Reference/plugins_url "Function Reference/plugins url")
+    (for Plugins) and [Function
+    Reference/get\_template\_directory\_uri](/Function_Reference/get_template_directory_uri "Function Reference/get template directory uri")
+    (for Themes) to get a proper URL. Remote assets can be specified
+    with a protocol-agnostic URL, i.e.
+    '//otherdomain.com/css/theirstyle.css'.
+    Default: *None*
+
+ `$deps` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Array of handles of any stylesheets that this
+    stylesheet depends on. Dependent stylesheets will be loaded before
+    this stylesheet.
+    Default: array()
+
+ `$ver` 
+:   ([*string|boolean*](/How_to_Pass_Tag_Parameters#String.7Cboolean "How to Pass Tag Parameters"))
+    (*optional*) String specifying the stylesheet version number, if it
+    has one. This parameter is used to ensure that the correct version
+    is sent to the client regardless of caching, and so should be
+    included if a version number is available and makes sense for the
+    stylesheet. The version is appended to the stylesheet URL as a query
+    string, such as `?ver=3.5.1`. By default, or if `false`, the
+    WordPress version string is used. If `null` nothing is appended to
+    the URL.
+    Default: false
+
+ `$media` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) String specifying the media for which this stylesheet
+    has been defined. Examples: '`all`', '`screen`', '`handheld`',
+    '`print`'. See this
+    [list](http://www.w3.org/TR/CSS2/media.html#media-types "http://www.w3.org/TR/CSS2/media.html#media-types")
+    for the full range of valid CSS-media-types.
+    Default: 'all'
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`object`) `$wp_styles`
+
+Change Log
+----------
+
+-   Since: [2.1](/Version_2.1 "Version 2.1") (BackPress version: r79)
+
+Source File
+-----------
+
+`wp_register_style()` is located in
+`wp-includes/functions.wp-styles.php`.
+

@@ -1,0 +1,42 @@
+Function Reference/the meta « WordPress Codex
+-----------
+
+This is a simple built-in function for displaying custom fields for the
+current post, known as the "post-meta" (stored in the wp\_postmeta
+table). It formats the data into an unordered list (see output below).
+
+It must be used from within [The Loop](/The_Loop "The Loop") or in a
+theme file that handles data from a single post (e.g. single.php).
+the\_meta() will ignore meta\_keys (i.e. field names) that begin with an
+underscore.
+
+For more information on this tag, see [Custom
+Fields](/Custom_Fields "Custom Fields").
+
+Usage
+-----
+
+`  <?php the_meta(); ?> `
+
+Parameters
+----------
+
+This tag has no parameters.
+
+Example
+-------
+
+    <p>Meta information for this post:</p>
+    <?php the_meta(); ?>
+
+Output from `the_meta`:
+
+    <ul class='post-meta'>
+    <li><span class='post-meta-key'>your_key:</span> your_value</li>
+    </ul>
+
+Source File
+-----------
+
+`the_meta()` is located in `wp-includes/post-template.php`.
+

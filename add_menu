@@ -1,0 +1,137 @@
+Function Reference/add menu « WordPress Codex
+-----------
+
+Create or add new items into the Admin bar.
+
+This is not a function. It is a method of the `$wp_admin_bar` global (an
+instance of
+[WP\_Admin\_Bar](/Class_Reference/WP_Admin_Bar "Class Reference/WP Admin Bar")),
+which may not exist except during the 'admin\_bar\_menu' hook.
+
+**Note**: The Admin Bar is replaced with the
+[toolbar](/Administration_Screens#Toolbar "Administration Screens")
+since WordPress [Version 3.3](/Version_3.3 "Version 3.3"). The preferred
+way to add items to the toolbar is with
+[add\_node()](/Function_Reference/add_node "Function Reference/add node").
+
+Initial items in the Admin Bar are(\$menu\_id):
+
+-   my-account-with-avatar - Dashboard, User settings
+-   new-content - Short-cut to all custom post types and original ones
+-   comments - Comments moderation
+-   appearance - Theme selection and Widgets
+
+Usage
+-----
+
+` <?php $wp_admin_bar->add_menu( $args ) ?> `
+
+Parameters
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) An array of arguments.
+    Default: *None*
+
+### Arguments
+
+    $defaults = array(
+        'href' => false,
+        'parent' => false, // false for a root menu, pass the ID value for a submenu of that menu.
+        'id' => false, // defaults to a sanitized title value.
+        'meta' => false // array of any of the following options: array( 'html' => '', 'class' => '', 'onclick' => '', 'target' => '', 'title' => '' );
+    );
+
+Example
+-------
+
+An an example of custom links for external sites:
+
+    class FacebookMenu {
+      
+      function FacebookMenu()
+      {
+          add_action( 'admin_bar_menu', array( $this, "facebook_links" ) );
+      }
+
+      /**
+       * Add's new global menu, if $href is false menu is added but registred as submenuable
+       *
+       * $name String
+       * $id String
+       * $href Bool/String
+       *
+       * @return void
+       * @author Janez Troha
+       * @author Aaron Ware
+       **/
+
+      function add_root_menu($name, $id, $href = FALSE)
+      {
+        global $wp_admin_bar;
+        if ( !is_super_admin() || !is_admin_bar_showing() )
+            return;
+
+        $wp_admin_bar->add_menu( array(
+            'id'   => $id,
+            'meta' => array(),
+            'title' => $name,
+            'href' => $href ) );
+      }
+
+      /**
+       * Add's new submenu where additinal $meta specifies class, id, target or onclick parameters
+       *
+       * $name String
+       * $link String
+       * $root_menu String
+       * $meta Array
+       *
+       * @return void
+       * @author Janez Troha
+       **/
+      function add_sub_menu($name, $link, $root_menu, $meta = FALSE)
+      {
+          global $wp_admin_bar;
+          if ( ! is_super_admin() || ! is_admin_bar_showing() )
+              return;
+        
+          $wp_admin_bar->add_menu( array(
+              'parent' => $root_menu,
+              'title' => $name,
+              'href' => $link,
+              'meta' => $meta
+          ) );
+      }
+
+      function facebook_links() {
+          $this->add_root_menu( "Facebook", "fcbl" );
+          $this->add_sub_menu( "Facebook pages", "http://www.facebook.com/pages/manage", "fcbl" );
+          $this->add_sub_menu( "Facebook apps", "http://www.facebook.com/developers/apps.php", "fcbl" );
+          $this->add_sub_menu( "Facebook insights", "http://www.facebook.com/insights", "fcbl" );
+      }
+
+    }
+    add_action( "init", "FacebookMenuInit" );
+    function FacebookMenuInit() {
+        global $FacebookMenu;
+        $FacebookMenu = new FacebookMenu();
+    }
+
+Change Log
+----------
+
+-   Since [Version 3.1](/Version_3.1 "Version 3.1")
+
+Source File
+-----------
+
+`add_menu()` is located in `wp-includes/class-wp-admin-bar.php`.
+
+\
+
+See also index of [Function
+Reference](/Function_Reference "Function Reference") and index of
+[Template Tags](/Template_Tags "Template Tags").
+

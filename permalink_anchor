@@ -1,0 +1,39 @@
+Function Reference/permalink anchor « WordPress Codex
+-----------
+
+Outputs a [permalink](/Glossary#Permalink "Glossary") anchor identifier
+or id (\<a id="....) for a post. This is useful for linking to a
+particular post on a page displaying several posts, such as an archive
+page. This tag must be within [The Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php permalink_anchor( $type ); ?> `
+
+Parameters
+----------
+
+ \$type 
+:   (*string*) Type of anchor to output. Valid values are:
+    -   `'id'` - Anchor equals numeric post ID. This is the default.
+    -   `'title'` - Anchor equals postname, i.e. [post
+        slug](/Glossary#Post_Slug "Glossary").
+
+Example
+-------
+
+Inserts the permalink anchor next to a post's title.
+
+    <h3><?php permalink_anchor(); ?><?php the_title(); ?></h3>
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`permalink_anchor()` is located in `wp-includes/link-template.php`.
+

@@ -1,0 +1,43 @@
+Function Reference/wp count terms « WordPress Codex
+-----------
+
+Count how many terms are in Taxonomy.
+
+Default \$args is 'hide\_empty' which can be 'hide\_empty=true' or
+array('hide\_empty' =\> true).
+
+Usage
+-----
+
+` <?php wp_count_terms( $taxonomy, $args ); ?> `
+
+Parameters
+----------
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Taxonomy name.
+    Default: string
+
+ `$args` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Overwrite defaults. See
+    [get\_terms()](/Function_Reference/get_terms "Function Reference/get terms").
+    Default: array/string
+
+Return Values
+-------------
+
+ `` `(int)`{style="color:gray"} 
+:   How many terms are in \$taxonomy
+
+Change Log
+----------
+
+Since: [2.3](/Version_2.3 "Version 2.3")
+
+Source File
+-----------
+
+`wp_count_terms()` is located in `wp-includes/taxonomy.php`
+

@@ -1,0 +1,57 @@
+Function Reference/force ssl admin « WordPress Codex
+-----------
+
+Determine whether the administration panel should be viewed over SSL.
+This function relies on the
+[FORCE\_SSL\_ADMIN](/Administration_Over_SSL "Administration Over SSL")
+constant that is set in the [wp-config.php
+file](/Editing_wp-config.php "Editing wp-config.php") if you're using
+your site [over
+SSL](/Administration_Over_SSL "Administration Over SSL").
+
+The [force](#Parameters) parameter will change the [return
+value](#Returns) of this function until it is reset.
+
+Usage
+-----
+
+`  <?php force_ssl_admin(); ?> `
+
+### Default Usage
+
+`  <?php if ( force_ssl_admin() ) { echo 'Administration should be performed over SSL'; } ?> `
+
+### Changing the Return Value
+
+`  <?phpforce_ssl_admin(true);if ( force_ssl_admin() ) {  echo 'Administration should be performed over SSL';} else {  echo 'This code will never execute';}force_ssl_admin(false);if ( force_ssl_admin() ) {  echo 'This code will never execute';} else {  echo 'Administration should NOT be performed over SSL';}?> `
+
+### Resetting the Return Value
+
+`  <?php force_ssl_admin(FORCE_SSL_ADMIN); ?> `
+
+Parameters
+----------
+
+ `$force` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If provided, the return value will be reset to this
+    value on the next call.
+    Default: *None*
+
+Returns
+-------
+
+ (boolean) 
+:   True if administration should be performed over SSL, false otherwise
+
+Changelog
+---------
+
+Since: [Wordpress
+2.6.0](/index.php?title=Version_2.6.0&action=edit&redlink=1 "Version 2.6.0 (page does not exist)")
+
+Source Code
+-----------
+
+`force_ssl_admin()` is located in `wp-includes/functions.php`.
+

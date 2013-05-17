@@ -1,0 +1,46 @@
+Function Reference/has tag « WordPress Codex
+-----------
+
+Check if the current post has any of the given tags. The given tags are
+checked against the post's tags' term\_ids, names and slugs. Tags given
+as integers will only be checked against the post's tags' term\_ids.
+
+\
+ If no tags are given, determines if post has any tags.
+
+Usage
+-----
+
+` <?php has_tag( $tag, $post ); ?> `
+
+Parameters
+----------
+
+ `$tag` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The tag name, term\_id or slug. Also accepts an array
+    of tag names, term ids and slugs
+    Default: *None*
+
+ `$post` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*optional*) Post to check instead of the current post.
+    Default: Current post
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True if the current post has any of the the given tags (or any tag,
+    if no tag specified), false otherwise.
+
+Changelog
+---------
+
+Since: 2.6.0
+
+Source File
+-----------
+
+`has_tag()` is located in `wp-includes/category-template.php`.
+

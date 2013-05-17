@@ -1,0 +1,51 @@
+Function Reference/wp delete category « WordPress Codex
+-----------
+
+Deletes one existing category.
+
+Usage
+-----
+
+` <?php wp_delete_category( $cat_ID ) ?> `
+
+Parameters
+----------
+
+ `$cat_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+Return Values
+-------------
+
+ (mixed) 
+:   Returns true if completes delete action; false if term doesn't
+    exist; Zero on attempted deletion of default Category; WP\_Error
+    object is also a possibility.
+
+Examples
+--------
+
+    <?php
+    $categ_ID = 3;
+    if ( wp_delete_category( $categ_ID ) ) {
+      echo "Category #$categ_ID was successfully deleted";
+    } else {
+      echo "Impossible to delete category #$categ_ID! Make sure it exists and that it's not the default category";
+    }
+    ?>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`wp_delete_category()` is located in `wp-includes/taxonomy.php`.
+

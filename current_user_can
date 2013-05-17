@@ -1,0 +1,63 @@
+Function Reference/current user can « WordPress Codex
+-----------
+
+Whether the current user has a certain capability. See: [Roles and
+Capabilities](/Roles_and_Capabilities "Roles and Capabilities").
+
+Do not pass a *custom* role name to current\_user\_can(), as this is not
+guaranteed to work correctly. Instead, you may wish to try the [check
+user role
+function](http://docs.appthemes.com/tutorials/wordpress-check-user-role-function/ "http://docs.appthemes.com/tutorials/wordpress-check-user-role-function/")
+put together by AppThemes.
+
+Usage
+-----
+
+`  <?php current_user_can( $capability, $args ); ?> `
+
+Parameters
+----------
+
+ `$capability` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    [capability](/Roles_and_Capabilities#Capabilities "Roles and Capabilities")
+    or role name
+    Default: *None*
+
+ `$args` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Any additional arguments that may be needed, such as a
+    post ID. Some capability checks (like `'edit_post'` or
+    `'delete_page'`) require this be provided.
+    Default: *None*
+
+Returns
+-------
+
+(boolean)
+
+-   **true** if the current user has got the capability.
+-   **false** if the current user hasn't got the capability.
+
+Examples
+--------
+
+    if ( current_user_can('moderate_comments') ) {
+     echo 'The current user can moderate comments';
+    }
+
+    if ( current_user_can('edit_post', 123) ) {
+     echo 'The current user can edit post 123'.
+    }
+
+Changelog
+---------
+
+Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+Source Code
+-----------
+
+`current_user_can()` is located in `wp-includes/capabilities.php`.
+

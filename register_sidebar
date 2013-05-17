@@ -1,0 +1,119 @@
+Function Reference/register sidebar « WordPress Codex
+-----------
+
+Builds the definition for a single [sidebar](/Sidebars "Sidebars") and
+returns the ID. Call on "widgets\_init" action.
+
+Usage
+-----
+
+` <?php register_sidebar( $args ); ?> `
+
+### Default Usage
+
+    <?php $args = array(
+        'name'          => __( 'Sidebar name', 'theme_text_domain' ),
+        'id'            => 'unique-sidebar-id',
+        'description'   => '',
+            'class'         => '',
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>' ); ?>
+
+Parameters
+----------
+
+ `args` 
+:   ([*string/array*](/How_to_Pass_Tag_Parameters#String.2Farray "How to Pass Tag Parameters"))
+    (*optional*) Builds Sidebar based off of 'name' and 'id' values.
+    Default: *None*
+
+-   `name` - Sidebar name (default is localized 'Sidebar' and numeric
+    ID).
+-   `id` - Sidebar id - Must be all in lowercase, with no spaces
+    (default is a numeric auto-incremented ID).
+-   `description` - Text description of what/where the sidebar is. Shown
+    on widget management screen. (Since 2.9) (default: empty)
+-   `class` - CSS class name to assign to the widget HTML (default:
+    empty).
+-   `before_widget` - HTML to place before every widget(default: '\<li
+    id="%1\$s" class="widget %2\$s"\>') Note: uses sprintf for variable
+    substitution
+-   `after_widget` - HTML to place after every widget (default:
+    "\</li\>\\n").
+-   `before_title` - HTML to place before every title (default: \<h2
+    class="widgettitle"\>).
+-   `after_title` - HTML to place after every title (default:
+    "\</h2\>\\n").
+
+The optional `args` parameter is an associative array that will be
+passed as a first argument to every active widget callback. (If a string
+is passed instead of an array, it will be passed through
+[parse\_str()](http://php.net/manual/en/function.parse-str.php "http://php.net/manual/en/function.parse-str.php")
+to generate an associative array.) The basic use for these arguments is
+to pass theme-specific HTML tags to wrap the widget and its title.
+
+Notes
+-----
+
+-   With WordPress 3.4.1 there're still some **IDs to avoid**, [that can
+    be found
+    here](http://wordpress.stackexchange.com/questions/59973/what-is-allowed-as-an-id-argument-in-register-sidebar-args/59985#59985 "http://wordpress.stackexchange.com/questions/59973/what-is-allowed-as-an-id-argument-in-register-sidebar-args/59985#59985").
+    Props to "toscho" for building a plugin collecting and listing them.
+
+-   Calling `register_sidebar()` multiple times to register a number of
+    sidebars is preferable to using
+    [register\_sidebars()](/Function_Reference/register_sidebars "Function Reference/register sidebars")
+    to create a bunch in one go, because it allows you to assign a
+    unique name to each sidebar (eg: “Right Sidebar”, “Left Sidebar”).
+    Although these names only appear in the admin interface it is a best
+    practice to name each sidebar specifically, giving the
+    administrative user some idea as to the context for which each
+    sidebar will be used.
+
+-   The default before/after values are intended for themes that
+    generate a sidebar marked up as a list with h2 titles. This is the
+    convention we recommend for all themes and any theme built in this
+    way can simply register sidebars without worrying about the
+    before/after tags. If, for some compelling reason, a theme cannot be
+    marked up in this way, these tags must be specified when registering
+    sidebars. It is recommended to copy the id and class attributes
+    verbatim so that an internal sprintf call can work and CSS styles
+    can be applied to individual widgets.
+
+Example
+-------
+
+This will create a sidebars named "RightSideBar" with \<h1\> and \</h1\>
+before and after the title:
+
+    register_sidebar(array(
+      'name' => __( 'Right Hand Sidebar' ),
+      'id' => 'right-sidebar',
+      'description' => __( 'Widgets in this area will be shown on the right-hand side.' ),
+      'before_title' => '<h1>',
+      'after_title' => '</h1>'
+    ));
+
+Change Log
+----------
+
+-   [2.9.0](/Version_2.9 "Version 2.9") : Added `description` property
+-   Since: [2.2.0](/Version_2.2 "Version 2.2")
+
+Source File
+-----------
+
+`register_sidebar()` is located in `wp-includes/widgets.php`.
+
+Resources
+---------
+
+-   [WordPress Sidebar
+    Generator](http://generatewp.com/sidebar/ "http://generatewp.com/sidebar/")
+-   [Sidebars in
+    WordPress](http://justintadlock.com/archives/2010/11/08/sidebars-in-wordpress "http://justintadlock.com/archives/2010/11/08/sidebars-in-wordpress")
+-   [See How Easy It Is To Widgetize WordPress
+    Themes](http://www.themelab.com/2008/04/18/see-how-easy-it-is-to-widgetize-wordpress-themes/ "http://www.themelab.com/2008/04/18/see-how-easy-it-is-to-widgetize-wordpress-themes/")
+

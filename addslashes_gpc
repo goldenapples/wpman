@@ -1,0 +1,50 @@
+Function Reference/addslashes gpc « WordPress Codex
+-----------
+
+Adds slashes to escape strings.
+
+Slashes will first be removed if
+[magic-quotes-gpc](http://php.net/manual/en/info.configuration.php#ini.magic-quotes-gpc "http://php.net/manual/en/info.configuration.php#ini.magic-quotes-gpc")
+is set, see
+[magic\_quotes](http://.php.net/manual/en/function.magic_quotes.php "http://.php.net/manual/en/function.magic_quotes.php")
+for more details.
+
+Usage
+-----
+
+` <?php addslashes_gpc( $gpc ) ?> `
+
+Parameters
+----------
+
+ `$gpc` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The string returned from HTTP request data.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Returns a string escaped with slashes.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   In this context, this: '`\`' is a slash.
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`addslashes_gpc()` is located in `wp-includes/formatting.php`.
+

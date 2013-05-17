@@ -1,0 +1,104 @@
+Function Reference/get option « WordPress Codex
+-----------
+
+A safe way of getting values for a named
+[option](/Option_Reference "Option Reference") from the options database
+table. If the desired option does not exist, or no value is associated
+with it, FALSE will be returned.
+
+Usage
+-----
+
+`  <?php echo get_option( $option, $default ); ?> `
+
+Parameters
+----------
+
+ `$option` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the option to retrieve. A concise list of valid
+    options is below, but a more complete one can be found at the
+    [Option Reference](/Option_Reference "Option Reference").
+    Default: *None*
+
+-   `'admin_email'` - E-mail address of blog administrator.
+-   `'blogname'` - Weblog title; set in General Options.
+-   `'blogdescription'` - Tagline for your blog; set in General Options.
+-   `'blog_charset'` - Character encoding for your blog; set in Reading
+    Options.
+-   `'date_format'` - Default date format; set in General Options.
+-   `'default_category'` - Default post category; set in Writing
+    Options.
+-   `'home'` - The blog's home web address; set in General Options.
+-   `'siteurl'` - WordPress web address; set in General Options.\
+    **Warning:** This is not the same as `get_bloginfo('siteurl')`
+    (which will return the homepage url), but as
+    `get_bloginfo('wpurl')`;.
+-   `'template'` - The current theme's name; set in Presentation.
+-   `'start_of_week'` - Day of week calendar should start on; set in
+    General Options.
+-   `'upload_path'` - Default upload location; set in Miscellaneous
+    Options.
+-   `'posts_per_page'` - Maximum number of posts to show on a page; set
+    in Reading Options.
+-   `'posts_per_rss'` - Maximum number of most recent posts to show in
+    the syndication feed; set in Reading Options.
+
+There are many more options available, a lot of which depend on what
+plugins you have installed. Visit the /wp-admin/options.php page for a
+complete list.
+
+Underscores separate words, lowercase only - this is going to be in a
+database.
+
+ `$default` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The default value to return if no value is returned
+    (ie. the option is not in the database).
+    Default: false
+
+Return Values
+-------------
+
+Mixed values for the option. If option does not exist, return boolean
+FALSE.
+
+Values
+------
+
+More information:
+[Option\_Reference](/Option_Reference "Option Reference")
+
+Examples
+--------
+
+` <?php$no_exists_value = get_option('no_exists_value');var_dump($no_exists_value); /* ouput false */$no_exists_value = get_option('no_exists_value','default_value');var_dump($no_exists_value); /* output default_value */?> `
+
+### Show Blog Title
+
+Displays your blog's title in a \<h1\> tag.
+
+`  <h1><?php echo get_option('blogname'); ?></h1> `
+
+### Show Character Set
+
+Displays the character set your blog is using (ex: UTF-8)
+
+`  <p>Character set: <?php echo get_option('blog_charset'); ?> </p> `
+
+### Retrieve Administrator E-mail
+
+Retrieve the e-mail of the blog administrator, storing it in a variable.
+
+`  <?php $admin_email = get_option('admin_email'); ?> `
+
+Changelog
+---------
+
+-   since 1.5.0
+
+Source File
+-----------
+
+`get_option()` is located in `wp-includes/option.php`.
+

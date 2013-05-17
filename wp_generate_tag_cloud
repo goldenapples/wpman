@@ -1,0 +1,39 @@
+Function Reference/wp generate tag cloud « WordPress Codex
+-----------
+
+Returns an HTML string that makes a tag cloud.
+
+Usage
+-----
+
+` <?php wp_generate_tag_cloud( $tags, $args ); ?> `
+
+### Default Usage
+
+`  <?php $args = array(    'smallest'  => 8,    'largest'   => 22,    'unit'      => 'pt',    'number'    => 0,    'format'    => 'flat',    'separator' => '\n',    'orderby'   => 'name',    'order'     => 'ASC',    'topic_count_text_callback'  => 'default_topic_count_text',    'topic_count_scale_callback' => 'default_topic_count_scale',    'filter'    => 1 ); ?> `
+
+Parameters
+----------
+
+Examples
+--------
+
+Notes
+-----
+
+-   Called by
+    [wp\_tag\_cloud()](/Template_Tags/wp_tag_cloud "Template Tags/wp tag cloud")
+-   Uses
+    [get\_tags()](/Function_Reference/get_tags "Function Reference/get tags")
+
+Changelog
+---------
+
+-   Since: 2.3.0
+
+Source File
+-----------
+
+`wp_generate_tag_cloud()` is located in
+`wp-includes/category-template.php`.
+

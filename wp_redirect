@@ -1,0 +1,65 @@
+Function Reference/wp redirect « WordPress Codex
+-----------
+
+Redirects the user to a specified [*absolute*
+URI](/Glossary#Absolute_URI "Glossary").
+
+Usage
+-----
+
+`wp_redirect()` does not exit automatically and should almost always be
+followed by `exit`.
+
+    <?php
+    wp_redirect( $location, $status );
+    exit;
+    ?>
+
+Parameters
+----------
+
+ `$location` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The **absolute** URI which the user will be redirected
+    to.
+    Default: *None*
+
+ `$status` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The status code to use.
+    Default: 302
+
+Return Values
+-------------
+
+ `(bool|void)` 
+:   False if \$location is not set, returns nothing otherwise.
+
+Example
+-------
+
+    <?php wp_redirect( home_url() ); exit; ?>
+
+Redirects can also be external, and/or use a "Moved Permanently" code :
+
+    <?php wp_redirect( 'http://www.example.com', 301 ); exit; ?>
+
+Notes
+-----
+
+The HTTP/1.1 status code 302 is a temporary redirect. If the page has
+moved permanently, use the HTTP status code 301.
+
+wp\_redirect() is a [Pluggable
+Function](/Pluggable_Functions "Pluggable Functions")
+
+Change Log
+----------
+
+-   Since: 1.5.1
+
+Source File
+-----------
+
+`wp_redirect()` is located in `wp-includes/pluggable.php`.
+

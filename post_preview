@@ -1,0 +1,41 @@
+Function Reference/post preview « WordPress Codex
+-----------
+
+Parameters
+----------
+
+ `$var` 
+:   ([*TYPE*](/How_to_Pass_Tag_Parameters#TYPE "How to Pass Tag Parameters"))
+    (*required*) Description.
+    Default: *None*
+
+ `$var` 
+:   ([*TYPE*](/How_to_Pass_Tag_Parameters#TYPE "How to Pass Tag Parameters"))
+    (*optional*) Description.
+    Default: DEFAULT
+
+Return
+------
+
+Description of what gets returned
+
+Usage
+-----
+
+`  <?php  ?> `
+
+Example
+-------
+
+Description text
+
+    Example code
+
+Change Log
+----------
+
+Source File
+-----------
+
+`post_preview()` is located in `wp-whatever/file.php`.
+

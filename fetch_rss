@@ -1,0 +1,47 @@
+Function Reference/fetch rss « WordPress Codex
+-----------
+
+Retrieves an RSS feed and parses it. Uses the [MagpieRSS and
+RSSCache](http://magpierss.sourceforge.net/ "http://magpierss.sourceforge.net/")
+functions for parsing and automatic caching and the [Snoopy HTTP
+client](http://sourceforge.net/projects/snoopy/ "http://sourceforge.net/projects/snoopy/")
+for the actual retrieval.
+
+Deprecated note: Switch to using
+[fetch\_feed](/Function_Reference/fetch_feed "Function Reference/fetch feed")
+instead.
+
+Usage
+-----
+
+`  <?phpinclude_once(ABSPATH . WPINC . '/rss.php');$rss = fetch_rss($uri);?> `
+
+Parameters
+----------
+
+ `$uri` 
+:   ([*URI*](/How_to_Pass_Tag_Parameters#URI "How to Pass Tag Parameters"))
+    (*required*) The URI of the RSS feed you want to retrieve. The
+    resulting parsed feed is returned, with the more interesting and
+    useful bits in the items array.
+    Default: *None*rray.
+
+Example
+-------
+
+To get and display a list of links for an existing RSS feed, limiting
+the selection to the most recent 5 items:
+
+` <h2><?php _e('Headlines from AP News'); ?></h2><?php // Get RSS Feed(s)  include_once(ABSPATH . WPINC . '/rss.php');  $rss = fetch_rss('http://example.com/rss/feed/goes/here');  $maxitems = 5;  $items = array_slice($rss->items, 0, $maxitems);?><ul>  <?php if (empty($items)): ?>    <li>No items</li>  <?php else:      foreach ( $items as $item ):        ?>        <li>          <a href='<?php echo $item['link']; ?>' title='<?php echo $item['title']; ?>'>            <?php echo $item['title']; ?>          </a>        </li>        <?php      endforeach;    endif;  ?></ul>`
+
+Change Log
+----------
+
+-   Since [Version 1.5](/Version_1.5 "Version 1.5")
+-   Deprecated in [Version 3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`fetch_rss` is defined in `wp-includes/rss.php`.
+

@@ -1,0 +1,115 @@
+Function Reference/get post meta « WordPress Codex
+-----------
+
+This function returns the values of the custom fields with the specified
+key from the specified post. To return all of the custom fields, see
+[get\_post\_custom()](/Function_Reference/get_post_custom "Function Reference/get post custom").
+See also
+[update\_post\_meta()](/Function_Reference/update_post_meta "Function Reference/update post meta"),
+[delete\_post\_meta()](/Function_Reference/delete_post_meta "Function Reference/delete post meta")
+and
+[add\_post\_meta()](/Function_Reference/add_post_meta "Function Reference/add post meta").
+
+Usage
+-----
+
+`  <?php $meta_values = get_post_meta($post_id, $key, $single); ?> `
+
+\
+ Please note that if your db collation is case insensitive (has with
+suffix \_ci) then update\_post\_meta and delete\_post\_meta and
+get\_posts will update/delete/query the meta records with keys that are
+upper or lower case. However get\_post\_meta will apparently be case
+sensitive due to wordpress caching. See
+[https://core.trac.wordpress.org/ticket/18210](https://core.trac.wordpress.org/ticket/18210 "https://core.trac.wordpress.org/ticket/18210")
+for more info. Be careful not to mix upper and lowercase.
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the post from which you want the data. Use
+    `get_the_ID()` while in `The Loop` to get the post's ID, or use your
+    sub-loop's post object ID property (eg `$my_post_object->ID`). You
+    may also use the global `$post` object's ID property (eg
+    `$post->ID`), but this may not always be what you intend.
+    Default: *None*
+
+ `$key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) A string containing the name of the meta value you
+    want.
+    Default: empty string
+
+ `$single` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If set to true then the function will return a single
+    result, as a **string**. If false, or not set, then the function
+    returns an **array** of the custom fields. This may not be intuitive
+    in the context of serialized arrays. If you fetch a serialized array
+    with this method you want \$single to be true to actually get an
+    unserialized array back. If you pass in false, or leave it out, you
+    will have an array of one, and the value at index 0 will be the
+    serialized string.
+    Default: false
+
+Return Value
+------------
+
+-   If only `$id` is set it will return all meta values in an
+    associative array.
+-   If `$single` is set to `false`, or left blank, the function returns
+    an array containing all values of the specified key.
+-   If `$single` is set to `true`, the function returns the first value
+    of the specified key (not in an array)
+
+If there is nothing to return the function will return an empty `array`
+unless `$single` has been set to `true`, in which case an empty string
+is returned.
+
+Examples
+--------
+
+### Default Usage
+
+Get the meta for all keys:
+
+    <?php $meta = get_post_meta( get_the_ID() ); ?>
+
+Get the meta for a single key:
+
+    <?php $key_1_values = get_post_meta(76, 'key_1'); ?>
+
+### show the first value of the specified key inside a loop
+
+    <?php 
+    $key_1_value = get_post_meta(get_the_ID(), 'key_1', true);
+    // check if the custom field has a value
+    if($key_1_value != '') {
+      echo $key_1_value;
+    } 
+    ?>
+
+For a more detailed example, go to the [post\_meta Functions
+Examples](/Function_Reference/post_meta_Function_Examples "Function Reference/post meta Function Examples")
+page.
+
+### Retrieve a Custom Field Thumbnail Url
+
+While you are in the [WordPress
+Loop](http://codex.wordpress.org/The_Loop "http://codex.wordpress.org/The_Loop"),
+you can use this code to retrieve a custom field. In this example, the
+thumbnail image url is in a custom field named "thumb".
+
+    <?php if ( get_post_meta(get_the_ID(), 'thumb', true) ) : ?>
+        <a href="<?php the_permalink() ?>" rel="bookmark">
+            <img class="thumb" src="<?php echo get_post_meta(get_the_ID(), 'thumb', true) ?>" alt="<?php the_title(); ?>" />
+        </a>
+    <?php endif; ?>
+
+Source Code
+-----------
+
+`get_post_meta()` is located in `wp-includes/post.php`
+

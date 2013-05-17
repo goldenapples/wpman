@@ -1,0 +1,78 @@
+Function Reference/update post cache « WordPress Codex
+-----------
+
+Updates the cache for each post passed in.
+
+**NOTE**: despite name, it does not take a single post object or ID; it
+takes **only** an array of post objects.
+
+-   @usedby
+    [Function\_Reference/update\_page\_cache](/index.php?title=Function_Reference/update_page_cache&action=edit&redlink=1 "Function Reference/update page cache (page does not exist)")
+    Aliased by this function.
+
+-   @package WordPress
+-   @subpackage Cache
+
+Since
+-----
+
+1.5.1
+
+Params
+------
+
+array \$posts Array of post objects
+
+Source
+------
+
+`update_post_cache()` is located in `wp-includes/post.php`.
+
+This page is [marked](/Category:Stubs "Category:Stubs") as incomplete.
+You can [help](/Codex:Contributing "Codex:Contributing") Codex by
+**[expanding
+it](http://codex.wordpress.org/index.php?title=Function_Reference/update_post_cache&action=edit "http://codex.wordpress.org/index.php?title=Function_Reference/update_post_cache&action=edit")**.
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/update\_post\_cache](http://codex.wordpress.org/Function_Reference/update_post_cache)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Stubs](/Category:Stubs "Category:Stubs") |
+[Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

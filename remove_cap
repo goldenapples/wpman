@@ -1,0 +1,110 @@
+Function Reference/remove cap « WordPress Codex
+-----------
+
+Removes a
+[capability](/Roles_and_Capabilities#Capabilities "Roles and Capabilities")
+from a [role](/Roles_and_Capabilities#Roles "Roles and Capabilities") or
+specific user. Changing the capabilities of a role or user is
+persistent, meaning the removed capability will stay in effect until
+explicitly granted.
+
+**N.B.: This setting is saved to the database (in table wp\_options,
+field wp\_user\_roles), so it might be better to run this only once,
+probably on theme/plugin activation or deactivation**
+
+Usage
+-----
+
+`  <?php global $wp_roles; // global class wp-includes/capabilities.php$wp_roles->remove_cap( $role, $cap ); ?> `
+or
+`  <?php    $role = get_role( 'author' );    $role->remove_cap( $cap ); ?> `
+
+Parameters
+----------
+
+ `role` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Required*) role name
+    Default: *None*
+
+ `cap` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Required*) capability name
+    Default: *None*
+
+Example
+-------
+
+    add_action( 'admin_init', 'remove_editor_read_private_posts' );
+
+    function remove_editor_read_private_posts(){
+      $role = get_role( 'editor' );
+      $role->remove_cap( 'read_private_posts' );
+
+     
+    }
+
+     // or you can simply use (when deactivating your plugin): 
+
+    function remove_editor_read_private_posts(){
+       global $wp_roles;
+           $wp_roles->remove_cap( 'editor', 'read_private_posts' );
+    }
+
+**NB: This setting is saved to the database (in table wp\_options, field
+wp\_user\_roles), so it might be better to this run only once, probably
+on theme/plugin activation or deactivation**
+
+    // to add remove capability from specific user
+    $user = new WP_User( $user_id );
+    $user->remove_cap( 'read_private_posts' );
+
+### Remove multiple capabilities
+
+    // Remove capabilities from editor
+    // Only run this code once since it changes the values in the db!
+    function set_capabilities() {
+
+        // get the the role object
+        $editor = get_role('editor');
+
+        $caps = array(
+            'moderate_comments',
+            'manage_categories',
+            'manage_links',
+            'edit_others_posts',
+            'edit_others_pages',
+            'delete_posts'
+        );
+
+        foreach ( $caps as $cap ){
+            // remove $cap capability for this role object
+            $editor->remove_cap( $cap );
+        }
+    }
+    add_action('init', 'set_capabilities');
+
+Notes
+-----
+
+One note: I used **remove\_cap( 'administrator', 'manage\_categories'
+);** to remove the *+Add New Category* link from the Posts page and it
+resulted in a **Fatal error: Call to undefined function remove\_cap()**
+error. If this happens use the first option in the example above. That
+works well. This happened to me in Wordpress version 3.4.2.
+
+### Version 3.5.x and 3.6
+
+remove\_cap are functions from classes WP\_Roles, WP\_Role and
+WP\_User... so cannot be called alone...
+
+Changelog
+---------
+
+-   Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+Source File
+-----------
+
+`remove_cap()` is located in `wp-includes/capabilities.php`.
+

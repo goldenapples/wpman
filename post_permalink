@@ -1,0 +1,32 @@
+Function Reference/post permalink « WordPress Codex
+-----------
+
+Returns the [permalink](/Glossary#Permalink "Glossary") for a post with
+a custom post type.
+
+Usage
+-----
+
+`  <?php echo post_permalink( $ID ); ?> ` Echos the permalink url for
+the ID passed in
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of the post or page that you wish to retrieve the
+    link for.
+    Default: 0
+
+Examples
+--------
+
+Change Log
+----------
+
+Source File
+-----------
+
+`post_permalink()` is located in `wp-includes/link-template.php`.
+

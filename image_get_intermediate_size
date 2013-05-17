@@ -1,0 +1,101 @@
+Function Reference/image get intermediate size « WordPress Codex
+-----------
+
+Retrieve the image's intermediate size (resized) path, width, and
+height.
+
+The \$size parameter can be an array with the width and height
+respectively. If the size matches the 'sizes' metadata array for width
+and height, then it will be used. If there is no direct match, then the
+nearest image size larger than the specified size will be used. If
+nothing is found, then the function will break out and return false.
+
+The metadata 'sizes' is used for compatible sizes that can be used for
+the parameter \$size value.
+
+The url path will be given, when the \$size parameter is a string.
+
+If you are passing an array for the \$size, you should consider using
+add\_image\_size() so that a cropped version is generated. It's much
+more efficient than having to find the closest-sized image and then
+having the browser scale down the image.
+
+Usage
+-----
+
+` <?php image_get_intermediate_size( $post_id, $size ); ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Attachment ID for image.
+    Default: *None*
+
+ `$size` 
+:   ([*array|string*](/How_to_Pass_Tag_Parameters#Array.7Cstring "How to Pass Tag Parameters"))
+    (*optional*) Optional, default is 'thumbnail'. Size of image, either
+    array or string.
+    Default: thumbnail
+
+Return Values
+-------------
+
+ `` `(boolean|array)`{style="color:gray"} 
+:   False on failure or array of file path, width, and height on
+    success.
+
+Change Log
+----------
+
+Since: [2.5](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+`image_get_intermediate_size()` is located in `wp-includes/media.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/image\_get\_intermediate\_size](http://codex.wordpress.org/Function_Reference/image_get_intermediate_size)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

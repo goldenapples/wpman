@@ -1,0 +1,110 @@
+Function Reference/get post type labels « WordPress Codex
+-----------
+
+Builds an object with all post type labels out of a post type object
+
+Accepted keys of the label array in the post type object:
+
+-   **name** - general name for the post type, usually plural. The same
+    and overriden by \$post\_type\_object-\>label. Default is
+    Posts/Pages
+-   **singular\_name** - name for one object of this post type. Default
+    is Post/Page
+-   **add\_new** - Default is Add New for both hierarchical and
+    non-hierarchical types. When internationalizing this string, please
+    use a {@link
+    [http://codex.wordpress.org/I18n\_for\_WordPress\_Developers\#Disambiguation\_by\_context](http://codex.wordpress.org/I18n_for_WordPress_Developers#Disambiguation_by_context "http://codex.wordpress.org/I18n_for_WordPress_Developers#Disambiguation_by_context")
+    gettext context} matching your post type. Example:
+    `_x('Add New', 'product');`
+-   **add\_new\_item** - Default is Add New Post/Add New Page
+-   **edit\_item** - Default is Edit Post/Edit Page
+-   **new\_item** - Default is New Post/New Page
+-   **view\_item** - Default is View Post/View Page
+-   **search\_items** - Default is Search Posts/Search Pages
+-   **not\_found** - Default is No posts found/No pages found
+-   **not\_found\_in\_trash** - Default is No posts found in Trash/No
+    pages found in Trash
+-   **parent\_item\_colon** - This string isn't used on non-hierarchical
+    types. In hierarchical ones the default is Parent Page:
+
+Above, the first default value is for non-hierarchical post types (like
+posts) and the second one is for hierarchical post types (like pages).
+
+Usage
+-----
+
+` <?php get_post_type_labels( $post_type_object ); ?> `
+
+Parameters
+----------
+
+ `$post_type_object` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(object)`{style="color:gray"} 
+:   object with all the labels as member variables
+
+Filters
+-------
+
+-   **`'post_type_labels_{$post_type}'`** called on return object:\
+    `apply_filters( 'post_type_labels_example_custom_post_type', $labels )`
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`get_post_type_labels()` is located in `wp-includes/post.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_post\_type\_labels](http://codex.wordpress.org/Function_Reference/get_post_type_labels)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

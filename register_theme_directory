@@ -1,0 +1,43 @@
+Function Reference/register theme directory « WordPress Codex
+-----------
+
+Register a directory that contains themes.
+
+Usage
+-----
+
+` <?php register_theme_directory( $directory ) ?> `
+
+Parameters
+----------
+
+ `$directory` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Either the full filesystem path to a theme folder or a
+    folder within WP\_CONTENT\_DIR
+    Default: *None*
+
+Return Values
+-------------
+
+ (boolean) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`unknown type`) `$wp_theme_directories`
+
+Change Log
+----------
+
+Since: 2.9.0
+
+Source File
+-----------
+
+`register_theme_directory()` is located in `wp-includes/theme.php`.
+

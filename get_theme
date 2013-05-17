@@ -1,0 +1,40 @@
+Function Reference/get theme « WordPress Codex
+-----------
+
+Retrieve [theme](/Glossary#Theme "Glossary") data.
+
+Usage
+-----
+
+` <?php get_theme( $theme ) ?> `
+
+Parameters
+----------
+
+ `$theme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Theme name.
+    Default: *None*
+
+Return Values
+-------------
+
+ (array|null) 
+:   Null, if theme name does not exist. Theme data, if exists.
+
+Notes
+-----
+
+-   Uses:
+    [`get_themes()`](/Function_Reference/get_themes "Function Reference/get themes")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_theme()` is located in `wp-includes/deprecated.php`.
+

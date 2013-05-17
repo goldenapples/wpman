@@ -1,0 +1,111 @@
+Function Reference/image constrain size for editor « WordPress Codex
+-----------
+
+Scale down the default size of an image.
+
+This is so that the image is a better fit for the editor and theme.
+
+The \$size parameter accepts either an array or a string. The supported
+string values are 'thumb' or 'thumbnail' for the given thumbnail size or
+defaults at 128 width and 96 height in pixels. Also supported for the
+string value is 'medium' and 'full'. The 'full' isn't actually
+supported, but any value other than the supported will result in the
+content\_width size or 500 if that is not set.
+
+Finally, there is a filter named, 'editor\_max\_image\_size' that will
+be called on the calculated array for width and height, respectively.
+The second parameter will be the value that was in the \$size parameter.
+The returned type for the hook is an array with the width as the first
+element and the height as the second element.
+
+**Important** (when dealing with the [default
+sizes](http://codex.wordpress.org/Function_Reference/add_image_size#Reserved_Image_Size_Names "http://codex.wordpress.org/Function_Reference/add_image_size#Reserved_Image_Size_Names")):
+Remember, that there's some automagically call to the options table. It
+will set the `$max_/$min_width` to what you defined under "admin UI" »
+"Settings" » "Media" and can't get overwritten without some [dirty
+hacks](http://chat.stackexchange.com/transcript/message/2334997#2334997 "http://chat.stackexchange.com/transcript/message/2334997#2334997")
+to `get_option()` filters.
+
+Usage
+-----
+
+` <?php image_constrain_size_for_editor( $width, $height, $size ); ?> `
+
+Parameters
+----------
+
+ `$width` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Width of the image
+    Default: *None*
+
+ `$height` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Height of the image
+    Default: *None*
+
+ `$size` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*optional*) Size of what the result image should be.
+    Default: medium
+
+Return Values
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   Width and height of what the result image should resize to.
+
+Change Log
+----------
+
+Since: [2.5](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+`image_constrain_size_for_editor()` is located in
+`wp-includes/media.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/image\_constrain\_size\_for\_editor](http://codex.wordpress.org/Function_Reference/image_constrain_size_for_editor)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

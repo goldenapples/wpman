@@ -1,0 +1,42 @@
+Function Reference/wp kses array lc « WordPress Codex
+-----------
+
+Goes through an array and changes the keys to all lower case.
+
+Usage
+-----
+
+` <?php wp_kses_array_lc( $inarray ) ?> `
+
+Parameters
+----------
+
+ `$inarray` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Unfiltered array
+    Default: *None*
+
+Return Values
+-------------
+
+ (array) 
+:   Fixed array with all lowercase keys
+
+Examples
+--------
+
+Notes
+-----
+
+-   This function expects a multi-dimensional array for input.
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_kses_array_lc()` is located in `wp-includes/kses.php`.
+

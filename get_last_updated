@@ -1,0 +1,53 @@
+Function Reference/get last updated « WordPress Codex
+-----------
+
+Get a list of most recently updated blogs.
+
+Usage
+-----
+
+` <?php get_last_updated( $deprecated, $start, $quantity ) ?> `
+
+Parameters
+----------
+
+ `$deprecated` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Not used
+    Default: empty string
+
+ `$start` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The offset
+    Default: 0
+
+ `$quantity` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The maximum number of blogs to retrieve.
+    Default: 40
+
+Return Values
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   The list of blogs
+
+Examples
+--------
+
+Notes
+-----
+
+The \$start offset specifies how many recent blogs to skip over. This is
+useful for pagination.
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+get\_last\_updated() is located in `wp-includes/ms-blogs.php`
+

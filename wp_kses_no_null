@@ -1,0 +1,40 @@
+Function Reference/wp kses no null « WordPress Codex
+-----------
+
+Removes any NULL characters in `$string`.
+
+Usage
+-----
+
+` <?php wp_kses_no_null( $string ) ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_kses_no_null()` is located in `wp-includes/kses.php`.
+

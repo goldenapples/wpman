@@ -1,0 +1,182 @@
+Function Reference/post class « WordPress Codex
+-----------
+
+WordPress theme authors who want to have finer css control options for
+their post styling, have the `post_class` function available. When the
+`post_class` function is added to a tag **within the loop**, for example
+`<div <?php post_class(); ?> >`, it will print out and add various
+post-related classes to the div tag. This function is typically used in
+the index.php, single.php, and other template files that feature
+hierarchical post listings.
+
+If you would prefer to have the post classes returned instead of echoed,
+you would want to use
+[get\_post\_class()](/Function_Reference/get_post_class "Function Reference/get post class").
+
+For css classes intended to help target entire pages, see
+[body\_class()](/Function_Reference/body_class "Function Reference/body class"),
+and for classes targeting comment listings, see
+[comment\_class()](/Function_Reference/comment_class "Function Reference/comment class").
+
+Usage
+-----
+
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+The `post_class` may include one or more of the following values for the
+class attribute, dependent upon the pageview.
+
+-   .post-id
+-   .post
+-   .attachment
+-   .sticky
+-   .hentry (hAtom microformat pages)
+-   .category-ID
+-   .category-name
+-   .tag-name
+-   .format-name
+
+Default Values
+--------------
+
+The `post_class` CSS classes appear based upon the post pageview
+[Conditional Tags](/Conditional_Tags "Conditional Tags") as follows.
+
+**Front Page**\
+ If posts are found on the front page of the blog, be it static or not,
+the class selectors are: **post** **post-id** **hentry**
+
+**Single Post**\
+ Single post template files and pageviews feature the class selectors:
+**post** **post-id** **hentry**
+
+**Sticky Post**\
+ Posts designated as "sticky," sticking to the front page of the blog,
+feature the class selector: **sticky**
+
+**Author**\
+ Author template files and pageviews displaying posts feature the class
+selectors: **post** **post-id**
+
+**Category**\
+ Category template files and pageviews displaying posts feature the
+class selectors: **post** **post-id** **category-ID** **category-name**
+
+**Tags**\
+ Tag template files and pageviews with posts feature the class
+selectors: **tag-name** **post** **post-id**
+
+**Archives**\
+ Archive pageviews and pageviews with posts feature CSS classes:
+**post** **post-id**
+
+**Search**\
+ Search template files and pageviews with posts feature the class
+selectors: **post** **post-id**
+
+**Attachment**\
+ Attachment template files and pageviews feature the class selectors:
+**attachment** **post** **post-id**
+
+**Format**\
+ Posts using Post Formats feature the class selector: **format-name**
+
+Parameters
+----------
+
+[How to pass parameters to tags with PHP function-style
+parameters](/Template_Tags/How_to_Pass_Tag_Parameters#Tags_with_PHP_function-style_parameters "Template Tags/How to Pass Tag Parameters")
+
+ `class` 
+:   ([*string or
+    array*](/How_to_Pass_Tag_Parameters#String_or_array "How to Pass Tag Parameters"))
+    (*optional*) One or more classes to add to the class attribute,
+    separated by a single space.
+    Default: null
+
+Examples
+--------
+
+### Implementation
+
+The following example shows how to implement the `post_class` template
+tag into a theme.
+
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+The actual HTML output might resemble something like this for a post in
+the "dancing" category:
+
+    <div id="post-4564" class="post post-4564 category-48 category-dancing logged-in">
+
+In the WordPress Theme stylesheet, add the appropriate styles, such as:
+
+    .post {
+            /* styles for all posts */
+            }
+    .post-4564 {
+            /* styles for only post ID number 4564 */
+            }
+    .category-dancing {
+            /* styles for all posts within the category of dancing */
+
+### Adding More Classes
+
+The classes are restricted to the defaults listed. To add more classes
+to the post content area, the template tag's parameter can be added. For
+example, to add a unique class to any template file:
+
+    <div id="post-<?php the_ID(); ?>" <?php post_class('class-name'); ?>>
+
+The results would be:
+
+    <div id="post-4564" class="class-name post post-4564 category-48 category-dancing logged-in">
+
+Or you can use an array with classes:
+
+    <?php
+      $classes = array(
+        'class1',
+        'class2',
+        'class3'
+      );
+    ?>
+
+    <div id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
+
+#### Add Classes By Filters
+
+To add a category class to single post pageviews and template files in
+the post content area for the post class and the entire page in the body
+HTML class, add the following to the `functions.php`.
+
+    // add category nicenames in body and post class
+        function category_id_class($classes) {
+            global $post;
+            foreach((get_the_category($post->ID)) as $category)
+                $classes[] = $category->category_nicename;
+                return $classes;
+        }
+        add_filter('post_class', 'category_id_class');
+        add_filter('body_class', 'category_id_class');
+
+#### Display Posts Outside of the Loop
+
+For displaying posts outside the Loop or in an alternate Loop, the
+second parameter to the post\_class function can be the post ID. Classes
+will then be determined from that post.
+
+    <?php post_class( '', $post_id ); ?>
+
+Source Code
+-----------
+
+`post_class()` is located in `wp-includes/post-template.php`.
+
+Changelog
+---------
+
+-   [3.1](/Version_3.1 "Version 3.1") : Supports [Post
+    Formats](/Post_Formats "Post Formats").
+-   Since: [2.7](/Version_2.7 "Version 2.7")
+

@@ -1,0 +1,62 @@
+Function Reference/get the title « WordPress Codex
+-----------
+
+This function will return the title of a post for a given post id. If
+the post is protected or private, the word "Protected: " or "Private: "
+will be prepended to the title. Can be used inside or outside of [the
+loop](/the_loop "the loop"). If used outside the loop an ID must be
+specified.
+
+Usage
+-----
+
+`  <?php echo get_the_title($ID); ?> `
+
+Parameters
+----------
+
+ `$ID` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Post ID or leave empty to use current post in [The
+    Loop](/The_Loop "The Loop")
+    Default: *None*
+
+Return Values
+-------------
+
+ `string` 
+:   Post title. If the post is protected or private, the word
+    "Protected: " or "Private: " prepended to the title.
+
+Example
+-------
+
+Print the current post's title `  <?php echo get_the_title(); ?> `
+
+Simple breadcrumb trail for pages, two levels deep.
+
+    <div class='breadcrumb'>
+    <?php // if there is a parent, display the link
+    $parent_title = get_the_title($post->post_parent);
+    if ( $parent_title != the_title(' ', ' ', false) ) {
+      echo '<a href=' . get_permalink($post->post_parent)
+        . ' ' . 'title=' . $parent_title . '>' . $parent_title
+        . '</a> » ';
+    } 
+    // then go on to the current page link
+    ?>
+    <a href='<?php the_permalink() ?>'
+    rel='bookmark' title='<?php the_title(); ?>'>
+    <?php the_title(); ?></a> »
+    </div>
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`get_the_title()` is located in `wp-includes/post-template.php`.
+

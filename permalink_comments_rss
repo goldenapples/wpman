@@ -1,0 +1,23 @@
+Function Reference/permalink comments rss « WordPress Codex
+-----------
+
+Displays the [permalink](/Glossary#Permalink "Glossary") to the post to
+which a comment belongs, formatted for [RSS](/Glossary#RSS "Glossary").
+Typically used in the RSS comment feed template. This tag must be within
+[The Loop](/The_Loop "The Loop"), or a comment loop.
+
+Usage
+-----
+
+`  <?php permalink_comments_rss(); ?> `
+
+Example
+-------
+
+    <link><?php permalink_comments_rss(); ?></link>
+
+Parameters
+----------
+
+This tag has no parameters.
+

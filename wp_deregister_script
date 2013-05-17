@@ -1,0 +1,44 @@
+Function Reference/wp deregister script « WordPress Codex
+-----------
+
+Remove a registered script (javascript).
+
+Usage
+-----
+
+` <?php wp_deregister_script( $handle ); ?> `
+
+Example
+-------
+
+    <?php wp_deregister_script('jquery'); ?>
+
+De-registers the WordPress stock jquery script, so you can register your
+own copy or from the [Google
+CDN](http://code.google.com/apis/libraries/devguide.html#jquery "http://code.google.com/apis/libraries/devguide.html#jquery")
+
+Parameters
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the script handle to be removed
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Change Log
+----------
+
+-   Since: [2.6](/Version_2.6 "Version 2.6") (BackPress version: r16)
+
+Source File
+-----------
+
+`wp_deregister_script()` is located in
+`wp-includes/functions.wp-scripts.php`.
+

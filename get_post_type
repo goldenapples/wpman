@@ -1,0 +1,46 @@
+Function Reference/get post type « WordPress Codex
+-----------
+
+Retrieve the post type of the current post or of a given post.
+
+Usage
+-----
+
+` <?php echo get_post_type( $post ) ?> `
+
+Parameters
+----------
+
+ `$post` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Post object or post ID.
+    Default: false
+
+Return Values
+-------------
+
+ `(boolean|string)` 
+:   post type or false on failure.
+
+Examples
+--------
+
+Display the post type. This example needs to be inside the loop.
+
+    <?php echo 'The post type is: '.get_post_type( get_the_ID() ); ?>
+
+Notes
+-----
+
+-   Uses: `$post` The Loop current post global
+
+Change Log
+----------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`get_post_type()` is located in `wp-includes/post.php`.
+

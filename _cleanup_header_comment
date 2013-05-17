@@ -1,0 +1,13 @@
+Function Reference/ cleanup header comment « WordPress Codex
+-----------
+
+**\_cleanup\_header\_comment** does strip close comment and close php
+tags from file headers used by WP (See [Ticket
+\#8497](http://core.trac.wordpress.org/ticket/8497 "http://core.trac.wordpress.org/ticket/8497"))
+
+It is a [File Header](/File_Header "File Header") related function in
+the global namespace within WordPress.
+
+More in [WordPress \_cleanup\_header\_comment function
+documentation](http://phpdoc.wordpress.org/trunk/WordPress/_wp-includes---functions.php.html#function_cleanup_header_comment "http://phpdoc.wordpress.org/trunk/WordPress/_wp-includes---functions.php.html#function_cleanup_header_comment")
+

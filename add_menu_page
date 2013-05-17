@@ -1,0 +1,170 @@
+Function Reference/add menu page « WordPress Codex
+-----------
+
+Add a top level menu page.
+
+**Note: If you're running into the "You do not have sufficient
+permissions to access this page" error, then you've hooked too early.
+The hook you should use is `admin_menu`.**
+
+Specifically, creates a new top level menu section in the admin menu
+sidebar and registers a hook to callback your function for outputting
+the page content when the linked menu page is requested. Returns the
+`$hookname`.
+
+Usage
+-----
+
+` <?php add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position ); ?> `
+
+Parameters
+----------
+
+ `$page_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be displayed in the title tags of the page
+    when the menu is selected
+    Default: *None*
+
+ `$menu_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The on-screen name text for the menu
+    Default: *None*
+
+ `$capability` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The
+    [capability](/Roles_and_Capabilities "Roles and Capabilities")
+    required for this menu to be displayed to the user. [User
+    levels](/User_Levels "User Levels") are deprecated and should not be
+    used here!
+    Default: *None*
+
+ `$menu_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug name to refer to this menu by (should be
+    unique for this menu). Prior to [Version
+    3.0](/Version_3.0 "Version 3.0") this was called the file (or
+    handle) parameter. If the function parameter is omitted, the
+    menu\_slug should be the PHP file that handles the display of the
+    menu page content.
+    Default: *None*
+
+ `$function` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The function that displays the page content for the
+    menu page.
+    Default: *None*. Technically, the *function* parameter is optional,
+    but if it is not supplied, then WordPress will assume that including
+    the PHP file will generate the administration screen, without
+    calling a function. Most plugin authors choose to put the
+    page-generating code in a function within their main plugin file. In
+    the event that the *function* parameter is specified, it is possible
+    to use any string for the *file* parameter. This allows usage of
+    pages such as *?page=my\_super\_plugin\_page* instead of
+    *?page=my-super-plugin/admin-options.php*.
+
+The function must be referenced in one of two ways:
+
+1.  if the function is a member of a class within the plugin it should
+    be referenced as `array( $this, 'function_name' )`
+2.  in all other cases, using the function name itself is sufficient
+
+ `$icon_url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The url to the icon to be used for this menu. This
+    parameter is optional. Icons should be fairly small, around 16 x 16
+    pixels for best results. You can use the
+    `plugin_dir_url( __FILE__ )` function to get the URL of your plugin
+    directory and then add the image filename to it. You can set
+    \$icon\_url to "div" to have wordpress generate `<br>` tag instead
+    of `<img>`. This can be used for more advanced formating via CSS,
+    such as changing icon on hover.
+    Default:
+
+ `$position` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The position in the menu order this menu should appear.
+    By default, if this parameter is omitted, the menu will appear at
+    the bottom of the menu structure. The higher the number, the lower
+    its position in the menu. WARNING: if two menu items use the same
+    position attribute, one of the items may be overwritten so that only
+    one item displays! Risk of conflict can be reduced by using decimal
+    instead of integer values, e.g. 63.3 instead of 63 (Note: Use quotes
+    in code, IE '63.3').
+    Default: bottom of menu structure
+
+Positions for Core Menu Items
+
+     2 Dashboard
+     4 Separator
+     5 Posts
+     10 Media
+     15 Links
+     20 Pages
+     25 Comments
+     59 Separator
+     60 Appearance
+     65 Plugins
+     70 Users
+     75 Tools
+     80 Settings
+     99 Separator
+
+Return Values
+-------------
+
+ `string` 
+:   \$hookname used internally to track menu page callbacks for
+    outputting the page inside the global `$menu` array
+
+Examples
+--------
+
+Add a custom menu item to the WordPress admin menu, for a user with
+administrator capability:
+
+Method 1:
+
+    add_action( 'admin_menu', 'register_my_custom_menu_page' );
+
+    function register_my_custom_menu_page(){
+        add_menu_page( 'custom menu title', 'custom menu', 'manage_options', 'myplugin/myplugin-admin.php', '', plugins_url( 'myplugin/images/icon.png' ), 6 );
+    }
+
+With this method the page-generating code should be located in
+myplugin/myplugin-admin.php:
+
+    <?php
+        echo "Admin Page Test";
+    ?>
+
+Method 2:
+
+    add_action( 'admin_menu', 'register_my_custom_menu_page' );
+
+    function register_my_custom_menu_page(){
+        add_menu_page( 'custom menu title', 'custom menu', 'manage_options', 'custompage', 'my_custom_menu_page', plugins_url( 'myplugin/images/icon.png' ), 6 ); 
+    }
+
+    function my_custom_menu_page(){
+        echo "Admin Page Test";   
+    }
+
+Notes
+-----
+
+This function takes a 'capability' (see [Roles and
+Capabilities](/Roles_and_Capabilities "Roles and Capabilities")) which
+will be used to determine whether or not a page is included in the menu.
+The function which is hooked in to handle the output of the page must
+check that the user has the required 'capability' as well.
+
+Change Log
+----------
+
+Source File
+-----------
+
+`add_menu_page()` is located in `wp-admin/includes/plugin.php`.
+

@@ -1,0 +1,65 @@
+Function Reference/edit term link « WordPress Codex
+-----------
+
+Display or retrieve edit term link with formatting.
+
+Usage
+-----
+
+` <?php edit_term_link( $link, $before, $after, $term, $echo ) ?> `
+
+Parameters
+----------
+
+ `$link` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Anchor text.
+    Default: ''
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Display before edit link.
+    Default: ''
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Display after edit link.
+    Default: ''
+
+ `$term` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*optional*) Term object
+    Default: null
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: true
+
+Return Values
+-------------
+
+ (string) 
+:   [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") content.
+
+Examples
+--------
+
+Notes
+-----
+
+### Filters
+
+-   **`'edit_term_link'`**:\
+    `apply_filters( 'edit_term_link', $link, $term->term_id )`
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`edit_term_link()` is located in `/wp-includes/link-template.php`.
+

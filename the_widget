@@ -1,0 +1,386 @@
+Function Reference/the widget « WordPress Codex
+-----------
+
+This template tag **the\_widget()** displays an arbitrary widget as a
+template tag. It can be used anywhere in
+[templates](/Templates "Templates").
+
+Usage
+-----
+
+`  <?php the_widget($widget, $instance, $args); ?> `
+
+Parameters
+----------
+
+ widget 
+:   (string) the widget's PHP class name.
+    -   WP\_Widget\_Archives -- [Archives](#Archives_widget)
+    -   WP\_Widget\_Calendar -- [Calendar](#Calendar_widget)
+    -   WP\_Widget\_Categories -- [Categories](#Categories_widget)
+    -   WP\_Widget\_Links -- [Links](#Links_widget)
+    -   WP\_Widget\_Meta -- [Meta](#Meta_widget)
+    -   WP\_Widget\_Pages -- [Pages](#Pages_widget)
+    -   WP\_Widget\_Recent\_Comments -- [Recent
+        Comments](#Recent_Comments_widget)
+    -   WP\_Widget\_Recent\_Posts -- [Recent
+        Posts](#Recent_Posts_widget)
+    -   WP\_Widget\_RSS -- [RSS](#RSS_widget)
+    -   WP\_Widget\_Search -- [Search](#Search_widget) (a search from)
+    -   WP\_Widget\_Tag\_Cloud -- [Tag Cloud](#Tag_Cloud_widget)
+    -   WP\_Widget\_Text -- [Text](#Text_widget)
+    -   WP\_Nav\_Menu\_Widget
+
+ instance 
+:   (array or
+    [query-string-style](/Template_Tags/How_to_Pass_Tag_Parameters#Tags_with_query-string-style_parameters "Template Tags/How to Pass Tag Parameters"))
+    the widget's instance settings. See each widget below.
+ args 
+:   (array or
+    [query-string-style](/Template_Tags/How_to_Pass_Tag_Parameters#Tags_with_query-string-style_parameters "Template Tags/How to Pass Tag Parameters"))
+    the widget's sidebar args
+     before\_widget 
+    :   (string) the text or HTML befor the widget.
+    :   Default： \<div class="widget {widget's classname}"\>
+     after\_widget 
+    :   (string) the text or HTML after the widget.
+    :   Default： \</div\>
+     before\_title 
+    :   (string) the text or HTML before the widget's title.
+    :   Default： \<h2 class="widgettitle"\>
+     after\_title 
+    :   (string) the text or HTML after the widget's title.
+    :   Default： \</h2\>
+
+Archives widget
+---------------
+
+Display a monthly archive list.
+
+`  <?php the_widget('WP_Widget_Archives', $instance, $args); ?> `
+
+-   widget's classname: `widget_archive`
+-   instance:
+     title 
+    :   The title of archive list. Default: `__('Archives')`
+     count 
+    :   Display number of posts in each archive (1). The
+        *show\_post\_count* parameter of
+        [wp\_get\_archives](/Template_Tags/wp_get_archives "Template Tags/wp get archives").
+        Default: 0 (hide)
+     dropdown 
+    :   Display as drop-down list (1). Dafault: 0 (an unordered list)
+
+### Examples
+
+Default usage: `  <?php the_widget('WP_Widget_Archives'); ?> `
+
+Display drop-down list:
+`  <?php the_widget('WP_Widget_Archives', 'dropdown=1'); ?> `
+
+Calendar widget
+---------------
+
+Displays a Calendar.
+
+`  <?php the_widget('WP_Widget_Calendar', $instance, $args); ?> `
+
+-   widget's classname: `widget_calendar`
+-   instance:
+     title 
+    :   The title of calendar. Default: ` `
+
+### Example
+
+Default usage: `  <?php the_widget('WP_Widget_Calendar'); ?> `
+
+Categories widget
+-----------------
+
+Displays a list of categories.
+
+`  <?php the_widget('WP_Widget_Categories', $instance, $args); ?> `
+
+-   widget's classname: `widget_categories`
+-   instance:
+     title 
+    :   The title of categories list. Default: `__( 'Categories' )`
+     count 
+    :   Display number of posts in each category. The *show\_count*
+        parameter of
+        [wp\_dropdown\_categories](/Template_Tags/wp_dropdown_categories "Template Tags/wp dropdown categories")
+        or
+        [wp\_list\_categories](/Template_Tags/wp_list_categories "Template Tags/wp list categories").
+        Default: 0 (hide)
+     hierarchical 
+    :   Display sub-categories as nested items inside the parent
+        category (1). Default: 0 (in-line)
+     dropdown 
+    :   Display as dropdown list (1). Default: 0 (an unordered list)
+
+### Examples
+
+Default usage: `  <?php the_widget('WP_Widget_Categories'); ?> `
+
+Display a dropdown list with number of posts.
+`  <?php the_widget('WP_Widget_Categories', 'dropdown=1&count=1'); ?> `
+
+Links widget
+------------
+
+Displays an list of links (blogroll) in categories.
+
+`  <?php the_widget('WP_Widget_Links', $instance, $args); ?> `
+
+-   widget's classname: ``
+-   instance:
+     title 
+    :   The title of the Links section.
+     category 
+    :   Link category IDs , separated by commas, to display. The
+        *category* parameter of
+        [wp\_list\_bookmarks](/Template_Tags/wp_list_bookmarks "Template Tags/wp list bookmarks").
+        Default: false (display all of link categories)
+     description 
+    :   Display description of link (1 - true). The *show\_description*
+        parameter. Default: false (hide)
+     rating 
+    :   Display rating of link (1- true). The *show\_rating* parameter.
+        Default: false (hide)
+     images 
+    :   Display image of link (1 - true). The *show\_images* parameter.
+        Default: true (show)
+     name 
+    :   If display link image, output link name to the `alt` attribute.
+        The *show\_name* parameter. Default: false
+
+### Examples
+
+Default usage: `  <?php the_widget('WP_Widget_Links'); ?> `
+
+Display lists in category IDs 2 or 3:
+`  <?php the_widget('WP_Widget_Links', 'category=2,3'); ?> `
+
+Meta widget
+-----------
+
+Display site meta. (Log in/out, admin, feed and WordPress links )
+
+`  <?php the_widget('WP_Widget_Meta', $instance, $args); ?> `
+
+-   widget's classname: `widget_meta`
+-   instance:
+     title 
+    :   The title of meta section. Default: `__('Meta')`
+
+### Example
+
+Default usage: `  <?php the_widget('WP_Widget_Meta'); ?> `
+
+Pages widget
+------------
+
+Display a list of [Pages](/Pages "Pages").
+
+`  <?php the_widget('WP_Widget_Pages', $instance, $args); ?> `
+
+-   widget's classname: `widget_pages`
+-   instance:
+     title 
+    :   The title of Pages list. Default: `__( 'Pages' )`
+     sortby 
+    :   The *sort\_column* parameter of
+        [wp\_list\_pages](/Template_Tags/wp_list_pages "Template Tags/wp list pages").
+        Default: `menu_order`
+     exclude 
+    :   Page IDs, separated by commas, to be excluded from the list.
+        Default: null (show all of Pages)
+
+### Examples
+
+Defaut udsage: `  <?php the_widget('WP_Widget_Pages'); ?> `
+
+"\<h3\>Contents\</h3\> as the heading, sort by last modified date:
+`  <?php the_widget('WP_Widget_Pages', 'title=Contents&sortby=post_modified', 'before_title=<h3>&after_title=</h3>'); ?> `
+
+Recent Comments widget
+----------------------
+
+Display to a list of recent comments.
+
+`  <?php the_widget('WP_Widget_Recent_Comments', $instance, $args); ?> `
+
+-   widget's classname: `widget_recent_comments`
+-   instance:
+     title 
+    :   The title of comment list. Default: `__('Recent Comments')`
+     number 
+    :   Number of comments to show (at most 15). Default: 5
+
+### Example
+
+Default usage: `  <?php the_widget('WP_Widget_Recent_Comments'); ?> `
+
+Recent Posts widget
+-------------------
+
+Display to a list of recent posts.
+
+`  <?php the_widget('WP_Widget_Recent_Posts', $instance, $args); ?> `
+
+-   widget's classname: `widget_recent_entries`
+-   instance:
+     title 
+    :   The title of post list. Default: `__('Recent Posts')`
+     number 
+    :   Number of posts to show (at most 15). Default: 10
+
+### Example
+
+Default usage: `  <?php the_widget('WP_Widget_Recent_Posts'); ?> `
+
+RSS widget
+----------
+
+Display a list of entries from any RSS or Atom feed.
+
+`  <?php the_widget('WP_Widget_RSS', $instance, $args); ?> `
+
+-   widget's classname:
+-   instance :
+    title
+    The title of list
+    Default: the title inherited from the RSS or Atom feed
+    url
+    RSS or Atom feed URL to include.
+    items
+    the number of RSS or Atom items to display
+    show\_summary
+    show\_author
+    show\_date
+
+### Example
+
+Default usage: `  <?php the_widget('WP_Widget_RSS'); ?> `
+
+Search widget
+-------------
+
+`  <?php the_widget('WP_Widget_Search', $instance, $args); ?> `
+
+-   widget's classname: `widget_search`
+-   instance:
+     title 
+    :   The title of search form. Default: null
+
+### Example
+
+Default usage: `  <?php the_widget('WP_Widget_Search'); ?> `
+
+Tag Cloud widget
+----------------
+
+`  <?php the_widget( 'WP_Widget_Tag_Cloud', $instance, $args); ?> `
+
+-   widget's classname:
+-   instance:
+     title 
+    :   The title of tag cloud. default: `__('Tags')`
+     taxonomy 
+    :   The taxonomy the cloud will draw tags from. default: `post_tag`
+
+### Example
+
+Default usage: `  <?php the_widget( 'WP_Widget_Tag_Cloud'); ?> `
+
+Text widget
+-----------
+
+`  <?php the_widget('WP_Widget_Text', $instance, $args); ?> `
+
+-   widget's classname: `widget_text`
+-   instance:
+    -   title
+    -   text
+    -   filter
+
+### Example
+
+Default usage: `  <?php the_widget('WP_Widget_Text'); ?> `
+
+Changelog
+---------
+
+-   Since [2.8.0](/Version_2.8 "Version 2.8")
+
+Reference
+---------
+
+-   Source Code:
+    -   `wp-includes/widgets.php` -- `the_widget` function
+    -   `wp-includes/default-widgets.php` -- each widget
+
+-   [Ticket 9701 (Add a the\_widget() function to output a generic
+    widget anywhere in a
+    template)](https://core.trac.wordpress.org/ticket/9701 "https://core.trac.wordpress.org/ticket/9701")
+
+[**Widgets**](/Widgets_API "Widgets API"):
+[is\_active\_widget()](/Function_Reference/is_active_widget "Function Reference/is active widget"),
+**the\_widget()**,
+[register\_widget()](/Function_Reference/register_widget "Function Reference/register widget"),
+[unregister\_widget()](/Function_Reference/unregister_widget "Function Reference/unregister widget"),
+[wp\_register\_widget\_control()](/Function_Reference/wp_register_widget_control "Function Reference/wp register widget control"),
+[wp\_unregister\_widget\_control()](/Function_Reference/wp_unregister_widget_control "Function Reference/wp unregister widget control"),
+[wp\_convert\_widget\_settings()](/Function_Reference/wp_convert_widget_settings "Function Reference/wp convert widget settings"),
+[wp\_get\_widget\_defaults()](/Function_Reference/wp_get_widget_defaults "Function Reference/wp get widget defaults"),
+[wp\_widget\_description()](/Function_Reference/wp_widget_description "Function Reference/wp widget description")
+
+See also index of [Function
+Reference](/Function_Reference "Function Reference") and index of
+[Template Tags](/Template_Tags "Template Tags").
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/the\_widget](http://codex.wordpress.org/Function_Reference/the_widget)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Stubs](/Category:Stubs "Category:Stubs") | [Template
+Tags](/Category:Template_Tags "Category:Template Tags") |
+[Widgets](/Category:Widgets "Category:Widgets") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

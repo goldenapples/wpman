@@ -1,0 +1,21 @@
+Function Reference/wp get widget defaults « WordPress Codex
+-----------
+
+Retrieve default registered sidebars list.
+
+Return Values
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   
+
+Change Log
+----------
+
+Since: [2.2](/Version_2.2 "Version 2.2")
+
+Source File
+-----------
+
+wp\_get\_widget\_defaults() is located in `wp-includes/widgets.php`
+

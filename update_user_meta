@@ -1,0 +1,98 @@
+Function Reference/update user meta « WordPress Codex
+-----------
+
+Update user meta field based on user ID.
+
+Use the `$prev_value` parameter to differentiate between meta fields
+with the same key and user ID.
+
+If the meta field for the user does not exist, it will be added.
+
+Usage
+-----
+
+` <?php update_user_meta( $user_id, $meta_key, $meta_value, $prev_value ) ?> `
+
+Parameters
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) User ID.
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The meta\_key in the wp\_usermeta table for the
+    meta\_value to be updated.
+    Default: *None*
+
+ `$meta_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The new desired value of the meta\_key, which must be
+    different from the existing value. Arrays and objects will be
+    automatically serialized. **Note that using objects may cause [this
+    bug](http://core.trac.wordpress.org/ticket/9640 "http://core.trac.wordpress.org/ticket/9640")
+    to popup**.
+    Default: *None*
+
+ `$prev_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Previous value to check before removing.
+    Default: ''
+
+Return Values
+-------------
+
+ (mixed) 
+:   False if no change was made (if the new value was the same as
+    previous value) or if the update failed, umeta\_id if the value was
+    different and the update a success. NOTE: as of v3.4.2 it returns
+    the umeta\_id on success (instead of true) and false on failure.
+
+Examples
+--------
+
+Below is an example showing how to update a user's Website profile field
+
+    <?php
+    $user_id = 1;
+    $website = 'http://wordpress.org';
+    update_user_meta($user_id, 'user_url', $website);
+    ?>
+
+Below is an example showing how to check for errors:
+
+    $user_id = 1;
+    $new_value = 'some new value';
+
+    // will return false if the previous value is the same as $new_value
+    update_user_meta( $user_id, 'some_meta_key', $new_value );
+
+    // so check and make sure the stored value matches $new_value
+    if ( get_user_meta($user_id,  'some_meta_key', true ) != $new_value )
+        wp_die('An error occurred');
+    ?>
+
+Notes
+-----
+
+-   Uses:
+    [`update_metadata()`](/Function_Reference/update_metadata "Function Reference/update metadata")
+
+Changes in behavior from the now deprecated update\_usermeta:
+
+-   update\_user\_meta does not delete the meta if the new value is
+    empty.
+-   The actions are different.
+
+Change Log
+----------
+
+Since: 3.0.0
+
+Source File
+-----------
+
+`update_user_meta()` is located in `wp-includes/user.php`.
+

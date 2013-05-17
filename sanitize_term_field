@@ -1,0 +1,108 @@
+Function Reference/sanitize term field « WordPress Codex
+-----------
+
+Cleanse the field value in the term based on the context.
+
+Passing a term field value through the function should be assumed to
+have cleansed the value for whatever context the term field is going to
+be used.
+
+If no context or an unsupported context is given, then default filters
+will be applied.
+
+There are enough filters for each context to support a custom filtering
+without creating your own filter function. Simply create a function that
+hooks into the filter you need.
+
+Usage
+-----
+
+` <?php sanitize_term_field( $field, $value, $term_id, $taxonomy, $context ); ?> `
+
+Parameters
+----------
+
+ `$field` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Term field to sanitize
+    Default: *None*
+
+ `$value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Search for this term value
+    Default: *None*
+
+ `$term_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Term ID
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Taxonomy Name
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Either edit, db, display, attribute, or js.
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(mixed)`{style="color:gray"} 
+:   sanitized field
+
+Change Log
+----------
+
+Since: [2.3](/Version_2.3 "Version 2.3")
+
+Source File
+-----------
+
+`sanitize_term_field()` is located in `wp-includes/taxonomy.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/sanitize\_term\_field](http://codex.wordpress.org/Function_Reference/sanitize_term_field)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

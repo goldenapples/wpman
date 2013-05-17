@@ -1,0 +1,218 @@
+Function Reference/wp register script « WordPress Codex
+-----------
+
+Registers a script file in WordPress to be linked to a page later using
+the `wp_enqueue_script()` function, which safely handles the script
+dependencies.
+
+Usage
+-----
+
+` <?php wp_register_script( $handle, $src, $deps, $ver, $in_footer ); ?> `
+See [Notes](#Notes) for information about what action
+[hooks](/Glossary#Hook "Glossary") should be used to call the function.
+
+Parameters
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the script. Should be unique as it is used as a
+    handle for later use with `wp_enqueue_script()`.
+    Default: *None*
+
+ `$src` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) URL to the script, e.g.
+    *http://example.com/wp-content/themes/my-theme/my-theme-script.js*.
+    You should never hardcode URLs to local scripts. To get a proper URL
+    to local scripts, use `plugins_url()` for
+    [plugins](/Glossary#Plugin "Glossary") and
+    `get_template_directory_uri()` for
+    [themes](/Glossary#Themes "Glossary"). Remote scripts can be
+    specified with a protocol-agnostic URL,
+    e.g. *//otherdomain.com/js/their-script.js*.
+    Default: *None*
+
+ `$deps` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Array of the handles of all the registered scripts that
+    this script depends on, that is the scripts that must be loaded
+    before this script. Set *false* if there are no dependencies.
+    Default: array()
+
+ `$ver` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) String specifying the script version number, if it has
+    one, which is concatenated to the end of the path as a query string.
+    If no version is specified or set to *false*, then WordPress
+    automatically adds a version number equal to the current version of
+    WordPress you are running. If set to *null* no version is added.
+    This parameter is used to ensure that the correct version is sent to
+    the client regardless of caching, and so should be included if a
+    version number is available and makes sense for the script.
+    Default: false
+
+ `$in_footer` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Normally scripts are placed in the `<head>` section. If
+    this parameter is true the script is placed at the bottom of the
+    `<body>`. This requires the theme to have the
+    [wp\_footer()](/Plugin_API/Action_Reference/wp_footer "Plugin API/Action Reference/wp footer")
+    hook in the appropriate place. Note that you have to enqueue your
+    script before `wp_head` is run, even if it will be placed in the
+    footer. (New in WordPress 2.8)
+    Default: false
+
+Return Values
+-------------
+
+ `` `(void)`{style="color:gray"} 
+:   This function does not return a value.
+
+Examples
+--------
+
+See Examples on `wp_enqueue_script()`.
+
+Handles and Their Script Paths Registered by WordPress
+------------------------------------------------------
+
+By default, WordPress installation includes many popular scripts
+commonly used by web developers besides the scripts used by WordPress
+itself. Below is a list of the handles and paths of these scripts. **The
+list refers to [Version 3.3](/Version_3.3 "Version 3.3") and may be
+obsolete**.
+
+  **Handle**                 **Path in WordPress**
+  -------------------------- ------------------------------------------------------------------------------------------
+  utils                      */wp-admin/js/utils.js*
+  common                     */wp-admin/js/common.js*
+  sack                       */wp-includes/js/tw-sack.js*
+  quicktags                  */wp-includes/js/quicktags.js*
+  colorpicker                */wp-includes/js/colorpicker.js*
+  editor                     */wp-admin/js/editor.js*
+  wp-fullscreen              */wp-admin/js*/wp-fullscreen.js
+  prototype                  */wp-includes/js/prototype.js*
+  wp-ajax-response           */wp-includes/js*/wp-ajax-response.js
+  wp-pointer                 */wp-includes/js*/wp-pointer.js
+  autosave                   */wp-includes/js/autosave.js*
+  wp-lists                   */wp-includes/js*/wp-lists.js
+   
+  scriptaculous-root         */wp-includes/js/scriptaculous*/wp-scriptaculous.js
+  scriptaculous-builder      */wp-includes/js/scriptaculous/builder.js*
+  scriptaculous-dragdrop     */wp-includes/js/scriptaculous/dragdrop.js*
+  scriptaculous-effects      */wp-includes/js/scriptaculous/effects.js*
+  scriptaculous-slider       */wp-includes/js/scriptaculous/slider.js*
+  scriptaculous-sound        */wp-includes/js/scriptaculous/sound.js*
+  scriptaculous-controls     */wp-includes/js/scriptaculous/controls.js*
+  scriptaculous              scriptaculous-dragdrop, scriptaculous-slider, scriptaculous-controls, scriptaculous-root
+  cropper                    */wp-includes/js/crop/cropper.js*
+   
+  jquery                     */wp-includes/js/jquery/jquery.js* (v1.7.2 as of WP 3.3, v1.8.3 as of WP 3.5)
+  jquery-ui-core             */wp-includes/js/jquery/ui/jquery.ui.core.min.js*
+  jquery-effects-core        */wp-includes/js/jquery/ui/jquery.effects.core.min.js*
+  jquery-effects-blind       */wp-includes/js/jquery/ui/jquery.effects.blind.min.js*
+  jquery-effects-bounce      */wp-includes/js/jquery/ui/jquery.effects.bounce.min.js*
+  jquery-effects-clip        */wp-includes/js/jquery/ui/jquery.effects.clip.min.js*
+  jquery-effects-drop        */wp-includes/js/jquery/ui/jquery.effects.drop.min.js*
+  jquery-effects-explode     */wp-includes/js/jquery/ui/jquery.effects.explode.min.js*
+  jquery-effects-fade        */wp-includes/js/jquery/ui/jquery.effects.fade.min.js*
+  jquery-effects-fold        */wp-includes/js/jquery/ui/jquery.effects.fold.min.js*
+  jquery-effects-highlight   */wp-includes/js/jquery/ui/jquery.effects.highlight.min.js*
+  jquery-effects-pulsate     */wp-includes/js/jquery/ui/jquery.effects.pulsate.min.js*
+  jquery-effects-scale       */wp-includes/js/jquery/ui/jquery.effects.scale.min.js*
+  jquery-effects-shake       */wp-includes/js/jquery/ui/jquery.effects.shake.min.js*
+  jquery-effects-slide       */wp-includes/js/jquery/ui/jquery.effects.slide.min.js*
+  jquery-effects-transfer    */wp-includes/js/jquery/ui/jquery.effects.transfer.min.js*
+  jquery-ui-accordion        */wp-includes/js/jquery/ui/jquery.ui.accordion.min.js*
+  jquery-ui-autocomplete     */wp-includes/js/jquery/ui/jquery.ui.autocomplete.min.js*
+  jquery-ui-button           */wp-includes/js/jquery/ui/jquery.ui.button.min.js*
+  jquery-ui-datepicker       */wp-includes/js/jquery/ui/jquery.ui.datepicker.min.js*
+  jquery-ui-dialog           */wp-includes/js/jquery/ui/jquery.ui.dialog.min.js*
+  jquery-ui-draggable        */wp-includes/js/jquery/ui/jquery.ui.draggable.min.js*
+  jquery-ui-droppable        */wp-includes/js/jquery/ui/jquery.ui.droppable.min.js*
+  jquery-ui-mouse            */wp-includes/js/jquery/ui/jquery.ui.mouse.min.js*
+  jquery-ui-position         */wp-includes/js/jquery/ui/jquery.ui.position.min.js*
+  jquery-ui-progressbar      */wp-includes/js/jquery/ui/jquery.ui.progressbar.min.js*
+  jquery-ui-resizable        */wp-includes/js/jquery/ui/jquery.ui.resizable.min.js*
+  jquery-ui-selectable       */wp-includes/js/jquery/ui/jquery.ui.selectable.min.js*
+  jquery-ui-slider           */wp-includes/js/jquery/ui/jquery.ui.slider.min.js*
+  jquery-ui-sortable         */wp-includes/js/jquery/ui/jquery.ui.sortable.min.js*
+  jquery-ui-tabs             */wp-includes/js/jquery/ui/jquery.ui.tabs.min.js*
+  jquery-ui-widget           */wp-includes/js/jquery/ui/jquery.ui.widget.min.js*
+  jquery-form                */wp-includes/js/jquery/jquery.form.js*
+  jquery-color               */wp-includes/js/jquery/jquery.color.js*
+  jquery-query               */wp-includes/js/jquery/jquery.query.js*
+  jquery-serialize-object    */wp-includes/js/jquery/jquery.serialize-object.js*
+  jquery-hotkeys             */wp-includes/js/jquery/jquery.hotkeys.js*
+  jquery-table-hotkeys       */wp-includes/js/jquery/jquery.table-hotkeys.js*
+  suggest                    */wp-includes/js/jquery/suggest.js*
+  schedule                   */wp-includes/js/jquery/jquery.schedule.js*
+   
+  thickbox                   */wp-includes/js/thickbox/thickbox.js*
+  jcrop                      */wp-includes/js/jcrop/jquery.Jcrop.js*
+  swfobject                  */wp-includes/js/swfobject.js*
+  plupload                   */wp-includes/js/plupload/plupload.js*
+  plupload-html5             wp-includes/js/plupload/plupload.html5.js
+  plupload-flash             */wp-includes/js/plupload/plupload.flash.js*"
+  plupload-silverlight       */wp-includes/js/plupload/plupload.silverlight.js*
+  plupload-html4             */wp-includes/js/plupload/plupload.html4.js*
+  plupload-full              plupload, plupload-html5, plupload-flash, plupload-silverlight, plupload-html4
+  plupload-handlers          */wp-includes/js/plupload/handlers.js*
+  swfupload                  */wp-includes/js/swfupload/swfupload.js*
+  swfupload-swfobject        */wp-includes/js/swfupload/plugins/swfupload.swfobject.js*
+  swfupload-queue            */wp-includes/js/swfupload/plugins/swfupload.queue.js*
+  swfupload-speed            */wp-includes/js/swfupload/plugins/swfupload.speed.js*
+  swfupload-all              */wp-includes/js/swfupload/swfupload-all.js*
+  swfupload-handlers         */wp-includes/js/swfupload/handlers.js*
+  comment-reply              */wp-includes/js/comment-reply.js*
+  json2                      */wp-includes/js/json2.js*
+  imgareaselect              */wp-includes/js/imgareaselect/jquery.imgareaselect.js*
+  password-strength-meter    */wp-admin/js/password-strength-meter.js*
+  user-profile               */wp-admin/js/user-profile.js*
+  admin-bar                  */wp-includes/js/admin-bar.js*
+  wplink                     */wp-includes/js/wplink.js*
+  wpdialogs                  */wp-includes/js/tinymce/plugins/wpdialogs/js/wpdialog.js*
+  wpdialogs-popup            */wp-includes/js/tinymce/plugins/wpdialogs/js/popup.js*
+  word-count                 */wp-admin/js/word-count.js*
+  media-upload               */wp-admin/js/media-upload.js*
+
+Notes
+-----
+
+-   The function should be called using the
+    [wp\_enqueue\_scripts](/Plugin_API/Action_Reference/wp_enqueue_scripts "Plugin API/Action Reference/wp enqueue scripts")
+    action [hook](/Glossary#Hook "Glossary") if you want to call it on
+    the front-end of the site. To call it on the [administration
+    screens](/Administration_Screens "Administration Screens"), use the
+    [admin\_enqueue\_scripts](/Plugin_API/Action_Reference/admin_enqueue_scripts "Plugin API/Action Reference/admin enqueue scripts")
+    action hook. For the [login screen](/Login_Screen "Login Screen"),
+    use the
+    [login\_enqueue\_scripts](/Plugin_API/Action_Reference/login_enqueue_scripts "Plugin API/Action Reference/login enqueue scripts")
+    action hook. Calling it outside of an action hook can lead to
+    problems, see the [ticket
+    \#11526](http://core.trac.wordpress.org/ticket/11526 "http://core.trac.wordpress.org/ticket/11526")
+    for details. Also see [Notes on
+    `wp_enqueue_script()`](/Function_Reference/wp_enqueue_script#Notes "Function Reference/wp enqueue script")
+    for more details about the proper hooks.
+-   If you try to register or enqueue an already registered handle with
+    different parameters, the new parameters will be ignored. Instead,
+    use `wp_deregister_script()` and register the script again with the
+    new parameters.
+-   jQuery UI Effects is **not** included with the *jquery-ui-core*
+    handle.
+-   Uses: `WP_Scripts::add()` and `WP_Scripts::add_data()`.
+-   Uses global: (`unknown type`) `$wp_scripts`.
+
+Change Log
+----------
+
+-   Since: [2.6](/Version_2.6 "Version 2.6") (BackPress version: r16)
+
+Source File
+-----------
+
+`wp_register_script()` is located in
+`wp-includes/functions.wp-scripts.php`.
+

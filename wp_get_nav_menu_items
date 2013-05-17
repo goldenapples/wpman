@@ -1,0 +1,80 @@
+Function Reference/wp get nav menu items « WordPress Codex
+-----------
+
+Returns the items from a navigation menu created in the
+[Appearance](/Administration_Panels#Appearance "Administration Panels")
+→ [Menus](/Appearance_Menus_SubPanel "Appearance Menus SubPanel") panel.
+
+Given a menu name, id or slug, the function returns the menu items from
+that navigation menu. The menu items returned are in fact the actual
+*nav\_menu\_item* type posts which contain references to the normal
+posts/pages they are associated with.
+
+Usage
+-----
+
+`  <?php $items = wp_get_nav_menu_items( $menu, $args ); ?> `
+
+### Default Usage
+
+` <?php $args = array(        'order'                  => 'ASC',        'orderby'                => 'menu_order',        'post_type'              => 'nav_menu_item',        'post_status'            => 'publish',        'output'                 => ARRAY_A,        'output_key'             => 'menu_order',        'nopaging'               => true,        'update_post_term_cache' => false ); ?> `
+
+Parameters
+----------
+
+ `$menu` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Menu ID
+    Default: *None*
+
+The nav menu location is not a valid argument.
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Optional arguments
+    Default: *None*
+
+Return Values
+-------------
+
+Indexed array of WP\_Post objects (empty if the menu contains no items)
+or bool false.
+
+Examples
+--------
+
+### Building simple menu list
+
+        // Get the nav menu based on $menu_name (same as 'theme_location' or 'menu' arg to wp_nav_menu)
+        // This code based on wp_nav_menu's code to get Menu ID from menu slug
+
+        $menu_name = 'custom_menu_slug';
+
+        if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_name ] ) ) {
+        $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
+
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
+
+        $menu_list = '<ul id="menu-' . $menu_name . '">';
+
+        foreach ( (array) $menu_items as $key => $menu_item ) {
+            $title = $menu_item->title;
+            $url = $menu_item->url;
+            $menu_list .= '<li><a href="' . $url . '">' . $title . '</a></li>';
+        }
+        $menu_list .= '</ul>';
+        } else {
+        $menu_list = '<ul><li>Menu "' . $menu_name . '" not defined.</li></ul>';
+        }
+        // $menu_list now ready to output
+
+Change log
+----------
+
+-   Since [3.0.0](/Version_3.0 "Version 3.0")
+
+Source file
+-----------
+
+`wp_get_nav_menu_items()` is located in `wp-includes/nav-menu.php`.
+

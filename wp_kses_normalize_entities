@@ -1,0 +1,45 @@
+Function Reference/wp kses normalize entities « WordPress Codex
+-----------
+
+Converts and fixes [HTML
+entities](http://en.wikipedia.org/wiki/HTML_entities "wikipedia:HTML entities").
+
+This function normalizes HTML entities. It will convert 'AT&T' to the
+correct 'AT&amp;T', '&\#00058;' to '&\#58;', '&\#XYZZY;' to
+'&amp;\#XYZZY;' and so on.
+
+Usage
+-----
+
+` <?php wp_kses_normalize_entities( $string ) ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to normalize entities
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Content with normalized entities
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_kses_normalize_entities()` is located in `wp-includes/kses.php`.
+

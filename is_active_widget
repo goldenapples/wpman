@@ -1,0 +1,66 @@
+Function Reference/is active widget « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks
+whether widget is displayed on the front-end.
+
+To be effective this function has to run after widgets have initialized,
+at action 'init' or later.
+
+Usage
+-----
+
+`  <?php is_active_widget( $callback, $widget_id, $id_base, $skip_inactive ); ?> `
+
+Parameters
+----------
+
+ `$callback` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Widget callback to check.
+    Default: False
+
+ `$widget_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Widget ID. Needed for checking.
+    Default: *None*
+
+ `$id_base` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Base ID of a widget created by extending WP\_Widget.
+    Default: *None*
+
+ `$skip_inactive` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to check in 'wp\_inactive\_widgets'.
+    Default: True
+
+Return Values
+-------------
+
+ `(mixed)` 
+:   Returns false if the specified widget is not active, or the id of
+    the sidebar in which the widget is active. If the callback is
+    non-unique you can optionally specify the ID of the widget.
+
+Examples
+--------
+
+### Only load a script when the widget is active
+
+    <?php
+    if ( is_active_widget( false, false, $this->id_base, true ) ) {
+        wp_enqueue_script( 'jquery' );
+    }
+    ?>
+
+Change Log
+----------
+
+Since: 2.2.0
+
+Source File
+-----------
+
+`is_active_widget()` is located in `wp-includes/widgets.php`.
+

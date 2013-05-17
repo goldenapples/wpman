@@ -1,0 +1,40 @@
+Function Reference/is user logged in « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the current visitor is logged in. This is a boolean function, meaning it
+returns either TRUE or FALSE.
+
+Usage
+-----
+
+`  <?php if ( is_user_logged_in() ) { ... } ?> `
+
+Parameters
+----------
+
+This function does not accept any parameters.
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True if user is logged in, false if not logged in.
+
+Examples
+--------
+
+Display different output depending on whether the user is logged in or
+not.
+` <?phpif ( is_user_logged_in() ) {    echo 'Welcome, registered user!';} else {    echo 'Welcome, visitor!';}?> `
+
+Change Log
+----------
+
+Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+Source File
+-----------
+
+`is_user_logged_in()` is located in `wp-includes/pluggable.php`.
+

@@ -1,0 +1,91 @@
+Function Reference/get search form « WordPress Codex
+-----------
+
+Display search form using `searchform.php` Theme file.
+
+Usage
+-----
+
+` <?php get_search_form( $echo ); ?> `
+
+Parameters
+----------
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) *true* to echo the form; *false* to return the form as
+    a string.
+    Default: true
+
+Return Values
+-------------
+
+ (string) 
+:   The form's HTML, if the \$echo parameter is set to false.
+
+Examples
+--------
+
+If you don't have `searchform.php` in your Theme, WordPress will render
+its built-in search form:
+
+    <form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+        <div><label class="screen-reader-text" for="s">Search for:</label>
+            <input type="text" value="" name="s" id="s" />
+            <input type="submit" id="searchsubmit" value="Search" />
+        </div>
+    </form>
+
+If you do have `searchform.php` in your Theme, it will be used instead.
+Keep in mind that the search form should do a GET to the homepage of
+your blog. The input text field should be named `s` and you should
+always include a `label` like in the example above.
+
+Example of a custom `searchform.php`:
+
+    <form action="/" method="get">
+        <fieldset>
+            <label for="search">Search in <?php echo home_url( '/' ); ?></label>
+            <input type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
+            <input type="image" alt="Search" src="<?php bloginfo( 'template_url' ); ?>/images/search.png" />
+        </fieldset>
+    </form>
+
+A last option is to write a custom function (in your `functions.php`
+file) and hook that function to the `get_search_form` action hook.
+
+    function my_search_form( $form ) {
+
+        $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+        <div><label class="screen-reader-text" for="s">' . __('Search for:') . '</label>
+        <input type="text" value="' . get_search_query() . '" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="'. esc_attr__('Search') .'" />
+        </div>
+        </form>';
+
+        return $form;
+    }
+
+    add_filter( 'get_search_form', 'my_search_form' );
+
+Notes
+-----
+
+The \$echo parameter is ignored when searchform.php is present. There is
+a
+[issue](http://core.trac.wordpress.org/ticket/16541 "http://core.trac.wordpress.org/ticket/16541")
+in the WordPress Trac concerning this.
+
+A workaround is to pass the form to get\_search\_form() through the
+get\_search\_form filter.
+
+Change Log
+----------
+
+-   Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+Source File
+-----------
+
+`get_search_form()` is located in `wp-includes/general-template.php`.
+

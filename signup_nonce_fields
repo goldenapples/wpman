@@ -1,0 +1,36 @@
+Function Reference/signup nonce fields « WordPress Codex
+-----------
+
+Adds nonce HTML fields to the signup page.
+
+Usage
+-----
+
+` <?php signup_nonce_fields(); ?> `
+
+Parameters
+----------
+
+This function does not accept any parameters
+
+Return Value
+------------
+
+This function does not return a value. It echoes out the necessary HTML.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+Source File
+-----------
+
+`signup_nonce_fields()` is located in `wp-includes/ms-functions.php`
+

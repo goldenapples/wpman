@@ -1,0 +1,65 @@
+Function Reference/wp oembed add provider « WordPress Codex
+-----------
+
+Registers an oEmbed provider with WordPress and adds it to the
+whitelist, allowing all users who can write posts to use this provider.
+See the [Embeds](/Embeds "Embeds") document for more details.
+
+This function should be called from a plugin or a theme's
+[`functions.php`](/Theme_Development#Theme_Functions_File "Theme Development")
+file.
+
+Usage
+-----
+
+`  <?php wp_oembed_add_provider( $format, $provider, $regex ); ?> `
+
+Parameters
+----------
+
+ `$format` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The URL structure that this oEmbed provider supports.
+    Can either be in a wildcard format (use '`*`') or in a regex format
+    (see the **regex** parameter)
+    Default: *None*
+
+ `$provider` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The base URL to the oEmbed provider. Query arguments
+    will automatically be appended.
+    Default: *None*
+
+ `$regex` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Designates whether the **format** parameter is a regex
+    string or not. True means it is, False means it's just simple
+    wildcard string.
+    Default: False
+
+Examples
+--------
+
+Register a provider for any URL beginning in
+`http://site.com/watchvideo/` using a simple wildcard URL format:
+
+    <?php wp_oembed_add_provider( 'http://site.com/watchvideo/*', 'http://site.com/oembedprovider' ); ?>
+
+Register YouTube's oEmbed provider for YouTube URLs using a regex URL
+format:
+
+    <?php wp_oembed_add_provider( '#http://(www\.)?youtube\.com/watch.*#i', 'http://www.youtube.com/oembed', true ); ?>
+
+Note that YouTube is already registered by default with WordPress. This
+is merely an example, you do not need to register YouTube yourself.
+
+Change Log
+----------
+
+Since: 2.9.0
+
+Source File
+-----------
+
+`wp_oembed_add_provider()` is located in `wp-includes/media.php`.
+

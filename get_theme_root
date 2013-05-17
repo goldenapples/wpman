@@ -1,0 +1,69 @@
+Function Reference/get theme root « WordPress Codex
+-----------
+
+Retrieves the absolute path to the [themes](/Glossary#Theme "Glossary")
+directory, without the trailing slash.
+
+Usage
+-----
+
+` <?php get_theme_root(); ?> `
+
+Parameters
+----------
+
+ `$stylesheet_or_template` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The stylesheet or template name of the theme.
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Absolute path to the [themes](/Glossary#Theme "Glossary") directory
+    (without the trailing slash).
+
+Examples
+--------
+
+### Number of Subdirectories in Themes Directory
+
+The function below informs about the number of subdirectories in the
+themes directory. Note that this doesn't necessarily match the number of
+[themes
+recognized](/Theme_Development#Theme_Stylesheet "Theme Development") by
+WordPress.
+
+    <?php
+    function display_themes_subdirs_count_info()
+      $theme_root = get_theme_root();
+      $files_array = glob("$theme_root/*", GLOB_ONLYDIR);
+      echo "There are " . count($files_array) . " subdirectories in the " . $theme_root " directory"; 
+    }
+    ?>
+
+Example output:
+
+There are 5 subdirectories in the
+/home/user/public\_html/wp-content/themes directory.
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    to apply the
+    [theme\_root](/Plugin_API/Filter_Reference/theme_root "Plugin API/Filter Reference/theme root")
+    filters on the retrieved path.
+
+Change Log
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+Source File
+-----------
+
+`get_theme_root()` is located in `wp-includes/theme.php`.
+

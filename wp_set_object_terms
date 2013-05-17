@@ -1,0 +1,98 @@
+Function Reference/wp set object terms « WordPress Codex
+-----------
+
+Relates an object (post, link etc) to a term and taxonomy type (tag,
+category, etc). Creates the term and taxonomy relationship if it doesn't
+already exist.
+
+A relationship means that the term is grouped in or belongs to the
+taxonomy. A term has no meaning until it is given context by defining
+which taxonomy it exists under.
+
+Usage
+-----
+
+`  <?php wp_set_object_terms( $object_id, $terms, $taxonomy, $append ) ?> `
+
+Parameters
+----------
+
+ `$object_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) The object to relate to, such as post ID.
+    Default: *None*
+
+ `$terms` 
+:   ([*array/int/string*](/How_to_Pass_Tag_Parameters#Array.2Fint.2Fstring "How to Pass Tag Parameters"))
+    (*required*) The slug or id of the term (such as category or tag
+    IDs), will replace all existing related terms in this taxonomy. To
+    clear or remove all terms from an object, pass an empty string or
+    NULL. Integers are interpreted as tag IDs.
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*array/string*](/How_to_Pass_Tag_Parameters#Array.2Fstring "How to Pass Tag Parameters"))
+    (*required*) The context in which to relate the term to the object.
+    This can be category, post\_tag, or the name of another taxonomy.
+    Default: *None*
+
+ `$append` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*required*) If true, tags will be appended to the object. If false,
+    tags will replace existing tags
+    Default: False
+
+Returns
+-------
+
+ (mixed) 
+:   
+
+-   (array) An array of the terms affected if successful,
+-   ([WP\_Error](/Class_Reference/WP_Error "Class Reference/WP Error"))
+    The WordPress Error object on invalid taxonomy
+    (`'invalid_taxonomy'`).
+-   (string) The first offending term if a term given in the \$terms
+    parameter is named incorrectly. (Invalid term ids are accepted and
+    inserted).
+
+Examples
+--------
+
+If you wanted to add a categories to a post with the ID of 42:
+
+    <?php
+    $cat_ids = array( 6,8 );
+        //to make sure the terms IDs is integers:
+        //$cat_ids = array_map('intval', $cat_ids);
+        //$cat_ids = array_unique( $cat_ids );
+    wp_set_object_terms( '42', $cat_ids, 'category' );
+    ?>
+
+If you wanted to clear/remove all categories from a post with the ID of
+42:
+
+    <?php wp_set_object_terms( '42', NULL, 'category' ); ?>
+
+Change Log
+----------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"): Return
+    [WP\_Error](/Class_Reference/WP_Error "Class Reference/WP Error")
+    object upon database insertion failure.
+-   Since: [2.3.0](/Version_2.3 "Version 2.3")
+
+Notes
+-----
+
+Perhaps the
+[wp\_set\_post\_terms()](/Function_Reference/wp_set_post_terms "Function Reference/wp set post terms")
+is a more useful function, since it checks the values​​, converting
+taxonomies separated by commas and validating hierarchical terms in
+integers.
+
+Source File
+-----------
+
+`wp_set_object_terms()` is located in `wp-includes/taxonomy.php`.
+

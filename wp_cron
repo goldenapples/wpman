@@ -1,0 +1,50 @@
+Function Reference/wp cron « WordPress Codex
+-----------
+
+Run scheduled callbacks or spawn cron for all scheduled events.
+
+Usage
+-----
+
+` <?php wp_cron() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (null) 
+:   When cron doesn't need to run..
+
+Examples
+--------
+
+    if ( ! wp_next_scheduled( 'my_task_hook' ) ) {
+      wp_schedule_event( time(), 'hourly', 'my_task_hook' );
+    }
+
+    add_action( 'my_task_hook', 'my_task_function' );
+
+    function my_task_function() {
+      wp_mail( 'your@email.com', 'Automatic email', 'Automatic scheduled email from WordPress.');
+    }
+
+Notes
+-----
+
+-   Cron is named after a unix program which runs unattended scheduled
+    tasks.
+
+Change Log
+----------
+
+-   Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`wp_cron()` is located in `wp-includes/cron.php`.
+

@@ -1,0 +1,48 @@
+Function Reference/get post type archive feed link « WordPress Codex
+-----------
+
+Retrieve the permalink for a post type archive.
+
+Usage
+-----
+
+` <?php get_post_type_archive_feed_link( $post_type, $feed =  ); ?> `
+
+Parameters
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post type
+    Default: *None*
+
+ `$feed` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Feed type
+    Default: *None*
+
+\
+
+Return Values
+-------------
+
+ `(string)` 
+:   the permalink for a post type archive feed.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`get_post_type_archive_feed_link()` is located in
+`wp-includes/link-template.php`.
+

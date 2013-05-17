@@ -1,0 +1,67 @@
+Function Reference/wp trim excerpt « WordPress Codex
+-----------
+
+Generates an excerpt from the content, if needed.
+
+The excerpt word amount will be 55 words and if the amount is greater
+than that, then the string '` [...]`' will be appended to the excerpt.
+If the string is less than 55 words, then the content will be returned
+as is.
+
+Usage
+-----
+
+` <?php wp_trim_excerpt( $text ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The excerpt. If set to empty an excerpt is generated.
+    If you supply text it will be returned untouched. It will **not** be
+    shortened.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(string)` 
+:   The excerpt.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [get\_the\_content](/Function_Reference/get_the_content "Function Reference/get the content")
+-   Uses:
+    [`strip_shortcodes()`](/Function_Reference/strip_shortcodes "Function Reference/strip shortcodes")
+    on `$text`.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    for '`the_content`' on `$text`.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    for '`excerpt_length`' on `55`.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    for '`excerpt_more`' on '`[...]`'.
+
+Change Log
+----------
+
+-   Since: 1.5.0
+-   [2.8](/Version_2.8 "Version 2.8") : Added the '`excerpt_length`'
+    filter.
+-   [2.9](/Version_2.9 "Version 2.9") : Added the '`excerpt_more`'
+    filter. ([Ticket
+    10395](https://core.trac.wordpress.org/ticket/10395 "https://core.trac.wordpress.org/ticket/10395"))
+
+Source File
+-----------
+
+`wp_trim_excerpt()` is located in `wp-includes/formatting.php`.
+

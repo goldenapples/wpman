@@ -1,0 +1,47 @@
+Function Reference/xmlrpc getposttitle « WordPress Codex
+-----------
+
+Retrieve post title from [XMLRPC](/XML-RPC_Support "XML-RPC Support")
+XML.
+
+If the title element is not part of the XML, then the default post title
+from the `$post_default_title` will be used instead.
+
+Usage
+-----
+
+` <?php xmlrpc_getposttitle( $content ) ?> `
+
+Parameters
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) [XMLRPC](/XML-RPC_Support "XML-RPC Support") XML
+    Request content
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Post title
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`string`) `$post_default_title`
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`xmlrpc_getposttitle()` is located in `wp-includes/functions.php`.
+

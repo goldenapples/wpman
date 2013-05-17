@@ -1,0 +1,107 @@
+Function Reference/get image tag « WordPress Codex
+-----------
+
+An \<img src /\> tag for an image attachment, scaling it down if
+requested.
+
+The filter 'get\_image\_tag\_class' allows for changing the class name
+for the image without having to use regular expressions on the HTML
+content. The parameters are: what WordPress will use for the class, the
+Attachment ID, image align value, and the size the image should be.
+
+The second filter 'get\_image\_tag' has the HTML content, which can then
+be further manipulated by a plugin to change all attribute values and
+even HTML content.
+
+Usage
+-----
+
+` <?php get_image_tag( $id, $alt, $title, $align, $size ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Attachment ID.
+    Default: *None*
+
+ `$alt` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Image Description for the alt attribute.
+    Default: *None*
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Image Description for the title attribute.
+    Default: *None*
+
+ `$align` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Part of the class name for aligning the image.
+    Default: *None*
+
+ `$size` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. Default is 'medium'.
+    Default: medium
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   HTML IMG element for given image attachment
+
+Change Log
+----------
+
+Since: [2.5](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+`get_image_tag()` is located in `wp-includes/media.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_image\_tag](http://codex.wordpress.org/Function_Reference/get_image_tag)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

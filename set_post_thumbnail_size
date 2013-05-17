@@ -1,0 +1,69 @@
+Function Reference/set post thumbnail size « WordPress Codex
+-----------
+
+Set the default Featured Image (formerly Post Thumbnail) dimensions. To
+register additional image sizes for Featured Images use:
+[add\_image\_size()](/Function_Reference/add_image_size "Function Reference/add image size").
+
+**Note:** To enable featured images, the current theme must include
+`add_theme_support( 'post-thumbnails' );` in its `functions.php` file.
+See also [Post Thumbnails](/Post_Thumbnails "Post Thumbnails").
+
+Usage
+-----
+
+`  <?php set_post_thumbnail_size( $width, $height, $crop ); ?> `
+
+Parameters
+----------
+
+ `$width` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The post thumbnail width in pixels.
+    Default: 0
+
+ `$height` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The post thumbnail height in pixels.
+    Default: 0
+
+ `$crop` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Crop the image or not. False - Soft proportional crop
+    mode ; True - Hard crop mode.
+    Default: false
+
+Examples
+--------
+
+### Default Usage
+
+To be used in the current theme's `functions.php` file.
+
+    if ( function_exists( 'add_theme_support' ) ) {
+        add_theme_support( 'post-thumbnails' );
+            set_post_thumbnail_size( 150, 150 );
+    }
+
+### Crop Mode
+
+Set the default Post Thumnail size by resizing the image proportionally
+(that is, without distorting it):
+
+    set_post_thumbnail_size( 50, 50 ); // 50 pixels wide by 50 pixels tall, resize mode
+
+Set the default Post Thumnail size by cropping the image (either from
+the sides, or from the top and bottom):
+
+    set_post_thumbnail_size( 50, 50, true ); // 50 pixels wide by 50 pixels tall, crop mode
+
+Change Log
+----------
+
+-   Since [2.9](/Version_2.9 "Version 2.9")
+
+Source File
+-----------
+
+`set_post_thumbnail_size()` is located in `wp-includes/media.php`.
+

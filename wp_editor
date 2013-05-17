@@ -1,0 +1,166 @@
+Function Reference/wp editor « WordPress Codex
+-----------
+
+This function renders an editor in a page in the typical fashion used in
+Posts and Pages.
+
+Usage
+-----
+
+`  <?php wp_editor( $content, $editor_id, $settings = array() ); ?> `
+
+Parameters
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Initial content for the editor.
+    Default: *None*
+
+ `$editor_id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) HTML ID attribute value for the textarea and TinyMCE.
+    (**may only contain lower-case letters**)
+    Default: *None*
+
+ `$settings` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of arguments.
+    Default: *None*
+
+### Arguments
+
+ `wpautop` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to use wpautop for adding in paragraphs
+    Default: true
+
+ `media_buttons` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to display media insert/upload buttons
+    Default: true
+
+ `textarea_name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The name assigned to the generated textarea and passed
+    parameter when the form is submitted. (**may include [] to pass data
+    as array**)
+    Default: \$editor\_id
+
+ `textarea_rows` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The number of rows to display for the textarea
+    Default: get\_option('default\_post\_edit\_rows', 10)
+
+ `tabindex` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The tabindex value used for the form field
+    Default: *None*
+
+ `editor_css` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Additional CSS styling applied for both visual and HTML
+    editors buttons, needs to include \<style\> tags, can use "scoped"
+    Default: *None*
+
+ `editor_class` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Any extra CSS Classes to append to the Editor textarea
+    Default:
+
+ `teeny` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to output the minimal editor configuration used
+    in PressThis
+    Default: false
+
+ `dfw` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to replace the default fullscreen editor with
+    DFW (**needs specific DOM elements and css**)
+    Default: false
+
+ `tinymce` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Load TinyMCE, can be used to pass settings directly to
+    TinyMCE using an array()
+    Default: true
+
+ `quicktags` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Load Quicktags, can be used to pass settings directly
+    to Quicktags using an array()
+    Default: true
+
+Notes
+-----
+
+Note that the ID that is passed to the wp\_editor() function can only be
+composed of lower-case letters. No underscores, no hyphens. Anything
+else will cause the WYSIWYG editor to malfunction.
+
+Once instantiated, the WYSIWYG editor cannot be moved around in the DOM.
+What this means in practical terms, is that you cannot put it in
+meta-boxes that can be dragged and placed elsewhere on the page.
+
+Instead use 'edit\_page\_form' (for pages) or 'edit\_form\_advanced'
+(for other post types):
+
+    add_action( 'edit_page_form', 'my_second_editor' );
+    function my_second_editor() {
+        // get and set $content somehow...
+        wp_editor( $content, 'mysecondeditor' );
+    }
+
+Change Log
+----------
+
+-   Since [3.3](/Version_3.3 "Version 3.3")
+
+Source Code
+-----------
+
+`wp_editor()` is located in `wp-includes/general-template.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_editor](http://codex.wordpress.org/Function_Reference/wp_editor)"
+
+[Category](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

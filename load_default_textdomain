@@ -1,0 +1,42 @@
+Function Reference/load default textdomain « WordPress Codex
+-----------
+
+Loads default translated strings based on locale.
+
+Loads the .mo file in `WP_LANG_DIR` constant path from WordPress root.
+The translated (.mo) file is named based off of the locale.
+
+Usage
+-----
+
+` <?php load_default_textdomain() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   *l10n* is an abbreviation for *localization*.
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`load_default_textdomain()` is located in `wp-includes/l10n.php`.
+

@@ -1,0 +1,58 @@
+Function Reference/get post custom keys « WordPress Codex
+-----------
+
+Returns an array containing the keys of all custom fields of a
+particular post or page. See also
+[get\_post\_custom()](/Function_Reference/get_post_custom "Function Reference/get post custom")
+and
+[get\_post\_custom\_values()](/Function_Reference/get_post_custom_values "Function Reference/get post custom values")
+
+Usage
+-----
+
+`  <?php get_post_custom_keys($post_id); ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The post ID whose custom field keys will be retrieved.
+    Default: Current post
+
+Examples
+--------
+
+### Default Usage
+
+The following example will set a variable (`$custom_field_keys`) as an
+array containing the keys of all custom fields in the current post, and
+then print it. Note: the **if** test excludes values for WordPress
+internally maintained custom keys such as *\_edit\_last* and
+*\_edit\_lock*.
+
+    <?php
+
+      $custom_field_keys = get_post_custom_keys();
+      foreach ( $custom_field_keys as $key => $value ) {
+        $valuet = trim($value);
+          if ( '_' == $valuet{0} )
+          continue;
+        echo $key . " => " . $value . "<br />";
+      }
+    ?>
+
+If the post contains custom fields with the keys *mykey* and *yourkey*,
+the output would be something like:
+
+0 =\> mykey\
+ 1 =\> yourkey
+
+***Note:** Regardless of how many values (custom fields) are assigned to
+one key, that key will only appear once in this array.*
+
+Source File
+-----------
+
+`get_post_custom_keys()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,61 @@
+Function Reference/wp category checklist « WordPress Codex
+-----------
+
+Output an unordered list of checkbox `<input>` elements labelled with
+category names.
+
+Usage
+-----
+
+` <?php   wp_category_checklist( $post_id, $descendants_and_self, $selected_cats,         $popular_cats, $walker, $checked_ontop);?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required or optional??*) Mark categories associated with this post
+    as checked. `$selected_cats` must not be an array.
+    Default: 0
+
+ `$descendants_and_self` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*??*) ID of the category to output along with its descendents.
+    Default: 0
+
+ `$selected_cats` 
+:   ([*boolean|array*](/How_to_Pass_Tag_Parameters#Boolean.7Carray "How to Pass Tag Parameters"))
+    (*??*) List of categories to mark as checked.
+    Default: false
+
+ `$popular_cats` 
+:   ([*boolean|array*](/How_to_Pass_Tag_Parameters#Boolean.7Carray "How to Pass Tag Parameters"))
+    (*??*) Override the list of categories that receive the
+    "popular-category" class.
+    Default: false
+
+ `$walker` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*??*) Walker object to use to build the output.
+    Default: null
+
+ `$checked_ontop` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*??*) Move checked items out of the hierarchy and to the top of the
+    list.
+    Default: true
+
+Examples
+--------
+
+Changelog
+---------
+
+Since 2.5.1
+
+Source File
+-----------
+
+`wp_category_checklist()` is located in
+`wp-admin/includes/template.php`.
+

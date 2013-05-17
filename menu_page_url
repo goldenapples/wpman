@@ -1,0 +1,43 @@
+Function Reference/menu page url « WordPress Codex
+-----------
+
+Get the url to access a particular menu page based on the slug it was
+registered with.
+
+If the slug hasn't been registered properly no url will be returned
+
+Usage
+-----
+
+` <?php menu_page_url( $menu_slug, $echo ); ?> `
+
+Parameters
+----------
+
+ `$menu_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug name to refer to this menu by (should be
+    unique for this menu)
+    Default: *None*
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether or not to echo the url - default is true
+    Default: 1
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   the url
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`menu_page_url()` is located in `wp-admin/includes/plugin.php`
+

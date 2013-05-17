@@ -1,0 +1,38 @@
+Function Reference/wp unregister GLOBALS « WordPress Codex
+-----------
+
+If register\_globals is on, turn it off. Function will not **unset**
+values for '\_GET', '\_POST', '\_COOKIE', '\_REQUEST', '\_SERVER',
+'\_ENV', '\_FILES', and 'table\_prefix'.
+
+Note: this will also disable PHP sessions if register\_globals was on.
+
+Usage
+-----
+
+` <?php wp_unregister_GLOBALS() ?> `
+
+Parameters
+----------
+
+none
+
+Return Values
+-------------
+
+ `null` `(null)`{style="color:gray"} 
+:   Will return null if register\_globals PHP directive was disabled.
+
+Notes
+-----
+
+Change Log
+----------
+
+-   Since: [Version 2.1](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`wp_unregister_GLOBALS()` is located in `wp-includes/load.php`.
+

@@ -1,0 +1,57 @@
+Function Reference/wp get image editor « WordPress Codex
+-----------
+
+This function is the main function what you use when you want to edit an
+image by url. It returns a
+[WP\_Image\_Editor](/Class_Reference/WP_Image_Editor "Class Reference/WP Image Editor")
+instance and loads a file into it. With that you can manipulate an image
+by calling methods on it. For more information on that you can read:
+[WP\_Image\_Editor](/Class_Reference/WP_Image_Editor "Class Reference/WP Image Editor").
+
+Usage
+-----
+
+` <?php wp_get_image_editor( $path, $args ); ?> `
+
+Parameters
+----------
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Path to file to load
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Additional data. Accepts `mime_type`, `methods`
+    Default: *Empty*
+
+Return
+------
+
+ (mixed) 
+:   [WP\_Image\_Editor](/Class_Reference/WP_Image_Editor "Class Reference/WP Image Editor")
+    object or
+    [WP\_Error](/Class_Reference/WP_Error "Class Reference/WP Error") on
+    failure
+
+Examples
+--------
+
+    $image = wp_get_image_editor( 'cool_image.jpg' );
+    if ( ! is_wp_error( $image ) ) {
+        $image->rotate( 90 );
+        $image->resize( 300, 300, true );
+        $image->save( 'new_image.jpg' );
+    }
+
+Change Log
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+Source File
+-----------
+
+`wp_get_image_editor()` is located in `wp-includes/media.php`
+

@@ -1,0 +1,35 @@
+Function Reference/has nav menu « WordPress Codex
+-----------
+
+Returns boolean Whether a registered nav menu location has a menu
+assigned(true) or not(false).
+
+Usage
+-----
+
+`  <?phpif ( has_nav_menu( $location ) ) {     //Do something} ?> `
+
+Parameters
+----------
+
+ `$location` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) A string of menu location slug.
+    Default: *None*
+
+Return Values
+-------------
+
+bool True if the registered location has a menu assigned, false
+otherwise.
+
+Changelog
+---------
+
+-   Since [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+-   `has_nav_menu()` is located in `wp-includes/nav-menu.php`.
+

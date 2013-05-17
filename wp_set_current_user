@@ -1,0 +1,67 @@
+Function Reference/wp set current user « WordPress Codex
+-----------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Changes the current user by ID or name.
+
+Set `$id` to null and specify a name if you do not know a user's ID.
+
+Some WordPress functionality is based on the current user and not based
+on the signed in user. `wp_set_current_user()` opens the ability to edit
+and perform actions on users who aren't signed in.
+
+Usage
+-----
+
+` <?php wp_set_current_user( $id, $name ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) User ID
+    Default: *None*
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) User's username
+    Default: ''
+
+### Return Values
+
+ `WP_User` `(object)`{style="color:gray"} 
+:   [WP\_User](/Class_Reference/WP_User "Class Reference/WP User")
+    object with the current user.
+
+Examples
+--------
+
+Notes
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+-   Uses:
+    [`WP_User`](/Class_Reference/WP_User "Class Reference/WP User")
+    object
+-   Uses:
+    [`setup_userdata()`](/index.php?title=Function_Reference/setup_userdata&action=edit&redlink=1 "Function Reference/setup userdata (page does not exist)")
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'set\_current\_user' hook after setting the current user.
+
+Change Log
+----------
+
+Since: 2.0.4
+
+Source File
+-----------
+
+`wp_set_current_user()` is located in `wp-includes/pluggable.php`.
+

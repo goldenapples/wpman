@@ -1,0 +1,47 @@
+Function Reference/get the author « WordPress Codex
+-----------
+
+Retrieve the post author. This tag must be used within [The
+Loop](/The_Loop "The Loop").
+
+To display a page for authors which have no posts, [see this
+discussion](http://wordpress.org/support/topic/author-page-with-no-posts#post-798266 "http://wordpress.org/support/topic/author-page-with-no-posts#post-798266").
+
+Usage
+-----
+
+`  <?php $author = get_the_author(); ?> `
+
+Parameters
+----------
+
+ `$deprecated` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Deprecated.
+    Default: ''
+
+Returns
+-------
+
+ `(string)` 
+:   The author's display name.
+
+Examples
+--------
+
+### Grab the Author's 'Public' Name
+
+Grabs the value in the user's **Display name publicly as** field.
+
+    <?php $author = get_the_author(); ?>
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_the_author()` is located in `wp-includes/author-template.php`.
+

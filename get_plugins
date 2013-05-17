@@ -1,0 +1,54 @@
+Function Reference/get plugins « WordPress Codex
+-----------
+
+Check the plugins directory and retrieve all plugin files with plugin
+data.
+
+WordPress only supports plugin files in the base plugins directory
+(wp-content/plugins) and in one directory above the plugins directory
+(wp-content/plugins/my-plugin). The file it looks for has the plugin
+data and must be found in those two locations. It is recommended that do
+keep your plugin files in directories.
+
+The file with the plugin data is the file that will be included and
+therefore needs to have the main execution for the plugin. This does not
+mean everything must be contained in the file and it is recommended that
+the file be split for maintainability. Keep everything in one file for
+extreme optimization purposes.
+
+Usage
+-----
+
+` <?php get_plugins( $plugin_folder ) ?> `
+
+Parameters
+----------
+
+ `$plugin_folder` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Relative path to single plugin folder.
+    Default: ''
+
+Return Values
+-------------
+
+ (array) 
+:   Key is the plugin file path and the value is an array of the plugin
+    data.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: unknown
+
+Source File
+-----------
+
+`get_plugins()` is located in `/wp-admin/includes/plugin.php`.
+

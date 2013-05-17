@@ -1,0 +1,125 @@
+Function Reference/wp get archives « WordPress Codex
+-----------
+
+This function displays a date-based archives list. This tag can be used
+anywhere within a template.
+
+Usage
+-----
+
+`  <?php wp_get_archives( $args ); ?> `
+
+### Default Usage
+
+`  <?php $args = array(    'type'            => 'monthly',    'limit'           => ,    'format'          => 'html',     'before'          => ,    'after'           => ,    'show_post_count' => false,    'echo'            => 1,    'order'           => 'DESC'); ?> `
+
+By default, the usage shows:
+
+-   Monthly archives links displayed
+-   Displays all archives (not limited in number)
+-   Displays archives in an \<li\> HTML list in descending order
+-   Nothing displayed before or after each link
+-   Does not display the count of the number of posts
+
+Parameters
+----------
+
+ type 
+:   (*string*) The type of archive list to display. Defaults to
+    WordPress settings. Valid values:
+    -   `yearly`
+    -   `monthly` - Default
+    -   `daily`
+    -   `weekly`
+    -   `postbypost` (posts ordered by post date)
+    -   `alpha` (same as `postbypost` but posts are ordered by post
+        title)
+
+ limit 
+:   (*integer*) Number of archives to get. Default is no limit.
+
+ format 
+:   (*string*) Format for the archive list. Valid values:
+    -   `html` - In HTML list (\<li\>) tags and **before** and **after**
+        strings. This is the default.
+    -   `option` - In select (\<select\>) or dropdown option
+        (\<option\>) tags.
+    -   `link` - Within link (\<link\>) tags.
+    -   `custom` - Custom list using the **before** and **after**
+        strings.
+
+ before 
+:   (*string*) Text to place before the link when using the `html` or
+    `custom` for **format** option. There is no default.
+
+ after 
+:   (*string*) Text to place after the link when using the `html` or
+    `custom` for **format** option. There is no default.
+
+ show\_post\_count 
+:   (*boolean*) Display number of posts in an archive or do not. For use
+    with all **type** except `'postbypost'`.
+    -   `1 (True)`
+    -   `0 (False)` - Default
+
+ echo 
+:   (*boolean*) Display the output or return it.
+    -   `1 (True)` - Default
+    -   `0 (False)`
+
+ order 
+:   (*string*) How to order the link list (since [Version
+    3.5](/Version_3.5 "Version 3.5"))
+    -   `ASC` - Ascending order (A-Z).
+    -   `DESC` - Descending order (Z-A) - Default
+
+Examples
+--------
+
+### Last Twelve Months
+
+Displays archive list by month, displaying only the last twelve.
+
+    <?php wp_get_archives( array( 'type' => 'monthly', 'limit' => 12 ) ); ?>
+
+### Last Fifteen Days
+
+Displays archive list by date, displaying only the last fifteen days.
+
+    <?php wp_get_archives( array( 'type' => 'daily', 'limit' => 15 ) ); ?>
+
+### Last Twenty Posts
+
+Displays archive list of the last twenty most recent posts listed by
+post title.
+
+    <?php wp_get_archives( array( 'type' => 'postbypost', 'limit' => 20, 'format' => 'custom' ) ); ?>
+
+### Dropdown Box
+
+Displays a drop-down box of monthly archives, in select tags, with the
+post count displayed.
+
+    <select name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+      <option value=""><?php echo esc_attr( __( 'Select Month' ) ); ?></option> 
+      <?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
+    </select>
+
+### To display the \*ALL\* posts alphabetically
+
+Displays ALL posts alphabetically, especially if you want to have an
+archive that serves like a sitemap.
+
+    <?php wp_get_archives('type=alpha'); ?>
+
+Change Log
+----------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"): add 'order' parameter
+-   Since: [1.2.0](/Version_1.2 "Version 1.2")
+
+Source File
+-----------
+
+`wp_get_archives()` is located in `wp-includes/general-template.php`.
+

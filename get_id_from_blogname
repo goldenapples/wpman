@@ -1,0 +1,40 @@
+Function Reference/get id from blogname « WordPress Codex
+-----------
+
+Given a blog's (subdomain or directory) name, retrieve it's id.
+
+Usage
+-----
+
+` <?php get_id_from_blogname( $slug ) ?> `
+
+Parameters
+----------
+
+ `$slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The blog's slug
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(integer)`{style="color:gray"} 
+:   The blog id
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+get\_id\_from\_blogname() is located in `wp-includes/ms-blogs.php`
+

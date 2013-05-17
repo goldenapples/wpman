@@ -1,0 +1,42 @@
+Function Reference/remove all shortcodes « WordPress Codex
+-----------
+
+Clears all [shortcode](/Shortcode_API "Shortcode API") hooks.
+
+Usage
+-----
+
+` <?php remove_all_shortcodes(); ?> `
+
+Parameters
+----------
+
+ (none) 
+:   
+
+Return Values
+-------------
+
+ (none) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+This function clears all of the shortcode tags by replacing the
+shortcodes global with an empty array. This is a very efficient method
+for removing all shortcodes.
+
+Change Log
+----------
+
+Since: 2.5
+
+Source File
+-----------
+
+`remove_all_shortcodes()` is located in `wp-includes/shortcodes.php`.
+

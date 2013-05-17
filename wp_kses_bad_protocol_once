@@ -1,0 +1,49 @@
+Function Reference/wp kses bad protocol once « WordPress Codex
+-----------
+
+Sanitizes content from bad protocols and other characters.
+
+This function searches for URL protocols at the beginning of `$string`,
+while handling whitespace and
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") entities.
+
+Usage
+-----
+
+` <?php wp_kses_bad_protocol_once( $string, $allowed_protocols ) ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to check for bad protocols
+    Default: *None*
+
+ `$allowed_protocols` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Allowed protocols
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Sanitized content
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_kses_bad_protocol_once()` is located in `wp-includes/kses.php`.
+

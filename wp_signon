@@ -1,0 +1,67 @@
+Function Reference/wp signon « WordPress Codex
+-----------
+
+Authenticates a user with option to remember credentials. Replaces
+deprecated function
+[wp\_login](/Function_Reference/wp_login "Function Reference/wp login").
+
+Usage
+-----
+
+`  <?php wp_signon( $credentials, $secure_cookie ) ?> `
+
+Parameters
+----------
+
+ `$credentials` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) User info in order to sign on.
+    Default: *None*
+
+ `$secure_cookie` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to use secure cookie.
+    Default: *None*
+
+**NOTE:** If you don't provide \$credentials, wp\_signon uses the
+\$\_POST variable (the keys being "log", "pwd" and "rememberme").
+
+Return Value
+------------
+
+ **(object)** 
+:   Either
+    [WP\_Error](/Class_Reference/WP_Error "Class Reference/WP Error") on
+    failure, or
+    [WP\_User](/Class_Reference/WP_User "Class Reference/WP User") on
+    success.
+
+Examples
+--------
+
+    $creds = array();
+    $creds['user_login'] = 'example';
+    $creds['user_password'] = 'plaintextpw';
+    $creds['remember'] = true;
+    $user = wp_signon( $creds, false );
+    if ( is_wp_error($user) )
+       echo $user->get_error_message();
+
+Notes
+-----
+
+-   This function sends headers to the page. It must be run before any
+    content is returned.
+-   This function sets an authentication cookie. Users will not be
+    logged in if it is not sent.
+
+Change Log
+----------
+
+Since: 2.5.0
+
+Source File
+-----------
+
+`wp_signon()` is located in `wp-includes/user.php`.
+

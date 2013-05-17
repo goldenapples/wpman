@@ -1,0 +1,57 @@
+Function Reference/wp localize script « WordPress Codex
+-----------
+
+Localizes a script, but only if script has already been added. Can also
+be used to include arbitrary Javascript data in a page.
+
+Usage
+-----
+
+`  <?php wp_localize_script( $handle, $object_name, $l10n ); ?> `
+
+Parameters
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The script handle you are attaching the data for
+    Default: *None*
+
+ `$object_name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name for the Javascript object which will contain
+    the data.
+    Default: *None*
+
+ `$l10n` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) The data itself. The data can be either a single or
+    multi (as of 3.3) dimensional array.
+    Default: *None*
+
+Example
+-------
+
+`  <?phpwp_enqueue_script( 'some_handle' );$translation_array = array( 'some_string' => __( 'Some string to translate' ), 'a_value' => '10' );wp_localize_script( 'some_handle', 'object_name', $translation_array );?> `
+
+**IMPORTANT!:** wp\_localize\_script() MUST be called after the script
+it's being attached to has been enqueued or registered. It doesn't put
+the localized script in a queue for later scripts.
+
+You can access the variables in JavaScript as follows:
+`  <script>alert(object_name.some_string); // alerts 'Some string to translate'</script> `
+
+**Note:** The data in the resulting JavaScript call will be passed as
+text. If you are trying to pass integers you will need to call the
+JavaScript parseInt() function.
+`  <script>FinalZoom = map.getBoundsZoomLevel(bounds)-parseInt(data.a_value); // Call a function that needs an int.</script> `
+
+Source File
+-----------
+
+`wp_localize_script()` is located in
+`wp-includes/functions.wp-scripts.php#L66`.
+
+Resources
+---------
+

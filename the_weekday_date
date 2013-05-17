@@ -1,0 +1,49 @@
+Function Reference/the weekday date « WordPress Codex
+-----------
+
+Displays the weekday of the current post (e.g. Friday) only if it is
+different from the weekday of the previous post. This tag must be used
+within [The Loop](/The_Loop "The Loop").
+
+Replace With
+------------
+
+There is one-to one correspondence with another template tag, so to
+replace, use
+[the\_date()](/Template_Tags/the_date "Template Tags/the date") as a
+trigger and
+[the\_time()](/Template_Tags/the_time "Template Tags/the time") with
+`'l'` (lowercase letter L) as the format string, as shown in this PHP
+code block:
+
+    <?php if(the_date('','','', FALSE)) the_time('l'); ?>
+
+See [Formatting Date and
+Time](/Formatting_Date_and_Time "Formatting Date and Time") for
+information on date and time format string use.
+
+Usage
+-----
+
+`  <?php the_weekday_date( $before, $after ) ?> `
+
+Parameters
+----------
+
+ before 
+:   (*string*) Text placed before the tag's output. There is no default.
+ after 
+:   (*string*) Text placed after the tag's output. There is no default.
+
+Example
+-------
+
+    <p>Posts from <?php the_weekday_date('<strong>', '</strong>') ?>:</p>
+
+Change Log
+----------
+
+-   Since: 0.71
+-   Replace By: [if(the\_date('','','', FALSE))
+    the\_time('l');](/Formatting_Date_and_Time "Formatting Date and Time")
+

@@ -1,0 +1,80 @@
+Function Reference/get comment link « WordPress Codex
+-----------
+
+Retrieve the link to a given comment.
+
+Usage
+-----
+
+` <?php get_comment_link( $comment, $args ) ?> `
+
+Parameters
+----------
+
+ `$comment` 
+:   ([*object|string|integer*](/How_to_Pass_Tag_Parameters#Object.7Cstring.7Cinteger "How to Pass Tag Parameters"))
+    (*optional*) Comment to retrieve.
+    Default: null
+
+ `$args` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Optional arguments (see [Default
+    Arguments](/Function_Reference/get_comment_link#Default_Arguments "Function Reference/get comment link").)
+    Default: array (see [Default
+    Arguments](/Function_Reference/get_comment_link#Default_Arguments "Function Reference/get comment link"))
+
+Return Values
+-------------
+
+ (string) 
+:   The permalink to the current comment
+
+Examples
+--------
+
+Default Arguments
+-----------------
+
+The following default arguments are used unless found in the optional
+`$args` argument:
+
+page 
+:   The zero-based index for the page where the comment should appear.
+    Defaults to `0`. **Note**: for backward compatibility the entire
+    `$args` argument is treated as an integer and used for this argument
+    if it is not found to be an array.
+
+type 
+:   The type of comment (not used directly). Defaults to `'all'`.
+
+per\_page 
+:   Number of comments per page. Defaults to `0`.
+
+max\_depth 
+:   Maximum depth to be considered for comments, when threaded (not used
+    directly). Defaults to `''`
+
+Filters
+-------
+
+-   `get_comment_link`
+
+Notes
+-----
+
+-   Uses:
+    [`get_comment()`](/Function_Reference/get_comment "Function Reference/get comment")
+    to retrieve `$comment`.
+-   Uses global: (`unknown`) `$wp_rewrite`
+-   Uses global: (`unknown`) `$in_comment_loop`
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_comment_link()` is located in `wp-includes/comment-template.php`.
+

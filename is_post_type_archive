@@ -1,0 +1,79 @@
+Function Reference/is post type archive « WordPress Codex
+-----------
+
+Checks if the *[query](/Glossary#Query "Glossary")* is for an archive
+page of a given *[post type(s)](/Glossary#Post_Type "Glossary")*.
+
+Usage
+-----
+
+` <?php is_post_type_archive( $post_types ); ?> `
+
+Parameters
+----------
+
+ `$post_types` 
+:   ([*array/string*](/How_to_Pass_Tag_Parameters#Array.2Fstring "How to Pass Tag Parameters"))
+    (*optional*) *Post type* or array of *posts types* to check against.
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(bool)`{style="color:gray"} 
+:   Whether the *query* is for an archive page of a given *post
+    type(s)*.
+
+Examples
+--------
+
+Determine if the current page is an archive made by a *[custom post
+type](/Post_Types#Custom_Post_Types "Post Types")* and display the
+*custom post type* title:
+
+    <?php
+    if ( is_post_type_archive() ) {
+        ?>
+        <h1><?php post_type_archive_title(); ?></h1>
+        <?php
+    }
+    ?>
+
+Notes
+-----
+
+Depending on when this function is ran it may or may not be ran by
+`nav_menu_item`. Take the following code example:
+
+    <?php
+    function some_func( $query ){
+        if ( is_post_type_archive('my_custom_post_type') ) {
+             // Do stuff
+        }
+    }
+    add_action('pre_get_posts','some_func');
+    ?>
+
+"Do stuff" may or may not be ran in the menu, depending on if the theme
+is using nav menus or not. The correct usage would be:
+
+    <?php
+    function some_func( $query ){
+        if ( is_post_type_archive('my_custom_post_type') 
+             && ! empty( $query->query['post_type']  == 'my_custom_post_type' ) {
+             // Do stuff
+        }
+    }
+    add_action('pre_get_posts','some_func');
+    ?>
+
+Change Log
+----------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+Source File
+-----------
+
+`is_post_type_archive()` is located in `wp-includes/query.php`.
+

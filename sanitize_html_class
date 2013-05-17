@@ -1,0 +1,50 @@
+Function Reference/sanitize html class « WordPress Codex
+-----------
+
+Sanitizes a html classname to ensure it only contains valid characters.
+
+Strips the string down to A-Z,a-z,0-9,\_,-. If this results in an empty
+string, then the function will return the alternative value supplied.
+After `sanitize_html_class()` has done its work, it passes the sanitized
+class name through the
+[sanitize\_html\_class](/index.php?title=Plugin_API/Filter_Reference/sanitize_html_class&action=edit&redlink=1 "Plugin API/Filter Reference/sanitize html class (page does not exist)")
+filter.
+
+Parameters
+----------
+
+ `$class` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The classname to be sanitized.
+    Default: *None*
+
+ `$fallback` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The value to return if the sanitization ends up as an
+    empty string. Defaults to an empty string.
+    Default: *None*
+
+Return Values
+-------------
+
+ `string` `(string)`{style="color:gray"} 
+:   The sanitized value.
+
+Examples
+--------
+
+    <?php
+    // If you want to explicitly style a post, you can use the sanitized version of the post title as a class
+    $post_class = sanitize_html_class( $post->post_title );
+    echo '<div class="' . esc_attr( $post_class ) . '">';
+
+Change Log
+----------
+
+-   Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`sanitize_html_class()` is located in `wp-includes/formatting.php`.
+

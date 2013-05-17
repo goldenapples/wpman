@@ -1,0 +1,49 @@
+Function Reference/add new user to blog « WordPress Codex
+-----------
+
+Add a newly created user to the appropriate blog
+
+Usage
+-----
+
+` <?php add_new_user_to_blog( $user_id, $email, $meta ) ?> `
+
+Parameters
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The new user ID
+    Default: *None*
+
+ `$email` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) New user's email
+    Default: *None*
+
+ `$meta` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) ????
+    Default: *None*
+
+Return Value
+------------
+
+This function does not return a value
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+Source File
+-----------
+
+`add_new_user_to_blog()` is located in `wp-includes/ms-functions.php`
+

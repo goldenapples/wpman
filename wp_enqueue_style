@@ -1,0 +1,180 @@
+Function Reference/wp enqueue style « WordPress Codex
+-----------
+
+A safe way to add/enqueue a CSS style file to the wordpress generated
+page. If it was first registered with
+[wp\_register\_style()](/Function_Reference/wp_register_style "Function Reference/wp register style")
+it can now be added using its handle.
+
+Usage
+-----
+
+` wp_enqueue_style( $handle, $src, $deps, $ver, $media );`
+
+Parameters
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name used as a handle for the stylesheet. As a special
+    case, if the string contains a '?' character, the preceding part of
+    the string refers to the registered handle, and the succeeding part
+    is appended to the URL as a query string.
+    Default: *None*
+
+ `$src` 
+:   ([*string|boolean*](/How_to_Pass_Tag_Parameters#String.7Cboolean "How to Pass Tag Parameters"))
+    (*optional*) URL to the stylesheet. Example:
+    '[http://example.com/css/mystyle.css'](http://example.com/css/mystyle.css' "http://example.com/css/mystyle.css'").
+    This parameter is only required when WordPress does not already know
+    about this style. You should never hardcode URLs to local styles,
+    use
+    [plugins\_url](/Function_Reference/plugins_url "Function Reference/plugins url")
+    (for Plugins) and
+    [get\_template\_directory\_uri](/Function_Reference/get_template_directory_uri "Function Reference/get template directory uri")
+    (for Themes) to get a proper URL. Remote assets can be specified
+    with a protocol-agnostic URL, i.e.
+    '//otherdomain.com/css/theirstyle.css'.
+    Default: false
+
+ `$deps` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Array of handles of any stylesheet that this stylesheet
+    depends on; stylesheets that must be loaded before this stylesheet.
+    false if there are no dependencies.
+    Default: array()
+
+ `$ver` 
+:   ([*string|boolean*](/How_to_Pass_Tag_Parameters#String.7Cboolean "How to Pass Tag Parameters"))
+    (*optional*) String specifying the stylesheet version number, if it
+    has one. This parameter is used to ensure that the correct version
+    is sent to the client regardless of caching, and so should be
+    included if a version number is available and makes sense for the
+    stylesheet.
+    Default: false
+
+ `$media` 
+:   ([*string|boolean*](/How_to_Pass_Tag_Parameters#String.7Cboolean "How to Pass Tag Parameters"))
+    (*optional*) String specifying the media for which this stylesheet
+    has been defined. Examples: '`all`', '`screen`', '`handheld`',
+    '`print`'. See this
+    [list](http://www.w3.org/TR/CSS2/media.html#media-types "http://www.w3.org/TR/CSS2/media.html#media-types")
+    for the full range of valid CSS-media-types.
+    Default: 'all'
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+### Using a Hook
+
+    <?php
+        /**
+         * Register with hook 'wp_enqueue_scripts', which can be used for front end CSS and JavaScript
+         */
+        add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
+
+        /**
+         * Enqueue plugin style-file
+         */
+        function prefix_add_my_stylesheet() {
+            // Respects SSL, Style.css is relative to the current file
+            wp_register_style( 'prefix-style', plugins_url('style.css', __FILE__) );
+            wp_enqueue_style( 'prefix-style' );
+        }
+    ?>
+
+### Load stylesheet only on a plugin's options page
+
+       /*
+        * This example will work at least on WordPress 2.6.3, 
+        * but maybe on older versions too.
+        */
+       add_action( 'admin_init', 'my_plugin_admin_init' );
+       add_action( 'admin_menu', 'my_plugin_admin_menu' );
+       
+       function my_plugin_admin_init() {
+           /* Register our stylesheet. */
+           wp_register_style( 'myPluginStylesheet', plugins_url('stylesheet.css', __FILE__) );
+       }
+       
+       function my_plugin_admin_menu() {
+           /* Register our plugin page */
+           $page = add_submenu_page( 'edit.php', 
+                                     __( 'My Plugin', 'myPlugin' ), 
+                                     __( 'My Plugin', 'myPlugin' ),
+                                     'administrator',
+                                     __FILE__, 
+                                     'my_plugin_manage_menu' );
+      
+           /* Using registered $page handle to hook stylesheet loading */
+           add_action( 'admin_print_styles-' . $page, 'my_plugin_admin_styles' );
+       }
+       
+       function my_plugin_admin_styles() {
+           /*
+            * It will be called only on your plugin admin page, enqueue our stylesheet here
+            */
+           wp_enqueue_style( 'myPluginStylesheet' );
+       }
+       
+       function my_plugin_manage_menu() {
+           /* Output our admin page */
+       }
+
+### Loading stylesheets in WordPress themes
+
+    function theme_styles()  
+    { 
+      // Register the style like this for a theme:  
+      // (First the unique name for the style (custom-style) then the src, 
+      // then dependencies and ver no. and media type)
+      wp_register_style( 'custom-style', 
+        get_template_directory_uri() . '/css/custom-style.css', 
+        array(), 
+        '20120208', 
+        'all' );
+
+      // enqueing:
+      wp_enqueue_style( 'custom-style' );
+    }
+    add_action('wp_enqueue_scripts', 'theme_styles');
+
+Notes
+-----
+
+-   See `WP_Styles::add()`, `WP_Styles::enqueue()`
+-   Uses global: (`unknown type`) `$wp_styles`
+-   Tip: print\_r( \$wp\_styles );
+-   As of WordPress 3.3 `wp_enqueue_style()` can be called mid-page (in
+    the HTML body). This will load styles in the footer.
+
+Change Log
+----------
+
+-   Since: [2.1](/Version_2.1 "Version 2.1") (BackPress version: r79)
+
+Source File
+-----------
+
+`wp_enqueue_style()` is located in
+`wp-includes/functions.wp-styles.php`.
+
+Resources
+---------
+
+-   [How to enqueue styles with proper versioning info and conditional
+    comments for
+    IE](http://www.nkuttler.de/2010/07/28/wordpress-style-version-conditional-comments/ "http://www.nkuttler.de/2010/07/28/wordpress-style-version-conditional-comments/")
+-   [How to enqueue your style so that it can be
+    minified](http://www.nkuttler.de/post/minify-wordpress-theme-css/ "http://www.nkuttler.de/post/minify-wordpress-theme-css/")
+-   [How to enqueue style with
+    conditions](http://wordpress.stackexchange.com/questions/89494/how-to-enqueue-the-style-using-wp-enqueue-style/89495 "http://wordpress.stackexchange.com/questions/89494/how-to-enqueue-the-style-using-wp-enqueue-style/89495")
+-   [How to disable scripts and
+    styles](http://justintadlock.com/archives/2009/08/06/how-to-disable-scripts-and-styles "http://justintadlock.com/archives/2009/08/06/how-to-disable-scripts-and-styles")
+

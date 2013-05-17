@@ -1,0 +1,143 @@
+Function Reference/the excerpt « WordPress Codex
+-----------
+
+Displays the [excerpt](/Excerpt "Excerpt") of the current post with the
+"[...]" text at the end, which is not a "read more" link. Used to
+directly display the excerpt, but it adds opening and closing `<p>` tags
+to the string returned by
+[`get_the_excerpt()`](/Function_Reference/get_the_excerpt "Function Reference/get the excerpt").
+If you do not provide an explicit excerpt to a post (in the post
+editor's optional excerpt field), it will display an [automatic
+excerpt](/Glossary#Excerpt "Glossary") which refers to the first 55
+words of the post's content. Also in the latter case,
+[HTML](/Glossary#HTML "Glossary") tags and graphics are stripped from
+the excerpt's content. This template tag must be within [The
+Loop](/The_Loop "The Loop").
+
+**Note:** If the current post is an
+[attachment](/Using_Image_and_File_Attachments "Using Image and File Attachments"),
+such as in the *attachment.php* and *image.php* template loops, then the
+attachment caption is displayed. Captions do not include the "[...]"
+text.
+
+the\_excerpt() vs. the\_content()
+---------------------------------
+
+Sometimes, it is more meaningful to use only the
+[` the_content()`](/Template_Tags/the_content "Template Tags/the content")
+function which will decide what to display according to whether the
+[`<!--more-->`](/Customizing_the_Read_More "Customizing the Read More")
+quicktag was used. The `<!--more-->` quicktag splits a post into two
+parts; only the content before the tag should be displayed in listing.
+Remember that `<!--more-->` is (of course) ignored when showing a single
+post.
+
+Usage
+-----
+
+`  <?php the_excerpt(); ?> `
+
+Parameters
+----------
+
+This tag has no parameters.
+
+Examples
+--------
+
+### Default Usage
+
+Displays the post excerpt. Used on non-single/non-permalink posts as a
+replacement for
+[the\_content()](/Template_Tags/the_content "Template Tags/the content")
+to force excerpts to show within [The Loop](/The_Loop "The Loop").
+
+    <?php the_excerpt(); ?>
+
+### Use with Conditional Tags
+
+Replaces the\_content() tag with the\_excerpt() when on archive (tested
+by
+[is\_archive()](/Function_Reference/is_archive "Function Reference/is archive")
+) or category (tested by
+[is\_category()](/Function_Reference/is_category "Function Reference/is category")
+) pages.
+
+Both the examples below work for versions 1.5 and above.
+
+    <?php if ( is_category() || is_archive() ) {
+        the_excerpt();
+    } else {
+        the_content();
+    } ?>
+
+### Control Excerpt Length using Filters
+
+By default, excerpt length is set to 55 words. To change excerpt length
+using
+[excerpt\_length](/Plugin_API/Filter_Reference/excerpt_length "Plugin API/Filter Reference/excerpt length")
+filter, add the following code to `functions.php` file in your theme:
+
+    function custom_excerpt_length( $length ) {
+        return 20;
+    }
+    add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+### Remove [...] string using Filters
+
+In WordPress version 2.9, a new filter was added to make changing the
+[...] string in the excerpt. Do not use both of these methods in the
+same WordPress installation. Use the one appropriate for your WordPress
+version.
+
+#### For versions 2.9 and higher of WordPress
+
+By default, excerpt more string at the end is set to '[...]'. To change
+excerpt more string using
+[excerpt\_more](/Plugin_API/Filter_Reference/excerpt_more "Plugin API/Filter Reference/excerpt more")
+filter, add the following code to `functions.php` file in your theme:
+
+    function new_excerpt_more( $more ) {
+        return '[.....]';
+    }
+    add_filter('excerpt_more', 'new_excerpt_more');
+
+#### For versions 2.8.x and Older
+
+    function new_excerpt_more( $excerpt ) {
+        return str_replace( '[...]', '...', $excerpt );
+    }
+    add_filter( 'wp_trim_excerpt', 'new_excerpt_more' );
+
+### Make the "read more" link to the post
+
+Place this in a theme's functions.php to make the "read more" link to
+the post
+
+    function new_excerpt_more( $more ) {
+        return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">Read More</a>';
+    }
+    add_filter( 'excerpt_more', 'new_excerpt_more' );
+
+Note: This link will not appear in a new line. You'll need to use CSS on
+the `read-more` class.
+
+Notes
+-----
+
+-   Uses:
+    [get\_the\_excerpt()](/Function_Reference/get_the_excerpt "Function Reference/get the excerpt").
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    for '`the_excerpt`'.
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`the_excerpt()` is located in `wp-includes/post-template.php`.
+

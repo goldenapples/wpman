@@ -1,0 +1,45 @@
+Function Reference/comments rss link « WordPress Codex
+-----------
+
+This function has been deprecated, please use
+[post\_comments\_feed\_link()](/Function_Reference/post_comments_feed_link "Function Reference/post comments feed link").
+
+Much like an RSS feed for your WordPress blog, this feature will display
+a link to the [RSS](/Glossary#RSS "Glossary") feed for a given post's
+comments. By implementing the feature, your readers will be able to
+track the comment thread for a given post, perhaps encouraging them to
+stay connected to the conversation.
+
+This tag must be within [The Loop](/The_Loop "The Loop"), or the loop
+set up for comments.
+
+Usage
+-----
+
+`  <?php comments_rss_link('text', 'file'); ?> `
+
+Example
+-------
+
+Displays the link to the comment's RSS feed, using "comment feed" as the
+link text.
+
+    <?php comments_rss_link('comment feed'); ?>
+
+Parameters
+----------
+
+ 'text' 
+:   (*string*) Link text for the comments RSS link. Defaults to
+    `'Comments RSS'`.
+ 'file' 
+:   (*string*) The file the link points to. Defaults to
+    `'wp-commentsrss2.php'`.
+
+Changelog
+---------
+
+-   Deprecated: [2.5.0](/Version_2.5 "Version 2.5") use
+    [post\_comments\_feed\_link()](/Function_Reference/post_comments_feed_link "Function Reference/post comments feed link")
+-   Since: 1.0.1
+

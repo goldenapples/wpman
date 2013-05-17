@@ -1,0 +1,82 @@
+Function Reference/get current site « WordPress Codex
+-----------
+
+Gets the current site based on the value of the \$current\_site global
+variable.
+
+Usage
+-----
+
+` <?php get_current_site(); ?> `
+
+Parameters
+----------
+
+None
+
+Return Values
+-------------
+
+ (Object) 
+:   Returns current site object.
+
+Source File
+-----------
+
+`get_current_site()` is located in `wp-includes/ms-functions.php`.
+
+See also
+--------
+
+See also index of [Function
+Reference](/Function_Reference "Function Reference") and index of
+[Template Tags](/Template_Tags "Template Tags").
+
+This page is [marked](/Category:Stubs "Category:Stubs") as incomplete.
+You can [help](/Codex:Contributing "Codex:Contributing") Codex by
+**[expanding
+it](http://codex.wordpress.org/index.php?title=Function_Reference/get_current_site&action=edit "http://codex.wordpress.org/index.php?title=Function_Reference/get_current_site&action=edit")**.
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_current\_site](http://codex.wordpress.org/Function_Reference/get_current_site)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Stubs](/Category:Stubs "Category:Stubs") |
+[Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

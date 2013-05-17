@@ -1,0 +1,40 @@
+Function Reference/search theme directories « WordPress Codex
+-----------
+
+Search all registered theme directories for complete and valid themes.
+
+Usage
+-----
+
+` <?php search_theme_directories() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (array) 
+:   Valid themes found
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`unknown type`) `$wp_theme_directories`
+-   Uses global: (`array`) `$wp_broken_themes` Holds broken themes list.
+
+Change Log
+----------
+
+Since: 2.9.0
+
+Source File
+-----------
+
+`search_theme_directories()` is located in `wp-includes/theme.php`.
+

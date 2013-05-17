@@ -1,0 +1,48 @@
+Function Reference/unregister setting « WordPress Codex
+-----------
+
+Allows clean de-registration of registered settings. Should be used
+mostly in [deactivation
+hooks](/Function_Reference/register_deactivation_hook "Function Reference/register deactivation hook").
+
+Usage
+-----
+
+` <?php unregister_setting( $option_group, $option_name, $sanitize_callback ); ?> `
+
+Parameters
+----------
+
+ `$option_group` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Group the option belongs to (used in
+    register\_setting).
+    Default: *None*
+
+ `$option_name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the option
+    Default: *None*
+
+ `$sanitize_callback` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Function that fills the section with the desired
+    content. The function should echo its output.
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Change Log
+----------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+Source File
+-----------
+
+`unregister_setting()` is located in `wp-admin/includes/plugin.php`.
+

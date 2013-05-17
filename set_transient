@@ -1,0 +1,71 @@
+Function Reference/set transient « WordPress Codex
+-----------
+
+Set/update the value of a [transient](/Transients_API "Transients API").
+
+You do not need to serialize values. If the value needs to be
+serialized, then it will be serialized before it is set.
+
+Usage
+-----
+
+` <?php set_transient( $transient, $value, $expiration ); ?> `
+
+Parameters
+----------
+
+ `$transient` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Transient name. Expected to not be SQL-escaped. Should
+    be [45 characters or less in
+    length](http://core.trac.wordpress.org/ticket/15058 "http://core.trac.wordpress.org/ticket/15058").
+    Default: *None*
+
+ `$value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Transient value. Expected to not be SQL-escaped.
+    Default: *None*
+
+ `$expiration` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Time until expiration in seconds from now, or 0 for
+    never expires. Ex: For one day, the expiration value would be: *(60
+    \* 60 \* 24)*.
+    Default: *0*.
+
+Return Values
+-------------
+
+ (boolean) 
+:   False if value was not set and true if value was set.
+
+Examples
+--------
+
+### Saving the \$special\_query\_results object for 12 hours
+
+    <?php
+    set_transient( 'special_query_results', $special_query_results, 60*60*12 );
+    ?>
+
+Notes
+-----
+
+If a transient exists, this function will update the transient's
+expiration time.
+
+NB: transients that never expire are autoloaded, whereas transients with
+an expiration time are not autoloaded. Consider this when adding
+transients that may not be needed on every page, and thus do not need to
+be autoloaded, impacting page performance.
+
+Change Log
+----------
+
+Since: [2.8](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`set_transient()` is located in `wp-includes/option.php`.
+

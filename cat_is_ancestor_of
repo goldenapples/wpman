@@ -1,0 +1,75 @@
+Function Reference/cat is ancestor of « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") Check if a
+category is an ancestor of another category. This is a boolean function,
+meaning it returns either TRUE or FALSE.
+
+Usage
+-----
+
+`  <?php cat_is_ancestor_of( $cat1, $cat2 ); ?> `
+
+Parameters
+----------
+
+ `$cat1` 
+:   ([*int/object*](/How_to_Pass_Tag_Parameters#Int.2Fobject "How to Pass Tag Parameters"))
+    (*required*) ID or object to check if this is the parent category.
+    Default: *None*
+
+ `$cat2` 
+:   ([*int/object*](/How_to_Pass_Tag_Parameters#Int.2Fobject "How to Pass Tag Parameters"))
+    (*required*) The child category.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True if cat1 is an ancestor of cat2, False if not.
+
+Examples
+--------
+
+This example, placed in a theme's archive.php, uses [Conditional
+Tags](/Conditional_Tags "Conditional Tags") to show different content
+depending on the category being displayed. This is helpful when it is
+necessary to include something for any child category of a given
+category, instead of using *category-slug.php* method where you'd have
+to create *category-slug.php* files for each and every category.
+
+The code snip below checks to see if the category called 'Music' (ID 4)
+is being processed, and if so, presents a
+[wp\_nav\_menu](/Function_Reference/wp_nav_menu "Function Reference/wp nav menu")
+for the Music archive page, and any subcategories of Music (e.g. jazz,
+classical.)
+
+    <?php 
+      // if the category is music or a music SUBcategory, 
+      if (cat_is_ancestor_of(4, $cat) or is_category(4)):  ?>
+      <div id="music_subnav_menu" class="subnav_menu">
+        <?php wp_nav_menu( array('menu' => 'Music' )); ?>
+      </div>
+    <? endif; ?>
+
+Notes
+-----
+
+-   The function evaluates if the second category is a child of the
+    first category.
+-   Any level of ancestry will return True.
+-   Arguments should be either integer or objects, If arguments are
+    string representations of integers and not true integers
+    **cat\_is\_ancestor\_of** will return False.
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`cat_is_ancestor_of()` is located in `wp-includes/category.php`.
+

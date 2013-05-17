@@ -1,0 +1,56 @@
+Function Reference/get author feed link « WordPress Codex
+-----------
+
+Retrieve the feed link for a given author.
+
+Returns a link to the feed for all posts by a given author. A specific
+feed can be requested or left blank to get the default feed.
+
+Usage
+-----
+
+` <?php get_author_feed_link( $author_id, $feed ) ?> `
+
+Parameters
+----------
+
+ `$author_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of an author.
+    Default: *None*
+
+ `$feed` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Feed type.
+    Default: ''
+
+Return Values
+-------------
+
+ (string) 
+:   Link to the feed for the author specified by `$author_id`.
+
+Examples
+--------
+
+### Default Usage
+
+Returns the rss2 feed link for post by author 2.
+
+     <?php get_author_feed_link('2', ''); ?>
+
+Note
+----
+
+-   Currently the parameter '`feed`' is not evaluated by the function.
+
+Change Log
+----------
+
+Since: 2.5.0
+
+Source File
+-----------
+
+`get_author_feed_link()` is located in `wp-includes/link-template.php`.
+

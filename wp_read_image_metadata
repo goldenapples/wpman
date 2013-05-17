@@ -1,0 +1,146 @@
+Function Reference/wp read image metadata « WordPress Codex
+-----------
+
+Get extended image metadata, exif or iptc as available.
+
+Retrieves the EXIF metadata aperture, credit, camera, caption,
+copyright, iso created\_timestamp, focal\_length, shutter\_speed, and
+title.
+
+The IPTC metadata that is retrieved is APP13, credit, byline, created
+date and time, caption, copyright, and title. Also includes FNumber,
+Model, DateTimeDigitized, FocalLength, ISOSpeedRatings, and
+ExposureTime.
+
+Usage
+-----
+
+` <?php wp_read_image_metadata( $file ); ?> `
+
+Parameters
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+Must pass in file path to image
+
+Return Values
+-------------
+
+ `` `(boolean|array)`{style="color:gray"} 
+:   False on failure. Image metadata array on success.
+
+The elements returned in the array are:
+
+ `["aperture"]` 
+:   (*string*) Set to the EXIF FNumber field.
+ `["credit"]` 
+:   (*string*) Set to the first non-empty value found by looking through
+    the following fields:
+
+1.  EXIF Artist field
+2.  EXIF Author field
+3.  IPTC Credit field (2\#110)
+4.  IPTC Creator field (2\#080)
+
+ `["camera"]` 
+:   (*string*) Set to the EXIF Model field.
+ `["caption"]` 
+:   (*string*) Set to a non-empty value of one of the following fields
+    (see source code for the precise logic involved):
+
+1.  EXIF UserComment field
+2.  EXIF ImageDescription field
+3.  EXIF Comments field
+4.  IPTC Description field (2\#120)
+
+ `["created_timestamp"]` 
+:   (*string*) Set to the first non-empty value found by looking through
+    the following fields:
+
+1.  EXIF field DateTimeDigitized
+2.  IPTC Date and Time fields (2\#055 and 2\#060)
+
+ `["copyright"]` 
+:   (*string*) Set to the first non-empty value found by looking through
+    the following fields:
+
+1.  EXIF Copyright field
+2.  IPTC Copyright field (2\#116)
+
+ `["focal_length"]` 
+:   (*string*) Set to the EXIF FocalLength field.
+ `["iso"]` 
+:   (*string*) Set to the EXIF ISOSpeedRatings field.
+ `["shutter_speed"]` 
+:   (*string*) Set to the EXIF ExposureTime field.
+ `["title"]` 
+:   (*string*) Set to the first non-empty value found by looking through
+    the following fields:
+
+1.  EXIF Title field
+2.  IPTC Headline field (2\#105)
+3.  IPTC Title field (2\#005)
+4.  IPTC Caption field (2\#120) but only if less than 80 characters
+5.  EXIF ImageDescription field but only if less than 80 characters
+
+The (2\#nnn) value shown after each IPTC field (above) is the key of the
+array returned by PHP's iptcparse function for that particular IPTC
+field.
+
+Change Log
+----------
+
+Since: [2.5](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+`wp_read_image_metadata()` is located in `wp-admin/includes/image.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_read\_image\_metadata](http://codex.wordpress.org/Function_Reference/wp_read_image_metadata)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

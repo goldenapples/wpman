@@ -1,0 +1,50 @@
+Function Reference/get usernumposts « WordPress Codex
+-----------
+
+Returns the post count for the user whose ID is passed to it. Properties
+map directly to the wp\_posts table in the database (see [Database
+Description](/Database_Description#Table:_wp_posts "Database Description")).
+
+Replace With
+------------
+
+[count\_user\_posts()](/Function_Reference/count_user_posts "Function Reference/count user posts")
+
+Usage
+-----
+
+`  <?php get_usernumposts(userid); ?> `
+
+Parameters
+----------
+
+ `$userid` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the user whose post count should be
+    retrieved.
+    Default: *None*
+
+Example
+-------
+
+### Default Usage
+
+The call to `get_usernumposts` returns the number of posts made by the
+user.
+
+    <?php echo 'Posts made: ' . get_usernumposts(1); ?>
+
+Posts made: 143
+
+Change Log
+----------
+
+-   Since: 0.71
+-   Deprecated: 3.0.0
+
+Source File
+-----------
+
+`get usernumposts()` is located in `wp-includes/deprecated.php`.
+Formerly, `wp-includes/user.php`.
+

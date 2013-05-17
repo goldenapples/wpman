@@ -1,0 +1,65 @@
+Function Reference/comments open « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+comments are allowed for the current Post or a given Post ID. This is a
+boolean function, meaning it returns either TRUE or FALSE.
+
+Usage
+-----
+
+` <?php comments_open( $post_id ); ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The post ID
+    Default: 0
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+    add_filter( 'comments_open', 'my_comments_open', 10, 2 );
+
+    function my_comments_open( $open, $post_id ) {
+
+        $post = get_post( $post_id );
+
+        if ( 'page' == $post->post_type )
+            $open = false;
+
+        return $open;
+    }
+
+**Enqueuing a script only if we're seeing a single post and comments are
+open for the current post**
+
+    add_action('wp_print_scripts', 'myplugin_scripts');
+    function myplugin_scripts(){
+      if (is_single() && comments_open()) {
+        // myplugin_script must have been previously registered via wp_register_script()
+        wp_enqueue_script('myplugin_script');
+      }
+    }
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`comments_open()` is located in `wp-includes/comment-template.php`.
+

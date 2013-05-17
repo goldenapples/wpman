@@ -1,0 +1,125 @@
+Function Reference/wp nonce field « WordPress Codex
+-----------
+
+Retrieves or displays the [nonce](/Glossary#Nonce "Glossary") hidden
+form field.
+
+The nonce field is used to validate that the contents of the form
+request came from the current site and not somewhere else. A nonce does
+not offer absolute protection, but should protect against most cases. It
+is very important to use nonce fields in forms.
+
+The `$action` and `$name` arguments are optional, but if you want to
+have a better security, it is strongly suggested to give those two
+arguments. It is easier to just call the function without any arguments,
+because the nonce security method does not require them, but since
+crackers know what the default is, it will not be difficult for them to
+find a way around your nonce and cause damage.
+
+The nonce field name will be whatever `$name` value you gave, and the
+field value will be the value created using the `wp_create_nonce()`
+function.
+
+Usage
+-----
+
+` <?php wp_nonce_field( $action, $name, $referer, $echo ) ?> `
+
+Parameters
+----------
+
+ `$action` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Action name. Should give the context to what is taking
+    place. Optional but *recommended*.
+    Default: -1
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Nonce name. This is the name of the nonce hidden form
+    field to be created. Once the form is submitted, you can access the
+    generated nonce via `$_POST[$name]`.
+    Default: '\_wpnonce'
+
+ `$referer` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether also the referer hidden form field should be
+    created with the `wp_referer_field()` function.
+    Default: true
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to display or return the nonce hidden form
+    field, and also the referer hidden form field if the `$referer`
+    argument is set to *true*.
+    Default: true
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   The [nonce](/Glossary#Nonce "Glossary") hidden form field,
+    optionally followed by the referer hidden form field if the
+    `$referer` argument is set to *true*.
+
+Examples
+--------
+
+While less secure than the examples that follow, this is the simplest
+implementation which omits all arguments. In your form add the
+following:
+
+       <?php wp_nonce_field(); ?>
+
+It's better to name your action and nonce in your form. Enter values for
+the first and second arguments to print the necessary hidden field:
+
+    <form method="post">
+       <!-- some inputs here ... -->
+       <?php wp_nonce_field('name_of_my_action','name_of_nonce_field'); ?>
+    </form>
+
+Then in the page where it is being submitted to, you may verify it using
+the
+[wp\_verify\_nonce()](/Function_Reference/wp_verify_nonce "Function Reference/wp verify nonce")
+function. Notice that you have to manually retrieve the nonce (from the
+\$\_POST array in this example), and the name of the action is the *2nd*
+parameter instead of the first:
+
+    <?php
+    if ( empty($_POST) || !wp_verify_nonce($_POST['name_of_nonce_field'],'name_of_my_action') )
+    {
+       print 'Sorry, your nonce did not verify.';
+       exit;
+    }
+    else
+    {
+       // process form data
+    }
+
+\
+ If you are submitting and processing the form inside the WP
+administration area, you may verify the nonce using the
+[check\_admin\_referer()](/Function_Reference/check_admin_referer "Function Reference/check admin referer")
+function:
+
+    <?php
+    // if this fails, check_admin_referer() will automatically print a "failed" page and die.
+    if ( !empty($_POST) && check_admin_referer('name_of_my_action','name_of_nonce_field') )
+    {
+       // process form data
+    }
+
+Notes
+-----
+
+Change Log
+----------
+
+-   Since: [2.0.4](/Version_2.0.4 "Version 2.0.4")
+
+Source File
+-----------
+
+`wp_nonce_field()` is located in `wp-includes/functions.php`.
+

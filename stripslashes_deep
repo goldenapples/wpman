@@ -1,0 +1,114 @@
+Function Reference/stripslashes deep « WordPress Codex
+-----------
+
+Navigates through an array and removes slashes from the values.
+
+If an array is passed, the
+[`array_map()`](http://www.php.net/manual/en/function.array-map.php "http://www.php.net/manual/en/function.array-map.php")
+function causes a callback to pass the value back to the function. The
+slashes from each value will be removed using the
+[`stripslashes()`](http://www.php.net/manual/en/function.stripslashes.php "http://www.php.net/manual/en/function.stripslashes.php")
+function.
+
+Usage
+-----
+
+` <?php stripslashes_deep( $value ); ?> `
+
+Parameters
+----------
+
+ `$value` 
+:   ([*array|string*](/How_to_Pass_Tag_Parameters#Array.7Cstring "How to Pass Tag Parameters"))
+    (*required*) The array or string to be stripped.
+    Default: *None*
+
+Return Values
+-------------
+
+ (array|string) 
+:   Stripped array (or string in the callback).
+
+Examples
+--------
+
+### Basic Example
+
+You may want this function when developing your own PHP application
+intended to run within the WordPress environment. Specifically, your
+program needs to strip slashes when data arrives via `$_POST`, `$_GET`,
+`$_COOKIE`, and `$_REQUEST` arrays.
+
+An example would be a "Contact Me" page and the ancillary program that
+sanitizes the user-supplied text. Such user inputs typically travel from
+an HTML \<form method="post" ... \> to your program by way of the
+`$_POST` array. `stripslashes_deep()`, in that case, could be used thus
+(caution, see notes below):
+
+    $_POST = stripslashes_deep( $_POST );
+
+The stripslashes\_deep() function is recursive and will walk through the
+\$\_POST array even when some of the elements are themselves an array.
+
+Please note: WordPress Core and most plugins will still be expecting
+slashes, and the above code will confuse and break them. If you must
+unslash, consider only doing it to your own data which isn't used by
+others:
+
+    $your_own_data = stripslashes_deep( $_POST['your_own_data'] );
+
+### Good Coding Practice
+
+When you write program code for public distribution, you do not know
+ahead of time if the target server has magic quotes enabled. It is,
+therefore, best coding practice for your program to check for magic
+quotes and strip slashes if need be. It is worth knowing that
+`stripslashes_deep()` does not check for the presence of slashes. Your
+program would, most properly, test for and remove magic quote slashes.
+
+One possible way to use stripslashes\_deep() is this (caution, see notes
+below):
+
+    if ( get_magic_quotes_gpc() ) {
+        $_POST      = array_map( 'stripslashes_deep', $_POST );
+        $_GET       = array_map( 'stripslashes_deep', $_GET );
+        $_COOKIE    = array_map( 'stripslashes_deep', $_COOKIE );
+        $_REQUEST   = array_map( 'stripslashes_deep', $_REQUEST );
+    }
+
+-   The existence of magic quotes has been a headache for many PHP
+    composers. Future versions of PHP may very likely deprecate them.
+    Code will, however, need to continue to work around them as long as
+    PHP4 and PHP5 remain in use.
+
+Please Note: On any page load where WordPress itself loads, the above
+example will be unreliable. Very early in its execution, WordPress
+intentionally adds "magic quotes" for the sake of consistency. This is
+regardless of the return of get\_magic\_quotes\_gpc(). Core code, and
+plugins all over, expect the values of \$\_REQUEST etc to be escaped.
+
+\
+
+Notes
+-----
+
+-   See [Disabling Magic
+    Quotes](http://www.php.net/manual/en/security.magicquotes.disabling.php "http://www.php.net/manual/en/security.magicquotes.disabling.php")
+-   WordPress ignores the built in php magic quotes setting and the
+    value of get\_magic\_quotes\_gpc() and will always add magic quotes
+    (even after the feature is removed from PHP in 5.4).
+-   WordPress does this because too much core and plugin code has come
+    to rely on the quotes being there, so disabling quotes on the super
+    globals (as is done in both the "Basic Example" and "Good Coding
+    Practice" examples above) is likely to cause security holes.
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`stripslashes_deep()` is located in `wp-includes/formatting.php`.
+

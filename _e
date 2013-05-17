@@ -1,0 +1,51 @@
+Function Reference/ e « WordPress Codex
+-----------
+
+Displays the returned translated text from
+[`translate()`](/Function_Reference/translate "Function Reference/translate").
+
+Usage
+-----
+
+` <?php _e( $text, $domain ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to translate
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text
+    Default: 'default'
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Echos returned
+    [`translate()`](/Function_Reference/translate "Function Reference/translate")
+    string.
+-   *l10n* is an abbreviation for *localization*.
+
+Change Log
+----------
+
+-   Since: [1.2.0](/Version_1.2 "Version 1.2")
+
+Source File
+-----------
+
+`_e()` is located in `wp-includes/l10n.php`.
+

@@ -1,0 +1,44 @@
+Function Reference/get attached audio « WordPress Codex
+-----------
+
+Parameters
+----------
+
+ `$var` 
+:   ([*TYPE*](/How_to_Pass_Tag_Parameters#TYPE "How to Pass Tag Parameters"))
+    (*required*) Description.
+    Default: *None*
+
+ `$var` 
+:   ([*TYPE*](/How_to_Pass_Tag_Parameters#TYPE "How to Pass Tag Parameters"))
+    (*optional*) Description.
+    Default: DEFAULT
+
+Return
+------
+
+ `` `(TYPE)`{style="color:gray"} 
+:   Description.
+
+Usage
+-----
+
+`  <?php  ?> `
+
+Example
+-------
+
+Description text
+
+    Example code
+
+Change Log
+----------
+
+-   Since: [3.6.0](/Version_3.6 "Version 3.6")
+
+Source File
+-----------
+
+`get_attached_audio()` is located in `wp-whatever/file.php`.
+

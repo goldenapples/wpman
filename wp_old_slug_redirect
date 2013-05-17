@@ -1,0 +1,45 @@
+Function Reference/wp old slug redirect « WordPress Codex
+-----------
+
+Redirect old slugs to the correct permalink.
+
+Attempts to find the current slug from the past slugs.
+
+Usage
+-----
+
+` <?php wp_old_slug_redirect() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (null) 
+:   If no link is found, null is returned.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_old_slug_redirect()` is located in `/wp-includes/query.php`.
+

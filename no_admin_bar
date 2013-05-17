@@ -1,0 +1,66 @@
+Function Reference/show admin bar « WordPress Codex
+-----------
+
+Set the display status of the
+[Toolbar](/Administration_Screens#Toolbar "Administration Screens") for
+the front side of your website (you cannot turn off the toolbar on the
+WordPress dashboard).
+
+**Note**: The Admin Bar is replaced with the
+[Toolbar](/Administration_Screens#Toolbar "Administration Screens")
+since WordPress [Version 3.3](/Version_3.3 "Version 3.3").
+
+Usage
+-----
+
+    <?php show_admin_bar( $bool ); ?>
+
+Parameters
+----------
+
+ `$bool` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*required*) Whether to show the Toolbar.
+    Default: *None*
+
+Return Values
+-------------
+
+none
+
+Notes
+-----
+
+This function should be called immediately upon plugin load or placed in
+the theme's `functions.php` file.
+
+This function will also affect the display of the Toolbar in the
+dashboard for WordPress versions prior to [Version
+3.3](/Version_3.3 "Version 3.3").
+
+Examples
+--------
+
+    show_admin_bar( false );
+
+Placing the above line of code in theme's `function.php` file will
+prevent the Toolbar from rendering on the front end of your site.
+
+You can also determine for which users the admin bar is shown. For
+example the following lines will only display the admin bar for users
+with administrative privileges.
+
+    if ( ! current_user_can( 'manage_options' ) ) {
+        show_admin_bar( false );
+    }
+
+Change Log
+----------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+Source File
+-----------
+
+`show_admin_bar()` is located in `wp-includes/admin-bar.php`.
+

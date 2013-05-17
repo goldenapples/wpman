@@ -1,0 +1,39 @@
+Function Reference/the author login « WordPress Codex
+-----------
+
+This tag displays the login name of the author of a post. The login is
+also referred to as the **Username** an author uses to gain access to a
+WordPress blog. This tag must be used within [The
+Loop](/The_Loop "The Loop").
+
+**Note: It's usually not a good idea to provide login information
+publicly.**
+
+Replace With
+------------
+
+-   [the\_author\_meta('user\_login')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+
+Usage
+-----
+
+`  <?php the_author_login(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Example
+-------
+
+    <p>Author username: <?php the_author_login(); ?></p>
+
+Change Log
+----------
+
+-   Since: 0.71
+-   Deprecated: 2.8.0
+-   Replace By:
+    [the\_author\_meta('user\_login')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+

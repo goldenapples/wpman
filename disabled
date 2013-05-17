@@ -1,0 +1,47 @@
+Function Reference/disabled « WordPress Codex
+-----------
+
+Compares two given values (for example, a saved option vs. one chosen in
+a form) and, if the values are the same, adds the `disabled` attribute
+to a form input field.
+
+Usage
+-----
+
+` <input type=\"radio\" name=\"attachments\"    value=\"<?php echo esc_attr( $value ); ?>\" <?php disabled( $value1, $value2, false ); ?> />`
+
+Parameters
+----------
+
+ `$disabled` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) One of the values to compare.
+    Default: *None*
+
+ `$current` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The other value to compare if not just true.
+    Default: true
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to echo or just return the string. This
+    function will always return the result regardless.
+    Default: true
+
+Return Value
+------------
+
+ `` `(string)`{style="color:gray"} 
+:   HTML attribute (`disabled='disabled'`) or empty string.
+
+Changelog
+---------
+
+Since: 3.0
+
+Source File
+-----------
+
+`disabled()` is located in `wp-includes/general-template.php`.
+

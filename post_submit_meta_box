@@ -1,0 +1,40 @@
+Function Reference/post submit meta box « WordPress Codex
+-----------
+
+Display post submit form fields.
+
+Usage
+-----
+
+Outputted on
+`  add_meta_box( 'submitdiv', __( 'Publish' ), 'post_submit_meta_box', null, 'side', 'core' ); `
+
+When the core makes the add/edit screens for page/posts in
+`wp-admin/edit-form-advanced.php`.
+
+Parameters
+----------
+
+ `$post` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*required*) The object of the current post
+    Default: *None*
+
+Return Values
+-------------
+
+Outputs the meta box allowing users to (depending on their permissions)
+save as draft, publish, edit, delete, preview, or schedule a post or
+page.
+
+Change Log
+----------
+
+Since: 2.7.0
+
+Source File
+-----------
+
+`post_submit_meta_box()` is located in
+`wp-admin/includes/metaboxes.php`.
+

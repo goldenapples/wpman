@@ -1,0 +1,73 @@
+Function Reference/register nav menus « WordPress Codex
+-----------
+
+Registers *multiple* [custom navigation
+menus](/Navigation_Menus "Navigation Menus") in the new custom menu
+editor of WordPress 3.0. This allows for the creation of custom menus in
+the dashboard for use in your theme.
+
+See
+[register\_nav\_menu()](/Function_Reference/register_nav_menu "Function Reference/register nav menu")
+for creating a single menu, and [Navigation
+Menus](/Navigation_Menus "Navigation Menus") for adding theme support.
+
+Usage
+-----
+
+`  <?php register_nav_menus( $locations ); ?> `
+
+Parameters
+----------
+
+ `$locations` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) An associative array of menu location slugs (key) and
+    descriptions (according value).
+    Default: *None*
+
+Return Values
+-------------
+
+None.
+
+Examples
+--------
+
+    register_nav_menus( array(
+        'pluginbuddy_mobile' => 'PluginBuddy Mobile Navigation Menu',
+        'footer_menu' => 'My Custom Footer Menu'
+    ) );
+
+Notes
+-----
+
+-   This function automatically registers custom menu support for the
+    theme therefore you do **not** need to call
+    `add_theme_support( 'menus' );`
+-   Use
+    [wp\_nav\_menu()](/Function_Reference/wp_nav_menu "Function Reference/wp nav menu")
+    to display your custom menu.
+-   In the **Menus** admin page, there is a **Show advanced menu
+    properties** to allow *"Link Target" "CSS Classes" "Link
+    Relationship (XFN) Description"*
+-   Use
+    [get\_registered\_nav\_menus](/Function_Reference/get_registered_nav_menus "Function Reference/get registered nav menus")
+    to get back a list of the menus that have been registered in a
+    theme.
+
+Change Log
+----------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+-   `register_nav_menus()` is located in `wp-includes/nav-menu.php`.
+
+Resources
+---------
+
+-   [WordPress Navigation Menu
+    Generator](http://generatewp.com/nav-menus/ "http://generatewp.com/nav-menus/")
+

@@ -1,0 +1,187 @@
+Function Reference/remove meta box « WordPress Codex
+-----------
+
+Removes a meta box or any other element from a particular [post
+edit](/Writing_Posts "Writing Posts") screen of a given [post
+type](/Post_Types "Post Types"). It can be also used to remove a widget
+from the [dashboard screen](/Dashboard_Screen "Dashboard Screen").
+
+Usage
+-----
+
+` <?php remove_meta_box( $id, $page, $context ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Value of the *id* attribute of the HTML element to
+    remove. Some of the available *id* values are given below:
+    -   'authordiv' – Author metabox
+    -   'categorydiv' – Categories metabox.
+    -   'commentstatusdiv' – Comments status metabox (discussion)
+    -   'commentsdiv' – Comments metabox
+    -   'formatdiv' – Formats metabox
+    -   'pageparentdiv' – Attributes metabox
+    -   'postcustom' – Custom fields metabox
+    -   'postexcerpt' – Excerpt metabox
+    -   'postimagediv' – Featured image metabox
+    -   'revisionsdiv' – Revisions metabox
+    -   'slugdiv' – Slug metabox
+    -   'submitdiv' – Date, status, and update/save metabox
+    -   'tagsdiv-post\_tag' – Tags metabox
+    -   'trackbacksdiv' – Trackbacks metabox
+    -   ...
+
+    Default: *None*
+
+ `$page` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Type of the screen to remove the meta box from, such
+    as:
+    -   'post'
+    -   'page'
+    -   'attachment'
+    -   'link'
+    -   'dashboard'
+    -   or any registered [custom post
+        type](/Custom_Post_Types "Custom Post Types"), e.g. 'my-product'
+
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) 'normal', 'advanced', or 'side'.
+    Default: *None*
+
+Return Values
+-------------
+
+None.
+
+Examples
+--------
+
+This example removes certain meta boxes from the post edit screens of
+both the *Post* and *Link* post types for non-administrators.
+
+    if (is_admin()) :
+    function my_remove_meta_boxes() {
+     if( !current_user_can('manage_options') ) {
+      remove_meta_box('linktargetdiv', 'link', 'normal');
+      remove_meta_box('linkxfndiv', 'link', 'normal');
+      remove_meta_box('linkadvanceddiv', 'link', 'normal');
+      remove_meta_box('postexcerpt', 'post', 'normal');
+      remove_meta_box('trackbacksdiv', 'post', 'normal');
+      remove_meta_box('postcustom', 'post', 'normal');
+      remove_meta_box('commentstatusdiv', 'post', 'normal');
+      remove_meta_box('commentsdiv', 'post', 'normal');
+      remove_meta_box('revisionsdiv', 'post', 'normal');
+      remove_meta_box('authordiv', 'post', 'normal');
+      remove_meta_box('sqpt-meta-tags', 'post', 'normal');
+     }
+    }
+    add_action( 'admin_menu', 'my_remove_meta_boxes' );
+    endif;
+
+Here is an example that removes the *Custom Fields* box from the *Post*
+edit screen.
+
+    <?php 
+    function remove_post_custom_fields() {
+        remove_meta_box( 'postcustom' , 'post' , 'normal' ); 
+    }
+    add_action( 'admin_menu' , 'remove_post_custom_fields' );
+    ?>
+
+Here is another example that removes the *Excerpt* meta box from the
+*Page* edit screen,
+
+    <?php 
+    function remove_page_excerpt_field() {
+        remove_meta_box( 'postexcerpt' , 'page' , 'normal' ); 
+    }
+    add_action( 'admin_menu' , 'remove_page_excerpt_field' );
+    ?>
+
+This example removes the *Comments*, *Author* and *Comments Status* meta
+boxes from the *Page* edit screen,
+
+    <?php 
+    function remove_page_fields() {
+     remove_meta_box( 'commentstatusdiv' , 'page' , 'normal' ); //removes comments status
+     remove_meta_box( 'commentsdiv' , 'page' , 'normal' ); //removes comments
+     remove_meta_box( 'authordiv' , 'page' , 'normal' ); //removes author 
+    }
+    add_action( 'admin_menu' , 'remove_page_fields' );
+    ?>
+
+If you want to remove a custom taxonomy box from a custom post type edit
+screen, you can use this:
+
+    function remove_custom_taxonomy()
+    {
+        remove_meta_box($custom_taxonomy_slug.'div', $custom_post_type, 'side' );
+            
+            // $custom_taxonomy_slug is the slug of your taxonomy, e.g. 'genre' )
+            // $custom_post_type is the "slug" of your post type, e.g. 'movies' )
+    }
+    add_action( 'admin_menu', 'remove_custom_taxonomy' );
+
+Even the *Publish* box can be removed if desired:
+
+    function remove_publish_box()
+    {
+        remove_meta_box( 'submitdiv', 'custom_post_id', 'side' );
+    }
+    add_action( 'admin_menu', 'remove_publish_box' );
+
+To remove all the widgets from the [dashboard
+screen](/Dashboard_Screen "Dashboard Screen"), use:
+
+    function remove_dashboard_widgets(){
+        remove_meta_box('dashboard_right_now', 'dashboard', 'normal');   // Right Now
+        remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal'); // Recent Comments
+        remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal');  // Incoming Links
+        remove_meta_box('dashboard_plugins', 'dashboard', 'normal');   // Plugins
+        remove_meta_box('dashboard_quick_press', 'dashboard', 'side');  // Quick Press
+        remove_meta_box('dashboard_recent_drafts', 'dashboard', 'side');  // Recent Drafts
+        remove_meta_box('dashboard_primary', 'dashboard', 'side');   // WordPress blog
+        remove_meta_box('dashboard_secondary', 'dashboard', 'side');   // Other WordPress News
+    // use 'dashboard-network' as the second parameter to remove widgets from a network dashboard.
+    }
+    add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
+
+\
+
+Notes
+-----
+
+### Hooks
+
+Because you can't remove a meta box until it's been added, it's
+important to make sure your call to `remove_meta_box()` happens in the
+right sequence. Just adding a call to `remove_meta_box()` bare in your
+*functions.php* will probably not do the trick.
+
+The
+[add\_meta\_boxes](/Plugin_API/Action_Reference/add_meta_boxes "Plugin API/Action Reference/add meta boxes")
+action hook is probably a good candidate, since most of your meta boxes
+are generated on the edit post form page. This hook is called in the
+*wp-admin/edit-form-advanced.php* file *after* all the meta boxes have
+been successfully added to the page. This affects all meta boxes
+(conceivably, other than those that are custom generated by a theme or
+plugin) that appear on post edit pages (including custom post types edit
+pages) of the administration back-end.
+
+Change Log
+----------
+
+Since: [2.6](/Version_2.6 "Version 2.6")
+
+Source File
+-----------
+
+`remove_meta_box()` is located in `wp-admin/includes/template.php`
+

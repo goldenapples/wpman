@@ -1,0 +1,41 @@
+Function Reference/nocache headers « WordPress Codex
+-----------
+
+Sets the headers to prevent caching for the different browsers.
+
+Different browsers support different `nocache` headers, so several
+headers must be sent so that all of them get the point that no caching
+should occur.
+
+Usage
+-----
+
+` <?php nocache_headers() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`nocache_headers()` is located in `wp-includes/functions.php`.
+

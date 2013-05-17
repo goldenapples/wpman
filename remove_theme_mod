@@ -1,0 +1,43 @@
+Function Reference/remove theme mod « WordPress Codex
+-----------
+
+Remove theme modification name from current theme list.
+
+If removing the name also removes all elements, then the entire option
+will be removed.
+
+Usage
+-----
+
+` <?php remove_theme_mod( $name ) ?> `
+
+Parameters
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Theme modification name.
+    Default: *None*
+
+Return Values
+-------------
+
+ (null) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`remove_theme_mod()` is located in `wp-includes/theme.php`.
+

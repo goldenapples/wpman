@@ -1,0 +1,57 @@
+Function Reference/esc url raw « WordPress Codex
+-----------
+
+The esc\_url\_raw() function is similar to
+[esc\_url()](/Function_Reference/esc_url "Function Reference/esc url")
+(and actually uses it), but unlike esc\_url() it **does not** replace
+entities for display. The resulting URL is safe to use in database
+queries, redirects and HTTP requests.
+
+This function is not safe to use for displaying the URL, use
+[esc\_url()](/Function_Reference/esc_url "Function Reference/esc url")
+instead.
+
+Usage
+-----
+
+` <?php esc_url_raw( $url, $protocols ); ?> `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The URL to be cleaned.
+    Default: *None*
+
+ `$protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of acceptable protocols. Defaults to '`http`',
+    '`https`', '`ftp`', '`ftps`', '`mailto`', '`news`', '`irc`',
+    '`gopher`', '`nntp`', '`feed`', '`telnet`' if not set.
+    Default: null
+
+Return Values
+-------------
+
+ (string) 
+:   The cleaned `$url` after the '`clean_url`' filter is applied.
+
+Examples
+--------
+
+` <!-- Right --><?php    $url = 'http://wordpress.org';    $response = wp_remote_get( esc_url_raw( $url ) ); // no need to espace entities    if ( !is_wp_error( $response ) ) {        echo wp_remote_retrieve_body( $response );    }?><!-- Wrong! Use esc_url instead! --><img src='<?php echo esc_url_raw( $url ); ?>' /><a href='<?php echo esc_url_raw( $url ); ?>'>WordPress</a>`
+
+Notes
+-----
+
+Changelog
+---------
+
+-   Since: 2.8
+
+Source File
+-----------
+
+`esc_url_raw()` is located in `wp-includes/formatting.php`.
+

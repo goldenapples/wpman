@@ -1,0 +1,49 @@
+Function Reference/wp filter post kses « WordPress Codex
+-----------
+
+Sanitize content for allowed
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") tags for post
+content.
+
+Post content refers to the page contents of the '`post`' type and not
+`$_POST` data from forms.
+
+Usage
+-----
+
+` <?php wp_filter_post_kses( $data ) ?> `
+
+Parameters
+----------
+
+ `$data` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post content to filter
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Filtered post content with allowed
+    [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") tags and
+    attributes intact.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`unknown`) `$allowedposttags`
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`wp_filter_post_kses()` is located in `wp-includes/kses.php`.
+

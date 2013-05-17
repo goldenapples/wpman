@@ -1,0 +1,64 @@
+Function Reference/add user to blog « WordPress Codex
+-----------
+
+Associates a user to a blog, along with specifying the user's role.
+
+Usage
+-----
+
+` <?php add_user_to_blog( $blog_id, $user_id, $role ) ?> `
+
+Parameters
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of the blog you're adding the user to.
+    Default: *None*
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of the user you're adding.
+    Default: *None*
+
+ `$role` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The role you want the user to have
+    Default: *None*
+
+Return Value
+------------
+
+ `` `(True|WP_Error object)`{style="color:gray"} 
+:   Returns true on success or a WP\_Error object describing the failure
+
+Examples
+--------
+
+    <?php
+    //ADD USER ID 1 TO BLOG ID 1 AS AN EDITOR
+    $user_id = 1; 
+    $blog_id = 1;
+    $role = 'editor';
+    add_user_to_blog( $blog_id, $user_id, $role )
+    ?>
+
+    <?php 
+    //ADD USER ID 2 TO BLOG ID 3 AS AN ADMINISTRATOR
+    $user_id = 2; 
+    $blog_id = 3;
+    $role = 'administrator';
+    add_user_to_blog( $blog_id, $user_id, $role )
+    ?>
+
+Notes
+-----
+
+Use the 'add\_user\_to\_blog' action to fire an event when users are
+added to a blog.
+
+Source File
+-----------
+
+`add_user_to_blog()` is located in `wp-includes/ms-functions.php`.
+

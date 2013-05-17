@@ -1,0 +1,39 @@
+Function Reference/unregister default headers « WordPress Codex
+-----------
+
+Unregister default headers.
+
+This function must be called after
+[register\_default\_headers()](/Function_Reference/register_default_headers "Function Reference/register default headers")
+has already added the header you want to remove.
+
+Usage
+-----
+
+` <?php unregister_default_headers( $headers ); ?> `
+
+Parameters
+----------
+
+ `$header` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*required*) The header string id (key of array) to remove, or an
+    array thereof.
+    Default: *None*
+
+Return Values
+-------------
+
+ (boolean) 
+:   Whether the headers were removed.
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`unregister_default_headers()` is located in `wp-includes/theme.php`.
+

@@ -1,0 +1,43 @@
+Function Reference/htmlentities2 « WordPress Codex
+-----------
+
+Convert entities, while preserving already-encoded entities.
+
+Usage
+-----
+
+` <?php htmlentities2( $myHTML ) ?> `
+
+Parameters
+----------
+
+ `$myHTML` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be converted.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Converted text.
+
+Examples
+--------
+
+Notes
+-----
+
+-   See Also: [Borrowed from the PHP Manual user
+    notes.](http://www.php.net/htmlentities "http://www.php.net/htmlentities")
+
+Change Log
+----------
+
+Since: 1.2.2
+
+Source File
+-----------
+
+`htmlentities2()` is located in `wp-includes/formatting.php`.
+

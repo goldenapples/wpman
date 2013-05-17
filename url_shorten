@@ -1,0 +1,42 @@
+Function Reference/url shorten « WordPress Codex
+-----------
+
+Shortens URLs. Removes `http://`, `www.`, and truncates the remaining
+URL to 35 characters, including '...' if the URL is longer than that.
+
+WordPress uses it to display URLs on the [link management
+screen](/Links_Manager "Links Manager").
+
+Usage
+-----
+
+`  <?php echo url_shorten('http://www.example.com/an/article/with/a/very/long/url'); ?> `
+
+This would print:
+
+`  example.com/an/article/with/a/ve... `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) URL that is being shortened.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   The shortened URL.
+
+Changelog
+---------
+
+Since: 1.2.1
+
+Source File
+-----------
+
+`url_shorten()` is located in `wp-admin/includes/misc.php`.
+

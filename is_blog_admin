@@ -1,0 +1,40 @@
+Function Reference/is blog admin « WordPress Codex
+-----------
+
+Whether the current request is for a blog admin screen /wp-admin/.
+
+Does not inform on whether the user is a blog admin! Use capability
+checks to tell if the user should be accessing a section or not.
+
+Usage
+-----
+
+` <?php is_blog_admin() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (boolean) 
+:   True if inside WordPress network administration pages.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`is_blog_admin()` is located in `/wp-includes/load.php`.
+

@@ -1,0 +1,49 @@
+Function Reference/is network admin « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks
+whether the current request if for a network admin screen
+(wp-admin/network). This is a boolean function, meaning it returns
+either TRUE or FALSE.
+
+Usage
+-----
+
+` <?php is_network_admin(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+    if ( is_network_admin() ) {
+        echo "You are viewing a WordPress network administration page";
+    } else {
+        echo "You are <em>not</em> viewing a WordPress network administration page";
+    }
+
+Notes
+-----
+
+`is_network_admin()` does not inform on whether the user is a super
+admin or has network administration rights.
+
+Change Log
+----------
+
+Since: 1.3.0
+
+Source File
+-----------
+
+`is_network_admin()` is located in `wp-includes/load.php`.
+

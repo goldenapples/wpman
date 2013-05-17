@@ -1,0 +1,55 @@
+Function Reference/get lastpostmodified « WordPress Codex
+-----------
+
+Retrieve last post modified date depending on timezone.
+
+The server timezone is the default and is the difference between
+[GMT](/Glossary#GMT "Glossary") and server time. The '`blog`' value is
+just when the last post was modified. The '`gmt`' is when the last post
+was modified in [GMT](/Glossary#GMT "Glossary") time.
+
+Usage
+-----
+
+` <?php get_lastpostmodified( $timezone ); ?> `
+
+Parameters
+----------
+
+ `$timezone` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The location to get the time. Can be '`gmt`', '`blog`',
+    or '`server`'.
+    Default: 'server'
+
+Return Values
+-------------
+
+ (string) 
+:   The date the post was last modified.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`get_lastpostmodified`' filter
+-   Uses global: (`mixed`) `$cache_lastpostmodified` Stores the date the
+    last post was last modified.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses global: (`integer`) `$blog_id` The Blog ID.
+
+Change Log
+----------
+
+Since: 1.2.0
+
+Source File
+-----------
+
+`get_lastpostmodified()` is located in `wp-includes/post.php`.
+

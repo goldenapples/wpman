@@ -1,0 +1,49 @@
+Function Reference/ent2ncr « WordPress Codex
+-----------
+
+Converts named entities into numbered entities.
+
+Usage
+-----
+
+` <?php ent2ncr( $text ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text within which entities will be converted.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Text with converted entities.
+
+Examples
+--------
+
+    <?php
+    echo ent2ncr("C&rsquo;est la f&ecirc;te!");
+    // this will output: C&#8217;est la f&#234;te!
+    ?>
+
+And you will see:
+
+    C'est la fête!
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.5.1
+
+Source File
+-----------
+
+`ent2ncr()` is located in `wp-includes/formatting.php`.
+

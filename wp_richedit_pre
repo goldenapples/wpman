@@ -1,0 +1,43 @@
+Function Reference/wp richedit pre « WordPress Codex
+-----------
+
+Formats text for the rich text editor.
+
+The filter '`richedit_pre`' is applied here. If `$text` is empty the
+filter will be applied to an empty string.
+
+Usage
+-----
+
+` <?php wp_richedit_pre( $text ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be formatted.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   The formatted text after filter is applied.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`wp_richedit_pre()` is located in `wp-includes/formatting.php`.
+

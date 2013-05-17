@@ -1,0 +1,184 @@
+Function Reference/add help tab « WordPress Codex
+-----------
+
+This function is used to add a tab to the Contextual Help menu in an
+admin page.
+
+`add_help_tab()` is a method of the
+[WP\_Screen()](/Class_Reference/WP_Screen "Class Reference/WP Screen")
+class, and can not be called directly.
+
+To use the method, fetch the `$current_screen` object or use
+[get\_current\_screen()](/Function_Reference/get_current_screen "Function Reference/get current screen")
+and then call the method from the object. Developers should keep in mind
+that you may need to filter `$current_screen` using an `if` or `switch`
+statement to prevent new help tabs from being added to ALL admin
+screens.
+
+Usage
+-----
+
+     <?php
+    $screen = get_current_screen();
+    $screen->add_help_tab( array( 
+       'id' => $id,            //unique id for the tab
+       'title' => $title,      //unique visible title for the tab
+       'content' => $content,  //actual help text
+       'callback' => $callback //optional function to callback
+    ) );
+    ?> 
+
+Parameters
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Contains values to be displayed by the created help tab
+    and a callback argument
+    Default: *None*
+
+### Arguments
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Title for the tab.
+    Default: *None*
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Tab ID. Must be HTML-safe and should be unique for this
+    menu. It is \*\*NOT\*\* allowed to contain any empty spaces!
+    Default: *None*
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Help tab content in plain text or HTML.
+    Default: *None*
+
+ `$function` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*optional*) The function to be called to output the content for
+    this page.
+    Default: *None*
+
+\
+
+Example
+-------
+
+### Default Usage
+
+This example shows how you would add contextual help to an admin page
+you've created with the `add_options_page()` function. Here, we assume
+that your admin page has a slug of 'my\_admin\_page' and exists under
+the Options tab.
+
+    <?php 
+    add_action('admin_menu', 'my_admin_add_page');
+    function my_admin_add_page() {
+        global $my_admin_page;
+        $my_admin_page = add_options_page(__('My Admin Page', 'map'), __('My Admin Page', 'map'), 'manage_options', 'map', 'my_admin_page');
+
+        // Adds my_help_tab when my_admin_page loads
+        add_action('load-'.$my_admin_page, 'my_admin_add_help_tab');
+    }
+
+    function my_admin_add_help_tab () {
+        global $my_admin_page;
+        $screen = get_current_screen();
+
+        /*
+         * Check if current screen is My Admin Page
+         * Don't add help tab if it's not
+         */
+        if ( $screen->id != $my_admin_page )
+            return;
+
+        // Add my_help_tab if current screen is My Admin Page
+        $screen->add_help_tab( array(
+            'id'    => 'my_help_tab',
+            'title' => __('My Help Tab'),
+            'content'   => '<p>' . __( 'Descriptive content that will show in My Help Tab-body goes here.' ) . '</p>',
+        ) );
+    }
+    ?>
+
+### Advanced Usage (from within a class)
+
+        <?php
+    /**
+     * Plugin Name: Help Tab Test Case
+     * Plugin URI:  http://unserkaiser.com
+     * Description: Add Help Tab test case
+     */
+    class example_help
+    {
+        public $tabs = array(
+            // The assoc key represents the ID
+            // It is NOT allowed to contain spaces
+             'EXAMPLE' => array(
+                 'title'   => 'TEST ME!'
+                ,'content' => 'FOO'
+             )
+        );
+
+        static public function init()
+        {
+            $class = __CLASS__ ;
+            new $class;
+        }
+
+        public function __construct()
+        {
+            add_action( "load-{$GLOBALS['pagenow']}", array( $this, 'add_tabs' ), 20 );
+        }
+
+        public function add_tabs()
+        {
+            foreach ( $this->tabs as $id => $data )
+            {
+                get_current_screen()->add_help_tab( array(
+                     'id'       => $id
+                    ,'title'    => __( $data['title'], 'some_textdomain' )
+                    // Use the content only if you want to add something
+                    // static on every help tab. Example: Another title inside the tab
+                    ,'content'  => '<p>Some stuff that stays above every help text</p>'
+                    ,'callback' => array( $this, 'prepare' )
+                ) );
+            }
+        }
+
+        public function prepare( $screen, $tab )
+            {
+                printf( 
+                 '<p>%s</p>'
+                ,__( 
+                         $tab['callback'][0]->tabs[ $tab['id'] ]['content']
+                    ,'dmb_textdomain' 
+                 )
+            );
+        }
+    }
+    // Always add help tabs during "load-{$GLOBALS['pagenow'}".
+    // There're some edge cases, as for example on reading options screen, your
+    // Help Tabs get loaded before the built in tabs. This seems to be a core error.
+    add_action( 'load-post.php', array( 'example_help', 'init' ) );
+    add_action( 'load-post-new.php', array( 'example_help', 'init' ) );
+
+[Above example came out of a WPSE
+question](http://wordpress.stackexchange.com/questions/53595/help-tabs-with-add-help-tab-callback-how-does-the-argument-work/53598#53598 "http://wordpress.stackexchange.com/questions/53595/help-tabs-with-add-help-tab-callback-how-does-the-argument-work/53598#53598").
+
+[You can read this WPSE question about how to fix the wrong order bug
+without changing core
+code](http://wordpress.stackexchange.com/questions/45210/positioning-screen-contextual-help-tabs "http://wordpress.stackexchange.com/questions/45210/positioning-screen-contextual-help-tabs").
+
+Change Log
+----------
+
+-   Since: [Version 3.3](/Version_3.3 "Version 3.3")
+
+Source File
+-----------
+
+`add_help_tab()` is located in `wp-admin/includes/screen.php`.
+

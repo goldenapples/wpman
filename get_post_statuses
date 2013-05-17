@@ -1,0 +1,43 @@
+Function Reference/get post statuses « WordPress Codex
+-----------
+
+Returns an array of the following core post statuses:
+
+-   Draft
+-   Pending Review
+-   Private
+-   Published
+
+*Note:* To get an array of all post statuses, including those created
+with `register_post_type()`, see `get_post_stati`.
+
+Usage
+-----
+
+`<?php get_post_statuses(); ?>`
+
+Parameters
+----------
+
+This function accepts no parameters.
+
+Return Values
+-------------
+
+    array(
+        'draft'         => __('Draft'),
+        'pending'       => __('Pending Review'),
+        'private'       => __('Private'),
+        'publish'       => __('Published')
+    );
+
+Change Log
+----------
+
+-   Since: 2.5.0
+
+Source File
+-----------
+
+`get_post_statuses()` is located in `wp-includes/post.php`.
+

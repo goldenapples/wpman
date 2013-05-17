@@ -1,0 +1,38 @@
+Function Reference/the author nickname « WordPress Codex
+-----------
+
+This tag displays the nickname for the author of a post. The
+**Nickname** field is set in the user's profile
+([Administration](/Administration_Panels "Administration Panels") \>
+[Profile](/Administration_Panels#Your_Profile "Administration Panels")
+\> [Your Profile](/Your_Profile_SubPanel "Your Profile SubPanel")). This
+tag must be used within [The Loop](/The_Loop "The Loop").
+
+Replace With
+------------
+
+-   [the\_author\_meta('nickname')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+
+Usage
+-----
+
+`  <?php the_author_nickname(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Example
+-------
+
+    <p>Posted by <?php the_author_nickname(); ?></p>
+
+Change Log
+----------
+
+-   Since: 1.5.0
+-   Deprecated: 2.8.0
+-   Replace By:
+    [the\_author\_meta('nickname')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+

@@ -1,0 +1,51 @@
+Function Reference/get category template « WordPress Codex
+-----------
+
+Retrieve path of category template in current or parent
+[template](/Templates "Templates").
+
+Works by retrieving the current category ID, for example
+`'category-1.php'` and will fallback to `category.php` template, if the
+category ID file doesn't exist.
+
+Usage
+-----
+
+` <?php get_category_template() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Returns path of category template in current or parent template.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls `'category_template'` on file path of category template.
+-   Uses:
+    [`locate_template()`](/Function_Reference/locate_template "Function Reference/locate template")
+-   Uses:
+    [`get_query_var()`](/Function_Reference/get_query_var "Function Reference/get query var")
+    on `'cat'`.
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_category_template()` is located in `wp-includes/theme.php`.
+

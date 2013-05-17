@@ -1,0 +1,74 @@
+Function Reference/get month link « WordPress Codex
+-----------
+
+Returns the monthly archive [URL](/Glossary#URI_and_URL "Glossary") to a
+specific year and month for use in [PHP](/Glossary#PHP "Glossary"). It
+does NOT display the URL. If year and month parameters are set to `''`,
+the tag returns the URL for the current month's archive.
+
+Usage
+-----
+
+`  <?php get_month_link( $year, $month ); ?> `
+
+Parameters
+----------
+
+ `year` 
+:   ([*boolean/integer*](/How_to_Pass_Tag_Parameters#Boolean.2Finteger "How to Pass Tag Parameters"))
+    (*optional*) The year for the archive. Use `''` to assign current
+    year.
+    Default: *None*
+
+ `month` 
+:   ([*boolean/integer*](/How_to_Pass_Tag_Parameters#Boolean.2Finteger "How to Pass Tag Parameters"))
+    (*optional*) The month for the archive. Use `''` to assign current
+    month.
+    Default: *None*
+
+Examples
+--------
+
+### Month Archive as Link
+
+Returns the URL to the current month's archive as a link by displaying
+it within an anchor tag with the PHP echo command.
+
+    <a href="<?php echo get_month_link('', ''); ?>">All posts this month</a>
+
+### Assigning Specific Month to Variable
+
+Returns URL to the archive for October 2004, assigning it to the
+variable \$oct\_04. The variable can then be used elsewhere in a page.
+
+    <?php $oct_04 = get_month_link('2004', '10'); ?>
+
+### Use With PHP Variables
+
+PHP code block for use within [The Loop](/The_Loop "The Loop"): Assigns
+year and month of a post to the variables \$arc\_year and \$arc\_month.
+These are used with the get\_month\_link() tag, which returns the URL as
+a link to the monthly archive for that post, displaying it within an
+anchor tag with the PHP echo command. See [Formatting Date and
+Time](/Formatting_Date_and_Time "Formatting Date and Time") for info on
+format strings used in
+[get\_the\_time()](/Function_Reference/get_the_time "Function Reference/get the time")
+tag.
+
+    <?php $archive_year  = get_the_time('Y'); ?>
+    <?php $archive_month = get_the_time('m'); ?>
+
+    <a href="<?php echo get_month_link( $archive_year, $archive_month ); ?>">
+    Archive for <?php the_time('F Y'); ?>
+    </a>
+
+Changelog
+---------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`get_month_link()` is located in `wp-includes/link-template.php`.
+

@@ -1,0 +1,61 @@
+Function Reference/wp create category « WordPress Codex
+-----------
+
+This function adds a "simple" category by specifying a category name and
+(optionally) a category parent.
+
+Usage
+-----
+
+` <?php wp_create_category( $cat_name, $parent ); ?> `
+
+Parameters
+----------
+
+ `$cat_name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name for the new category.
+    Default: *None*
+
+ `$parent` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Category ID of the parent category.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(integer)` 
+:   0 on failure, category id on success.
+
+Examples
+--------
+
+In order to create a simple category use:
+
+     wp_create_category('My category name');
+
+To create a category that is a child of Uncategorized (or whatever
+category has the ID 0), use:
+
+    wp_create_category('Child of Uncategorized', 0);
+
+To get id of category created and put value in variable:
+
+    $id = wp_create_category('Child of Uncategorized', 0);
+
+Notes
+-----
+
+-   `wp_create_category()` is a thin wrapper around
+    `wp_insert_category()`.
+-   Because this is a wrapper, it is not suitable for entering a complex
+    custom taxonomy element.
+-   If the category already exists, it is not duplicated. The ID of the
+    original existing category is returned without error.
+
+Source File
+-----------
+
+`wp_create_category()` is located in `wp-admin/includes/taxonomy.php`.
+

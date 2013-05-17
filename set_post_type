@@ -1,0 +1,98 @@
+Function Reference/set post type « WordPress Codex
+-----------
+
+Updates the post type for the post ID.
+
+The page or post cache will be cleaned for the post ID. @uses \$wpdb
+name a few.
+
+Usage
+-----
+
+` <?php set_post_type( $post_id, $post_type ); ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID to change post type. Not actually optional.
+    Default: 0
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional, default is post. Supported values are 'post'
+    or 'page' to name a few.
+    Default: post
+
+Examples
+--------
+
+    <?php
+    $post_id = 15;
+    if ( set_post_type( $post_id, 'page'  ) ) {
+      echo "Post #$post_id is now a Page";
+    } else {
+      echo "Impossible to transform this post into a page";
+    }
+    ?>
+
+Return Values
+-------------
+
+ `` `(integer)`{style="color:gray"} 
+:   Amount of rows changed. Should be 1 for success and 0 for failure.
+
+Change Log
+----------
+
+Since: [2.5](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+set\_post\_type() is located in `wp-includes/post.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/set\_post\_type](http://codex.wordpress.org/Function_Reference/set_post_type)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

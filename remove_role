@@ -1,0 +1,41 @@
+Function Reference/remove role « WordPress Codex
+-----------
+
+Removes a [role](/Roles_and_Capabilities#Roles "Roles and Capabilities")
+from WordPress.
+
+**NB: This setting is saved to the database (in table wp\_options, field
+wp\_user\_roles), so it might be better to run this on theme/plugin
+activation**
+
+Usage
+-----
+
+`  <?php remove_role( $role ); ?> `
+
+Parameters
+----------
+
+ `$role` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Role name
+    Default: *None*
+
+Example
+-------
+
+    <?php remove_role( 'subscriber' ); ?>
+
+Notes
+-----
+
+Changelog
+---------
+
+-   Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+Source Code
+-----------
+
+`remove_role()` is located in `wp-includes/capabilities.php`.
+

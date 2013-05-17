@@ -1,0 +1,64 @@
+Function Reference/login header « WordPress Codex
+-----------
+
+Outputs the header for the login page.
+
+Usage
+-----
+
+    <?php login_header($title, $message, $wp_error) ?>
+
+Parameters
+----------
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Login In Page title to display in \<title/\> element.
+    Default: 'Log In'
+
+ `$message` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Message to display in header
+    Default: ""
+
+ `$wp_error` 
+:   ([*WP\_Error*](/How_to_Pass_Tag_Parameters#WP_Error "How to Pass Tag Parameters"))
+    (*optional*) WordPress Error Object
+    Default: WP\_Error
+
+Examples
+--------
+
+From wp\_login.php:
+
+    <?php
+    $errors = new WP_Error();
+    ...e 
+    login_header(__('Reset Password'), '<p class="message reset-pass">' . __('Enter your new password below.') . '</p>', $errors );
+    ?>
+
+### Default Usage
+
+Actions
+-------
+
+-   Calls `login_head` for outputting HTML in the Log In header.
+
+Filters
+-------
+
+-   Calls `login_headerurl` for the top login link.
+-   Calls `login_headertitle` for the top login title.
+-   Calls `login_message` on the message to display in the header.
+-   Calls `login_errors` on the display of the error messages.
+-   Calls `login_body_class` on the array of class names used for the
+    login page body, additionally passing the `$action`.
+
+Change Log
+----------
+
+Source File
+-----------
+
+`login_header()` is located in `wp-login.php`
+

@@ -1,0 +1,70 @@
+Function Reference/get extended « WordPress Codex
+-----------
+
+Get extended entry info (` <!--more-->`).
+
+There should not be any space after the second dash and before the word
+'more'. There can be text or space(s) after the word 'more', but won't
+be referenced.
+
+The returned array has 'main' and 'extended' keys. Main has the text
+before the ` <code><!--more--></code>`. The 'extended' key has the
+content after the ` <code><!--more--></code>` comment.
+
+Usage
+-----
+
+` <?php get_extended( $post_content ) ?> `
+
+Parameters
+----------
+
+ `$post_content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post content.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(array)` 
+:   Post before ('main') and after ('extended').
+
+Examples
+--------
+
+### Displaying small excerpts from latest posts.
+
+If you want to display the latest posts on your WordPress blog, but only
+the content which comes before the ` <!--more-->` tag, you can use this:
+
+    <ul>
+    global $post;
+    $args = array( 'numberposts' => 5);
+    $myposts = get_posts( $args );
+    foreach( $myposts as $post ) : setup_postdata($post);  
+    $content_arr = get_extended(get_the_content()); ?>
+        <li>
+           <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+           </br>
+           <?php echo $content_arr['main'];  //Display the part before the more tag  ?>   
+        </li>
+    <?php endforeach; ?>
+    </ul>
+
+**Note:** *\$content\_arr['extended'] contains the contents after the
+more tag.*
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`get_extended()` is located in `wp-includes/post.php`.
+

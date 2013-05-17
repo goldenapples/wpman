@@ -1,0 +1,57 @@
+Function Reference/wp handle sideload « WordPress Codex
+-----------
+
+Handle sideloads, which is the process of retrieving a media item from
+another server instead of a traditional media upload. This process
+involves sanitizing the filename, checking extensions for mime type, and
+moving the file to the appropriate directory within the uploads
+directory.
+
+Usage
+-----
+
+` <?php wp_handle_sideload( &$file, $overrides, $time ); ?> `
+
+Parameters
+----------
+
+ `$file` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) an array similar to that of a PHP \$\_FILES POST array
+    Default: *None*
+
+ `$overrides` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An associative array of names=\>values to override
+    default variables with extract( \$overrides, EXTR\_OVERWRITE ).
+    Default: false
+
+ `$time` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Time formatted in 'yyyy/mm'.
+    Default: null
+
+Return Values
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   On success, returns an associative array of file attributes. On
+    failure, returns \$overrides['upload\_error\_handler'](&\$file,
+    \$message ) or array( 'error'=\>\$message ).
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.6.0](/Version_2.6 "Version 2.6")
+
+Source File
+-----------
+
+wp\_handle\_sideload() is located in `wp-admin/includes/file.php`
+

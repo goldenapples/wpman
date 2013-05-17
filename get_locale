@@ -1,0 +1,65 @@
+Function Reference/get locale « WordPress Codex
+-----------
+
+Gets the current locale.
+
+If the locale is set, then it will filter the locale in the '`locale`'
+filter hook and return the value.
+
+If the locale is not set already, then the WPLANG constant is used if it
+is defined. Then it is filtered through the '`locale`' filter hook and
+the value for the locale global set and the locale is returned.
+
+The process to get the locale should only be done once but the locale
+will always be filtered using the '`locale`' hook.
+
+Usage
+-----
+
+` <?php get_locale() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   The locale of the blog or from the '`locale`' hook.
+
+Examples
+--------
+
+This sets the monetary locale and if empty, sets as en\_US
+
+    setlocale(LC_MONETARY, get_locale());
+    $my_local_settings = localeconv();
+    if ($my_local_settings['int_curr_symbol'] == "") setlocale(LC_MONETARY, 'en_US');
+
+This shows the value of setlocale:
+
+    setlocale(LC_MONETARY, get_locale());
+    print_r($my_local_settings);
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`locale`' hook on locale value.
+-   Uses: `$locale` Gets the locale stored in the global.
+-   Uses global: (`unknown`) `$locale`
+-   *l10n* is an abbreviation for *localization*.
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_locale()` is located in `wp-includes/l10n.php`.
+

@@ -1,0 +1,101 @@
+Function Reference/add settings field « WordPress Codex
+-----------
+
+Register a settings field to a settings page and section.
+
+This is part of the [Settings API](/Settings_API "Settings API"), which
+lets you automatically generate wp-admin settings pages by registering
+your settings and using a few callbacks to control the output.
+
+This function assumes you already know the settings `$page` and the page
+`$section` that the field should be shown on.
+
+**You MUST register any options** used by this function with
+[register\_setting()](/Function_Reference/register_setting "Function Reference/register setting")
+or they won't be saved and updated automatically.
+
+**The callback function** needs to output the appropriate html input and
+fill it with the old value, the saving will be done behind the scenes.
+
+This function can also be used to add extra settings fields to the
+default WP settings pages like media or general. You can add them to an
+existing section, or use add\_settings\_section() to create a new
+section to add the fields to.
+
+See [Settings API](/Settings_API "Settings API") for details.
+
+Usage
+-----
+
+` <?php add_settings_field( $id, $title, $callback, $page, $section, $args ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) String for use in the 'id' attribute of tags.
+    Default: *None*
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Title of the field.
+    Default: *None*
+
+ `$callback` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Function that fills the field with the desired inputs
+    as part of the larger form. Passed a single argument, the `$args`
+    array. Name and id of the input should match the \$id given to this
+    function. The function should echo its output.
+    Default: *None*
+
+ `$page` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The menu page on which to display this field. Should
+    match \$menu\_slug from [Function Reference/add theme
+    page](/Function_Reference/add_theme_page "Function Reference/add theme page")
+    Default: *None*
+
+ `$section` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The section of the settings page in which to show the
+    box (default or a section you added with add\_settings\_section,
+    look at the page in the source to see what the existing ones are.)
+    Default: default
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Additional arguments that are passed to the `$callback`
+    function. The `'label_for'` key can be used to give the field a
+    label different from `$title`.
+    Default: array()
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+### With Label
+
+Adds a setting with id "myprefix\_setting-id" to the General Settings
+page. "myprefix" should be a unique string for your plugin or theme.
+Sets a label so that the setting title can be clicked on to focus on the
+field.
+
+     add_settings_field( 'myprefix_setting-id', 'This is the setting title', 'myprefix_setting_callback_function', 'general', 'myprefix_settings-section-name', array( 'label_for' => 'myprefix_setting-id' ) );
+
+Change Log
+----------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+Source File
+-----------
+
+`add_settings_field()` is located in `wp-admin/includes/template.php`.
+

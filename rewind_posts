@@ -1,0 +1,33 @@
+Function Reference/rewind posts « WordPress Codex
+-----------
+
+Rewind the loop posts.
+
+Usage
+-----
+
+` <?php rewind_posts(); ?> `
+
+Parameters
+----------
+
+This function does not accept any parameters.
+
+Return Values
+-------------
+
+This function does not return any values.
+
+Examples
+--------
+
+Change Log
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+Source File
+-----------
+
+`rewind_posts()` is located in `wp-includes/query.php`.
+

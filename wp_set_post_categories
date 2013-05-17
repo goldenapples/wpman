@@ -1,0 +1,60 @@
+Function Reference/wp set post categories « WordPress Codex
+-----------
+
+Set categories for a post.
+
+Usage
+-----
+
+` <?php wp_set_post_categories( $post_ID, $post_categories ) ?> `
+
+Parameters
+----------
+
+ `$post_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID.
+    Default: 0
+
+ `$post_categories` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Array of category IDs.
+    Default: array
+
+Return Values
+-------------
+
+ `(boolean|mixed)`
+:   Returns an array of category IDs that were assigned to the post ID.
+
+Examples
+--------
+
+Notes
+-----
+
+If no categories are passed with a post ID that has a post type of
+**post**, the default category will be used.
+
+**Be careful**, as `wp_set_post_categories` will overwrite any existing
+categories already assigned to the post. You must include previously
+attached categories to the `$post_categories` parameter.
+
+If an ID is passed with the categories array that is **not** associated
+with a valid category, it will be stripped before the object terms are
+updated and from the return array.
+
+[wp\_set\_object\_terms()](/Function_Reference/wp_set_object_terms "Function Reference/wp set object terms")
+performs the same function with more granular control for built in
+categories and can also be used to set any custom taxonomies.
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_set_post_categories()` is located in `wp-includes/post.php`.
+

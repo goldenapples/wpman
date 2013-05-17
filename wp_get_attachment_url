@@ -1,0 +1,61 @@
+Function Reference/wp get attachment url « WordPress Codex
+-----------
+
+Returns a full URI for an [attachment
+file](/Using_Image_and_File_Attachments "Using Image and File Attachments")
+or false on failure.
+
+\
+
+Usage
+-----
+
+` <?php wp_get_attachment_url( $id ); ?> `
+
+Default Usage
+-------------
+
+    <?php echo wp_get_attachment_url( 12 ); ?> 
+
+outputs something like `http://example.net/wp-content/uploads/filename`
+
+Parameters
+----------
+
+ `id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the desired attachment
+    Default: *None*
+
+Notes
+-----
+
+You can change the output of this function through the
+[wp\_get\_attachment\_url](/Plugin_API/Filter_Reference#Link_Filters "Plugin API/Filter Reference")
+filter.
+
+If you want a URI for the [attachment
+page](/Templates_Hierarchy#Attachment_page "Templates Hierarchy"), not
+the attachment file itself, you can use
+[get\_attachment\_link](/Function_Reference/get_attachment_link "Function Reference/get attachment link").
+
+Also refer:
+[wp\_insert\_attachment](/Function_Reference/wp_insert_attachment "Function Reference/wp insert attachment"),
+[wp\_upload\_dir](/Function_Reference/wp_upload_dir "Function Reference/wp upload dir"),
+[wp\_get\_attachment\_image\_src](/Function_Reference/wp_get_attachment_image_src "Function Reference/wp get attachment image src")
+
+Return Value
+------------
+
+Returns URI to uploaded attachment or "false" on failure.
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_get_attachment_url()` is located in `wp-includes/post.php`.
+

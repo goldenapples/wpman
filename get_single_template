@@ -1,0 +1,41 @@
+Function Reference/get single template « WordPress Codex
+-----------
+
+Retrieve path of [single template](/Templates "Templates") in current or
+parent template.
+
+Usage
+-----
+
+` <?php get_single_template() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Result of `get_query_template('single')`.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`get_query_template()`](/Function_Reference/get_query_template "Function Reference/get query template")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_single_template()` is located in `wp-includes/theme.php`.
+

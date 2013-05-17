@@ -1,0 +1,62 @@
+Function Reference/the excerpt rss « WordPress Codex
+-----------
+
+Display the post excerpt for the feed.
+
+Usage
+-----
+
+` <?php the_excerpt_rss() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+To create a custom feed that takes a GET parameter on a URL (e.g.
+[http://www.example.com/?feed=myfeed&type=excerpt](http://www.example.com/?feed=myfeed&type=excerpt "http://www.example.com/?feed=myfeed&type=excerpt")),
+place something like the following in your particular feed file to send
+an excerpt (`the_excerpt_rss()`) instead of the full content
+(`the_content()`):
+
+    <?php
+    if isset($_GET['type'])) { $typewanted = $_GET['type']; }
+    if ($typewantd=='excerpt') {
+      // Wrap the Excerpt in a span tag for CSS styling
+      echo '<span class="excerpt">'; 
+      the_excerpt_rss();   
+      echo '</span>';
+    } else {  
+      // Otherwise they want the full content so wrap it in another span
+      echo '<span class="content">';
+      the_content();
+      echo '</span>';
+    }
+    ?>
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`the_excerpt_rss`' hook on the excerpt.
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`the_excerpt_rss()` is located in `wp-includes/feed.php`.
+

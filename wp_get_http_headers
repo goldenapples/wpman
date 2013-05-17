@@ -1,0 +1,45 @@
+Function Reference/wp get http headers « WordPress Codex
+-----------
+
+Retrieve HTTP Headers from URL.
+
+Usage
+-----
+
+` <?php wp_get_http_headers( $url, $deprecated ) ?> `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+ `$deprecated` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Not Used.
+    Default: false
+
+Return Values
+-------------
+
+ (boolean|string) 
+:   False on failure, headers on success.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.5.1
+
+Source File
+-----------
+
+`wp_get_http_headers()` is located in `wp-includes/functions.php`.
+

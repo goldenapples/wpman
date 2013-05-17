@@ -1,0 +1,66 @@
+Function Reference/get post type capabilities « WordPress Codex
+-----------
+
+Returns information about the post type capabilities of an post type
+object
+
+Usage
+-----
+
+` <?php get_post_type_capabilities( $args ) ?> `
+
+Parameters
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) An array of key value arguments to match against the
+    post types
+    Default: *None*
+
+Accepted keys of the capabilities array in the post type object:
+
+- edit\_post - The meta capability that controls editing a particular
+object of this post type. Defaults to "edit\_ . \$capability\_type"
+(edit\_post).
+
+- edit\_posts - The capability that controls editing objects of this
+post type as a class. Defaults to "edit\_ . \$capability\_type . s"
+(edit\_posts).
+
+- edit\_others\_posts - The capability that controls editing objects of
+this post type that are owned by other users. Defaults to
+"edit\_others\_ . \$capability\_type . s" (edit\_others\_posts).
+
+- publish\_posts - The capability that controls publishing objects of
+this post type. Defaults to "publish\_ . \$capability\_type . s"
+(publish\_posts).
+
+- read\_post - The meta capability that controls reading a particular
+object of this post type. Defaults to "read\_ . \$capability\_type"
+(read\_post).
+
+- read\_private\_posts - The capability that controls reading private
+posts. Defaults to "read\_private . \$capability\_type . s"
+(read\_private\_posts).
+
+- delete\_post - The meta capability that controls deleting a particular
+object of this post type. Defaults to "delete\_ . \$capability\_type"
+(delete\_post).
+
+Return
+------
+
+ `(object)` 
+:   Object with all capabilities as member variables
+
+Change Log
+----------
+
+-   Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`get_post_type_capabilities()` is located in `wp-includes/post.php`.
+

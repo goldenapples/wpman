@@ -1,0 +1,56 @@
+Function Reference/is attachment « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+an attachment is being displayed. An attachment is an image or other
+file uploaded through the post editor's upload utility. Attachments can
+be displayed on their own 'page' or template. For more information, see
+[Using Image and File
+Attachments](/Using_Image_and_File_Attachments "Using Image and File Attachments").
+
+This is a boolean function, meaning it returns either TRUE or FALSE.
+
+Usage
+-----
+
+` <?php is_attachment(); ?> `
+
+Parameters
+----------
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+    <?php
+    if ( is_attachment() ) {
+        // show adv. #1
+    } else {
+        // show adv. #2
+    }
+    ?>
+
+Notes
+-----
+
+-   See Also:
+    [is\_singular()](/Function_Reference/is_singular "Function Reference/is singular")
+-   For more specific checking of the attachment see: [Function
+    Reference/wp attachment is
+    image](/Function_Reference/wp_attachment_is_image "Function Reference/wp attachment is image")
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`is_attachment()` is located in `wp-includes/query.php`.
+

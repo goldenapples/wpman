@@ -1,0 +1,97 @@
+Function Reference/flush rewrite rules « WordPress Codex
+-----------
+
+Remove rewrite rules and then recreate rewrite rules.
+
+This function is useful for when used with custom post types as it
+allows for automatic flushing of the WordPress rewrite rules (usually
+needs to be done manually for new custom post types).
+
+Important: Rewrite rules must be flushed on activation or deactivation
+to avoid unnecessary rewrite rule flushing.
+
+More detailed information is available on WP Engineer (more information
+in the comments) ...
+[http://wpengineer.com/2044/custom-post-type-and-permalink/](http://wpengineer.com/2044/custom-post-type-and-permalink/ "http://wpengineer.com/2044/custom-post-type-and-permalink/")
+
+Usage
+-----
+
+` <?php flush_rewrite_rules( $hard ); ?> `
+
+Important: Flushing the rewrite rules is an expensive operation, there
+are tutorials and examples that suggest executing it on the 'init' hook.
+This is bad practice. Instead you should flush rewrite rules on the
+activation hook of a plugin, or when you know that the rewrite rules
+need to be changed ( e.g. the addition of a new taxonomy or post type in
+your code ).
+
+Parameters
+----------
+
+ `$hard` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to update .htaccess (hard flush) or just update
+    rewrite\_rules transient (soft flush). Default is true (hard).
+    Default: true
+
+Examples
+--------
+
+This is how you would flush rewrite rules when a plugin is activated or
+deactivated:
+
+    function myplugin_activate() {
+        // register taxonomies/post types here
+        flush_rewrite_rules();
+    }
+
+    register_activation_hook( __FILE__, 'myplugin_activate' );
+
+    function myplugin_deactivate() {
+        flush_rewrite_rules();
+    }
+    register_deactivation_hook( __FILE__, 'myplugin_deactivate' );
+
+This is how you would flush rules on theme activation:
+
+    /* Flush rewrite rules for custom post types. */
+    add_action( 'after_switch_theme', 'bt_flush_rewrite_rules' );
+
+    /* Flush your rewrite rules */
+    function bt_flush_rewrite_rules() {
+      flush_rewrite_rules();
+    }
+
+If you're developing a theme, while building it you can use this snippet
+of code that will flush rewrite rules when the file containing it is
+changed, or every 48 hours:
+
+    // do not use on live/production servers
+    add_action('init','maybe_rewrite_rules');
+    function maybe_rewrite_rules( ) {
+
+        $ver = filemtime( __FILE__ ); // Get the file time for this file as the version number
+        $defaults = array( 'version' => 0, 'time' => time( ) );
+        $r = wp_parse_args( get_option( __CLASS__ . '_flush', array( ) ), $defaults );
+
+        if ( $r[ 'version' ] != $ver || $r[ 'time' ] + 172800 < time( ) ) { // Flush if ver changes or if 48hrs has passed.
+            flush_rewrite_rules();
+            // trace( 'flushed' );
+            $args = array( 'version' => $ver, 'time' => time( ) );
+            if ( ! update_option( __CLASS__ . '_flush', $args ) )
+                add_option( __CLASS__ . '_flush', $args );
+        }
+
+    }
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`flush_rewrite_rules()` is located in `wp-includes/rewrite.php`
+

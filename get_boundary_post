@@ -1,0 +1,53 @@
+Function Reference/get boundary post « WordPress Codex
+-----------
+
+Get the first or last post by publish date
+
+Usage
+-----
+
+` <?php get_boundary_post( $in_same_cat, $excluded_categories, $start ); ?> `
+
+Parameters
+----------
+
+ `$in_same_cat` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether post should be in same category.
+    Default: false
+
+ `$excluded_categories` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Excluded categories IDs.
+    Default: ''
+
+ `$start` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) True to begin at the beginning
+    Default: true
+
+Return Values
+-------------
+
+-   Post object if successful.
+-   Null if global `$post` is not set.
+-   Empty string if no corresponding post exists.
+
+Examples
+--------
+
+Notes
+-----
+
+get\_boundary\_post() will set the post pointer to the first post.
+
+Change Log
+----------
+
+Since: 2.8.0
+
+Source File
+-----------
+
+`get_boundary_post()` is located in `wp-includes/link-template.php`.
+

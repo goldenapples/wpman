@@ -1,0 +1,258 @@
+Function Reference/wp dropdown categories « WordPress Codex
+-----------
+
+Display or retrieve the HTML dropdown list of categories.
+
+Usage
+-----
+
+`  <?php wp_dropdown_categories( $args ); ?> `
+
+### Default Usage
+
+    <?php $args = array(
+        'show_option_all'    => '',
+        'show_option_none'   => '',
+        'orderby'            => 'ID', 
+        'order'              => 'ASC',
+        'show_count'         => 0,
+        'hide_empty'         => 1, 
+        'child_of'           => 0,
+        'exclude'            => '',
+        'echo'               => 1,
+        'selected'           => 0,
+        'hierarchical'       => 0, 
+        'name'               => 'cat',
+        'id'                 => '',
+        'class'              => 'postform',
+        'depth'              => 0,
+        'tab_index'          => 0,
+        'taxonomy'           => 'category',
+        'hide_if_empty'      => false
+    ); ?>
+
+By default, the usage shows:
+
+-   Sorts by category id in ascending order
+-   Does not show the count of posts within a category
+-   Does not show 'empty' categories
+-   Excludes nothing
+-   Displays (echos) the categories
+-   No category is 'selected' in the form
+-   Does not display the categories in a hierarchical structure
+-   Assigns 'cat' to the form name
+-   Assigns the form to the class 'postform'
+-   No select ID so will default to 'name'
+-   Class of postform
+-   No depth limit
+-   Tab index of 0
+-   Use taxonomy = category
+-   Hide dropdown if no terms returned
+
+Parameters
+----------
+
+ `$args` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*optional*) Override default arguments. See Notes.
+    Default:
+
+Return Values
+-------------
+
+ (string) 
+:   HTML content only if '`echo`' argument is 0.
+
+Arguments
+---------
+
+ `show_option_all` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display for showing an '`all categories`'
+    option. Default will not show an option to select
+    '`all categories`'.
+    Default: ''
+
+ `show_option_none` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display for showing a '`no categories`' option.
+    Default will not show an option to select '`no categories`'.
+    Default: ''
+
+ `orderby` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Column name to use for ordering the categories.
+    Default: 'ID'
+
+ `order` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Direction to sort categories. Valid values are '`ASC`'
+    and '`DESC`'.
+    Default: 'ASC'
+
+ `show_count` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Show (1/True) or hide (0/False) post count in category.
+    Default: 0/False
+
+ `hide_empty` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Show (0/False) or hide (1/True) category with no posts.
+    Default: 1/True
+
+ `child_of` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Display all categories that are descendants (i.e.
+    children & grandchildren) of the category identified by its ID. See
+    [`get_categories()`](/Function_Reference/get_categories "Function Reference/get categories").
+    Default: 0/False
+
+ `exclude` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Category IDs to exclude. See
+    [`get_categories()`](/Function_Reference/get_categories "Function Reference/get categories").
+    Default: ''
+
+ `exclude_tree` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) optional
+    Default: *None*
+
+ `echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Send output to browser (1/True) or return output to PHP
+    (0/False)
+    Default: 1/True
+
+ `depth` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The max depth. This is ignore unless hierarchical is
+    set to true.
+    Default: 0/False
+
+ `tab_index` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The '`tabindex`' attribute for the select element.
+    Default: 0/False
+
+ `name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The '`name`' attribute value for select element.
+    Default: 'cat'
+
+ `id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The '`id`' attribute value for select element.
+    Default: 'name'
+
+ `class` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The '`class`' attribute value for select element.
+    Default: 'postform'
+
+ `selected` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Which category ID is selected.
+    Default: 0/False
+
+ `hierarchical` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display all categories (0/False) or display categories
+    (1/True) to a depth of '`depth`'.
+    Default: 0/False
+
+ `pad_counts` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Calculates link or post counts by including items from
+    child categories. If '`show_counts`' and '`hierarchical`' are true
+    this is automatically set to true.
+    Default: 0/False
+
+ `taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Taxonomy to return. Valid values are '`category`',
+    '`post_tag`' or any registered [taxonomy](/Taxonomies "Taxonomies").
+    Default: category
+
+ `hide_if_empty` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Hide dropdown (1/True) or show (0/False) if no terms
+    returned.
+    Default: 0/False
+
+Examples
+--------
+
+### Dropdown with Submit Button
+
+Displays a hierarchical category dropdown list in HTML form with a
+submit button, in a WordPress sidebar unordered list, with a count of
+posts in each category.
+
+    <li id="categories">
+        <h2><?php _e('Categories:'); ?></h2>
+        <form action="<?php bloginfo('url'); ?>" method="get">
+        <div>
+        <?php wp_dropdown_categories('show_count=1&hierarchical=1'); ?>
+        <input type="submit" name="submit" value="view" />
+        </div>
+        </form>
+    </li>
+
+### Dropdown without a Submit Button using JavaScript
+
+Example depicts using the show\_option\_none parameter and was gleaned
+from [Moshu's forum
+post](http://wordpress.org/support/topic/145489?replies=13#post-657759 "http://wordpress.org/support/topic/145489?replies=13#post-657759").
+
+    <li id="categories"><h2><?php _e('Posts by Category'); ?></h2>
+        <?php wp_dropdown_categories('show_option_none=Select category'); ?>
+
+    <script type="text/javascript"><!--
+        var dropdown = document.getElementById("cat");
+        function onCatChange() {
+            if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+                location.href = "<?php echo get_option('home');
+    ?>/?cat="+dropdown.options[dropdown.selectedIndex].value;
+            }
+        }
+        dropdown.onchange = onCatChange;
+    --></script>
+    </li>
+
+### Dropdown without a Submit Button using JavaScript (2)
+
+In this example the *echo* parameter (echo=0) is used. A simple
+*preg\_replace* inserts the JavaScript code. It even works without
+JavaScript (submit button is wrapped by *noscript* tags).
+
+    <li id="categories">
+        <h2><?php _e('Posts by Category'); ?></h2>
+        <form action="<?php bloginfo('url'); ?>/" method="get">
+        <div>
+    <?php
+    $select = wp_dropdown_categories('show_option_none=Select category&show_count=1&orderby=name&echo=0');
+    $select = preg_replace("#<select([^>]*)>#", "<select$1 onchange='return this.form.submit()'>", $select);
+    echo $select;
+    ?>
+        <noscript><div><input type="submit" value="View" /></div></noscript>
+        </div></form>
+    </li>
+
+Multiple values
+---------------
+
+If you want to allow users to select multiple values, use
+[wp\_category\_checklist](/Function_Reference/wp_category_checklist "Function Reference/wp category checklist").
+
+Change Log
+----------
+
+-   Since: [2.1](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`wp_dropdown_categories()` is located in
+`wp-includes/category-template.php`.
+

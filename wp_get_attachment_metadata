@@ -1,0 +1,45 @@
+Function Reference/wp get attachment metadata « WordPress Codex
+-----------
+
+Retrieve attachment meta field for attachment ID.
+
+Usage
+-----
+
+` <?php wp_get_attachment_metadata( $attachment_id, $unfiltered ); ?> `
+
+Parameters
+----------
+
+ `$attachment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Attachment ID
+    Default: *None*
+
+ `$unfiltered` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If true, filters are not run.
+    Default: false
+
+Return Values
+-------------
+
+ `(array|boolean)` 
+:   Attachment meta field. False on failure.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`wp_get_attachment_metadata()` is located in `wp-includes/post.php`
+

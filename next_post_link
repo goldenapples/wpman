@@ -1,0 +1,108 @@
+Function Reference/next post link « WordPress Codex
+-----------
+
+Used on single post [permalink](/Glossary#Permalink "Glossary") pages,
+this template tag displays a link to the next post which exists in
+chronological order from the current post.
+
+This tag must be used in [The Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+    <?php next_post_link('format', 'link', 'in_same_cat', 'excluded_categories'); ?>
+
+Parameters
+----------
+
+ `format` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Optional*) Format string for the link. This is where to control
+    what comes before and after the link. `'%link'` in string will be
+    replaced with whatever is declared as `'link'` (see next parameter).
+    `'Go to %link'` will generate "Go to \<a href=..." Put HTML tags
+    here to style the final results.
+    Default: `'%link &raquo;'`
+
+ `link` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Optional*) Link text to display.
+    Default: `'%title'` (next post's title)
+
+ `in_same_cat` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Indicates whether next post must be within the same
+    category as the current post. If set to `'true'`, only posts from
+    the current category will be displayed. If the post is in both the
+    parent and subcategory, or more than one category, the next post
+    link will lead to the next post in any of those categories.
+    -   `1` (true)
+    -   `0` (false)(default)
+
+    Default: false
+
+ `excluded_categories` 
+:   ([*string/array*](/How_to_Pass_Tag_Parameters#String.2Farray "How to Pass Tag Parameters"))
+    (*optional*) Array or a comma-separated list of numeric category IDs
+    from which the next post should not be listed. **Note**: Previous
+    versions of WordPress used to have IDs separated by " and ".
+    Example: `'1 and 5 and 15'`
+    Default: *None*
+
+Examples
+--------
+
+### Default Usage
+
+Displays link with the post title of the next post (chronological post
+date order), followed by a right angular quote (»).
+
+[Next Post Title »](#Examples)
+
+`  <?php next_post_link(); ?> `
+
+### Bold Post Title As Link
+
+Displays link with next chronological post's title wrapped in 'strong'
+tags (typically sets text to bold).
+
+[**Next Post Title**](#Examples)
+
+`  <?php next_post_link('<strong>%link</strong>'); ?> `
+
+### Text As Link, Without Post Title, Within Same Category
+
+Displays custom text as link to the next post within the same category
+as the current post. Post title is not included here. "Next post in
+category" is the custom text, which can be changed to fit your
+requirements.
+
+[Next post in category](#Examples)
+
+`  <?php next_post_link('%link', 'Next post in category', TRUE); ?> `
+
+### Within Same Category, Excluding One
+
+Displays link to next post in the same category, as long as it is not in
+category 13 (the category ID \#). You can change the number to any
+category you wish to exclude. Exclude multiple categories by using
+"` and `" as a delimiter.
+
+[Next post in category](#Examples)
+
+`  <?php next_post_link('%link', 'Next post in category', TRUE, '13'); ?> `
+
+Notes
+-----
+
+See also
+[previous\_post\_link()](/Template_Tags/previous_post_link "Template Tags/previous post link").
+
+Resources
+---------
+
+-   [Digging into Wordpress - Definitive Guide to WordPress Page
+    Navigation](http://digwp.com/2009/08/wordpress-page-navigation/ "http://digwp.com/2009/08/wordpress-page-navigation/")
+-   [Forum discussion on using a image with
+    next\_post\_link](http://wordpress.org/support/topic/286131 "http://wordpress.org/support/topic/286131")
+

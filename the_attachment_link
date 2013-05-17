@@ -1,0 +1,91 @@
+Function Reference/the attachment link « WordPress Codex
+-----------
+
+Outputs an HTML hyperlink to an
+[attachment](/Using_Image_and_File_Attachments "Using Image and File Attachments")
+file or page, containing either
+
+1.  A full size image or thumbnail for image attachments; or
+2.  The attachment's title (as text) for non image attachments
+
+If no attachment can be found, the function displays the string
+`Missing Attachment`.
+
+Usage
+-----
+
+` <?php the_attachment_link( $id, $fullsize, $deprecated, $permalink ); ?> `
+
+Default Usage
+-------------
+
+    <?php the_attachment_link( 7 ); ?>
+
+Parameters
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*Optional*) ID of the desired attachment.
+    Default: The current post ID, when used in [The
+    Loop](/The_Loop "The Loop") (Must be a loop showing only
+    attachments).
+
+ `fullsize` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*Optional*) For an image attachment, use the original image (true)
+    or Wordpress-generated thumbnail (false). If set to false and the
+    thumbnail can't be found, the full-size image may be used instead.
+    Default: 'False'
+
+-   `1 (True)`
+-   `0 (False)` - Default
+
+ `$max_dims` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*Deprecated parameter since [Version
+    2.3](/Version_2.3 "Version 2.3")*) Maximum width and height of the
+    image or icon, applied to the width and height attributes of the
+    image element (`img`) output by the function. The aspect ratio is
+    kept constant
+    Default: not used
+
+ `$permalink` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*Optional*) Link directly to the attachment file/image (`Default`),
+    or to the attachment page.
+    Default: 'False'
+
+-   `1 (True)`
+-   `0 (False)` - Default
+
+Examples
+--------
+
+    <?php
+
+    // Show an image at full size linked to the attachment file
+    the_attachment_link( 4, true );
+
+    // Show a thumbnail linked to the attachment page
+    the_attachment_link( 4, false, false, true );
+
+    ?>
+
+Notes
+-----
+
+Use
+[wp\_get\_attachment\_link()](/Function_Reference/wp_get_attachment_link "Function Reference/wp get attachment link")
+instead if you just want to get the hyperlink, not print it.
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`the_attachment_link()` is located in `wp-includes/post-template.php`.
+

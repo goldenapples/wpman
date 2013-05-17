@@ -1,0 +1,62 @@
+Function Reference/get category feed link « WordPress Codex
+-----------
+
+This function returns a link to the feed for all posts in the specified
+category. A particular feed can be requested, but if the feed parameter
+is left blank, it returns the 'rss2' feed link.
+
+Usage
+-----
+
+`  <?php get_category_feed_link( $cat_id, $feed ); ?> `
+
+### Parameters
+
+ `$cat_id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Category ID of feed link to return.
+    Default: *None*
+
+ `$feed` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Type of feed, accepts 'rss2' or 'atom'.
+    Default: rss2
+
+Examples
+--------
+
+Return the rss2 feed link for post in category 2
+
+    <?php get_category_feed_link('2', ''); ?>
+
+Display an rss link automatically when viewing a category. Insert this
+code on the category.php or archive.php page template.
+
+    if ( is_category() ) {
+
+        $category = get_category( get_query_var('cat') );
+
+        if ( ! empty( $category ) )
+            echo '<div class="category-feed"><a href="' . get_category_feed_link( $category->cat_ID ) . '" title="' . sprintf( __( 'Subscribe to this category', 'appthemes' ), $category->name ) . '" rel="nofollow">' . __( 'Subscribe!', 'appthemes' ) . '</a></div>';
+
+    }
+
+Notes
+-----
+
+Resources
+---------
+
+Change Log
+----------
+
+-   Since: [2.5.0](/Version_2.5 "Version 2.5")
+-   This function replaces the deprecated **get\_category\_rss\_link**
+    function.
+
+Source File
+-----------
+
+`get_category_feed_link()` is located in
+`wp-includes/link-template.php`.
+

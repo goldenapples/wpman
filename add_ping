@@ -1,0 +1,54 @@
+Function Reference/add ping « WordPress Codex
+-----------
+
+Add a URL to those already pung.
+
+Usage
+-----
+
+` <?php add_ping( $post_id, $uri ) ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID.
+    Default: *None*
+
+ `$uri` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Ping URI.
+    Default: *None*
+
+Return Values
+-------------
+
+ (integer) 
+:   Count of updated rows.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") to read and
+    to update the
+    [`_posts table`](/Database_Description#Table:_wp_posts "Database Description")
+    in database.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    on 'add\_ping'
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`add_ping()` is located in `wp-includes/post.php`.
+

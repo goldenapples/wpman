@@ -1,0 +1,80 @@
+Function Reference/previous image link « WordPress Codex
+-----------
+
+This creates a link to the previous image attached to the current post.
+Whenever a series of images are linked to the attachment page, it will
+put a 'previous image link' with the images when viewed in the
+attachment page.
+
+Usage
+-----
+
+Typically uses in `attachment.php`. In the WordPress default theme
+Twenty Eleven and Twenty Twelve, it is used in `image.php`.
+` <?php previous_image_link( $size, $text ); ?> `
+
+Parameters
+----------
+
+ `$size` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Size of image, either array or string. `0` or `none`
+    will default to `post_title` or `$text`.
+    Default: thumbnail
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) If included, link will reflect `$text` variable.
+    Default: false
+
+Examples
+--------
+
+### Default Usage
+
+    <?php previous_image_link(); ?>
+
+### Working example
+
+     <div class="alignleft"><?php previous_image_link() ?></div>
+
+### Choose a Recognized Image Size
+
+      <?php previous_image_link( 'thumbnail' ); ?>
+      <?php previous_image_link( 'medium' ); ?>
+      <?php previous_image_link( 'large' ); ?>
+      <?php previous_image_link( 'fullsize' ); ?>
+
+\
+
+### Define a Custom Image Size
+
+      <?php previous_image_link( array( 37, 37 ) ); ?>
+
+Please note that passing an array as the first parameter will not create
+a new image; It will use the web browser to re-size the thumbnail to fit
+into the given dimensions. Although this works in a pinch, it produces a
+rather distorted view of the image due to the fact that browsers have no
+way of re sampling the re-sized image.
+
+### Use the Image’s Title as Link Text
+
+If a Boolean false is used as the first parameter, The function will use
+the image’s title value (as set through the Media Library).
+
+      <?php previous_image_link( false ); ?>
+      <?php previous_image_link( 0 ); ?>
+
+### Use a Custom String as Link Text
+
+To specify a custom string as the link text, pass a Boolean false as the
+first parameter and the custom text as a string to the second parameter.
+
+      <?php previous_image_link( false, 'Previous Image' ); ?>
+
+Change Log
+----------
+
+-   Since: 2.5.0
+-   2.8 added 2 parameters: \$size and \$text
+

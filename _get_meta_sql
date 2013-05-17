@@ -1,0 +1,65 @@
+Function Reference/ get meta sql « WordPress Codex
+-----------
+
+Given a meta query, generates SQL clauses to be appended to a main query
+
+Usage
+-----
+
+` <?php _get_meta_sql( $meta_query, $meta_type, $primary_table, $primary_id_column, $context ) ?> `
+
+Parameters
+----------
+
+ `$meta_query` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) List of metadata queries. A single query is an
+    associative array: - '`key`' string The meta key
+    Default: *None*
+
+ `$meta_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+ `$primary_table` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+ `$primary_id_column` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+ `$context` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*optional*) The main query object
+    Default: null
+
+Return Values
+-------------
+
+`(array) : array( 'join' => $join_sql, 'where' => $where_sql )`
+
+Examples
+--------
+
+Notes
+-----
+
+-   **This is a private function. It should not be called directly. It
+    is listed in the Codex for completeness.**
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`_get_meta_sql()` is located in `/wp-includes/meta.php`.
+

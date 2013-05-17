@@ -1,0 +1,98 @@
+Function Reference/previous post link « WordPress Codex
+-----------
+
+Used on single post [permalink](/Glossary#Permalink "Glossary") pages,
+this template tag displays a link to the previous post which exists in
+chronological order from the current post.
+
+This tag must be used in [The Loop](/The_Loop "The Loop").
+
+Arguments
+---------
+
+    <?php previous_post_link($format, $link, $in_same_cat = false, $excluded_categories = ''); ?>
+
+Parameters
+----------
+
+ format 
+:   (*string*) Format string for the link. This is where to control what
+    comes before and after the link. `'%link'` in string will be
+    replaced with whatever is declared as `'link'` (see next parameter).
+    `'Go to %link'` will generate "Go to \<a href=..." Put HTML tags
+    here to style the final results. Defaults to `'&laquo; %link'`.
+ link 
+:   (*string*) Link text to display. Defaults to previous post's title
+    (`'%title'`).
+ in\_same\_cat 
+:   (*boolean*) Indicates whether previous post must be within the same
+    category as the current post. If set to `TRUE`, only posts from the
+    current category will be displayed. Options are:
+    -   `TRUE`
+    -   `FALSE` (Default)
+
+ excluded\_categories 
+:   (*string*) Numeric category ID(s) from which the previous post
+    should not be listed. Separate multiple categories with `and`;
+    example: `'1 and 5 and 15'`. There is no default.
+
+Examples
+--------
+
+### Default Usage
+
+Displays link with left angular quote («) followed by the post title of
+the previous post (chronological post date order).
+
+[« Previous Post Title](#Examples)
+
+    <?php previous_post_link(); ?>
+
+### Bold Post Title As Link
+
+Displays link with previous chronological post's title wrapped in
+'strong' tags (typically sets text to bold).
+
+[**Previous Post Title**](#Examples)
+
+`  <?php previous_post_link('<strong>%link</strong>'); ?> `
+
+### Text As Link, Without Post Title, Within Same Category
+
+Displays custom text as link to the previous post within the same
+category as the current post. Post title is not included here. "Previous
+in category" is the custom text, which can be changed to fit your
+requirements.
+
+[Previous in category](#Examples)
+
+`  <?php previous_post_link('%link', 'Previous in category', TRUE); ?> `
+
+### Within Same Category, Excluding One
+
+Displays link to previous post in the same category, as long as it is
+not in category 13 (the category ID \#). You can change the number to
+any category you wish to exclude. Exclude multiple categories by using
+"` and `" as a delimiter.
+
+[Previous in category](#Examples)
+
+`  <?php previous_post_link('%link', 'Previous in category', TRUE, '13'); ?> `
+
+Notes
+-----
+
+-   See also:
+    [next\_post\_link()](/Template_Tags/next_post_link "Template Tags/next post link").
+
+Resources
+---------
+
+-   [Digging into WordPress - Definitive Guide to WordPress Page
+    Navigation](http://digwp.com/2009/08/wordpress-page-navigation/ "http://digwp.com/2009/08/wordpress-page-navigation/")
+
+Source File
+-----------
+
+`previous_post_link()` is located in `wp-includes/link-template.php`.
+

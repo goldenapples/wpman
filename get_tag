@@ -1,0 +1,67 @@
+Function Reference/get tag « WordPress Codex
+-----------
+
+Retrieve post tag by tag ID or tag object.
+
+If you pass the `$tag` parameter an object, which is assumed to be the
+tag row object retrieved the database. It will cache the tag data.
+
+If you pass `$tag` an integer of the tag ID, then that tag will be
+retrieved from the database, if it isn't already cached, and pass it
+back.
+
+If you look at
+[`get_term()`](/Function_Reference/get_term "Function Reference/get term"),
+then both types will be passed through several filters and finally
+sanitized based on the `$filter` parameter value.
+
+Usage
+-----
+
+` <?php &get_tag( $tag, $output, $filter ) ?> `
+
+Parameters
+----------
+
+ `$tag` 
+:   ([*integer|object*](/How_to_Pass_Tag_Parameters#Integer.7Cobject "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Constant OBJECT, ARRAY\_A, or ARRAY\_N
+    Default: OBJECT
+
+ `$filter` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Default is raw or no WordPress defined filter will
+    applied.
+    Default: 'raw'
+
+Return Values
+-------------
+
+ (object|array) 
+:   Return type based on `$output` value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [get\_term()](/Function_Reference/get_term "Function Reference/get term")
+    Used to get the tag data from the taxonomy.
+
+Change Log
+----------
+
+Since: [2.3.0](/Version_2.3 "Version 2.3")
+
+Source File
+-----------
+
+`&get_tag()` is located in `wp-includes/category.php`.
+

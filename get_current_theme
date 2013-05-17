@@ -1,0 +1,55 @@
+Function Reference/get current theme « WordPress Codex
+-----------
+
+Retrieve the name of the current theme.
+
+get\_current\_theme() is deprecated since version 3.4! Use
+[wp\_get\_theme()](/Function_Reference/wp_get_theme "Function Reference/wp get theme")
+instead
+
+Usage
+-----
+
+` <?php get_current_theme() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Template name.
+
+Examples
+--------
+
+### Current Theme Name
+
+Get the name of the current theme.
+
+    <?php
+        $theme_name = get_current_theme();
+        echo $theme_name;
+    ?>
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`template_directory`' filter on template directory path and
+    template name.
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_current_theme()` is located in `wp-includes/theme.php`.
+

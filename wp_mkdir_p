@@ -1,0 +1,48 @@
+Function Reference/wp mkdir p « WordPress Codex
+-----------
+
+Recursive directory creation based on full path.
+
+Will attempt to set permissions on folders.
+
+Usage
+-----
+
+` <?php wp_mkdir_p( $target ) ?> `
+
+Parameters
+----------
+
+ `$target` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Full path to attempt to create.
+    Default: *None*
+
+Return Values
+-------------
+
+ (boolean) 
+:   Whether the path was created or not. True if path already exists.
+
+Examples
+--------
+
+    <?php
+    if (wp_mkdir_p('a/really/deep/sub/directory')) {
+      echo 'It worked! Now look for a directory named "a".';
+    }
+    ?>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.0.1
+
+Source File
+-----------
+
+`wp_mkdir_p()` is located in `wp-includes/functions.php`.
+

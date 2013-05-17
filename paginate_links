@@ -1,0 +1,164 @@
+Function Reference/paginate links « WordPress Codex
+-----------
+
+Retrieve paginated link for archive post pages. Technically, the
+function can be used to create paginated link list for any area ( e.g.:
+« Prev 1 … 3 4 5 6 7 … 9 Next » )
+
+Usage
+-----
+
+` <?php echo paginate_links( $args ) ?> `
+
+### Default Arguments
+
+    <?php $args = array(
+        'base'         => '%_%',
+        'format'       => '?page=%#%',
+        'total'        => 1,
+        'current'      => 0,
+        'show_all'     => False,
+        'end_size'     => 1,
+        'mid_size'     => 2,
+        'prev_next'    => True,
+        'prev_text'    => __('« Previous'),
+        'next_text'    => __('Next »'),
+        'type'         => 'plain',
+        'add_args'     => False,
+        'add_fragment' => ''
+    ); ?>
+
+Parameters
+----------
+
+ `base` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Used to reference the url, which will be used to create
+    the paginated links. The default value '`%_%`' in
+    '`http://example.com/all_posts.php%_%`' is replaced by '`format`'
+    argument (see below).
+    Default: '%\_%'
+
+ `format` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Used for Pagination structure. The default value is
+    '?page=%\#%', If using pretty permalinks this would be '/page/%\#%',
+    where the '%\#%' is replaced by the page number.
+    Default: '?page=%\#%'
+
+ `total` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The total amount of pages.
+    Default: 1
+
+ `current` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The current page number.
+    Default: 0
+
+ `show_all` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If set to True, then it will show all of the pages
+    instead of a short list of the pages near the current page. By
+    default, the '`show_all`' is set to false and controlled by the
+    '`end_size`' and '`mid_size`' arguments.
+    Default: False
+
+ `end_size` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) How many numbers on either the start and the end list
+    edges.
+    Default: 1
+
+ `mid_size` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) How many numbers to either side of current page, but
+    not including current page.
+    Default: 2
+
+ `prev_next` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Wheter to include the previous and next links in the
+    list or not.
+    Default: True
+
+ `prev_text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The previous page text. Works only if '`prev_next`'
+    argument is set to true.
+    Default: \_\_('« Previous')
+
+ `next_text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The next page text. Works only if '`prev_next`'
+    argument is set to true.
+    Default: \_\_('Next »')
+
+ `type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Controls format of the returned value. Possible values
+    are:
+
+-   '`plain`' - A string with the links separated by a newline
+    character.
+-   '`array`' - An array of the paginated link list to offer full
+    control of display.
+-   '`list`' - Unordered
+    [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") list.
+
+Default: 'plain'
+
+ `add_args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of query args to add.
+    Default: false
+
+ `add_fragment` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) A string to append to each link.
+    Default: *None*
+
+Return Values
+-------------
+
+ `mixed` `(array|string)`{style="color:gray"} 
+:   String or array of page links.
+
+Examples
+--------
+
+-   See example under
+    [`paginate_comments_links()`](/Function_Reference/paginate_comments_links "Function Reference/paginate comments links").
+
+To add pagination to your search results and archives, you can use the
+following example:
+
+    <?php
+    global $wp_query;
+
+    $big = 999999999; // need an unlikely integer
+
+    echo paginate_links( array(
+        'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+        'format' => '?paged=%#%',
+        'current' => max( 1, get_query_var('paged') ),
+        'total' => $wp_query->max_num_pages
+    ) );
+    ?>
+
+Notes
+-----
+
+-   See Also: [Enhanced Comment
+    Display](/Migrating_Plugins_and_Themes_to_2.7/Enhanced_Comment_Display "Migrating Plugins and Themes to 2.7/Enhanced Comment Display")
+
+Change Log
+----------
+
+-   Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`paginate_links()` is located in `wp-includes/general-template.php`.
+

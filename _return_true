@@ -1,0 +1,28 @@
+Function Reference/ return true « WordPress Codex
+-----------
+
+Returns true.
+
+Useful for returning true to filters easily.
+
+Usage
+-----
+
+``  <?php // This will add a filter on `example_filter` that returns trueadd_filter('example_filter', '__return_true'); ?>  ``
+
+Return Values
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   true
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`__return_true()` is located in `wp-includes/functions.php`
+

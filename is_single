@@ -1,0 +1,67 @@
+Function Reference/is single « WordPress Codex
+-----------
+
+This [conditional tag](/Conditional_Tags "Conditional Tags") checks if a
+single post of any [post type](/Post_Types "Post Types") except
+[attachment](/Using_Image_and_File_Attachments "Using Image and File Attachments")
+and [page](/Pages "Pages") post types is being displayed. If the `$post`
+parameter is specified, the function will additionally check if the
+[query](/Glossary#Query "Glossary") is for one of the posts specified.
+To check for all the post types, use the `is_singular()` function.
+
+Usage
+-----
+
+` <?php is_single($post); ?> `
+
+Parameters
+----------
+
+ `$post` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Post ID, Post Title or Post Slug
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   *True* on success, *false* on failure.
+
+Examples
+--------
+
+    is_single();
+    // When any single Post page is being displayed.
+
+    is_single('17');
+    // When Post 17 (ID) is being displayed.
+
+    is_single(17);
+    // When Post 17 (ID) is being displayed. Integer parameter also works
+
+    is_single('Irish Stew');
+    // When the Post with post_title of "Irish Stew" is being displayed.
+
+    is_single('beef-stew');
+    // When the Post with post_name (slug) of "beef-stew" is being displayed.
+
+    is_single(array(17,'beef-stew','Irish Stew'));
+    // Returns true when the single post being displayed is either post ID 17, or the post_name is "beef-stew", or the post_title is "Irish Stew".  Note: the array ability was added at Version 2.5.
+
+Notes
+-----
+
+-   See Also:
+    [is\_singular()](/Function_Reference/is_singular "Function Reference/is singular")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`is_single()` is located in `wp-includes/query.php`.
+

@@ -1,0 +1,125 @@
+Function Reference/wp handle upload « WordPress Codex
+-----------
+
+Handle PHP uploads in WordPress, sanitizing file names, checking
+extensions for mime type, and moving the file to the appropriate
+directory within the uploads directory.
+
+Usage
+-----
+
+` <?php wp_handle_upload( $file, $overrides, $time ); ?> `
+
+Parameters
+----------
+
+ `$file` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Reference to a single element of `$_FILES`. Call the
+    function once for each uploaded file. Passed by reference, so **you
+    must pass a variable.**
+    Default: *None*
+
+ `$overrides` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An associative array to override default variables with
+    extract( `$overrides, EXTR_OVERWRITE )`. If you don’t pass
+    `'test_form' => FALSE` the upload will be rejected.
+    Default: false
+
+ `$time` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Time formatted in 'yyyy/mm'. Passed to
+    `wp_upload_dir()`.
+    Default: NULL
+
+Examples
+--------
+
+    if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
+    $uploadedfile = $_FILES['file'];
+    $upload_overrides = array( 'test_form' => false );
+    $movefile = wp_handle_upload( $uploadedfile, $upload_overrides );
+    if ( $movefile ) {
+        echo "File is valid, and was successfully uploaded.\n";
+        var_dump( $movefile);
+    } else {
+        echo "Possible file upload attack!\n";
+    }
+
+Return values
+-------------
+
+On success, returns an associative array of file attributes. On failure,
+returns `$overrides['upload_error_handler'](&$file, $message )` or
+`array( 'error'=>$message )`.
+
+The return values on success:
+
+ `file` 
+:   (*string*) The local path to the uploaded file.
+ `url` 
+:   (*string*) The public URL for the uploaded file.
+ `type` 
+:   (*string*) The MIME type.
+
+`type` and `file` may be used with [wp insert
+attachment()](http://codex.wordpress.org/Function_Reference/wp_insert_attachment "http://codex.wordpress.org/Function_Reference/wp_insert_attachment").
+
+Further Reading
+---------------
+
+-   [How can I add an image upload field directly to a custom write
+    panel?](http://wordpress.stackexchange.com/questions/4307/how-can-i-add-an-image-upload-field-directly-to-a-custom-write-panel/4413#4413 "http://wordpress.stackexchange.com/questions/4307/how-can-i-add-an-image-upload-field-directly-to-a-custom-write-panel/4413#4413")
+-   [Tutorial: Using the
+    WP\_Filesystem](http://ottopress.com/2011/tutorial-using-the-wp_filesystem/ "http://ottopress.com/2011/tutorial-using-the-wp_filesystem/")
+-   [Sample Helper Class on
+    GitHub](https://github.com/zanematthew/zm-upload/ "https://github.com/zanematthew/zm-upload/")
+
+Source File
+-----------
+
+`wp_handle_upload()` is located in `/wp-admin/includes/file.php`.
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_handle\_upload](http://codex.wordpress.org/Function_Reference/wp_handle_upload)"
+
+[Category](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

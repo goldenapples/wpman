@@ -1,0 +1,72 @@
+Function Reference/get post mime type « WordPress Codex
+-----------
+
+Retrieve the mime type of an attachment based on the ID.
+
+This function can be used with any [Post Type](/Post_Type "Post Type"),
+but it makes more sense with [Attachments](/Attachments "Attachments").
+
+Usage
+-----
+
+` <?php get_post_mime_type( $ID ) ?> `
+
+Parameters
+----------
+
+ `$ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID.
+    Default: ''
+
+Return Values
+-------------
+
+ `Mime Type` `(boolean|string)`{style="color:gray"} 
+:   False on failure or returns the mime type.
+
+Examples
+--------
+
+### Return an icon image path according to the MIME type of the given post
+
+    function get_icon_for_attachment($post_id) {
+      $base = get_template_directory_uri() . "/images/icons/";
+      $type = get_post_mime_type($post_id);
+      switch ($type) {
+        case 'image/jpeg':
+        case 'image/png':
+        case 'image/gif':
+          return $base . "image.png"; break;
+        case 'video/mpeg':
+        case 'video/mp4': 
+        case 'video/quicktime':
+          return $base . "video.png"; break;
+        case 'text/csv':
+        case 'text/plain': 
+        case 'text/xml':
+          return $base . "text.png"; break;
+        default:
+          return $base . "file.png";
+      }
+    }
+    // call it like this:
+    echo '<img src="'.get_icon_for_attachment($my_attachment->ID).'" />';
+
+Notes
+-----
+
+WordPress already has a function to get the mime type icon called
+wp\_mime\_type\_icon
+[http://codex.wordpress.org/Function\_Reference/wp\_mime\_type\_icon](http://codex.wordpress.org/Function_Reference/wp_mime_type_icon "http://codex.wordpress.org/Function_Reference/wp_mime_type_icon")
+
+Change Log
+----------
+
+-   Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+Source File
+-----------
+
+`get_post_mime_type()` is located in `wp-includes/post.php`.
+

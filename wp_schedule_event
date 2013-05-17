@@ -1,0 +1,112 @@
+Function Reference/wp schedule event « WordPress Codex
+-----------
+
+Schedules a hook which will be executed by the WordPress actions core on
+a specific interval, specified by you. The action will trigger when
+someone visits your WordPress site, if the scheduled time has passed.
+See the [Plugin API](/Plugin_API "Plugin API") for a list of hooks.
+
+Usage
+-----
+
+`  <?php wp_schedule_event($timestamp, $recurrence, $hook, $args); ?> `
+
+Parameters
+----------
+
+ `$timestamp` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The first time that you want the event to occur. This
+    must be in a UNIX timestamp format. WP cron uses UTC/GMT time, not
+    local time. Use time(), which is always GMT in WordPress.
+    ([current\_time( 'timestamp'
+    )](/Function_Reference/current_time "Function Reference/current time")
+    is local time in WordPress.)
+    Default: *None*
+
+ `$recurrence` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) How often the event should reoccur. Valid values are
+    below. You can create custom intervals using the cron\_schedules
+    filter in
+    [wp\_get\_schedules()](/Function_Reference/wp_get_schedules "Function Reference/wp get schedules").
+    -   `hourly`
+    -   `twicedaily`
+    -   `daily`
+
+    Default: *None*
+
+ `$hook` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of an action hook to execute.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Arguments to pass to the hook function(s).
+    Default: *None*
+
+Return Value
+------------
+
+ `` `(boolean|null)`{style="color:gray"} 
+:   False on failure, null when complete with scheduling event.
+
+Examples
+--------
+
+### Schedule an hourly event
+
+To schedule an hourly event in a plugin, call `wp_schedule_event` on
+activation (otherwise you will end up with a lot of scheduled events!):
+
+    register_activation_hook(__FILE__, 'my_activation');
+    add_action('my_hourly_event', 'do_this_hourly');
+
+    function my_activation() {
+        wp_schedule_event( time(), 'hourly', 'my_hourly_event');
+    }
+
+    function do_this_hourly() {
+        // do something every hour
+    }
+
+Don't forget to clean the scheduler on deactivation:
+
+    register_deactivation_hook(__FILE__, 'my_deactivation');
+
+    function my_deactivation() {
+        wp_clear_scheduled_hook('my_hourly_event');
+    }
+
+### A simple way to schedule an hourly event
+
+This example doesn't rely on plugin activation (via the plugins
+directory) rather it simply adds the event if it is missing.
+
+    add_action('my_hourly_event', 'do_this_hourly');
+
+    function my_activation() {
+        if ( !wp_next_scheduled( 'my_hourly_event' ) ) {
+            wp_schedule_event( time(), 'hourly', 'my_hourly_event');
+        }
+    }
+    add_action('wp', 'my_activation');
+
+    function do_this_hourly() {
+        // do something every hour
+    }
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+Source File
+-----------
+
+`wp_schedule_event()` is located in `wp-includes/cron.php`
+

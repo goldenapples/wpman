@@ -1,0 +1,40 @@
+Function Reference/remove custom background « WordPress Codex
+-----------
+
+Remove custom background support.
+
+Usage
+-----
+
+` <?php remove_custom_background() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (boolean) 
+:   Whether support was removed.
+
+Examples
+--------
+
+Notes
+-----
+
+-   See
+    [`add_custom_background()`](/Function_Reference/add_custom_background "Function Reference/add custom background")
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`remove_custom_background()` is located in `/wp-includes/theme.php`.
+

@@ -1,0 +1,61 @@
+Function Reference/wp send json « WordPress Codex
+-----------
+
+Send a JSON response back to an Ajax request.
+
+Usage
+-----
+
+    <?php wp_send_json( $response ) ?>
+
+Parameters
+----------
+
+ `$response` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Variable (usually an array or object) to encode as
+    JSON, then print and die.
+    Default: *None*
+
+Examples
+--------
+
+    jQuery(document).ready(function(){
+
+        jQuery('#btn_save').click(function(e){
+           e.preventDefault();
+                    jQuery.post(pluginUrl+'ajax/save_field.php',jQuery('#my-form').serialize(), function(data) {                        
+                    alert(data.message + " ID:" + data.ID);
+                    //This will alert "Saved ID:1"
+                });
+        });
+
+    });
+
+save\_field.php
+
+    <?php
+    //bootstrap WP
+
+    $nonce=$_POST['_wpnonce_name'];
+    if (empty($_POST) || !wp_verify_nonce($nonce, 'my-nonce') ) die('Security check');
+
+    $return = array(
+                'message'   => 'Saved',
+                'ID'        => 1
+        );
+
+    wp_send_json($return);
+
+### Default Usage
+
+Change Log
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+Source File
+-----------
+
+`wp_send_json()` is located in `wp-includes/functions.php`
+

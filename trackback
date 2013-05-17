@@ -1,0 +1,74 @@
+Function Reference/trackback « WordPress Codex
+-----------
+
+Send a [trackback](/Glossary#Trackback "Glossary").
+
+Updates database when sending trackback to prevent duplicates.
+
+Usage
+-----
+
+` <?php trackback( $trackback_url, $title, $excerpt, $ID ) ?> `
+
+Parameters
+----------
+
+ `$trackback_url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) URL to send trackbacks.
+    Default: *None*
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Title of post.
+    Default: *None*
+
+ `$excerpt` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Excerpt of post.
+    Default: *None*
+
+ `$ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID.
+    Default: *None*
+
+Return Values
+-------------
+
+ (mixed) 
+:   Database query from update.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") to update
+    the
+    [`_posts table`](/Database_Description#Table:_wp_posts "Database Description")
+    from the database.
+-   Uses:
+    [`get_permalink()`](/Function_Reference/get_permalink "Function Reference/get permalink")
+    on `$ID`.
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+    to retrieve the `'blogname'` option.
+-   Uses:
+    [`wp_remote_post()`](/Function_Reference/wp_remote_post "Function Reference/wp remote post")
+    on `$trackback_url`.
+-   Uses:
+    [`is_wp_error()`](/Function_Reference/is_wp_error "Function Reference/is wp error")
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`trackback()` is located in `wp-includes/comment.php`.
+

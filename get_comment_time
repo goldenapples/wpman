@@ -1,0 +1,50 @@
+Function Reference/get comment time « WordPress Codex
+-----------
+
+Retrieve the comment time of the current comment.
+
+Usage
+-----
+
+` <?php get_comment_time( $d, $gmt = false, $translate = true ); ?> `
+
+Parameters
+----------
+
+ `$d` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The format of the time
+    Default: WordPress default time setting
+
+ `$gmt` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to use the GMT date
+    Default: false
+
+ `$translate` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to translate the time (for use in feeds)
+    Default: true
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   The formatted time
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+Source File
+-----------
+
+get\_comment\_time() is located in `wp-includes/comment-template.php`
+

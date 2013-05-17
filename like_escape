@@ -1,0 +1,65 @@
+Function Reference/like escape « WordPress Codex
+-----------
+
+Sanitizes `$string` for use in a LIKE expression of a SQL query. Will
+still need to be SQL escaped with `$wpdb->prepare` or `$wpdb->escape`
+along with the rest of the query.
+
+Usage
+-----
+
+`  <?php $like = like_escape( $string ); ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The LIKE argument portion of the SQL query.
+    Default: *None*
+
+Return Value
+------------
+
+`(string)` Escaped value appropriate as a LIKE argument in a SQL query.
+
+Example
+-------
+
+Try to match a suspicious link to links in comments marked as spam.
+
+    //$match = suspicious link
+    $url = parse_url($match);
+    //strip out "http://" and any url parameters
+    array_key_exists('path', $url) ? $link = $url['host'] . $url['path'] : $link = $url['host'];
+
+    $link = like_escape($link); //prepare for use as LIKE argument
+
+    $link = $wpdb->escape($link);    //sql escape required as well
+    $link = '%' . $link . '%';  //add wildcards to LIKE argument
+    //search local spam for comments or author url containing each link
+    $spammy = $wpdb->query("
+        SELECT comment_approved
+        FROM $wpdb->comments 
+        WHERE (comment_content LIKE '$link'
+            OR comment_author_url LIKE '$link')
+            AND comment_approved = 'spam' 
+        LIMIT 1;");
+    //if $spammy == 1 there was a match to comments marked as spam
+
+Notes
+-----
+
+Escapes % (percent) and \_ (underscore) characters, as they have special
+meaning in LIKE arguments.
+
+Change Log
+----------
+
+Since: 2.5.0
+
+Source File
+-----------
+
+`like_escape()` is located in `wp-includes/formatting.php`.
+

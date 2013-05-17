@@ -1,0 +1,48 @@
+Function Reference/get post comments feed link « WordPress Codex
+-----------
+
+Retrieve the permalink for the post comments feed.
+
+Usage
+-----
+
+` <?php get_post_comments_feed_link( $post_id, $feed ) ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID.
+    Default: ''
+
+ `$feed` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Feed type.
+    Default: ''
+
+Return Values
+-------------
+
+ (string) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`integer`) `$id`
+
+Change Log
+----------
+
+Since: 2.2.0
+
+Source File
+-----------
+
+`get_post_comments_feed_link()` is located in
+`wp-includes/link-template.php`.
+

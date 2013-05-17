@@ -1,0 +1,54 @@
+Function Reference/wp make link relative « WordPress Codex
+-----------
+
+Convert full URL paths to absolute paths.
+
+Removes the http or https protocols and the domain. Keeps the path '/'
+at the beginning, so it isn't a true relative link, but from the web
+root base.
+
+Usage
+-----
+
+` <?php wp_make_link_relative( $link ) ?> `
+
+Parameters
+----------
+
+ `$link` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Full URL path.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Absolute path.
+
+Examples
+--------
+
+### Default usage
+
+    <?php
+    echo wp_make_link_relative('http://localhost/wp_test/sample-page/');
+    ?>
+
+This should output the following URL:
+
+    /wp_test/sample-page/
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_make_link_relative()` is located in `wp-includes/formatting.php`.
+

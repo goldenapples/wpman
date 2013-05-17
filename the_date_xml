@@ -1,0 +1,23 @@
+Function Reference/the date xml « WordPress Codex
+-----------
+
+Displays the date of the post in `YYYY-MM-DD` format (ex: 2004-09-24).
+This tag must be used within [The Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php the_date_xml(); ?> `
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+
+Example
+-------
+
+    <p>Date posted: <?php the_date_xml(); ?></p>
+
+Date posted: 2005-05-14
+

@@ -1,0 +1,27 @@
+Function Reference/tag escape « WordPress Codex
+-----------
+
+Replaces anything other than a-zA-Z0-9\_:, the set of valid HTML tag
+characters.
+
+Usage
+-----
+
+Parameters
+----------
+
+Return Values
+-------------
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Source File
+-----------
+

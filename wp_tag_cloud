@@ -1,0 +1,314 @@
+Function Reference/wp tag cloud « WordPress Codex
+-----------
+
+The **wp\_tag\_cloud()** function displays a list of tags in what is
+called a 'tag cloud', where the size of each tag is determined by how
+many times that particular tag has been assigned to posts.
+
+Beginning with [Version 2.8](/Version_2.8 "Version 2.8"), the
+**taxonomy** parameter was added so that any taxonomy could be used as
+the basis of generating the cloud. That means that a cloud for
+Categories or any other [Custom
+Taxonomies](/Custom_Taxonomies "Custom Taxonomies") can be presented to
+visitors.
+
+Usage
+-----
+
+` <?php wp_tag_cloud( $args ); ?> `
+
+### Default Usage
+
+`  <?php $args = array(    'smallest'                  => 8,     'largest'                   => 22,    'unit'                      => 'pt',     'number'                    => 45,      'format'                    => 'flat',    'separator'                 => \\"\n\\",    'orderby'                   => 'name',     'order'                     => 'ASC',    'exclude'                   => null,     'include'                   => null,     'topic_count_text_callback' => default_topic_count_text,    'link'                      => 'view',     'taxonomy'                  => 'post_tag',     'echo'                      => true,        'child_of'                   => null(see Note!)); ?> `
+
+Note: there is a codex formatting issue with the double quotes on the
+'separator' line, the array value should be: "\\n" (unescaped
+doublequotes)
+
+The **child\_of** Key ist not a direct part of the Array in
+wp\_tag\_cloud, but because this function uses
+[wp\_parse\_args()](/Function_Reference/wp_parse_args "Function Reference/wp parse args")
+and
+[get\_terms()](/Function_Reference/get_terms "Function Reference/get terms"),
+you can use all Array Keys used by
+[get\_terms()](/Function_Reference/get_terms "Function Reference/get terms")!
+
+By default, the usage shows:
+
+-   *smallest* - The smallest tag (lowest count) is shown at size 8
+-   *largest* - The largest tag (highest count) is shown at size 22
+-   *unit* - Describes 'pt' (point) as the font-size unit for the
+    smallest and largest values
+-   *number* - Displays at most 45 tags
+-   *format* - Displays the tags in flat (separated by whitespace) style
+-   *separator* - Displays whitespace between tags
+-   *orderby* - Order the tags by name
+-   *order* - Sort the tags in ASCENDING fashion
+-   *exclude* - Exclude no tags
+-   *include* - Include all tags
+-   *topic\_count\_text\_callback* - Uses function
+    default\_topic\_count\_text
+-   *link* - view
+-   *taxonomy* - Use post tags for basis of cloud
+-   *echo* - echo the results
+
+Parameters
+----------
+
+ `smallest` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The text size of the tag with the smallest count value
+    (units given by unit parameter).
+    Default: 8
+
+ `largest` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The text size of the tag with the highest count value
+    (units given by the unit parameter).
+    Default: 22
+
+ `unit` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Unit of measure as pertains to the **smallest** and
+    **largest** values. This can be any CSS length value, e.g.
+    `pt, px, em, %`.
+    Default: 'pt'
+
+ `number` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The number of actual tags to display in the cloud. (Use
+    '0' to display all tags.)
+    Default: 45
+
+ `format` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Format of the cloud display.
+    -   `'flat'` separated by whitespace defined by 'separator'
+        parameter.
+    -   `'list'` UL with a class of 'wp-tag-cloud'
+    -   `'array'` returns the tag cloud as an array for use in PHP
+
+Default: flat
+
+ `separator` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The text/space between tags.
+    Default: '\\n' (whitespace)
+
+ `orderby` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Order of the tags.
+    -   `'name'`
+    -   `'count'`
+
+Default: name
+
+ `order` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Sort order.
+    -   `'ASC'`
+    -   `'DESC'`
+    -   `'RAND'` tags are in a random order.
+
+Default: ASC
+
+ `exclude` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*null*) optional
+    Default: *None*
+
+ `include` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*null*) optional
+    Default: *None*
+
+ `topic_count_text_callback` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The function, which, given the count of the posts with
+    that tag, returns a text for the tooltip of the tag link.
+    Default: default\_topic\_count\_text
+
+ `link` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Set link to allow edit of a particular tag.
+    -   `'view'`
+    -   `'edit'`
+
+Default: view
+
+ `taxonomy` 
+:   ([*string or
+    array*](/How_to_Pass_Tag_Parameters#String_or_array "How to Pass Tag Parameters"))
+    (*optional*) Taxonomy or array of taxonomies to use in generating
+    the cloud.
+    -   `'post_tag' `
+    -   `'category' `
+    -   `'link_category' `
+    -   `'any other registered taxonomy' `
+    -   `or array of taxonomies` Note: this parameter was introduced
+        with [Version 3.1](/Version_3.1 "Version 3.1")
+
+Default: post\_tag
+
+ `echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display the result or return it in a variable. The
+    default is *true* (display the tag cloud).
+    -   `1 (true)`
+    -   `0 (false)`
+
+Default: true
+
+Examples
+--------
+
+### Cloud displayed under Popular Tags title
+
+    <?php if ( function_exists('wp_tag_cloud') ) : ?>
+
+    <h2>Popular Tags</h2>
+    <ul>
+    <li><?php wp_tag_cloud('smallest=8&largest=22'); ?></li>
+    </ul>
+
+    <?php endif; ?>
+
+### Cloud limited in size and ordered by count rather than name
+
+    <?php wp_tag_cloud('smallest=15&largest=40&number=50&orderby=count'); ?>
+
+### Cloud returned as array but not displayed
+
+The variable \$tag will contain the tag cloud for use in other PHP code
+
+     <?php $tag = wp_tag_cloud('format=array' );?>
+
+### Display a Category Cloud
+
+Use the **taxonomy** argument to cause a cloud of categories to display.
+
+    <?php 
+    wp_tag_cloud( array( 'taxonomy' => 'category' ) ); 
+    ?>
+
+### Display a Cloud of Categories and Tags
+
+Use the array feature of the **taxonomy** argument to cause a cloud of
+categories and tags to display.
+
+    <?php 
+      $args = array(
+        'taxonomy'  => array('post_tag','category'), 
+       ); 
+       
+      wp_tag_cloud($args);
+    ?>
+
+### Change Title Text of Cloud Links
+
+Use the **topic\_count\_text\_callback** argument to pass in a new
+callback function. The original function default\_topic\_count\_text()
+is located in /wp-includes/category-template.php This example changes
+the title text from the default "topics" to "pictures".
+
+    <?php 
+    wp_tag_cloud( array( 'topic_count_text_callback' => 'my_tag_text_callback' ) ); 
+
+    function my_tag_text_callback( $count ) {
+     return sprintf( _n('%s picture', '%s pictures', $count), number_format_i18n( $count ) );
+    }
+    ?>
+
+Creating a Tag Archive
+----------------------
+
+While the new tagging feature in 2.3 is a great addition, the
+wp\_tag\_cloud tag can be used to display a Tag Archive. What this means
+is that when a visitor clicks on any particular tag a page displaying
+the tag cloud and all posts tagged the same will be displayed. According
+to the
+[Template\_Hierarchy](/Template_Hierarchy#Tag_page "Template Hierarchy")
+if a tag.php template does not exist then the archives.php template will
+be used. By making this tag.php template you can customize the way your
+Tag Archive will look, this template includes the tag cloud at the top
+for very easy navigation.
+
+To do this a new template will need to be added to your theme files.
+These are good resources for everything pertaining to
+[templates](/Templates "Templates"),
+[Template\_Hierarchy](/Template_Hierarchy#Tag_page "Template Hierarchy").
+Basic steps needed are
+
+-   1. Create file with the contents below named tag.php.
+-   2. Upload file to your themes directory.
+-   3. **This is optional only if you would like to have a link in your
+    page navigation to the Tag archive, otherwise when clicking on a tag
+    this template will be used.**
+    -   Create a new blank page using this template, give this page the
+        title Tag Archive.
+
+To elaborate more on step three:
+
+WordPress can be configured to use different Page Templates for
+different Pages. Toward the bottom of the Write-\>Write Page
+administration panel (or on the sidebar, depending on which version of
+WordPress you are using) is a drop-down labeled "Page Template". From
+there you can select which Template will be used when displaying this
+particular Page.
+
+    <?php /*
+    Template Name: Tag Archive
+    */ ?>
+    <div>
+    <?php get_header(); ?>
+    <h2>Tag Archive</h2>
+    <?php wp_tag_cloud(''); ?>
+        <div class="navigation">
+    <div class="alignleft"><?php next_posts_link('« Older Entries') ?></div>
+    <div class="alignright"><?php previous_posts_link('Newer Entries »') ?></div>
+        </div>
+    <?php if (have_posts()) : ?>
+            <?php while (have_posts()) : the_post(); ?>
+            <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title(); ?>"><?php the_title(); ?></a></h2>
+        <div class="entry">
+        <?php the_content('Read the rest of this entry »'); ?>
+        </div>
+
+        <?php endwhile; ?>
+        <?php endif; ?>
+    </div>
+    <?php get_footer(); ?>
+
+Please Note that styling has not been added to this template. A good way
+to determine the structure that your theme uses is to view the
+single.php theme file.
+
+Changelog
+---------
+
+-   [3.1](/Version_3.1 "Version 3.1") :
+    -   Added the ability to pass an array for the `taxonomy` parameter.
+
+-   [2.9](/Version_2.9 "Version 2.9") :
+    -   Added the `separator` parameter.
+
+-   [2.8](/Version_2.8 "Version 2.8") :
+    -   Added the `taxonomy` parameter.
+    -   Added the `echo` parameter.
+
+-   [2.7](/Version_2.7 "Version 2.7") :
+    -   Added the `link` parameter.
+
+-   [2.5](/Version_2.5 "Version 2.5") :
+    -   Added `'RAND'` order for the `order` parameter to return tags in
+        a random order.
+    -   Added `'array'` format for the `format` parameter to return an
+        array.
+
+-   Since: [2.3](/Version_2.3 "Version 2.3")
+
+Source File
+-----------
+
+`wp_tag_cloud()` is located in `wp-includes/category-template.php`.
+

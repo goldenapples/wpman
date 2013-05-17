@@ -1,0 +1,92 @@
+Function Reference/get allowed mime types « WordPress Codex
+-----------
+
+Retrieve list of allowed mime types and file extensions.
+
+Usage
+-----
+
+` <?php get_allowed_mime_types(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   Array of mime types keyed by the file extension regex corresponding
+    to those types.
+
+Examples
+--------
+
+### Function to retrieve the mime type icon of a file by its extension
+
+    <?php
+    function get_icon_by_file_extension($file_ext) {
+      $mimes = get_allowed_mime_types();
+      foreach ($mimes as $type => $mime) {
+        if (strpos($type, $file_ext) !== false) {
+          return wp_mime_type_icon($mime);
+        }
+      }
+    }
+    ?>
+    <img src="<?php echo get_icon_by_file_extension('mp4') ?>" />
+
+Change Log
+----------
+
+Since: [2.8.6](/Version_2.8.6 "Version 2.8.6")
+
+Source File
+-----------
+
+`get_allowed_mime_types()` is located in `wp-includes/functions.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_allowed\_mime\_types](http://codex.wordpress.org/Function_Reference/get_allowed_mime_types)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

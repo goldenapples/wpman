@@ -1,0 +1,41 @@
+Function Reference/the title rss « WordPress Codex
+-----------
+
+Display the post title in the feed.
+
+Usage
+-----
+
+` <?php the_title_rss() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`get_the_title_rss()`](/Function_Reference/get_the_title_rss "Function Reference/get the title rss")
+    Used to retrieve current post title.
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`the_title_rss()` is located in `wp-includes/feed.php`.
+

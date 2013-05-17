@@ -1,0 +1,92 @@
+Function Reference/register sidebar widget « WordPress Codex
+-----------
+
+Register widget for sidebar with backwards compatibility.
+
+Provides backwards compatability to
+[wp\_register\_sidebar\_widget()](/Function_Reference/wp_register_sidebar_widget "Function Reference/wp register sidebar widget").
+Registers callback as a widget output function with unique index name.
+This causes a draggable object containing name to appear in the admin
+interface.
+
+A basic widget is simply a function that prints some HTML. To get a
+widget included in the widgets palette, you must register it via this
+function.
+
+It is possible for theme authors to define replacement widgets within
+functions.php. Replace an existing widget by registering its name with a
+new callback. An empty callback will unregister a widget.
+
+Because each widget has a unique name and a non-unique callback, the
+default markup before a widget looks like this:
+
+    <li id="{name}" class="{callback}">{callback output}</li>
+
+When you register a widget you may pass a custom HTML class to replace
+`callback`. This is most useful for object-oriented widgets whose
+callbacks are passed as arrays.
+
+Replace With
+------------
+
+[wp\_register\_sidebar\_widget()](/Function_Reference/wp_register_sidebar_widget "Function Reference/wp register sidebar widget")
+
+Usage
+-----
+
+`  <?php register_sidebar_widget( $name, $output_callback, $classname ); ?> `
+
+Parameters
+----------
+
+ `$name` 
+:   ([*string/int*](/How_to_Pass_Tag_Parameters#String.2Fint "How to Pass Tag Parameters"))
+    (*required*) Widget ID.
+    Default: *None*
+
+ `$output_callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) Run when widget is called.
+    Default: *None*
+
+ `$classname` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Classname widget.
+    Default: *None*
+
+Example
+-------
+
+    <?php
+    function my_widget {
+        // print some HTML for the widget to display here.
+    }
+
+    register_sidebar_widget("my_widget", "my_widget");
+    ?>
+
+Given a class `my_widget` whose method that prints the widget HTML is
+called `display`, you would use the following code:
+
+    <?php
+    class my_widget {
+        function display() {
+            // print some HTML for the widget to display here.
+        }
+    }
+
+    register_sidebar_widget('My Widget', array('my_widget', 'display')); // callback is mywidget::display
+    ?>
+
+Change Log
+----------
+
+-   Deprecated: [2.8.0](/Version_2.8 "Version 2.8") Use
+    [wp\_register\_sidebar\_widget()](/Function_Reference/wp_register_sidebar_widget "Function Reference/wp register sidebar widget")
+-   Since: [2.2.0](/Version_2.2 "Version 2.2")
+
+Source File
+-----------
+
+`register_sidebar_widget()` is located in `wp-includes/deprecated.php`.
+

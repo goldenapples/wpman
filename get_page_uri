@@ -1,0 +1,56 @@
+Function Reference/get page uri « WordPress Codex
+-----------
+
+Builds and returns a URI for a page from a page id.
+
+If the page has parents, those are prepended to the URI to provide a
+full path. For example, a third level page might return a URI like this:
+
+    top-level-page/sub-page/current-page
+
+Usage
+-----
+
+` <?php get_page_uri( $page_id ) ?> `
+
+Parameters
+----------
+
+ `$page_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Page ID.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(string)` 
+:   Page URI.
+
+Examples
+--------
+
+    <?php
+    $page_id = 5;
+    $uri = get_page_uri($page_id);
+    echo '<a href="'. $uri .'">The Page</a>';
+    ?>
+
+Notes
+-----
+
+This function will return a "slug" style URI regardless of whether
+["pretty"
+Permalinks](/Using_Permalinks#Using_.22Pretty.22_permalinks "Using Permalinks")
+are configured.
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_page_uri()` is located in `wp-includes/post.php`.
+

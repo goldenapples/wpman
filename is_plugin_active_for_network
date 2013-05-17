@@ -1,0 +1,49 @@
+Function Reference/is plugin active for network « WordPress Codex
+-----------
+
+Checks to see if a plugin is "Network Active" on a multi-site
+installation of WordPress.
+
+Usage
+-----
+
+` <?php is_plugin_active_for_network($plugin) ?> `
+
+Parameters
+----------
+
+ `$plugin` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the plugin sub-directory/file.
+    Default: *None*
+
+Return Values
+-------------
+
+True
+:   if plugin is network active, else false.
+
+Examples
+--------
+
+` <?phpif ( ! function_exists( 'is_plugin_active_for_network' ) )    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );    // Makes sure the plugin is defined before trying to use it if ( is_plugin_active_for_network( 'plugin-directory/plugin-file.php' ) ) {    // Plugin is activated}?> `
+
+Notes
+-----
+
+The file that defines this function (`wp-admin/includes/plugin.php`) is
+only loaded in the admin sections. In order to use `is_plugin_active`
+outside the admin pages, it's necessary to include or require
+`plugin.php` before trying to use it (as shown in the example).
+
+Change Log
+----------
+
+Since [Version 3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`is_plugin_active_for_network()` is defined in
+`wp-admin/includes/plugin.php`.
+

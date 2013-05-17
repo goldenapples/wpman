@@ -1,0 +1,43 @@
+Function Reference/validate current theme « WordPress Codex
+-----------
+
+Checks that current theme files '`index.php`' and '`style.css`' exists.
+
+Does not check the '`default`' theme. The '`default`' theme should
+always exist or should have another theme renamed to that template name
+and directory path. Will switch theme to default if current theme does
+not validate. You can use the '`validate_current_theme`' filter to
+return `false` to disable this functionality.
+
+Usage
+-----
+
+` <?php validate_current_theme() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (boolean) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`validate_current_theme()` is located in `wp-includes/theme.php`.
+

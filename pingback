@@ -1,0 +1,69 @@
+Function Reference/pingback « WordPress Codex
+-----------
+
+[Pings back](/Glossary#Pingback "Glossary") the links found in a post.
+
+Includes `wp-include/class-IXR.php` file if not already included.
+
+Usage
+-----
+
+` <?php pingback( $content, $post_ID ) ?> `
+
+Parameters
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post content to check for links.
+    Default: *None*
+
+ `$post_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID.
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`string`) `$wp_version` holds the installed WordPress
+    version number.
+-   Uses: [IXR\_Client](/XML-RPC_Support "XML-RPC Support") WordPress
+    class.
+-   Uses:
+    [`discover_pingback_server_uri()`](/Function_Reference/discover_pingback_server_uri "Function Reference/discover pingback server uri")
+-   Uses:
+    [`get_pung()`](/Function_Reference/get_pung "Function Reference/get pung")
+-   Uses:
+    [`url_to_postid()`](/Function_Reference/url_to_postid "Function Reference/url to postid")
+-   Uses:
+    [`is_local_attachment()`](/Function_Reference/is_local_attachment "Function Reference/is local attachment")
+-   Uses:
+    [`do_action_ref_array()`](/Function_Reference/do_action_ref_array "Function Reference/do action ref array")
+    on `'pre_ping'` on `'post_links'` and on
+    [`pung()`](/index.php?title=Function_Reference/pung&action=edit&redlink=1 "Function Reference/pung (page does not exist)")
+    result.
+-   Uses:
+    [`get_permalink()`](/Function_Reference/get_permalink "Function Reference/get permalink")
+-   Uses:
+    [`add_ping()`](/Function_Reference/add_ping "Function Reference/add ping")
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`pingback()` is located in `wp-includes/comment.php`.
+

@@ -1,0 +1,78 @@
+Function Reference/get page by path « WordPress Codex
+-----------
+
+Retrieves a page given its path.
+
+Usage
+-----
+
+` <?php get_page_by_path( $page_path, $output, $post_type ) ?> `
+
+Parameters
+----------
+
+ `$page_path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Page path
+    Default: *None*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Output type. `OBJECT`, `ARRAY_N`, or `ARRAY_A`.
+    Default: OBJECT
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Post Type.
+    Default: page
+
+Return Values
+-------------
+
+ (mixed) 
+:   Null when complete.
+
+Examples
+--------
+
+### Page Path
+
+This is the equivalent of the '`pagename`' query, as in:
+'`index.php?pagename=parent-page/sub-page`'.
+
+Code for the above could be written as (assuming
+'`parent-page/sub-page`' is actually the path to a page):
+
+    get_page_by_path('parent-page/sub-page');
+
+For non-heirarchical custom post types, you need to use just the slug in
+tandem with the post\_type parameter.
+
+    //Returns nothing, assumes animals is the rewrite slug for the animal CPT
+    get_page_by_path('animals/cat', OBJECT, 'animal');
+
+    //Returns the animal with the slug 'cat'
+    get_page_by_path('cat', OBJECT, 'animal');
+
+The functions basename() and untrailingslashit() are handy for grabbing
+the last part of the URL for this:
+
+    $page_path = 'animals/cat/';
+    get_page_by_path( basename( untrailingslashit( $page_path ) ) , OBJECT, 'animal');
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`get_page_by_path()` is located in `wp-includes/post.php`.
+

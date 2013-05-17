@@ -1,0 +1,66 @@
+Function Reference/validate file « WordPress Codex
+-----------
+
+Used to prevent directory traversal attacks, or to test a filename
+against a whitelist.
+
+Usage
+-----
+
+    <?php validate_file( $file, $allowed_files ); ?>
+
+Parameters
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The file path.
+    Default: *None*
+
+ `$allowed_files` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of allowed files
+    Default: null
+
+Return Values
+-------------
+
+ (0) 
+:   `$file` represents a valid relative path. You **must** treat it as a
+    relative path after validating.
+
+ (1) 
+:   `$file` is invalid and contains either `'..'` or `'./'`
+
+ (2) 
+:   `$file` is invalid and contains `':'` after the first character.
+
+ (3) 
+:   `$file` is invalid and is not in the `$allowed_file` list.
+
+Examples
+--------
+
+    $path = 'uploads/2012/12/my_image.jpg';
+    return validate_file( $path ); // returns 0 (valid path)
+
+    $path = '../../wp-content/uploads/2012/12/my_image.jpg';
+    return validate_file( $path ); // returns 1 (invalid path)
+
+Notes
+-----
+
+Be careful making boolean interpretations of the result, since false (0)
+indicates the filename has passed validation, whereas true (\> 0)
+indicates failure.
+
+Changelog
+---------
+
+-   Since: [1.2.0](/Version_1.2 "Version 1.2")
+
+Source File
+-----------
+
+`validate_file()` is located in `wp-includes/functions.php`.
+

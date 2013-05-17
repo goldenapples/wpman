@@ -1,0 +1,157 @@
+Function Reference/get children « WordPress Codex
+-----------
+
+get\_children() retrieves attachments, revisions, or sub-Pages, possibly
+by post parent. It works similarly to
+[get\_posts()](/Function_Reference/get_posts "Function Reference/get posts").
+
+Synopsis
+--------
+
+`array $children =& get_children( mixed $args = "", constant $output = OBJECT);`
+
+Return values
+-------------
+
+Returns an associative array of posts (of variable type set by `$output`
+parameter) with post IDs as array keys, or an empty array if no posts
+are found.
+
+Prior to [Version 2.9](/Version_2.9 "Version 2.9"), the return value
+would be `false` when no children found.
+
+Default parameters (Version 2.7)
+--------------------------------
+
+    $defaults = array( 
+        'post_parent' => 0,
+        'post_type'   => 'any', 
+        'numberposts' => -1,
+        'post_status' => 'any'
+    );
+
+Parameters
+----------
+
+See [get\_posts()](/Template_Tags/get_posts "Template Tags/get posts")
+for a full list of parameters.
+
+As of [Version 2.6](/Version_2.6 "Version 2.6"), you must pass a
+non-empty `post_type` parameter (either `attachment` or `page`).
+
+ \$args 
+:   (mixed) Passing [a query-style string or
+    array](/Template_Tags/How_to_Pass_Tag_Parameters#Tags_with_query-string-style_parameters "Template Tags/How to Pass Tag Parameters")
+    sets several parameters (below). Passing an integer post ID or a
+    post object will retrieve children of that post; passing an empty
+    value will retrieve children of the current post or Page.
+ \$args['numberposts'] 
+:   (integer) Number of child posts to retrieve. Optional; default: -1
+    (unlimited)
+ \$args['post\_parent'] 
+:   (integer) Pass the ID of a post or Page to get its children. Pass 0
+    to get attachments without parent. Pass `null` to get any child
+    regardless of parent. Optional; default: `0` (no parent)
+ \$args['post\_type'] 
+:   (string) Any value from post\_type column of the posts table, such
+    as `attachment`, `page`, or `revision`; or the keyword `any`.
+    Default: `any`
+ \$args['post\_status'] 
+:   (string) Any value from the `post_status` column of the wp\_posts
+    table, such as `publish`, `draft`, or `inherit`; or the keyword
+    `any`. Default: `any`
+ \$args['post\_mime\_type'] 
+:   (string) A full or partial mime-type, e.g. `image`, `video`,
+    `video/mp4`, which is matched against a post's `post_mime_type`
+    field
+ \$output 
+:   (constant) Variable type of the array items returned by the
+    function: one of `OBJECT`, `ARRAY_A`, `ARRAY_N`. Optional; default:
+    `OBJECT`
+
+Examples
+--------
+
+If you just want to get or display attachments, it's probably a little
+easier to use `get_posts()` instead.
+
+    $images =& get_children( 'post_type=attachment&post_mime_type=image' );
+
+    $videos =& get_children( 'post_type=attachment&post_mime_type=video/mp4' );
+
+    if ( empty($images) ) {
+        // no attachments here
+    } else {
+        foreach ( $images as $attachment_id => $attachment ) {
+            echo wp_get_attachment_image( $attachment_id, 'full' );
+        }
+    }
+
+    //  If you don't need to handle an empty result:
+
+    foreach ( (array) $videos as $attachment_id => $attachment ) {
+        echo wp_get_attachment_link( $attachment_id );
+    }
+
+### Show the first image associated with the post
+
+This function retrieves the first image associated with a post
+
+    <?php
+    function echo_first_image( $postID ) {
+        $args = array(
+            'numberposts' => 1,
+            'order' => 'ASC',
+            'post_mime_type' => 'image',
+            'post_parent' => $postID,
+            'post_status' => null,
+            'post_type' => 'attachment',
+        );
+
+        $attachments = get_children( $args );
+
+        if ( $attachments ) {
+            foreach ( $attachments as $attachment ) {
+                $image_attributes = wp_get_attachment_image_src( $attachment->ID, 'thumbnail' )  ? wp_get_attachment_image_src( $attachment->ID, 'thumbnail' ) : wp_get_attachment_image_src( $attachment->ID, 'full' );
+
+                echo '<img src="' . wp_get_attachment_thumb_url( $attachment->ID ) . '" class="current">';
+            }
+        }
+    }
+
+### Show the first image associated with the post and re-key the array
+
+In the example above, a primary array is keyed with the image ID (the
+exact thing which is being sought - since we don't know it how are we
+supposed to access it?). The code below provides an easier handle for
+the image information: the array \$child\_image. Should be used in the
+loop.
+
+    $args = array(
+        'numberposts' => 1,
+        'order'=> 'DESC',
+        'post_mime_type' => 'image',
+        'post_parent' => $post->ID,
+        'post_type' => 'attachment'
+        );
+
+    $get_children_array = get_children($args,ARRAY_A);  //returns Array ( [$image_ID]... 
+    $rekeyed_array = array_values($get_children_array);
+    $child_image = $rekeyed_array[0];  
+
+
+    print_r($child_image);      //Show the contents of the $child_image array.
+    echo $child_image['ID'];    //Show the $child_image ID.
+
+\
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`get_children()` is located in `wp-includes/post.php`.
+

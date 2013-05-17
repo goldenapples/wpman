@@ -1,0 +1,45 @@
+Function Reference/untrailingslashit « WordPress Codex
+-----------
+
+Removes trailing slash if it exists.
+
+The primary use of this is for paths and thus should be used for paths.
+It is not restricted to paths and offers no specific path support.
+
+Usage
+-----
+
+` <?php untrailingslashit( $string ); ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) What to remove the trailing slash from.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   String without the trailing slash.
+
+Examples
+--------
+
+Notes
+-----
+
+-   This: '`/`' is a slash.
+
+Change Log
+----------
+
+Since: 2.2.0
+
+Source File
+-----------
+
+`untrailingslahit()` is located in `wp-includes/formatting.php`.
+

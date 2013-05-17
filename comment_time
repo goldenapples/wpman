@@ -1,0 +1,50 @@
+Function Reference/comment time « WordPress Codex
+-----------
+
+Displays the time a comment was posted. This tag must be within [The
+Loop](/The_Loop "The Loop"), or a comment loop.
+
+Use
+[get\_comment\_time()](/Function_Reference/get_comment_time "Function Reference/get comment time")
+to retrieve the value.
+
+Usage
+-----
+
+`  <?php comment_time( $d ); ?> `
+
+Parameters
+----------
+
+ `$d` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Formatting for the time.
+    Default: Defaults to the time format set in WordPress. See
+    [Formatting Date and
+    Time](/Formatting_Date_and_Time "Formatting Date and Time").
+
+Return Values
+-------------
+
+None. Echoes the return of `get_comment_time()`.
+
+Example
+-------
+
+Displays the current comment time in the format "22:04:11".
+
+    <p>comment timestamp: <?php comment_time('H:i:s'); ?></p>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [0.71](/Version_0.71 "Version 0.71")
+
+Source File
+-----------
+
+comment\_time() is located in `wp-includes/comment-template.php`
+

@@ -1,0 +1,43 @@
+Function Reference/get comment author rss « WordPress Codex
+-----------
+
+Retrieve the current comment author for use in the feeds.
+
+Usage
+-----
+
+` <?php get_comment_author_rss() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Comment Author
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`comment_author_rss`' hook on comment author.
+-   Uses:
+    [`get_comment_author()`](/Function_Reference/get_comment_author "Function Reference/get comment author")
+
+Change Log
+----------
+
+Since: 2.0.0
+
+Source File
+-----------
+
+`get_comment_author_rss()` is located in `wp-includes/feed.php`.
+

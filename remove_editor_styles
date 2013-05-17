@@ -1,0 +1,37 @@
+Function Reference/remove editor styles « WordPress Codex
+-----------
+
+Removes all visual editor stylesheets.
+
+Usage
+-----
+
+` <?php remove_editor_styles() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (boolean) 
+:   True on success, false if there were no stylesheets to remove.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`remove_editor_styles()` is located in `/wp-includes/theme.php`.
+

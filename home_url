@@ -1,0 +1,78 @@
+Function Reference/home url « WordPress Codex
+-----------
+
+The **home\_url** template tag retrieves the home URL for the current
+site, optionally with the `$path` argument appended. The function
+determines the appropriate protocol, "https" if
+[`is_ssl()`](/Function_Reference/is_ssl "Function Reference/is ssl") and
+"http" otherwise. If the `$scheme` argument is "http" or "https" the
+`is_ssl()` check is overridden.
+
+In case of WordPress [Network
+Setup](/Create_A_Network "Create A Network"), use
+[network\_home\_url()](/Function_Reference/network_home_url "Function Reference/network home url")
+instead.
+
+Usage
+-----
+
+` <?php home_url( $path, $scheme ); ?> `
+
+### Default Usage
+
+` <?php echo home_url(); ?> `
+
+Parameters
+----------
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path relative to the home URL.
+    Default: *None*
+
+ `$scheme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Scheme to use for the home URL. Currently, only "http"
+    and "https" are supported.
+    Default: null
+
+Return
+------
+
+ (string) 
+:   Home URL with the optional \$path argument appended.
+
+Example
+-------
+
+    $url = home_url();
+    echo $url;
+
+Output:
+[http://www.example.com](http://www.example.com "http://www.example.com")
+
+(Note the lack of a trailing slash)
+
+    $url = home_url('/');
+    echo $url;
+
+Output:
+[http://www.example.com/](http://www.example.com/ "http://www.example.com/")
+
+Notes
+-----
+
+-   Uses
+    [get\_home\_url()](/Function_Reference/get_home_url "Function Reference/get home url")
+-   Uses the 'home' [option](/Option_Reference "Option Reference")
+
+Changelog
+---------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source Code
+-----------
+
+`home_url()` is located in `wp-includes/link-template.php`.
+

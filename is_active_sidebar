@@ -1,0 +1,66 @@
+Function Reference/is active sidebar « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if a
+given [sidebar](/Sidebars "Sidebars") is active (in use). This is a
+boolean function, meaning it returns either TRUE or FALSE.
+
+Any sidebar that contains widgets will return TRUE, whereas any sidebar
+that does not contain any widgets will return FALSE.
+
+Usage
+-----
+
+`  <?php is_active_sidebar( $index ); ?> `
+
+Parameters
+----------
+
+ `$index` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Sidebar name, id or number.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True if the sidebar is in use, otherwise the function returns false
+
+Examples
+--------
+
+Display different output depending on whether the sidebar is active or
+not.
+
+    <?php
+    if ( is_active_sidebar(1) ) {
+        // Display some text
+    } else {
+        // Display none
+    };
+    ?>
+
+    <?php if ( is_active_sidebar( 'left-sidebar' ) ) : ?>
+        <ul id="sidebar">
+            <?php dynamic_sidebar( 'left-sidebar' ); ?>
+        </ul>
+    <?php endif; ?>
+
+\
+
+### in the "Twenty Ten" theme (3.0+)
+
+-   `wp-content/themes/twentyten/sidebar.php`
+-   `wp-content/themes/twentyten/sidebar-footer.php`
+
+Change Log
+----------
+
+Since: 2.8.0
+
+Source File
+-----------
+
+`is_active_sidebar()` is located in `wp-includes/widgets.php`.
+

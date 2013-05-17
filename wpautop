@@ -1,0 +1,90 @@
+Function Reference/wpautop « WordPress Codex
+-----------
+
+Changes double line-breaks in the text into HTML paragraphs
+(`<p>...</p>`).
+
+WordPress uses it to filter [the
+content](/Template_Tags/the_content "Template Tags/the content") and
+[the excerpt](/Template_Tags/the_excerpt "Template Tags/the excerpt").
+
+Usage
+-----
+
+`  <?php wpautop( $foo, $br ); ?> `
+
+Parameters
+----------
+
+ `$foo` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be formatted.
+    Default: *None*
+
+ `$br` 
+:   ([*boolean or
+    integer*](/How_to_Pass_Tag_Parameters#Boolean_or_integer "How to Pass Tag Parameters"))
+    (*optional*) Preserve line breaks. When set to true, any line breaks
+    remaining after paragraph conversion are converted to HTML `<br />`.
+    Line breaks within `script` and `style` sections are not affected.
+    Default: 1
+
+Return Values
+-------------
+
+ (string) 
+:   Text which has been converted into correct paragraph tags.
+
+Examples
+--------
+
+### Basic usage
+
+    <?php
+    $some_long_text = <<<TXT
+    Some long text
+    that has many lines
+
+    and paragraphs in it.
+    TXT;
+
+    echo wpautop($some_long_text);
+    ?>
+
+This should echo the string with \<p\> tags around the paragraphs, like
+this:
+
+    <p>Some long text<br/>
+    that has many lines</p>
+    <p>and paragraphs in it.</p>
+
+Notes
+-----
+
+### Disabling the filter
+
+Some people choose to disable the wpautop filter from within their
+theme's `functions.php`:
+
+    remove_filter( 'the_content', 'wpautop' );
+    remove_filter( 'the_excerpt', 'wpautop' );
+
+There's also a
+[plugin](http://wordpress.org/extend/plugins/wpautop-control/ "http://wordpress.org/extend/plugins/wpautop-control/")
+available to enable/disable the filter on a post-by-post basis.
+
+Changelog
+---------
+
+Since: 0.71
+
+Source File
+-----------
+
+`wpautop()` is located in `wp-includes/formatting.php`.
+
+Resources
+---------
+
+[http://ma.tt/scripts/autop/](http://ma.tt/scripts/autop/ "http://ma.tt/scripts/autop/")
+

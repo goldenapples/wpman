@@ -1,0 +1,79 @@
+Function Reference/get footer « WordPress Codex
+-----------
+
+[Includes](/Include_Tags "Include Tags") the `footer.php` template file
+from your current theme's directory. if a name is specified then a
+specialised footer `footer-{name}.php` will be included.
+
+If the theme contains no `footer.php` file then the footer from the
+default theme `wp-includes/theme-compat/footer.php` will be included.
+
+Usage
+-----
+
+` <?php get_footer( $name ); ?> `
+
+Parameters
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Calls for `footer-name.php`.
+    Default: *None*
+
+Return Values
+-------------
+
+None.
+
+Examples
+--------
+
+### Simple 404 page
+
+The following code is a simple example of a template for an "HTTP 404:
+Not Found" error (which you could include in your
+[Theme](/Theme_Development "Theme Development") as `404.php`).
+
+    <?php get_header(); ?>
+    <h2>Error 404 - Not Found</h2>
+    <?php get_sidebar(); ?>
+    <?php get_footer(); ?>
+
+### Mullti footers
+
+Different footer for different pages.
+
+    <?php
+    if ( is_home() ) :
+        get_footer( 'home' );
+    elseif ( is_404() ) :
+        get_footer( '404' );
+    else :
+        get_footer();
+    endif;
+    ?>
+
+The file names for the home and 404 footers should be `footer-home.php`
+and `footer-404.php` respectively.
+
+Notes
+-----
+
+-   Uses:
+    [locate\_template()](/Function_Reference/locate_template "Function Reference/locate template")
+-   Uses:
+    [do\_action()](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'get\_footer' action.
+
+Change Log
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+-   [2.7.0](/Version_2.7 "Version 2.7") : Added the '`name`' parameters.
+
+Source File
+-----------
+
+`get_footer()` is located in `wp-includes/general-template.php`.
+

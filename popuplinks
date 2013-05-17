@@ -1,0 +1,56 @@
+Function Reference/popuplinks « WordPress Codex
+-----------
+
+Adds ` target='_blank' and rel='external'` to all HTML `Anchor` tags to
+open links in new windows.
+
+Comment text in popup windows should be filtered through this. Right now
+it's a moderately dumb function, ideally it would detect whether a
+target or rel attribute was already there and adjust its actions
+accordingly.
+
+Usage
+-----
+
+` <?php popuplinks( $text ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to replace links to open in a new window.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Content that has filtered links.
+
+Examples
+--------
+
+### Default usage
+
+    <?php
+    echo popuplinks('Please visit <a href="http://www.wordpress.com">WordPress.com</a>.');
+    ?>
+
+Will output:
+
+    Please visit <a href="http://www.wordpress.com" target='_blank' rel='external'>WordPress.com</a>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`popuplinks()` is located in `wp-includes/formatting.php`.
+

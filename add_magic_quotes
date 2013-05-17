@@ -1,0 +1,44 @@
+Function Reference/add magic quotes « WordPress Codex
+-----------
+
+Walks an array while sanitizing the contents.
+
+Usage
+-----
+
+` <?php add_magic_quotes( $array ) ?> `
+
+Parameters
+----------
+
+ `$array` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Array to used to walk while sanitizing contents.
+    Default: *None*
+
+Return Values
+-------------
+
+ (array) 
+:   Sanitized `$array`.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") to sanitize
+    values
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`add_magic_quotes()` is located in `wp-includes/functions.php`.
+

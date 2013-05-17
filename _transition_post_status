@@ -1,0 +1,62 @@
+Function Reference/ transition post status « WordPress Codex
+-----------
+
+Hook for managing future post transitions to published.
+
+Usage
+-----
+
+` <?php _transition_post_status( $new_status, $old_status, $post ) ?> `
+
+Parameters
+----------
+
+ `$new_status` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) New post status
+    Default: *None*
+
+ `$old_status` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Previous post status
+    Default: *None*
+
+ `$post` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*required*) Object type containing the post information
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   **This is a private function. It should not be called directly. It
+    is listed in the Codex for completeness.**
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls '`private_to_published`' on post ID if this is a
+    '`private_to_published`' call.
+-   Uses:
+    [`wp_clear_scheduled_hook()`](/Function_Reference/wp_clear_scheduled_hook "Function Reference/wp clear scheduled hook")
+    with '`publish_future_post`' and post ID.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+Change Log
+----------
+
+Since: 2.3.0
+
+Source File
+-----------
+
+`_transition_post_status()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,69 @@
+Function Reference/update comment meta « WordPress Codex
+-----------
+
+The function update\_comment\_meta() updates the value of an existing
+comment meta key for the specified comment.
+
+This may be used in place of the add\_comment\_meta() function. The
+first thing this function will do is make sure that \$meta\_key already
+exists on \$comment\_id. If it does not it will be added.
+
+Usage
+-----
+
+`  <?php update_comment_meta( $comment_id, $meta_key, $meta_value, $prev_value ); ?> `
+
+Parameters
+----------
+
+ `$comment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the comment which contains the field you will
+    edit.
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The key of the custom field you will edit.
+    Default: *None*
+
+ `$meta_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The new value of the custom field. A passed array will
+    be serialized into a string.
+    Default: *None*
+
+ `$prev_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The old value of the custom field you wish to change.
+    This is to differentiate between several fields with the same key.
+    If omitted, and there are multiple rows for this post and meta key,
+    all meta values will be updated.
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   False on failure, true if success.
+
+Examples
+--------
+
+### Default Usage
+
+    <?php update_comment_meta( 3416, 'my_key', 'Brad' ); ?>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+Source File
+-----------
+
+update\_comment\_meta() is located in `wp-includes/comment.php`
+

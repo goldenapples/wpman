@@ -1,0 +1,44 @@
+Function Reference/user can « WordPress Codex
+-----------
+
+Whether a user has capability or role. Similar to
+[current\_user\_can()](/Function_Reference/current_user_can "Function Reference/current user can"),
+but this function takes a user ID or object as its first parameter.
+
+Usage
+-----
+
+`  <?php user_can( $user, $capability ); ?> `
+
+Parameters
+----------
+
+ `$user` 
+:   ([*object or integer
+    (ID)*](/How_to_Pass_Tag_Parameters#Object_or_integer_.28ID.29 "How to Pass Tag Parameters"))
+    (*required*) required
+    Default: *None*
+
+ `$capability` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    [capability](/Roles_and_Capabilities "Roles and Capabilities") or
+    role name.
+    Default: *None*
+
+Returns
+-------
+
+ (boolean) 
+:   user has capability or role.
+
+Changelog
+---------
+
+Since: [Version 3.1](/Version_3.1 "Version 3.1")
+
+Source Code
+-----------
+
+`user_can()` is located in `wp-includes/capabilities.php`.
+

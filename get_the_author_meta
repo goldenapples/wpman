@@ -1,0 +1,93 @@
+Function Reference/get the author meta « WordPress Codex
+-----------
+
+This function returns the desired meta data for a user. If used within
+[The Loop](/The_Loop "The Loop"), the user ID need not be specified, and
+the displayed data is that of the current post author. A user ID must be
+specified if used outside [The Loop](/The_Loop "The Loop").
+
+get\_the\_author\_meta() returns the data for use in PHP. To display the
+information instead, use
+[the\_author\_meta()](/Function_Reference/the_author_meta "Function Reference/the author meta")
+
+If the specified meta field does not exist for this user, the empty
+string is returned.
+
+Usage
+-----
+
+`  <?php get_the_author_meta( $field, $userID ); ?> `
+
+Parameters
+----------
+
+ \$field 
+:   (*string*) Field name for the data item to be returned. Valid
+    values:
+    -   `user_login`
+    -   `user_pass`
+    -   `user_nicename`
+    -   `user_email`
+    -   `user_url`
+    -   `user_registered`
+    -   `user_activation_key`
+    -   `user_status`
+    -   `display_name`
+    -   `nickname`
+    -   `first_name`
+    -   `last_name`
+    -   `description` (**Biographical Info** from the user's profile)
+    -   `jabber`
+    -   `aim`
+    -   `yim`
+    -   `user_level`
+    -   `user_firstname`
+    -   `user_lastname`
+    -   `user_description`
+    -   `rich_editing`
+    -   `comment_shortcuts`
+    -   `admin_color`
+    -   `plugins_per_page`
+    -   `plugins_last_view`
+    -   `ID`
+
+ \$userID 
+:   (*integer*) If a user ID is passed to the function, it will return
+    data for the specified user ID.
+
+Examples
+--------
+
+### Get A User's Email Address
+
+Get the email address for the author of the current post and store it in
+the `$user_email` variable for further use. (Remember, this function
+*returns* data, it doesn't display it.)
+
+    <?php $user_email = get_the_author_meta('user_email'); ?>
+
+### Show a User's Display Name With Email Address Linked
+
+Get the email address for user ID 25, and echo it using their display
+name as the anchor text.
+
+    <p>Email the author: <a href="mailto:<?php echo get_the_author_meta('user_email', 25); ?>"><?php the_author_meta('display_name', 25); ?></a></p>
+
+Notes
+-----
+
+Plugins may add additional fields to the user profile, which in turn
+adds new key/value pairs to the wp\_usermeta database table. This
+additional data can be retrieved by passing the field's key to the
+function as the `$field` parameter.
+
+Change Log
+----------
+
+Since: 2.8.0
+
+Source File
+-----------
+
+`get_the_author_meta()` is located in `wp-includes/author-template.php`.
+

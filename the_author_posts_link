@@ -1,0 +1,47 @@
+Function Reference/the author posts link « WordPress Codex
+-----------
+
+Displays a link to all posts by an author. The link text is the user's
+**Display name publicly as** field. The results of clicking on the
+presented link will be controlled by the [Template
+Hierarchy](/Template_Hierarchy "Template Hierarchy") of [Author
+Templates](/Author_Templates "Author Templates"). This tag must be used
+within [The Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php the_author_posts_link(); ?> `
+
+Parameters
+----------
+
+This function takes no arguments.
+
+### Deprecated Parameters
+
+ idmode 
+:   (*string*) Sets the element of the author's information to display
+    for the link text.
+
+Examples
+--------
+
+### Use Example
+
+Displays the link, where the default link text value is the user's
+**Display name publicly as** field.
+
+    <p>Other posts by <?php the_author_posts_link(); ?></p>
+
+Source File
+-----------
+
+`the_author_posts_link()` is located in
+`wp-includes/author-template.php`
+
+Change Log
+----------
+
+-   Since: 1.2.0
+

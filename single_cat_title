@@ -1,0 +1,74 @@
+Function Reference/single cat title « WordPress Codex
+-----------
+
+Displays or returns the page title if a
+[category](/Glossary#Category "Glossary") or
+[tag](/Glossary#Tag "Glossary") archive is
+[queried](/Glossary#Query "Glossary"). Therefore, the function can be
+used only outside [the loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php single_cat_title( $prefix, $display ); ?> `
+
+### Default Usage
+
+    <?php single_cat_title( $prefix = '', $display = true ); ?>
+
+Parameters
+----------
+
+ `$prefix` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to output before the title.
+    Default: *None*
+
+ `$display` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Should the page title be displayed (*true*) or returned
+    for use in PHP (*false*).
+    Default: true
+
+Return Values
+-------------
+
+ `` `(string/void)`{style="color:gray"} 
+:   Page title if a category or tag archive is
+    [queried](/Glossary#Query "Glossary") and the `$display` argument is
+    set to *false*.
+
+Examples
+--------
+
+This example displays the text "**Currently browsing**" followed by the
+category title.
+
+    <p><?php single_cat_title('Currently browsing '); ?>.</p>
+
+Currently browsing WordPress.
+
+\
+ This example assigns the current category title to the variable
+\$current\_category for use in PHP.
+
+    <?php $current_category = single_cat_title("", false); ?>
+
+Notes
+-----
+
+-   As of [Version 3.1](/Version_3.1 "Version 3.1"), this function is
+    alias for `single_term_title()`.
+-   Prior to [Version 3.1](/Version_3.1 "Version 3.1"), this function
+    used `single_tag_title()`.
+
+Change Log
+----------
+
+Since: [Version 0.71](/Version_0.71 "Version 0.71")
+
+Source File
+-----------
+
+`single_cat_title()` is located in `wp-includes/general-template.php`.
+

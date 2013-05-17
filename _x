@@ -1,0 +1,59 @@
+Function Reference/ x « WordPress Codex
+-----------
+
+Retrieve translated string with gettext context
+
+Quite a few times, there will be collisions with similar translatable
+text found in more than two places but with different translated
+context.
+
+By including the context in the pot file translators can translate the
+two strings differently.
+
+Usage
+-----
+
+` <?php _x( $text, $context, $domain ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to translate
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Context information for the translators
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text
+    Default: 'default'
+
+Return Values
+-------------
+
+ (string) 
+:   Translated context string.
+
+Examples
+--------
+
+Notes
+-----
+
+-   *l10n* is an abbreviation for *localization*.
+
+Change Log
+----------
+
+-   Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+Source File
+-----------
+
+`_x()` is located in `wp-includes/l10n.php`.
+

@@ -1,0 +1,127 @@
+Function Reference/wp dropdown users « WordPress Codex
+-----------
+
+Create dropdown HTML content of users.
+
+Usage
+-----
+
+`  <?php wp_dropdown_users( $args ); ?> `
+
+### Default Usage
+
+`  <?php $args = array(    'show_option_all'         => null, // string    'show_option_none'        => null, // string    'hide_if_only_one_author' => null, // string    'orderby'                 => 'display_name',    'order'                   => 'ASC',    'include'                 => null, // string    'exclude'                 => null, // string    'multi'                   => false,    'show'                    => 'display_name',    'echo'                    => true,    'selected'                => false,    'include_selected'        => false,    'name'                    => 'user', // string    'id'                      => null, // integer    'class'                   => null, // string     'blog_id'                 => $GLOBALS['blog_id'],    'who'                     => null // string); ?> `
+
+Parameters
+----------
+
+ show\_option\_all 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Causes the HTML for the dropdown to allow you to select All of the
+    users.
+
+ show\_option\_none 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Causes the HTML for the dropdown to allow you to select NONE of the
+    users.
+
+ orderby 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Key to sort options by. Valid values:
+    -   `'ID'`
+    -   `'user_nicename'`
+    -   `'display_name'` - Default
+
+ order 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Sort order for options. Valid values:
+    -   `'ASC'` - Default
+    -   `'DESC'`
+
+ include 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Comma separated list of users IDs to include. For example,
+    'include=4,12' means users IDs 4 and 12 will be displayed/echoed or
+    returned. Defaults to include all.
+
+ exclude 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Comma separated list of users IDs to exclude. For example,
+    'exclude=4,12' means users IDs 4 and 12 will NOT be displayed/echoed
+    or returned. Defaults to exclude nothing.
+
+ multi 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    Whether to skip the ID attribute on the 'select' element.
+    -   `1 (True)`
+    -   `0 (False)` - Default
+
+ show 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    User table column to display. If the selected item is empty then the
+    user\_login will be displayed in parentesis.
+    -   `'ID'`
+    -   `'user_login'`
+    -   `'display_name'` - Default
+
+ echo 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    Display users (`TRUE`) or return them for use by PHP (`FALSE`).
+    -   `1 (True)` - Default
+    -   `0 (False)`
+
+ selected 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    User ID of the user to be 'selected' or presented in the display
+    box. Defaults to no user selected.
+
+ include\_selected 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    Always include the selected user ID in the dropdown. Default is
+    false.
+
+ name 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Name assigned to the dropdown form. Defaults to 'user'.
+
+ class 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Class assinged to the dropdown form.
+
+id 
+:   ID attribute of select element. Default is the value of the 'name'
+    parameter.
+class 
+:   Class attribute of select element.
+blog\_id 
+:   ID of blog (Multisite only). Defaults to ID of current blog.
+who 
+:   Which users to query. Currently only 'authors' is supported. Default
+    is all users. Introduced with [Version
+    3.1](/Version_3.1 "Version 3.1").
+
+Examples
+--------
+
+### Dropdown with Submit Button
+
+Displays a users dropdown list in HTML form with a submit button.
+
+    <li id="users">
+     <h2><?php _e('users:'); ?></h2>
+       <form action="<?php bloginfo('url'); ?>" method="get">
+       <?php wp_dropdown_users(array('name' => 'author')); ?>
+       <input type="submit" name="submit" value="view" />
+       </form>
+    </li>
+
+Change Log
+----------
+
+Since: [2.3.0](/Version_2.3 "Version 2.3")
+
+Source File
+-----------
+
+`wp_dropdown_users()` is located in `wp-includes/user.php`.
+

@@ -1,0 +1,64 @@
+Function Reference/have comments « WordPress Codex
+-----------
+
+Determines whether there are any
+[Comments](/Glossary#Comments "Glossary") to loop over or not.
+
+Usage
+-----
+
+This function relies upon the global `$wp_query` object to be set - this
+is usually the case from within [The Loop](/The_Loop "The Loop")
+
+` <?php $have_comments = have_comments(); ?> `
+
+Parameters
+----------
+
+n/a
+
+Return Values
+-------------
+
+ (bool) 
+:   `true` if the current query has comments available, `false`
+    otherwise.
+
+Examples
+--------
+
+Example based on Twentyten's `comments.php` template: Comments title
+(and more) is displayed only when comments are available:
+
+    <?php if ( have_comments() ) : ?>
+        <h3 id="comments-title"><?php
+            printf(
+                _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'twentyten' ),
+                number_format_i18n( get_comments_number() ),
+                '<em>' . get_the_title() . '</em>' 
+            );
+        ?></h3>
+    // [and more, of course...]
+    <?php else : // or, if we don't have comments:
+        if ( ! comments_open() ) : ?>
+            <p class="nocomments"><?php _e( 'Comments are closed.', 'twentyten' ); ?></p>
+        <?php endif; // end ! comments_open() ?>
+    <?php endif; // end have_comments() ?>
+
+Notes
+-----
+
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+    to determine if comments are available (via `have_comments` method).
+
+Change Log
+----------
+
+Since: 2.2.0
+
+Source File
+-----------
+
+`have_comments()` is located in `wp-includes/query.php`.
+

@@ -1,0 +1,45 @@
+Function Reference/preview theme ob filter « WordPress Codex
+-----------
+
+Callback function for
+[`ob_start()`](http://us2.php.net/manual/en/function.ob-start.php "http://us2.php.net/manual/en/function.ob-start.php")
+to capture all links in the theme.
+
+Usage
+-----
+
+` <?php preview_theme_ob_filter( $content ) ?> `
+
+Parameters
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+-   **This is a private function. It should not be called directly. It
+    is listed in the Codex for completeness.**
+
+Change Log
+----------
+
+Since: unknown
+
+Source File
+-----------
+
+`preview_theme_ob_filter()` is located in `wp-includes/theme.php`.
+

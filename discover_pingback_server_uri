@@ -1,0 +1,56 @@
+Function Reference/discover pingback server uri « WordPress Codex
+-----------
+
+Finds a pingback server URI based on the given URL.
+
+Checks the xhtml for the `rel="pingback"` link and x-pingback headers.
+It does a check for the x-pingback headers first and returns that, if
+available. The check for the `rel="pingback"` has more overhead than
+just the header.
+
+Usage
+-----
+
+` <?php discover_pingback_server_uri( $url, $deprecated ) ?> `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) URL to ping.
+    Default: *None*
+
+ `$deprecated` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*Not Used.*)
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean|string)` 
+:   False on failure, string containing URI on success.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`wp_remote_get()`](/Function_Reference/wp_remote_get "Function Reference/wp remote get")
+-   Uses:
+    [`is_wp_error()`](/Function_Reference/is_wp_error "Function Reference/is wp error")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`discover_pingback_server_uri()` is located in
+`wp-includes/comment.php`.
+

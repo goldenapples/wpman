@@ -1,0 +1,29 @@
+Function Reference/the author posts « WordPress Codex
+-----------
+
+Displays the total number of posts an author has published. Drafts and
+private posts aren't counted. This tag must be used within [The
+Loop](/The_Loop "The Loop").
+
+Usage
+-----
+
+`  <?php the_author_posts(); ?> `
+
+Example
+-------
+
+Displays the author's name and number of posts.
+
+    <p><?php the_author(); ?> has blogged <?php the_author_posts(); ?> 
+    posts</p>
+
+Harriett Smith has blogged 425 posts.
+
+\
+
+Parameters
+----------
+
+This tag does not accept any parameters.
+

@@ -1,0 +1,81 @@
+Function Reference/get plugin data « WordPress Codex
+-----------
+
+Parse the plugin contents to retrieve plugin's metadata.
+
+The metadata of the plugin's data searches for the following in the
+plugin's header. All plugin data must be on its own line. For plugin
+description, it must not have any newlines or only parts of the
+description will be displayed and the same goes for the plugin data.
+
+Plugin data returned array contains the following:
+
+-   'Name' - Name of the plugin, must be unique.
+-   'Title' - Title of the plugin and the link to the plugin's web site.
+-   'Description' - Description of what the plugin does and/or notes
+    from the author.
+-   'Author' - The author's name
+-   'AuthorURI' - The authors web site address.
+-   'Version' - The plugin version number.
+-   'PluginURI' - Plugin web site address.
+-   'TextDomain' - Plugin's text domain for localization.
+-   'DomainPath' - Plugin's relative directory path to .mo files.
+-   'Network' - Boolean. Whether the plugin can only be activated
+    network wide.
+
+*NOTE* This only works in the admin!
+
+Usage
+-----
+
+` <?php get_plugin_data( $plugin_file, $markup = true, $translate = true ) ?> `
+
+Parameters
+----------
+
+ `$plugin_file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Path to the plugin file
+    Default: *None*
+
+ `$markup` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If the returned data should have HTML markup applied
+    Default: true
+
+ `$translate ` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If the returned data should be translated
+    Default: true
+
+Return Values
+-------------
+
+-   array
+
+<!-- -->
+
+     $default_headers = array(
+       'Name' => 'Plugin Name',
+       'PluginURI' => 'Plugin URI',
+       'Version' => 'Version',
+       'Description' => 'Description',
+       'Author' => 'Author',
+       'AuthorURI' => 'Author URI',
+       'TextDomain' => 'Text Domain',
+       'DomainPath' => 'Domain Path',
+       'Network' => 'Network',
+       // Site Wide Only is deprecated in favor of Network.
+       '_sitewide' => 'Site Wide Only',
+     );
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_plugin_data()` is located in `wp-admin/includes/plugin.php`.
+

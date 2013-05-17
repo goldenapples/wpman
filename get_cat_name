@@ -1,0 +1,44 @@
+Function Reference/get cat name « WordPress Codex
+-----------
+
+Retrieve the name of a category from its ID.
+
+Usage
+-----
+
+` <?php get_cat_name( $cat_id ) ?> `
+
+Parameters
+----------
+
+ `$cat_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Category ID
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Category name
+
+Examples
+--------
+
+    <?php echo get_cat_name(4);?>
+
+returns the name for the category with the id '4'.
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`get_cat_name()` is located in `wp-includes/category.php`.
+

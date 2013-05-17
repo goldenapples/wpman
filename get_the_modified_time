@@ -1,0 +1,36 @@
+Function Reference/get the modified time « WordPress Codex
+-----------
+
+Retrieve the time at which the post was last modified.
+
+Usage
+-----
+
+` <?php get_the_modified_time( $d ); ?> `
+
+Parameters
+----------
+
+ `$d` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional Either 'G', 'U', or php date format defaults
+    to the value specified in the time\_format option.
+    Default:
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   
+
+Change Log
+----------
+
+Since: [2.0](/Version_2.0 "Version 2.0")
+
+Source File
+-----------
+
+`get_the_modified_time()` is located in
+`wp-includes/general-template.php`
+

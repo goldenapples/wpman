@@ -1,0 +1,90 @@
+Function Reference/url to postid « WordPress Codex
+-----------
+
+Retrieve id of page/post given its url, or zero on failure. Can be
+thought of as the opposite function of get\_permalink.
+
+Note that this function does not return the post id for custom post
+types (see Trac ticket
+[\#19744](http://core.trac.wordpress.org/ticket/19744 "http://core.trac.wordpress.org/ticket/19744")).
+
+When using this function to retrive the ID of an attachment, it is
+required that the url provided be in the format of
+example.com/?attachment\_id=N and will not work with the full URL. To
+get the id from the full URL [see
+this](http://pippinsplugins.com/retrieve-attachment-id-from-image-url/ "http://pippinsplugins.com/retrieve-attachment-id-from-image-url/")
+for a work around.
+
+Usage
+-----
+
+`  <?php $postid = url_to_postid( $url ); ?> `
+
+Parameters
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The permalink to check.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(int)` 
+:   ID of the post or page that resides at the given URL, or 0 on
+    failure.
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`url_to_postid()` is located in `wp-includes/rewrite.php`.
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/url\_to\_postid](http://codex.wordpress.org/Function_Reference/url_to_postid)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

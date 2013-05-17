@@ -1,0 +1,337 @@
+Class Reference/WP User Query « WordPress Codex
+-----------
+
+`WP_User_Query` is a class, defined in `wp-includes/user.php`, that
+allows querying [WordPress
+database](/Database_Description "Database Description") tables:
+'`wp_users`' and '`wp_usermeta`'. This class was introduced in [Version
+3.1](/Version_3.1 "Version 3.1") and as a result, the `WP_User_Search`
+class got deprecated.
+
+Usage
+-----
+
+    <?php
+    $args = array(
+        .
+        .
+        .
+    );
+
+    // The Query
+    $user_query = new WP_User_Query( $args );
+
+    // User Loop
+    if ( ! empty( $user_query->results ) ) {
+        foreach ( $user_query->results as $user ) {
+            echo '<p>' . $user->display_name . '</p>';
+        }
+    } else {
+        echo 'No users found.';
+    }
+    ?>
+
+Methods and Properties
+----------------------
+
+### Properties
+
+ `$query_vars` 
+:   An associative array containing the query variables and their
+    respective values, after parsing.
+
+ `$results` 
+:   An array containing a list of found user id's.
+
+ `$total_users` 
+:   Total number of found users for the current query.
+
+ `$query_fields` 
+:   SQL clauses for the return fields.
+
+ `$query_from` 
+:   SQL clauses
+
+ `$query_where` 
+:   SQL clauses
+
+ `$query_orderby` 
+:   SQL clauses for sorting retrieved users.
+
+ `$query_limit` 
+:   SQL clauses for limiting retrieved users.
+
+### Methods
+
+ `get()` 
+:   Retrieve query variable.
+
+ `set()` 
+:   Set query variable.
+
+ `get_results()` 
+:   Return the list of users.
+
+ `get_total()` 
+:   Return the total number of users for the current query.
+
+Parameters
+----------
+
+### User Role Parameter
+
+Show users associated with certain role.
+
+-   **`role`** (*string*) - use [User
+    Role](/Roles_and_Capabilities "Roles and Capabilities").
+
+**Display Administrator role users**
+
+    $user_query = new WP_User_Query( array( 'role' => 'Administrator' ) );
+
+**Display Subscriber role users**
+
+    $user_query = new WP_User_Query( array( 'role' => 'Subscriber' ) );
+
+### Include & Exclude Parameters
+
+Show specific users.
+
+-   **`include`** (*array*) - List of users to be included.
+-   **`exclude`** (*array*) - List of users to be excluded.
+
+**Display specific users list**
+
+    $user_query = new WP_User_Query( array( 'include' => array( 1, 2, 3 ) ) );
+
+**Display all users except a specific list of users**
+
+    $user_query = new WP_User_Query( array( 'exclude' => array( 4, 5, 6 ) ) );
+
+### Blog Parameter
+
+Show users associated with certain blog on the
+[network](/Glossary#Network "Glossary").
+
+-   **`blog_id`** (*int*) - The blog id on a
+    [multisite](/Glossary#Multisite "Glossary") environment. Defaults to
+    the current blog id.
+
+**Display users from blog 33**
+
+    $user_query = new WP_User_Query( array( 'blog_id' => 33 ) );
+
+### Search Parameters
+
+Search users.
+
+-   **`search`** (*string*) - Searches for possible string matches on
+    columns.
+    -   '`ID`' - Search by user id.
+    -   '`login`' / '`user_login`' - Search by user login.
+    -   '`nicename`' / '`user_nicename`' - Search by user nicename.
+    -   '`email`' / '`user_email`' - Search by user email.
+    -   '`url`' / '`user_url`' - Search by user url.
+
+-   **`search_columns`** (*array*) - .
+
+### Pagination Parameters
+
+Limit retrieved Users.
+
+-   **`number`** (*int*) - The maximum returned number of results
+    (needed in pagination).
+-   **`offset`** (*int*) - Offset the returned results (needed in
+    pagination).
+
+**Display 10 users**
+
+    $user_query = new WP_User_Query( array( 'number' => 10 ) );
+
+**Display 5 users starting from 25**
+
+    $user_query = new WP_User_Query( array( 'number' => 5, 'offset' => 25 ) );
+
+### Order & Orderby Parameters
+
+Sort retrieved Users.
+
+-   **`orderby`** (*string*) - Sort retrieved users by parameter.
+    Defaults to 'login'.
+    -   '`ID`' - Order by user id.
+    -   '`display_name`' - Order by user display name.
+    -   '`name`' / '`user_name`' - Order by user name.
+    -   '`login`' / '`user_login`' - Order by user login.
+    -   '`nicename`' / '`user_nicename`' - Order by user nicename.
+    -   '`email`' / '`user_email`' - Order by user email.
+    -   '`url`' / '`user_url`' - Order by user url.
+    -   '`registered`' / '`user_registered`' - Order by user registered
+        date.
+    -   '`post_count`' - Order by user post count.
+
+-   **`order`** (*string*) - Designates the ascending or descending
+    order of the '`orderby`' parameter. Defaults to 'ASC'.
+    -   '`ASC`' - ascending order from lowest to highest values (1, 2,
+        3; a, b, c).
+    -   '`DESC`' - descending order from highest to lowest values (3, 2,
+        1; c, b, a).
+
+**Display users sorted by Post Count, Descending order**
+
+    $user_query = new WP_User_Query( array ( 'orderby' => 'post_count', 'order' => 'DESC' ) );
+
+**Display users sorted by registered, Ascending order**
+
+    $user_query = new WP_User_Query( array ( 'orderby' => 'registered', 'order' => 'ASC' ) );
+
+### Custom Field Parameters
+
+Show users associated with a certain custom field.
+
+-   **`meta_key`** (*string*) - Custom field key.
+-   **`meta_value`** (*string*) - Custom field value.
+-   **`meta_compare`** (*string*) - Operator to test the '`meta_value`'.
+    Possible values are '!=', '\>', '\>=', '\<', or '\<='. Default value
+    is '='.
+
+-   **`meta_query`** (*array*) - Custom field parameters (available with
+    [Version 3.5](/Version_3.5 "Version 3.5")).
+    -   **`key`** (*string*) - Custom field key.
+    -   **`value`** (*string*|*array*) - Custom field value (*Note*:
+        Array support is limited to a compare value of 'IN', 'NOT IN',
+        'BETWEEN', 'NOT BETWEEN', 'EXISTS' or 'NOT EXISTS')
+    -   **`compare`** (*string*) - Operator to test. Possible values are
+        '=', '!=', '\>', '\>=', '\<', '\<=', 'LIKE', 'NOT LIKE', 'IN',
+        'NOT IN', 'BETWEEN', 'NOT BETWEEN', 'EXISTS', and 'NOT EXISTS'.
+        Default value is '='.
+    -   **`type`** (*string*) - Custom field type. Possible values are
+        'NUMERIC', 'BINARY', 'CHAR', 'DATE', 'DATETIME', 'DECIMAL',
+        'SIGNED', 'TIME', 'UNSIGNED'. Default value is 'CHAR'.
+
+**Display users from Israel**
+
+    $user_query = new WP_User_Query( array( 'meta_key' => 'country', 'meta_value' => 'Israel' ) );
+
+**Display users under 30 years old**
+
+    $user_query = new WP_User_Query( array( 'meta_key' => 'age', 'meta_value' => '30', 'meta_compare' => '<' ) );
+
+**Multiple custom user fields handling**
+
+    $args = array(
+        'meta_query' => array(
+            'relation' => 'OR',
+            array(
+                'key' => 'country',
+                'value' => 'Israel',
+                'compare' => '='
+            ),
+            array(
+                'key' => 'age',
+                'value' => array( 20, 30 ),
+                'type' => 'numeric',
+                'compare' => 'BETWEEN'
+            )
+        )
+     );
+    $user_query = new WP_User_Query( $args );
+
+### Who Parameter
+
+Wich users?
+
+-   **`who`** (*string*) - Which users to query. Currently only
+    'authors' is supported. Default is all users.
+
+**Display only authors**
+
+    $user_query = new WP_User_Query( array( 'who' => 'authors' ) );
+
+Equals to:
+
+    $args = array(
+        'meta_key' => 'user_level',
+        'meta_value' => '0',
+        'meta_compare' => '!=',
+        'blog_id' => 0
+    )
+    $user_query = new WP_User_Query( $args );
+
+### Total Count Parameter
+
+-   **`count_total`** (*boolean*) - The total of users found. Defaults
+    to True.
+
+### Return Fields Parameter
+
+Set return values.
+
+-   **`fields`** (*string|array*) - Which fields to return. Defaults to
+    *all*.
+    -   '`ID`' - Return an array of user id's.
+    -   '`display_name`' - Return an array of user display names.
+    -   '`login`' / '`user_login`' - Return an array of user login
+        names.
+    -   '`nicename`' / '`user_nicename`' - Return an array of user
+        nicenames.
+    -   '`email`' / '`user_email`' - Return an array of user emails.
+    -   '`url`' / '`user_url`' - Return an array of user urls.
+    -   '`registered`' / '`user_registered`' - Return an array of user
+        registered dates.
+    -   '`all`' - Returns all fields.
+    -   '`all_with_meta`' - Returns an array of
+        [WP\_User](/Class_Reference/WP_User "Class Reference/WP User")
+        objects. Must pass an array to subset fields returned.
+
+**Return an array of WP\_User object**
+
+    $user_query = new WP_User_Query( array( 'role' => 'editor', 'fields' => 'all_with_meta' ) );
+
+**Return List all blog editors, return limited fields in resulting row
+objects:**
+
+    $user_fields = array( 'user_login', 'user_nicename', 'user_email', 'user_url' );
+    $user_query = new WP_User_Query( array( 'role' => 'editor', 'fields' => $user_fields ) );
+
+Return Values
+-------------
+
+ (Array) 
+:   An array of row objects, with values specified in '`fields`'
+    argument.
+    -   The default value for '`fields`' argument is '`all`', which will
+        return all columns of the `wp_users` table in an array of row
+        objects.
+    -   If '`fields`' is set to 'all\_with\_meta', it will return an
+        array of `WP_User` objects.
+
+Filters
+-------
+
+-   **`found_users_query`** - Alters SQL 'SELECT FOUND\_ROWS()' clause
+    to the query that returns the count total.
+
+Resources
+---------
+
+-   [Comprehensive Argument Reference by Travis
+    Smith](http://wpsmith.net/code/wp_user_query/ "http://wpsmith.net/code/wp_user_query/")
+-   [An Introduction to WP\_User\_Query Class by Travis
+    Smith](http://wpsmith.net/?p=17712 "http://wpsmith.net/?p=17712")
+
+Change Log
+----------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"):
+    -   Add `$query_vars` Property
+    -   Add `get()` Methods
+    -   Add `set()` Methods
+    -   Add `meta_query` Parameter
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+Source File
+-----------
+
+`WP_User_Query` is located in `wp-includes/user.php`.
+

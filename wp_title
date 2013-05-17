@@ -1,0 +1,197 @@
+Function Reference/wp title « WordPress Codex
+-----------
+
+Displays or returns the title of the page. A separator string can be
+defined, and beginning with [Version 2.5](/Version_2.5 "Version 2.5"),
+that separator can be designated to print before or after the title of
+the page.
+
+This tag can be used anywhere within a template as long as it's outside
+[The Loop](/The_Loop "The Loop") on the main page, though is typically
+used in the `<title>` element for the head of a page.
+
+The title text depends on the query:
+
+ Single post
+:   the title of the post
+ Date-based archive 
+:   the date (e.g., "2006", "2006 - January")
+ Category 
+:   the name of the category
+ Author page 
+:   the public name of the user
+
+Usage
+-----
+
+`  <?php wp_title( $sep, $display, $seplocation ); ?> `
+
+Parameters
+----------
+
+ `$sep` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display before or after (specified by
+    `$seplocation`) the post title (i.e. the separator).
+    Default: &raquo; (»)
+
+ `$display` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display the title (`TRUE`), or return the title to be
+    used in PHP (`FALSE`).
+    Default: `TRUE`
+
+ `$seplocation` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Introduced with Version 2.5, this parameter defines the
+    location of where the **sep** string prints in relation to the title
+    of the post. For all values except 'right', the **sep** value is
+    placed in front of (to the left of) the post title. If the value of
+    seplocation is 'right' then the **sep** string will be appended
+    after the post title.
+    Default: *None*
+
+Return Values
+-------------
+
+None.
+
+Examples
+--------
+
+### Note
+
+The `wp_title()` function should not be used by a theme in conjunction
+with other strings or functions (like concatenating with
+`bloginfo('name')`) to write the content of the `<title>` element,
+because it will render plugins unable to rewrite the whole title in case
+the plugins use the
+[wp\_title](/Plugin_API/Filter_Reference/wp_title "Plugin API/Filter Reference/wp title")
+filter do the rewrite, which is the best practice. The use of this
+function is now a *requirement* for theme developers.
+
+### Default Usage
+
+Displays the blog name (using
+[`bloginfo()`](/Template_Tags/bloginfo "Template Tags/bloginfo")) and
+the post title using defaults when accessing a single post page. If the
+blog name is "My WordPress Blog", and the title of the post is "Hello
+world!", then the example below will display the title as **My WordPress
+Blog » Hello world!**
+
+     <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
+
+### Turning Off »
+
+If you don't want it to automatically display the » before the page
+title, just call the function as below:
+
+     <title><?php bloginfo('name'); ?> <?php wp_title("",true); ?></title>
+
+### Covering Homepage
+
+If you are using a custom homepage with custom loops and stuff, you will
+have an empty wp\_title. Here goes a neat hack to add the
+description/tagline at the wp\_title place on homepage:
+
+    <title><?php bloginfo('name'); ?> | <?php is_home() ? bloginfo('description') : wp_title(''); ?></title>
+
+If you are using a static page as a custom homepage, the above code
+should be changed to:
+
+    <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
+
+### Using Separator
+
+Displays blog name (using
+[`bloginfo()`](/Template_Tags/bloginfo "Template Tags/bloginfo")) along
+with post title in the document's title tag, using (pipe) "|" as the
+separator. This results in (when on a single post page) **My WordPress
+Site | Hello world!**.
+
+     <title><?php bloginfo('name'); ?><?php wp_title('|'); ?></title>
+
+This example would do the same thing:
+
+     <title><?php bloginfo('name'); ?><?php wp_title('|',true,''); ?></title>
+
+### Additional Separators
+
+Most common are so called pipes ('|') however there are few other that
+could be used.
+
+**Hyphens**
+
+     <title><?php bloginfo('name'); ?><?php wp_title('-'); ?></title>
+
+**Commas**
+
+     <title><?php bloginfo('name'); ?><?php wp_title(','); ?></title>
+
+**Spaces**
+
+     <title><?php bloginfo('name'); ?><?php wp_title(' '); ?></title>
+
+### Not Recommended Separators
+
+When using meta titles site owners need to send a clear message to their
+users as well as Search Engines. Here are two examples of what websites
+should avoid.
+
+**Double Hyphens**
+
+     <title><?php bloginfo('name'); ?><?php wp_title('--'); ?></title>
+
+**Underscores**
+
+     <title><?php bloginfo('name'); ?><?php wp_title('_'); ?></title>
+
+Underscores will confuse both users and search engines because the title
+becomes one word instead of several separated words.
+
+Example when using underscores:
+
+**My\_WordPress\_Site** instead of **My WordPress Site**.
+
+### Separator with Blog Name and Title Reversed
+
+**For Wordpress 2.5 and newer**
+
+    <title>
+     <?php wp_title('|',true,'right'); ?>
+     <?php bloginfo('name'); ?>
+     </title>
+
+**For previous versions**
+
+This lets you reverse page title and blog name in the title tag from
+example above (**Hello world!--My WordPress Blog**) by removing the
+separator (using `wp_title(' ')`, then tests if there is a post title
+(using `if(wp_title(' ', false))`), and displays the separator between
+it and `bloginfo()` if it does.
+
+    <title>
+     <?php wp_title(' '); ?>
+     <?php if(wp_title(' ', false)) { echo '|'; } ?> 
+     <?php bloginfo('name'); ?>
+     </title>
+
+See Also
+--------
+
+-   The
+    [wp\_title](/Plugin_API/Filter_Reference/wp_title "Plugin API/Filter Reference/wp title")
+    filter
+-   [Better Way To Display Title Meta
+    Tag](http://www.deluxeblogtips.com/2012/03/better-title-meta-tag.html "http://www.deluxeblogtips.com/2012/03/better-title-meta-tag.html")
+
+Change Log
+----------
+
+Since: [1.0.0](/Version_1.0 "Version 1.0")
+
+Source File
+-----------
+
+`wp_title()` is located in `wp-includes/general-template.php`.
+

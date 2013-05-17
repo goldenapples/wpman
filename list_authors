@@ -1,0 +1,88 @@
+Function Reference/list authors « WordPress Codex
+-----------
+
+Displays a list of the authors on a blog, and if desired, other
+information such as a link to each author's
+[RSS](/Glossary#RSS "Glossary") feed.
+
+Replace With
+------------
+
+-   [wp\_list\_authors()](/Template_Tags/wp_list_authors "Template Tags/wp list authors")
+
+Usage
+-----
+
+`  <?php list_authors( $optioncount, $exclude_admin, $show_fullname,                        $hide_empty, $feed, $feed_image ); ?> `
+
+Parameters
+----------
+
+ optioncount 
+:   (*boolean*) Display number of posts by each author. Options are:
+    -   `TRUE`
+    -   `FALSE` (Default)
+
+ exclude\_admin 
+:   (*boolean*) Exclude the administrator account from authors list.
+    Options are:
+    -   `TRUE` (Default)
+    -   `FALSE`
+
+ show\_fullname 
+:   (*boolean*) Display the full (first and last) name of the authors.
+    Options are:
+    -   `TRUE`
+    -   `FALSE` (Default)
+
+ hide\_empty 
+:   (*boolean*) Do not display authors with 0 posts. Options are:
+    -   `TRUE` (Default)
+    -   `FALSE`
+
+ feed 
+:   (*string*) Text to display for a link to each author's RSS feed.
+    Default is no text, and no feed displayed.
+ feed\_image 
+:   (*string*) Path/filename for a graphic. This acts as a link to each
+    author's RSS feed, and overrides the **feed** parameter.
+
+Examples
+--------
+
+### Default Usage
+
+Display the list of authors using default settings.
+
+    <?php list_authors(); ?>
+
+### Authors with Number of Posts
+
+This example causes the site's authors to display with the number of
+posts written by each author, excludes the admin author, and displays
+each author's full name (first and last name).
+
+    <?php list_authors(TRUE, TRUE, TRUE); ?>
+
+Harriett Smith (42)\
+
+Sally Smith (29)\
+
+Andrew Anderson (48)
+
+### Full Name and Authors With No Posts Usage
+
+Displays the site's authors without displaying the number of posts, does
+not exclude the admin, shows the full name of the authors, and does not
+hide authors with no posts. It does not display the RSS feed or image.
+
+    <?php list_authors(FALSE, FALSE, TRUE, FALSE); ?>
+
+Change Log
+----------
+
+-   Since: 1.2.1
+-   Deprecated: ?
+-   Replace By:
+    [wp\_list\_authors()](/Template_Tags/wp_list_authors "Template Tags/wp list authors")
+

@@ -1,0 +1,56 @@
+Function Reference/unregister sidebar « WordPress Codex
+-----------
+
+De-registers a previously registered [sidebar](/Sidebars "Sidebars").
+
+Usage
+-----
+
+`  <?php unregister_sidebar( $id ); ?> `
+
+Parameters
+----------
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The ID of the sidebar when it was added.
+    Default: *None*
+
+Example
+-------
+
+If added to a child theme's functions.php file, this will remove the
+footer sidebars registered by the TwentyTen theme.
+
+    function remove_some_widgets(){
+
+        // Unregister some of the TwentyTen sidebars
+        unregister_sidebar( 'first-footer-widget-area' );
+        unregister_sidebar( 'second-footer-widget-area' );
+        unregister_sidebar( 'third-footer-widget-area' );
+        unregister_sidebar( 'fourth-footer-widget-area' );
+    }
+    add_action( 'widgets_init', 'remove_some_widgets', 11 );
+
+Notes
+-----
+
+In the example, note that we assign a priority of 11 when registering
+the widgets\_init hook. This is because a child theme's functions.php
+file is called before the parent theme's, which means that our call to
+unregister\_sidebar() would accomplish nothing since the sidebar has not
+yet been registered.
+
+By lowering the priority of our action, we ensure that it is called
+after the parent theme's functions.php file is loaded.
+
+Change Log
+----------
+
+Since: 2.2.0
+
+Source File
+-----------
+
+`unregister_sidebar()` is located in `wp-includes/widgets.php`.
+

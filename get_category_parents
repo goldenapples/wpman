@@ -1,0 +1,52 @@
+Function Reference/get category parents « WordPress Codex
+-----------
+
+Returns a list of the parents of a category, including the category, in
+hierarchical order.
+
+Usage
+-----
+
+`  <?php echo get_category_parents($category, $display_link, $separator, $nice_name); ?> `
+
+Return Values
+-------------
+
+ (string) 
+:   the categories, separated by \$separator.
+
+Example
+-------
+
+Returns the parent categories of the current category with links
+separated by '»'
+
+    <?php echo get_category_parents($cat, TRUE, ' &raquo; '); ?>
+
+will output:
+
+Internet » Blogging » WordPress »
+
+Parameters
+----------
+
+ category 
+:   (*integer*) The numeric category ID for which to return the parents.
+    Defaults to current category, if one is set.
+
+ display link 
+:   (*boolean*) Creates a link to each category displayed.
+
+ separator 
+:   (*string*) What to separate each category by.
+
+ nice name 
+:   (*boolean*) Return category nice name (slug) or not (defaults to
+    FALSE).
+
+Source Code
+-----------
+
+-   `get_category_parents()` is located in
+    `wp-includes/category-template.php`
+

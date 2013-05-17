@@ -1,0 +1,67 @@
+Function Reference/is category « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if a
+Category archive page is being displayed. This is a boolean function,
+meaning it returns either TRUE or FALSE.
+
+To test if a post *is in* a category use
+[in\_category()](/Function_Reference/in_category "Function Reference/in category").
+
+Usage
+-----
+
+` <?php is_category( $category ); ?> `
+
+Parameters
+----------
+
+ `$category` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Category ID, Category Title, Category Slug or Array of
+    IDs, names, and slugs.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+Examples
+--------
+
+    is_category();
+    // When any Category archive page is being displayed.
+
+    is_category( '9' );
+    // When the archive page for Category 9 is being displayed.
+
+    is_category( 'Stinky Cheeses' );
+    // When the archive page for the Category with Name "Stinky Cheeses" is being displayed.
+
+    is_category( 'blue-cheese' );
+    // When the archive page for the Category with Category Slug "blue-cheese" is being displayed.
+
+    is_category( array( 9, 'blue-cheese', 'Stinky Cheeses' ) );
+    // Returns true when the category of posts being displayed is either term_ID 9, or slug "blue-cheese", or name "Stinky Cheeses". Note: the array ability was added at Version 2.5.
+
+Notes
+-----
+
+-   See also `is_archive()` and [Category
+    Templates](/Category_Templates "Category Templates").
+-   For [Custom Taxonomies](/Taxonomies#Custom_Taxonomies "Taxonomies")
+    use
+    [is\_tax()](/Function_Reference/is_tax "Function Reference/is tax")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`is_category()` is located in `wp-includes/query.php`.
+

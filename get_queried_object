@@ -1,0 +1,52 @@
+Function Reference/get queried object « WordPress Codex
+-----------
+
+Retrieve the currently-queried object. For example:
+
+-   if you're on a single post, it will return the post object
+-   if you're on a page, it will return the page object
+-   if you're on a category archive, it will return the category object
+-   etc.
+
+Wrapper for
+[`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")-\>get\_queried\_object().
+
+Usage
+-----
+
+     <?php
+     $queried_object = get_queried_object();
+     var_dump( $queried_object );
+     ?>
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (object) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses: WP\_Query::get\_queried\_object
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`get_queried_object()` is located in `/wp-includes/query.php`.
+

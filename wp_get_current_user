@@ -1,0 +1,59 @@
+Function Reference/wp get current user « WordPress Codex
+-----------
+
+Retrieve the current user object (WP\_User).\
+ Wrapper of
+[get\_currentuserinfo()](/get_currentuserinfo "get currentuserinfo")
+using the global variable `$current_user`.
+
+Usage
+-----
+
+` <?php wp_get_current_user(); ?> ` **Use the `init` or any subsequent
+action to call this function.** Calling it outside of an action can lead
+to troubles. See
+[\#14024](http://core.trac.wordpress.org/ticket/14024 "http://core.trac.wordpress.org/ticket/14024")
+for details.
+
+Parameters
+----------
+
+ `none` 
+:   ([*none*](/How_to_Pass_Tag_Parameters#None "How to Pass Tag Parameters"))
+    (*none*) This function does not accept any parameters.
+    Default: none
+
+### Return Values
+
+ `WP_User` `(object)`{style="color:gray"} 
+:   [WP\_User](/Class_Reference/WP_User "Class Reference/WP User")
+    object where it can be retrieved using member variables.
+
+Examples
+--------
+
+### Default Usage
+
+The call to `wp_get_current_user()` return WP\_User object.
+` <?php    $current_user = wp_get_current_user();    /**     * @example Safe usage: $current_user = wp_get_current_user();     * if ( !($current_user instanceof WP_User) )     *     return;     */    echo 'Username: ' . $current_user->user_login . '<br />';    echo 'User email: ' . $current_user->user_email . '<br />';    echo 'User first name: ' . $current_user->user_firstname . '<br />';    echo 'User last name: ' . $current_user->user_lastname . '<br />';    echo 'User display name: ' . $current_user->display_name . '<br />';    echo 'User ID: ' . $current_user->ID . '<br />';?> `
+
+### Checking Other User Attributes
+
+This example demonstrates how to manually determine if a user is logged
+in.
+
+**IMPORTANT NOTE:** This is for demonstration purposes ONLY. The correct
+way to determine whether a user is logged in is to use the function
+[is\_user\_logged\_in()](/Function_Reference/is_user_logged_in "Function Reference/is user logged in").
+` <?php$current_user = wp_get_current_user();if ( 0 == $current_user->ID ) {    // Not logged in.} else {    // Logged in.}?> `
+
+Change Log
+----------
+
+Since: 2.0.3
+
+Source File
+-----------
+
+`wp_get_current_user()` is located in `wp-includes/pluggable.php`.
+

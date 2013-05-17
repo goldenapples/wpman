@@ -1,0 +1,348 @@
+Function Reference/query posts « WordPress Codex
+-----------
+
+`query_posts()` is the easiest, but not preferred or most efficient, way
+to alter the main query that WordPress uses to display posts. It does
+this by putting the main query to one side, and replacing it with a new
+query. To clean up after a call to `query_posts`, make a call to
+`wp_reset_query()`, and the original main query will be restored.
+
+It is ***strongly*** recommended that you use the
+[pre\_get\_posts](/Plugin_API/Action_Reference/pre_get_posts "Plugin API/Action Reference/pre get posts")
+action instead, and alter the main query by checking
+[is\_main\_query](/Function_Reference/is_main_query "Function Reference/is main query")
+
+For example, on the homepage, you would normally see the latest 10
+posts. If you want to show only 5 posts (and don't care about
+pagination), you can use query\_posts() like so:
+
+    query_posts( 'posts_per_page=5' );
+
+Here is similar code using
+[pre\_get\_posts](/Plugin_API/Action_Reference/pre_get_posts "Plugin API/Action Reference/pre get posts")
+in functions.php :
+
+    function five_posts_on_homepage( $query ) {
+        if ( $query->is_home() && $query->is_main_query() ) {
+            $query->set( 'posts_per_page', '5' );
+        }
+    }
+    add_action( 'pre_get_posts', 'five_posts_on_homepage' );
+
+**Note**: The pre\_get\_posts action doesn't work for
+[Page](/Pages "Pages") requests.
+
+Caveats
+-------
+
+`query_posts()` is only one way amongst many to query the database and
+generate a list of posts. Before deciding to use `query_posts()`, be
+sure to understand the drawbacks.
+
+### Alters Main Loop
+
+`query_posts()` is meant for altering the main loop. It does so by
+replacing the query used to generate the main loop content. Once you use
+`query_posts()`, your post-related global variables and template tags
+will be altered. Conditional tags that are called after you call
+`query_posts()` will also be altered - this may or may not be the
+intended result.
+
+### Secondary Loops
+
+To create secondary listings (for example, a list of related posts at
+the bottom of the page, or a list of links in a sidebar widget), try
+making a new instance of
+[WP\_Query](/Class_Reference/WP_Query "Class Reference/WP Query") or use
+[get\_posts()](/Function_Reference/get_posts "Function Reference/get posts").
+
+If you must use `query_posts()`, make sure you call `wp_reset_query()`
+after you're done.
+
+### Pagination
+
+Pagination won't work correctly, unless you set the 'paged' query var
+appropriately: [adding the paged
+parameter](/Pagination#Adding_the_.22paged.22_parameter_to_a_query "Pagination")
+
+### Additional SQL Queries
+
+If you use `query_posts` within a template page, WordPress will have
+already executed the database query and retrieved the records by the
+time it gets to your template page (that's how it knew which template
+page to serve up!). So when you over-ride the default query with
+`query_posts()`, you're essentially throwing away the default query and
+its results and re-executing another query against the database.
+
+This is not necessarily a problem, especially if you're dealing with a
+smaller blog-based site. Developers of large sites with big databases
+and heavy visitor traffic may wish to consider alternatives, such as
+modifying the default request directly (before it's called). The
+[request](/Plugin_API/Filter_Reference/request "Plugin API/Filter Reference/request")
+filter can be used to achieve exactly this.
+
+The 'parse\_query' and the
+'[pre\_get\_posts](/Plugin_API/Action_Reference/pre_get_posts "Plugin API/Action Reference/pre get posts")'
+filters are also available to modify the internal \$query object that is
+used to generate the SQL to query the database.
+
+Usage
+-----
+
+` <?php// The Queryquery_posts( $args );// The Loopwhile ( have_posts() ) : the_post();    echo '<li>';    the_title();    echo '</li>';endwhile;// Reset Querywp_reset_query();?> `
+Place a call to `query_posts()` in one of your
+[Template](/Templates "Templates") files before [The
+Loop](/The_Loop "The Loop") begins. The `wp_query` object will generate
+a new SQL query using your parameters. When you do this, WordPress
+ignores the other parameters it receives via the URL (such as page
+number or category).
+
+### Preserving Existing Query Parameters
+
+If you want to preserve the original query parameter information that
+was used to generate the current query, and then add or over-ride some
+parameters, you can use the `$query_string` global variable in the call
+to `query_posts()`.
+
+For example, to set the display order of the posts without affecting the
+rest of the query string, you could place the following before [The
+Loop](/The_Loop "The Loop"):
+
+    global $query_string;
+    query_posts( $query_string . '&order=ASC' );
+
+When using `query_posts()` in this way, the quoted portion of the
+parameter *must* begin with an ampersand (&).
+
+Or alternatively, you can merge the original query array into your
+parameter array:
+
+    global $wp_query;
+    $args = array_merge( $wp_query->query_vars, array( 'post_type' => 'product' ) );
+    query_posts( $args );
+
+### Combining Parameters
+
+You may have noticed from some of the examples above that you combine
+parameters with an ampersand (&), like so:
+
+    query_posts( 'cat=3&year=2004' );
+
+Posts for category 13, for the current month on the main page:
+
+    if ( is_home() ) {
+        query_posts( $query_string . '&cat=13&monthnum=' . date( 'n', current_time( 'timestamp' ) ) );
+    }
+
+At 2.3 this combination will return posts belong to both Category 1 AND
+3, showing just two (2) posts, in descending order by the title:
+
+    query_posts( array( 'category__and' => array(1,3), 'posts_per_page' => 2, 'orderby' => 'title', 'order' => 'DESC' ) );
+
+The following returns all posts that belong to category 1 and are tagged
+"apples"
+
+    query_posts( 'cat=1&tag=apples' );
+
+You can search for several tags using +
+
+    query_posts( 'cat=1&tag=apples+apples' );
+
+Parameters
+----------
+
+**Note:** Parameter details can be found in the [Parameter section of
+the WP\_Query class
+article](/Class_Reference/WP_Query#Parameters "Class Reference/WP Query").
+
+The examples below also work with the WP\_Query object.
+
+Examples
+--------
+
+### Exclude Categories From Your Home Page
+
+Placing this code in `index.php` file will cause the home page to
+display posts from all categories *except* category ID 3.
+
+    <?php
+    if ( is_home() ) {
+        query_posts( 'cat=-3' );
+    }
+    ?>
+
+You can also add some more categories to the exclude-list (tested with
+WP 3.3.1):
+
+    <?php
+    if ( is_home() ) {
+        query_posts( 'cat=-1,-2,-3' );
+    }
+    ?>
+
+### Retrieve a Particular Post
+
+To retrieve a particular post, you could use the following:
+
+    query_posts( 'p=5' );
+
+**Note:** If the particular post is an attachment, you have to use
+*attachment\_id* instead of *p*:
+
+    query_posts( 'attachment_id=5' );
+
+If you want to use the *Read More* functionality with this query, you
+will need to set the global `$more` variable to 0.
+
+    <?php
+    // retrieve one post with an ID of 5
+    query_posts( 'p=5' );
+
+    // set $more to 0 in order to only get the first part of the post
+    global $more;
+    $more = 0;
+
+    // the Loop
+    while (have_posts()) : the_post();
+        the_content( 'Read the full post »' );
+    endwhile;
+    ?>
+
+### All Posts in a Category
+
+The "Blog pages show at most" parameter in Settings \> Reading can
+influence your results. To overcome this, add the 'posts\_per\_page'
+parameter. For example:
+
+    query_posts( array ( 'category_name' => 'my-category-slug', 'posts_per_page' => -1 ) );
+
+This will returns ALL posts from the category.
+
+However, for subcategories (or child categories), 'The Category Name'
+doesn't always work. Rather use 'category-slug' instead. See
+[Function\_Reference/is\_category](/Function_Reference/is_category "Function Reference/is category").
+
+    if (is_category('category-slug')): 
+
+         query_posts(array('category_name' => 'my-category-slug', 'posts_per_page' => -1 )); 
+
+    endif; 
+
+### Syndication Feeds
+
+The "Syndication feeds show the most recent" or '`posts_per_rss`'
+parameters in Settings \> Reading will overwrite any '`posts_per_page`'
+parameter in a query used in a feed.
+
+To overcome use (for example in a a custom ics feed, where all matching
+posts are required), use the "posts\_limit" filter as follows:
+
+    if ( isset ( $query->query_vars['feed'] ) and ( $query->query_vars['feed'] == 'ics' ) )
+    {
+        add_filter( 'post_limits', '__return_empty' );
+    }
+
+### Passing variables to query\_posts
+
+You can pass a variable to the query with two methods, depending on your
+needs. As with other examples, place these above your Loop:
+
+#### Example 1
+
+In this example, we concatenate the query before running it. First
+assign the variable, then concatenate and then run it. Here we're
+pulling in a category variable from elsewhere.
+
+    // assign the variable as current category
+    $categoryvariable = $cat;
+
+    // concatenate the query
+    $args = 'cat=' . $categoryvariable . '&orderby=date&order=ASC';
+
+    // run the query
+    query_posts( $args );
+
+#### Example 2
+
+In this next example, the double quotes tell PHP to treat the enclosed
+as an expression. For this example, we are getting the current month and
+the current year, and telling `query_posts()` to bring us the posts for
+the current month/year, and in this case, listing in ascending order so
+we get the oldest post at the top of the page.
+
+    $current_year = date('Y');
+    $current_month = date('m');
+
+    query_posts( "cat=22&year=$current_year&monthnum=$current_month&order=ASC" );
+
+#### Example 3
+
+This example explains how to generate a complete list of posts, dealing
+with pagination. We can use the default `$query_string` telling
+`query_posts()` to bring us a full posts listing. We can also modify the
+`posts_per_page` query parameter from -1 to the number of posts you want
+to show on each page; in this last case, you'll probably want to use
+[posts\_nav\_link()](/Template_Tags/posts_nav_link "Template Tags/posts nav link")
+to navigate the generated archive.
+
+    query_posts( $query_string . '&posts_per_page=-1' );
+
+#### Example 4
+
+If you don't need to use the `$query_string` variable, another method
+exists that is more clear and readable, in some more complex cases. This
+method puts the parameters into an array. The same query as in Example 2
+above could be done like this:
+
+    $args = array(
+        'cat'      => 22,
+        'year'     => $current_year,
+        'monthnum' => $current_month,
+        'order'    => 'ASC'
+    );
+    query_posts( $args );
+
+As you can see, with this approach, every variable can be put on its own
+line, for easier reading.
+
+#### Example 5
+
+It is even possible to use the array style (Example 4) to query multiple
+taxonomies. Simply supply the taxonomy slug with a string of
+comma-separated values (each value being one term). In the example
+below, we will get all movie posts starring either Bruce Campbell *or*
+Chuck Norris.
+
+    $args = array(
+        'post_type'=> 'movie',
+        'actor'    => 'Bruce Campbell, Chuck Norris',
+        'order'    => 'ASC'
+    );
+    query_posts( $args );
+
+Change Log
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+Source File
+-----------
+
+`query_posts()` is located in `wp-includes/query.php`.
+
+Resources
+---------
+
+-   For more in-depth discussion of how WordPress generates and handles
+    its queries, review these articles: [Query
+    Overview](/Query_Overview "Query Overview") and [Custom
+    Queries](/Custom_Queries "Custom Queries")
+-   Customize the Default Query properly using 'pre\_get\_posts' - [Bill
+    Erickson - Customize the Wordpress
+    Query](http://www.billerickson.net/customize-the-wordpress-query/#example-category "http://www.billerickson.net/customize-the-wordpress-query/#example-category")
+    or [John James Jacoby - Querying Posts Without
+    query\_posts](http://developer.wordpress.com/2012/05/14/querying-posts-without-query_posts/ "http://developer.wordpress.com/2012/05/14/querying-posts-without-query_posts/")
+-   You don't know Query [- Slides from WordCamp Netherlands 2012 by
+    Andrew
+    Nacin](http://www.slideshare.net/andrewnacin/you-dont-know-query-wordcamp-netherlands-2012 "http://www.slideshare.net/andrewnacin/you-dont-know-query-wordcamp-netherlands-2012")
+

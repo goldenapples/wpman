@@ -1,0 +1,49 @@
+Function Reference/has filter « WordPress Codex
+-----------
+
+Check if any filter has been registered for a hook.
+
+Usage
+-----
+
+`  <?php has_filter( $tag, $function_to_check ); ?> `
+
+Parameters
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the filter hook.
+    Default: *None*
+
+ `$function_to_check` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*optional*) If specified, return the priority of that function on
+    this hook or false if not attached.
+    Default: False
+
+Return
+------
+
+ int|boolean 
+:   Optionally returns the priority on that hook for the specified
+    function.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses: global array `$wp_filter` that stores all of the filters
+
+Change Log
+----------
+
+-   Since: 2.5.0
+
+Source File
+-----------
+
+`has_filter()` is located in `wp-includes/plugin.php`.
+

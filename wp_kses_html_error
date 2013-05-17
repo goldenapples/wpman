@@ -1,0 +1,44 @@
+Function Reference/wp kses html error « WordPress Codex
+-----------
+
+Handles parsing errors in
+[`wp_kses_hair()`](/Function_Reference/wp_kses_hair "Function Reference/wp kses hair").
+
+The general plan is to remove everything to and including some
+whitespace, but it deals with quotes and apostrophes as well.
+
+Usage
+-----
+
+` <?php wp_kses_html_error( $string ) ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_kses_html_error()` is located in `wp-includes/kses.php`.
+

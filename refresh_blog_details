@@ -1,0 +1,39 @@
+Function Reference/refresh blog details « WordPress Codex
+-----------
+
+Clear the blog details cache.
+
+Usage
+-----
+
+` <?php refresh_blog_details( $blog_id ) ?> `
+
+Parameters
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Blog ID
+    Default: *None*
+
+Return Value
+------------
+
+Nothing is returned by this function.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+refresh\_blog\_details() is located in `wp-includes/ms-blogs.php`
+

@@ -1,0 +1,48 @@
+Function Reference/sanitize title for query « WordPress Codex
+-----------
+
+Sanitizes a title with the 'query' context. Used for querying the
+database for a value from URL. Shorthand for
+`sanitize_title($title, "", "query")` (See
+[sanitize\_title()](/Function_Reference/sanitize_title "Function Reference/sanitize title")).
+
+Usage
+-----
+
+    <?php sanitize_title_for_query( $title ); ?>
+
+Parameters
+----------
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The string to be sanitized
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Sanitized string.
+
+Examples
+--------
+
+Notes
+-----
+
+Since `sanitize_title_for_query()` calls `sanitize_title()`, the
+[sanitize\_title](/Plugin_API/Filter_Reference/sanitize_title "Plugin API/Filter Reference/sanitize title")
+filter is applied with a context of 'query'.
+
+Change Log
+----------
+
+Since: [1.0.0](/Version_1.0 "Version 1.0")
+
+Source File
+-----------
+
+`sanitize_title_for_query()` is located in
+`/wp-includes/formatting.php`.
+

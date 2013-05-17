@@ -1,0 +1,48 @@
+Function Reference/wp rss « WordPress Codex
+-----------
+
+Retrieves an RSS feed and parses it, then displays it as an unordered
+list of links. Uses the [MagpieRSS and
+RSSCache](http://magpierss.sourceforge.net/ "http://magpierss.sourceforge.net/")
+functions for parsing and automatic caching and the [Snoopy HTTP
+client](http://sourceforge.net/projects/snoopy/ "http://sourceforge.net/projects/snoopy/")
+for the actual retrieval.
+
+Deprecated note: Switch to using
+[fetch\_feed](/Function_Reference/fetch_feed "Function Reference/fetch feed")
+instead.
+
+Usage
+-----
+
+` <?phpinclude_once(ABSPATH . WPINC . '/rss.php');wp_rss($uri, $num);?> `
+
+Parameters
+----------
+
+ `$uri` 
+:   ([*URI*](/How_to_Pass_Tag_Parameters#URI "How to Pass Tag Parameters"))
+    (*required*) The URI of the RSS feed you want to retrieve. The
+    resulting parsed feed is returned, with the more interesting and
+    useful bits in the items array.
+    Default: *None*
+
+ `$num` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The number of items to display.
+    Default: *None*
+
+Output
+------
+
+The output will look like the following:
+
+` <ul><li><a href='LINK FROM FEED' title='DESCRIPTION FROM FEED'>TITLE FROM FEED</a></li>(repeat for number of links specified)</ul>`
+
+Example
+-------
+
+To get and display a list of 5 links from an existing RSS feed:
+
+` <?php include_once(ABSPATH . WPINC . '/rss.php');wp_rss('http://example.com/rss/feed/goes/here', 5);?> `
+

@@ -1,0 +1,45 @@
+Function Reference/comment author url link « WordPress Codex
+-----------
+
+Displays the comment author's [URL](/Glossary#URI_and_URL "Glossary")
+(usually their web site), linked, if one was provided. This tag must be
+within [The Loop](/The_Loop "The Loop"), or a comment loop.
+
+Use
+[get\_comment\_author\_url\_link](/index.php?title=Template_Tags/get_comment_author_url_link&action=edit&redlink=1 "Template Tags/get comment author url link (page does not exist)")
+to retrieve the value.
+
+Usage
+-----
+
+`  <?php comment_author_url_link('linktext', 'before', 'after'); ?> `
+
+Examples
+--------
+
+### Default Usage
+
+    web site: <?php comment_author_url_link(); ?><br />
+
+### Link Text and Styling
+
+Displays comment author's URL as text string **Visit Site of Comment
+Author** and adds bullets before and after the link to style it.
+
+    <?php comment_author_url_link('Visit Site of Comment Author', ' &bull; ', ' &bull; '); ?>
+
+• [Visit Site of Comment Author](#Link_Text_and_Styling) •
+
+Parameters
+----------
+
+ linktext 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Link text for the link. Default is the comment author's URL.
+ before 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Text to display before the link. There is no default.
+ after 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Text to display after the link. There is no default.
+

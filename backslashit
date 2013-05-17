@@ -1,0 +1,43 @@
+Function Reference/backslashit « WordPress Codex
+-----------
+
+Adds backslashes before letters and before a number at the start of a
+string.
+
+Usage
+-----
+
+` <?php backslashit( $string ) ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Value to which backslashes will be added.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   String with backslashes inserted.
+
+Examples
+--------
+
+Notes
+-----
+
+-   This: '`\`' is a backslash.
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`backslashit()` is located in `wp-includes/formatting.php`.
+

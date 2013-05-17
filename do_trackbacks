@@ -1,0 +1,61 @@
+Function Reference/do trackbacks « WordPress Codex
+-----------
+
+Perform [trackbacks](/Glossary#Trackback "Glossary").
+
+Usage
+-----
+
+` <?php do_trackbacks( $post_id ) ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID to do trackbacks on.
+    Default: *None*
+
+Return Values
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+Examples
+--------
+
+Notes
+-----
+
+-   See Reads from and may update the `_posts` table from the database.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`get_to_ping()`](/Function_Reference/get_to_ping "Function Reference/get to ping")
+-   Uses:
+    [`get_pung()`](/Function_Reference/get_pung "Function Reference/get pung")
+-   Uses:
+    [`wp_html_excerpt()`](/Function_Reference/wp_html_excerpt "Function Reference/wp html excerpt")
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    on 'the\_content' on 'post\_content'
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    on 'the\_excerpt' on 'post\_excerpt'
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    on 'the\_title' on 'post\_title'
+-   Uses:
+    [`trackback()`](/Function_Reference/trackback "Function Reference/trackback")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`do_trackbacks()` is located in `wp-includes/comment.php`.
+

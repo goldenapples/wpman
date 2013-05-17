@@ -1,0 +1,46 @@
+Function Reference/install blog defaults « WordPress Codex
+-----------
+
+Sets blog defaults.
+
+This function creates a row in the wp\_blogs table.
+
+Usage
+-----
+
+` <?php install_blog_defaults($blog_id, $user_id) ?> `
+
+Parameters
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) value is ignored
+    Default: *None*
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) User of the new blog
+    Default: *None*
+
+Return Value
+------------
+
+This function does not return a value
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+Source File
+-----------
+
+`install_blog_defaults()` is located in `wp-includes/ms-functions.php`
+

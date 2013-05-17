@@ -1,0 +1,81 @@
+Function Reference/term is ancestor of « WordPress Codex
+-----------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") Check if a
+term is an ancestor of another term. This is a boolean function, meaning
+it returns either TRUE or FALSE.
+
+Usage
+-----
+
+`  <?php term_is_ancestor_of( $term1, $term2, $taxonomy ); ?> `
+
+Parameters
+----------
+
+ `$term1` 
+:   ([*int/object*](/How_to_Pass_Tag_Parameters#Int.2Fobject "How to Pass Tag Parameters"))
+    (*required*) ID or object to check if this is the parent term.
+    Default: *None*
+
+ `$term2` 
+:   ([*int/object*](/How_to_Pass_Tag_Parameters#Int.2Fobject "How to Pass Tag Parameters"))
+    (*required*) The child term.
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Taxonomy name that \$term1 and \$term2 belong to.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(boolean)` 
+:   True if term1 is a term of term2, False if not.
+
+Examples
+--------
+
+This example, placed in a theme's taxonomy.php, uses [Conditional
+Tags](/Conditional_Tags "Conditional Tags") to show different content
+depending on the term being displayed. This is helpful when it is
+necessary to include something for any child term of a given term,
+instead of using *taxonomy-\$taxonomy-\$slug.php* method where you'd
+have to create *taxonomy-\$taxonomy-\$slug.php* files for each and every
+term.
+
+The code snip below checks to see if the term called 'Music' (ID 4) for
+the taxonmy 'Sound' is being processed, and if so, presents a
+[wp\_nav\_menu](/Function_Reference/wp_nav_menu "Function Reference/wp nav menu")
+for the Music archive page, and any subterms of Music (e.g. jazz,
+classical.)
+
+    <?php 
+      // if the taxonomy is sound and the term is music 
+      if (term_is_ancestor_of(4, $term, 'sound') or is_term(4, 'sound')):  ?>
+      <div id="music_subnav_menu" class="subnav_menu">
+        <?php wp_nav_menu( array('menu' => 'Music' )); ?>
+      </div>
+    <? endif; ?>
+
+Notes
+-----
+
+-   The function evaluates if the second term is a child of the first
+    term.
+-   Any level of ancestry will return True.
+-   Arguments should be either integer or objects, If arguments are
+    string representations of integers and not true integers
+    **term\_is\_ancestor\_of** will return False.
+
+Change Log
+----------
+
+Since: 3.4.0
+
+Source File
+-----------
+
+`term_is_ancestor_of()` is located in `wp-includes/taxonomy.php`.
+

@@ -1,0 +1,65 @@
+Function Reference/edit tag link « WordPress Codex
+-----------
+
+Displays a link to edit the current tag, if the user is logged in and
+allowed to edit the tag. It must be within [The
+Loop](/The_Loop "The Loop").
+
+Use
+[get\_edit\_tag\_link](/index.php?title=Template_Tags/get_edit_tag_link&action=edit&redlink=1 "Template Tags/get edit tag link (page does not exist)")
+to retrieve the url to edit.
+
+Usage
+-----
+
+`  <?php edit_tag_link( $link, $before, $after, $tag ); ?> `
+
+Parameters
+----------
+
+ `link` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The link text.
+    Default: `__('Edit This')`
+
+ `before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to put before the link text.
+    Default: *None*
+
+ `after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to put after the link text.
+    Default: *None*
+
+ `tag` 
+:   ([*integer/object*](/How_to_Pass_Tag_Parameters#Integer.2Fobject "How to Pass Tag Parameters"))
+    (*optional*) Tag object or ID.
+    Default: Current tag ID.
+
+Examples
+--------
+
+### Default Usage
+
+Displays edit tag link using defaults.
+
+    <?php edit_tag_link(); ?>
+
+### Displays Edit Tag in Paragraph Tag
+
+Displays edit tag link, with link text "edit tag", in a paragraph
+(\<p\>) tag.
+
+    <?php edit_tag_link('edit tag', '<p>', '</p>'); ?>
+
+Changelog
+---------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+Source File
+-----------
+
+`edit_tag_link()` is located in `wp-includes/link-template.php`.
+

@@ -1,0 +1,40 @@
+Function Reference/wp get attachment thumb file « WordPress Codex
+-----------
+
+Retrieve thumbnail for an attachment.
+
+Usage
+-----
+
+` <?php wp_get_attachment_thumb_file( $post_id ); ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Attachment ID.
+    Default: 0
+
+Return Values
+-------------
+
+ `(mixed)` 
+:   False on failure. Thumbnail file path on success.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 2.1.0
+
+Source File
+-----------
+
+`wp_get_attachment_thumb_file()` is located in `wp-includes/post.php`.
+

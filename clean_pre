@@ -1,0 +1,50 @@
+Function Reference/clean pre « WordPress Codex
+-----------
+
+Accepts matches `array` from
+[preg\_replace\_callback](http://us.php.net/manual/en/function.preg-replace-callback.php "http://us.php.net/manual/en/function.preg-replace-callback.php")
+in
+[`wpautop()`](/Function_Reference/wpautop "Function Reference/wpautop")
+or a string.
+
+Ensures that the contents of a \<pre\>...\</pre\> HTML block are not
+converted into paragraphs or line-breaks.
+
+Usage
+-----
+
+` <?php clean_pre( $matches ) ?> `
+
+Parameters
+----------
+
+ `$matches` 
+:   ([*array|string*](/How_to_Pass_Tag_Parameters#Array.7Cstring "How to Pass Tag Parameters"))
+    (*required*) The array or string
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   The pre block without paragraph/line-break conversion.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Note: If \$matches is an `array` the array values are concatenated
+    into a string.
+
+Change Log
+----------
+
+Since: 1.2.0
+
+Source File
+-----------
+
+`clean_pre()` is located in `wp-includes/formatting.php`.
+

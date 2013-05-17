@@ -1,0 +1,47 @@
+Function Reference/get gmt from date « WordPress Codex
+-----------
+
+Returns a date in the GMT equivalent.
+
+Requires and returns a date in the `Y-m-d H:i:s` format. Simply
+subtracts the value of the '`gmt_offset`' option.
+
+Usage
+-----
+
+` <?php get_gmt_from_date( $string ) ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The date to be converted.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   GMT version of the date provided.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+    to retrieve the value of the 'gmt\_offset' option.
+
+Change Log
+----------
+
+Since: 1.2.0
+
+Source File
+-----------
+
+`get_gmt_from_date()` is located in `wp-includes/formatting.php`.
+

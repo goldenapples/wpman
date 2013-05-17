@@ -1,0 +1,48 @@
+Function Reference/wp get current commenter « WordPress Codex
+-----------
+
+Get current commenter's name, email, and URL.
+
+Expects cookies content to already be sanitized. User of this function
+might wish to recheck the returned array for validity.
+
+Usage
+-----
+
+` <?php wp_get_current_commenter() ?> `
+
+Parameters
+----------
+
+Return Values
+-------------
+
+ `(array)` 
+:   Comment author, email, url respectively.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Return array is mapped like this:
+
+<!-- -->
+
+        Array (
+            ['comment_author']       => 'Harriet Smith,
+            ['comment_author_email'] => 'hsmith@,example.com',
+            ['comment_author_url']   => 'http://example.com/'
+        )
+
+Change Log
+----------
+
+Since: 2.0.4
+
+Source File
+-----------
+
+`wp_get_current_commenter()` is located in `wp-includes/comment.php`.
+

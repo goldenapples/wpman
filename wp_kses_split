@@ -1,0 +1,56 @@
+Function Reference/wp kses split « WordPress Codex
+-----------
+
+Searches for HTML tags, no matter how malformed.
+
+It also matches stray "\>" characters.
+
+Usage
+-----
+
+` <?php wp_kses_split( $string, $allowed_html, $allowed_protocols ) ?> `
+
+Parameters
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to filter
+    Default: *None*
+
+ `$allowed_html` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Allowed HTML elements
+    Default: *None*
+
+ `$allowed_protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Allowed protocols to keep
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Content with fixed HTML tags
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`wp_kses_split2()`](/Function_Reference/wp_kses_split2 "Function Reference/wp kses split2")
+    as a callback to do much of the work.
+
+Change Log
+----------
+
+Since: 1.0.0
+
+Source File
+-----------
+
+`wp_kses_split()` is located in `wp-includes/kses.php`.
+

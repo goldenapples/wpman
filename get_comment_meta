@@ -1,0 +1,73 @@
+Function Reference/get comment meta « WordPress Codex
+-----------
+
+`get_comment_meta()` allows you to pull any meta values stored against
+comments, which have been set using
+[add\_comment\_meta()](/Function_Reference/add_comment_meta "Function Reference/add comment meta").
+Similar method to
+[get\_post\_meta()](/Function_Reference/get_post_meta "Function Reference/get post meta").
+
+Useful within the comments.php template when displaying comments against
+a post.
+
+Usage
+-----
+
+` <?php $meta_values = get_comment_meta($comment_id, $key, $single); ?> `
+
+Parameters
+----------
+
+ `$comment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the comment from which you want the data. Use
+    \$comment-\>comment\_ID to get a comment's ID.
+    Default: *None*
+
+ `$key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) A string containing the name of the meta value you
+    want.
+    Default: *None*
+
+ `$single` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If set to true then the function will return a single
+    result, as a **string**. If false, or not set, then the function
+    returns an **array** of the custom fields. This is not intuitive.
+    For example, if you fetch a serialized array with this method you
+    want \$single to be true to actually get an unserialized array back.
+    If you pass in false, or leave it out, you will have an array of
+    one, and the value at index 0 will be the serialized string.
+    Default: false
+
+Return Value
+------------
+
+-   If `$single` is set to `false`, or left blank, the function returns
+    an array containing all values of the specified key.
+-   If `$single` is set to `true`, the function returns the first value
+    of the specified key (not in an array)
+
+The function returns an empty string if the key has not yet been set,
+regardless of the value of `$single`.
+
+Example
+-------
+
+    // return a single meta value with the key 'vote' from a defined comment object
+     $vote = get_comment_meta ( $comment->comment_ID, 'vote', true );
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+Source File
+-----------
+
+get\_comment\_meta() is located in `wp-includes/comment.php`
+

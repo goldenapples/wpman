@@ -1,0 +1,48 @@
+Function Reference/author can « WordPress Codex
+-----------
+
+Whether author of supplied post has capability or role.
+
+Usage
+-----
+
+`  <?php author_can( $post, $capability ); ?> `
+
+Parameters
+----------
+
+ `$post` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Post ID or post object
+    Default: *None*
+
+ `$capability` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Capability or role name.
+    Default: *None*
+
+Returns
+-------
+
+ (boolean) 
+:   whether author can or not.
+
+Example
+-------
+
+    <?php
+    if (author_can($post->ID, 'publish_posts')) {
+      echo "Yes he can publish posts!";
+    }
+    ?>
+
+Changelog
+---------
+
+Since: [Wordpress 2.9.0](/Version_2.9 "Version 2.9")
+
+Source Code
+-----------
+
+`author_can()` is located in `wp-includes/capabilities.php`.
+

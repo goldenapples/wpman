@@ -1,0 +1,57 @@
+Function Reference/get stylesheet « WordPress Codex
+-----------
+
+Retrieve name of the current
+[stylesheet](http://en.wikipedia.org/wiki/Cascading_Style_Sheets "http://en.wikipedia.org/wiki/Cascading_Style_Sheets").
+
+The [theme](/Glossary#Theme "Glossary") name that the administrator has
+currently set the front end theme as.
+
+For all intents and purposes, the template name and the stylesheet name
+are going to be the same for most cases. In the event that you use a
+child theme, that is the name that will be returned, rather than the
+parent.
+
+Usage
+-----
+
+` <?php get_stylesheet(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Stylesheet name.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls 'stylesheet' filter on stylesheet name.
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+    to retrieve the 'stylesheet' option.
+-   In the event a child theme is being used, that is the name that will
+    be returned, not the parent theme name (use
+    [` get_template_directory()`](/Function_Reference/get_template_directory "Function Reference/get template directory")
+    instead if you want the parent directory)
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_stylesheet()` is located in `wp-includes/theme.php`.
+

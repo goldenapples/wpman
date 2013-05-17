@@ -1,0 +1,73 @@
+Function Reference/get term link « WordPress Codex
+-----------
+
+Returns permalink for a taxonomy term archive, or a WP\_Error object if
+the term does not exist.
+
+Usage
+-----
+
+` <?php get_term_link( $term, $taxonomy ); ?> `
+
+Parameters
+----------
+
+ `$term` 
+:   ([*object/int/string*](/How_to_Pass_Tag_Parameters#Object.2Fint.2Fstring "How to Pass Tag Parameters"))
+    (*required*) The term object / term ID / term slug whose link will
+    be retrieved.
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The taxonomy slug. NOT required if you pass the term
+    object in the first parameter
+    Default: *None*
+
+Return Values
+-------------
+
+ `URL` `(string)`{style="color:gray"} 
+:   URL to taxonomy term archive.
+ `WP_Error` `(object)`{style="color:gray"} 
+:   Error if term does not exist.
+
+Examples
+--------
+
+    $terms = get_terms('species');
+    echo '<ul>';
+    foreach ($terms as $term) {
+        echo '<li><a href="'.get_term_link($term->slug, 'species').'">'.$term->name.'</a></li>';
+    }
+    echo '</ul>';
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`term_link`' filter on the finished link.
+-   Uses global: (`unknown`) `$wp_rewrite`
+-   Since the term can be an object, int, or string make sure that any
+    numbers you pass in are explicitly converted to an integer.
+    `(int)$myID`
+-   term-\>term\_id doesn't currently work for the \$term parameter. See
+    [this trac
+    ticket](http://core.trac.wordpress.org/ticket/17652 "http://core.trac.wordpress.org/ticket/17652")
+    for more info.
+-   PHP may halt if you attempt to print an error result ("Catchable
+    fatal error: Object of class WP\_Error could not be converted to
+    string"). Use is\_string() to check the result of this function if
+    you are not sure the term exists.
+
+Change Log
+----------
+
+-   Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+Source File
+-----------
+
+`get_term_link()` is located in `wp-includes/taxonomy.php`.
+

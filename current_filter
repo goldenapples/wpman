@@ -1,0 +1,43 @@
+Function Reference/current filter « WordPress Codex
+-----------
+
+Retrieve the name of the current filter or action.
+
+Usage
+-----
+
+` <?php current_filter(); ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Hook name of the current filter or action.
+
+Examples
+--------
+
+See this example from [toscho](http://toscho.de "http://toscho.de") at
+[WordPress
+Answers](http://wordpress.stackexchange.com/questions/12368/changing-notification-emails-from-wordpress-wordpressmydomain-net-to-something/12387#12387 "http://wordpress.stackexchange.com/questions/12368/changing-notification-emails-from-wordpress-wordpressmydomain-net-to-something/12387#12387")
+
+Notes
+-----
+
+-   Uses global: (`unknown type`) `$wp_current_filter`
+
+Change Log
+----------
+
+Since: 2.5
+
+Source File
+-----------
+
+`current_filter()` is located in `wp-includes/plugin.php`.
+

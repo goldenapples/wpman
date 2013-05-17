@@ -1,0 +1,61 @@
+Function Reference/wp send json success « WordPress Codex
+-----------
+
+Send a JSON response back to an Ajax request, indicating success.
+
+Usage
+-----
+
+` <?php wp_send_json_success( $data );$data = array( 'success' => true ); //if $data is empty ?> `
+
+Parameters
+----------
+
+ `$data` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Data to encode as JSON, then print and die.
+    Default: null
+
+Examples
+--------
+
+    jQuery(document).ready(function(){
+
+        jQuery('#btn_save').click(function(e){
+           e.preventDefault();
+                    jQuery.post(pluginUrl+'ajax/save_field.php',jQuery('#my-form').serialize(), function(data) {                        
+                    alert(data.message);                
+                });
+        });
+
+    });
+
+save\_field.php
+
+    <?php
+    // bootstrap WP
+
+    $return = array(
+                'message'   => 'Saved',
+                'ID'        => 1
+        );
+
+    wp_send_json_success($return);
+
+Notes
+-----
+
+Uses
+[wp\_send\_json()](/Function_Reference/wp_send_json "Function Reference/wp send json")
+to send response.
+
+Change Log
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+Source File
+-----------
+
+`wp_send_json_success()` is located in `wp-includes/functions.php`
+

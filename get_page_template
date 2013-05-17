@@ -1,0 +1,60 @@
+Function Reference/get page template « WordPress Codex
+-----------
+
+Retrieve path of [page template](/Page_Templates "Page Templates") in
+current or parent template.
+
+First attempt is to look for the file in the `'_wp_page_template'` page
+meta data. The second attempt, if the first has a file and is not empty,
+is to look for `'page.php'`.
+
+Usage
+-----
+
+` <?php get_page_template() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (string) 
+:   Returns path of page template in current or parent template.
+
+Examples
+--------
+
+Displays the filename of the page template used to render a Page
+(printed within an HTML comment, in this example) :
+
+    <?php echo '<!-- ' . basename( get_page_template() ) . ' -->'; ?>
+
+Notes
+-----
+
+-   Uses:
+    [`get_post_meta()`](/Function_Reference/get_post_meta "Function Reference/get post meta")
+-   Uses:
+    [`validate_file()`](/Function_Reference/validate_file "Function Reference/validate file")
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    on 'page\_template' on result of
+    [`locate_template()`](/Function_Reference/locate_template "Function Reference/locate template").
+-   Uses:
+    [`locate_template()`](/Function_Reference/locate_template "Function Reference/locate template")
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`get_page_template()` is located in `wp-includes/template.php`.
+

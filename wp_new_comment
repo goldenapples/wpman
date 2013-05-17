@@ -1,0 +1,70 @@
+Function Reference/wp new comment « WordPress Codex
+-----------
+
+Adds a new comment to the database.
+
+Filters new comment to ensure that the fields are sanitized and valid
+before inserting comment into database. Calls `'comment_post'` action
+with comment ID and whether comment is approved by WordPress. Also has
+`'preprocess_comment'` filter for processing the comment data before the
+function handles it.
+
+Usage
+-----
+
+` <?php wp_new_comment( $commentdata ) ?> `
+
+Parameters
+----------
+
+ `$commentdata` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Contains information on the comment.
+    Default: *None*
+
+Return Values
+-------------
+
+ `(integer)` 
+:   The ID of the comment after adding.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls `'preprocess_comment'` hook on `$commentdata` parameter array
+    before processing
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls `'comment_post'` hook on `$comment_ID` returned from adding
+    the comment and if the comment was approved.
+-   Uses:
+    [`wp_filter_comment()`](/Function_Reference/wp_filter_comment "Function Reference/wp filter comment")
+    Used to filter comment before adding comment.
+-   Uses:
+    [`wp_allow_comment()`](/Function_Reference/wp_allow_comment "Function Reference/wp allow comment")
+    checks to see if comment is approved.
+-   Uses:
+    [`wp_insert_comment()`](/Function_Reference/wp_insert_comment "Function Reference/wp insert comment")
+    Does the actual comment insertion to the database.
+-   Uses:
+    [`wp_notify_moderator()`](/Function_Reference/wp_notify_moderator "Function Reference/wp notify moderator")
+-   Uses:
+    [`wp_notify_postauthor()`](/Function_Reference/wp_notify_postauthor "Function Reference/wp notify postauthor")
+-   Uses:
+    [`wp_get_comment_status()`](/Function_Reference/wp_get_comment_status "Function Reference/wp get comment status")
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`wp_new_comment()` is located in `wp-includes/comment.php`.
+

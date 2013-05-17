@@ -1,0 +1,37 @@
+Function Reference/get theme feature list « WordPress Codex
+-----------
+
+Retrieve list of WordPress theme features (aka theme tags).
+
+Usage
+-----
+
+` <?php get_theme_feature_list() ?> `
+
+Parameters
+----------
+
+None.
+
+Return Values
+-------------
+
+ (array) 
+:   Array of features keyed by category with translations keyed by slug.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 3.1.0
+
+Source File
+-----------
+
+`get_theme_feature_list()` is located in `/wp-admin/includes/theme.php`.
+

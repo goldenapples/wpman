@@ -1,0 +1,56 @@
+Function Reference/tag description « WordPress Codex
+-----------
+
+First available with WordPress [Version
+2.8](/Version_2.8 "Version 2.8"), this template tag returns the
+description of a tag. A tag ID can be passed as a parameter, but if no
+tag ID is passed, the description current queried tag will be returned.
+
+Usage
+-----
+
+`  <?php tag_description( $tag_id ); ?> `
+
+### Default Usage
+
+The default usage returns the description of the current queried tag.
+
+    <?php $description = tag_description(); ?>
+
+Parameters
+----------
+
+ `$tag_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the tag to return a description.
+    Default: Description of current query tag.
+
+Return Values
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Tag description, available.
+
+Example
+-------
+
+Displays a description of the tag id 28.
+`  <?php echo 'Tag Description: ' . tag_description('28'); ?> `
+
+Change Log
+----------
+
+-   Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+Notes
+-----
+
+-   Uses:
+    [term\_description()](/Function_Reference/term_description "Function Reference/term description")
+-   Output is wrapped in \<p\> tags.
+
+Source File
+-----------
+
+`tag_description()` is located in `wp-includes/category-template.php`.
+

@@ -1,0 +1,184 @@
+Function Reference/wp list cats « WordPress Codex
+-----------
+
+Displays a list of [Categories](/Glossary#Category "Glossary") as links.
+When one of those links is clicked, all the posts in that Category will
+display in the appropriate [Category
+Template](/Category_Templates "Category Templates") dictated by the
+[Template Hierarchy rules](/Template_Hierarchy "Template Hierarchy").
+This works in much the same way as
+[list\_cats()](/Template_Tags/list_cats "Template Tags/list cats"), the
+difference being that arguments are given in query string format.
+
+Replace With
+------------
+
+-   [wp\_list\_categories()](/Template_Tags/wp_list_categories "Template Tags/wp list categories")
+
+Usage
+-----
+
+`  <?php wp_list_cats('arguments'); ?> `
+
+Parameters
+----------
+
+ optionall 
+:   (*boolean*) Sets whether to display a link to all Categories. Note:
+    This feature no longer works in WordPress 1.5.x and 2.0 but is
+    slated to be added back at Version 2.1. Valid values:
+    -   `1` (True)
+    -   `0` (False - default)
+
+ all 
+:   (*string*) If optionall is set to 1 (TRUE), this defines the text to
+    be displayed for the link to all Categories. Note: This feature no
+    longer works in WordPress 1.5.x and 2.0 but is slated to be added
+    back at Version 2.1. Defaults to `'All'`.
+ sort\_column 
+:   (*string*) Key to sort options by. Valid values:
+    -   `ID` (Default)
+    -   `name`
+
+ sort\_order 
+:   (*string*) Sort order for options. Valid values:
+    -   `asc` (Default)
+    -   `desc`
+
+ file 
+:   (*string*) The php file a Category link is to be displayed on.
+    Defaults to `index.php`.
+ list 
+:   (*boolean*) Sets whether the Categories are enclosed in an unordered
+    list (\<ul\>\<li\>). Valid values:
+    -   `1` (True - default)
+    -   `0` (False)
+
+ optiondates 
+:   (*string*) Sets whether to display the date of the last post in each
+    Category. Valid values:
+    -   `1` (True, displays
+        [Y-m-d](http://php.net/function.date "http://php.net/function.date"))
+    -   `0` (False - default)
+    -   `string` (Eg. `Y-m-d`, [see all available
+        options](http://php.net/function.date "http://php.net/function.date"))
+
+ optioncount 
+:   (*boolean*) Sets whether to display a count of posts in each
+    Category. Valid values:
+    -   `1` (True)
+    -   `0` (False - default)
+
+ hide\_empty 
+:   (*boolean*) Sets whether to hide (not display) Categories with no
+    posts. Valid values:
+    -   `1` (True - default)
+    -   `0` (False)
+
+ use\_desc\_for\_title 
+:   (*boolean*) Sets whether the Category description is displayed as
+    link title (i.e. `<a title="Category Description" href="...`). Valid
+    values:
+    -   `1` (True - default)
+    -   `0` (False)
+
+ children 
+:   (*boolean*) Sets whether to show children (sub) Categories. Valid
+    values:
+    -   `1` (True - default)
+    -   `0` (False)
+
+ child\_of 
+:   (*integer*) Display only the Categories that are children of this
+    Category (ID number). There is no default. If this parameter is
+    used, `hide_empty` gets set to False.
+ feed 
+:   (*string*) Text to display for the link to each Category's
+    [RSS2](/Glossary#RSS "Glossary") feed. Default is no text, and no
+    feed displayed.
+ feed\_image 
+:   (*string*) Path/filename for a graphic to act as a link to each
+    Categories' RSS2 feed. Overrides the **feed** parameter.
+ exclude 
+:   (*string*) Sets the Categories to be excluded. This must be in the
+    form of an array (ex: `1, 2, 3`).
+ hierarchical 
+:   (*boolean*) Sets whether to display child (sub) Categories in a
+    hierarchical (after parent) list. Valid values:
+    -   `1` (True - default)
+    -   `0` (False)
+
+:   **Note: The hierarchical parameter is not available in versions of
+    WordPress prior to 1.5**
+
+### Notes on use
+
+When the 'list' parameter is set for an unordered list, the
+wp\_list\_cats() tag requires an opening and closing `UL` tag, but will
+automatically list each item as an `LI`.
+
+Examples
+--------
+
+### Default Usage
+
+By default, the tag:
+
+-   *optionall* - Does not display a link to all Categories
+-   *all* - Text to display for link to all Categories
+-   *sort\_column* - Sorts by Category ID
+-   *sort\_order* - Sorts in ascending order
+-   *file* - Displays the Categories using the index.php template
+-   *list* - Sets the Categories in an unordered list (`<ul><li>`)
+-   *optioncount* - Does not display the count of posts within each
+    Category
+-   *hide\_empty* - Does not display links to Categories which have no
+    posts
+-   *use\_desc\_for\_title* - Uses the Category description as the link
+    title
+-   *children* - Shows the children (sub-Categories) of every Category
+    listed
+-   *hierarchical* - Displays the children Categories in a hierarchical
+    order under its Category parent
+
+<!-- -->
+
+    <?php wp_list_cats(); ?>
+
+### Categories With Excludes
+
+Displays Category links sorted by name, shows \# of posts for each
+Category, and excludes Category IDs 10 and 15 from the list.
+
+    <ul>
+    <?php wp_list_cats('sort_column=name&optioncount=1&exclude=10, 15'); ?>
+    </ul>
+
+### Show Children Only of Category
+
+Displays Category links sorted by ID (`sort_column=id`), without showing
+the number of posts per Category (`optioncount=0`), showing only the
+sub-Categories titles (`use_desc_for_title=0`), for just the children of
+Category ID 8 (`child_of=8`).
+
+    <?php wp_list_cats('sort_column=id&optioncount=0&use_desc_for_title=0&child_of=8'); ?>
+
+**Note:** If there are no posts in a parent Category, that parent
+Category will not display.
+
+### Display Categories With RSS Feed Links
+
+Displays Category links sorted by name, without showing the number of
+posts per Category, and displays links to the RSS feed for each
+Category.
+
+    <?php wp_list_cats('sort_column=name&optioncount=0&feed=RSS'); ?>
+
+Change Log
+----------
+
+-   Since: 0.71
+-   Deprecated: 2.1
+-   Replaced By:
+    [wp\_list\_categories()](/Template_Tags/wp_list_categories "Template Tags/wp list categories")
+

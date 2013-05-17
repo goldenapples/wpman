@@ -1,0 +1,40 @@
+Function Reference/wp convert widget settings « WordPress Codex
+-----------
+
+Convert the widget settings from single to multi-widget format.
+
+Parameters
+----------
+
+ `$base_name` 
+:   (['**)
+    (*required*)**](/How_to_Pass_Tag_Parameters "How to Pass Tag Parameters")
+    Default: *None*
+
+ `$option_name` 
+:   (['**)
+    (*required*)**](/How_to_Pass_Tag_Parameters "How to Pass Tag Parameters")
+    Default: *None*
+
+ `$settings` 
+:   (['**)
+    (*required*)**](/How_to_Pass_Tag_Parameters "How to Pass Tag Parameters")
+    Default: *None*
+
+Return Values
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   
+
+Change Log
+----------
+
+Since:
+[2.8.0](/index.php?title=Version_2.8.0&action=edit&redlink=1 "Version 2.8.0 (page does not exist)")
+
+Source File
+-----------
+
+wp\_convert\_widget\_settings() is located in `wp-includes/widgets.php`
+

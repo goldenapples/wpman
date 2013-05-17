@@ -1,0 +1,111 @@
+Function Reference/wp get post tags « WordPress Codex
+-----------
+
+Retrieve the list of tags for a post.
+
+Usage
+-----
+
+` <?php wp_get_post_tags( $post_id, $args ) ?> `
+
+Parameters
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The Post ID.
+    Default: 0
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Overwrite the defaults. See
+    [wp\_get\_object\_terms()](/Function_Reference/wp_get_object_terms#Argument_Options "Function Reference/wp get object terms")
+    for a list of valid options that can be passed.
+    Default: array
+
+Return Values
+-------------
+
+ `(array)` 
+:   List of post tags.
+
+Examples
+--------
+
+For a post with tags tag2, tag5 and tag6, the code
+
+    $t = wp_get_post_tags($post->ID);
+    print_r($t);
+
+Displays
+
+    Array
+    (
+       [0] => stdClass Object
+           (
+               [term_id] => 4
+               [name] => tag2
+               [slug] => tag2
+               [term_group] => 0
+               [term_taxonomy_id] => 4
+               [taxonomy] => post_tag
+               [description] => 
+               [parent] => 0
+               [count] => 7
+           )
+
+       [1] => stdClass Object
+           (
+               [term_id] => 7
+               [name] => tag5
+               [slug] => tag5
+               [term_group] => 0
+               [term_taxonomy_id] => 7
+               [taxonomy] => post_tag
+               [description] => 
+               [parent] => 0
+               [count] => 6
+           )
+
+       [2] => stdClass Object
+           (
+               [term_id] => 16
+               [name] => tag6
+               [slug] => tag6
+               [term_group] => 0
+               [term_taxonomy_id] => 16
+               [taxonomy] => post_tag
+               [description] => 
+               [parent] => 0
+               [count] => 2
+           )
+
+    )
+
+\
+ To get a list of only the tag IDs for a particular post:
+
+    global $post;
+    $tag_ids = wp_get_post_tags( $post->ID, array( 'fields' => 'ids' ) );
+
+and assuming the same dataset as the first example, \$tag\_ids would
+contain
+
+    [4, 7, 16]
+
+Notes
+-----
+
+-   Uses:
+    [`wp_get_post_terms()`](/Function_Reference/wp_get_post_terms "Function Reference/wp get post terms")
+
+Change Log
+----------
+
+Since: 2.3.0
+
+Source File
+-----------
+
+`wp_get_post_tags()` is located in `wp-includes/post.php`.
+

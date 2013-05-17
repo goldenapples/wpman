@@ -1,0 +1,133 @@
+Function Reference/add image size « WordPress Codex
+-----------
+
+Registers a new image size. This means that WordPress will create a copy
+of the Featured Image (formerly known as post thumbnail) with the
+specified dimensions when you upload a new image.
+
+**Note:** To enable featured images, or post thumbnails, the current
+theme must include `add_theme_support( 'post-thumbnails' );` in its
+`functions.php` file. See also [Post
+Thumbnails](/Post_Thumbnails "Post Thumbnails").
+
+Usage
+-----
+
+` <?php add_image_size( $name, $width, $height, $crop ); ?> `
+
+Parameters
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The new image size name.
+    Default: *None*
+
+ `$width` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The post thumbnail width in pixels.
+    Default: 0
+
+ `$height` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The post thumbnail height in pixels.
+    Default: 0
+
+ `$crop` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Crop the image or not. False - Soft proportional crop
+    mode ; True - Hard crop mode.
+    Default: false
+
+Reserved Image Size Names
+-------------------------
+
+`thumb`, `thumbnail`, `medium`, `large`, `post-thumbnail`
+
+*The names "`thumb`" & "`thumbnail`" are just alias, so exactly the
+same.*
+
+For a detailed explanation and "why", read further inside the
+[image\_downsize()](/Function_Reference/image_downsize#Description "Function Reference/image downsize")
+article.
+
+However, if needed, you can always set the options yourself:
+
+    update_option('thumbnail_size_w', 160);
+    update_option('thumbnail_size_h', 160);
+    update_option('thumbnail_crop', 1);
+
+Examples
+--------
+
+A theme's functions.php file.
+
+    if ( function_exists( 'add_theme_support' ) ) {
+        add_theme_support( 'post-thumbnails' );
+            set_post_thumbnail_size( 150, 150 ); // default Post Thumbnail dimensions   
+    }
+
+    if ( function_exists( 'add_image_size' ) ) { 
+        add_image_size( 'category-thumb', 300, 9999 ); //300 pixels wide (and unlimited height)
+        add_image_size( 'homepage-thumb', 220, 180, true ); //(cropped)
+    }
+
+### Crop Mode
+
+Set the image size by resizing the image proportionally (that is,
+without distorting it):
+
+    add_image_size( 'homepage-thumb', 220, 180 ); // 220 pixels wide by 180 pixels tall, soft proportional crop mode
+
+Set the image size by cropping the image (either from the sides, or from
+the top and bottom):
+
+    add_image_size( 'homepage-thumb', 220, 180, true ); // 220 pixels wide by 180 pixels tall, hard crop mode
+
+### Using the New Image Sizes
+
+Within a theme's template files.
+
+    <?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'category-thumb' ); } ?>
+
+Notes
+-----
+
+Using the 'false' setting will fail to produce a new image in the upload
+directory if one of the image dimensions of the uploaded image are equal
+to the new image size.
+
+Change Log
+----------
+
+-   Since [2.9](/Version_2.9 "Version 2.9")
+
+Source File
+-----------
+
+`add_image_size()` is located in `wp-includes/media.php`.
+
+Resources
+---------
+
+[Regenerate
+Thumbnails](http://wordpress.org/extend/plugins/regenerate-thumbnails/ "http://wordpress.org/extend/plugins/regenerate-thumbnails/")
+- This plugin regenerate the thumbnails for your image attachments. This
+is very handy if you've changed any of your thumbnail dimensions (via
+Settings -\> Media) after previously uploading images or have changed to
+a theme with different featured post image dimensions.
+
+[AJAX thumbnail
+rebuild](http://wordpress.org/extend/plugins/ajax-thumbnail-rebuild/ "http://wordpress.org/extend/plugins/ajax-thumbnail-rebuild/")
+- This plugin allows you to re-build the post thumbnails. Useful if you
+use add\_image\_size() after already having uploaded post thumbnails.
+(This plugin is slow, but never has out of memory errors).
+
+[Simple Image
+Sizes](http://wordpress.org/extend/plugins/simple-image-sizes/ "http://wordpress.org/extend/plugins/simple-image-sizes/")
+- This plugin allows you create new sizes of thumbnails directly from
+the "Media" panel. It allows you to regenerate the thumbnails too. The
+plugin adds the thumbnails to your post sizes and you can add them
+directly on your posts. You can choose the sizes you wanted to
+regenerate and the posts types too.
+

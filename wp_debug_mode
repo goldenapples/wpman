@@ -1,0 +1,86 @@
+Function Reference/wp debug mode « WordPress Codex
+-----------
+
+Sets PHP error handling and handles WordPress debug mode.
+
+Uses three constants: WP\_DEBUG, WP\_DEBUG\_DISPLAY, and WP\_DEBUG\_LOG.
+All three can be defined in wp-config.php. Example:
+` define( 'WP_DEBUG', true ); `
+
+WP\_DEBUG\_DISPLAY and WP\_DEBUG\_LOG perform no function unless
+WP\_DEBUG is true. WP\_DEBUG defaults to false.
+
+When WP\_DEBUG is true, all PHP notices are reported. WordPress will
+also display notices, including one when a deprecated WordPress
+function, function argument, or file is used. Deprecated code may be
+removed from a later version.
+
+It is strongly recommended that plugin and theme developers use
+WP\_DEBUG in their development environments.
+
+When WP\_DEBUG\_DISPLAY is true, WordPress will force errors to be
+displayed. WP\_DEBUG\_DISPLAY defaults to true. Defining it as null
+prevents WordPress from changing the global configuration setting.
+Defining WP\_DEBUG\_DISPLAY as false will force errors to be hidden.
+
+When WP\_DEBUG\_LOG is true, errors will be logged to
+wp-content/debug.log. WP\_DEBUG\_LOG defaults to false.
+
+Usage
+-----
+
+` <?php wp_debug_mode(  ); ?> `
+
+Change Log
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+Source File
+-----------
+
+`wp_debug_mode()` is located in `wp-includes/load.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_debug\_mode](http://codex.wordpress.org/Function_Reference/wp_debug_mode)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

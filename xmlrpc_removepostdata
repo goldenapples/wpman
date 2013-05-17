@@ -1,0 +1,43 @@
+Function Reference/xmlrpc removepostdata « WordPress Codex
+-----------
+
+[XMLRPC](/XML-RPC_Support "XML-RPC Support") XML content without title
+and category elements.
+
+Usage
+-----
+
+` <?php xmlrpc_removepostdata( $content ) ?> `
+
+Parameters
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) [XMLRPC](/XML-RPC_Support "XML-RPC Support") XML
+    Request content
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   [XMLRPC](/XML-RPC_Support "XML-RPC Support") XML Request content
+    without title and category elements.
+
+Examples
+--------
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`xmlrpc_removepostdata()` is located in `wp-includes/functions.php`.
+

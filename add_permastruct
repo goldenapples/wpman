@@ -1,0 +1,71 @@
+Function Reference/add permastruct « WordPress Codex
+-----------
+
+add\_permastruct() allows you to specify additional permalink structures
+for WordPress. It is most commonly used in conjunction with
+[add\_rewrite\_tag()](/Rewrite_API/add_rewrite_tag "Rewrite API/add rewrite tag")
+and
+[add\_rewrite\_rule()](/Rewrite_API/add_rewrite_rule "Rewrite API/add rewrite rule")
+
+Usage
+-----
+
+    add_permastruct($name, $struct, $args);
+
+Parameters
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name for permalink structure.
+    Default: *None*
+
+ `$struct` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Permalink structure.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Optional configuration for building the rules from the
+    permalink structure, see
+    [WP\_Rewrite](/Class_Reference/WP_Rewrite "Class Reference/WP Rewrite")::add\_permastruct()
+    for full details.
+    Default: array
+
+### Possible Arguments
+
+ with\_front
+:   (*boolean*) Should the structure be prepended with
+    WP\_Rewrite::\$front? Default is true.
+
+ ep\_mask
+:   (*integer*) Endpoint mask defining what endpoints are added to the
+    structure. Default is EP\_NONE.
+
+ paged
+:   (*boolean*) Should archive pagination rules be added for the
+    structure? Default is true.
+
+ feed
+:   (*boolean*) Should feed rewrite rules be added for the structure?
+    Default is true.
+
+ forcomments
+:   (*boolean*) Should the feed rules be a query for a comments feed?
+    Default is false.
+
+ walk\_dirs
+:   (*boolean*) Should the 'directories' making up the structure be
+    walked over and rewrite rules built for each in turn? Default is
+    true.
+
+ endpoints 
+:   (*boolean*) Should endpoints be applied to the generated rewrite
+    rules? Default is true.
+
+Source File
+-----------
+
+`add_permastruct()` is located in `wp-includes/rewrite.php`
+

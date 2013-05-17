@@ -1,0 +1,47 @@
+Function Reference/funky javascript fix « WordPress Codex
+-----------
+
+Fixes javascript bugs in browsers.
+
+Converts unicode characters to
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") numbered
+entities.
+
+Usage
+-----
+
+` <?php funky_javascript_fix( $text ) ?> `
+
+Parameters
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to be made safe.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Fixed text.
+
+Examples
+--------
+
+Notes
+-----
+
+-   Uses: `$is_macIE`
+-   Uses: `$is_winIE`
+
+Change Log
+----------
+
+Since: 1.5.0
+
+Source File
+-----------
+
+`funky_javascript_fix()` is located in `wp-includes/formatting.php`.
+

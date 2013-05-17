@@ -1,0 +1,55 @@
+Function Reference/get theme roots « WordPress Codex
+-----------
+
+Retrieves an array of the names of [theme](/Glossary#Theme "Glossary")
+directories keyed by the template/stylesheet or the name of the [themes
+directory](/Theme_Development#Anatomy_of_a_Theme "Theme Development") if
+all the themes have the same parent (root) directory. The names are
+without the trailing but with the leading slash.
+
+Usage
+-----
+
+`  <?php echo get_theme_roots(); ?> `
+
+Parameters
+----------
+
+This tag has no parameters.
+
+Return Values
+-------------
+
+ `` `(array/string)`{style="color:gray"} 
+:   An array of the names of theme directories keyed by the
+    template/stylesheet or the name of the themes directory if all
+    themes have the same parent directory. The names are without the
+    trailing but with the leading slash.
+
+Example
+-------
+
+    echo get_theme_roots();
+
+If your themes directory is located at
+*/home/www/wp-content**/themes/***, the above echo statement will output
+"/themes".
+
+Notes
+-----
+
+-   Uses: `get_site_transient()` to retrieve the *theme\_roots*
+    [transient](/Glossary#Transient "Glossary")
+-   Uses: `search_theme_directories()` to regenerate the transient if
+    necessary.
+
+Change Log
+----------
+
+-   Since: 2.9.0
+
+Source File
+-----------
+
+`get_theme_roots()` is located in `wp-includes/theme.php`.
+

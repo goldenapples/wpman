@@ -1,0 +1,52 @@
+Function Reference/make clickable « WordPress Codex
+-----------
+
+Convert plain text
+[URI](http://en.wikipedia.org/wiki/URI "wikipedia:URI") to
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") links.
+
+Converts URI, www, FTP, and email addresses. Finishes by fixing links
+within links.
+
+Usage
+-----
+
+` <?php make_clickable( $ret ) ?> `
+
+Parameters
+----------
+
+ `$ret` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to convert URIs.
+    Default: *None*
+
+Return Values
+-------------
+
+ (string) 
+:   Content with converted URIs.
+
+Examples
+--------
+
+### Display all URLs in clickable links
+
+    <?php 
+    $string = "This is a long text that contains some links like http://www.wordpress.org and http://www.wordpress.com .";
+    echo make_clickable($string); 
+    ?>
+
+Notes
+-----
+
+Change Log
+----------
+
+Since: 0.71
+
+Source File
+-----------
+
+`make_clickable()` is located in `wp-includes/formatting.php`.
+
