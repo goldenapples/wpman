@@ -1,0 +1,285 @@
+wp list bookmarks "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+wp list bookmarks - Displays bookmarks found in the
+
+SYNOPSIS
+--------
+
+Displays bookmarks found in the
+[Administration](/Administration_Panels "Administration Panels") \>
+[Links](/Administration_Panels#Links "Administration Panels") panel.
+This [Template Tag](/Template_Tags "Template Tags") allows the user to
+control how the bookmarks are sorted and displayed.
+
+**NOTE**: **wp\_list\_bookmarks()** intended to replace the deprecated
+Template tags
+[get\_links\_list()](/Template_Tags/get_links_list "Template Tags/get links list")
+and [get\_links()](/Template_Tags/get_links "Template Tags/get links").
+
+USAGE
+-----
+
+`  <?php wp_list_bookmarks( $args ); ?> `
+
+### Default Usage
+
+` <?php $args = array(    'orderby'          => 'name',    'order'            => 'ASC',    'limit'            => -1,    'category'         => ' ',    'exclude_category' => ' ',    'category_name'    => ' ',    'hide_invisible'   => 1,    'show_updated'     => 0,    'echo'             => 1,    'categorize'       => 1,    'title_li'         => __('Bookmarks'),    'title_before'     => '<h2>',    'title_after'      => '</h2>',    'category_orderby' => 'name',    'category_order'   => 'ASC',    'class'            => 'linkcat',    'category_before'  => '<li id=%id class=%class>',    'category_after'   => '</li>' ); ?> `
+
+By default, the function shows:
+
+-   Bookmarks divided into Categories with a Category name heading
+-   All bookmarks included, regardless of Category Name or Category ID
+-   Sorts the list by name
+-   An image if one is included
+-   A space between the image and the text
+-   Shows the description of the bookmark
+-   Does not show the ratings
+-   Unless limit is set, shows all bookmarks
+-   Displays bookmarks
+
+PARAMETERS
+----------
+
+ categorize 
+:   (*boolean*) Bookmarks should be shown within their assigned
+    Categories or not.
+    -   `1` (True) - Default
+    -   `0` (False)
+
+ category 
+:   (*string*) Comma separated list of numeric Category IDs to be
+    displayed. If none is specified, all Categories with bookmarks are
+    shown. Defaults to `` (all Categories).
+
+ exclude\_category 
+:   (*string*) Comma separated list of numeric Category IDs to be
+    excluded from display. Defaults to `` (no categories excluded).
+
+ category\_name 
+:   (*string*) The name of a Category whose bookmarks will be displayed.
+    If none is specified, all Categories with bookmarks are shown.
+    Defaults to `` (all Categories).
+
+ category\_before 
+:   (*string*) Text to place before each category. Defaults to
+    `'<li id="[category id]" class="linkcat">'` .
+
+ category\_after 
+:   (*string*) Text to place after each category. Defaults to `'</li>'`
+    .
+
+ class 
+:   (*string*) The class each category li will have on it. Defaults to
+    `'linkcat'` . (This parameter was added with [Version
+    2.2](/Version_2.2 "Version 2.2"))
+
+ category\_orderby 
+:   (*string*) Value to sort Categories on. Valid options:
+    -   `'name'` - Default
+    -   `'id'`
+    -   `'slug'`
+    -   `'count'`
+    -   `'term_group'` (not used yet)
+
+ category\_order 
+:   (*string*) Sort order, ascending or descending for the
+    category\_orderby parameter. Valid values:
+    -   `ASC` - Default
+    -   `DESC`
+
+ title\_li 
+:   (*string*) Text for the heading of the links list. Defaults to
+    `'__('Bookmarks')'`, which displays "Bookmarks" (the `__('')` is
+    used for [localization purposes](/Localization "Localization")).
+    Only used when categorize are set to 0 [false] (else the category
+    names will be used instead). If 'title\_li' is set to null (0)
+    value, no heading is displayed, and the list will not be wrapped
+    with `<ul>, </ul>` tags (be sure to pass the categorize option to 0
+    [false] to this option takes effect).
+
+ title\_before 
+:   (*string*) Text to place before each Category description if
+    'categorize' is 1 [true], or text defined in "title\_li" if
+    'categorize' is 0 [false]. Defaults to `'<h2>'`.
+
+ title\_after 
+:   (*string*) Text to place after each Category description if
+    'categorize' is 1 [true], or text defined in "title\_li" if
+    'categorize' is 0 [false]. Defaults to `'</h2>'`.
+
+ show\_private 
+:   (*boolean*) Should a Category be displayed even if the Category is
+    considered private. Ignore the admin setting and show private
+    Categories (`TRUE`) or do NOT show private Categories (`FALSE`).
+    -   `1` (True)
+    -   `0` (False) - Default
+
+ include 
+:   (*string*) Comma separated list of numeric bookmark IDs to include
+    in the output. For example, 'include=1,3,6' means to return or echo
+    bookmark IDs 1, 3, and 6. If the include string is used, the
+    *category*, *category\_name*, and *exclude* parameters are ignored.
+    Defaults to `` (all Bookmarks).
+
+ exclude 
+:   (*string*) Comma separated list of numeric bookmark IDs to exclude.
+    For example, 'exclude=4,12' means that bookmark IDs 4 and 12 will
+    NOT be returned or echoed. Defaults to `` (exclude nothing).
+
+ orderby 
+:   (*string*) Value to sort bookmarks on. This can be a COMMA separated
+    list of values. Defaults to `'name'` unless you pass the value of
+    `''` (empty), in which case it sets to `'id'`. Valid options:
+    -   `'id' (use 'link_id' with WP 3.2 and later)`
+    -   `'url'`
+    -   `'name'` - Default
+    -   `'target'`
+    -   `'description'`
+    -   `'owner'` - User who added bookmark through bookmarks Manager.
+    -   `'rating'`
+    -   `'updated'` Note: the link\_updated field does not track local
+        modifications. It tracks when whatever the link points to is
+        updated via remote requests to pingomatic.
+    -   `'rel'` - bookmark relationship (XFN).
+    -   `'notes'`
+    -   `'rss'`
+    -   `'length'` - The length of the bookmark name, shortest to
+        longest.
+    -   `'rand'` - Display bookmarks in random order.
+
+ order 
+:   (*string*) Bookmarks display sorting order, ascending or descending
+    as defined in the 'orderby' parameter. Valid values:
+    -   `ASC` - Default
+    -   `DESC`
+
+ limit 
+:   (*integer*) Maximum number of bookmarks to display. Default is `-1`
+    (all bookmarks).
+
+ before 
+:   (*string*) Text to place before each bookmark. Defaults to `'<li>'`.
+
+ after 
+:   (*string*) Text to place after each bookmark. Defaults to `'</li>'`.
+
+link\_before 
+:   (*string*) Text to place before the text of each bookmark, inside
+    the hyperlink code. There is no set default. (This parameter was
+    added with [Version 2.7](/Version_2.7 "Version 2.7"))
+
+link\_after 
+:   (*string*) Text to place after the text of each bookmark. There is
+    no set default. (This parameter was added with [Version
+    2.7](/Version_2.7 "Version 2.7"))
+
+ between 
+:   (*string*) Text to place between each bookmark/image and its
+    description. Defaults to `'\n'` (newline).
+
+ show\_images 
+:   (*boolean*) Should images for bookmarks be shown (`TRUE`) or not
+    (`FALSE`).
+    -   `1` (True) - Default
+    -   `0` (False)
+
+ show\_description 
+:   (*boolean*) Should the description be displayed (`TRUE`) or not
+    (`FALSE`). Valid when **show\_images** is `FALSE`, or an image is
+    not defined.
+    -   `1` (True)
+    -   `0` (False) - Default
+
+ show\_name 
+:   (*boolean*) Displays the text of a link when (`TRUE`). Works when
+    **show\_images** is `TRUE`. (This parameter was added with [Version
+    2.7](/Version_2.7 "Version 2.7"))
+    -   `1` (True)
+    -   `0` (False) - Default
+
+ show\_rating 
+:   (*boolean*) Should rating stars/characters be displayed (`TRUE`) or
+    not (`FALSE`).
+    -   `1` (True)
+    -   `0` (False) - Default
+
+ show\_updated 
+:   (*boolean*) Should the last updated timestamp be displayed (`TRUE`)
+    or not (`FALSE`). Note that link\_updated does not track local
+    modifications. It tracks when whatever the link points to is updated
+    via remote requests to pingomatic.
+    -   `1` (True)
+    -   `0` (False) - Default
+
+ hide\_invisible 
+:   (*boolean*) Should bookmark be displayed even if it's Visible
+    setting is No. Abides by admin setting (`TRUE`) or does no abide by
+    admin setting (`FALSE`).
+    -   `1` (True) - Default
+    -   `0` (False)
+
+ echo 
+:   (*boolean*) Display bookmarks (`TRUE`) or return them for use by PHP
+    (`FALSE`).
+    -   `1` (True) - Default
+    -   `0` (False)
+
+EXAMPLES
+--------
+
+### Simple List
+
+Displays all bookmarks with the title "Bookmarks" and with items wrapped
+in \<li\> tags. The title is wrapped in h2 tags.
+
+    <?php wp_list_bookmarks('title_li=&category_before=&category_after='); ?>
+
+### Simple List without the Heading
+
+Displays all bookmarks as above, but does not include the default
+heading.
+
+    <?php wp_list_bookmarks('title_li=&categorize=0'); ?>
+
+### Specific Category Sorted by URL
+
+Displays bookmarks for Category ID 2 in span tags, uses images for
+bookmarks, does not show descriptions, sorts by bookmark URL.
+
+    <?php wp_list_bookmarks('categorize=0&category=2&before=<span>&after=</span>&show_images=1&show_description=0&orderby=url'); ?>
+
+### Shows Ratings and Timestamp
+
+Displays all bookmarks in an ordered list with descriptions on a new
+line, does not use images for bookmarks, sorts by bookmark id, shows
+ratings and last-updated timestamp (Note that the last updated timestamp
+does not track local modifications. It tracks when whatever the link
+points to is updated via remote requests to pingomatic.)
+
+    <ol>
+    <?php wp_list_bookmarks('between=<br />&show_images=0&orderby=id&show_rating=1&show_updated=1'); ?>
+    </ol>
+
+### Replaces Heading with Image
+
+Uses an image from the theme folder instead of plain text.
+
+    <?php wp_list_bookmarks('categorize=0&title_before=&title_after=&title_li=<img src="'.get_bloginfo("stylesheet_directory").'/images/blogroll.gif" alt="blogroll" />'); ?>
+
+CHANGELOG
+---------
+
+-   [2.7.0](/Version_2.7 "Version 2.7") : Added the `link_before`,
+    `link_after` and `show_name` parameters.
+-   [2.2.0](/Version_2.2 "Version 2.2") : Added the `class` parameter.
+-   Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`wp_list_bookmarks()` is located in `wp-includes/bookmark-template.php`.
+

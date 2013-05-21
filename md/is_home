@@ -1,0 +1,68 @@
+is home "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+is home - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the [blog posts index
+page](/Template_Hierarchy#Home_Page_display "Template Hierarchy") is
+being displayed. This is a Boolean function, meaning it returns either
+TRUE or FALSE.
+
+**Note:** WordPress 2.1 handles this function differently than prior
+versions - See [static Front
+Page](/Pages#Using_a_Page_as_the_Front_Page "Pages"). If you select a
+static Page as your frontpage (see
+[is\_front\_page()](/Function_Reference/is_front_page "Function Reference/is front page")),
+this tag will be applied to your "posts page".
+
+USAGE
+-----
+
+` <?php is_home(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+The following example can be used in your sidebar to display different
+content when displaying home page.
+` <?phpif ( is_home() ) {    // This is a homepage} else {    // This is not a homepage}?> `
+
+NOTES
+-----
+
+`is_home` uses the global \$wp\_query WP\_Query object. `is_home` isn't
+usable before the
+[parse\_query](/index.php?title=Plugin_API%5CAction_Reference%5Cparse_query&action=edit&redlink=1 "Plugin API\Action Reference\parse query (page does not exist)")
+action.
+
+-   See Also:
+    [is\_front\_page()](/Function_Reference/is_front_page "Function Reference/is front page")
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`is_home()` is located in `wp-includes/query.php`.
+

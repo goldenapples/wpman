@@ -1,0 +1,63 @@
+get taxonomy template "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+get taxonomy template - Retrieve path of taxonomy template in current or parent template.
+
+SYNOPSIS
+--------
+
+Retrieve path of taxonomy template in current or parent template.
+
+Retrieves the taxonomy and term, if term is available. The template is
+prepended with 'taxonomy-' and followed by both the taxonomy string and
+the taxonomy string followed by a dash and then followed by the term.
+
+The taxonomy and term template is checked and used first, if it exists.
+Second, just the taxonomy template is checked, and then finally,
+taxonomy.php template is used. If none of the files exist, then it will
+fall back on to index.php.
+
+USAGE
+-----
+
+` <?php get_taxonomy_template() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`taxonomy_template`' filter on found path.
+
+### Filters
+
+-   **`'taxonomy_template'`**:\
+    `apply_filters('taxonomy_template', $template)`
+
+CHANGE LOG
+----------
+
+Since: unknown (2.6.0 most likely)
+
+SOURCE FILE
+-----------
+
+`get_taxonomy_template()` is located in `wp-includes/template.php`.
+

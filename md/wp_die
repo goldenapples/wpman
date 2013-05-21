@@ -1,0 +1,111 @@
+wp die "MAY 2013" WordPress Codex "Function Reference"
+======================================================
+
+NAME
+----
+
+wp die - Kill WordPress execution and display
+
+SYNOPSIS
+--------
+
+Kill WordPress execution and display
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") message with
+error message.
+
+A call to this function complements the
+[`die()`](http://php.net/manual/en/function.die.php "http://php.net/manual/en/function.die.php")
+PHP function. The difference is that HTML will be displayed to the user.
+It is recommended to use this function only when the execution should
+not continue any further. It is not recommended to call this function
+very often and try to handle as many errors as possible silently.
+
+USAGE
+-----
+
+` <?php wp_die( $message, $title, $args ) ?> `
+
+PARAMETERS
+----------
+
+ `$message` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Error message or a complete WP\_Error object.
+    Default: *None*
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Error title, If you use a WP\_Error object, the title
+    will be by default the one you added in \$data['title'].
+    Default: ''
+
+ `$args` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*optional*) Optional arguments to control behaviour.
+    Default: *None*
+
+ARGUMENTS
+---------
+
+ `response` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) HTML status code returned.
+    Default: 500
+
+ `back_link` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to display a back link in the returned page.
+    Default: false
+
+ `text_direction` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Whether to set ltr or rtl as the text direction
+    Default: ltr
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+Test to see what is in the `$post variable` in a filter:
+
+    add_filter( 'body_class', 'add_body_class_cb' );
+    /**
+     * Add new body class.
+     *
+     * Testing what is in the $post variable.
+     */
+    function add_body_class_cb( $classes ) {
+        global $post;
+
+        wp_die( '<pre>' . var_export( $post, true ) . '</pre>' );
+    }
+
+\
+
+NOTES
+-----
+
+-   Uses global: (`object`) `$wp_locale` Handles the date and time
+    locales.
+
+You can add a WP\_Error object. If you've done so, you can add
+`$data['title']` to the error object and it will automatically be taken
+as (default/overwriteable) title for the die page.
+
+[example missing here]
+
+CHANGE LOG
+----------
+
+-   Since: 2.0.4
+
+SOURCE FILE
+-----------
+
+`wp_die()` is located in `wp-includes/functions.php`.
+

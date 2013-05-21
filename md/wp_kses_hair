@@ -1,0 +1,65 @@
+wp kses hair "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+wp kses hair - Builds an attribute list from string containing attributes.
+
+SYNOPSIS
+--------
+
+Builds an attribute list from string containing attributes.
+
+This function does a lot of work. It parses an attribute list into an
+array with attribute data, and tries to do the right thing even if it
+gets weird input. It will add quotes around attribute values that don't
+have any quotes or apostrophes around them, to make it easier to produce
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") code that
+will conform to W3C's HTML specification. It will also remove bad URL
+protocols from attribute values. It also reduces duplicate attributes by
+using the attribute defined first (foo='`bar`' foo='`baz`' will result
+in foo='`bar`').
+
+USAGE
+-----
+
+` <?php wp_kses_hair( $attr, $allowed_protocols ) ?> `
+
+PARAMETERS
+----------
+
+ `$attr` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Attribute list from
+    [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") element
+    to closing HTML element tag
+    Default: *None*
+
+ `$allowed_protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Allowed protocols to keep
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   List of attributes after parsing
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_kses_hair()` is located in `wp-includes/kses.php`.
+

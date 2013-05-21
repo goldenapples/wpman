@@ -1,0 +1,50 @@
+get 404 template "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+get 404 template - Retrieve path of 404 template in current or parent template.
+
+SYNOPSIS
+--------
+
+Retrieve path of 404 template in current or parent template.
+
+USAGE
+-----
+
+` <?php get_404_template(); ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Returns result from
+    [`get_query_template('404')`](/Function_Reference/get_query_template "Function Reference/get query template").
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_query_template()`](/Function_Reference/get_query_template "Function Reference/get query template")
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_404_template()` is located in `wp-includes/theme.php` (if v3.x
+`wp-includes/template.php`).
+

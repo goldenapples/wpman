@@ -1,0 +1,41 @@
+ms is switched "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+ms is switched - Determines if
+
+SYNOPSIS
+--------
+
+Determines if
+[switch\_to\_blog()](/Function_Reference/switch_to_blog "Function Reference/switch to blog")
+is in effect.
+
+USAGE
+-----
+
+    <?php ms_is_switched() ?>
+
+RETURN VALUES
+-------------
+
+ (bool) 
+:   True if switched, False otherwise.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+CHANGE LOG
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`ms_is_switched()` is located in `wp-includes/ms-blogs.php`
+

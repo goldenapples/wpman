@@ -1,0 +1,55 @@
+the author posts link "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+the author posts link - Displays a link to all posts by an author. The link text is the user's
+
+SYNOPSIS
+--------
+
+Displays a link to all posts by an author. The link text is the user's
+**Display name publicly as** field. The results of clicking on the
+presented link will be controlled by the [Template
+Hierarchy](/Template_Hierarchy "Template Hierarchy") of [Author
+Templates](/Author_Templates "Author Templates"). This tag must be used
+within [The Loop](/The_Loop "The Loop").
+
+USAGE
+-----
+
+`  <?php the_author_posts_link(); ?> `
+
+PARAMETERS
+----------
+
+This function takes no arguments.
+
+### Deprecated Parameters
+
+ idmode 
+:   (*string*) Sets the element of the author's information to display
+    for the link text.
+
+EXAMPLES
+--------
+
+### Use Example
+
+Displays the link, where the default link text value is the user's
+**Display name publicly as** field.
+
+    <p>Other posts by <?php the_author_posts_link(); ?></p>
+
+SOURCE FILE
+-----------
+
+`the_author_posts_link()` is located in
+`wp-includes/author-template.php`
+
+CHANGE LOG
+----------
+
+-   Since: 1.2.0
+

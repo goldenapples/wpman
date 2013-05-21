@@ -1,0 +1,47 @@
+get the taxonomies "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+get the taxonomies - This function can be used within the loop. It will also return an array
+
+SYNOPSIS
+--------
+
+This function can be used within the loop. It will also return an array
+of the taxonomies with links to the taxonomy and name.
+
+USAGE
+-----
+
+`  <?php get_the_taxonomies(); ?> `
+
+PARAMETERS
+----------
+
+ `post` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The post ID to get taxonomies of.
+    Default: 0
+
+ `args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Overrides the defaults.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(Array)` 
+:   
+
+Array ( [taxnomy\_slug] =\> Taxonomy Name: \<a
+href='[http://yourdomain.com/Term\_Slug/'](http://yourdomain.com/Term_Slug/' "http://yourdomain.com/Term_Slug/'")\>Term
+Name\</a\>. )
+
+SOURCE FILE
+-----------
+
+`the_taxonomies()` is located in `wp-includes/taxonomy.php`.
+

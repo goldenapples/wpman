@@ -1,0 +1,97 @@
+add pages page "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+add pages page - Add sub menu page to the Pages menu.
+
+SYNOPSIS
+--------
+
+Add sub menu page to the Pages menu.
+
+*NOTE: If you're running into the »You do not have sufficient
+permissions to access this page.« message in a `wp_die()` screen, then
+you've hooked too early. The hook you should use is `admin_menu`.*
+
+USAGE
+-----
+
+`  <?phpadd_pages_page( $page_title, $menu_title, $capability, $menu_slug, $function);?> `
+
+PARAMETERS
+----------
+
+ `$page_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be displayed in the title tags of the page
+    when the menu is selected
+    Default: *None*
+
+ `$menu_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be used for the menu
+    Default: *None*
+
+ `$capability` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The
+    [capability](/Roles_and_Capabilities "Roles and Capabilities")
+    required for this menu to be displayed to the user.
+    Default: *None*
+
+ `$menu_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug name to refer to this menu by (should be
+    unique for this menu).
+    Default: *None*
+
+ `$function` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*optional*) The function to be called to output the content for
+    this page.
+    Default: ' '
+
+RETURN VALUES
+-------------
+
+ `string` 
+:   The resulting page's hook\_suffix (*What
+    [add\_submenu\_page()](/Function_Reference/add_submenu_page "Function Reference/add submenu page")
+    returns*)
+
+NOTES
+-----
+
+-   This function is a simple wrapper for a call to
+    [add\_submenu\_page()](/Function_Reference/add_submenu_page "Function Reference/add submenu page"),
+    passing the received arguments and specifying
+    `'edit.php?post_type=page'` as the `$parent_slug` argument. This
+    means the new page will be added as a sub menu to the *Pages* menu.
+-   The `$capability` parameter is used to determine whether or not the
+    page is included in the menu based on the [Roles and
+    Capabilities](/Roles_and_Capabilities "Roles and Capabilities")) of
+    the current user.
+-   The function handling the output of the options page should also
+    verify the user's capabilities.
+
+EXAMPLE
+-------
+
+Typical usage occurs in a function registered with the
+'[admin\_menu](/Action_Reference#Actions_Run_During_an_Admin_Page_Request "Action Reference")'
+hook (see [Adding Administration
+Menus](/Adding_Administration_Menus "Adding Administration Menus")):
+
+    add_action('admin_menu', 'my_plugin_menu');
+
+    function my_plugin_menu() {
+        add_pages_page('My Plugin Pages', 'My Plugin', 'read', 'my-unique-identifier', 'my_plugin_function');
+    }
+
+SOURCE FILE
+-----------
+
+`add_pages_page()` is located in `wp-admin/includes/plugin.php`.
+

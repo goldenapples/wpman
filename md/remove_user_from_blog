@@ -1,0 +1,64 @@
+remove user from blog "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+remove user from blog - Removes a user from a blog.
+
+SYNOPSIS
+--------
+
+Removes a user from a blog.
+
+Accepts an optional `$reassign` parameter, if you want to reassign the
+user's blog posts to another user upon removal.
+
+USAGE
+-----
+
+` <?php remove_user_from_blog($user_id, $blog_id, $reassign = ); ?> `
+
+PARAMETERS
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of user to remove
+    Default: *None*
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of blog to remove user from
+    Default: *None*
+
+ `$reassign` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) a user to whom to reassign the removed user's posts
+    Default: empty string
+
+RETURN VALUE
+------------
+
+ `` `(WP_Error object|boolean)`{style="color:gray"} 
+:   WP\_Error object on failure, True on success
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+Use the `'remove_user_from_blog'` action to fire an event when users are
+removed from a blog.
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`remove_user_from_blog()` is located in `wp-includes/ms-functions.php`
+

@@ -1,0 +1,43 @@
+wp clean themes cache "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+wp clean themes cache - Clears the cache held by
+
+SYNOPSIS
+--------
+
+Clears the cache held by
+[get\_theme\_roots()](/Function_Reference/get_theme_roots "Function Reference/get theme roots")
+and [WP\_Theme](/Class_Reference/WP_Theme "Class Reference/WP Theme").
+
+USAGE
+-----
+
+`  <?php wp_clean_themes_cache() ?> `
+
+PARAMETERS
+----------
+
+This function does not accept parameters
+
+RETURN VALUES
+-------------
+
+No value is returned
+
+EXAMPLES
+--------
+
+CHANGE LOG
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`wp_clean_themes_cache()` is located in `wp-includes/theme.php`
+

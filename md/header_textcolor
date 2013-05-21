@@ -1,0 +1,45 @@
+header textcolor "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+header textcolor - Display text color for custom header.
+
+SYNOPSIS
+--------
+
+Display text color for custom header.
+
+USAGE
+-----
+
+` <?php header_textcolor(); ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`header_textcolor()` is located in `wp-includes/theme.php`.
+

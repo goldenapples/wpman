@@ -1,0 +1,86 @@
+get post class "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+get post class - Retrieve the classes for the post div as an array.
+
+SYNOPSIS
+--------
+
+Retrieve the classes for the post div as an array.
+
+The class names are add are many. If the post is a sticky, then the
+'sticky' class name. The class 'hentry' is always added to each post.
+For each category, the class will be added with 'category-' with
+category slug is added. The tags are the same way as the categories with
+'tag-' before the tag slug. All classes are passed through the filter,
+'post\_class' with the list of classes, followed by \$class parameter
+value, with the post ID as the last parameter.
+
+USAGE
+-----
+
+` <?php get_post_class($class, $post_id); ?> `
+
+PARAMETERS
+----------
+
+ `$class` 
+:   ([*string or
+    array*](/How_to_Pass_Tag_Parameters#String_or_array "How to Pass Tag Parameters"))
+    (*optional*) A string or array of classes to add to the return value
+    Default: '' (empty string)
+
+ `$post_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) An optional post ID
+    Default: null
+
+RETURN VALUE
+------------
+
+ `$classes` `(array)`{style="color:gray"} 
+:   An array of class names.\
+    Get the object post from `get_post($post_id)`; so, if empty return
+    value of get\_post (typically invalid `$post_id`), return an empty
+    array of classes (`$classes`).
+
+EXAMPLES
+--------
+
+Default
+:   Default example without params and global \$post object available
+    (*or in the loop*).
+
+<!-- -->
+
+    <?php  $postClass = get_post_class();  var_dump($postClass); /*Output:*/
+     array() {
+     0 => string 'post-[ID]' (length=7)
+     1 => string '[post_type]' (length=4)
+     2 => string 'type-[post_type]' (length=9)
+     3 => string 'status-[post_status]' (length=14)
+     4 => string 'format-[post_format]' (length=15)
+     5 => string 'hentry' (length=6)
+     6 => string 'category-[...]'
+     X => string 'tag-[...]'
+    }
+    ?>
+
+With params
+:   Passing an array of your own classes.
+
+` <?php/* Optional:global $post;$postID = $post->ID; OR $postID = get_the_ID();$postClass = get_post_class(array('my-class')); OR $postClass = get_post_class(array('my-class'), (int) $postID);*/$postClass = get_post_class(array('my-class'));var_dump($postClass);/* Output:array  0 => string 'post-[ID]' (length=7)  1 => string '[post_type]' (length=4)  2 => string 'type-[post_type]' (length=9)  3 => string 'status-[post_status]' (length=14)  4 => string 'format-[post_format]' (length=15)  5 => string 'hentry' (length=6)  6 => string 'category-[...]'  ...  X => string 'tag-[...]'  ...  X+1 => string 'my-class' (length=8)...*/?> `
+
+SOURCE CODE
+-----------
+
+`get_post_class()` is located in `wp-includes/post-template.php`.
+
+CHANGELOG
+---------
+
+-   Since: 2.7
+

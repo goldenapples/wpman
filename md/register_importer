@@ -1,0 +1,52 @@
+register importer "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+register importer - Create a new import tool
+
+SYNOPSIS
+--------
+
+Create a new import tool
+
+USAGE
+-----
+
+` <?php register_importer( $id, $name, $description, $callback ) ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Importer tag. Used to uniquely identify importer
+    Default: *None*
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Importer name and title
+    Default: *None*
+
+ `$description` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Importer description
+    Default: *None*
+
+ `$callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) Callback to run
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `WP_Error` 
+:   Returns WP\_Error when \$callback is WP\_Error
+
+SOURCE FILE
+-----------
+
+`register_importer()` is located in `wp-admin/includes/import.php`.
+

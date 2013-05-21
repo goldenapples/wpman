@@ -1,0 +1,96 @@
+wp get shortlink "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+wp get shortlink - Returns the Short Link to a post for use in
+
+SYNOPSIS
+--------
+
+Returns the Short Link to a post for use in
+[PHP](/Glossary#PHP "Glossary"). It does NOT display the short link.
+
+USAGE
+-----
+
+`  <?php wp_get_shortlink(); ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) A post or blog id.
+    Default: Default is 0, which means the current post or blog.
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Whether the id is a 'blog' id, 'post' id, or 'media'
+    id. If 'post', the post\_type of the post is consulted. If 'query',
+    the current query is consulted to determine the id and context.
+    Default: Default is 'post'.
+
+ `$allow_slugs` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to allow post slugs in the shortlink.
+    Default: It is up to the plugin how and whether to honor this.
+
+EXAMPLES
+--------
+
+Display the short link in plain text.
+
+Short URL:
+[http://example.com/?p=1234](http://example.com/?p=1234 "http://example.com/?p=1234")
+
+`  Short URL: <?php echo wp_get_shortlink(); ?> `
+
+SOURCE FILE
+-----------
+
+`wp_get_shortlink()` is located in `wp-includes/link-template.php`.
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_get\_shortlink](http://codex.wordpress.org/Function_Reference/wp_get_shortlink)"
+
+[Category](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

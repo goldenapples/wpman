@@ -1,0 +1,48 @@
+ms cookie constants "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+ms cookie constants - Defines Multisite cookie constants.
+
+SYNOPSIS
+--------
+
+Defines Multisite cookie constants.
+
+USAGE
+-----
+
+` <?php ms_cookie_constants() ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters
+
+RETURN VALUE
+------------
+
+This function does not return any value
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+Constants set: COOKIEPATH, SITECOOKIEPATH, ADMIN\_COOKIE\_PATH,
+COOKIE\_DOMAIN
+
+CHANGE LOG
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`ms_cookie_constants()` is located in
+`wp-includes/ms-default-constants.php`
+

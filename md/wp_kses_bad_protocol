@@ -1,0 +1,60 @@
+wp kses bad protocol "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+wp kses bad protocol - Sanitize string from bad protocols.
+
+SYNOPSIS
+--------
+
+Sanitize string from bad protocols.
+
+This function removes all non-allowed protocols from the beginning of
+`$string`. It ignores whitespace and the case of the letters, and it
+does understand
+[HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") entities. It
+does its work in a while loop, so it won't be fooled by a string like
+'`javascript:javascript:alert(57)`'.
+
+USAGE
+-----
+
+` <?php wp_kses_bad_protocol( $string, $allowed_protocols ); ?> `
+
+PARAMETERS
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to filter bad protocols from
+    Default: *None*
+
+ `$allowed_protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Allowed protocols to keep
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Filtered content
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_kses_bad_protocol()` is located in `wp-includes/kses.php`.
+

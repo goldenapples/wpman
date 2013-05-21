@@ -1,0 +1,49 @@
+previous comments link "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+previous comments link - Display the previous comments page link.
+
+SYNOPSIS
+--------
+
+Display the previous comments page link.
+
+USAGE
+-----
+
+` <?php previous_comments_link( $label ) ?> `
+
+PARAMETERS
+----------
+
+ `$label` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Label for comments link text.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.7.0
+
+SOURCE FILE
+-----------
+
+`previous_comments_link()` is located in
+`wp-includes/link-template.php`.
+

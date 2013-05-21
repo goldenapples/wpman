@@ -1,0 +1,42 @@
+sticky class "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+sticky class - Displays the [Sticky Posts](/Sticky_Posts "Sticky Posts") class on a
+
+SYNOPSIS
+--------
+
+Displays the [Sticky Posts](/Sticky_Posts "Sticky Posts") class on a
+post if applicable. This tag must be within [The
+Loop](/The_Loop "The Loop").
+
+USAGE
+-----
+
+`  <?php sticky_class(); ?> `
+
+PARAMETERS
+----------
+
+This tag has no parameters.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+    <div class="post<?php sticky_class(); ?>" id="post-<?php the_ID(); ?>">
+
+### Sticky Post Identifier
+
+Provides a sticky class to each post that it applies to:
+
+CHANGE LOG
+----------
+
+-   Deprecated: [3.5.0](/Version_3.5 "Version 3.5")
+-   Since: [2.7.0](/Version_2.7 "Version 2.7")
+

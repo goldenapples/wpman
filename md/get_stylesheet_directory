@@ -1,0 +1,72 @@
+get stylesheet directory "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+get stylesheet directory - Retrieve
+
+SYNOPSIS
+--------
+
+Retrieve
+[stylesheet](http://en.wikipedia.org/wiki/Cascading_Style_Sheets "http://en.wikipedia.org/wiki/Cascading_Style_Sheets")
+directory Path for the current theme/child theme.
+
+**Note:** Does not contain a trailing slash.
+
+Returns an absolute server path (eg:
+/home/user/public\_html/wp-content/themes/my\_theme), not a URI.
+
+To retrieve the URI of the stylesheet directory use
+[get\_stylesheet\_directory\_uri()](/Function_Reference/get_stylesheet_directory_uri "Function Reference/get stylesheet directory uri")
+instead.
+
+USAGE
+-----
+
+` <?php get_stylesheet_directory() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ `uri` `(string)`{style="color:gray"} 
+:   Stylesheet directory Absolute Path.
+
+EXAMPLES
+--------
+
+**Include a PHP file**
+
+    <?php include( get_stylesheet_directory() . '/includes/myfile.php'); ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls `'stylesheet_directory'` filter on stylesheet path and name.
+-   Uses:
+    [`get_stylesheet()`](/Function_Reference/get_stylesheet "Function Reference/get stylesheet")
+-   Uses:
+    [`get_theme_root()`](/Function_Reference/get_theme_root "Function Reference/get theme root")
+-   In the event a child theme is being used, that is the directory that
+    will be returned, not the parent theme directory (use
+    [` get_template_directory()`](/Function_Reference/get_template_directory "Function Reference/get template directory")
+    instead if you want the parent directory)
+
+CHANGE LOG
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+`get_stylesheet_directory()` is located in `wp-includes/theme.php`.
+

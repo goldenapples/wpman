@@ -1,0 +1,54 @@
+is plugin page "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+is plugin page - Returns true when the current request is for a plugin page in the
+
+SYNOPSIS
+--------
+
+Returns true when the current request is for a plugin page in the
+administration panel. For example, if the request is for
+"[http://www.example.com/wp-admin/edit.php?page=some\_plugin.php](http://www.example.com/wp-admin/edit.php?page=some_plugin.php "http://www.example.com/wp-admin/edit.php?page=some_plugin.php")",
+this will return true.
+
+As of version 2.6, this appears to key off of the "page" URL parameter
+and is based on the variable \$plugin\_page, set in wp-admin/admin.php.
+
+Notice: is\_plugin\_page is **deprecated** since version 3.1 with no
+alternative available.
+
+USAGE
+-----
+
+` <?php is_plugin_page(); ?> `
+
+PARAMETERS
+----------
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`is_plugin_page()` is located in `wp-includes/functions.php`.
+
+As of version 2.6, this is defined in `wp-includes/query.php`.
+

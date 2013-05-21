@@ -1,0 +1,60 @@
+has shortcode "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+has shortcode - Checks whether the content passed contains a specific short code.
+
+SYNOPSIS
+--------
+
+Checks whether the content passed contains a specific short code.
+
+PARAMETERS
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The content to search.
+    Default: *None*
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The short code to search for.
+    Default: *None*
+
+RETURN
+------
+
+ `` `(Bool)`{style="color:gray"} 
+:   True if the short code is found, false otherwise.
+
+USAGE
+-----
+
+`  <?php if ( has_shortcode( $content, 'gallery' ) ) { } ?> `
+
+EXAMPLE
+-------
+
+    <?php
+
+    $content = 'This is some text, perhaps pulled via $post->post_content. It has a [gallery] short code.';
+
+    if( has_shortcode( $content, 'gallery' ) ) {
+        // The content has a [gallery] short code, so this check returned true.
+    }
+
+    ?>
+
+CHANGE LOG
+----------
+
+-   Since: [3.6.0](/Version_3.6 "Version 3.6")
+
+SOURCE FILE
+-----------
+
+`has_shortcode()` is located in `wp-includes/shortcodes.php`.
+

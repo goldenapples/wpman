@@ -1,0 +1,53 @@
+get users of blog "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get users of blog - Returns an array filled with information about the blog's users.
+
+SYNOPSIS
+--------
+
+Returns an array filled with information about the blog's users.
+
+USAGE
+-----
+
+`  <?php $blogusers = get_users_of_blog(); ?> `
+
+EXAMPLE
+-------
+
+    // Get information about this blog's users into an array.
+    $blogusers = get_users_of_blog();
+    // Iterate over the array and retrieve that users' basic information.
+    foreach ($blogusers as $usr) {
+        print "{$usr->user_login} has user ID number {$usr->ID}.";
+    }
+
+PARAMETERS
+----------
+
+None.
+
+RETURNS
+-------
+
+ (array) 
+:   Array of users. The elements of the array are objects whose member
+    properties correspond with information about a user.
+
+CHANGELOG
+---------
+
+-   Since: [2.2.0](/Version_2.2 "Version 2.2")
+-   Deprecated: 3.1.0
+-   Replace By:
+    [Function\_Reference/get\_users](/Function_Reference/get_users "Function Reference/get users")
+
+SOURCE CODE
+-----------
+
+`get_users_of_blog()` is located in `wp-includes/deprecated.php`.
+

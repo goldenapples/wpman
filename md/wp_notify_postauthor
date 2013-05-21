@@ -1,0 +1,79 @@
+wp notify postauthor "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+wp notify postauthor - This function is responsible for sending comment notification emails to
+
+SYNOPSIS
+--------
+
+This function is responsible for sending comment notification emails to
+the post author whenever a reader leaves a comment. It is pluggable and
+can be customized using [plugins](/Glossary#plugins "Glossary").
+
+This function is pluggable using the following filters:
+
+-   comment\_notification\_text
+-   comment\_notification\_subject
+-   comment\_notification\_headers
+
+If the plugins do not redefine the functions using filters, then the
+default functionality will be used.
+
+To modify the content of the email that is sent when a reader leaves a
+comment, you may provide filters for each of the above functions in your
+plugin.
+
+This function also sanitizes a URL for use in a redirect.
+
+USAGE
+-----
+
+` <?php wp_notify_postauthor( $comment_id, $comment_type ) ?> `
+
+PARAMETERS
+----------
+
+ `$comment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Comment ID
+    Default: *None*
+
+ `$comment_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The comment type either '`comment`' (default),
+    '`trackback`', or '`pingback`'
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   False if user email does not exist. True on completion.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`allowed_redirect_hosts`' on an array containing WordPress
+    host string and `$location` host string.
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_notify_postauthor()` is located in `wp-includes/pluggable.php`.
+

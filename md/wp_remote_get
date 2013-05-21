@@ -1,0 +1,57 @@
+wp remote get "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+wp remote get - Retrieve the raw response from the HTTP request using the GET method.
+
+SYNOPSIS
+--------
+
+Retrieve the raw response from the HTTP request using the GET method.
+
+USAGE
+-----
+
+` <?php $response = wp_remote_get($url, $args = array()) ?> `
+
+PARAMETERS
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Site URL to retrieve.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Override the defaults.
+    Default: *None*
+
+See
+[wp\_remote\_request()](/Function_API/wp_remote_request "Function API/wp remote request")
+for more information on the arguments array format.
+
+RETURN VALUES
+-------------
+
+ `` `(WP_Error|array)`{style="color:gray"} 
+:   The response or WP\_Error on failure.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+SOURCE FILE
+-----------
+
+wp\_remote\_get() is located in `wp-includes/http.php`
+

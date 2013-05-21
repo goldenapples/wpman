@@ -1,0 +1,73 @@
+get post custom values "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+get post custom values - This function is useful if you wish to access a custom field that is not
+
+SYNOPSIS
+--------
+
+This function is useful if you wish to access a custom field that is not
+unique, i.e. has more than 1 value associated with it. Otherwise, you
+might wish to look at
+[get\_post\_meta()](/Function_Reference/get_post_meta "Function Reference/get post meta").
+
+Returns an array containing all the values of the custom fields with a
+particular key (`$key`) of a post with ID `$post_id` (defaults to the
+current post if unspecified).
+
+Returns nothing if no such key exists, or none is entered.
+
+See also
+[get\_post\_custom()](/Function_Reference/get_post_custom "Function Reference/get post custom")
+and
+[get\_post\_custom\_keys()](/Function_Reference/get_post_custom_keys "Function Reference/get post custom keys").
+
+USAGE
+-----
+
+`  <?php get_post_custom_values($key, $post_id); ?> `
+
+PARAMETERS
+----------
+
+ `$key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The key whose values you want returned.
+    Default: *None*
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The post ID whose custom fields will be retrieved.
+    Default: Current post
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Let's assume the current post has 3 values associated with the (custom)
+field `my_key`.
+
+You could show them through:
+
+    <?php
+
+      $mykey_values = get_post_custom_values('my_key');
+      foreach ( $mykey_values as $key => $value ) {
+        echo "$key  => $value ('my_key')<br />"; 
+      }
+
+    ?>
+
+    0 => First value ('my_key')
+    1 => Second value ('my_key')
+    2 => Third value ('my_key')
+
+SOURCE FILE
+-----------
+
+`get_post_custom_values()` is located in `wp-includes/post.php`.
+

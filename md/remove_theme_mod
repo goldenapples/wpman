@@ -1,0 +1,51 @@
+remove theme mod "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+remove theme mod - Remove theme modification name from current theme list.
+
+SYNOPSIS
+--------
+
+Remove theme modification name from current theme list.
+
+If removing the name also removes all elements, then the entire option
+will be removed.
+
+USAGE
+-----
+
+` <?php remove_theme_mod( $name ) ?> `
+
+PARAMETERS
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Theme modification name.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (null) 
+:   
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`remove_theme_mod()` is located in `wp-includes/theme.php`.
+

@@ -1,0 +1,117 @@
+add group "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+add group - This function adds a new group to the
+
+SYNOPSIS
+--------
+
+This function adds a new group to the
+[Toolbar](/Glossary#Toolbar "Glossary"). Groups allow you to group
+Toolbar items together into distinct sections of a toolbar menu.
+
+The Toolbar replaces the [Admin Bar](/Glossary#Admin_Bar "Glossary")
+since WordPress [Version 3.3](/Version_3.3 "Version 3.3").
+
+Toolbar items are also called "nodes". Nodes can be parents for other
+nodes, which creates dropdown menus. When adding a group you're actually
+adding a group node. Group nodes are not visible in the Toolbar, but
+nodes added to it are.
+
+**note**: This function is a method of the
+[WP\_Admin\_Bar](/Class_Reference/WP_Admin_Bar "Class Reference/WP Admin Bar")
+class and `$wp_admin_bar` global object, which may not exist except
+during the
+['admin\_bar\_menu'](/index.php?title=Plugin_API/Action_Reference/admin_bar_menu&action=edit&redlink=1 "Plugin API/Action Reference/admin bar menu (page does not exist)")
+or
+['wp\_before\_admin\_bar\_render'](/Plugin_API/Action_Reference/wp_before_admin_bar_render "Plugin API/Action Reference/wp before admin bar render")
+hooks.
+
+USAGE
+-----
+
+` <?php $wp_admin_bar->add_group( $args ); ?> `
+
+PARAMETERS
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) An array of arguments.
+    Default: *None*
+
+### Arguments
+
+ `id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The ID of the group (node).
+    Default: false
+
+ `parent` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The ID of the parent node.
+    Default: false
+
+ `meta` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of meta data for the group (node).
+    Default: array()
+
+-   'class' - The class attribute for the unordered list containing the
+    child nodes.
+
+EXAMPLES
+--------
+
+### Adding a group to a parent node
+
+This example adds a parent node, child nodes and a group to the toolbar.
+
+    add_action( 'admin_bar_menu', 'add_nodes_and_groups_to_toolbar', 999 );
+
+      function add_nodes_and_groups_to_toolbar( $wp_admin_bar ) {
+      
+        // add a parent item
+        $args = array('id' => 'parent_node', 'title' => 'parent node'); 
+        $wp_admin_bar->add_node($args);
+        
+        // add a child item to our parent item
+        $args = array('id' => 'child_node', 'title' => 'child node', 'parent' => 'parent_node'); 
+        $wp_admin_bar->add_node($args);
+        
+        // add a group node with a class "first-toolbar-group"
+        $args = array(
+                  'id' => 'first_group', 
+                  'parent' => 'parent_node',
+                  'meta' => array('class' => 'first-toolbar-group')
+                );
+        $wp_admin_bar->add_group($args); 
+        
+        // add an item to our group item
+        $args = array('id' => 'first_grouped_node', 'title' => 'first group node', 'parent' => 'first_group'); 
+        $wp_admin_bar->add_node($args);
+        
+        // add another child item to our parent item (not to our first group)
+        $args = array('id' => 'another_child_node', 'title' => 'another child node', 'parent' => 'parent_node'); 
+        $wp_admin_bar->add_node($args);
+        
+      }
+
+The output from this example in the toolbar will be:
+
+parent node\
+ - child node\
+ - another child node\
+ - first group node
+
+CHANGE LOG
+----------
+
+SOURCE FILE
+-----------
+
+`add_group()` is located in `wp-includes/class-wp-admin-bar.php`.
+

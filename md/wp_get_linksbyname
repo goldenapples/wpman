@@ -1,0 +1,126 @@
+wp get linksbyname "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+wp get linksbyname - Displays links associated with the named link category. This tag uses
+
+SYNOPSIS
+--------
+
+Displays links associated with the named link category. This tag uses
+the settings you specify in the [Links
+Manager](/Links_Manager "Links Manager"). For control over the
+formatting and display of your links within the tag's parameters, see
+[get\_linksbyname()](/Template_Tags/get_linksbyname "Template Tags/get linksbyname").
+
+REPLACE WITH
+------------
+
+[wp\_list\_bookmarks()](/Template_Tags/wp_list_bookmarks "Template Tags/wp list bookmarks").
+
+USAGE
+-----
+
+`  <?php wp_get_linksbyname('category','arguments'); ?> `
+
+EXAMPLES
+--------
+
+### Default Usage
+
+By default, the tag shows:
+
+-   All categories if none are specified
+-   All category links are shown
+-   Puts a line break after the link item
+-   Puts a space between the image and link (if one is included)
+-   Shows link images if available
+-   List sorted by ID
+-   Shows the link description
+-   Does not show the rating
+-   With no limit listed, it shows all links
+-   Does not show the updated timestamp
+
+<!-- -->
+
+    <?php wp_get_linksbyname(); ?>
+
+List all links in the Link Category called "Favorites".
+
+    <?php wp_get_linksbyname('Favorites') ?>
+
+List all links in the Link Category *Blogroll*, order the links by name,
+don't show the description, and show last update timestamp.
+
+    <?php wp_get_linksbyname('Blogroll','orderby=name&show_description=0&show_updated=1') ?>
+
+PARAMETERS
+----------
+
+### category
+
+ category 
+:   (*string*) The name of the category whose links will be displayed.
+    No default.
+
+### arguments
+
+ before 
+:   (*string*) Text to place before each link. There is no default.
+ after 
+:   (*string*) Text to place after each link. Defaults to `'<br />'`.
+ between 
+:   (*string*) Text to place between each link/image and its
+    description. Defaults to `' '` (space).
+ show\_images 
+:   (*boolean*) Should images for links be shown.
+    -   `1` (True - default)
+    -   `0` (False)
+
+ orderby 
+:   (*string*) Value to sort links on. Valid options:
+    -   `'id'` (default)
+    -   `'url'`
+    -   `'name'`
+    -   `'target'`
+    -   `'category'`
+    -   `'description'`
+    -   `'owner'` - User who added link through Links Manager.
+    -   `'rating'`
+    -   `'updated'`
+    -   `'rel'` - Link relationship (XFN).
+    -   `'notes'`
+    -   `'rss'`
+    -   `'length'` - The length of the link name, shortest to longest.
+
+:   **Prefixing any of the above options with an underscore
+    (ex:**`'_id'`**) sorts links in reverse order.**
+    -   `'rand'` - Display links in random order.
+
+ show\_description 
+:   (*boolean*) Display the description. Valid if **show\_images** is
+    `FALSE` or an image is not defined.
+    -   `1` (True - default)
+    -   `0` (False)
+
+ show\_rating 
+:   (*boolean*) Should rating stars/characters be displayed.
+    -   `1` (True)
+    -   `0` (False - default)
+
+ limit 
+:   (*integer*) Maximum number of links to display. Defaults to `-1`
+    (all links).
+ show\_updated 
+:   (*boolean*) Should the last updated timestamp be displayed.
+    -   `1` (True)
+    -   `0` (False - default)
+
+ echo 
+:   (*boolean*) Display the Links list (1 - true) or return the list to
+    be used in PHP (0 - false). Defaults to 1.
+    -   `1` (True - default)
+    -   `0` (False)
+

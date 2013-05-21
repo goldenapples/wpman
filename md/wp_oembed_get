@@ -1,0 +1,79 @@
+wp oembed get "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+wp oembed get - Takes a URL and Attempts to fetch the embed HTML for it using oEmbed.
+
+SYNOPSIS
+--------
+
+Takes a URL and Attempts to fetch the embed HTML for it using oEmbed.
+
+USAGE
+-----
+
+`  <?php $embed_code = wp_oembed_get( $url, $args );   ?> `
+
+PARAMETERS
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The URL that should be embedded.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Addtional arguments and parameters.
+    Default: *None*
+
+Available arguments:
+
+-   Height
+-   Width
+
+**NOTE: above it says "no default" but that relates to the \$args
+variable passed in. Internally it retrieves some default values
+conditionally based on site settings.**
+
+If you do not pass in a width argument, then the function will check for
+a [content\_width](/Content_Width "Content Width") setting, and a media
+settings max width. If neither of those are set, and you don't pass in
+your own width, the used width will be '500'. If one of those values is
+set, it'll use that set value.
+
+If you do not pass in a height argument, then the function will check
+for a media settings max height, and if there is nothing there either,
+it will use '700'.
+
+RETURN VALUE
+------------
+
+-   If `$url` is a valid url to a supported provider, the function
+    returns the embed code provided to it from the oEmbed protocol.
+    Otherwise, it will return false.
+
+EXAMPLES
+--------
+
+Retrieve the embed code for a URL from a supported oEmbed provider:
+
+    <?php $embed_code = wp_oembed_get('http://www.youtube.com/watch?v=AbcDeFg123'); ?>
+
+Retrieve the embed code for a URL from a supported oEmbed provider -
+with width argument:
+
+    <?php $embed_code = wp_oembed_get('http://www.youtube.com/watch?v=AbcDeFg123', array('width'=>400)); ?>
+
+SOURCE FILE
+-----------
+
+`wp_oembed_get()` is located in `wp-includes/media.php`.
+
+CHANGE LOG
+----------
+
+Since: 2.9.0
+

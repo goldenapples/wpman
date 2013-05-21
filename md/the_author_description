@@ -1,0 +1,48 @@
+the author description "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+the author description - Displays the contents of the **About yourself** field in an author's
+
+SYNOPSIS
+--------
+
+Displays the contents of the **About yourself** field in an author's
+profile
+([Administration](/Administration_Panels "Administration Panels") \>
+[Profile](/Administration_Panels#Your_Profile "Administration Panels")
+\> [Your Profile](/Your_Profile_SubPanel "Your Profile SubPanel")).
+**About yourself** is a block of text often used to publicly describe
+the user and can be quite long. This tag must be used within [The
+Loop](/The_Loop "The Loop").
+
+REPLACE WITH
+------------
+
+-   [the\_author\_meta('description')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+
+USAGE
+-----
+
+`  <?php the_author_description(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+EXAMPLE
+-------
+
+    <p>Author's About yourself biography: <?php the_author_description(); ?></p>
+
+CHANGE LOG
+----------
+
+-   Since: 1.0.0
+-   Deprecated: 2.8.0
+-   Replace By:
+    [the\_author\_meta('description')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+

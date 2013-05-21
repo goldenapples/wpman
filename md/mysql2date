@@ -1,0 +1,63 @@
+mysql2date "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+mysql2date - Converts given mySQL date string into a different format.
+
+SYNOPSIS
+--------
+
+Converts given mySQL date string into a different format.
+
+USAGE
+-----
+
+` <?php $date = mysql2date($format, $date, $translate); ?> `
+
+PARAMETERS
+----------
+
+ `$format` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The requested output format, should be either a PHP
+    date format string, e.g. 'U' for a Unix timestamp, or 'G' for a Unix
+    timestamp assuming that \$date is GMT.
+    Default: *None*
+
+ `$date` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) the input string, this cannot be the raw time-stamp, it
+    has to be converted into the following format first: 'Y-m-d H:i:s' .
+    This is the only way mysql2date() will recognize your date.
+    Default: *None*
+
+ `$translate` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If true then the given date and format string will be
+    passed to date\_i18n() for translation.
+    Default: true
+
+RETURN VALUES
+-------------
+
+ `` `(string|integer)`{style="color:gray"} 
+:   Formatted date string, or Unix timestamp.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [0.71](/Version_0.71 "Version 0.71")
+
+SOURCE FILE
+-----------
+
+`mysql2date()` is located in `wp-includes/functions.php`
+

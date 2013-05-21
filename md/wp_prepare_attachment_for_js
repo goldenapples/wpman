@@ -1,0 +1,71 @@
+wp prepare attachment for js "MAY 2013" WordPress Codex "Function Reference"
+============================================================================
+
+NAME
+----
+
+wp prepare attachment for js - Prepares an attachment post object for JS, where it is expected to be
+
+SYNOPSIS
+--------
+
+Prepares an attachment post object for JS, where it is expected to be
+JSON-encoded and fit into an Attachment model.
+
+USAGE
+-----
+
+`  <?php wp_prepare_attachment_for_js( $attachment ) ?> `
+
+PARAMETERS
+----------
+
+ `$attachment` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Attachment ID or object.
+    Default: *None*
+
+RETURN VALUE
+------------
+
+ (array) 
+:   Array of attachment details.
+
+EXAMPLES
+--------
+
+Pass image data to a js gallery.
+
+    <?php
+    add_action( 'wp_head', 'my_js_gallery_add_gallery_images', 1 );
+    function my_js_gallery_add_gallery_images(){
+        global $post;
+
+        $gallery_images = array();
+        $attachments = get_posts( array(
+            'post_type' => 'attachment',
+            'post_status' => 'inherit',
+            'post_parent' => $post->ID,
+            'post_mime_type' => 'image',
+        ) );
+
+        foreach( $attachments as $attachment )
+            $gallery_images[] = wp_prepare_attachment_for_js( $attachment->ID );
+
+        wp_localize_script( 'my-js-gallery', 'my_js_gallery', array(
+            'images' => $gallery_images,
+        ) );
+    }
+
+### Default Usage
+
+CHANGE LOG
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`wp_prepare_attachment_for_js()` is located in `wp-includes/media.php`.
+

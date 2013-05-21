@@ -1,0 +1,103 @@
+get submit button "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get submit button - Returns a submit button, with provided text and appropriate class
+
+SYNOPSIS
+--------
+
+Returns a submit button, with provided text and appropriate class
+
+USAGE
+-----
+
+` <?php get_submit_button( $text, $type, $name, $wrap, $other_attributes ); ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The text of the button (defaults to 'Save Changes')
+    Default:
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The type of button. One of: primary, secondary, delete
+    Default: primary
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The HTML name of the submit button. Defaults to
+    "submit". If no id attribute is given in \$other\_attributes below,
+    \$name will be used as the button's id.
+    Default: submit
+
+ `$wrap` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) True if the output button should be wrapped in a
+    paragraph tag, false otherwise. Defaults to true
+    Default: true
+
+ `$other_attributes` 
+:   ([*array|string*](/How_to_Pass_Tag_Parameters#Array.7Cstring "How to Pass Tag Parameters"))
+    (*optional*) Other attributes that should be output with the button.
+    Defaults to no other attributes.
+    Default:
+
+CHANGE LOG
+----------
+
+Since: [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`get_submit_button()` is located in `wp-admin/includes/template.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_submit\_button](http://codex.wordpress.org/Function_Reference/get_submit_button)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

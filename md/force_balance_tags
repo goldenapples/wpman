@@ -1,0 +1,53 @@
+force balance tags "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+force balance tags - Balances tags of string using a modified stack.
+
+SYNOPSIS
+--------
+
+Balances tags of string using a modified stack.
+
+Ignores the '`use_balanceTags`' option.
+
+USAGE
+-----
+
+` <?php force_balance_tags( $text ) ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to be balanced.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Balanced text.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See
+    [`balanceTags()`](/Function_Reference/balanceTags "Function Reference/balanceTags")
+
+CHANGE LOG
+----------
+
+Since: 2.0.4
+
+SOURCE FILE
+-----------
+
+`force_balance_tags()` is located in `wp-includes/formatting.php`.
+

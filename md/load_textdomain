@@ -1,0 +1,67 @@
+load textdomain "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+load textdomain - Loads MO file into the list of domains.
+
+SYNOPSIS
+--------
+
+Loads MO file into the list of domains.
+
+If the domain already exists, the inclusion will fail. If the MO file is
+not readable, the inclusion will fail.
+
+On success, the mofile will be placed in the `$l10n` global by `$domain`
+and will be an `gettext_reader` object.
+
+USAGE
+-----
+
+` <?php load_textdomain( $domain, $mofile ) ?> `
+
+PARAMETERS
+----------
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Unique identifier for retrieving translated strings
+    Default: *None*
+
+ `$mofile` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Path to the .mo file
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   First, will return **true** and exit if call to
+    `apply_filters('override_load_textdomain')` returns **true**. If .mo
+    file is not readable or the import fails - returns **false**.
+    Otherwise returns **true**.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`array`) `$l10n`. Gets list of domain translated
+    string objects.
+-   *l10n* is an abbreviation for *localization*. There are 10
+    characters between the initial 'l' and the terminal 'n'
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`load_textdomain()` is located in `wp-includes/l10n.php`.
+

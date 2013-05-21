@@ -1,0 +1,78 @@
+get settings errors "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+get settings errors - Fetch settings errors registered by
+
+SYNOPSIS
+--------
+
+Fetch settings errors registered by
+[`add_settings_error()`](/Function_Reference/add_settings_error "Function Reference/add settings error").
+
+Checks the `$wp_settings_errors` array for any errors declared during
+the current pageload and returns them.
+
+If changes were just submitted (`$_GET['settings-updated']`) and
+settings errors were saved to the 'settings\_errors' transient then
+those errors will be returned instead. This is used to pass errors back
+across pageloads.
+
+Use the `$sanitize` argument to manually re-sanitize the option before
+returning errors. This is useful if you have errors or notices you want
+to show even when the user hasn't submitted data (i.e. when they first
+load an options page, or in admin\_notices action hook)
+
+USAGE
+-----
+
+` <?php get_settings_errors( $setting, $sanitize ) ?> `
+
+PARAMETERS
+----------
+
+ `$setting` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional slug title of a specific setting who's errors
+    you want.
+    Default: *None*
+
+ `$sanitize` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to re-sanitize the setting value before
+    returning errors.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   Array of settings errors.
+
+<!-- -->
+
+    array(
+        'setting' =>  $setting,
+        'code'    =>  $code,
+        'message' =>  $message,
+        'type'    =>  $type
+    );
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`get_settings_errors()` is located in `wp-admin/includes/template.php`.
+

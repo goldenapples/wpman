@@ -1,0 +1,139 @@
+get linksbyname "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+get linksbyname - Like
+
+SYNOPSIS
+--------
+
+Like
+[wp\_get\_linksbyname()](/Template_Tags/wp_get_linksbyname "Template Tags/wp get linksbyname"),
+this tag displays links from the [Links
+Manager](/Links_Manager "Links Manager"), but allows the user to control
+how they are displayed by tag parameters, rather than through the
+WordPress admin interface (useful when displaying links on more than one
+template).
+
+REPLACE WITH
+------------
+
+[wp\_list\_bookmarks()](/Template_Tags/wp_list_bookmarks "Template Tags/wp list bookmarks").
+
+USAGE
+-----
+
+`  <?php get_linksbyname('cat_name', 'before', 'after', 'between', show_images, 'orderby',show_description, show_rating, limit, show_updated); ?> `
+
+EXAMPLES
+--------
+
+### Default Usage
+
+By default, the tag shows:
+
+-   All categories if none are specified
+-   All category links are shown
+-   Puts a line break after the link item
+-   Puts a space between the image and link (if one is included)
+-   Shows link images if available
+-   List sorted by ID
+-   Shows the link description
+-   Does not show the rating
+-   With no limit listed, it shows all links
+-   Does not show the updated timestamp
+
+<!-- -->
+
+    <?php get_linksbyname(); ?>
+
+### Specific Category Sorted by Name
+
+Displays links for link category "Friends" in an unordered list with
+descriptions on the next line, sorts by link name.
+
+    <ul>
+    <?php get_linksbyname('Friends', '<li>', '</li>', '<br />', FALSE, 
+    'name', TRUE); ?>
+    </ul>
+
+### With Images and Ratings, No Descriptions
+
+Displays all links one per line without descriptions, uses images for
+links, sorts by link name, and shows ratings.
+
+    <?php get_linksbyname('', '', '<br />', '', TRUE, 'name', FALSE, TRUE); ?>
+
+\
+
+### As a Definition List with Images and Descriptions in Separate Tags
+
+Displays all links in a Definition List, places linked images in the
+\<dt\>, descriptions in the \<dd\>, and sorts by rating but doesn't show
+it.
+
+    <dl>
+      <?php get_linksbyname('Portfolio', '<dt>',
+           '</dd>','</dt><dd>', TRUE, 'rating',
+           TRUE, FALSE, -1, FALSE); ?> 
+    </dl>
+
+To see examples of styling this markup in a fluid/elastic, multi-column
+layout with backgrounds and hover effects, please see [Manipulating
+Definition Lists for Fun and
+Profit](http://www.scottmcdaniel.com/?p=33 "http://www.scottmcdaniel.com/?p=33").
+
+PARAMETERS
+----------
+
+ cat\_name 
+:   (*string*) The name of the link category whose links will be
+    displayed. If none is specified, all links are shown. Defaults to
+    `'noname'` (all links).
+ before 
+:   (*string*) Text to place before each link. There is no default.
+ after 
+:   (*string*) Text to place after each link. Defaults to `'<br />'`.
+ between 
+:   (*string*) Text to place between each link/image and its
+    description. Defaults to `' '` (space).
+ show\_images 
+:   (*boolean*) Should images for links be shown (`TRUE`) or not
+    (`FALSE`). Defaults to `TRUE`.
+ orderby 
+:   (*string*) Value to sort links on. Defaults to `'id'`. Valid
+    options:
+    -   `'id'`
+    -   `'url'`
+    -   `'name'`
+    -   `'target'`
+    -   `'category'`
+    -   `'description'`
+    -   `'owner'` - User who added link through Links Manager.
+    -   `'rating'`
+    -   `'updated'`
+    -   `'rel'` - Link relationship (XFN).
+    -   `'notes'`
+    -   `'rss'`
+    -   `'length'` - The length of the link name, shortest to longest.
+
+:   **Prefixing any of the above options with an underscore
+    (ex:**`'_id'`**) sorts links in reverse order.**
+    -   `'rand'` - Display links in random order.
+
+ show\_description 
+:   (*boolean*) Display the description (`TRUE`) or not (`FALSE`). Valid
+    if **show\_images** is `FALSE` or an image is not defined. Defaults
+    to `TRUE`.
+ show\_rating 
+:   (*boolean*) Should rating stars/characters be displayed (`TRUE`) or
+    not (`FALSE`). Defaults to `FALSE`.
+ limit 
+:   (*integer*) Maximum number of links to display. Defaults to `-1`
+    (all links).
+ show\_updated 
+:   (*boolean*) Should the last updated timestamp be displayed (`TRUE`)
+    or not (`FALSE`). Defaults to `FALSE`.
+

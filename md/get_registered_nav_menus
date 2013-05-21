@@ -1,0 +1,45 @@
+get registered nav menus "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+get registered nav menus - Returns an array of all registered navigation menus in a theme
+
+SYNOPSIS
+--------
+
+Returns an array of all registered navigation menus in a theme
+
+USAGE
+-----
+
+` <?php get_registered_nav_menus(); ?> `
+
+PARAMETERS
+----------
+
+Does not accept any parameters
+
+RETURN VALUES
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   All registered navigation menus in a theme.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`get_registered_nav_menus()` is located in `wp-includes/nav-menu.php`
+

@@ -1,0 +1,58 @@
+comment form title "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+comment form title - Displays text based on comment reply status. This only affects users
+
+SYNOPSIS
+--------
+
+Displays text based on comment reply status. This only affects users
+with Javascript disabled or pages without the `comment-reply.js`
+JavaScript loaded. This tag is normally used directly below
+`<div id="respond">` and before the comment form.
+
+USAGE
+-----
+
+`  <?php comment_form_title( $noreplytext, $replytext, $linktoparent ); ?> `
+
+PARAMETERS
+----------
+
+ `$noreplytext` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Optional*) Text to display when not replying to a comment.
+    Default: 'Leave a Reply'
+
+ `$replytext` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Optional*) Text to display when replying to a comment. Accepts
+    "%s" for the author of the comment being replied to.
+    Default: 'Leave a Reply to %s'
+
+ `$linktoparent` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*Optional*) Boolean to control making the author's name a link to
+    their comment.
+    Default: TRUE
+
+EXAMPLE
+-------
+
+    <h3><?php comment_form_title(); ?></h3>
+
+    <h3><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
+
+CHANGE LOG
+----------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+SOURCE CODE
+-----------
+
+`comment_form_title()` is located in `wp-includes/comment-template.php`
+

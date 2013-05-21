@@ -1,0 +1,109 @@
+do meta boxes "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+do meta boxes - Outputs all metaboxes registered to a specific page and context. Meta
+
+SYNOPSIS
+--------
+
+Outputs all metaboxes registered to a specific page and context. Meta
+boxes should be registered using the
+[add\_meta\_box()](/Function_Reference/add_meta_box "Function Reference/add meta box")
+function.
+
+USAGE
+-----
+
+`  <?phpdo_meta_boxes( $page, $context, $object );?> `
+
+PARAMETERS
+----------
+
+ `$page` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug of the page to which the meta box was
+    registered
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The context in which the meta box was registered
+    Default: *None*
+
+ `$object` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Passed to the meta box's callback function as the first
+    argument
+    Default: *None*
+
+EXAMPLE
+-------
+
+Here is an example that uses add\_meta\_box to register a new meta box,
+then outputs that meta box using this do\_meta\_boxes function:
+
+    <?php
+    add_meta_box( 
+        'my-custom-meta-box',
+        __( 'My Custom Meta Box' ),
+        'my_custom_menu_page',
+        'normal' );
+
+    do_meta_boxes( 'my_custom_menu_page', 'normal' );
+    ?> 
+
+SOURCE FILE
+-----------
+
+The `do_meta_boxes()` function is located in
+`wp-admin/includes/template.php`
+
+See also index of [Function
+Reference](/Function_Reference "Function Reference") and index of
+[Template Tags](/Template_Tags "Template Tags").
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/do\_meta\_boxes](http://codex.wordpress.org/Function_Reference/do_meta_boxes)"
+
+[Category](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

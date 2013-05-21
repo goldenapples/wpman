@@ -1,0 +1,118 @@
+get the category list "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+get the category list - Retrieve category list in either HTML list or custom format. Generally
+
+SYNOPSIS
+--------
+
+Retrieve category list in either HTML list or custom format. Generally
+used for quick, delimited (eg: comma-separated) lists of categories, as
+part of a post's entry meta. For a more powerful, list-based function,
+see
+[wp\_list\_categories()](/Function_Reference/wp_list_categories "Function Reference/wp list categories").
+
+USAGE
+-----
+
+` <?php get_the_category_list( $separator, $parents, $post_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$separator` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional, default is empty string. Separator for
+    between the categories.
+    Default: empty string
+
+ `$parents` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. How to display the parents. Values:
+    'multiple', 'single', empty string
+    Default: empty string
+
+ `$post_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Optional. Post ID to retrieve categories.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   
+
+NOTES
+-----
+
+Categories are ordered by name regardless of the parent-child category
+relationship. See [this
+example](/Template_Tags/wp_list_categories#Display_Categories_Assigned_to_a_Post "Template Tags/wp list categories")
+from
+[wp\_list\_categories()](/Function_Reference/wp_list_categories "Function Reference/wp list categories")
+to display the Post categories with the category relationship intact.
+
+EXAMPLES
+--------
+
+### Implementation in WordPress default Twenty Eleven theme
+
+In content-single.php:
+
+    <?php
+        /* translators: used between list items, there is a space after the comma */
+        $categories_list = get_the_category_list( __( ', ', 'twentyeleven' ) );
+
+        /* translators: used between list items, there is a space after the comma */
+        $tag_list = get_the_tag_list( '', __( ', ', 'twentyeleven' ) );
+        if ( '' != $tag_list ) {
+            $utility_text = __( 'This entry was posted in %1$s and tagged %2$s by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyeleven' );
+        } elseif ( '' != $categories_list ) {
+            $utility_text = __( 'This entry was posted in %1$s by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyeleven' );
+        } else {
+            $utility_text = __( 'This entry was posted by <a href="%6$s">%5$s</a>. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'twentyeleven' );
+        }
+
+        printf(
+            $utility_text,
+            $categories_list,
+            $tag_list,
+            esc_url( get_permalink() ),
+            the_title_attribute( 'echo=0' ),
+            get_the_author(),
+            esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) )
+        );
+    ?>
+
+### Display as List Items
+
+By leaving the \$separator value empty, it will generate an unordered
+list instead, complete with classes.
+
+    <?php echo get_the_category_list(); ?>
+
+Result:
+
+    <ul class="post-categories">
+        <li>
+            <a href="http:myblog.com/category/business" title="View all posts in Business" rel="category tag">Business</a>
+        </li>
+    </ul>
+
+\
+
+CHANGE LOG
+----------
+
+Since: [1.5.1](/Version_1.5.1 "Version 1.5.1")
+
+SOURCE FILE
+-----------
+
+`get_the_category_list()` is located in
+`wp-includes/category-template.php`
+

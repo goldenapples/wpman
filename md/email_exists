@@ -1,0 +1,67 @@
+email exists "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+email exists - This function will check whether or not a given email address (`$email`)
+
+SYNOPSIS
+--------
+
+This function will check whether or not a given email address (`$email`)
+has already been registered to a username, and returns that users ID (or
+`false` if none exists). See also
+[username\_exists](/Function_Reference/username_exists "Function Reference/username exists").
+
+This function is normally used when a user is registering, to ensure
+that the E-mail address the user is attempting to register with has not
+already been registered.
+
+USAGE
+-----
+
+` <?php   if( email_exists( $email )) {      /* stuff to do when mail exists */   }?> `
+
+PARAMETER
+---------
+
+ `$email` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The E-mail address to check
+    Default: *None*
+
+RETURN
+------
+
+-   If the E-mail exists, function returns the ID of the user to whom
+    the E-mail is registered.
+-   If the E-mail does not exist, function returns `false`.
+
+EXAMPLES
+--------
+
+If the E-mail exists, echo the ID number to which the E-mail is
+registered. Otherwise, tell the viewer that it does not exist.
+
+    <?php
+      $email = 'myemail@example.com';
+      if ( email_exists($email) )
+        echo "That E-mail is registered to user number " . email_exists($email);
+      else
+        echo "That E-mail doesn't belong to any registered users on this site";
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+email\_exists() is located in `wp-includes/user.php`
+

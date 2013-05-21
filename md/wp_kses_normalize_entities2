@@ -1,0 +1,59 @@
+wp kses normalize entities2 "MAY 2013" WordPress Codex "Function Reference"
+===========================================================================
+
+NAME
+----
+
+wp kses normalize entities2 - Callback for
+
+SYNOPSIS
+--------
+
+Callback for
+[`wp_kses_normalize_entities()`](/Function_Reference/wp_kses_normalize_entities "Function Reference/wp kses normalize entities")
+regular expression.
+
+This function helps
+[`wp_kses_normalize_entities()`](/Function_Reference/wp_kses_normalize_entities "Function Reference/wp kses normalize entities")
+to only accept 16 bit values and nothing more for `&#number;` entities.
+
+USAGE
+-----
+
+` <?php wp_kses_normalize_entities2( $matches ) ?> `
+
+PARAMETERS
+----------
+
+ `$matches` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*)
+    [`preg_replace_callback()`](http://www.php.net/manual/en/function.preg-replace-callback.php "http://www.php.net/manual/en/function.preg-replace-callback.php")
+    matches array
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Correctly encoded entity
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   **This is a private function. It should not be called directly. It
+    is listed in the Codex for completeness.**
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_kses_normalize_entities2()` is located in `wp-includes/kses.php`.
+

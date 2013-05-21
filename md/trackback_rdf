@@ -1,0 +1,62 @@
+trackback rdf "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+trackback rdf - Outputs the [trackback](/Glossary#Trackback "Glossary")
+
+SYNOPSIS
+--------
+
+Outputs the [trackback](/Glossary#Trackback "Glossary")
+[RDF](/Glossary#RDF "Glossary") information for a post. This tag must be
+within [The Loop](/The_Loop "The Loop").
+
+This information is not displayed in a browser. Its use is partly
+intended for auto-detection of the trackback
+[URI](/Glossary#URI_and_URL "Glossary") to a post, which can be
+"trackbacked" by some blogging and RDF tools. Include this tag in your
+template if you want to enable auto-discovery of the trackback URI for a
+post. Without it, people who wish to send a trackback to one of your
+posts will have to manually search for the trackback URI.
+
+USAGE
+-----
+
+`  <?php trackback_rdf(); ?> `
+
+PARAMETERS
+----------
+
+This tag has no parameters.
+
+EXAMPLE
+-------
+
+Displays the RDF information before the end of [The
+Loop](/The_Loop "The Loop"). You should wrap the tag in an
+[HTML](/Glossary#HTML "Glossary") comment tag, to avoid issues with
+validation.
+
+    <!--
+    <?php trackback_rdf(); ?>
+    -->
+
+    <?php endforeach; else: ?>
+
+CHANGELOG
+---------
+
+-   [3.0.1](/Version_3.0.1 "Version 3.0.1") : Restored for Trackback
+    auto-discovery. ([Ticket
+    \#11139](http://core.trac.wordpress.org/ticket/11139 "http://core.trac.wordpress.org/ticket/11139"))
+-   [3.0.0](/Version_3.0 "Version 3.0") : Deprecated. Use the
+    `rel="trackback"` method.
+-   Since: 0.71
+
+SOURCE FILE
+-----------
+
+`trackback_rdf()` is located in `wp-includes/comment-template.php`.
+

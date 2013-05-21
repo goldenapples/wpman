@@ -1,0 +1,32 @@
+remove menu "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+remove menu - Calls the [remove\_node](/remove_node "remove node") function, and
+
+SYNOPSIS
+--------
+
+Calls the [remove\_node](/remove_node "remove node") function, and
+passes on the node \$id argument.
+
+USAGE
+-----
+
+` <?php $wp_admin_bar->remove_menu( $id ); ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The node ID of the Toolbar item you want to remove .
+    Default: *None*
+
+SOURCE FILE
+-----------
+
+`remove_menu()` is located in `wp-includes/class-wp-admin-bar.php`.
+

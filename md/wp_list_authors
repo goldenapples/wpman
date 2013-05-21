@@ -1,0 +1,160 @@
+wp list authors "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+wp list authors - Displays a list of the sites's authors (users), and if the user has
+
+SYNOPSIS
+--------
+
+Displays a list of the sites's authors (users), and if the user has
+authored any posts, the author name is displayed as a link to their
+posts. Optionally this tag displays each author's post count and
+[RSS](/Glossary#RSS "Glossary") feed link.
+
+USAGE
+-----
+
+`  <?php wp_list_authors( $args ); ?> `
+
+### Default Usage
+
+`  <?php $args = array(    'orderby'       => 'name',     'order'         => 'ASC',     'number'        => null,    'optioncount'   => false,     'exclude_admin' => true,     'show_fullname' => false,    'hide_empty'    => true,    'echo'          => true,    'feed'          => [empty string],     'feed_image'    => [empty string],    'feed_type'     => [empty string],    'style'         => list,    'html'          => true ); ?> `
+
+By default, the usage shows:
+
+-   Display in name (display name) order, ascending
+-   No limit to the number of users displayed
+-   Does not display the count of the number of posts
+-   Excludes the 'admin' author from the list
+-   Displays the author "Display name publicly as"
+-   Excludes users with no posts
+-   Display the results
+-   No author feed text, image, or feed type is defined
+-   The style is in list format
+-   Items are returned with valid HTML
+
+PARAMETERS
+----------
+
+ orderby 
+:   (*string*) Field to use to sort the results. This argument was
+    introduced in [Version 3.1](/Version_3.1 "Version 3.1"). Valid
+    values::
+    -   `name` - display\_name from users table - default
+    -   `email` - user\_email from users table
+    -   `url` - user\_url from users table
+    -   `registered` - user\_registered date from users table
+    -   `id` - ID from users table
+    -   `user_login` - user\_login from users table
+    -   `post_count` - based on number of posts by user
+
+ order 
+:   (*string*) Order of results either ascending or descending. This
+    argument was introduced in [Version
+    3.1](/Version_3.1 "Version 3.1"). Valid values::
+    -   `ASC` - default
+    -   `DESC`
+
+ number 
+:   (*integer*) The maximum number of users to display. By default there
+    is no limit to the number of users displayed. This argument was
+    introduced in [Version 3.1](/Version_3.1 "Version 3.1").
+
+ optioncount 
+:   (*boolean*) Display number of published posts by each author. Valid
+    values:
+    -   `1` (true)
+    -   `0` (false) - default
+
+ exclude\_admin 
+:   (*boolean*) Exclude the 'admin' (login is admin) account from the
+    list. Valid values:
+    -   `1` (true) - default
+    -   `0` (false)
+
+ show\_fullname 
+:   (*boolean*) Display the full (first and last) name of the authors.
+    If false, the "Display name publicly as" is displayed. Valid values:
+    -   `1` (true)
+    -   `0` (false) - default
+
+ hide\_empty 
+:   (*boolean*) Do not display authors with 0 posts. Valid values:
+    -   `1` (true) - default
+    -   `0` (false)
+
+ echo 
+:   (*boolean*) Display the results. Valid values:
+    -   `1` (true) - default
+    -   `0` (false)
+
+ feed 
+:   (*string*) Text to display for a link to each author's RSS feed.
+    Default is no text, and no feed displayed.
+
+ feed\_image 
+:   (*string*) Path/filename for a graphic. This acts as a link to each
+    author's RSS feed, and overrides the **feed** parameter.
+
+ feed\_type 
+:   (*string*) The type of feed.. An empty string is the default. Valid
+    values:
+    -   `` - default.
+    -   `rss2`
+    -   `atom`
+    -   `rss`
+    -   `rdf`
+
+ style 
+:   (*string*) Style in which to display the author list. A value of
+    *list*, the default, displays the authors as an unordered list,
+    while *none* generates no special display method (the list items are
+    separated by comma). If **html** is false, this option is ignored.
+    Valid values:
+    -   `list` - default.
+    -   `none`
+
+ html 
+:   (*boolean*) Whether to list the items in html or plaintext. The
+    default setting is *true*. If **html** is false, the **style**
+    setting is ignored and the items are returned, separated by comma.
+    Valid values:
+    -   `1` (true) - default
+    -   `0` (false)
+
+EXAMPLES
+--------
+
+### Authors Full Names and Number of Posts
+
+This example displays a list of the site's authors with the full name
+(first and last name) plus the number of posts for each author. Note the
+output is in descending order by the post count, and limited to three
+(3) authors/users. Also, and by default, it excludes the admin author,
+hides authors with no posts, and does not display the RSS feed or image.
+
+` <?php wp_list_authors('show_fullname=1&optioncount=1&orderby=post_count&order=DESC&number=3'); ?> `
+
+Andrew Anderson (48)\
+
+Harriett Smith (42)\
+
+Sally Smith (29)
+
+CHANGE LOG
+----------
+
+-   Since: 1.2.0
+-   [2.8](/Version_2.8 "Version 2.8") : Added the '`style`' and '`html`'
+    parameters.
+-   [3.1](/Version_3.1 "Version 3.1") : Added the '`orderby`',
+    '`order`', and '`number`' parameters.
+
+SOURCE FILE
+-----------
+
+`wp_list_authors()` is located in `wp-includes/author-template.php`.
+

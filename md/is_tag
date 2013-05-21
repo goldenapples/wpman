@@ -1,0 +1,62 @@
+is tag "MAY 2013" WordPress Codex "Function Reference"
+======================================================
+
+NAME
+----
+
+is tag - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if a
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if a
+Tag archive page is being displayed. This is a boolean function, meaning
+it returns either TRUE or FALSE.
+
+USAGE
+-----
+
+` <?php is_tag( $slug ); ?> `
+
+PARAMETERS
+----------
+
+ `$slug` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The Tag slug or an Array of slugs.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+    is_tag();
+    // When any Tag archive page is being displayed.
+
+    is_tag( 'mild' );
+    // When the archive page for tag with the slug of 'mild' is being displayed.
+
+    is_tag( array( 'sharp', 'mild', 'extreme' ) );
+    // Returns true when the tag archive being displayed has a slug of either "sharp", "mild", or "extreme".  Note: the array ability was added at Version 2.5.
+
+NOTES
+-----
+
+-   See also `is_archive()` and [Tag
+    Templates](/Tag_Templates "Tag Templates").
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`is_tag()` is located in `wp-includes/query.php`.
+

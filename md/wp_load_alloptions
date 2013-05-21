@@ -1,0 +1,61 @@
+wp load alloptions "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+wp load alloptions - Retrieve all autoload options or all options, if no autoloaded ones
+
+SYNOPSIS
+--------
+
+Retrieve all autoload options or all options, if no autoloaded ones
+exist. This function caches its results. It will pull the autoload
+options by default unless that fails, in which case it will return all
+options.
+
+Use this function instead of the deprecated function
+[`get_alloptions()`](/Function_Reference/get_alloptions "Function Reference/get alloptions")
+
+USAGE
+-----
+
+` <?php $all_options = wp_load_alloptions(); ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   List of all options.
+
+EXAMPLES
+--------
+
+` <?php   $all_options = wp_load_alloptions();  $my_options = array();  foreach( $all_options as $name => $value ) {    if(stristr($name, '_transient')) $my_options[$name] = $value;  }  print_r($my_options);?> `
+
+NOTES
+-----
+
+-   Uses:
+    [`wp_cache_get()`](/Function_Reference/wp_cache_get "Function Reference/wp cache get")
+    and
+    [`wp_cache_add()`](/Function_Reference/wp_cache_get "Function Reference/wp cache get")
+    To cache the options list.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_load_alloptions()` is located in `wp-includes/option.php`.
+

@@ -1,0 +1,76 @@
+get post status "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+get post status - Retrieve the post status based on the Post ID.
+
+SYNOPSIS
+--------
+
+Retrieve the post status based on the Post ID.
+
+If the post ID is of an attachment, then the parent post status will be
+given instead.
+
+USAGE
+-----
+
+` <?php get_post_status( $ID ) ?> `
+
+PARAMETERS
+----------
+
+ `$ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID. This function will will return false if \$ID
+    is not provided.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ `(string|boolean)` 
+:   Post status or false on failure.
+
+Possible values are:
+
+-   'publish' - A published post or page
+-   'pending' - post is pending review
+-   'draft' - a post in draft status
+-   'auto-draft' - a newly created post, with no content
+-   'future' - a post to publish in the future
+-   'private' - not visible to users who are not logged in
+-   'inherit' - a revision. see get\_children.
+-   'trash' - post is in trashbin. added with Version 2.9.
+
+EXAMPLES
+--------
+
+A basic example:
+
+    <?php
+       if ( get_post_status ( $ID ) == 'private' )
+       {
+          echo 'private';
+       }
+       else
+       {
+          echo 'public';
+       }
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+-   Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`get_post_status()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,62 @@
+set url scheme "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+set url scheme - Set the scheme for a URL.
+
+SYNOPSIS
+--------
+
+Set the scheme for a URL.
+
+USAGE
+-----
+
+    $url_with_scheme = set_url_scheme( $url, $scheme );
+
+PARAMETERS
+----------
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Absolute url that includes a scheme.
+    Default: *None*
+
+ `$scheme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Scheme to give `$url`. Currently 'http', 'https',
+    'login', 'login\_post', 'admin', or 'relative'. If omitted or
+    `null`, will default to 'http' or 'https' based on whether
+    [is\_ssl()](/Function_Reference/is_ssl "Function Reference/is ssl").
+    Default: null
+
+RETURN VALUE
+------------
+
+ `$url` `(string)`{style="color:gray"} 
+:   URL with chosen scheme.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+NOTES
+-----
+
+Applies the filter `set_url_scheme` to the return value, passing `$url`
+(URL set in function), `$scheme` (scheme set in function), and
+`$orig_scheme` (the scheme passed into `set_url_scheme()`)
+
+CHANGE LOG
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`set_url_scheme()` is located in `wp-includes/link-template.php`
+

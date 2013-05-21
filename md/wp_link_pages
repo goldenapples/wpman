@@ -1,0 +1,122 @@
+wp link pages "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+wp link pages - Displays page-links for paginated posts (i.e. includes the
+
+SYNOPSIS
+--------
+
+Displays page-links for paginated posts (i.e. includes the
+`<!--nextpage-->`
+[Quicktag](/Write_Post_SubPanel#Quicktags "Write Post SubPanel") one or
+more times). This works in much the same way as
+[link\_pages()](/Template_Tags/link_pages "Template Tags/link pages")
+(deprecated), the difference being that arguments are given in query
+string format. This tag must be within
+[The\_Loop](/The_Loop "The Loop").
+
+USAGE
+-----
+
+`  <?php wp_link_pages( $args ); ?> `
+
+### Default Usage
+
+    <?php $args = array(
+        'before'           => '<p>' . __('Pages:'),
+        'after'            => '</p>',
+        'link_before'      => '',
+        'link_after'       => '',
+        'next_or_number'   => 'number',
+        'nextpagelink'     => __('Next page'),
+        'previouspagelink' => __('Previous page'),
+        'pagelink'         => '%',
+        'echo'             => 1
+    ); ?>
+
+PARAMETERS
+----------
+
+ before 
+:   (*string*) Text to put before all the links. Defaults to
+    `<p>Pages:`.
+
+ after 
+:   (*string*) Text to put after all the links. Defaults to `</p>`.
+
+ link\_before 
+:   (*string*) Text that goes before the **text** of the link. Defaults
+    to `(blank)`. Version 2.7 or later required.
+
+ link\_after 
+:   (*string*) Text that goes after the **text** of the link. Defaults
+    to `(blank)`. Version 2.7 or later required.
+
+ next\_or\_number 
+:   (*string*) Indicates whether page numbers should be used. Valid
+    values are:
+    -   `number` (Default)
+    -   `next` (Valid in WordPress 1.5 or after)
+
+ nextpagelink 
+:   (*string*) Text for link to next page. Defaults to `Next page`.
+    (Valid in WordPress 1.5 or after)
+
+ previouspagelink
+:   (*string*) Text for link to previous page. Defaults to
+    `Previous page`. (Valid in WordPress 1.5 or after)
+
+ pagelink 
+:   (*string*) Format string for page numbers. ` % ` in the string will
+    be replaced with the number, so `Page %` would generate "Page 1",
+    "Page 2", etc. Defaults to `%`.
+
+ echo 
+:   (*boolean*) Toggles whether to echo or return the result. The
+    default is *true*. Valid values:
+    -   `1 (True)` - Default
+    -   `0 (False)`
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   if \$echo = true (default) returns NULL and echos the content, if
+    \$echo = false, Returns formatted output in HTML
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Displays page-links by default with paragraph tags before and after,
+using *Next page* and *Previous page*, listing them with page numbers as
+*Page 1, Page 2* and so on.
+
+    <?php wp_link_pages(); ?>
+
+### Page-links in Paragraph Tags
+
+Displays page-links wrapped in paragraph tags.
+
+    <?php wp_link_pages('before=<p>&after=</p>&next_or_number=number&pagelink=page %'); ?>
+
+### Page-links in DIV
+
+Displays page-links in DIV for CSS reference as `<div id="page-links">`.
+
+    <?php wp_link_pages('before=<div id="page-links">&after=</div>'); ?>
+
+CHANGELOG
+---------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`wp_link_pages()` is located in `wp-includes/post-template.php`.
+

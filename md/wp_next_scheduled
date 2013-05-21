@@ -1,0 +1,54 @@
+wp next scheduled "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+wp next scheduled - Returns the next timestamp for a cron event.
+
+SYNOPSIS
+--------
+
+Returns the next timestamp for a cron event.
+
+USAGE
+-----
+
+` <?php $timestamp = wp_next_scheduled( $hook, $args ); ?> `
+
+PARAMETERS
+----------
+
+ `$hook` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the action hook for event.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Arguments to pass to the hook function(s).
+    Default: *None*
+
+RETURN VALUE
+------------
+
+ `` `(string|boolean)`{style="color:gray"} 
+:   Timestamp, the time the scheduled event will next occur (unix
+    timestamp). False, if the event isn't scheduled.
+
+NOTES
+-----
+
+-   Cron is named after a unix program which runs unattended scheduled
+    tasks.
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`wp_next_scheduled()` is located in `wp-includes/cron.php`
+

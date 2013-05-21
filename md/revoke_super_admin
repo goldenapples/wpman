@@ -1,0 +1,42 @@
+revoke super admin "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+revoke super admin - Remove a user from the Super admin user list in WordPress Multisite
+
+SYNOPSIS
+--------
+
+Remove a user from the Super admin user list in WordPress Multisite
+
+USAGE
+-----
+
+`  <?php revoke_super_admin( $user_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The user ID to revoke super admin privileges
+    Default: *None*
+
+RETURNS
+-------
+
+ (BOOLEAN) 
+:   True if successful, false otherwise
+
+CHANGELOG
+---------
+
+Since: [Wordpress 3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE CODE
+-----------
+
+`revoke_super_admin()` is located in `wp-admin/includes/ms.php`.
+

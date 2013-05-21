@@ -1,0 +1,52 @@
+size format "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+size format - Parameters
+
+SYNOPSIS
+--------
+
+PARAMETERS
+----------
+
+ `$bytes` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Number of bytes. Note max integer size for integers.
+    Accepts int or string
+    Default: *None*
+
+ `$decimals` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Precision of number of decimal places. Deprecated.
+    Default: 0
+
+RETURN
+------
+
+boolean or string. False on failure. Number string on success.
+
+USAGE
+-----
+
+`  <?php  ?> `
+
+EXAMPLE
+-------
+
+Description text
+
+    Example code
+
+CHANGE LOG
+----------
+
+-   Since: [2.3.0](/Version_2.3 "Version 2.3")
+
+SOURCE FILE
+-----------
+
+`size_format()` is located in `wp-includes/functions.php`.
+

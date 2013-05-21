@@ -1,0 +1,46 @@
+get home path "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+get home path - Get the absolute filesystem path to the root of the WordPress
+
+SYNOPSIS
+--------
+
+Get the absolute filesystem path to the root of the WordPress
+installation.
+
+USAGE
+-----
+
+`  <?php $path = get_home_path() ?> `
+
+PARAMETERS
+----------
+
+RETURN VALUE
+------------
+
+ `` `(string)`{style="color:gray"} 
+:   Full filesystem path to the root of the WordPress installation
+
+EXAMPLES
+--------
+
+### Default Usage
+
+CHANGE LOG
+----------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"): Improve path sanitization in
+    Windows systems and make checks against `site_url()` and
+    `home_url()` case-insensitive.
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+`get_home_path()` is located in `wp-admin/includes/file.php`
+

@@ -1,0 +1,53 @@
+wp clear auth cookie "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+wp clear auth cookie - This function can be replaced via
+
+SYNOPSIS
+--------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Removes all of the cookies associated with authentication.
+
+USAGE
+-----
+
+` <?php wp_clear_auth_cookie(); ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+
+CHANGE LOG
+----------
+
+Since: 2.5
+
+SOURCE FILE
+-----------
+
+`wp_clear_auth_cookie()` is located in `wp-includes/pluggable.php`.
+

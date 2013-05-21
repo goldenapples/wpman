@@ -1,0 +1,61 @@
+get approved comments "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+get approved comments - Takes post ID and returns an array of objects that represent comments
+
+SYNOPSIS
+--------
+
+Takes post ID and returns an array of objects that represent comments
+that have been submitted *and* approved.
+
+### Usage
+
+` <?php  $comment_array = get_approved_comments($post_id); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the post
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `$comments` `(array)`{style="color:gray"} 
+:   The approved comments
+
+EXAMPLE
+-------
+
+In this example we will output a simple list of comment IDs and
+corresponding post IDs.
+
+    <?php
+       $postID = 1;
+       $comment_array = get_approved_comments($postID);
+
+       foreach($comment_array as $comment){
+          echo $comment->comment_ID." => ".$comment->comment_post_ID."\n";
+       }
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+SOURCE FILE
+-----------
+
+current\_user\_can\_for\_blog() is located in
+`wp-includes/capabilities.php`
+

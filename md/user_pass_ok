@@ -1,0 +1,69 @@
+user pass ok "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+user pass ok - **As of WordPress [3.5](/Version_3.5 "Version 3.5") this function has
+
+SYNOPSIS
+--------
+
+**As of WordPress [3.5](/Version_3.5 "Version 3.5") this function has
+been deprecated in favor of
+[wp\_authenticate()](/Function_Reference/wp_authenticate "Function Reference/wp authenticate")**
+
+\
+ Check that the user login name and password is correct.
+
+USAGE
+-----
+
+` <?php user_pass_ok( $user_login, $user_pass ) ?> `
+
+PARAMETERS
+----------
+
+ `$user_login` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) User name.
+    Default: *None*
+
+ `$user_pass` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) User password.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   `False` if does not authenticate, `true` if username and password
+    authenticates.
+
+EXAMPLES
+--------
+
+    <?php
+    $user_login = 'admin';
+    $user_pass = 'mypass';
+    if ( !user_pass_ok( $user_login, $user_pass ) ) {
+      echo "Sorry, you are not allowed to do this.";
+      exit;
+    }
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+-   Deprecated: [3.5.0](/Version_3.5 "Version 3.5")
+-   Since: 0.71
+
+SOURCE FILE
+-----------
+
+`user_pass_ok()` is located in `wp-includes/user.php`.
+

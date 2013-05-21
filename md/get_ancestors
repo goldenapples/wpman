@@ -1,0 +1,87 @@
+get ancestors "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+get ancestors - Returns an array containing the parents of the given object.
+
+SYNOPSIS
+--------
+
+Returns an array containing the parents of the given object.
+
+USAGE
+-----
+
+`  <?php get_ancestors( $object_id, $object_type ); ?> `
+
+### Default Usage
+
+`  <?php get_ancestors(    'object_id'   => 6,     'object_type'  => 'page' ); ?> `
+
+PARAMETERS
+----------
+
+ `$object_id` 
+:   ([*int or
+    string*](/How_to_Pass_Tag_Parameters#Int_or_string "How to Pass Tag Parameters"))
+    (*required*) The ID of the child object
+    Default: *None*
+
+ `$object_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the object type (page, category) in
+    question
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(array)` 
+:   Array of ancestors from lowest to highest in the hierarchy
+
+EXAMPLES
+--------
+
+Given the following category hierarchy (with IDs):
+
+-   Books (6)
+    -   Fiction (23)
+        -   Mystery (208)
+
+<!-- -->
+
+    <?php get_ancestors( 208, 'category' ); ?>
+
+returns: `  Array(    [0] => 23    [1] => 6) `
+
+\
+ Given the a page hierarchy (with IDs):
+
+-   About (447)
+    -   Child Page (448)
+
+<!-- -->
+
+    <?php get_ancestors( 448, 'page' ); ?>
+
+returns: `   Array(    [0] => 447) `
+
+NOTES
+-----
+
+-   Filter:
+    [get\_ancestors](/Plugin_API/Filter_Reference#Category_and_Term_Filters "Plugin API/Filter Reference")
+    is applied to ancestors array before it is returned.
+
+CHANGE LOG
+----------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`get_ancestors()` is located in `wp-includes/taxonomy.php`.
+

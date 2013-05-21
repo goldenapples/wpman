@@ -1,0 +1,48 @@
+get sitestats "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+get sitestats - Gets the network's blog and user counts.
+
+SYNOPSIS
+--------
+
+Gets the network's blog and user counts.
+
+USAGE
+-----
+
+` <?php get_sitestats() ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters
+
+RETURN VALUE
+------------
+
+ `$stats` `(array)`{style="color:gray"} 
+:   Blog and user count for the network
+
+-   \$stats['blogs']
+-   \$stats['users']
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`get_sitestats()` is located in `wp-includes/ms-functions.php`
+

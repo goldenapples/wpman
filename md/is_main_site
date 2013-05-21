@@ -1,0 +1,58 @@
+is main site "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+is main site - Test if site is main site, given site id
+
+SYNOPSIS
+--------
+
+Test if site is main site, given site id
+
+USAGE
+-----
+
+` <?php is_main_site( $blog_id ) ?> `
+
+PARAMETERS
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) optional site id to test (default to current site) .
+    Default: defaults to empty (site in V3 is blog in v2)
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   True if not multisite or site is main site (site in V3 is blog in
+    v2) .
+
+EXAMPLES
+--------
+
+    <?php
+    if ( is_main_site($blog_id) ) {
+      // display something special for the main site.
+    }
+    ?>
+
+NOTES
+-----
+
+Replaces function is\_main\_blog(), deprecated since 3.0.0.
+(wp-includes/ms-deprecated.php)
+
+CHANGE LOG
+----------
+
+Since 3.0.0.
+
+SOURCE FILE
+-----------
+
+`is_main_site()` is located in `wp-includes/functions.php`.
+

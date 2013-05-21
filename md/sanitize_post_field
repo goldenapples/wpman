@@ -1,0 +1,63 @@
+sanitize post field "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+sanitize post field - Sanitize a post field based on the context of where the field is being
+
+SYNOPSIS
+--------
+
+Sanitize a post field based on the context of where the field is being
+used.
+
+USAGE
+-----
+
+PARAMETERS
+----------
+
+ `$field` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The post object field name
+    Default: *None*
+
+ `$value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The post object value
+    Default: *None*
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The Post ID
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) How to sanitize post fields. Can be: `'raw'`, `'edit'`,
+    `'db'`, `'display'`, `'attribute'` or `'js'`
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `mixed` 
+:   The sanitized value
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.3.0](/Version_2.3 "Version 2.3")
+
+SOURCE FILE
+-----------
+
+`sanitize_post_field()` is located in `wp-includes/post.php`.
+

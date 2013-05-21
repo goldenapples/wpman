@@ -1,0 +1,78 @@
+did action "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+did action - Retrieve the number of times an action is fired.
+
+SYNOPSIS
+--------
+
+Retrieve the number of times an action is fired.
+
+USAGE
+-----
+
+` <?php did_action( $tag ); ?> `
+
+PARAMETERS
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the action hook.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (integer) 
+:   The number of times action hook `$tag` is fired
+
+EXAMPLES
+--------
+
+Using did\_action() function to make sure custom meta field is only
+added during the first run since it can run multiple times.
+
+    function my_sticky_option() 
+    {
+        global $post;
+
+        // if the post is a custom post type and only during the first execution of the action quick_edit_custom_box
+        if ( $post->post_type == 'custom_post_type' && did_action( 'quick_edit_custom_box' ) === 1 ) 
+        { 
+    ?>
+
+        <fieldset class="inline-edit-col-right">
+            <div class="inline-edit-col">
+                <label class="alignleft">
+                    <input type="checkbox" name="sticky" value="sticky" />
+                    <span class="checkbox-title">
+                        <?php _e( 'Featured (sticky)', 'textdomain_string' ); ?>
+                    </span>
+                </label>
+            </div>
+        </fieldset>
+    <?php
+        } // endif;
+    }
+    // add the sticky option to the quick edit area
+    add_action( 'quick_edit_custom_box', 'my_sticky_option' );
+
+NOTES
+-----
+
+-   Uses global: (`unknown type`) `$wp_actions`
+
+CHANGE LOG
+----------
+
+Since: 2.1
+
+SOURCE FILE
+-----------
+
+`did_action()` is located in `wp-includes/plugin.php`.
+

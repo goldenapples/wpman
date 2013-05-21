@@ -1,0 +1,54 @@
+has tag "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+has tag - Check if the current post has any of the given tags. The given tags are
+
+SYNOPSIS
+--------
+
+Check if the current post has any of the given tags. The given tags are
+checked against the post's tags' term\_ids, names and slugs. Tags given
+as integers will only be checked against the post's tags' term\_ids.
+
+\
+ If no tags are given, determines if post has any tags.
+
+USAGE
+-----
+
+` <?php has_tag( $tag, $post ); ?> `
+
+PARAMETERS
+----------
+
+ `$tag` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The tag name, term\_id or slug. Also accepts an array
+    of tag names, term ids and slugs
+    Default: *None*
+
+ `$post` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*optional*) Post to check instead of the current post.
+    Default: Current post
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True if the current post has any of the the given tags (or any tag,
+    if no tag specified), false otherwise.
+
+CHANGELOG
+---------
+
+Since: 2.6.0
+
+SOURCE FILE
+-----------
+
+`has_tag()` is located in `wp-includes/category-template.php`.
+

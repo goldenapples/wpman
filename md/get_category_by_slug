@@ -1,0 +1,63 @@
+get category by slug "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+get category by slug - Retrieve category object by category slug. Returns false if not found.
+
+SYNOPSIS
+--------
+
+Retrieve category object by category slug. Returns false if not found.
+
+USAGE
+-----
+
+` <?php get_category_by_slug( $slug ) ?> `
+
+PARAMETERS
+----------
+
+ `$slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The category slug.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (object) 
+:   Category data object.
+ (boolean) 
+:   false if not found
+
+EXAMPLES
+--------
+
+    <?php 
+      $idObj = get_category_by_slug('category-name'); 
+      $id = $idObj->term_id;
+    ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`get_term_by()`](/Function_Reference/get_term_by "Function Reference/get term by")
+    to get the category object
+-   Uses:
+    [`_make_cat_compat()`](/index.php?title=Function_Reference/_make_cat_compat&action=edit&redlink=1 "Function Reference/ make cat compat (page does not exist)")
+    to make category object compatible with WP 2.3.0 and earlier
+    versions.
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`get_category_by_slug()` is located in `wp-includes/category.php`.
+

@@ -1,0 +1,65 @@
+get the date "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get the date - The **get\_the\_date** template tag retrieves the date the current
+
+SYNOPSIS
+--------
+
+The **get\_the\_date** template tag retrieves the date the current
+`$post` was written. Unlike
+[the\_date()](/Template_Tags/the_date "Template Tags/the date") this tag
+will **always return** the date. Modify output with 'get\_the\_date'
+filter.
+
+USAGE
+-----
+
+` <?php $pfx_date = get_the_date( $d ); ?> `
+
+\
+
+PARAMETERS
+----------
+
+ `$d` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) [PHP date
+    format](/Formatting_Date_and_Time "Formatting Date and Time").
+    Default: the `date_format`
+    [option](/Option_Reference#General "Option Reference") ('Date
+    Format' on
+    [Settings](/Administration_Panels#Settings "Administration Panels")
+    \> [General](/Settings_General_SubPanel "Settings General SubPanel")
+    panel)
+
+RETURN
+------
+
+(*string|null*) Null if displaying, string if retrieving.
+
+FILTER
+------
+
+-   `apply_filters('get_the_date', $the_date, $d)`
+
+CHANGELOG
+---------
+
+-   [3.0.0](/Version_3.0 "Version 3.0") : New template tag.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+    <span class="entry-date"><?php echo get_the_date(); ?></span>
+
+SOURCE CODE
+-----------
+
+`get_the_date()` is located in `wp-includes/general-template.php`.
+

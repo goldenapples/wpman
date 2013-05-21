@@ -1,0 +1,75 @@
+wp blacklist check "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+wp blacklist check - Determines comment contain blacklisted characters or words.
+
+SYNOPSIS
+--------
+
+Determines comment contain blacklisted characters or words.
+
+USAGE
+-----
+
+` <?php wp_blacklist_check($author, $email, $url, $comment, $user_ip, $user_agent); ?> `
+
+PARAMETERS
+----------
+
+ `$author` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required??*) The author of the comment
+    Default: *None*
+
+ `$email` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*??*) The email address of the comment author
+    Default: *None*
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*??*) The website address of the comment author
+    Default: *None*
+
+ `$comment` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*??*) The content text of the comment
+    Default: *None*
+
+ `$user_ip` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*??*) The IP address of the comment author
+    Default: *None*
+
+ `$user_agent` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*??*) The user agent of the comment author's browser. (or sometimes
+    of the spamming robot)
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True if comment contains blacklisted content, false if comment does
+    not
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+wp\_blacklist\_check() is located in `wp-includes/comment.php`
+

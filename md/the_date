@@ -1,0 +1,100 @@
+the date "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+the date - Displays or returns the date of a post, or a set of posts if published
+
+SYNOPSIS
+--------
+
+Displays or returns the date of a post, or a set of posts if published
+on the same day.
+
+**SPECIAL NOTE:** When there are multiple posts on a page published
+under the SAME DAY, the\_date() only displays the date for the first
+post (that is, the first instance of the\_date()). To repeat the date
+for posts published under the same day, you should use the [Template
+Tag](/Template_Tags "Template Tags")
+[the\_time()](/Template_Tags/the_time "Template Tags/the time") or
+[get\_the\_date()](/Template_Tags/get_the_date "Template Tags/get the date")
+(since [3.0](/Version_3.0 "Version 3.0")) with a [date-specific format
+string](/Formatting_Date_and_Time "Formatting Date and Time").\
+ Use `<?php the_time(get_option('date_format')); ?>` to add the date set
+in the admin interface.
+
+This tag must be used within [The Loop](/The_Loop "The Loop").
+
+USAGE
+-----
+
+`  <?php the_date( $format, $before, $after, $echo ); ?> `
+
+PARAMETERS
+----------
+
+ `$format` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The format for the date. Defaults to the date format
+    configured in your WordPress options. See [Formatting Date and
+    Time](/Formatting_Date_and_Time "Formatting Date and Time").
+    Default: F j, Y)
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to place before the date.
+    Default: *None*
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to place after the date
+    Default: *None*
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display the date (`TRUE`), or return the date to be
+    used in PHP (`FALSE`).
+    Default: `TRUE`
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Displays the date using defaults.
+
+    <p>Date posted: <?php the_date(); ?></p>
+
+### Date as Year, Month, Date in Heading
+
+Displays the date using the `'2007-07-23'` format (ex: 2004-11-30),
+inside an \<h2\> tag.
+
+    <?php the_date('Y-m-d', '<h2>', '</h2>'); ?>
+
+### Date in Heading Using \$my\_date Variable
+
+Returns the date in the default format inside an \<h2\> tag and assigns
+it to the \$my\_date variable. The variable's value is then displayed
+with the PHP echo command.
+
+    <?php $my_date = the_date('', '<h2>', '</h2>', FALSE); echo $my_date; ?>
+
+NOTES
+-----
+
+-   Affects the return value of the
+    [is\_new\_day()](/Function_Reference/is_new_day "Function Reference/is new day")
+    function.
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`the_date()` is located in `wp-includes/general-template.php`.
+

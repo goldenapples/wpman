@@ -1,0 +1,42 @@
+esc html e "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+esc html e - Displays translated text that has been escaped for safe use in HTML
+
+SYNOPSIS
+--------
+
+Displays translated text that has been escaped for safe use in HTML
+output.
+
+USAGE
+-----
+
+` <?php esc_html_e( $text, $domain ); ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to translate
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. Domain to retrieve the translated text
+    Default: default
+
+CHANGE LOG
+----------
+
+Since: [2.8](/Version_2.8 "Version 2.8")
+
+SOURCE FILE
+-----------
+
+`esc_html_e()` is located in `wp-includes/l10n.php`
+

@@ -1,0 +1,54 @@
+wp get attachment thumb url "MAY 2013" WordPress Codex "Function Reference"
+===========================================================================
+
+NAME
+----
+
+wp get attachment thumb url - Retrieve URL for an attachment thumbnail.
+
+SYNOPSIS
+--------
+
+Retrieve URL for an attachment thumbnail.
+
+USAGE
+-----
+
+` <?php wp_get_attachment_thumb_url( $post_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Attachment ID
+    Default: 0
+
+RETURN VALUES
+-------------
+
+ `(string|boolean)` 
+:   False on failure. Thumbnail URL on success.
+
+EXAMPLES
+--------
+
+    <?php 
+    $thumb_id = 25;
+    $url = wp_get_attachment_thumb_url( $thumb_id );
+    ?>
+    <img src="<?php echo $url ?>"/>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`wp_get_attachment_thumb_url()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,47 @@
+set post thumbnail "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+set post thumbnail - Sets a post thumbnail.
+
+SYNOPSIS
+--------
+
+Sets a post thumbnail.
+
+USAGE
+-----
+
+` <?php set_post_thumbnail( $post, $thumbnail_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$post` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*Post ID or object where thumbnail should be attached.*) object
+    Default: required
+
+ `$thumbnail_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Thumbnail to attach.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True on success, false on failure.
+
+CHANGE LOG
+----------
+
+-   Since: [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`set_post_thumbnail()` is located in `wp-includes/post.php`.
+

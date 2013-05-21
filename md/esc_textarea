@@ -1,0 +1,42 @@
+esc textarea "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+esc textarea - Encodes text for use inside a `<textarea>` element.
+
+SYNOPSIS
+--------
+
+Encodes text for use inside a `<textarea>` element.
+
+USAGE
+-----
+
+` <?php esc_textarea( $text ); ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text which is to be encoded.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   The encoded text with HTML entities.
+
+CHANGE LOG
+----------
+
+Since: 3.1
+
+SOURCE FILE
+-----------
+
+`esc_textarea()` is located in `wp-includes/formatting.php`.
+

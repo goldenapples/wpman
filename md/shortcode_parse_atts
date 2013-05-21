@@ -1,0 +1,54 @@
+shortcode parse atts "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+shortcode parse atts - The attributes list has the attribute name as the key and the value of
+
+SYNOPSIS
+--------
+
+The attributes list has the attribute name as the key and the value of
+the attribute as the value in the key/value pair. This allows for easier
+retrieval of the attributes, since all attributes have to be known.
+
+USAGE
+-----
+
+` <?php shortcode_parse_atts( $text ); ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The shortcode arguments
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   An array with attributes and their values, or a string.
+
+\
+
+NOTES
+-----
+
+Used to parse shortcode attributes. Includes attributes that the
+shortcode doesn't support. Use
+[shortcode\_atts](/Function_Reference/shortcode_atts "Function Reference/shortcode atts")
+to specify specific attributes and only return those.
+
+CHANGE LOG
+----------
+
+Since: 2.5
+
+SOURCE FILE
+-----------
+
+`shortcode_parse_atts()` is located in `wp-includes/shortcodes.php`.
+

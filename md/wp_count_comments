@@ -1,0 +1,71 @@
+wp count comments "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+wp count comments - Retrieve a total comment count for a site or post.
+
+SYNOPSIS
+--------
+
+Retrieve a total comment count for a site or post.
+
+USAGE
+-----
+
+`  <?php wp_count_comments( post_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The post ID to retrieve a comment count for.
+    Default: *None*
+
+RETURNS
+-------
+
+Returns an object with values approved, moderated, spam, trash,
+total\_comments.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Retrieve comment count for a site.
+
+    <?php
+    $comments_count = wp_count_comments();
+    echo "Comments for site <br />";
+    echo "Comments in moderation: " . $comments_count->moderated . "<br />"; 
+    echo "Comments approved: " . $comments_count->approved . "<br />";
+    echo "Comments in Spam: " . $comments_count->spam . "<br />";
+    echo "Comments in Trash: " . $comments_count->trash . "<br />";
+    echo "Total Comments: " . $comments_count->total_comments . "<br />";
+    ?>
+
+### Retrieve Comment Count for a Post
+
+    <?php
+    $comments_count = wp_count_comments( 2492 );
+    echo "Comments for post 2492 <br />";
+    echo "Comments in moderation: " . $comments_count->moderated . "<br />"; 
+    echo "Comments approved: " . $comments_count->approved . "<br />";
+    echo "Comments in Spam: " . $comments_count->spam . "<br />";
+    echo "Comments in Trash: " . $comments_count->trash . "<br />";
+    echo "Total Comments: " . $comments_count->total_comments . "<br />";
+    ?>
+
+CHANGELOG
+---------
+
+Since 2.5.0
+
+SOURCE FILE
+-----------
+
+`wp_count_comments()` is located in `wp-includes/comment.php`.
+

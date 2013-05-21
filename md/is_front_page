@@ -1,0 +1,57 @@
+is front page "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+is front page - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the main page is a posts or a [Page](/Pages "Pages"). This is a boolean
+function, meaning it returns either TRUE or FALSE. It returns TRUE when
+the main blog page is being displayed and the
+**Settings-\>Reading-\>Front page displays** is set to "Your latest
+posts", **or** when is set to "A static page" and the "Front Page" value
+is the current [Page](/Pages "Pages") being displayed.
+
+USAGE
+-----
+
+` <?php is_front_page(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+If you are using a static page as your front page, this is useful:
+` <title><?php bloginfo('name'); ?> &raquo; <?php is_front_page() ? bloginfo('description') : wp_title(); ?></title>`
+
+NOTES
+-----
+
+-   See Also:
+    [is\_home()](/Function_Reference/is_home "Function Reference/is home")
+
+CHANGE LOG
+----------
+
+Since: 2.5.0
+
+SOURCE FILE
+-----------
+
+`is_front_page()` is located in `wp-includes/query.php`.
+

@@ -1,0 +1,92 @@
+update option "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+update option - Use the function `update_option()` to update a named option/value pair
+
+SYNOPSIS
+--------
+
+Use the function `update_option()` to update a named option/value pair
+to the options database table. The option\_name value is escaped with
+`$wpdb->escape` before the INSERT statement.
+
+This function may be used in place of
+[`add_option`](/Function_Reference/add_option "Function Reference/add option"),
+although it is not as flexible. update\_option will check to see if the
+option already exists. If it does not, it will be added with
+`add_option('option_name', 'option_value')`. Unless you need to specify
+the optional arguments of `add_option()`, `update_option()` is a useful
+catch-all for both adding and updating options.
+
+**Note:** This function cannot be used to change whether an option is to
+be loaded (or not loaded) by `wp_load_alloptions`. In that case, a
+[`delete_option()`](/Function_Reference/delete_option "Function Reference/delete option")
+should be followed by use of the
+[`add_option()`](/Function_Reference/add_option "Function Reference/add option")
+function.
+
+USAGE
+-----
+
+` <?php update_option( $option, $new_value ); ?> `
+
+PARAMETERS
+----------
+
+ `option` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the option to update. A list of valid default
+    options to update can be found at the [Option
+    Reference](/Option_Reference "Option Reference").
+    Default: *None*
+
+ `newvalue` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The NEW value for this option name. This value can be a
+    string, an array, an object or a serialized value.
+    Default: *None*
+
+RETURN VALUE
+------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True if option value has changed, false if not or if update failed.
+
+OPTION VALUES
+-------------
+
+View the [Option\_Reference](/Option_Reference "Option Reference")
+section.
+
+EXAMPLE
+-------
+
+Update the option name myhack\_extraction\_length with the value 255. If
+the option does not exist then use add\_option and set autoload to no.
+
+    <?php
+    $option_name = 'myhack_extraction_length' ;
+    $new_value = '255' ;
+
+    if ( get_option( $option_name ) != $new_value ) {
+        update_option( $option_name, $new_value );
+    } else {
+        $deprecated = ' ';
+        $autoload = 'no';
+        add_option( $option_name, $new_value, $deprecated, $autoload );
+    }
+    ?>
+
+CHANGE LOG
+----------
+
+Since: [1.0.0](/Version_1.0 "Version 1.0")
+
+SOURCE FILE
+-----------
+
+`update_option()` is located in `wp-includes/option.php`.
+

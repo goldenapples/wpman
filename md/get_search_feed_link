@@ -1,0 +1,61 @@
+get search feed link "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+get search feed link - Retrieve the permalink for the feed of the search results.
+
+SYNOPSIS
+--------
+
+Retrieve the permalink for the feed of the search results.
+
+USAGE
+-----
+
+` <?php echo get_search_feed_link( $search_query, $feed ) ?> `
+
+If you don't echo the function you're simply going to get a permalink to
+the page with no RSS feed for the search results.
+
+PARAMETERS
+----------
+
+ `$search_query` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) URL search query.
+    Default: ''
+
+ `$feed` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Feed type.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Returns a url after the '`search_feed_link`' filters have been
+    applied.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_search_query()`](/Function_Reference/get_search_query "Function Reference/get search query")
+    if no query supplied.
+
+CHANGE LOG
+----------
+
+Since: 2.5.0
+
+SOURCE FILE
+-----------
+
+`get_search_feed_link()` is located in `wp-includes/link-template.php`.
+

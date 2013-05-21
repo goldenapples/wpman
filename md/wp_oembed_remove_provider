@@ -1,0 +1,50 @@
+wp oembed remove provider "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+wp oembed remove provider - Removes an oEmbed provider.
+
+SYNOPSIS
+--------
+
+Removes an oEmbed provider.
+
+USAGE
+-----
+
+`  <?php wp_oembed_remove_provider( $format ) ?> `
+
+PARAMETERS
+----------
+
+ \$format (*string*) 
+:   -   The URL format of the oEmbed provider you want to remove.
+
+RETURN VALUES
+-------------
+
+ (*Boolean*) 
+:   True if provider was removed, False otherwise.
+
+EXAMPLES
+--------
+
+To remove a provider, you will need to know the format used in
+`wp-includes/class-oembed.php`.
+
+The following example removes the WordPress TV provider:
+
+    <?php wp_oembed_remove_provider( 'http://wordpress.tv/*' ); ?>
+
+CHANGE LOG
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`wp_oembed_remove_provider` is located in `wp-includes/media.php`
+

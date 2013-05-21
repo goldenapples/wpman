@@ -1,0 +1,74 @@
+edit comment link "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+edit comment link - Displays a link to edit the current comment, if the user is logged in
+
+SYNOPSIS
+--------
+
+Displays a link to edit the current comment, if the user is logged in
+and allowed to edit the comment. It must be within [The
+Loop](/The_Loop "The Loop"), and within a comment loop.
+
+Use
+[get\_edit\_comment\_link](/index.php?title=Template_Tags/get_edit_comment_link&action=edit&redlink=1 "Template Tags/get edit comment link (page does not exist)")
+to retrieve the url.
+
+USAGE
+-----
+
+`  <?php edit_comment_link( $link, $before, $after ); ?> `
+
+PARAMETERS
+----------
+
+ `link` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The link text.
+    Default: `__('Edit This')`
+
+ `before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to put before the link text.
+    Default: *None*
+
+ `after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to put after the link text.
+    Default: *None*
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Displays edit comment link using defaults.
+
+    <?php edit_comment_link(); ?>
+
+### Displays Edit Comment in Paragraph Tag
+
+Displays edit comment link, with link text "edit comment", in a
+paragraph (\<p\>) tag.
+
+    <?php edit_comment_link(__('edit comment'), '<p>', '</p>'); ?>
+
+FILTERS
+-------
+
+[apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+Calls 'edit\_comment\_link' hook on the author email
+
+CHANGELOG
+---------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`edit_comment_link()` is located in `wp-includes/link-template.php`
+

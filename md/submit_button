@@ -1,0 +1,72 @@
+submit button "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+submit button - Echos a submit button, with provided text and appropriate class
+
+SYNOPSIS
+--------
+
+Echos a submit button, with provided text and appropriate class
+
+USAGE
+-----
+
+` <?php submit_button( $text, $type, $name, $wrap, $other_attributes ) ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The text of the button (defaults to 'Save Changes')
+    Default:
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The type of button. One of: primary, secondary, delete
+    Default: 'primary'
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The
+    [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") name of
+    the submit button. Defaults to "submit". If no id attribute is given
+    in `$other_attributes` below, `$name` will be used as the button's
+    id.
+    Default: 'submit'
+
+ `$wrap` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) True if the output button should be wrapped in a
+    paragraph tag, false otherwise. Defaults to true
+    Default: true
+
+ `$other_attributes` 
+:   ([*array|string*](/How_to_Pass_Tag_Parameters#Array.7Cstring "How to Pass Tag Parameters"))
+    (*NULL*) optional
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+echos an html submit button.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`submit_button()` is located in `/wp-admin/includes/template.php`.
+

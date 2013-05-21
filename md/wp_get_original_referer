@@ -1,0 +1,48 @@
+wp get original referer "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+wp get original referer - Retrieve original referer that was posted, if it exists.
+
+SYNOPSIS
+--------
+
+Retrieve original referer that was posted, if it exists.
+
+USAGE
+-----
+
+` <?php wp_get_original_referer() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string|boolean) 
+:   False if no original referer or original referer if set.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   `HTTP referer` is an server variable. 'referer' is deliberately
+    miss-spelled.
+
+CHANGE LOG
+----------
+
+Since: 2.0.4
+
+SOURCE FILE
+-----------
+
+`wp_get_original_referer()` is located in `wp-includes/functions.php`.
+

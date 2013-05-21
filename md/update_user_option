@@ -1,0 +1,72 @@
+update user option "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+update user option - Update user option with global blog capability.
+
+SYNOPSIS
+--------
+
+Update user option with global blog capability.
+
+User options are just like user metadata except that they have support
+for global blog options. If the '`global`' parameter is false, which it
+is by default, it will prepend the WordPress table prefix to the option
+name.
+
+USAGE
+-----
+
+` <?php update_user_option( $user_id, $option_name, $newvalue, $global ) ?> `
+
+PARAMETERS
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) User ID
+    Default: *None*
+
+ `$option_name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) User option name.
+    Default: *None*
+
+ `$newvalue` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) User option value.
+    Default: *None*
+
+ `$global` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether option name is blog specific or not.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   Whether the update was successful
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") WordPress
+    database object for queries.
+
+CHANGE LOG
+----------
+
+-   Since: [2.0](/Version_2.0 "Version 2.0")
+
+SOURCE FILE
+-----------
+
+`update_user_option()` is located in `wp-includes/user.php`.
+

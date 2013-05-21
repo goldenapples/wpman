@@ -1,0 +1,112 @@
+get category "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get category - Retrieves category data given a category ID or category object.
+
+SYNOPSIS
+--------
+
+Retrieves category data given a category ID or category object.
+
+If you pass the `$category` parameter an object, which is assumed to be
+the category row object retrieved the database. It will cache the
+category data.
+
+If you pass `$category` an integer of the category ID, then that
+category will be retrieved from the database, if it isn't already
+cached, and pass it back.
+
+If you look at
+[`get_term()`](/Function_Reference/get_term "Function Reference/get term"),
+then both types will be passed through several filters and finally
+sanitized based on the `$filter` parameter value.
+
+The category will converted to maintain backwards compatibility.
+
+**Note**: use
+[`get_term()`](/Function_Reference/get_term "Function Reference/get term")
+to get Link Categories based on their ID's. `get_category` only returns
+Post Categories.
+
+USAGE
+-----
+
+` <?php get_category( $category, $output, $filter ) ?> `
+
+PARAMETERS
+----------
+
+ `$category` 
+:   ([*integer|object*](/How_to_Pass_Tag_Parameters#Integer.7Cobject "How to Pass Tag Parameters"))
+    (*required*) Category ID or Category row object
+    Default: *None*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Constant OBJECT, ARRAY\_A, or ARRAY\_N
+    Default: OBJECT
+
+ `$filter` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Default is raw or no WordPress defined filter will
+    applied.
+    Default: 'raw'
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   Category data in type defined by `$output` parameter.
+
+EXAMPLES
+--------
+
+### Print category data
+
+    $thisCat = get_category(get_query_var('cat'),false);
+
+    print_r($thisCat);
+
+produces;
+
+    stdClass Object
+    (
+        [term_id] => 85
+        [name] => Category Name
+        [slug] => category-name
+        [term_group] => 0
+        [term_taxonomy_id] => 85
+        [taxonomy] => category
+        [description] => 
+        [parent] => 70
+        [count] => 0
+        [cat_ID] => 85
+        [category_count] => 0
+        [category_description] => 
+        [cat_name] => Category Name
+        [category_nicename] => category-name
+        [category_parent] => 70
+    )
+
+NOTES
+-----
+
+-   Uses:
+    [`get_term()`](/Function_Reference/get_term "Function Reference/get term")
+    Used to get the category data from the taxonomy.
+-   The `count` attribute includes custom post types as well if the
+    custom post type uses standard categories.
+
+CHANGE LOG
+----------
+
+-   Since: [1.5.1](/Version_1.5.1 "Version 1.5.1")
+
+SOURCE FILE
+-----------
+
+`get_category()` is located in `wp-includes/category.php`.
+

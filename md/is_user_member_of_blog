@@ -1,0 +1,53 @@
+is user member of blog "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+is user member of blog - Find out whether a user is a member of a given blog.
+
+SYNOPSIS
+--------
+
+Find out whether a user is a member of a given blog.
+
+USAGE
+-----
+
+` <?php is_user_member_of_blog( $user_id, $blog_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) User ID to check membership
+    Default: current user
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Blog ID to check membership
+    Default: current blog
+
+RETURN VALUE
+------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True if member, False if not
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`is_user_member_of_blog()` is located in `wp-includes/ms-functions.php`
+

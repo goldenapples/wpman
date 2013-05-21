@@ -1,0 +1,84 @@
+wp set comment status "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+wp set comment status - Sets the status of a comment.
+
+SYNOPSIS
+--------
+
+Sets the status of a comment.
+
+The `'wp_set_comment_status'` action is called after the comment is
+handled and will only be called, if the comment status is either
+`'hold'`, `'approve'`, or `'spam'`. If the comment status is not in the
+list, then false is returned and if the status is `'delete'`, then the
+comment is deleted without calling the action.
+
+USAGE
+-----
+
+` <?php wp_set_comment_status( $comment_id, $comment_status ) ?> `
+
+PARAMETERS
+----------
+
+ `$comment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Comment ID.
+    Default: *None*
+
+ `$comment_status` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) New comment status, either `'hold'`, `'approve'`,
+    `'spam'`, or `'trash'`.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   False on failure or deletion and true on success.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`wp_transition_comment_status()`](/Function_Reference/wp_transition_comment_status "Function Reference/wp transition comment status")
+    Passes new and old comment status along with `$comment` object
+-   Uses:
+    [`wp_notify_postauthor()`](/Function_Reference/wp_notify_postauthor "Function Reference/wp notify postauthor")
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+-   Uses:
+    [`wp_delete_comment()`](/Function_Reference/wp_delete_comment "Function Reference/wp delete comment")
+-   Uses:
+    [`clean_comment_cache()`](/Function_Reference/clean_comment_cache "Function Reference/clean comment cache")
+-   Uses:
+    [`get_comment()`](/Function_Reference/get_comment "Function Reference/get comment")
+-   Uses:
+    [`wp_transition_comment_status()`](/Function_Reference/wp_transition_comment_status "Function Reference/wp transition comment status")
+-   Uses:
+    [`wp_update_comment_count()`](/Function_Reference/wp_update_comment_count "Function Reference/wp update comment count")
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+-   Since 2.9: \$comment\_status: the parameter 'delete' was replaced
+    with 'trash'. Comments will be added to the Comment Trash instead of
+    being purged from the database.
+
+-   Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_set_comment_status()` is located in `wp-includes/comment.php`.
+

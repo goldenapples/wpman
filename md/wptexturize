@@ -1,0 +1,84 @@
+wptexturize "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+wptexturize - This returns given text with transformations of quotes to smart quotes,
+
+SYNOPSIS
+--------
+
+This returns given text with transformations of quotes to smart quotes,
+apostrophes, dashes, ellipses, the trademark symbol, and the
+multiplication symbol. Text enclosed in the tags `<pre>`, `<code>`,
+`<kbd>`, `<style>`, `<script>`, ` and <tt>` will be skipped.
+
+USAGE
+-----
+
+`  <?php wptexturize( $text ); ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be formatted.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   The string replaced with html numeric character references.
+
+NOTES
+-----
+
+Opening and closing quotes can be customized in a WordPress translation
+file. Here are some of the text transformations:
+
+  source text   transformed text   symbol name
+  ------------- ------------------ -----------------------
+  "---"         "—"                em-dash
+  " -- "        "—"                em-dash
+  "--"          "–"                en-dash
+  " - "         "–"                en-dash
+  "xn–"         "xn--"             
+  "..."         "…"                ellipsis
+  \`\`          “                  opening quote
+  ''            ”                  closing quote
+  " (tm)"       " ™"               trademark symbol
+  1234"         1234″              double prime symbol
+  1234'         1234′              prime symbol
+  1234x1234     1234×1234          multiplication symbol
+
+\
+ There is a small "cockney" list of transformations, as well. They can
+be replaced if the variable `$wp_cockneyreplace` is defined and contains
+an associative array with the keys containing the source strings and the
+values containing the transformed strings. By default the following
+strings will be transformed:
+
+-   'tain't
+-   'twere
+-   'twas
+-   'tis
+-   'twill
+-   'til
+-   'bout
+-   'nuff
+-   'round
+-   'cause
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`wptexturize()` is located in `wp-includes/formatting.php`.
+

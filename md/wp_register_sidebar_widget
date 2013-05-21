@@ -1,0 +1,120 @@
+wp register sidebar widget "MAY 2013" WordPress Codex "Function Reference"
+==========================================================================
+
+NAME
+----
+
+wp register sidebar widget - Register [WordPress Widgets](/WordPress_Widgets "WordPress Widgets") for
+
+SYNOPSIS
+--------
+
+Register [WordPress Widgets](/WordPress_Widgets "WordPress Widgets") for
+use in your themes [sidebars](/Sidebars "Sidebars"). You can also modify
+your theme and start [Customizing Your
+Sidebar](/Customizing_Your_Sidebar "Customizing Your Sidebar").
+
+USAGE
+-----
+
+`  <?php wp_register_sidebar_widget( $id, $name, $output_callback, $options, $params, ... ); ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*int/string*](/How_to_Pass_Tag_Parameters#Int.2Fstring "How to Pass Tag Parameters"))
+    (*required*) Widget ID.
+    Default: *None*
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Widget display title.
+    Default: *None*
+
+ `$output_callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) Run when widget is called.
+    Default: *None*
+
+ `$options` 
+:   ([*array/string*](/How_to_Pass_Tag_Parameters#Array.2Fstring "How to Pass Tag Parameters"))
+    (*optional*) Widget Options.
+    Default: *None*
+
+ `$params,...` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Widget parameters to add to widget.
+    Default: *None*
+
+OUTPUT CALLBACK FUNCTION PARAMETERS FORMAT
+------------------------------------------
+
+`function my_output_callback_function( $args, $params ){ ... }`
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Various values merged into an array
+    Default: *None*
+
+ `$params` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) The extra `$params` given to
+    `wp_register_sidebar_widget`, as an array
+    Default: *None*
+
+**`$args`** array contains:
+
+-   [register\_sidebars()](/Function_Reference/register_sidebars "Function Reference/register sidebars")
+    argument array values (`'before_widget'`, etc.)
+-   `'widget_id'`
+-   `'widget_name'`
+
+The `'dynamic_sidebar_params'` filter is applied to the parameters (as
+an array), before your output function is called back.
+
+EXAMPLE
+-------
+
+The following code will create a widget called "Your Widget" which will
+become available in the WordPress Administrative Panels. The widget can
+then be dragged to an available sidebar for display.
+
+*Note that this widget can only be used once in exactly 1 of the
+sidebars. For recursive widgets (widgets you can add to multiple times
+and add to multiple sidebars) please see the [Register
+Widget](/Function_Reference/register_widget "Function Reference/register widget")
+function.*
+
+    <?php
+
+    function your_widget_display($args) {
+       extract($args);
+       echo $before_widget;
+       echo $before_title . 'My Unique Widget' . $after_title;
+       echo $after_widget;
+       // print some HTML for the widget to display here
+       echo "Your Widget Test";
+    }
+
+    wp_register_sidebar_widget(
+        'your_widget_1',        // your unique widget id
+        'Your Widget',          // widget name
+        'your_widget_display',  // callback function
+        array(                  // options
+            'description' => 'Description of what your widget does'
+        )
+    );
+
+    ?>
+
+CHANGE LOG
+----------
+
+Since: 2.2.0
+
+SOURCE FILE
+-----------
+
+`wp_register_sidebar_widget()` is located in `wp-includes/widgets.php`.
+

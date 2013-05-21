@@ -1,0 +1,55 @@
+wp safe redirect "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+wp safe redirect - Performs a safe (local) redirect, using wp\_redirect().
+
+SYNOPSIS
+--------
+
+Performs a safe (local) redirect, using wp\_redirect().
+
+Checks whether the \$location is using an allowed host, if it has an
+absolute path. A plugin can therefore set or remove allowed host(s) to
+or from the list.
+
+If the host is not allowed, then the redirect is to wp-admin on the
+siteurl instead. This prevents malicious redirects which redirect to
+another host, but only used in a few places.
+
+USAGE
+-----
+
+` <?php wp_safe_redirect( $location, $status ); ?> `
+
+PARAMETERS
+----------
+
+ `$location` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+ `$status` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: 302
+
+RETURN VALUES
+-------------
+
+ `` `(void)`{style="color:gray"} 
+:   Does not return anything
+
+CHANGE LOG
+----------
+
+Since: [2.3](/Version_2.3 "Version 2.3")
+
+SOURCE FILE
+-----------
+
+`wp_safe_redirect()` is located in `wp-includes/pluggable.php`
+

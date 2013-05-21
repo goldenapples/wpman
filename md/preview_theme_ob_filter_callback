@@ -1,0 +1,54 @@
+preview theme ob filter callback "MAY 2013" WordPress Codex "Function Reference"
+================================================================================
+
+NAME
+----
+
+preview theme ob filter callback - Manipulates preview theme links in order to control and maintain
+
+SYNOPSIS
+--------
+
+Manipulates preview theme links in order to control and maintain
+location.
+
+Callback function for
+[`preg_replace_callback()`](http://us2.php.net/manual/en/function.preg-replace-callback.php "http://us2.php.net/manual/en/function.preg-replace-callback.php")
+to accept and filter matches.
+
+USAGE
+-----
+
+` <?php preview_theme_ob_filter_callback( $matches ) ?> `
+
+PARAMETERS
+----------
+
+ `$matches` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   
+
+NOTES
+-----
+
+-   **This is a private function. It should not be called directly. It
+    is listed in the Codex for completeness.**
+
+CHANGE LOG
+----------
+
+Since: unknown
+
+SOURCE FILE
+-----------
+
+`preview_theme_ob_filter_callback()` is located in
+`wp-includes/theme.php`.
+

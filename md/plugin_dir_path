@@ -1,0 +1,54 @@
+plugin dir path "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+plugin dir path - Gets the filesystem directory path (with trailing slash) for the plugin
+
+SYNOPSIS
+--------
+
+Gets the filesystem directory path (with trailing slash) for the plugin
+\_\_FILE\_\_ passed in
+
+USAGE
+-----
+
+` <?php plugin_dir_path( $file ); ?> `
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The filename of the plugin (\_\_FILE\_\_)
+    Default: *None*
+
+EXAMPLES
+--------
+
+Defining a constant to include files in a plugin, with the correct path
+
+    <?php
+    define( 'MYPLUGINNAME_PATH', plugin_dir_path(__FILE__) );
+    require MYPLUGINNAME_PATH . 'includes/class-metabox.php';
+    require MYPLUGINNAME_PATH . 'includes/class-widget.php';
+    ?>
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   the filesystem path of the directory that contains the plugin
+
+CHANGE LOG
+----------
+
+Since: [2.8](/Version_2.8 "Version 2.8")
+
+SOURCE FILE
+-----------
+
+`plugin_dir_path()` is located in `wp-includes/plugin.php`
+

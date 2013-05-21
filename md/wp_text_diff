@@ -1,0 +1,199 @@
+wp text diff "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+wp text diff - Displays a human readable HTML table with the difference between two
+
+SYNOPSIS
+--------
+
+Displays a human readable HTML table with the difference between two
+strings.
+
+If the two strings are equivalent, wp\_text\_diff returns an empty
+string. Otherwise, returns an html table showing the changes. Deletions
+and insertions in text are marked up using the \<del\> and \<ins\> html
+tags, respectively.
+
+Primary use is for for displaying changes between an older version and a
+new revision of the string.
+
+@uses Text\_Diff @uses WP\_Text\_Diff\_Renderer\_Table
+
+USAGE
+-----
+
+` <?php wp_text_diff( $left_string, $right_string, $args ); ?> `
+
+PARAMETERS
+----------
+
+ `$left_string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) "old" (left) version of string.
+    Default: *None*
+
+ `$right_string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) "new" (right) version of string.
+    Default: *None*
+
+ `$args` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Optional. Change 'title', 'title\_left', and 'title\_right'
+    defaults.*) array
+    Default: optional
+
+### Arguments
+
+ `title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. Default is an empty string. Sets the title
+    for the diff table.
+    Default: null
+
+ `title_left` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. Default is an empty string. Sets the title
+    for the left column (old version) of the diff table.
+    Default: null
+
+ `title_right` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. Default is an empty string. Sets the title
+    for the right column (new version) of the diff table.
+    Default: null
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Empty string if strings are equivalent or an HTML table of
+    differences.
+
+EXAMPLE
+-------
+
+
+    $left_string = 'This is the original string';
+
+    $right_string = 'This is the revised string';
+
+    $args = array(
+        'title'           => 'Differences',
+        'title_left'      => 'Old Version',
+        'title_right'     => 'New Version'
+    );
+
+    $diff_table = wp_text_diff($left_string,$right_string, $args);
+
+    echo $diff_table;
+
+    }
+
+This will output the following html:
+
+    <table class="diff">
+        <colgroup>
+            <col class="ltype">
+            <col class="content">
+            <col class="ltype">
+            <col class="content">
+        </colgroup>
+        <thead>
+            <tr class="diff-title">
+                <th colspan="4">Differences</th>
+            </tr>
+            <tr class="diff-sub-title">
+                <td></td>
+                <th>Old Version</th>
+                <td></td>
+                <th>New version</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>-</td>
+                <td class="diff-deletedline">
+                    This is the <del>original</del> string
+                </td>
+                <td>+</td>
+                <td class="diff-addedline">
+                    This is the <ins>revised</ins> string
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+And this is how, it looks like:
+
+Differences
+
+Old Version
+
+New version
+
+-
+
+This is the ~~original~~ string
+
++
+
+This is the revised string
+
+CHANGE LOG
+----------
+
+Since: [2.6](/Version_2.6 "Version 2.6")
+
+SOURCE FILE
+-----------
+
+wp\_text\_diff() is located in `wp-includes/pluggable.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_text\_diff](http://codex.wordpress.org/Function_Reference/wp_text_diff)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

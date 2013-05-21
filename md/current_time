@@ -1,0 +1,100 @@
+current time "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+current time - Returns the blog's current local time in one of two formats, either
+
+SYNOPSIS
+--------
+
+Returns the blog's current local time in one of two formats, either
+MySQL's timestamp data type format (i.e. YYYY-MM-DD HH:MM:SS) or the
+Unix timestamp format (i.e. epoch). The optional secondary parameter can
+be used to retrieve GMT time instead of the blog's local time.
+
+The local time returned is based on the timezone set on the blog's
+General Settings page, which is UTC by default.
+
+current\_time('timestamp') should be used in lieu of time() to return
+the blog's local time. In WordPress, PHP's time() will always return UTC
+and is the same as calling current\_time('timestamp', true).
+
+USAGE
+-----
+
+` <?php $time = current_time($type, $gmt = 0); ?> `
+
+PARAMETERS
+----------
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The time format to return. Possible values:
+    -   `mysql`
+    -   `timestamp`
+
+    Default: *None*
+
+ `$gmt` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The time zone (GMT, local) of the returned time:
+    Possible values:
+    -   `1`
+    -   `0`
+
+    Default: 0
+
+RETURNS
+-------
+
+If the first parameter is 'mysql', the function returns a date-time
+string. If the first parameter is 'timestamp', the function returns a
+double value equal to the number of seconds since Jan. 1, 1970. When
+strict data typing is necessary, take note that the PHP time() function,
+which current\_time() replaces, returns an integer value, so consider
+using (int)current\_time('timestamp') instead.
+
+If the optional second parameter is 1, the value returned represents the
+current GMT time. If 0 or no second parameter are set, the value
+returned represents the local time for the timezone declared in the
+blog's Timezone setting on the General Settings page.
+
+EXAMPLE
+-------
+
+This example gets the current time and assigns the parameters to
+variables.
+
+    <?php 
+    $blogtime = current_time('mysql'); 
+    list( $today_year, $today_month, $today_day, $hour, $minute, $second ) = split( '([^0-9])', $blogtime );
+    ?>
+
+Example of format of current\_time('mysql'):
+
+       2005-08-05 10:41:13
+
+\
+
+### Examine the results
+
+    <?php echo "current_time('mysql') returns local site time: " . current_time('mysql') . '<br />'; ?>
+    <?php echo "current_time('mysql', 1) returns GMT: " . current_time('mysql',1) . '<br />'; ?>
+    <?php echo "current_time('timestamp') returns local site time: " . date('Y-m-d H:i:s',current_time('timestamp',0)); ?>
+    <?php echo "current_time('timestamp', 1) returns GMT: " . date('Y-m-d H:i:s',current_time('timestamp',1)); ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [1.0](/Version_1.0 "Version 1.0")
+
+SOURCE FILE
+-----------
+
+`current_time()` is located in `wp-includes/functions.php`
+

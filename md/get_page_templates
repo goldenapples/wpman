@@ -1,0 +1,78 @@
+get page templates "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+get page templates - This function returns the available page templates in the currently
+
+SYNOPSIS
+--------
+
+This function returns the available page templates in the currently
+active theme. It searches all the current theme's template files for the
+commented **Template Name: name of template**. See also
+[get\_current\_theme()](/Function_Reference/get_current_theme "Function Reference/get current theme")
+and the
+[wp\_get\_theme()-\>get\_page\_templates()](/Class_Reference/WP_Theme#Get_Custom_Page_Templates "Class Reference/WP Theme")
+method of the
+[WP\_Theme](/Class_Reference/WP_Theme "Class Reference/WP Theme") class.
+
+USAGE
+-----
+
+`  <?php $templates = get_page_templates(); ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUE
+------------
+
+ (array) 
+:   Where key is the filename and value is the name of the template.
+
+EXAMPLES
+--------
+
+### Output a list of available templates
+
+The following code snippet loops through the available page templates
+and outputs their template names and the filenames.
+
+    <?php 
+       $templates = get_page_templates();
+       foreach ( $templates as $template_name => $template_filename ) {
+           echo "$template_name ($template_filename)<br />";
+       }
+    ?>
+
+    <?php print_r(get_page_templates());?>
+    Array
+    (
+        [Sidebar] => sidebar.php
+        [Category] => category.php
+        [Page] => page.php
+        [Home] => home.php
+        [Single] => single.php
+        [Comments Popup] => comments-popup.php
+        [Footer] => footer.php
+        [Header] => header.php
+        [Index] => index.php
+        [Contact] => contact.php
+        [Home-Intro] => home-intro.php
+        [Sidebar Left] => sidebar-left.php
+        [Sidebar Right] => sidebar-right.php
+        [TOC Home] => page-client-toc.php
+        [Search Form] => searchform.php
+        [Main-Navbar] => main-navbar.php
+        [Bookmarks] => page-bookmarks.php
+    )
+
+SOURCE FILE
+-----------
+
+`get_page_templates()` is located in `wp-admin/includes/theme.php`.
+

@@ -1,0 +1,67 @@
+taxonomy exists "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+taxonomy exists - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the taxonomy name exists by passing a taxonomy name as an argument to
+it. This is a boolean function uses a global `$wp_taxonomies` variable
+for checking if taxonomy name existence, meaning it returns either TRUE
+if the taxonomy name exist or FALSE if it doesn't exist.
+
+USAGE
+-----
+
+` <?php taxonomy_exists($taxonomy); ?> `
+
+PARAMETERS
+----------
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the taxonomy
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+    $taxonomy_exist = taxonomy_exists('category');
+    //returns true
+
+    $taxonomy_exist = taxonomy_exists('post_tag');
+    //returns true
+
+    $taxonomy_exist = taxonomy_exists('link_category');
+    //returns true
+
+    $taxonomy_exist = taxonomy_exists('my_taxonomy');
+    //returns false if global $wp_taxonomies['my_taxonomy'] is not set
+
+NOTES
+-----
+
+-   See Also:
+    [WordPress\_Taxonomy](/WordPress_Taxonomy "WordPress Taxonomy").
+
+CHANGE LOG
+----------
+
+Since: 3.0
+
+SOURCE FILE
+-----------
+
+`taxonomy_exists()` is located in `wp-includes/taxonomy.php`.
+

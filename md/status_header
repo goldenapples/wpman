@@ -1,0 +1,54 @@
+status header "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+status header - Set HTTP status header.
+
+SYNOPSIS
+--------
+
+Set HTTP status header.
+
+USAGE
+-----
+
+` <?php status_header( $header ) ?> `
+
+PARAMETERS
+----------
+
+ `$header` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) [HTTP status
+    code](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes "wikipedia:List of HTTP status codes")
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (null) 
+:   Does not return anything.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`status_header`' on status header string, HTTP HTTP code,
+    HTTP code description, and protocol string as separate parameters.
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`status_header()` is located in `wp-includes/functions.php`.
+

@@ -1,0 +1,125 @@
+wp update user "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp update user - This function updates a single user in the database. This update can
+
+SYNOPSIS
+--------
+
+This function updates a single user in the database. This update can
+contain multiple pieces of user metadata as an array.
+
+To update a single piece of user metadata, use
+[update\_user\_meta()](/Function_Reference/update_user_meta "Function Reference/update user meta")
+instead.
+
+To create a *new* user, use
+[wp\_insert\_user()](/Function_Reference/wp_insert_user "Function Reference/wp insert user")
+instead.
+
+**Note:** If current user's password is being updated, then the cookies
+will be cleared!
+
+### Special Note
+
+~~If `$userdata` does not contain an 'ID' key, then a new user will be
+created and the new user's ID will be returned.~~ NOTE: This seems to no
+longer be true:
+[http://core.trac.wordpress.org/ticket/17009\#comment:7](http://core.trac.wordpress.org/ticket/17009#comment:7 "http://core.trac.wordpress.org/ticket/17009#comment:7")
+
+USAGE
+-----
+
+` <?php wp_update_user( $userdata ) ?> `
+
+PARAMETERS
+----------
+
+ `$userdata` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) An array of user data, stdClass or
+    [WP\_User](/Class_Reference/WP_User "Class Reference/WP User")
+    object.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `UserID` `(integer)`{style="color:gray"} 
+:   The updated user's ID.
+
+EXAMPLES
+--------
+
+Below is an example showing how to update a user's website profile field
+
+    <?php
+        $user_id = 1;
+        $website = 'http://wordpress.org';
+        wp_update_user( array ( 'ID' => $user_id, 'user_url' => $website ) ) ;
+    ?>
+
+NOTES
+-----
+
+Please note that we cannot change the usernames through this function,
+in fact the usernames cannot be changed from the admin dashboard as well
+since WordPress does not allow the usernames to be updated.
+
+-   Uses:
+    [`get_userdata()`](/Function_Reference/get_userdata "Function Reference/get userdata")
+-   Uses:
+    [`wp_hash_password()`](/Function_Reference/wp_hash_password "Function Reference/wp hash password")
+-   Uses:
+    [`wp_insert_user()`](/Function_Reference/wp_insert_user "Function Reference/wp insert user")
+    Used to update existing user or add new one if user doesn't exist
+    already
+-   Uses:
+    [`wp_get_current_user()`](/Function_Reference/wp_get_current_user "Function Reference/wp get current user")
+-   Uses:
+    [`wp_clear_auth_cookie()`](/Function_Reference/wp_clear_auth_cookie "Function Reference/wp clear auth cookie")
+-   Uses:
+    [`wp_set_auth_cookie()`](/Function_Reference/wp_set_auth_cookie "Function Reference/wp set auth cookie")
+
+  Field Name                Description                                                                                                                                                                                                                             [Associated Filter](/Plugin_API/Filter_Reference#Database_Writes_4 "Plugin API/Filter Reference")
+  ------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------
+  ID                        An integer that will be used for updating an existing user.                                                                                                                                                                             (none)
+  user\_pass                A string that contains the plain text password for the user.                                                                                                                                                                            `pre_user_pass`
+  user\_login               A string that contains the user's username for logging in.                                                                                                                                                                              `pre_user_login`
+  user\_nicename            A string that contains a URL-friendly name for the user. The default is the user's username.                                                                                                                                            `pre_user_nicename`
+  user\_url                 A string containing the user's URL for the user's web site.                                                                                                                                                                             `pre_user_url`
+  user\_email               A string containing the user's email address.                                                                                                                                                                                           `pre_user_email`
+  display\_name             A string that will be shown on the site. Defaults to user's username. It is likely that you will want to change this, for both appearance and security through obscurity (that is if you dont use and delete the default admin user).   `pre_user_display_name`
+  nickname                  The user's nickname, defaults to the user's username.                                                                                                                                                                                   `pre_user_nickname`
+  first\_name               The user's first name.                                                                                                                                                                                                                  `pre_user_first_name`
+  last\_name                The user's last name.                                                                                                                                                                                                                   `pre_user_last_name`
+  description               A string containing content about the user.                                                                                                                                                                                             `pre_user_description`
+  rich\_editing             A string for whether to enable the rich editor or not. False if not empty.                                                                                                                                                              (none)
+  user\_registered          The date the user registered. Format is Y-m-d H:i:s.                                                                                                                                                                                    (none)
+  role                      A string used to set the user's role.                                                                                                                                                                                                   (none)
+  jabber                    User's Jabber account.                                                                                                                                                                                                                  (none)
+  aim                       User's AOL IM account.                                                                                                                                                                                                                  (none)
+  yim                       User's Yahoo IM account.                                                                                                                                                                                                                (none)
+  show\_admin\_bar\_front   Show the WP admin bar on the front-end.                                                                                                                                                                                                 (none)
+
+  :  The `$userdata` array can contain the following fields
+
+Remember, `user_pass` should be the plain text password as it will be
+automatically hashed by WordPress.
+
+CHANGE LOG
+----------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"): Now accepts stdClass or
+    [WP\_User](/Class_Reference/WP_User "Class Reference/WP User")
+    object.
+-   Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+SOURCE FILE
+-----------
+
+`wp_update_user()` is located in `wp-includes/user.php`.
+

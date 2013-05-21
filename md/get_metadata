@@ -1,0 +1,61 @@
+get metadata "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get metadata - Retrieve metadata for the specified object.
+
+SYNOPSIS
+--------
+
+Retrieve metadata for the specified object.
+
+USAGE
+-----
+
+` <?php get_metadata($meta_type, $object_id, $meta_key = , $single = false)  ?> `
+
+PARAMETERS
+----------
+
+ `$meta_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Type of object metadata is for (e.g., comment, post, or
+    user)
+    Default: *None*
+
+ `$object_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of the object metadata is for
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. Metadata key. If not specified, retrieve all
+    metadata for the specified object.
+    Default:
+
+ `$single` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Optional, default is false. If true, return only the
+    first value of the specified meta\_key. This parameter has no effect
+    if meta\_key is not specified.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   array
+
+CHANGE LOG
+----------
+
+Since: [2.9](/Version_2.9 "Version 2.9")
+
+SOURCE FILE
+-----------
+
+get\_metadata() is located in `wp-includes/meta.php`
+

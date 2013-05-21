@@ -1,0 +1,49 @@
+upload is file too big "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+upload is file too big - Check whether an upload is too big.
+
+SYNOPSIS
+--------
+
+Check whether an upload is too big.
+
+USAGE
+-----
+
+` <?php upload_is_file_too_big( $upload ); ?> `
+
+PARAMETERS
+----------
+
+ `$upload` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) ????
+    Default: *None*
+
+RETURN VALUE
+------------
+
+ `` `(mixed)`{style="color:gray"} 
+:   If the upload is under the size limit, `$upload` is returned.
+    Otherwise returns an error message string.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`upload_is_file_too_big()` is located in `wp-includes/ms-functions.php`
+

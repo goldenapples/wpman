@@ -1,0 +1,99 @@
+get settings "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get settings - -   **NB:** instead of get\_settings, use
+
+SYNOPSIS
+--------
+
+-   **NB:** instead of get\_settings, use
+    [get\_option(\$optionname)](/Function_Reference/get_option "Function Reference/get option")
+
+A safe way of getting values for a named option from the options
+database table.
+
+### Note
+
+For a complete list of all options available through this function, go
+to
+
+http://www.yoursite.com/wp-admin/options.php
+
+**Also:** You can modify any/all of the options from the same page.
+
+### Aliases
+
+`  get_option($optionname) ` This is a wrapper around the get\_settings
+function, added for readability and a more humane interface.
+
+USAGE
+-----
+
+`  <?php echo get_settings('show'); ?> ` or
+`  <?php echo get_option('show'); ?> `
+
+EXAMPLES
+--------
+
+### Show Blog Title
+
+Displays your blog's title in a \<h1\> tag.
+
+ \<h1\>\<?php echo get\_settings('blogname'); ?\>\</h1\>  or
+
+ \<h1\>\<?php echo get\_option('blogname'); ?\>\</h1\> 
+
+### Show Character Set
+
+Displays the character set your blog is using (ex: UTF-8)
+
+ \<p\>Character set: \<?php echo get\_settings('blog\_charset'); ?\> \</p\> 
+or
+
+ \<p\>Character set: \<?php echo get\_option('blog\_charset'); ?\> \</p\> 
+
+### Retrieve Administrator E-mail
+
+Retrieve the e-mail of the blog administrator, storing it in a variable.
+
+ \<?php \$admin\_email = get\_settings('admin\_email'); ?\>  or
+
+ \<?php \$admin\_email = get\_option('admin\_email'); ?\> 
+
+PARAMETERS
+----------
+
+ show 
+:   (*string*) Name of the option. Underscores separate words, lowercase
+    only - this is going to be in a database. Valid values:
+    -   `'admin_email'` - E-mail address of blog administrator.
+    -   `'blogname'` - Weblog title; set in General Options.
+    -   `'blogdescription'` - Tagline for your blog; set in General
+        Options.
+    -   `'blog_charset'` - Character encoding for your blog; set in
+        Reading Options.
+    -   `'date_format'` - Default date format; set in General Options.
+    -   `'default_category'` - Default post category; set in Writing
+        Options.
+    -   `'home'` - The blog's home web address; set in General Options.
+    -   `'siteurl'` - WordPress web address; set in General Options.\
+        **Warning:** This is not the same as get\_bloginfo('siteurl');
+        which will return the homepage url. Use get\_bloginfo('wpurl'),
+        get\_settings() has been deprecated.
+    -   `'template'` - The current theme's name; set in Presentation.
+    -   `'start_of_week'` - Day of week calendar should start on; set in
+        General Options.
+    -   `'upload_path'` - Default upload location; set in Miscellaneous
+        Options.
+    -   `'posts_per_page'` - Maximum number of posts to show on a page;
+        set in Reading Options.
+    -   `'posts_per_rss'` - Maximum number of most recent posts to show
+        in the syndication feed; set in Reading Options.
+
+:   There are many more options available, a lot of which depend on what
+    plugins you have installed. Visit the /wp-admin/options.php page for
+    a complete list.
+

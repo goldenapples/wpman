@@ -1,0 +1,48 @@
+seems utf8 "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+seems utf8 - Checks to see if a string is utf8 encoded.
+
+SYNOPSIS
+--------
+
+Checks to see if a string is utf8 encoded.
+
+USAGE
+-----
+
+` <?php seems_utf8( $str ); ?> `
+
+PARAMETERS
+----------
+
+ `$str` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The string to be checked
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   True if `$str` fits a UTF-8 model, false otherwise.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.2.1
+
+SOURCE FILE
+-----------
+
+`seems_utf8()` is located in `wp-includes/formatting.php`.
+

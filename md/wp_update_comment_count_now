@@ -1,0 +1,50 @@
+wp update comment count now "MAY 2013" WordPress Codex "Function Reference"
+===========================================================================
+
+NAME
+----
+
+wp update comment count now - Updates the comment count for the post.
+
+SYNOPSIS
+--------
+
+Updates the comment count for the post.
+
+USAGE
+-----
+
+` <?php wp_update_comment_count_now($post_id); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The post ID
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   False on '0' \$post\_id or if post with ID does not exist. True on
+    success.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+SOURCE FILE
+-----------
+
+wp\_update\_comment\_count\_now() is located in
+`wp-includes/comment.php`
+

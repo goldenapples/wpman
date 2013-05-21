@@ -1,0 +1,56 @@
+register taxonomy for object type "MAY 2013" WordPress Codex "Function Reference"
+=================================================================================
+
+NAME
+----
+
+register taxonomy for object type - This function adds an already registered
+
+SYNOPSIS
+--------
+
+This function adds an already registered
+[Taxonomies](/Taxonomies "Taxonomies") to an already registered [Post
+Types](/Post_Types "Post Types"). It takes in a name, an object name
+that it affects. It returns true on success.
+
+USAGE
+-----
+
+`  <?php register_taxonomy_for_object_type( $taxonomy, $object_type ); ?> `
+
+PARAMETERS
+----------
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the taxonomy.
+    Default: *None*
+
+ `$object_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) A name of the object type for the taxonomy object.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(bool)` 
+:   True if successful, false if not
+
+EXAMPLE
+-------
+
+` <?php register_taxonomy_for_object_type( 'category', 'posts' ); ?> `
+
+CHANGE LOG
+----------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`register_taxonomy_for_object_type()` is located in
+`wp-includes/taxonomy.php`.
+

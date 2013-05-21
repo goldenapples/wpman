@@ -1,0 +1,59 @@
+sanitize comment cookies "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+sanitize comment cookies - Sanitizes the cookies sent to the user already.
+
+SYNOPSIS
+--------
+
+Sanitizes the cookies sent to the user already.
+
+Will only do anything if the cookies have already been created for the
+user. Mostly used after cookies had been sent to use elsewhere.
+
+USAGE
+-----
+
+` <?php sanitize_comment_cookies() ?> `
+
+PARAMETERS
+----------
+
+None
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    with 'pre\_comment\_author\_name' on 'comment\_author' cookie
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    with 'pre\_comment\_author\_email' on 'comment\_author\_email'
+    cookie
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    with 'pre\_comment\_author\_url' on 'comment\_author\_url' cookie
+
+CHANGE LOG
+----------
+
+Since: 2.0.4
+
+SOURCE FILE
+-----------
+
+`sanitize_comment_cookies()` is located in `wp-includes/comment.php`.
+

@@ -1,0 +1,55 @@
+wp nonce url "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+wp nonce url - Retrieve URL with
+
+SYNOPSIS
+--------
+
+Retrieve URL with
+[nonce](/Wordpress_Nonce_Implementation "Wordpress Nonce Implementation")
+added to URL query.
+
+USAGE
+-----
+
+` <?php wp_nonce_url( $actionurl, $action ); ?> `
+
+PARAMETERS
+----------
+
+ `$actionurl` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) URL to add nonce action
+    Default: *None*
+
+ `$action` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) nonce action name
+    Default: -1
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   URL with nonce action added.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.0.4
+
+SOURCE FILE
+-----------
+
+`wp_nonce_url()` is located in `wp-includes/functions.php`.
+

@@ -1,0 +1,50 @@
+fix phpmailer messageid "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+fix phpmailer messageid - Correct From: host on outgoing email to match the site domain
+
+SYNOPSIS
+--------
+
+Correct From: host on outgoing email to match the site domain
+
+USAGE
+-----
+
+` <?php fix_phpmailer_messageid( $phpmailer ) ?> `
+
+PARAMETERS
+----------
+
+ `$phpmailer` 
+:   ([*PHPMailer
+    object*](/How_to_Pass_Tag_Parameters#PHPMailer_object "How to Pass Tag Parameters"))
+    (*required*) outgoing email transport object
+    Default: *None*
+
+RETURN VALUE
+------------
+
+The PHPmailer object is modified directly, no value is returned
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+Uses global \$current\_site
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`fix_phpmailer_messageid()` is located in `wp-includes/ms-functions.php`
+

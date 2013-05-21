@@ -1,0 +1,110 @@
+get bookmarks "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+get bookmarks - This function returns an array of bookmarks found in the
+
+SYNOPSIS
+--------
+
+This function returns an array of bookmarks found in the
+[Administration](/Administration_Panels "Administration Panels") \>
+[Links](/Administration_Panels#Links "Administration Panels") \>
+[Edit](/Links_Edit_SubPanel "Links Edit SubPanel") panel. This [Template
+Tag](/Template_Tags "Template Tags") allows the user to retrieve the
+bookmark information directly.
+
+USAGE
+-----
+
+`  <?php get_bookmarks( $args ); ?> `
+
+### Default Usage
+
+` <?php $args = array(    'orderby'        => 'name',     'order'          => 'ASC',    'limit'          => -1,     'category'       => ,    'category_name'  => ,     'hide_invisible' => 1,    'show_updated'   => 0,     'include'        => ,    'exclude'        => ,    'search'         =>  ); ?> `
+
+By default, the usage gets:
+
+-   All bookmarks ordered by name, ascending
+-   Bookmarks marked as hidden are not returned.
+-   The link\_updated\_f field (the update time in the form of a
+    timestamp) is not returned.
+
+PARAMETERS
+----------
+
+ orderby 
+:   (*string*) Value to sort bookmarks on. Defaults to `'name'`. Valid
+    options:
+    -   `'link_id'` - Before WordPress 3.2: `'id'`
+    -   `'url'`
+    -   `'name'` - Default
+    -   `'owner'` - User who added bookmark through bookmarks Manager.
+    -   `'rating'`
+    -   `'visible'`
+    -   `'length'` - The length of the bookmark name, shortest to
+        longest.
+    -   `'rand'` - Display bookmarks in random order.
+
+ order 
+:   (*string*) Sort order, ascending or descending for the orderby
+    parameter. Valid values:
+    -   `ASC` - Default
+    -   `DESC`
+
+ limit 
+:   (*integer*) Maximum number of bookmarks to display. Defaults to `-1`
+    (all bookmarks).
+
+ category 
+:   (*string*) Comma separated list of bookmark category ID's.
+
+ category\_name 
+:   (*string*) Category name of a category of bookmarks to retrieve.
+    Overrides category parameter.
+
+ hide\_invisible 
+:   (*boolean*) TRUE causes only bookmarks with link\_visible set to 'Y'
+    to be retrieved.
+    -   `1` (True) - Default
+    -   `0` (False)
+
+ show\_updated 
+:   (*boolean*) TRUE causes an extra column called "link\_category\_f"
+    to be inserted into the results, which contains the same value as
+    "link\_updated", but in a unix timestamp format. Handy for using PHP
+    date functions on this data.
+    -   `1` (True)
+    -   `0` (False) - Default
+
+ include 
+:   (*string*) Comma separated list of numeric bookmark IDs to include
+    in the output. For example, 'include=1,3,6' means to return or echo
+    bookmark IDs 1, 3, and 6. If the include string is used, the
+    *category*, *category\_name*, and *exclude* parameters are ignored.
+    Defaults to `` (all Bookmarks).
+
+ exclude 
+:   (*string*) Comma separated list of numeric bookmark IDs to exclude.
+    For example, 'exclude=4,12' means that bookmark IDs 4 and 12 will
+    NOT be returned or echoed. Defaults to `` (exclude nothing).
+
+ search 
+:   (*string*) Searches `link_url`, `link_name` or `link_description`
+    like the `search` string. Defaults to ``.
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   List of bookmark row objects. Each bookmark object may contain the
+    following: 'link\_id', 'link\_url', 'link\_name', 'link\_image',
+    'link\_target', 'link\_category', 'link\_description',
+    'link\_visible', 'link\_owner', 'link\_rating', 'link\_updated',
+    'link\_rel', 'link\_notes', 'link\_rss'
+
+EXAMPLES
+--------
+

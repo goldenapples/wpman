@@ -1,0 +1,47 @@
+is date "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+is date - Test to see if the page is a date based archive page. Similar to
+
+SYNOPSIS
+--------
+
+Test to see if the page is a date based archive page. Similar to
+[is\_category()](/Function_Reference/is_category "Function Reference/is category")
+
+USAGE
+-----
+
+` <?php is_date(); ?> `
+
+PARAMETERS
+----------
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See also `is_archive()` and [Category
+    Templates](/Category_Templates "Category Templates").
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`is_date()` is located in `wp-includes/functions.php`.
+

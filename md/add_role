@@ -1,0 +1,78 @@
+add role "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+add role - Adds a new
+
+SYNOPSIS
+--------
+
+Adds a new
+[role](/Roles_and_Capabilities#Roles "Roles and Capabilities") to
+WordPress.
+
+**NB: This setting is saved to the database (in table wp\_options, field
+wp\_user\_roles), so it might be better to run this on theme/plugin
+activation**
+
+USAGE
+-----
+
+`  <?php add_role( $role, $display_name, $capabilities ); ?> `
+
+PARAMETERS
+----------
+
+ `$role` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Role name
+    Default: *None*
+
+ `$display_name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Display name for role
+    Default: *None*
+
+ `$capabilities` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Array of capabilities (see
+    [Roles\_and\_Capabilities](/Roles_and_Capabilities "Roles and Capabilities")
+    for list of available capabilities)
+    Default: array()
+
+RETURNS
+-------
+
+ (mixed) 
+:   Returns a WP\_Role object on success, null if that role already
+    exists.
+
+EXAMPLE
+-------
+
+    $result = add_role('basic_contributor', 'Basic Contributor', array(
+        'read' => true, // True allows that capability
+        'edit_posts' => true,
+        'delete_posts' => false, // Use false to explicitly deny
+    ));
+    if (null !== $result) {
+        echo 'Yay!  New role created!';
+    } else {
+        echo 'Oh... the basic_contributor role already exists.';
+    }
+
+NOTES
+-----
+
+CHANGELOG
+---------
+
+-   Since: [2.0.0](/Version_2.0 "Version 2.0")
+
+SOURCE CODE
+-----------
+
+`add_role()` is located in `wp-includes/capabilities.php`.
+

@@ -1,0 +1,67 @@
+update metadata "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+update metadata - Update metadata for the specified object. If no value already exists for
+
+SYNOPSIS
+--------
+
+Update metadata for the specified object. If no value already exists for
+the specified object ID and metadata key, the metadata will be added.
+
+Calls 'update\_{\$meta\_type}\_meta' before updating metadata with
+meta\_id of metadata entry to update, object ID, meta key, and meta
+value
+
+Calls 'updated\_{\$meta\_type}\_meta' after updating metadata with
+meta\_id of updated metadata entry, object ID, meta key, and meta value
+
+PARAMETERS
+----------
+
+ `$meta_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Type of object metadata is for (e.g., comment, post, or
+    user)
+    Default: *None*
+
+ `$object_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of the object metadata is for
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Metadata key
+    Default: *None*
+
+ `$meta_value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Metadata value
+    Default: *None*
+
+ `$prev_value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. If specified, only update existing metadata
+    entries with the specified value. Otherwise, update all entries.
+    Default:
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True on successful update, false on failure.
+
+CHANGE LOG
+----------
+
+Since: [2.9](/Version_2.9 "Version 2.9")
+
+SOURCE FILE
+-----------
+
+update\_metadata() is located in `wp-includes/meta.php`
+

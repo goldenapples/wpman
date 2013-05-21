@@ -1,0 +1,56 @@
+js escape "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+js escape - Escape single quotes. Convert double quotes. Fix line endings.
+
+SYNOPSIS
+--------
+
+Escape single quotes. Convert double quotes. Fix line endings.
+
+The filter '`js_escape`' is also applied here.
+
+`js_escape` has been deprecated since 2.8. Use `esc_js` instead.
+
+USAGE
+-----
+
+` <?php js_escape( $text ) ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be escaped.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Escaped text.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`wp_specialchars()`](/Function_Reference/wp_specialchars "Function Reference/wp specialchars")
+    for double quote conversion.
+
+CHANGE LOG
+----------
+
+Since: 2.0.4
+
+SOURCE FILE
+-----------
+
+`js_escape()` is located in `wp-includes/formatting.php`.
+

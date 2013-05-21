@@ -1,0 +1,63 @@
+delete usermeta "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+delete usermeta - **This function is deprecated as of [Version
+
+SYNOPSIS
+--------
+
+**This function is deprecated as of [Version
+3.0](/Version_3.0 "Version 3.0"). Please use
+[delete\_user\_meta](/Function_Reference/delete_user_meta "Function Reference/delete user meta")
+instead.**
+
+Removes a user meta record from the **wp\_usermeta** database table for
+a specific user ID.
+
+USAGE
+-----
+
+`  <?php delete_usermeta( $user_id, $meta_key, $meta_value ); ?> `
+
+PARAMETERS
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the WordPress user
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The **meta\_key** field value
+    Default: *None*
+
+ `$meta_value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The **meta\_value** field value; if omitted, the key is
+    deleted regardless of value
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(bool)` 
+:   -   **True** if deletion completed.
+    -   **False** if user\_id is not a number.
+
+EXAMPLE
+-------
+
+` <?php if (delete_usermeta(7, 'first_name')) {    echo 'User meta key successfully removed!';} else {    echo 'User meta record could not be removed!';} ?> `
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+

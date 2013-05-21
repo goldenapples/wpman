@@ -1,0 +1,18 @@
+ get plugin data markup translate "MAY 2013" WordPress Codex "Function Reference"
+=================================================================================
+
+NAME
+----
+
+ get plugin data markup translate - **\_get\_plugin\_data\_markup\_translate** is the name of an
+
+SYNOPSIS
+--------
+
+**\_get\_plugin\_data\_markup\_translate** is the name of an
+undocumented function in the global namespace within WordPress. It is a
+[File Header](/File_Header "File Header") related function.
+
+More in [WordPress \_get\_plugin\_data\_markup\_translate function
+documentation](http://phpdoc.wordpress.org/trunk/WordPress/Administration/_wp-admin---includes---plugin.php.html#function_get_plugin_data_markup_translate "http://phpdoc.wordpress.org/trunk/WordPress/Administration/_wp-admin---includes---plugin.php.html#function_get_plugin_data_markup_translate")
+

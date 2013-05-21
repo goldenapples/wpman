@@ -1,0 +1,54 @@
+wp kses decode entities "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+wp kses decode entities - Convert all entities to their character counterparts.
+
+SYNOPSIS
+--------
+
+Convert all entities to their character counterparts.
+
+This function decodes numeric [HTML
+entities](http://en.wikipedia.org/wiki/HTML_entities "wikipedia:HTML entities")
+(like `&#65;` and `&#x41;`). It doesn't do anything with other entities
+like `&auml;`, but we don't need them in the URL protocol whitelisting
+system anyway.
+
+USAGE
+-----
+
+` <?php wp_kses_decode_entities( $string ) ?> `
+
+PARAMETERS
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to change entities
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Content after decoded entities
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_kses_decode_entities()` is located in `wp-includes/kses.php`.
+

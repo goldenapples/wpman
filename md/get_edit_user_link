@@ -1,0 +1,58 @@
+get edit user link "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+get edit user link - Gets the link to the users edit profile page in the WordPress admin.
+
+SYNOPSIS
+--------
+
+Gets the link to the users edit profile page in the WordPress admin.
+
+USAGE
+-----
+
+`  <?php get_edit_user_link( $user_id ) ?> `
+
+PARAMETERS
+----------
+
+ \$user\_id (*integer*) 
+:   -   Optional - The id of the user that you want to get the link for.
+        If no id provided it defaults to the current user.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Get the edit user link for the user currently viewing the page.
+
+    <a href="<?php echo get_edit_user_link(); ?>">name</a>
+
+\
+ Get a link for each editor in the database
+
+    $user = new WP_User_Query( array(
+      'role' => 'editor'
+    ));
+
+    $editor = $users->get_results();
+
+    foreach( $editor as $e ){
+      $userdata = get_userdata( $e->ID );
+      echo '<a href="'. get_edit_user_link( $e->ID ) .'">'. esc_attr( $userdata->user_nicename ) .'</a>';
+    }
+
+CHANGE LOG
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`get_edit_user_link` is located in `wp-includes/link-template.php`
+

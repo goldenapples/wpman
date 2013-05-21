@@ -1,0 +1,84 @@
+wp reset query "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp reset query - wp\_reset\_query() restores the \$wp\_query and global post data to the
+
+SYNOPSIS
+--------
+
+wp\_reset\_query() restores the \$wp\_query and global post data to the
+original main query. This function should be called after
+query\_posts().
+
+USAGE
+-----
+
+` <?php wp_reset_query(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+This function does not return any values.
+
+EXAMPLES
+--------
+
+The following example shows how to use wp\_reset\_query() after a custom
+loop. Note that the loop in the example is probably being used in
+addition to the main loop.
+
+    <?php 
+    $args = array ( 'post_parent' => 5);
+    $custom_query = new WP_Query( $args );
+    if ( $custom_query->have_posts() ):
+        while ( $custom_query->have_posts() ) :
+        $custom_query->the_post();
+            //Do stuff with the post content
+            the_title();
+            the_permalink(); //Etc.
+        endwhile;
+    else:
+        //Insert any content or load a template for no posts found
+    endif;
+    wp_reset_query();
+    ?>
+
+**query\_posts() will change your main query and is not recommended.
+Only use if *absolutely necessary* (see [query\_posts:
+Caveats](/Function_Reference/query_posts#Caveats "Function Reference/query posts")).**
+Creating a new instance of
+[WP\_Query](/Class_Reference/WP_Query "Class Reference/WP Query") or
+[get\_posts()](/Function_Reference/get_posts "Function Reference/get posts")
+is preferred for secondary loops. If you would like to modify the main
+query, use the
+[pre\_get\_posts](/Plugin_API/Action_Reference/pre_get_posts "Plugin API/Action Reference/pre get posts")
+action.
+
+    <?php
+    query_posts( 'post_parent=5' );
+    if ( have_posts() ) :
+        while ( have_posts() ) : the_post();
+            ?><a href="<?php the_permalink() ?>"><?php the_title() ?></a><br /><?php
+        endwhile;
+    endif;
+    wp_reset_query();
+    ?>
+
+CHANGE LOG
+----------
+
+-   Since: [2.3.0](/Version_2.3 "Version 2.3")
+
+SOURCE FILE
+-----------
+
+`wp_reset_query()` is located in `wp-includes/query.php`.
+

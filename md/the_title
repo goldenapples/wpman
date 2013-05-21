@@ -1,0 +1,67 @@
+the title "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+the title - Displays or returns the title of the current post. This tag may only be
+
+SYNOPSIS
+--------
+
+Displays or returns the title of the current post. This tag may only be
+used within [The Loop](/The_Loop "The Loop"), to get the title of a post
+outside of the loop use
+[get\_the\_title](/get_the_title "get the title"). If the post is
+protected or private, this will be noted by the words "Protected: " or
+"Private: " prepended to the title.
+
+USAGE
+-----
+
+`  <?php the_title( $before, $after, $echo ); ?> `
+
+PARAMETERS
+----------
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to place before the title.
+    Default: *None*
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to place after the title.
+    Default: *None*
+
+ `$echo` 
+:   ([*Boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display the title (`TRUE`) or return it for use in PHP
+    (`FALSE`).
+    Default: `TRUE`
+
+EXAMPLE
+-------
+
+    <?php the_title( '<h3>', '</h3>' ); ?>
+
+This would print the title to the screen as an h3.
+
+NOTES
+-----
+
+-   See also:
+    [the\_title\_attribute()](/Template_Tags/the_title_attribute "Template Tags/the title attribute")
+    ,
+    [get\_the\_title()](/Template_Tags/get_the_title "Template Tags/get the title")
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`the_title()` is located in `wp-includes/post-template.php`.
+

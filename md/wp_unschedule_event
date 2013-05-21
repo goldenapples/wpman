@@ -1,0 +1,72 @@
+wp unschedule event "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+wp unschedule event - Un-schedules a previously-scheduled cron job.
+
+SYNOPSIS
+--------
+
+Un-schedules a previously-scheduled cron job.
+
+USAGE
+-----
+
+`  <?php wp_unschedule_event( $timestamp, $hook, $args ); ?> `
+
+Note that you need to know the exact time of the next occurrence when
+scheduled hook was set to run, and the function arguments it was
+supposed to have, in order to unschedule it. All future occurrences are
+un-scheduled by calling this function.
+
+PARAMETERS
+----------
+
+ `$timestamp` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Timestamp originally provided for when to run the
+    event.
+    Default: *None*
+
+ `$hook` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Action hook originally provided, the execution of which
+    will be unscheduled.
+    Default: *None*
+
+ `$args` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Arguments to pass to the hook's callback function.
+    Although not passed to a callback function, these arguments are used
+    to uniquely identify the scheduled event, so they should be the same
+    as those used when originally scheduling the event.
+    Default: array()
+
+RETURN VALUE
+------------
+
+This function does not return a value
+
+EXAMPLE
+-------
+
+    <?php
+        $timestamp = wp_next_scheduled( 'my_schedule_hook' );
+        wp_unschedule_event($timestamp, 'my_schedule_hook', original_args );
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`wp_unschedule_event()` is located in `wp-includes/cron.php`
+

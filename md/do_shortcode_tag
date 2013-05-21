@@ -1,0 +1,55 @@
+do shortcode tag "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+do shortcode tag - Regular Expression callable for
+
+SYNOPSIS
+--------
+
+Regular Expression callable for
+[`do_shortcode()`](/Function_Reference/do_shortcode "Function Reference/do shortcode")
+for calling shortcode hook.
+
+USAGE
+-----
+
+` <?php do_shortcode_tag( $m ) ?> `
+
+PARAMETERS
+----------
+
+ `$m` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Regular expression match array
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   False on failure.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   **This is a private function. It should not be called directly. It
+    is listed in the Codex for completeness.**
+-   See get\_shortcode\_regex for details of the match array contents.
+-   Uses global: (`unknown type`) `$shortcode_tags`
+
+CHANGE LOG
+----------
+
+Since: 2.5
+
+SOURCE FILE
+-----------
+
+`do_shortcode_tag()` is located in `wp-includes/shortcodes.php`.
+

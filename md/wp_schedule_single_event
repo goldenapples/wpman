@@ -1,0 +1,100 @@
+wp schedule single event "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+wp schedule single event - Schedules a hook which will be executed once by the WordPress actions
+
+SYNOPSIS
+--------
+
+Schedules a hook which will be executed once by the WordPress actions
+core at a time which you specify. The action will fire off when someone
+visits your WordPress site, if the schedule time has passed.
+
+USAGE
+-----
+
+`  <?php wp_schedule_single_event( $timestamp, $hook, $args ); ?> `
+
+Note that scheduling an event within 10 minutes of an event of the same
+name will be ignored, unless you pass unique values for \$args to each
+scheduled event. See
+[Function\_Reference/wp\_next\_scheduled](/Function_Reference/wp_next_scheduled "Function Reference/wp next scheduled")
+for more information.
+
+Attempts to schedule an event after an event of the same name and \$args
+will also be ignored.
+
+PARAMETERS
+----------
+
+ `$timestamp` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The time you want the event to occur. This must be in a
+    UNIX timestamp format.
+    Default: *None*
+
+ `$hook` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of an action hook to execute.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Arguments to pass to the hook function(s)
+    Default: *None*
+
+RETURN VALUE
+------------
+
+ `` `(boolean|null)`{style="color:gray"} 
+:   False if the event was cancelled by a plugin, Null otherwise.
+
+EXAMPLES
+--------
+
+### Schedule an event one hour from now
+
+    function do_this_in_an_hour() {
+    // do something
+    }
+    add_action('my_new_event','do_this_in_an_hour');
+
+    // put this line inside a function, 
+    // presumably in response to something the user does
+    // otherwise it will schedule a new event on every page visit
+
+    wp_schedule_single_event(time()+3600, 'my_new_event');
+
+    // time()+3600 = one hour from now.
+
+### Schedule an event one hour from now with arguments
+
+    function do_this_in_an_hour( $arg1, $arg2, $arg3 ) {
+    // do something
+    }
+    add_action( 'my_new_event', 'do_this_in_an_hour', 10, 3 );
+
+    // put this line inside a function, 
+    // presumably in response to something the user does
+    // otherwise it will schedule a new event on every page visit
+
+    wp_schedule_single_event( time()+3600, 'my_new_event', array( $arg1, $arg2, $arg3 ) );
+
+    // time()+3600 = one hour from now.
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`wp_schedule_single_event()` is located in `wp-includes/cron.php`
+

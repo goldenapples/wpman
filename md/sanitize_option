@@ -1,0 +1,169 @@
+sanitize option "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+sanitize option - Sanitizes various option values based on the nature of the option.
+
+SYNOPSIS
+--------
+
+Sanitizes various option values based on the nature of the option.
+
+This is basically a switch statement which will pass `$value` through a
+number of functions depending on the `$option`. After the value has been
+handled by these functions, it will be passed through a
+[sanitize\_option\_\$option](/index.php?title=Plugin_API/Filter_Reference/sanitize_option&action=edit&redlink=1 "Plugin API/Filter Reference/sanitize option (page does not exist)")
+filter.
+
+USAGE
+-----
+
+    <?php sanitize_option( $option, $value ); ?>
+
+PARAMETERS
+----------
+
+ `$option` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the option.
+    Default: *None*
+
+ `$value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The unsanitized value.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Sanitized Value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+Existing options handled by `sanitize_option()`:
+
+admin\_email
+
+new\_admin\_email
+
+thumbnail\_size\_w
+
+thumbnail\_size\_h
+
+medium\_size\_w
+
+medium\_size\_h
+
+large\_size\_w
+
+large\_size\_h
+
+mailserver\_port
+
+comment\_max\_links
+
+page\_on\_front
+
+page\_for\_posts
+
+rss\_excerpt\_length
+
+default\_category
+
+default\_email\_category
+
+default\_link\_category
+
+close\_comments\_days\_old
+
+comments\_per\_page
+
+thread\_comments\_depth
+
+users\_can\_register
+
+start\_of\_week
+
+posts\_per\_page
+
+posts\_per\_rss
+
+default\_ping\_status
+
+default\_comment\_status
+
+blogdescription
+
+blogname
+
+blog\_charset
+
+blog\_public
+
+date\_format
+
+time\_format
+
+mailserver\_url
+
+mailserver\_login
+
+mailserver\_pass
+
+upload\_path
+
+ping\_sites
+
+gmt\_offset
+
+siteurl
+
+home
+
+WPLANG
+
+illegal\_names
+
+limited\_email\_domains
+
+banned\_email\_domains
+
+timezone\_string
+
+permalink\_structure
+
+category\_base
+
+tag\_base
+
+New options can be defined by adding an appropriate
+[sanitize\_option\_\$option](/Plugin_API/Filter_Reference/sanitize_option_$option "Plugin API/Filter Reference/sanitize option $option")
+filter (e.g. '`sanitize_option_avatar`' for a filter for an 'avatar'
+option)
+
+### Filters
+
+-   **`'sanitize_option_$option'`**:\
+    `apply_filters( 'sanitize_option_$option', $value, $option )`
+
+CHANGE LOG
+----------
+
+-   Since: [2.0.5](/Version_2.0.5 "Version 2.0.5")
+-   Originally defined in `wp-admin/options.php`
+-   Moved to `wp-includes/formatting.php` in
+    [2.2.3](/Version_2.2.3 "Version 2.2.3") by [changeset
+    5915](http://core.trac.wordpress.org/changeset/5915 "http://core.trac.wordpress.org/changeset/5915").
+
+SOURCE FILE
+-----------
+
+`sanitize_option()` is located in `wp-includes/formatting.php`.
+

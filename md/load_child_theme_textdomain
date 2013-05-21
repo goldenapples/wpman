@@ -1,0 +1,107 @@
+load child theme textdomain "MAY 2013" WordPress Codex "Function Reference"
+===========================================================================
+
+NAME
+----
+
+load child theme textdomain - Loads the child theme's translated strings.
+
+SYNOPSIS
+--------
+
+Loads the child theme's translated strings.
+
+If the current locale exists as a .mo file in the child theme's root
+directory, it will be included in the translated strings by the
+`$domain`.
+
+The .mo files must be **named based on the locale exactly**, `de_DE.mo`
+for example.
+
+This function is the proper way to load translations for a child theme.
+For the parent theme/single themes `load_theme_textdomain()` is used
+instead. Loading child theme translations extra is better to optimize
+the loading process and helps organize code and files better.
+
+Example: If you are using "Twenty Eleven" as your parent theme it
+already comes with the function `load_theme_textdomain()` in place and
+there are already translations for this theme available in numerous
+languages. Now you have created a child theme for it with lots of custom
+elements like new sidebars or other sections. All strings of these new
+sections in frontend and also backend should be controlled by the child
+theme's translations files. If the parent theme gets updated (and most
+likely its language strings too...) your child theme translations keep
+untouched. So that's the proper way of doing it and WordPress is
+prepared for that out of the box.
+
+USAGE
+-----
+
+` <?php load_child_theme_textdomain( $domain, $path ) ?> `
+
+PARAMETERS
+----------
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Unique identifier for retrieving translated strings.
+    Default: *None*
+
+ `$path` 
+:   ([*unknown*](/How_to_Pass_Tag_Parameters#Unknown "How to Pass Tag Parameters"))
+    (*optional*) The directory where the .mo file can be found (without
+    the trailing slash).
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (bool) 
+:   This function return TRUE as textdomain well loaded, FALSE on
+    failure.
+
+EXAMPLE
+-------
+
+The load\_child\_theme\_textdomain() function should generally be called
+from within the
+[after\_setup\_theme](/Plugin_API/Action_Reference/after_setup_theme "Plugin API/Action Reference/after setup theme")
+action hook, just the same as with its related load\_theme\_textdomain()
+function.
+
+    add_action( 'after_setup_theme', 'my_child_theme_setup' );
+    function my_child_theme_setup() {
+        load_child_theme_textdomain( 'my_child_theme', get_stylesheet_directory() . '/languages' );
+    }
+
+The `.mo` files must use language-only filenames, like
+`languages/de_DE.mo` in your child theme directory.
+
+Unlike plugin language files, a name like `my_child_theme-de_DE.mo` will
+**NOT work**. Although plugin language files allow you to specify the
+text-domain in the filename, this will NOT work with themes and child
+themes. Language files for themes should include the language shortcut
+ONLY.
+
+NOTES
+-----
+
+Internationalization and localization (other correct spellings are
+internationalisation and localisation) are means of adapting computer
+software to different languages.
+
+-   *l10n* is an abbreviation for *localization*.
+-   *i18n* 18 stands for the number of letters between the first i and
+    last n in *internationalization*.
+
+CHANGE LOG
+----------
+
+Since: 2.9.0
+
+SOURCE FILE
+-----------
+
+`load_child_theme_textdomain()` is located in
+[[1]](http://core.trac.wordpress.org/browser/tags/3.3.2/wp-includes/l10n.php "http://core.trac.wordpress.org/browser/tags/3.3.2/wp-includes/l10n.php").
+

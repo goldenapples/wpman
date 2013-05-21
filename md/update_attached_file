@@ -1,0 +1,63 @@
+update attached file "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+update attached file - Update attachment file path based on attachment ID.
+
+SYNOPSIS
+--------
+
+Update attachment file path based on attachment ID.
+
+Used to update the file path of the attachment, which uses post meta
+name '`_wp_attached_file`' to store the path of the attachment.
+
+Note: This does not move the file. This simply updates the
+'`_wp_attached_file`' post meta after a move.
+
+USAGE
+-----
+
+` <?php update_attached_file( $attachment_id, $file ) ?> `
+
+PARAMETERS
+----------
+
+ `$attachment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Attachment ID
+    Default: *None*
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) File path for the attachment
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   False on failure, true on success.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    to add `update_attached_file()` on `$file` and `$attachment_id`.
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`update_attached_file()` is located in `wp-includes/post.php`
+

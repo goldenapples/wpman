@@ -1,0 +1,99 @@
+wp list filter "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp list filter - Filters a list of objects, based on a set of key =\> value arguments.
+
+SYNOPSIS
+--------
+
+Filters a list of objects, based on a set of key =\> value arguments.
+
+USAGE
+-----
+
+` <?php wp_list_filter( $list, $args, $operator ); ?> `
+
+PARAMETERS
+----------
+
+ `$list` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) An array of objects to filter
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of key =\> value arguments to match against
+    each object
+    Default: array()
+
+ `$operator` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The logical operation to perform: 'AND' means all
+    elements from the array must match; 'OR' means only one element
+    needs to match; 'NOT' means no elements may match. The default is
+    'AND'.
+    Default: AND
+
+RETURN VALUES
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   
+
+CHANGE LOG
+----------
+
+Since: [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`wp_list_filter()` is located in `wp-includes/functions.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_list\_filter](http://codex.wordpress.org/Function_Reference/wp_list_filter)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

@@ -1,0 +1,86 @@
+wp add dashboard widget "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+wp add dashboard widget - This function adds a new widget to the [administration
+
+SYNOPSIS
+--------
+
+This function adds a new widget to the [administration
+dashboard](/Dashboard_SubPanel "Dashboard SubPanel"), using the
+WordPress [Dashboard Widgets
+API](/Dashboard_Widgets_API "Dashboard Widgets API").
+
+USAGE
+-----
+
+    wp_add_dashboard_widget($widget_id, $widget_name, $callback, $control_callback );
+
+PARAMETERS
+----------
+
+ `$widget_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) an identifying slug for your widget. This will be used
+    as its css class and its key in the array of widgets.
+    Default: *None*
+
+ `$widget_name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) this is the name your widget will display in its
+    heading.
+    Default: *None*
+
+ `$callback` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of a function you create that will display the
+    actual contents of your widget.
+    Default: *None*
+
+ `$control_callback` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The name of a function you create that will handle
+    submission of widget options (configuration) forms, and will also
+    display the form elements.
+    Default:
+
+EXAMPLES
+--------
+
+### Adding Dashboard Widgets
+
+Here is a simple dashboard widget:
+
+    // Function that outputs the contents of the dashboard widget
+    function dashboard_widget_function() {
+        echo "Hello World, this id my first Dashboard Widget!";
+    }
+
+    // Function used in the action hook
+    function add_dashboard_widgets() {
+        wp_add_dashboard_widget('dashboard_widget', 'Example Dashboard Widget', 'dashboard_widget_function');
+    }
+
+    // Register the new dashboard widget with the 'wp_dashboard_setup' action
+    add_action('wp_dashboard_setup', 'add_dashboard_widgets' );
+
+### Running Dashboard Widgets
+
+To run the function use this code:
+
+    do_action( 'wp_dashboard_setup' );
+
+CHANGE LOG
+----------
+
+Since: 2.7.0
+
+SOURCE FILE
+-----------
+
+`wp_add_dashboard_widget()` is located in
+`/wp-admin/includes/dashboard.php`.
+

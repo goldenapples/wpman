@@ -1,0 +1,64 @@
+wp allow comment "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+wp allow comment - Validates whether this comment is allowed to be made or not.
+
+SYNOPSIS
+--------
+
+Validates whether this comment is allowed to be made or not.
+
+USAGE
+-----
+
+` <?php wp_allow_comment( $commentdata ) ?> `
+
+PARAMETERS
+----------
+
+ `$commentdata` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Contains information on the comment
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(mixed)` 
+:   Signifies the approval status (0|1|'spam')
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls 'pre\_comment\_approved' hook on the type of comment
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'check\_comment\_flood' hook on `$comment_author_IP`,
+    `$comment_author_email`, and `$comment_date_gmt`
+-   Uses: The `WP_User` object.
+-   Uses:
+    [`get_userdata()`](/Function_Reference/get_userdata "Function Reference/get userdata")
+-   Uses:
+    [`check_comment()`](/Function_Reference/check_comment "Function Reference/check comment")
+-   Uses:
+    [`wp_blacklist_check() to find spam.`](/Function_Reference/wp_blacklist_check "Function Reference/wp blacklist check")
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`wp_allow_comment()` is located in `wp-includes/comment.php`.
+

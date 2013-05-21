@@ -1,0 +1,120 @@
+dynamic sidebar "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+dynamic sidebar - This function calls each of the active widget callbacks in order, which
+
+SYNOPSIS
+--------
+
+This function calls each of the active widget callbacks in order, which
+prints the markup for the [sidebar](/Sidebars "Sidebars"). If you have
+more than one sidebar, you should give this function the name or number
+of the sidebar you want to print. This function returns true on success
+and false on failure.
+
+The return value should be used to determine whether to display a static
+sidebar. This ensures that your theme will look good even when the
+Widgets plug-in is not active.
+
+If your sidebars were registered by number, they should be retrieved by
+number. If they had names when you registered them, use their names to
+retrieve them.
+
+USAGE
+-----
+
+`  <?php dynamic_sidebar( $index ); ?> `
+
+PARAMETERS
+----------
+
+ `index` 
+:   ([*integer/string*](/How_to_Pass_Tag_Parameters#Integer.2Fstring "How to Pass Tag Parameters"))
+    (*optional*) Name or ID of dynamic sidebar.
+    Default: 1
+
+RETURN VALUE
+------------
+
+ (boolean) 
+:   True, if widget sidebar was found and called. False if not found or
+    not called.
+
+EXAMPLES
+--------
+
+Here is the recommended use of this function:
+
+    <ul id="sidebar">
+    <?php if ( ! dynamic_sidebar() ) : ?>
+        <li>{static sidebar item 1}</li>
+        <li>{static sidebar item 2}</li>
+    <?php endif; ?>
+    </ul>
+
+    <ul id="sidebar">
+        <?php dynamic_sidebar( 'right-sidebar' ); ?>
+    </ul>
+
+    <?php if ( is_active_sidebar( 'left-sidebar' ) ) : ?>
+        <ul id="sidebar">
+            <?php dynamic_sidebar( 'left-sidebar' ); ?>
+        </ul>
+    <?php endif; ?>
+
+### in the "Twenty Ten" theme (3.0+)
+
+-   `wp-content/themes/twentyten/sidebar.php`
+-   `wp-content/themes/twentyten/sidebar-footer.php`
+
+MULTIPLE SIDEBARS
+-----------------
+
+You can load a specific sidebar by either their name (if given a string)
+or ID (if given an integer). For example, `dynamic_sidebar('top_menu')`
+will present a sidebar registered with
+`register_sidebar(array('name'=>'top_menu',))`.
+
+Using ID's ( `dynamic_sidebar(1)` ) is easier in that you don't need to
+name your sidebar, but they are harder to figure out without looking
+into your `functions.php` file or in the widgets administration panel
+and thus make your code less readable. Note that ID's begin at 1.
+
+If you name your own ID values in the `register_sidebar()` WordPress
+function, you might increase readability of the code. The ID should be
+all lowercase alphanumeric characters and not contain white space. You
+can also use the `-` and `_` characters. IDs must be unique and cannot
+match a sidebar name. Using your own IDs can also make the sidebar name
+translatable.
+
+    // See the __() WordPress function for valid values for $text_domain.
+    register_sidebar( array(
+        'id'          => 'top-menu',
+        'name'        => __( 'Top Menu', $text_domain ),
+        'description' => __( 'This sidebar is located above the age logo.', $text_domain ),
+    ) );
+
+This allows the use of `dynamic_sidebar( 'top-menu' )` which uses an ID
+and is readable.
+
+CHANGELOG
+---------
+
+Since: [2.2.0](/Version_2.2 "Version 2.2")
+
+SOURCE FILE
+-----------
+
+`dynamic_sidebar()` is located in `wp-includes/widgets.php`.
+
+FURTHER READING
+---------------
+
+-   [WordPress theme flexibility with dynamic
+    sidebars](http://www.prelovac.com/vladimir/wordpress-theme-flexibility-with-dynamic-sidebars "http://www.prelovac.com/vladimir/wordpress-theme-flexibility-with-dynamic-sidebars")
+-   [The meaning of "spitting out"
+    widgets](http://wordpress.org/support/topic/the-meaning-of-spitting-out-widgets "http://wordpress.org/support/topic/the-meaning-of-spitting-out-widgets")
+

@@ -1,0 +1,68 @@
+wp trash post "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+wp trash post - Moves a post or page to the Trash
+
+SYNOPSIS
+--------
+
+Moves a post or page to the Trash
+
+If trash is disabled, the post or page is permanently deleted.
+
+USAGE
+-----
+
+`  <?php wp_trash_post($post_id); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID.
+    Default: 0
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   False on failure.
+
+EXAMPLES
+--------
+
+### Trash Post
+
+Trash WP default post "Hello World" which ID is '1'.
+
+`  <?php wp_trash_post(1); ?> `
+
+NOTES
+-----
+
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    on '`delete_post`' before deletion.
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    on '`deleted_post`' after deletion.
+-   Uses:
+    [`wp_delete_post()`](/Function_Reference/wp_delete_post "Function Reference/wp delete post")
+    if trash is disabled.
+-   Uses:
+    [` wp_delete_post_revision()`](/Function_Reference/wp_delete_post_revision "Function Reference/wp delete post revision")
+
+CHANGE LOG
+----------
+
+Since: 2.9.0
+
+SOURCE FILE
+-----------
+
+`wp_delete_post()` is located in `wp-includes/post.php`.
+

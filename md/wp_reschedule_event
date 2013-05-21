@@ -1,0 +1,66 @@
+wp reschedule event "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+wp reschedule event - This function is used internally by WordPress to reschedule a recurring
+
+SYNOPSIS
+--------
+
+This function is used internally by WordPress to reschedule a recurring
+event. You'll likely never need to use this function manually, it is
+documented here for completeness.
+
+USAGE
+-----
+
+`  <?php wp_reschedule_event( $timestamp, $recurrence, $hook, $args); ?> `
+
+PARAMETERS
+----------
+
+ `$timestamp` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The time the scheduled event will occur (unix
+    timestamp)
+    Default: *None*
+
+ `$recurrence` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) How often the event recurs, either 'hourly' or 'daily'
+    Default: *None*
+
+ `$hook` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of action hook to fire (string)
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Arguments to pass into the hook function(s)
+    Default: array()
+
+RETURN VALUE
+------------
+
+ `` `(boolean|null)`{style="color:gray"} 
+:   False on failure. Null when event is rescheduled.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`wp_reschedule_event()` is located in `wp-includes/cron.php`
+

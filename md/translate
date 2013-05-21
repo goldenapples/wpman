@@ -1,0 +1,62 @@
+translate "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+translate - Retrieves the translation of `$text`. If there is no translation, or the
+
+SYNOPSIS
+--------
+
+Retrieves the translation of `$text`. If there is no translation, or the
+domain isn't loaded the original text is returned.
+
+USAGE
+-----
+
+` <?php translate( $text, $domain ) ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to translate.
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text.
+    Default: 'default'
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Translated text.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Don't use translate directly, use
+    [`__()`](/Function_Reference/_2 "Function Reference/ 2") or
+    [`_e()`](/Function_Reference/_e "Function Reference/ e")
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`gettext`' on domain translated text with the untranslated
+    text as second parameter.
+
+CHANGE LOG
+----------
+
+-   Since: [2.2.0](/Version_2.2 "Version 2.2")
+
+SOURCE FILE
+-----------
+
+`translate()` is located in `wp-includes/l10n.php`.
+

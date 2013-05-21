@@ -1,0 +1,46 @@
+the author ID "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+the author ID - Displays the unique numeric user ID for the author of a post; the ID is
+
+SYNOPSIS
+--------
+
+Displays the unique numeric user ID for the author of a post; the ID is
+assigned by WordPress when a user account is created. This tag must be
+used within [The Loop](/The_Loop "The Loop").
+
+REPLACE WITH
+------------
+
+-   [the\_author\_meta('ID')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+
+USAGE
+-----
+
+`  <?php the_author_ID(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+EXAMPLE
+-------
+
+Uses the author ID as a query link to all of that author's posts.
+
+    <a href="/blog/index.php?author=<?php the_author_ID(); ?>">View all 
+    posts by <?php the_author_nickname(); ?></a>
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+-   Deprecated: 2.8.0
+-   Replace By:
+    [the\_author\_meta('ID')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+

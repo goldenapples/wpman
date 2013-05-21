@@ -1,0 +1,72 @@
+add user meta "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+add user meta - Add metadata to a user's record.
+
+SYNOPSIS
+--------
+
+Add metadata to a user's record.
+
+USAGE
+-----
+
+` <?php add_user_meta( $user_id, $meta_key, $meta_value, $unique ) ?> `
+
+PARAMETERS
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) user ID
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Metadata name.
+    Default: *None*
+
+ `$meta_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Metadata value.
+    Default: *None*
+
+ `$unique` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether the same key should not be added.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   False for failure. True for success.
+
+EXAMPLES
+--------
+
+    <?php
+    $user_id = 1;
+    $awesome_level = 1000;
+    add_user_meta( $user_id, '_level_of_awesomeness', $awesome_level);
+    ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`add_metadata()`](/Function_Reference/add_metadata "Function Reference/add metadata")
+
+CHANGE LOG
+----------
+
+Since: 3.0.0
+
+SOURCE FILE
+-----------
+
+`add_user_meta()` is located in `wp-includes/user.php`.
+

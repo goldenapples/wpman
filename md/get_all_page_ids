@@ -1,0 +1,47 @@
+get all page ids "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+get all page ids - Get a list of page IDs.
+
+SYNOPSIS
+--------
+
+Get a list of page IDs.
+
+USAGE
+-----
+
+` <?php get_all_page_ids() ?> `
+
+PARAMETERS
+----------
+
+-   None
+
+RETURN VALUES
+-------------
+
+ `(array)` 
+:   List of page IDs.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`get_all_page_ids()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,52 @@
+upload size limit filter "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+upload size limit filter - Filters upload size limit.
+
+SYNOPSIS
+--------
+
+Filters upload size limit.
+
+USAGE
+-----
+
+` <?php upload_size_limit_filter( $size ) ?> `
+
+PARAMETERS
+----------
+
+ `$size` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ????
+    Default: *None*
+
+RETURN VALUE
+------------
+
+ `` `(integer)`{style="color:gray"} 
+:   Upload size limit in bytes
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+Returns the least size of the size passed, space available, or if size
+checking is enabled, the allowable upload size.
+
+CHANGE LOG
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`upload_size_limit_filter()` is located in
+`wp-includes/ms-functions.php`.
+

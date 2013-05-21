@@ -1,0 +1,64 @@
+the category head "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+the category head - Displays the name of a category if it's different from the previous
+
+SYNOPSIS
+--------
+
+Displays the name of a category if it's different from the previous
+category. This tag must be used within [The Loop](/The_Loop "The Loop").
+
+REPLACE WITH
+------------
+
+This tag was deprecated when multiple categories were added to
+WordPress, and there is no one-to-one correspondence with another tag.
+
+To display the name of the category when on a category page, use:
+
+    <?php echo get_the_category_by_ID($cat); ?>
+
+To display category name(s) on a single post page, this code (which
+would need to run in [The Loop](/The_Loop "The Loop")) provides an
+example:
+
+    <?php
+    foreach(get_the_category() as $category) {
+        echo $category->cat_name . ' '; 
+    }
+    ?>
+
+USAGE
+-----
+
+`  <?php the_category_head( $before, $after ); ?> `
+
+PARAMETERS
+----------
+
+ before 
+:   (*string*) Text to output before the category. Defaults to `''` (no
+    text).
+ after 
+:   (*string*) Text to output after the category. Defaults to `''` (no
+    text).
+
+EXAMPLE
+-------
+
+Displays the text "**Category:**" followed by the name of the category.
+
+    <h2><?php the_category_head('Category: '); ?></h2>
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+-   Deprecated: 0.71?
+-   Replace By: [Template
+    Tags/get\_the\_category\_by\_ID](/index.php?title=Template_Tags/get_the_category_by_ID&action=edit&redlink=1 "Template Tags/get the category by ID (page does not exist)")
+

@@ -1,0 +1,67 @@
+set current user "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+set current user - This function can be replaced via
+
+SYNOPSIS
+--------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Changes the current user by ID or name.
+
+Set `$id` to null and specify a name if you do not know a user's ID.
+
+USAGE
+-----
+
+` <?php set_current_user( $id, $name ) ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*integer|null*](/How_to_Pass_Tag_Parameters#Integer.7Cnull "How to Pass Tag Parameters"))
+    (*required*) User ID.
+    Default: *None*
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The user's username
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ `(object)` 
+:   returns values returned by
+    [`wp_set_current_user()`](/Function_Reference/wp_set_current_user "Function Reference/wp set current user")
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+-   Uses:
+    [`wp_set_current_user()`](/Function_Reference/wp_set_current_user "Function Reference/wp set current user")
+
+CHANGE LOG
+----------
+
+Since: 2.0.1
+
+SOURCE FILE
+-----------
+
+`set_current_user()` is located in
+`wp-includes/pluggable-deprecated.php`.
+

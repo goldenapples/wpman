@@ -1,0 +1,76 @@
+register nav menu "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+register nav menu - Registers a *single* [custom navigation
+
+SYNOPSIS
+--------
+
+Registers a *single* [custom navigation
+menu](/Navigation_Menus "Navigation Menus") in the new custom menu
+editor of WordPress 3.0. This allows for creation of custom menus in the
+dashboard for use in your theme.
+
+See
+[register\_nav\_menus()](/Function_Reference/register_nav_menus "Function Reference/register nav menus")
+for creating multiple menus at once.
+
+USAGE
+-----
+
+`  <?php register_nav_menu( $location, $description ); ?> `
+
+PARAMETERS
+----------
+
+ `$location` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Menu location identifier, like a slug.
+    Default: *None*
+
+ `$description` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The default value to return if no value is returned
+    (ie. the option is not in the database).
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+None.
+
+EXAMPLES
+--------
+
+    <?php
+    register_nav_menu( 'primary', 'Primary Menu' );
+    ?>
+
+NOTES
+-----
+
+-   This function automatically registers custom menu support for the
+    theme therefore you do **not** need to call
+    `add_theme_support( 'menus' );`
+-   This function actually works by simply calling
+    register\_nav\_menus() in the following way:
+
+        register_nav_menus( array( $location => $description ) );
+
+-   Use
+    [wp\_nav\_menu()](/Function_Reference/wp_nav_menu "Function Reference/wp nav menu")
+    to display your custom menu.
+
+CHANGE LOG
+----------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`register_nav_menu()` is located in `wp-includes/nav-menu.php`.
+

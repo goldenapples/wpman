@@ -1,0 +1,48 @@
+is archived "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+is archived - Check if a particular blog is archived.
+
+SYNOPSIS
+--------
+
+Check if a particular blog is archived.
+
+USAGE
+-----
+
+` <?php is_archived( $id ) ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The blog id
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Whether the blog is archived or not
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+is\_archived() is located in `wp-includes/ms-blogs.php`
+

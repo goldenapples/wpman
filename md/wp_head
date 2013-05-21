@@ -1,0 +1,67 @@
+wp head "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+wp head - Fire the ['wp\_head'
+
+SYNOPSIS
+--------
+
+Fire the ['wp\_head'
+action](/Plugin_API/Action_Reference/wp_head "Plugin API/Action Reference/wp head").
+Put this template tag immediately before `</head>` tag in a theme
+[template](/Theme_Development#Template_Files "Theme Development") (ex.
+`header.php`, `index.php`).
+
+USAGE
+-----
+
+`  <?php wp_head(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+None.
+
+EXAMPLES
+--------
+
+### In twentyten theme
+
+`wp-content/themes/twentyten/header.php`:
+
+    <?php 
+     ...
+        /* Always have wp_head() just before the closing </head>
+         * tag of your theme, or you will break many plugins, which
+         * generally use this hook to add elements to <head> such
+         * as styles, scripts, and meta tags.
+         */
+        wp_head();
+     ?>
+     </head>
+
+NOTES
+-----
+
+-   Uses
+    [do\_action()](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'wp\_head' hook.
+
+CHANGELOG
+---------
+
+-   Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`wp_head()` is located in `wp-includes/general-template.php`.
+

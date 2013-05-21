@@ -1,0 +1,52 @@
+maybe unserialize "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+maybe unserialize - Unserialize value only if it was serialized.
+
+SYNOPSIS
+--------
+
+Unserialize value only if it was serialized.
+
+USAGE
+-----
+
+` <?php maybe_unserialize( $original ) ?> `
+
+PARAMETERS
+----------
+
+ `$original` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Maybe unserialized original, if is needed.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   Unserialized data can be any type.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Data might need to be *serialized* to allow it to be successfully
+    stored and retrieved from a database in a form that PHP can
+    understand.
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`maybe_unserialize()` is located in `wp-includes/functions.php`.
+

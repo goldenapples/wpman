@@ -1,0 +1,80 @@
+remove submenu page "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+remove submenu page - Remove an admin submenu.
+
+SYNOPSIS
+--------
+
+Remove an admin submenu.
+
+Please be aware that this would not prevent a user from accessing these
+screens directly. Removing a menu does not replace the need to filter a
+user's permissions as appropriate.
+
+USAGE
+-----
+
+` <?php remove_submenu_page( $menu_slug, $submenu_slug ); ?> `
+
+PARAMETERS
+----------
+
+ `$menu_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug for the parent menu
+    Default: *None*
+
+ `$submenu_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug of the submenu
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array|boolean) 
+:   The removed submenu on success, `false` if not found.
+
+EXAMPLES
+--------
+
+Removes the Widgets submenu page.
+
+    <?php
+
+    add_action( 'admin_menu', 'adjust_the_wp_menu', 999 );
+    function adjust_the_wp_menu() {
+      $page = remove_submenu_page( 'themes.php', 'widgets.php' );
+      // $page[0] is the menu title
+      // $page[1] is the minimum level or capability required
+      // $page[2] is the URL to the item's file
+    }
+
+    ?>
+
+In the above example, the value of `$page` would have been:
+
+    array(3) { [0]=> string(7) "Widgets" [1]=> string(18) "edit_theme_options" [2]=> string(11) "widgets.php" }
+
+NOTES
+-----
+
+-   Uses global: (`array`) `$submenu`
+-   In order to remove the `theme-editor.php` submenu of `themes.php` in
+    more recent versions of WordPress, you need to bind the
+    `remove_submenu_page` function to the `admin_init` hook.
+
+CHANGE LOG
+----------
+
+Since: 3.1.0
+
+SOURCE FILE
+-----------
+
+`remove_submenu_page()` is located in `/wp-admin/includes/plugin.php`.
+

@@ -1,0 +1,57 @@
+count users "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+count users - Returns the count of users having each role, as well as the count of all
+
+SYNOPSIS
+--------
+
+Returns the count of users having each role, as well as the count of all
+users.
+
+USAGE
+-----
+
+`  <?php count_users( $strategy ); ?> `
+
+PARAMETERS
+----------
+
+ `$strategy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) 'time' or 'memory'. Generally, the default value 'time'
+    is optimal due to the current schema design.
+    Default: 'time'
+
+RETURN VALUES
+-------------
+
+ array 
+:   Includes a grand total and an array of counts indexed by role
+    strings.
+
+EXAMPLE
+-------
+
+### Default Usage
+
+The call to `count_users` returns the number of users with each role. It
+will not return any roles having count == 0, so the results are intended
+to be used in foreach loops.
+` <?php$result = count_users();echo 'There are ', $result['total_users'], ' total users';foreach($result['avail_roles'] as $role => $count)    echo ', ', $count, ' are ', $role, 's';echo '.';?> `
+
+There are 199 total users, 11 are administrators, 4 are contributors.
+
+SOURCE FILE
+-----------
+
+`count_users()` is located in `wp-includes/user.php`.
+
+CHANGE LOG
+----------
+
+-   Since: 3.0.0
+

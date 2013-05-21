@@ -1,0 +1,63 @@
+get lastpostdate "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+get lastpostdate - Retrieve the date the the last post was published.
+
+SYNOPSIS
+--------
+
+Retrieve the date the the last post was published.
+
+The server timezone is the default and is the difference between
+[GMT](/Glossary#GMT "Glossary") and server time. The '`blog`' value is
+the date when the last post was posted. The '`gmt`' is when the last
+post was posted in [GMT](/Glossary#GMT "Glossary") formatted date.
+
+USAGE
+-----
+
+` <?php get_lastpostdate( $timezone ) ?> `
+
+PARAMETERS
+----------
+
+ `$timezone` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The location to get the time. Can be '`gmt`', '`blog`',
+    or '`server`'.
+    Default: 'server'
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   The date of the last post.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`get_lastpostdate`' filter
+-   Uses global: (`mixed`) `$cache_lastpostdate` Stores the date the
+    last post.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses global: (`integer`) `$blog_id` The Blog ID.
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`get_lastpostdate()` is located in `wp-includes/post.php`.
+

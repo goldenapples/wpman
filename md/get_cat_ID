@@ -1,0 +1,84 @@
+get cat ID "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+get cat ID - Retrieve the ID of a category from its name.
+
+SYNOPSIS
+--------
+
+Retrieve the ID of a category from its name.
+
+USAGE
+-----
+
+` <?php get_cat_ID( $cat_name ) ?> `
+
+PARAMETERS
+----------
+
+ `$cat_name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Default is '`General`' and can be any category name.
+    Default: 'General'
+
+RETURN VALUES
+-------------
+
+ (integer if 0, string if ID) 
+:   0, if failure and ID of category on success.
+
+EXAMPLES
+--------
+
+### Basic
+
+This is a very basic example of how to use this function in
+[The\_Loop](/The_Loop "The Loop"). Replace "Category Name" with the name
+of your category.
+
+    <?php
+    $category_id = get_cat_ID('Category Name');
+     <!-- Start the Loop. -->
+     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+     <!-- Test if the current post is in category "Category Name". -->
+     <!-- If it is, the div box is given the CSS class "post-cat-special". -->
+     <!-- Otherwise, the div box is given the CSS class "post". -->
+
+     <?php if ( in_category($category_id) ) { ?>
+               <div class="post-cat-special">
+     <?php } else { ?>
+               <div class="post">
+     <?php } ?>
+    </div>
+     <!-- Stop The Loop (but note the "else:" - see next line). -->
+
+     <?php endwhile; else: ?>
+
+
+     <!-- The very first "if" tested to see if there were any Posts to -->
+     <!-- display.  This "else" part tells what do if there weren't any. -->
+     <p>Sorry, no posts matched your criteria.</p>
+
+
+     <!-- REALLY stop The Loop. -->
+     <?php endif; ?>
+
+\
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`get_cat_ID()` is located in `wp-includes/category.php`.
+

@@ -1,0 +1,63 @@
+is taxonomy hierarchical "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+is taxonomy hierarchical - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the taxonomy object is hierarchical. This is a boolean function uses a
+global, meaning it returns either TRUE or FALSE (A false return value
+might also mean that the taxonomy does not exist).
+
+checks to make sure that the taxonomy is an object first. Then gets the
+object, and finally returns the hierarchical value in the object.
+
+USAGE
+-----
+
+` <?php is_taxonomy_hierarchical( $taxonomy ) ?> `
+
+PARAMETERS
+----------
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of taxonomy object
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   Whether the taxonomy is hierarchical
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See Also: [WordPress
+    Taxonomy](/WordPress_Taxonomy "WordPress Taxonomy").
+-   Uses:
+    [`taxonomy_exists()`](/Function_Reference/taxonomy_exists "Function Reference/taxonomy exists")
+    Checks whether taxonomy exists.
+-   Uses:
+    [`get_taxonomy()`](/Function_Reference/get_taxonomy "Function Reference/get taxonomy")
+    Used to get the taxonomy object.
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`is_taxonomy_hierarchical()` is located in `wp-includes/taxonomy.php`.
+

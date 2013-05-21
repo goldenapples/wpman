@@ -1,0 +1,55 @@
+get all category ids "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+get all category ids - Retrieves all category IDs.
+
+SYNOPSIS
+--------
+
+Retrieves all category IDs.
+
+USAGE
+-----
+
+` <?php get_all_category_ids() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   A list of all of the category IDs.
+
+EXAMPLES
+--------
+
+To print a list of categories by id: name
+
+    <?php
+    $category_ids = get_all_category_ids();
+    foreach($category_ids as $cat_id) {
+      $cat_name = get_cat_name($cat_id);
+      echo $cat_id . ': ' . $cat_name;
+    }
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`get_all_category_ids()` is located in `wp-includes/category.php`.
+

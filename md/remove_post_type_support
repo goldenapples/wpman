@@ -1,0 +1,76 @@
+remove post type support "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+remove post type support - Remove support of certain features for a given [post type
+
+SYNOPSIS
+--------
+
+Remove support of certain features for a given [post type
+(s)](/Post_Types "Post Types"). All features are directly associated
+with a functional area of the edit screen, such as the editor or a meta
+box. Additionally, the 'revisions' feature dictates whether the post
+type will store revisions, and the 'comments' feature dictates whether
+the comments count will show on the edit screen.
+
+Typically remove\_post\_type\_support() should be attached to the 'init'
+[action
+hook](/Plugin_API/Action_Reference "Plugin API/Action Reference").
+
+USAGE
+-----
+
+` <?php remove_post_type_support( $post_type, $supports ) ?> `
+
+PARAMETERS
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post type. (max. 20 characters)
+    Default: *None*
+
+ `$supports` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Feature to remove.
+    Default: *None*
+
+-   'title'
+-   'editor' (content)
+-   'author'
+-   'thumbnail' (featured image) (current theme must also support [Post
+    Thumbnails](/Post_Thumbnails "Post Thumbnails"))
+-   'excerpt'
+-   'trackbacks'
+-   'custom-fields'
+-   'comments' (also will see comment count balloon on edit screen)
+-   'revisions' (will store revisions)
+-   'page-attributes' (template and menu order) (hierarchical must be
+    true)
+
+EXAMPLE
+-------
+
+This example removes support for excerpts in posts:
+
+    <?php
+        add_action('init', 'my_custom_init');
+
+        function my_custom_init() {
+            remove_post_type_support( 'post', 'excerpt' );
+        }
+    ?>
+
+CHANGE LOG
+----------
+
+-   Since [3.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`remove_post_type_support()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,64 @@
+includes url "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+includes url - The **includes\_url** template tag retrieves the url to the includes
+
+SYNOPSIS
+--------
+
+The **includes\_url** template tag retrieves the url to the includes
+area for the current site with the appropriate protocol, 'https' if
+[is\_ssl()](/Function_Reference/is_ssl "Function Reference/is ssl") and
+'http' otherwise.
+
+USAGE
+-----
+
+` <?php includes_url( $path ); ?> `
+
+### Default Usage
+
+` <?php $url = includes_url(); ?> `
+
+PARAMETERS
+----------
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path relative to the includes url.
+    Default: *None*
+
+RETURN
+------
+
+ (string) 
+:   Includes url link with optional path appended.
+
+EXAMPLES
+--------
+
+    $url = includes_url();
+    echo $url;
+
+Output:
+[http://www.example.com/wp-includes/](http://www.example.com/wp-includes/ "http://www.example.com/wp-includes/")
+
+NOTES
+-----
+
+-   Uses
+    [site\_url()](/Function_Reference/site_url "Function Reference/site url")
+
+CHANGELOG
+---------
+
+-   Since: [2.6.0](/Version_2.6 "Version 2.6")
+
+SOURCE CODE
+-----------
+
+`includes_url()` is located in `wp-includes/link-template.php`.
+

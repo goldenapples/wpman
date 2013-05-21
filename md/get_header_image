@@ -1,0 +1,53 @@
+get header image "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+get header image - Retrieve header image for custom header.
+
+SYNOPSIS
+--------
+
+Retrieve header image for custom header.
+
+USAGE
+-----
+
+` <?php get_header_image() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Returns header image path.
+
+An empty string will be returned if:
+
+-   The current theme does not support header images.
+-   The user has selected the "Remove Header Image" option from the
+    Appearance -\> Header screen.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses: `HEADER_IMAGE`
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`get_header_image()` is located in `wp-includes/theme.php`.
+

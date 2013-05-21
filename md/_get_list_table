@@ -1,0 +1,51 @@
+ get list table "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+ get list table - Fetch an instance of a
+
+SYNOPSIS
+--------
+
+Fetch an instance of a
+[WP\_List\_Table](/Class_Reference/WP_List_Table "Class Reference/WP List Table")
+class.
+
+**This is a private, internal WordPress function. It should not be
+called directly or used by developers. It is listed in the Codex for
+completeness.**
+
+USAGE
+-----
+
+` <?php _get_list_table( $class ) ?> `
+
+PARAMETERS
+----------
+
+ `$class` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The type of the list table, which is the class name.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (object|boolean) 
+:   Object on success, false if the class does not exist.
+
+EXAMPLES
+--------
+
+CHANGE LOG
+----------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`_get_list_table()` is located in `wp-admin/includes/list-table.php`.
+

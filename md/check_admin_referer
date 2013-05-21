@@ -1,0 +1,119 @@
+check admin referer "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+check admin referer - Tests either if the current request carries a valid
+
+SYNOPSIS
+--------
+
+Tests either if the current request carries a valid
+[nonce](/Glossary#Nonce "Glossary"), or if the current request was
+referred from an [administration
+screen](/Administration_Screens "Administration Screens"); depending on
+whether the `$action` argument is given (which is prefered), or not,
+respectively. On failure, the function
+[dies](http://php.net/manual/en/function.die.php "http://php.net/manual/en/function.die.php")
+after calling the `wp_nonce_ays()` function.
+
+Used to avoid security exploits.
+
+*The now improper name of the function is kept for backward
+compatibility and has origin in previous WordPress versions where the
+function only checked the referer. For details, see the [Notes](#Notes)
+section below.*
+
+USAGE
+-----
+
+### Obsolete Usage
+
+` <?php check_admin_referer(); ?> `
+
+### Prefered Usage
+
+` <?php check_admin_referer( $action, $query_arg ); ?> `
+
+PARAMETERS
+----------
+
+ `$action` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Action name. Should give the context to what is taking
+    place. (Since [2.0.1](/Version_2.0.1 "Version 2.0.1")).
+    Default: -1
+
+ `$query_arg` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Where to look for nonce in the `$_REQUEST` PHP
+    variable. (Since [2.5](/Version_2.5 "Version 2.5")).
+    Default: '\_wpnonce'
+
+RETURN
+------
+
+To return boolean *true*, in the case of the [obsolete
+usage](#Obsolete_Usage), the current request must be referred from an
+[administration
+screen](/Administration_Screens "Administration Screens"); in the case
+of the [prefered usage](#Prefered_Usage), the nonce must be sent and
+valid. Otherwise the function
+[dies](http://php.net/manual/en/function.die.php "http://php.net/manual/en/function.die.php")
+with an appropriate message (*"Are you sure you want to do this?"* by
+default).
+
+EXAMPLES
+--------
+
+Obsolete usage here (script dies if the admin referer is not validated).
+
+    <?php check_admin_referer(); ?>
+
+Here is an example of how you might use this in a plugin's option page.
+You add a nonce to a form using the `wp_nonce_field()` function:
+
+    <form method="post">
+       <!-- some inputs here ... -->
+       <?php wp_nonce_field( 'name_of_my_action','name_of_nonce_field' ); ?>
+    </form>
+
+Then in the page where the form submits to, you can verify whether or
+not the form was submitted and update values if it was successfully
+submitted:
+
+    <?php
+    // if this fails, check_admin_referer() will automatically print a "failed" page and die.
+    if ( !empty($_POST) && check_admin_referer( 'name_of_my_action', 'name_of_nonce_field' ) ) {
+       // process form data, e.g. update fields
+    }
+
+    // Display the form
+
+NOTES
+-----
+
+-   Using the function without the `$action` argument is obsolete and,
+    as of [Version 3.2](/Version_3.2 "Version 3.2"), if
+    [WP\_DEBUG](/WP_DEBUG "WP DEBUG") is set to *true* will die with an
+    appropriate message (*"You should specify a nonce action to be
+    verified by using the first parameter."* is the default).
+-   As of [2.0.1](/Version_2.0.1 "Version 2.0.1"), the referer is
+    checked *only* if the `$action` argument is not specified (or set to
+    the default *-1*) as a backward compatibility fallback for not using
+    a nonce. A nonce is prefered to unreliable referers and with
+    `$action` specified the function behaves the same way as
+    `wp_verify_nonce()` except that it dies after calling
+    `wp_nonce_ays()` if the nonce is not valid or was not sent.
+
+CHANGE LOG
+----------
+
+Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`check_admin_referer()` is located in `wp-includes/pluggable.php`.
+

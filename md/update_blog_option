@@ -1,0 +1,63 @@
+update blog option "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+update blog option - Update an option for a particular blog.
+
+SYNOPSIS
+--------
+
+Update an option for a particular blog.
+
+USAGE
+-----
+
+` <?php update_blog_option( $id, $option, $value, $deprecated ) ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The blog id
+    Default: *None*
+
+ `$option` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The option key
+    Default: *None*
+
+ `$value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The option value
+    Default: *None*
+
+ `$deprecated` 
+:   ([*null*](/How_to_Pass_Tag_Parameters#Null "How to Pass Tag Parameters"))
+    (*optional*) Deprecated parameter
+    Default: null
+
+RETURN VALUE
+------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True on success, false on failrue.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+update\_blog\_option() is located in `wp-includes/ms-blogs.php`
+

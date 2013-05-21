@@ -1,0 +1,94 @@
+get the term list "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get the term list - Returns an HTML string of taxonomy terms associated with a post and
+
+SYNOPSIS
+--------
+
+Returns an HTML string of taxonomy terms associated with a post and
+given taxonomy. Terms are linked to their respective term listing pages.
+
+USAGE
+-----
+
+`  <?php get_the_term_list( $id, $taxonomy, $before, $sep, $after ) ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Post ID
+    Default: 0
+
+ `$taxonomy` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*required*) Name of taxonomy
+    Default: *None*
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Leading text
+    Default: *None*
+
+ `$sep` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) String to separate tags
+    Default: *None*
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Trailing text
+    Default: *None*
+
+RETURNS
+-------
+
+ (string) 
+:   HTML string of taxonomy terms.
+
+### A Basic Example
+
+Used inside the loop this outputs the terms from the people taxonomy for
+a specific post.
+
+     <?php echo get_the_term_list( $post->ID, 'people', 'People: ', ', ', '' ); ?> 
+
+This would return something like.
+
+    People: 
+    <a href="person1">Person 1</a>, 
+    <a href="person2">Person 2</a>, ...
+
+\
+
+### Returning an HTML List
+
+Used inside the loop this outputs the terms from the styles taxonomy for
+a specific post as an (x)html list.
+
+    echo '<ul class="styles">';
+    echo get_the_term_list( $post->ID, 'styles', '<li>', ',</li><li>', '</li>' );
+    echo '</ul>';
+
+This would return something like.
+
+    <ul class="styles">
+        <li><a href="person1">Style 1,</a></li> 
+        <li><a href="person2">Style 2,</a></li>
+    </ul>
+
+CHANGE LOG
+----------
+
+-   Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+SOURCE FILE
+-----------
+
+`get_the_term_list()` is located in `wp-includes/category-template.php`.
+

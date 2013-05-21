@@ -1,0 +1,53 @@
+wp trim words "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+wp trim words - This function trims text to a certain number of words and returns the
+
+SYNOPSIS
+--------
+
+This function trims text to a certain number of words and returns the
+trimmed text.
+
+USAGE
+-----
+
+` <?php $trimmed = wp_trim_words( $text, $num_words = 55, $more = null ); ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to trim
+    Default: *None*
+
+ `$num_words` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Number of words
+    Default: 55
+
+ `$more` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) What to append if \$text needs to be trimmed.
+    Default: '`&hellip;`'
+
+RETURN VALUE
+------------
+
+ `(string)` 
+:   Trimmed text.
+
+CHANGE LOG
+----------
+
+-   Since: 3.3.0
+
+SOURCE FILE
+-----------
+
+`wp_trim_words()` is located in `wp-includes/formatting.php`.
+

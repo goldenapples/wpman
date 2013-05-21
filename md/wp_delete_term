@@ -1,0 +1,70 @@
+wp delete term "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp delete term - Removes a term from the database.
+
+SYNOPSIS
+--------
+
+Removes a term from the database.
+
+USAGE
+-----
+
+` <?php wp_delete_term( $term_id, $taxonomy, $args )  ?> `
+
+PARAMETERS
+----------
+
+ `$term_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) The ID of the term.
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The context in which to relate the term to the object.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Overwrite term field values.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ bool | WP\_Error 
+:   Returns false if not term; true if completes delete action.
+
+EXAMPLE
+-------
+
+` <?php wp_delete_term( 25, 'category' )  ?> ` Deletes the term with the
+ID 25 from the taxonomy "category" using the default function arguments
+
+NOTES
+-----
+
+If the term is a parent of other terms, then the children will be
+updated to that term's parent.
+
+The \$args 'default' will only override the terms found, if there is
+only one term found. Any other and the found terms are used.
+
+The \$args 'force\_default' will force the term supplied as default to
+be assigned even if the object was not going to be termless.
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`wp_delete_term()` is located in `wp-includes/taxonomy.php`.
+

@@ -1,0 +1,50 @@
+get comment author "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+get comment author - Retrieve the author of the current comment. If the comment has an empty
+
+SYNOPSIS
+--------
+
+Retrieve the author of the current comment. If the comment has an empty
+comment\_author field, then 'Anonymous' person is assumed. This function
+is meant to live inside of the WordPress loop.
+
+USAGE
+-----
+
+` <?php $author = get_comment_author( $comment_ID ); ?> `
+
+PARAMETERS
+----------
+
+ `$comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optionl*) The ID of the comment for which to retrieve the author.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   The comment author
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+get\_comment\_author() is located in `wp-includes/comment-template.php`
+

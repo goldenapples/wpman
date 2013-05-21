@@ -1,0 +1,154 @@
+add action "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+add action - Hooks a function on to a specific
+
+SYNOPSIS
+--------
+
+Hooks a function on to a specific
+[action](/Plugin_API#Actions "Plugin API").
+
+See [Plugin API/Action
+Reference](/Plugin_API/Action_Reference "Plugin API/Action Reference")
+for a list of action hooks. Actions are (usually) triggered when the
+WordPress core calls
+[do\_action()](/Function_Reference/do_action "Function Reference/do action").
+
+USAGE
+-----
+
+`  <?php   add_action( $tag, $function_to_add, $priority,         $accepted_args );?> `
+
+PARAMETERS
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the action to which `$function_to_add` is
+    hooked. (See [Plugin API/Action
+    Reference](/Plugin_API/Action_Reference "Plugin API/Action Reference")
+    for a list of action hooks). Can also be the name of an action
+    inside a theme or plugin file, or the special tag "`all`", in which
+    case the function will be called for all hooks.
+    Default: *None*
+
+ `$function_to_add` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) The name of the function you wish to be hooked. Note:
+    Only string-formatted syntaxes listed in [the PHP documentation for
+    the 'callback'
+    type](http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback "http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback")
+    are valid.
+    Default: *None*
+
+ `$priority` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Used to specify the order in which the functions
+    associated with a particular action are executed. Lower numbers
+    correspond with earlier execution, and functions with the same
+    priority are executed in the order in which they were added to the
+    action.
+    Default: 10
+
+ `$accepted_args` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The number of arguments the hooked function accepts. In
+    WordPress 1.5.1+, hooked functions can take extra arguments that are
+    set when the matching
+    [do\_action()](/Function_Reference/do_action "Function Reference/do action")
+    or
+    [apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+    call is run. For example, the action `comment_id_not_found` will
+    pass any functions that hook onto it the ID of the requested
+    comment.
+    Default: 1
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   Always True.
+
+EXAMPLES
+--------
+
+### Simple Hook
+
+To email some friends whenever an entry is posted on your blog:
+
+    function email_friends( $post_ID )  
+    {
+       $friends = 'bob@example.org, susie@example.org';
+       wp_mail( $friends, "sally's blog updated", 'I just put something on my blog: http://blog.example.com' );
+
+       return $post_ID;
+    }
+    add_action( 'publish_post', 'email_friends' );
+
+### Accepted Arguments
+
+A hooked function can optionally accept arguments from the action call,
+if any are set to be passed. In this simplistic example, the
+`echo_comment_id` function takes the `$comment_id` argument, which is
+automatically passed to when the
+[do\_action()](/Function_Reference/do_action "Function Reference/do action")
+call using the `comment_id_not_found` filter hook is run.
+
+    function echo_comment_id( $comment_id ) 
+    {
+       echo 'Comment ID ' . $comment_id . ' could not be found';
+    }
+    add_action( 'comment_id_not_found', 'echo_comment_id', 10, 1 );
+
+NOTES
+-----
+
+To find out the number and name of arguments for an action, simply
+search the code base for the matching do\_action() call. For example, if
+you are hooking into 'save\_post', you would find it in post.php:
+`  <?php do_action( 'save_post', $post_ID, $post ); ?> `
+
+Your add\_action call would look like:
+`  <?php add_action( 'save_post', 'my_save_post', 10, 2 ); ?> `
+
+And your function would be:
+
+    function my_save_post( $post_ID, $post )
+    {
+       // do stuff here
+    }
+
+### Using add\_action with a class
+
+To use the add\_action hook when your plugin or theme is built up using
+classes, add \$this to your add\_action call together with the function
+name within that class, like so:
+
+    class MyPluginClass
+    {
+        public function __construct()
+        {
+             //add your actions to the constructor!
+             add_action( 'save_post', array( $this, 'myplugin_save_posts' ) );
+        }
+        
+        public function myplugin_save_posts()
+        {
+             //do stuff here...
+        }
+    }
+
+CHANGE LOG
+----------
+
+Since [1.2.0](/Version_1.2 "Version 1.2")
+
+SOURCE FILE
+-----------
+
+`add_action()` is located in `wp-includes/plugin.php`.
+

@@ -1,0 +1,62 @@
+strip shortcodes "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+strip shortcodes - Deletes all [shortcode](/Shortcode_API "Shortcode API") tags from the
+
+SYNOPSIS
+--------
+
+Deletes all [shortcode](/Shortcode_API "Shortcode API") tags from the
+given content.
+
+USAGE
+-----
+
+` <?php strip_shortcodes( $content ); ?> `
+
+PARAMETERS
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to remove shortcode tags from.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Content without shortcode tags.
+
+EXAMPLES
+--------
+
+### Strip shortcodes on home page but not on single or archive pages
+
+When viewing posts 'home' page, strip all shortcodes, but on other
+pages, such as single.php, do not strip the shortcodes.
+
+    function remove_shortcode_from_index($content) {
+      if ( is_home() ) {
+        $content = strip_shortcodes( $content );
+      }
+      return $content;
+    }
+    add_filter('the_content', 'remove_shortcode_from_index');
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.5
+
+SOURCE FILE
+-----------
+
+`strip_shortcodes()` is located in `wp-includes/shortcodes.php`.
+

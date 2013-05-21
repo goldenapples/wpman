@@ -1,0 +1,53 @@
+remove query arg "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+remove query arg - Removes an item or list from the query string.
+
+SYNOPSIS
+--------
+
+Removes an item or list from the query string.
+
+USAGE
+-----
+
+` <?php remove_query_arg( $key, $query ) ?> `
+
+PARAMETERS
+----------
+
+ `$key` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*required*) Query key or keys to remove.
+    Default: *None*
+
+ `$query` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) When false uses the `$_SERVER` value.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   New URL query string.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`remove_query_arg()` is located in `wp-includes/functions.php`.
+

@@ -1,0 +1,56 @@
+next comments link "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+next comments link - Display link to next comments pages.
+
+SYNOPSIS
+--------
+
+Display link to next comments pages.
+
+USAGE
+-----
+
+` <?php next_comments_link( $label, $max_page ) ?> `
+
+PARAMETERS
+----------
+
+ `$label` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Label for link text.
+    Default: ''
+
+ `$max_page` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Max page.
+    Default: 0
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+
+CHANGE LOG
+----------
+
+Since: 2.7.0
+
+SOURCE FILE
+-----------
+
+`next_comments_link()` is located in `wp-includes/link-template.php`.
+

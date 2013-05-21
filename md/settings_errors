@@ -1,0 +1,90 @@
+settings errors "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+settings errors - Display settings errors registered by
+
+SYNOPSIS
+--------
+
+Display settings errors registered by
+[`add_settings_error()`](/Function_Reference/add_settings_error "Function Reference/add settings error").
+
+Part of the [Settings API](/Settings_API "Settings API"). Outputs a
+\<div\> for each error retrieved by
+[`get_settings_errors()`](/Function_Reference/get_settings_errors "Function Reference/get settings errors").
+
+This is called automatically after a settings page based on the Settings
+API is submitted. Errors should be added during the validation callback
+function for a setting defined in
+[`register_setting()`](/Function_Reference/register_setting "Function Reference/register setting").
+
+The `$sanitize` option is passed into `get_settings_errors()` and will
+re-run the setting sanitization on its current value.
+
+The `$hide_on_update` option will cause errors to only show when the
+settings page is first loaded.
+
+If the user has already saved new values it will be hidden to avoid
+repeating messages already shown in the default error reporting after
+submission. This is useful to show general errors like missing settings
+when the user arrives at the settings page.
+
+USAGE
+-----
+
+` <?php settings_errors( $setting, $sanitize, $hide_on_update ) ?> `
+
+PARAMETERS
+----------
+
+ `$setting` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional slug title of a specific setting who's errors
+    you want.
+    Default: *None*
+
+ `$sanitize` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to re-sanitize the setting value before
+    returning errors.
+    Default: *false*
+
+ `$hide_on_update` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If set to true errors will not be shown if the settings
+    page has already been submitted.
+    Default: *false*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+    /**
+     * Displays all messages registered to 'your-settings-error-slug'
+     */
+    function your_admin_notices_action() {
+        settings_errors( 'your-settings-error-slug' );
+    }
+    add_action( 'admin_notices', 'your_admin_notices_action' );
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`settings_errors()` is located in `wp-admin/includes/template.php`.
+

@@ -1,0 +1,76 @@
+date i18n "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+date i18n - Retrieve the date in localized format, based on timestamp.
+
+SYNOPSIS
+--------
+
+Retrieve the date in localized format, based on timestamp.
+
+If the locale specifies the locale month and weekday, then the locale
+will take over the format for the date. If it isn't, then the date
+format string will be used instead.
+
+[`i18n`](http://en.wikipedia.org/wiki/i18n "wikipedia:i18n") is an
+abbreviation for Internationalization. (There are 18 letters between the
+first "i" and last "n".)
+
+USAGE
+-----
+
+` <?php echo date_i18n( $dateformatstring, $unixtimestamp, $gmt ) ?> `
+
+PARAMETERS
+----------
+
+ `$dateformatstring` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Format to display the date.
+    Default: *None*
+
+ `$unixtimestamp` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Unix timestamp.
+    Default: false
+
+ `$gmt` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to convert to GMT for time.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   The date, translated if locale specifies it.
+
+EXAMPLES
+--------
+
+Depending on your blog settings you will see the date displayed in your
+local format, for example: 15. november 1976.
+
+    <?php echo date_i18n(get_option('date_format') ,strtotime("11/15-1976"));?>
+
+NOTES
+-----
+
+-   See Also: [Formatting Date and
+    Time](/Formatting_Date_and_Time "Formatting Date and Time")
+-   Uses global: (`object`) `$wp_locale` handles the date and time
+    locales.
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+
+SOURCE FILE
+-----------
+
+`date_i18n()` is located in `wp-includes/functions.php`.
+

@@ -1,0 +1,84 @@
+has post thumbnail "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+has post thumbnail - Returns a boolean if a post has a Featured Image (formerly known as Post
+
+SYNOPSIS
+--------
+
+Returns a boolean if a post has a Featured Image (formerly known as Post
+Thumbnail) attached (true) or not (false).
+
+**Note:** To enable featured images, nee post thumbnails, the current
+theme must include `add_theme_support( 'post-thumbnails' );` in its
+`functions.php` file. See also [Post
+Thumbnails](/Post_Thumbnails "Post Thumbnails").
+
+USAGE
+-----
+
+`  <?php has_post_thumbnail( $post_id ); ?> `
+
+PARAMETERS
+----------
+
+ `post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID.
+    Default: 'ID', the post ID.
+
+EXAMPLES
+--------
+
+This example first checks if there is a [Post
+Thumbnail](http://codex.wordpress.org/Post_Thumbnails "http://codex.wordpress.org/Post_Thumbnails")
+(aka Feature Image) set for the current queried item. If there is a Post
+Thumbnail set, it returns the Post Thumbnail. If not, it echoes out a
+default image which should be located in the current theme's image
+folder (assuming the folder is in the theme's root directory).
+
+    <?php
+    // Must be inside a loop.
+
+    if ( has_post_thumbnail() ) {
+        the_post_thumbnail();
+    }
+    else {
+        echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/thumbnail-default.jpg" />';
+    }
+    ?>
+
+**Note The above code apparently fails in some instances and the below
+code is "recommended"**
+
+    <?php 
+
+    if ( '' != get_the_post_thumbnail() ) {
+        // some code
+    } else {
+        // some code
+    }
+
+
+    ?>
+
+You can use
+[set\_post\_thumbnail\_size()](http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size "http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size")
+to set a default size for your thumbnail. Alternatively, you can add new
+image sizes to the defaults by use
+[add\_image\_size()](http://codex.wordpress.org/Function_Reference/add_image_size "http://codex.wordpress.org/Function_Reference/add_image_size").
+
+CHANGELOG
+---------
+
+-   Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+SOURCE FILE
+-----------
+
+`has_post_thumbnail()` is located in
+`wp-includes/post-thumbnail-template.php`.
+

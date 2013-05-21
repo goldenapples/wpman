@@ -1,0 +1,60 @@
+maybe add existing user to blog "MAY 2013" WordPress Codex "Function Reference"
+===============================================================================
+
+NAME
+----
+
+maybe add existing user to blog - Add a new user to a blog by visiting `/newbloguser/username/`.
+
+SYNOPSIS
+--------
+
+Add a new user to a blog by visiting `/newbloguser/username/`.
+
+This will only work when the user's details are saved as an option keyed
+as 'new\_user\_x', where 'x' is the username of the user to be added, as
+when a user is invited through the regular WP Add User interface.
+
+The details must at least contain values for the following keys:
+
+-   `$details['user_id']` - (integer) the ID of the user being added to
+    the blog
+-   `$details['role']` - (string) the role to be assigned to the user in
+    the blog
+
+USAGE
+-----
+
+` <?php maybe_add_existing_user_to_blog(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept parameters, pertinent information is
+passed by saving it in the options as described in Description. This
+information is then removed from options once the data has been
+extracted.
+
+RETURN VALUE
+------------
+
+This function does not return. Rather, the thread is terminated with
+wp\_die(), displaying a message indicating success or failure.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`maybe_add_existing_user_to_blog()` is located in
+`wp-includes/ms-functions.php`
+

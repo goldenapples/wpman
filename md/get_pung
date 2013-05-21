@@ -1,0 +1,66 @@
+get pung "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+get pung - Retrieve URLs already [pinged](/Glossary#Ping "Glossary") for a post.
+
+SYNOPSIS
+--------
+
+Retrieve URLs already [pinged](/Glossary#Ping "Glossary") for a post.
+
+USAGE
+-----
+
+` <?php get_pung( $post_id ) ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   Returns array of pinged URLs.
+
+EXAMPLES
+--------
+
+       <?php 
+       $pinged_posts = get_pung( $post->ID );
+       foreach ( $pinged_posts as $pinged_post ) :
+               if (!empty($pinged_post) ) {
+           echo 'Incoming Link: <a href="'.$pinged_post.'" rel="external">'.$pinged_post.'</a>';
+               }
+       endforeach; 
+       ?>
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") to retrieve
+    pinged URLs from the
+    [`_posts table`](/Database_Description#Table:_wp_posts "Database Description")
+    in the database.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    on `'get_pung'` on pinged URLs.
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_pung()` is located in `wp-includes/post.php`.
+

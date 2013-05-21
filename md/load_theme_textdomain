@@ -1,0 +1,114 @@
+load theme textdomain "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+load theme textdomain - Loads the theme's translated strings.
+
+SYNOPSIS
+--------
+
+Loads the theme's translated strings.
+
+If the current locale exists as a .mo file in the theme's root
+directory, it will be included in the translated strings by the
+`$domain`.
+
+The .mo files must be **named based on the locale exactly**, `sv_SE.mo`
+for example.
+
+USAGE
+-----
+
+` <?php load_theme_textdomain( $domain, $path ) ?> `
+
+PARAMETERS
+----------
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Unique identifier for retrieving translated strings.
+    Default: *None*
+
+ `$path` 
+:   ([*unknown*](/How_to_Pass_Tag_Parameters#Unknown "How to Pass Tag Parameters"))
+    (*optional*) The directory where the .mo file can be found (without
+    the trailing slash).
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (bool) 
+:   This function return TRUE as textdomain well loaded, FALSE on
+    failure.
+
+EXAMPLES
+--------
+
+### 1st example
+
+The load\_theme\_textdomain() function should generally be called from
+within the
+[after\_setup\_theme](/Plugin_API/Action_Reference/after_setup_theme "Plugin API/Action Reference/after setup theme")
+action hook.
+
+    add_action('after_setup_theme', 'my_theme_setup');
+    function my_theme_setup(){
+        load_theme_textdomain('my_theme', get_template_directory() . '/languages');
+    }
+
+The `.mo` files must use language-only filenames, like
+`languages/de_DE.mo` in your theme directory.
+
+Unlike plugin language files, a name like `my_theme-de_DE.mo` will **NOT
+work**. Although plugin language files allow you to specify the
+text-domain in the filename, this will NOT work with themes. Language
+files for themes should include the language shortcut ONLY.
+
+### 2nd example
+
+you can use this example if you wish to switch theme language using a
+variable passed within the URL, for example to load the Tamazikht
+language, your URL would look like; `www.example.com/?l=tz_MA`, this
+will search for a `.mo` file with name `tz_MA.mo` in the language
+directory inside your theme.
+
+    // CHANGE LOCAL LANGUAGE
+        // must be called before load_theme_textdomain()
+        add_filter( 'locale', 'my_theme_localized' );
+        function my_theme_localized($locale) {
+            if (isset($_GET['l'])) {
+                return $_GET['l'];
+            }
+            return $locale;
+        }
+
+    // SET THEME LANGUAGES DIRECTORY
+        // Theme translations can be filed in the my_theme/languages/ directory
+        // Wordpress translations can be filed in the wp-content/languages/ directory
+        load_theme_textdomain( 'my_theme', TEMPLATEPATH . '/languages' );
+
+NOTES
+-----
+
+Internationalization and localization (other correct spellings are
+internationalisation and localisation) are means of adapting computer
+software to different languages.
+
+-   *l10n* is an abbreviation for *localization*.
+-   *i18n* 18 stands for the number of letters between the first i and
+    last n in *internationalization*.
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`load_theme_textdomain()` is located in
+[wp-includes/l10n.php](http://core.trac.wordpress.org/browser/tags/3.2.1/wp-includes/l10n.php "http://core.trac.wordpress.org/browser/tags/3.2.1/wp-includes/l10n.php").
+

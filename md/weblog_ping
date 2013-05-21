@@ -1,0 +1,67 @@
+weblog ping "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+weblog ping - Send a [pingback](/Glossary#Pingback "Glossary").
+
+SYNOPSIS
+--------
+
+Send a [pingback](/Glossary#Pingback "Glossary").
+
+USAGE
+-----
+
+` <?php weblog_ping( $server, $path ) ?> `
+
+PARAMETERS
+----------
+
+ `$server` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Host of blog to connect to.
+    Default: ''
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path to send the ping.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`string`) `$wp_version` holds the installed WordPress
+    version number.
+-   Uses: [IXR\_Client](/XML-RPC_Support "XML-RPC Support") WordPress
+    class.
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+    to retrieve the `'home'` option.
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+    to retrieve the `'blogname'` option.
+-   Uses:
+    [`get_bloginfo()`](/Function_Reference/get_bloginfo "Function Reference/get bloginfo")
+    to retrieve the `'rss2_url'`.
+
+CHANGE LOG
+----------
+
+Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`weblog_ping()` is located in `wp-includes/comment.php`.
+

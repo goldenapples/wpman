@@ -1,0 +1,64 @@
+wp send json error "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+wp send json error - Send a JSON response back to an Ajax request, indicating failure.
+
+SYNOPSIS
+--------
+
+Send a JSON response back to an Ajax request, indicating failure.
+
+USAGE
+-----
+
+` <?php wp_send_json_error( $data );$data = array( 'success' => false ); //if $data is empty ?> `
+
+PARAMETERS
+----------
+
+ `$data` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Data to encode as JSON, then print and die.
+    Default: null
+
+EXAMPLES
+--------
+
+    jQuery(document).ready(function(){
+
+        jQuery('#btn_save').click(function(e){
+           e.preventDefault();
+                    jQuery.post(pluginUrl+'ajax/save_field.php',jQuery('#my-form').serialize(), function(data) {                        
+                    alert(data.success);                
+                });
+        });
+
+    });
+
+save\_field.php
+
+    <?php
+    $nonce=$_POST['_wpnonce_name'];
+    if (empty($_POST) || !wp_verify_nonce($nonce, 'my-nonce') )
+        wp_send_json_error(); // sends json_encoded success=false
+
+NOTES
+-----
+
+Uses
+[wp\_send\_json()](/Function_Reference/wp_send_json "Function Reference/wp send json")
+to send response.
+
+CHANGE LOG
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`wp_send_json_error()` is located in `wp-includes/functions.php`
+

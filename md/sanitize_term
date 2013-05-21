@@ -1,0 +1,70 @@
+sanitize term "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+sanitize term - Sanitize Term all fields.
+
+SYNOPSIS
+--------
+
+Sanitize Term all fields.
+
+Relys on
+[`sanitize_term_field()`](/Function_Reference/sanitize_term_field "Function Reference/sanitize term field")
+to sanitize the term. The difference is that this function will sanitize
+**all** fields. The context is based on
+[`sanitize_term_field()`](/Function_Reference/sanitize_term_field "Function Reference/sanitize term field").
+
+The `$term` is expected to be either an array or an object.
+
+USAGE
+-----
+
+` <?php sanitize_term( $term, $taxonomy, $context ) ?> `
+
+PARAMETERS
+----------
+
+ `$term` 
+:   ([*array|object*](/How_to_Pass_Tag_Parameters#Array.7Cobject "How to Pass Tag Parameters"))
+    (*required*) The term to check.
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The taxonomy name to use.
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Default is '`display`'.
+    Default: 'display'
+
+RETURN VALUES
+-------------
+
+ (array|object) 
+:   Term with all fields sanitized
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`sanitize_term_field()`](/Function_Reference/sanitize_term_field "Function Reference/sanitize term field")
+    Used to sanitize all fields in a term
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`sanitize_term()` is located in `wp-includes/taxonomy.php`.
+

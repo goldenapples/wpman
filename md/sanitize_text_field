@@ -1,0 +1,45 @@
+sanitize text field "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+sanitize text field - Sanitize a string from user input or from the db.
+
+SYNOPSIS
+--------
+
+Sanitize a string from user input or from the db.
+
+Checks for invalid UTF-8, Convert single \< characters to entity, strip
+all tags, remove line breaks, tabs and extra white space, strip octets.
+
+USAGE
+-----
+
+` <?php sanitize_text_field( $str ) ?> `
+
+PARAMETERS
+----------
+
+ `$str` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) String to be sanitized.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Sanitized string.
+
+CHANGE LOG
+----------
+
+-   Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+SOURCE FILE
+-----------
+
+`sanitize_text_field()` is located in `wp-includes/formatting.php`
+

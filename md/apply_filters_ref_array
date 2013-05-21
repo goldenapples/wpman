@@ -1,0 +1,54 @@
+apply filters ref array "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+apply filters ref array - Execute functions hooked on a specific filter hook, specifying arguments
+
+SYNOPSIS
+--------
+
+Execute functions hooked on a specific filter hook, specifying arguments
+in an array.
+
+This function is identical to
+[apply\_filters](/Function_Reference/apply_filters "Function Reference/apply filters"),
+but the arguments passed to the functions hooked to `$tag` are supplied
+using an array.
+
+USAGE
+-----
+
+`  <?php apply_filters_ref_array( $tag, $arg ); ?> `
+
+PARAMETERS
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the action to be executed.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) The arguments supplied to the functions hooked to
+    `$tag`
+    Default: *None*
+
+EXAMPLE
+-------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 3.0.0
+
+SOURCE FILE
+-----------
+
+`apply_filters_ref_array()` is located in `wp-includes/plugin.php`.
+

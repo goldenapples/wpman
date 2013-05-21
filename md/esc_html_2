@@ -1,0 +1,49 @@
+esc html 2 "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+esc html 2 - Retrieves the translation of \$text and escapes it for safe use in HTML.
+
+SYNOPSIS
+--------
+
+Retrieves the translation of \$text and escapes it for safe use in HTML.
+If there is no translation, or the domain isn't loaded, the original
+text is returned.
+
+USAGE
+-----
+
+` <?php esc_html__( $text, $domain ) ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to translate.
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text.
+    Default: 'default'
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Translated and escaped text.
+
+CHANGE LOG
+----------
+
+-   Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+SOURCE FILE
+-----------
+
+`esc_html__()` is located in `wp-includes/l10n.php`.
+

@@ -1,0 +1,54 @@
+do action ref array "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+do action ref array - Execute functions hooked on a specific action hook, specifying arguments
+
+SYNOPSIS
+--------
+
+Execute functions hooked on a specific action hook, specifying arguments
+in an array.
+
+This function is identical to
+[do\_action](/Function_Reference/do_action "Function Reference/do action"),
+but the arguments passed to the functions hooked to `$tag` are supplied
+using an array.
+
+USAGE
+-----
+
+`  <?php do_action_ref_array( $tag, $arg ); ?> `
+
+PARAMETERS
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the action to be executed.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) The arguments supplied to the functions hooked to
+    `$tag`
+    Default: *None*
+
+EXAMPLE
+-------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`do_action_ref_array()` is located in `wp-includes/plugin.php`.
+

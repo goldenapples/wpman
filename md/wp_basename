@@ -1,0 +1,55 @@
+wp basename "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+wp basename - i18n friendly version of
+
+SYNOPSIS
+--------
+
+i18n friendly version of
+[`basename()`](http://www.php.net/manual/function.basename.php "http://www.php.net/manual/function.basename.php")
+
+USAGE
+-----
+
+` <?php wp_basename( $path, $suffix ) ?> `
+
+PARAMETERS
+----------
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) A path.
+    Default: *None*
+
+ `$suffix` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) If the file name ends in suffix this will also be cut
+    off.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 3.1.0
+
+SOURCE FILE
+-----------
+
+`wp_basename()` is located in `/wp-includes/formatting.php`.
+

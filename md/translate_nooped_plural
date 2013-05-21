@@ -1,0 +1,79 @@
+translate nooped plural "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+translate nooped plural - Translate the result of
+
+SYNOPSIS
+--------
+
+Translate the result of
+[`_n_noop()`](/Function_Reference/_n_noop "Function Reference/ n noop")
+or
+[`_nx_noop()`](/Function_Reference/_nx_noop "Function Reference/ nx noop")
+
+USAGE
+-----
+
+` <?php translate_nooped_plural( $nooped_plural, $count, $domain ) ?> `
+
+PARAMETERS
+----------
+
+ `$nooped_plural` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Array with singular, plural and context keys, usually
+    the result of
+    [`_n_noop()`](/Function_Reference/_n_noop "Function Reference/ n noop")
+    or
+    [`_nx_noop()`](/Function_Reference/_nx_noop "Function Reference/ nx noop")
+    Default: *None*
+
+ `$count` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Number of objects
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The domain identifier the text should be retrieved in
+    Default: 'default'
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Either `$singular` or `$plural` translated (context) string
+
+EXAMPLES
+--------
+
+    $messages = array(
+        'post' => _n_noop('%s post', '%s posts'),
+        'page' => _n_noop('%s pages', '%s pages')
+    );
+    ...
+    $message = $messages[$type];
+    $usable_text = sprintf( translate_nooped_plural( $message, $count, $domain ), $count );
+
+NOTES
+-----
+
+-   See
+    [`_n_noop()`](/Function_Reference/_n_noop "Function Reference/ n noop")
+    and
+    [`_nx_noop()`](/Function_Reference/_nx_noop "Function Reference/ nx noop")
+    for context
+
+CHANGE LOG
+----------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`translate_nooped_plural()` is located in `/wp-includes/l10n.php`.
+

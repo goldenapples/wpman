@@ -1,0 +1,53 @@
+auth redirect "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+auth redirect - Checks user is logged in, if not it redirects them to login page.
+
+SYNOPSIS
+--------
+
+Checks user is logged in, if not it redirects them to login page.
+
+When this code is called from a page, it checks to see if the user
+viewing the page is logged in. If the user is not logged in, they are
+redirected to the login page. The user is redirected in such a way that,
+upon logging in, they will be sent directly to the page they were
+originally trying to access.
+
+USAGE
+-----
+
+` <?php auth_redirect(); ?> `
+
+PARAMETERS
+----------
+
+This function accepts no parameters.
+
+RETURN VALUES
+-------------
+
+Function redirects or exits, does not return
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+As a pluggable function, you can redefine it and your version will be
+used instead.
+
+CHANGE LOG
+----------
+
+Since: [1.5](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+auth\_redirect() is located in `wp-includes/pluggable.php`
+

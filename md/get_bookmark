@@ -1,0 +1,80 @@
+get bookmark "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get bookmark - Retrieve Bookmark data based on bookmark link ID.
+
+SYNOPSIS
+--------
+
+Retrieve Bookmark data based on bookmark link ID.
+
+USAGE
+-----
+
+` <?php get_bookmark( $bookmark, $output, $filter ) ?> `
+
+PARAMETERS
+----------
+
+ `$bookmark` 
+:   ([*integer|object*](/How_to_Pass_Tag_Parameters#Integer.7Cobject "How to Pass Tag Parameters"))
+    (*required*) Bookmark link ID or Bookmark object.
+    Default: *None*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Either OBJECT, ARRAY\_N, or ARRAY\_A constant
+    Default: OBJECT
+
+ `$filter` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) default is '`raw`'.
+    Default: 'raw'
+
+RETURN VALUES
+-------------
+
+ (array|object) 
+:   Type returned depends on `$output` value.
+
+EXAMPLES
+--------
+
+### Display Bookmark Name
+
+    <?php 
+    $bookmark = get_bookmark(5);
+    echo $bookmark->link_name; 
+    ?>
+
+or:
+
+    <?php echo get_bookmark(5)->link_name; ?>
+
+### Display Bookmark as a Link
+
+    <?php  
+    $bookmark = get_bookmark(5);
+    echo '<a href="'.$bookmark->link_url.'">'.$bookmark->link_name.'</a>';
+    ?>
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") Database
+    Object
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`get_bookmark()` is located in `wp-includes/bookmark.php`.
+

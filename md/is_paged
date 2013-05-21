@@ -1,0 +1,58 @@
+is paged "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+is paged - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+page being displayed is "paged" and the current page number is greater
+than one. This is a boolean function, meaning it returns either TRUE or
+FALSE.
+
+**Note**: This refers to an archive or the main page being split up over
+several pages, this does **not** refer to a Post or
+[Page](/Pages "Pages") whose content has been divided into pages using
+the `<!--nextpage-->`
+[QuickTag](/Write_Post_SubPanel#Quicktags "Write Post SubPanel").
+
+USAGE
+-----
+
+` <?php is_paged(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   `true` on success, `false` on failure.
+
+EXAMPLES
+--------
+
+If you need to check which page of the blog you are on, you can look in
+\$wp\_query-\>query\_vars['paged']. Remember that inside functions you
+might have to global \$wp\_query first.
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+`is_paged()` is located in `wp-includes/query.php`.
+

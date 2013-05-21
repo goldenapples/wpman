@@ -1,0 +1,98 @@
+wpautop "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+wpautop - Changes double line-breaks in the text into HTML paragraphs
+
+SYNOPSIS
+--------
+
+Changes double line-breaks in the text into HTML paragraphs
+(`<p>...</p>`).
+
+WordPress uses it to filter [the
+content](/Template_Tags/the_content "Template Tags/the content") and
+[the excerpt](/Template_Tags/the_excerpt "Template Tags/the excerpt").
+
+USAGE
+-----
+
+`  <?php wpautop( $foo, $br ); ?> `
+
+PARAMETERS
+----------
+
+ `$foo` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be formatted.
+    Default: *None*
+
+ `$br` 
+:   ([*boolean or
+    integer*](/How_to_Pass_Tag_Parameters#Boolean_or_integer "How to Pass Tag Parameters"))
+    (*optional*) Preserve line breaks. When set to true, any line breaks
+    remaining after paragraph conversion are converted to HTML `<br />`.
+    Line breaks within `script` and `style` sections are not affected.
+    Default: 1
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Text which has been converted into correct paragraph tags.
+
+EXAMPLES
+--------
+
+### Basic usage
+
+    <?php
+    $some_long_text = <<<TXT
+    Some long text
+    that has many lines
+
+    and paragraphs in it.
+    TXT;
+
+    echo wpautop($some_long_text);
+    ?>
+
+This should echo the string with \<p\> tags around the paragraphs, like
+this:
+
+    <p>Some long text<br/>
+    that has many lines</p>
+    <p>and paragraphs in it.</p>
+
+NOTES
+-----
+
+### Disabling the filter
+
+Some people choose to disable the wpautop filter from within their
+theme's `functions.php`:
+
+    remove_filter( 'the_content', 'wpautop' );
+    remove_filter( 'the_excerpt', 'wpautop' );
+
+There's also a
+[plugin](http://wordpress.org/extend/plugins/wpautop-control/ "http://wordpress.org/extend/plugins/wpautop-control/")
+available to enable/disable the filter on a post-by-post basis.
+
+CHANGELOG
+---------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`wpautop()` is located in `wp-includes/formatting.php`.
+
+RESOURCES
+---------
+
+[http://ma.tt/scripts/autop/](http://ma.tt/scripts/autop/ "http://ma.tt/scripts/autop/")
+

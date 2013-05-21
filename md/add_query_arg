@@ -1,0 +1,107 @@
+add query arg "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+add query arg - Retrieve a modified URL (with) query string.
+
+SYNOPSIS
+--------
+
+Retrieve a modified URL (with) query string.
+
+You can rebuild the URL and append a new query variable to the URL query
+by using this function. You can also retrieve the full URL with query
+data.
+
+Adding a single key & value or an associative array. Setting a key value
+to `false` removes it from the query. Omitting the old query or the uri
+(second or third parameter) uses the `$_SERVER` value.
+
+USAGE
+-----
+
+` <?php  # Parameters as separate arguments  add_query_arg( $param1, $param2, $old_query_or_uri );  # Parameters as array of key => value pairs  add_query_arg( array('key1' => 'value1', ...), $old_query_or_uri );?> `
+
+PARAMETERS
+----------
+
+ `$param1` 
+:   ([*integer|string|array*](/How_to_Pass_Tag_Parameters#Integer.7Cstring.7Carray "How to Pass Tag Parameters"))
+    (*required*) Either newkey or an associative array.
+    Default: *None*
+
+ `$param2` 
+:   ([*integer|string|boolean*](/How_to_Pass_Tag_Parameters#Integer.7Cstring.7Cboolean "How to Pass Tag Parameters"))
+    (*optional*) Either newvalue (or the old query or the uri if first
+    parameter is an associative array).
+    Default: *None*
+
+ `$old_query_or_uri` 
+:   ([*string|boolean*](/How_to_Pass_Tag_Parameters#String.7Cboolean "How to Pass Tag Parameters"))
+    (*optional*) The old query or the uri.
+    Default: `$_SERVER[REQUEST_URI]`
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   New URL query string.
+
+EXAMPLES
+--------
+
+Assuming we're at the WordPress URL
+"[http://blog.example.com/client/?s=word](http://blog.example.com/client/?s=word "http://blog.example.com/client/?s=word")"...
+
+    //  This would output '/client/?s=word&foo=bar'
+    echo add_query_arg( 'foo', 'bar' );
+
+    //  This would output '/client/?s=word&foo=bar&baz=tiny'
+    $arr_params = array ( 'foo' => 'bar', 'baz' => 'tiny' );
+    echo add_query_arg( $arr_params );
+
+More often than not you'll probably find yourself creating URLs using
+the following method within the page you're currently on. In these cases
+you can use the URL you want to affect as the last parameter.
+
+    //  This would output 'http://blog.example.com/2009/04/16/?hello=world'
+    echo add_query_arg( 'hello', 'world', 'http://blog.example.com/2009/04/16/' );
+
+Since
+[get\_permalink()](/Template_Tags/get_permalink "Template Tags/get permalink")
+returns a full URL, you could use that when you want to add variables to
+a post's page.
+
+    //  This would output whatever the URL to post ID 9 is, with 'hello=there' appended with either ? or &, depending on what's needed
+    echo add_query_arg( 'hello', 'there', get_permalink(9) );
+
+Removing values and setting via an associative array:
+
+    $query = 'http://example.com/link?foo=bar';
+    $new_query = add_query_arg(array('foo' => false, 'baz' => 'qux'), $query);
+    // result: http://example.com/link?baz=qux
+
+NOTES
+-----
+
+-   Uses:
+    [`build_query()`](/Function_Reference/build_query "Function Reference/build query")
+-   Uses:
+    [`urlencode_deep()`](/Function_Reference/urlencode_deep "Function Reference/urlencode deep")
+-   Uses:
+    [`wp_parse_str()`](/Function_Reference/wp_parse_str "Function Reference/wp parse str")
+
+CHANGE LOG
+----------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"): Simplify protocol stripping in
+    add\_query\_arg() by avoiding a regular expression.
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+`add_query_arg()` is located in `wp-includes/functions.php`.
+

@@ -1,0 +1,96 @@
+is email address unsafe "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+is email address unsafe - Checks an email address against a list of banned domains.
+
+SYNOPSIS
+--------
+
+Checks an email address against a list of banned domains.
+
+This function checks against the Banned Email Domains list at
+wp-admin/network/settings.php. The check is only run on
+self-registrations; user creation at wp-admin/network/users.php bypasses
+this check.
+
+As of [3.5](/Version_3.5 "Version 3.5"), this function was made
+marginally less aggressive due to legitimate domains matching as
+partials of banned domains or sub-domains of banned domains.
+
+USAGE
+-----
+
+` <?php is_email_address_unsafe( $user_email ); ?> `
+
+PARAMETERS
+----------
+
+ `$user_email` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The email provided by the user at registration.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(bool)`{style="color:gray"} 
+:   Returns true when the email address is banned.
+
+SOURCE FILE
+-----------
+
+`is_email_address_unsafe()` is located in `wp-includes/ms-functions.php`
+
+CHANGELOG
+---------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"): Made less aggressive toward
+    legitimate domains partially matching against banned ones.
+-   Since: WPMU
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/is\_email\_address\_unsafe](http://codex.wordpress.org/Function_Reference/is_email_address_unsafe)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

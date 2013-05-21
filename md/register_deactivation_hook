@@ -1,0 +1,72 @@
+register deactivation hook "MAY 2013" WordPress Codex "Function Reference"
+==========================================================================
+
+NAME
+----
+
+register deactivation hook - The function **register\_deactivation\_hook** (introduced in WordPress
+
+SYNOPSIS
+--------
+
+The function **register\_deactivation\_hook** (introduced in WordPress
+2.0) registers a plugin function to be run when the plugin is
+deactivated.
+
+USAGE
+-----
+
+`  <?php register_deactivation_hook($file, $function); ?> `
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Path to the [main plugin
+    file](/Writing_a_Plugin#Plugin_Files "Writing a Plugin") inside the
+    `wp-content/plugins` directory. A full path will work.
+    Default: *None*
+
+ `$function` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) The function to be run when the plugin is deactivated.
+    Any of [PHP's callback
+    pseudo-types](http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback "http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback")
+    will work.
+    Default: *None*
+
+EXAMPLES
+--------
+
+If you have a function called `myplugin_deactivate()` in the [main
+plugin file](/Writing_a_Plugin#Plugin_Files "Writing a Plugin") at
+either
+
+-   `wp-content/plugins/myplugin.php` or
+-   `wp-content/plugins/myplugin/myplugin.php`
+
+use this code:
+
+    register_deactivation_hook( __FILE__, 'myplugin_deactivate' );
+
+This will call the `myplugin_deactivate()` function on deactivation of
+the plugin.
+
+DISCUSSIONS
+-----------
+
+A good example for a basic activation/deactivation/uninstall class by
+"kaiser" can be found here on WPSE:
+[http://wordpress.stackexchange.com/questions/25910/uninstall-a-plugin-method-typical-features-how-to/25979\#25979](http://wordpress.stackexchange.com/questions/25910/uninstall-a-plugin-method-typical-features-how-to/25979#25979 "http://wordpress.stackexchange.com/questions/25910/uninstall-a-plugin-method-typical-features-how-to/25979#25979")
+
+CHANGE LOG
+----------
+
+Since: [2.0](/Version_2.0 "Version 2.0")
+
+SOURCE FILE
+-----------
+
+`register_deactivation_hook()` is located in `wp-includes/plugin.php`
+

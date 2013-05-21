@@ -1,0 +1,52 @@
+the category ID "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+the category ID - Displays or returns the numeric ID of the category a post belongs to.
+
+SYNOPSIS
+--------
+
+Displays or returns the numeric ID of the category a post belongs to.
+This tag must be used within [The Loop](/The_Loop "The Loop").
+
+REPLACE WITH
+------------
+
+This tag was deprecated when multiple categories were added to
+WordPress, and there is no one-to-one correspondence with another tag.
+This PHP code block provides an example for how you can replace it:
+
+    <?php 
+    foreach((get_the_category()) as $category) { 
+        echo $category->cat_ID . ' '; 
+    } ?>
+
+USAGE
+-----
+
+`  <?php the_category_ID( $echo ); ?> `
+
+PARAMETERS
+----------
+
+ echo 
+:   (*boolean*) Display the category ID (`TRUE`) or return it for use in
+    PHP (`FALSE`). Defaults to `TRUE`.
+
+EXAMPLE
+-------
+
+Displays a corresponding image for each category.
+
+    <img src="<?php the_category_ID(); ?>.gif" />
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+-   Deprecated: ?
+-   Replace By: none
+

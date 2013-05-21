@@ -1,0 +1,49 @@
+get author template "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+get author template - Retrieve path of author template in current or parent template.
+
+SYNOPSIS
+--------
+
+Retrieve path of author template in current or parent template.
+
+USAGE
+-----
+
+` <?php get_author_template() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Returns result from
+    [`get_query_template('author')`](/Function_Reference/get_query_template "Function Reference/get query template")
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_query_template()`](/Function_Reference/get_query_template "Function Reference/get query template");
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_author_template()` is located in `wp-includes/theme.php`.
+

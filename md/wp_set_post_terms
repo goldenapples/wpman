@@ -1,0 +1,92 @@
+wp set post terms "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+wp set post terms - Set terms for a post.
+
+SYNOPSIS
+--------
+
+Set terms for a post.
+
+Uses `wp_set_object_terms()`.
+
+USAGE
+-----
+
+` <?php wp_set_post_terms( $post_id, $terms, $taxonomy, $append ) ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID.
+    Default: 0
+
+ `$terms` 
+:   ([*string,array*](/How_to_Pass_Tag_Parameters#String.2Carray "How to Pass Tag Parameters"))
+    (*optional*) List of tags. Can be an array or a comma separated
+    string. If you want to enter categories, then use ids. If you want
+    to add tags, then use names.
+    Default: array
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Possible values for example: 'category', 'post\_tag',
+    'taxonomy slug'
+    Default: post\_tag
+
+ `$append` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If true, tags will be appended to the post. If false,
+    tags will replace existing tags.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ `(array|boolean|WP_Error|string)` 
+:   
+
+-   (array) An array of the terms affected if successful,
+-   (boolean) false if integer value of \$post\_id evaluates as false
+    (`if ( ! (int) $post_id )`),
+-   (WP\_Error) The WordPress Error object on invalid taxonomy
+    (`'invalid_taxonomy'`).
+-   (string) The first offending term if a term given in the \$terms
+    parameter is named incorrectly. (Invalid term ids are accepted and
+    inserted).
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+Hierarchical terms must always pass the id rather than the term name to
+avoid confusion where there may be another child with the same name.
+
+To get the term id you can use:
+
+    $term_id = term_exists( $term, $taxonomy, $parent );
+
+You may also need to pass by reference:
+
+    wp_set_post_terms( $post_id, $term, &$taxonomy );
+
+-   Uses:
+    [`wp_set_object_terms()`](/Function_Reference/wp_set_object_terms "Function Reference/wp set object terms")
+
+CHANGE LOG
+----------
+
+Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+SOURCE FILE
+-----------
+
+`wp_set_post_terms()` is located in `wp-includes/post.php`.
+

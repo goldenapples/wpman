@@ -1,0 +1,44 @@
+comment author IP "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+comment author IP - Displays the comment author's [IP
+
+SYNOPSIS
+--------
+
+Displays the comment author's [IP
+address](/Glossary#IP_address "Glossary"). This tag must be within [The
+Loop](/The_Loop "The Loop"), or a comment loop.
+
+Use
+[get\_comment\_author\_IP](/index.php?title=Template_Tags/get_comment_author_IP&action=edit&redlink=1 "Template Tags/get comment author IP (page does not exist)")
+to retrieve the value.
+
+USAGE
+-----
+
+`  <?php comment_author_IP($comment_ID); ?> `
+
+EXAMPLE
+-------
+
+Posted from: \<?php comment\_author\_IP(); ?\>
+
+PARAMETERS
+----------
+
+ `comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the comment for which to print the author's
+    IP address.
+    Default: *None*
+
+CHANGELOG
+---------
+
+-    ? : Added the 'comment\_ID' parameter.
+-   Since: 0.71
+

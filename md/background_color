@@ -1,0 +1,45 @@
+background color "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+background color - Display background color for the current active theme.
+
+SYNOPSIS
+--------
+
+Display background color for the current active theme.
+
+USAGE
+-----
+
+` <?php background_color(); ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 3.0.0
+
+SOURCE FILE
+-----------
+
+`background_color()` is located in `wp-includes/theme.php`.
+

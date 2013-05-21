@@ -1,0 +1,59 @@
+do all pings "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+do all pings - Perform all pingbacks, enclosures, trackbacks, and send to pingback
+
+SYNOPSIS
+--------
+
+Perform all pingbacks, enclosures, trackbacks, and send to pingback
+services.
+
+USAGE
+-----
+
+` <?php do_all_pings() ?> `
+
+PARAMETERS
+----------
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See Reads from the [`_posts`
+    table](/Database_Description#Table:_wp_posts "Database Description")
+    from the database.
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`pingback()`](/Function_Reference/pingback "Function Reference/pingback")
+-   Uses:
+    [`do_enclose()`](/Function_Reference/do_enclose "Function Reference/do enclose")
+-   Uses:
+    [`do_trackbacks()`](/Function_Reference/do_trackbacks "Function Reference/do trackbacks")
+-   Uses:
+    [`generic_ping()`](/Function_Reference/generic_ping "Function Reference/generic ping")
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`do_all_pings()` is located in `wp-includes/comment.php`.
+

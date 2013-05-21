@@ -1,0 +1,49 @@
+wp remote retrieve body "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+wp remote retrieve body - Retrieve only the body from the raw response.
+
+SYNOPSIS
+--------
+
+Retrieve only the body from the raw response.
+
+USAGE
+-----
+
+` <?php $body = wp_remote_retrieve_body(&$response); ?> `
+
+PARAMETERS
+----------
+
+ `$response` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) HTTP response.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   The body of the response. Empty string if no body or incorrect
+    parameter given.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+SOURCE FILE
+-----------
+
+wp\_remote\_retrieve\_body() is located in `wp-includes/http.php`
+

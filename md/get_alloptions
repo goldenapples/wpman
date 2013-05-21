@@ -1,0 +1,61 @@
+get alloptions "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+get alloptions - Retrieve all autoload options or all options, if no autoloaded ones
+
+SYNOPSIS
+--------
+
+Retrieve all autoload options or all options, if no autoloaded ones
+exist.
+
+This is different from
+[`wp_load_alloptions()`](/Function_Reference/wp_load_alloptions "Function Reference/wp load alloptions")
+in that this function does not cache its results and will retrieve all
+options from the database every time it is called.
+
+USAGE
+-----
+
+` <?php get_alloptions() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   List of all options.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`pre_option_$optionname`' hook with option value as
+    parameter.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`all_options`' on options list.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`get_alloptions()` is located in `wp-includes/functions.php`.
+

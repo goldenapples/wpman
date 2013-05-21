@@ -1,0 +1,48 @@
+the author icq "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+the author icq - Displays the ICQ number for the author of a post. Prior to [WordPress
+
+SYNOPSIS
+--------
+
+Displays the ICQ number for the author of a post. Prior to [WordPress
+2.0](/Version_2.0 "Version 2.0"), the **ICQ** field was set in the
+user's profile, but the field is currently not accessible in the
+[Administration](/Administration_Panels "Administration Panels") \>
+[Profile](/Administration_Panels#Your_Profile "Administration Panels")
+\> [Your Profile](/Your_Profile_SubPanel "Your Profile SubPanel") panel.
+This tag must be used within [The Loop](/The_Loop "The Loop").
+
+REPLACE WITH
+------------
+
+No replacement exists for this template tag, as the field was removed
+from the [Profile
+panel](/Your_Profile_SubPanel "Your Profile SubPanel").
+
+USAGE
+-----
+
+`  <?php the_author_icq(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+EXAMPLE
+-------
+
+    <p>Contact me on ICQ: <?php the_author_icq(); ?></p>
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+-   Deprecated: ?
+-   Replace By: none
+

@@ -1,0 +1,44 @@
+wp deregister style "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+wp deregister style - Remove a CSS file that was registered with
+
+SYNOPSIS
+--------
+
+Remove a CSS file that was registered with
+[wp\_register\_style()](/Function_Reference/wp_register_style "Function Reference/wp register style").
+
+USAGE
+-----
+
+` <?php wp_deregister_style( $handle ) ?> `
+
+PARAMETERS
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the registered stylesheet.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+CHANGE LOG
+----------
+
+-   Since: [2.1](/Version_2.1 "Version 2.1") (BackPress version: r79)
+
+SOURCE FILE
+-----------
+
+`wp_deregister_style()` is located in
+`wp-includes/functions.wp-styles.php`.
+

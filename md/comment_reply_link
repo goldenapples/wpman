@@ -1,0 +1,82 @@
+comment reply link "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+comment reply link - Displays a link that lets users post a comment in reply to a specific
+
+SYNOPSIS
+--------
+
+Displays a link that lets users post a comment in reply to a specific
+comment.
+
+If JavaScript is enabled and the `comment-reply.js` JavaScript is loaded
+the link moves the comment form to just below the comment.
+
+USAGE
+-----
+
+`  <?php comment_reply_link( $args, $comment, $post ); ?> `
+
+PARAMETERS
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Associative array of options (see below)
+    Default: array
+
+ `$comment` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) ID of comment being replied to.
+    Default: null
+
+ `$post` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) ID of post that comment is going to be displayed on.
+    Default: null
+
+ARGUMENTS
+---------
+
+All of the following argument can be overridden using the \$args
+parameter.
+
+ add\_below 
+:   (*string*) are for the JavaScript moveAddCommentForm() function
+    parameters.\
+    Defaults to 'comment'. Concatenated as '`{$add_below}-{$id}`' i.e.
+    the comment container's id should be '`comment-23`'.
+ respond\_id 
+:   (*string*) are for the JavaScript moveAddCommentForm() function
+    parameters. Defaults to 'respond'
+ reply\_text 
+:   (*string*) only used if they can post a reply. Defaults to 'Reply'.
+ login\_text 
+:   (*string*) only used if the user must log in or register first
+    before posting a comment. Defaults to 'Log in to leave a comment'.
+ depth 
+:   (*integer*)
+ before 
+:   ("string") the html or text to add before the reply link
+ after 
+:   ("string") the html or text to add after the reply link
+
+NOTES
+-----
+
+-   Uses:
+    [get\_comment\_reply\_link()](/Function_Reference/get_comment_reply_link "Function Reference/get comment reply link")
+
+CHANGE LOG
+----------
+
+Since: 2.7.0
+
+SOURCE FILE
+-----------
+
+`comment_reply_link()` is located in `wp-includes/comment-template.php`.
+

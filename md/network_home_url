@@ -1,0 +1,73 @@
+network home url "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+network home url - The **network\_home\_url** template tag retrieves the home url for the
+
+SYNOPSIS
+--------
+
+The **network\_home\_url** template tag retrieves the home url for the
+current network with the appropriate protocol, 'https' if
+[is\_ssl()](/Function_Reference/is_ssl "Function Reference/is ssl") and
+'http' otherwise. If [scheme](#Parameters) is 'http' or 'https',
+is\_ssl() is overridden.
+
+In case of non network setup, use
+[home\_url()](/Function_Reference/home_url "Function Reference/home url")
+instead.
+
+USAGE
+-----
+
+` <?php network_home_url( $path, $scheme ); ?> `
+
+PARAMETERS
+----------
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path relative to the home url.
+    Default: *None*
+
+ `$scheme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Scheme to give the home url context. Currently
+    'http','https'.
+    Default: null
+
+RETURN
+------
+
+ (string) 
+:   Home url link with optional path appended.
+
+EXAMPLE
+-------
+
+    $url = network_home_url();
+    echo $url;
+
+Output:
+[http://www.example.com](http://www.example.com "http://www.example.com")
+
+(Note the lack of a trailing slash)
+
+NOTES
+-----
+
+-   Uses
+    [home\_url()](/Function_Reference/home_url "Function Reference/home url")
+
+CHANGELOG
+---------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE CODE
+-----------
+
+`network_home_url()` is located in `wp-includes/link-template.php`.
+

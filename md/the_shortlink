@@ -1,0 +1,98 @@
+the shortlink "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+the shortlink - Used on single post [permalink](/Glossary#Permalink "Glossary") pages,
+
+SYNOPSIS
+--------
+
+Used on single post [permalink](/Glossary#Permalink "Glossary") pages,
+this template tag displays a "URL shortening" link for the current post.
+By default, this will mean the URL has a format of /?p=1234, and will
+only appear if pretty permalinks are enabled.
+
+However, this feature is limited by design and intended to be leveraged
+by plugins that may offer links in a different format, a custom format,
+or even a format provided by a third-party URL shortening service. Refer
+to
+[get\_permalink()](/Template_Tags/get_permalink "Template Tags/get permalink")
+if you want to return the permalink to a post for use in PHP.
+
+This tag can be used outside of [The Loop](/The_Loop "The Loop").
+
+**Note**: This function outputs the complete shortlink for the post, to
+return the shortlink use
+[wp\_get\_shortlink()](/Function_Reference/wp_get_shortlink "Function Reference/wp get shortlink").
+
+USAGE
+-----
+
+`  <?php the_shortlink( $text, $title, $before, $after ); ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Link text to display.
+    Default: 'This is the short link.'
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Tool-tip text displayed with the link.
+    Default: post title
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text or HTML prefix added to the link.
+    Default: *None*
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text or HTML suffix added to the link.
+    Default: *None*
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Displays link with "The is the short link." as the text.
+
+[The is the short
+link.](http://blog.example.com/?p=1234 "http://blog.example.com/?p=1234")
+
+`  <?php the_shortlink(); ?> `
+
+### Custom Text
+
+Displays link with the specified text.
+
+[Shortlinkage
+FTW](http://blog.example.com/?p=1234 "http://blog.example.com/?p=1234")
+
+`  <?php the_shortlink(__('Shortlinkage FTW')); ?> `
+
+### Conditional HTML
+
+Displays link with prefix and suffix HTML that will appear only when the
+shortlink URL is available.
+
+-   [short
+    link](http://blog.example.com/?p=1234 "http://blog.example.com/?p=1234")
+
+`  <?php the_shortlink('short link', null, '<ul><li>', '</li></ul>'); ?> `
+
+SOURCE FILE
+-----------
+
+`the_shortlink()` is located in `wp-includes/link-template.php`.
+
+CHANGE LOG
+----------
+
+-   Since: 3.0.0
+

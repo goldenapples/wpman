@@ -1,0 +1,94 @@
+apply filters "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+apply filters - Call the functions added to a filter hook. See the [Plugin
+
+SYNOPSIS
+--------
+
+Call the functions added to a filter hook. See the [Plugin
+API](/Plugin_API "Plugin API") for a list of filter hooks.
+
+The callback functions attached to filter hook `$tag` are invoked by
+calling this function. This function can be used to create a new filter
+hook by simply calling this function with the name of the new hook
+specified using the `$tag` parameter.
+
+USAGE
+-----
+
+`  <?php apply_filters( $tag, $value, $var ... ); ?> `
+
+PARAMETERS
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the filter hook.
+    Default: *None*
+
+ `$value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The value which the filters hooked to `$tag` may
+    modify.
+    Default: *None*
+
+ `$var` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) One or more additional variables passed to the filter
+    functions. This parameter is available since [Version
+    1.5.1](/Version_1.5.1 "Version 1.5.1").
+    Default: *None*
+
+RETURN
+------
+
+ (*mixed*) 
+:   The result of `$value` after all hooked functions are applied to it.
+
+**Note:** The type of return should be the same as the type of \$value:
+a string or an array, for example.
+
+EXAMPLES
+--------
+
+### Echo after Filtering
+
+    echo apply_filters( $tag, $value );
+
+### Get Filtered
+
+    $myvar = apply_filters( $tag, $value );
+
+### Additional Filter Arguments
+
+    $myvar = apply_filters( $tag, $value, $param, $otherparam );
+
+### With the\_title filter
+
+    $my_custom_title = apply_filters('the_title', '  My Custom Title (tm)  ');
+
+\$my\_custom\_title will now contain 'My Custom Title ™', since
+[the\_title](/Plugin_API/Filter_Reference/the_title "Plugin API/Filter Reference/the title")
+filter applies
+[wptexturize()](/Function_Reference/wptexturize "Function Reference/wptexturize")
+and
+[trim()](http://www.php.net/manual/en/function.trim.php "http://www.php.net/manual/en/function.trim.php"),
+among others.
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+
+SOURCE FILE
+-----------
+
+`apply_filters()` is located in `wp-includes/plugin.php`.
+

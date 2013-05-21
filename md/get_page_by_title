@@ -1,0 +1,96 @@
+get page by title "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get page by title - Retrieves a post given its title. If more that one post uses the same
+
+SYNOPSIS
+--------
+
+Retrieves a post given its title. If more that one post uses the same
+title, the post with the smallest ID will be returned.
+
+Because this function uses the MySQL `'='` comparison the `$page_title`
+will *usually* be matched as case insensitive with [default
+collating](http://dev.mysql.com/doc/refman/5.5/en/case-sensitivity.html "http://dev.mysql.com/doc/refman/5.5/en/case-sensitivity.html").
+
+USAGE
+-----
+
+` <?php   get_page_by_title( $page_title, $output, $post_type );?> `
+
+PARAMETERS
+----------
+
+ `$page_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Page title
+    Default: *None*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Output type. `OBJECT`, `ARRAY_N`, or `ARRAY_A`.
+    Default: OBJECT
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Post type.
+    Default: page
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   `OBJECT`, `ARRAY_N`, or `ARRAY_A`.
+
+`NULL` when no posts found.
+
+EXAMPLES
+--------
+
+### Find Page ID to use with exclude in wp\_list\_pages
+
+This example will return the \$page object for the page titled "About".
+Then the \$page-\>ID element is used to exclude the About page when
+listing pages.
+
+    <?php 
+    $page = get_page_by_title( 'About' );
+    wp_list_pages( 'exclude=' . $page->ID );
+    ?>
+
+### How To Find WordPress Page ID By Title Then Replace the\_content()
+
+In this example, we find the page id of "Sample Page" then replace the
+page's the\_content() with "Hello World!"
+
+    function my_content($content) {
+        $page = get_page_by_title( 'Sample Page' );
+        
+        if ( is_page($page->ID) )
+            $content = "Hello World!";
+            return $content;
+    }
+
+    add_filter('the_content', 'my_content');
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+-   Since: [2.1.0](/Version_2.1 "Version 2.1")
+-   [3.0.0](/Version_3.0 "Version 3.0"): `$post_type` Parameter was
+    added.
+
+SOURCE FILE
+-----------
+
+`get_page_by_title()` is located in `wp-includes/post.php`.
+

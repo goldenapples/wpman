@@ -1,0 +1,60 @@
+wp delete attachment "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+wp delete attachment - This function deletes an attachment
+
+SYNOPSIS
+--------
+
+This function deletes an attachment
+
+USAGE
+-----
+
+`  <?php wp_delete_attachment( $attachmentid, $force_delete ); ?> `
+
+PARAMETERS
+----------
+
+ `$postid` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the attachment you would like to delete.
+    Default: *None*
+
+ `$force_delete` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to bypass trash and force deletion (added in
+    WordPress 2.9).
+    Default: false
+
+RETURN VALUES
+-------------
+
+Returns `false` on failure, post data on success. This should be checked
+using the identity operator ( === ) instead of the normal equality
+operator because of the possibility of a returned 0 or empty array:
+
+    <?php if ( false === wp_delete_attachment( $attachmentid ) ) do something; ?>
+
+HOOKS
+-----
+
+This function fires the
+[delete\_attachment](/Plugin_API/Action_Reference/delete_attachment "Plugin API/Action Reference/delete attachment")
+action hook, passing the attachment's ID (`$postid`).
+
+EXAMPLE
+-------
+
+To delete an attachment with an ID of '76':
+
+    <?php wp_delete_attachment( 76 ); ?>
+
+SOURCE FILE
+-----------
+
+` wp_delete_attachment()` is located in `wp-includes/post.php`.
+

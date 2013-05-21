@@ -1,0 +1,37 @@
+the author "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+the author - The author of a post can be **displayed** by using this [Template
+
+SYNOPSIS
+--------
+
+The author of a post can be **displayed** by using this [Template
+Tag](/Template_Tags "Template Tags"). This tag must be used within [The
+Loop](/The_Loop "The Loop").
+
+To **return** to PHP rather than displaying, use
+[get\_the\_author](/Template_Tags/get_the_author "Template Tags/get the author").
+
+USAGE
+-----
+
+`  <?php the_author(); ?> `
+
+EXAMPLES
+--------
+
+### Display Author's 'Public' Name
+
+Displays the value in the user's **Display name publicly as** field.
+
+    <p>This post was written by <?php the_author(); ?></p>
+
+PARAMETERS
+----------
+
+\$post-id (integer).
+

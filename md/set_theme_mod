@@ -1,0 +1,57 @@
+set theme mod "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+set theme mod - Creates or updates a modification setting for the current theme. Along
+
+SYNOPSIS
+--------
+
+Creates or updates a modification setting for the current theme. Along
+with [get\_theme\_mod()](/get_theme_mod "get theme mod") this function
+sometimes offers theme developers a simpler alternative to the [Settings
+API](/Settings_API "Settings API") when there is a need to handle basic
+theme-specific settings.
+
+USAGE
+-----
+
+` <?php set_theme_mod( $name, $value ) ?> `
+
+PARAMETERS
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Theme modification name.
+    Default: *None*
+
+ `$value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Theme modification value.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`set_theme_mod()` is located in `wp-includes/theme.php`
+

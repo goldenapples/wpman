@@ -1,0 +1,80 @@
+get user option "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+get user option - Retrieve user option that can be either `global`, `user`, or `blog`.
+
+SYNOPSIS
+--------
+
+Retrieve user option that can be either `global`, `user`, or `blog`.
+
+If the user ID is not given, then the current user will be used instead.
+If the user ID is given, then the user data will be retrieved. The
+filter for the result will also pass the original option name and
+finally the user data object as the third parameter.
+
+The option will first check for the non-global name, then the global
+name, and if it still doesn't find it, it will try the blog option. The
+option can either be modified or set by a plugin.
+
+USAGE
+-----
+
+` <?php get_user_option( $option, $user ) ?> `
+
+PARAMETERS
+----------
+
+ `$option` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) User option name.
+    Default: *None*
+
+ `$user` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) User ID.
+    Default: 0
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   Option value on success, false on failure
+
+EXAMPLES
+--------
+
+    <?php
+        $bar = get_user_option( 'show_admin_bar_front', get_current_user_id() );
+        if(  $bar == 'true' ) {
+            echo 'The admin bar is enabled';
+        } else {
+            echo 'The admin bar is disabled';
+        }
+    ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls 'get\_user\_option\_\$option' hook with result, option
+    parameter, and user data object.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") WordPress
+    database object for queries.
+-   The `$check_blog_options` parameter was deprecated in WordPress 3.0.
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`get_user_option()` is located in `wp-includes/user.php`.
+

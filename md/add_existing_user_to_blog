@@ -1,0 +1,56 @@
+add existing user to blog "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+add existing user to blog - Add a user to the current blog based on details from
+
+SYNOPSIS
+--------
+
+Add a user to the current blog based on details from
+`maybe_add_existing_user_to_blog()`. This function is called by
+`maybe_add_existing_user_to_blog()` and should not be called directly.
+This page is for informational purposes only.
+
+USAGE
+-----
+
+` <?php add_existing_user_to_blog( $details ) ?> `
+
+PARAMETERS
+----------
+
+ `$details` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Must at least contain values for the keys listed below
+    Default: false(which will cause a failure)
+
+-   \$details['user\_id'] - (integer) the ID of the user being added to
+    the current blog
+-   \$details['role'] - (string) the role to be assigned to the user in
+    the current blog
+
+RETURN VALUE
+------------
+
+ `` `(WP_Error object|boolean)`{style="color:gray"} 
+:   WP\_Error on failure, True on success
+
+NOTES
+-----
+
+Uses global \$blog\_id
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`add_existing_user_to_blog()` is located in
+`wp-includes/ms-functions.php`
+

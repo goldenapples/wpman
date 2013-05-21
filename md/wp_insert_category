@@ -1,0 +1,77 @@
+wp insert category "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+wp insert category - Inserts a new category into the taxonomy system.
+
+SYNOPSIS
+--------
+
+Inserts a new category into the taxonomy system.
+
+USAGE
+-----
+
+` <?php wp_insert_category( $catarr, $wp_error ); ?> `
+
+PARAMETERS
+----------
+
+ `$catarr` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Category information.
+    Default: *None*
+
+`$catarr` is checked against and array with the following default
+values:
+
+    $cat_defaults = array(
+      'cat_ID' => 0,
+      'cat_name' => ,
+      'category_description' => ,
+      'category_nicename' => ,
+      'category_parent' => ,
+      'taxonomy' => 'category' );
+
+`$catarr` may contain additional values, but it is reccomended that you
+provide at least the minimum of those defined in `$cat_defaults`.
+
+ `$wp_error` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to return a
+    [WP\_Error](/Function_Reference/WP_Error "Function Reference/WP Error")
+    or a boolean. Boolean by default.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ `(boolean | WP_Error | int)` 
+:   True on success and false on failure OR a WP\_Error on failure and
+    the Category ID of the new category on true.
+
+EXAMPLES
+--------
+
+To insert a new category use:
+
+    %%%//Define the category
+    $my_cat = array('cat_name' => 'My Category', 'category_description' => 'A Cool Category', 'category_nicename' => 'category-slug', 'category_parent' => '');
+
+    // Create the category
+    $my_cat_id = wp_insert_category($my_cat);
+
+NOTES
+-----
+
+-   Not all possible members of the `$catarr` array are listed here.
+-   See `wp_create_category()` for a simpler version which takes just a
+    string instead of an array.
+
+SOURCE FILE
+-----------
+
+`wp_insert_category()` is located in `wp-admin/includes/taxonomy.php`.
+

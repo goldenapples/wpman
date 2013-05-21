@@ -1,0 +1,139 @@
+get tags "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+get tags - Retrieve an array of objects for each term in post\_tag taxonomy.
+
+SYNOPSIS
+--------
+
+Retrieve an array of objects for each term in post\_tag taxonomy.
+
+PARAMETERS
+----------
+
+Retrieves a list of post tags based on the criteria provided in \$args.
+The list of arguments that \$args can contain, which will overwrite the
+defaults:
+
+orderby 
+:   Default is 'name'. Can be name, count, or nothing (will use
+    term\_id).
+
+order 
+:   Default is ASC. Can use DESC.
+
+hide\_empty 
+:   Default is true. Will not return empty terms, which means terms
+    whose count is 0 according to the given taxonomy.
+
+exclude 
+:   Default is an empty string. A comma- or space-delimited string of
+    term ids to exclude from the return array. If 'include' is
+    non-empty, 'exclude' is ignored.
+
+include 
+:   Default is an empty string. A comma- or space-delimited string of
+    term ids to include in the return array.
+
+number 
+:   The maximum number of terms to return. Default is empty.
+
+offset 
+:   The number by which to offset the terms query.
+
+fields 
+:   Default is 'all', which returns an array of term objects. If
+    'fields' is 'ids' or 'names', returns an array of integers or
+    strings, respectively.
+
+slug 
+:   Returns terms whose "slug" matches this value. Default is empty
+    string.
+
+hierarchical 
+:   Whether to include terms that have non-empty descendants (even if
+    'hide\_empty' is set to true).
+
+search 
+:   Returned terms' names will contain the value of 'search',
+    case-insensitive. Default is an empty string.
+
+name\_\_like 
+:   Returned terms' names will begin with the value of 'name\_\_like',
+    case-insensitive. Default is empty string.
+
+pad\_counts 
+:   If set to true will include the quantity of a term's children in the
+    quantity of each term's "count" object variable.
+
+get 
+:   If set to 'all' instead of its default empty string, returns terms
+    regardless of ancestry or whether the terms are empty.
+
+child\_of 
+:   When used, should be set to the integer of a term ID. Its default is
+    0. If set to a non-zero value, all returned terms will be
+    descendants of that term according to the given taxonomy. Hence
+    'child\_of' is set to 0 if more than one taxonomy is passed in
+    \$taxonomies, because multiple taxonomies make term ancestry
+    ambiguous.
+
+parent 
+:   When used, should be set to the integer of a term ID. Its default is
+    the empty string, which has a different meaning from the integer 0.
+    If set to an integer value, all returned terms will have as an
+    immediate ancestor the term whose ID is specified by that integer
+    according to the given taxonomy. The 'parent' argument is different
+    from 'child\_of' in that a term X is considered a 'parent' of term Y
+    only if term X is the father of term Y, not its grandfather or
+    great-grandfather, etc.
+
+RETURNS
+-------
+
+Each returned object has the following properties
+
+term\_id 
+:   (*string*)
+name 
+:   (*string*)
+slug 
+:   (*string*)
+term\_group 
+:   (*string*)
+term\_taxonomy\_id 
+:   (*string*)
+taxonomy 
+:   (*string*)
+description 
+:   (*string*)
+parent 
+:   (*string*)
+count 
+:   (*string*)
+
+EXAMPLE
+-------
+
+Displays a list of tags with links to each one and a specific class for
+each tag:
+
+    $tags = get_tags();
+    $html = '<div class="post_tags">';
+    foreach ( $tags as $tag ) {
+        $tag_link = get_tag_link( $tag->term_id );
+                
+        $html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
+        $html .= "{$tag->name}</a>";
+    }
+    $html .= '</div>';
+    echo $html;
+
+SOURCE FILE
+-----------
+
+`get_tags()` is located in `wp-includes/category.php`.
+

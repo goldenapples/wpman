@@ -1,0 +1,118 @@
+the editor "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+the editor - Display visual editor forms: TinyMCE, or HTML, or both. The amount of
+
+SYNOPSIS
+--------
+
+Display visual editor forms: TinyMCE, or HTML, or both. The amount of
+rows the text area will have for the content has to be between 3 and 100
+or will default at 12. There is only one option used for all users,
+named 'default\_post\_edit\_rows'. If the user can not use the rich
+editor (TinyMCE), then the switch button will not be displayed.
+
+USAGE
+-----
+
+` <?php the_editor($content, $id, $prev_id, $media_buttons, $tab_index, $extended); ?> `
+
+PARAMETERS
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Textarea content
+    Default: *None*
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Generated HTML tag ID attribute value
+    Default: content
+
+ `$prev_id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) HTML ID name for switching back and forth between
+    visual editors
+    Default: title
+
+ `$media_buttons` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to display media buttons
+    Default: true
+
+ `$tab_index` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Tabindex for textarea element
+    Default: 2
+
+ `$extended` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to display 'more' and 'fullscreen' buttons
+    Default: true
+
+NOTES
+-----
+
+-   TinyMCE with media uploading requires the following scripts: post,
+    editor, editor-functions, media-upload, jquery, jquery-ui-core,
+    jquery-ui-tabs, tiny\_mce. And the following styles: thickbox.
+-   You may add only one editor on a page
+
+CHANGE LOG
+----------
+
+-   Since: 2.1.0
+-   Deprecated: 3.3 in favor of
+    [wp\_editor()](/Function_Reference/wp_editor "Function Reference/wp editor")
+
+SOURCE FILE
+-----------
+
+`the_editor()` is located in `wp-includes/deprecated.php`.
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/the\_editor](http://codex.wordpress.org/Function_Reference/the_editor)"
+
+[Category](/Special:Categories "Special:Categories"):
+[Stubs](/Category:Stubs "Category:Stubs")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

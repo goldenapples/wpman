@@ -1,0 +1,89 @@
+get term children "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get term children - Merge all term children into a single array.
+
+SYNOPSIS
+--------
+
+Merge all term children into a single array.
+
+This recursive function will merge all of the children of `$term` into
+the same array. Only useful for taxonomies which are hierarchical.
+
+Will return an empty array if `$term` does not exist in `$taxonomy`.
+
+USAGE
+-----
+
+` <?php get_term_children( $term, $taxonomy ) ?> `
+
+PARAMETERS
+----------
+
+ `$term` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) ID of Term to get children
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Taxonomy Name
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array|WP\_Error) 
+:   Array of Term IDs. WP\_Error returned if `$taxonomy` does not exist
+
+EXAMPLES
+--------
+
+### A Basic Example
+
+Used to get an array of children taxonomies and write them out with
+links in an unordered list.
+
+    <?php
+    $term_id = 10;
+    $taxonomy_name = 'products';
+    $termchildren = get_term_children( $term_id, $taxonomy_name );
+
+    echo '<ul>';
+    foreach ( $termchildren as $child ) {
+        $term = get_term_by( 'id', $child, $taxonomy_name );
+        echo '<li><a href="' . get_term_link( $term->name, $taxonomy_name ) . '">' . $term->name . '</a></li>';
+    }
+    echo '</ul>';
+    ?> 
+
+This would return something like.
+
+    <ul> 
+    <li><a href="link_to_term_page">Term 1</a></li>
+    <li><a href="link_to_term_page">Term 2</a></li>
+    </ul>
+
+NOTES
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`_get_term_hierarchy()`](/index.php?title=Function_Reference/_get_term_hierarchy&action=edit&redlink=1 "Function Reference/ get term hierarchy (page does not exist)")
+-   Uses: get\_term\_children Used to get the children of both
+    `$taxonomy` and the parent `$term`
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`get_term_children()` is located in `wp-includes/taxonomy.php`.
+

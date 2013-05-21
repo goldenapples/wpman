@@ -1,0 +1,83 @@
+have posts "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+have posts - This function checks to see if the current WordPress query has any
+
+SYNOPSIS
+--------
+
+This function checks to see if the current WordPress query has any
+results to loop over. This is a boolean function, meaning it returns
+either TRUE or FALSE.
+
+At the end of the loop, will automatically call
+[rewind\_posts](/Function_Reference/rewind_posts "Function Reference/rewind posts").
+
+USAGE
+-----
+
+` <?php have_posts(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+The following example can be used to determine if any posts exist, and
+if they do, loop through them.
+
+    <?php
+    if ( have_posts() ) :
+        while ( have_posts() ) : the_post();
+            // Your loop code
+        endwhile;
+    else :
+        echo wpautop( 'Sorry, no posts were found' );
+    endif;
+    ?>
+
+NOTE
+----
+
+Calling this function within the loop will cause an infinite loop. For
+example, see the following code:
+
+    <?php
+    while ( have_posts() ): the_post();
+            // Display post
+            if ( have_posts() ): // If this is the last post, the loop will start over
+                    // Do something if this isn't the last post
+            endif;
+    endwhile;
+    ?>
+
+If you want to check if there are more posts in the current loop without
+this unfortunate side effect, you can use this function.
+
+    function more_posts() {
+      global $wp_query;
+      return $wp_query->current_post + 1 < $wp_query->post_count;
+    }
+
+CHANGE LOG
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+`have_posts()` is located in `wp-includes/query.php`.
+

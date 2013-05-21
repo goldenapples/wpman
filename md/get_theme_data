@@ -1,0 +1,103 @@
+get theme data "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+get theme data - Returns an array of information about a theme file.
+
+SYNOPSIS
+--------
+
+Returns an array of information about a theme file.
+
+This function has been replaced with
+[wp\_get\_theme](/Function_Reference/wp_get_theme "Function Reference/wp get theme")
+in WordPress 3.4
+
+USAGE
+-----
+
+`  <?php get_theme_data( $theme_filename ); ?> `
+
+Use
+[wp\_get\_theme](/Function_Reference/wp_get_theme "Function Reference/wp get theme")
+instead.
+
+PARAMETERS
+----------
+
+ `$theme_filename` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Path and filename of the theme's `style.css`.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+(array) 
+:   The function returns an array containing the following keyed
+    information:
+
+ 'Name' 
+:   (*string*) The Themes name.
+ 'Title' 
+:   (*string*) Either the Theme's name or a HTML fragment containg the
+    Theme's name linked to the Theme's URI if the Theme's URI is
+    defined.
+ 'URI' 
+:   (*string*) The Themes URI.
+ 'Description' 
+:   (*string*) A HTML fragment containg the Themes description after it
+    has passed through
+    [wptexturize](/Function_Reference/wptexturize "Function Reference/wptexturize").
+ 'AuthorURI' 
+:   (*string*) The Theme's Author URI.
+ 'Template' 
+:   (*string*) The name of the parent Theme if one exists.
+ 'Version' 
+:   (*string*) The Theme's version number.
+ 'Status' 
+:   (*string*) the Theme's Status (defaults to 'publish')
+ 'Tags' 
+:   (*string*) the Theme's Tags
+ 'Author' 
+:   (*string*) Either the Author's name or a HTML fragment containing
+    the Author's name linked to the Author's URI if the Author's URI is
+    defined.
+
+EXAMPLE
+-------
+
+### Usage
+
+Get the information from the theme's style.css and display the Theme
+Name and Author.
+
+    <?php
+
+        /*
+         * Assign theme folder name that you want to get information.
+         * make sure theme exist in wp-content/themes/ folder.
+         */
+
+        $theme_name = 'twentyeleven'; 
+
+        /*
+        * Do not use get_stylesheet_uri() as $theme_filename,
+        * it will result in PHP fopen error if allow_url_fopen is set to Off in php.ini,
+        * which is what most shared hosting does. You can use get_stylesheet_directory()
+        * or get_template_directory() though, because they return local paths.
+        */
+
+        $theme_data = get_theme_data( get_theme_root() . '/' . $theme_name . '/style.css' );
+        echo $theme_data['Title'];
+        echo $theme_data['Author'];
+
+    ?>
+
+SOURCE FILE
+-----------
+
+`get_theme_data()` is located in `wp-includes/theme.php`.
+

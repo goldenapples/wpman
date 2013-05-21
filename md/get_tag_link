@@ -1,0 +1,46 @@
+get tag link "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get tag link - Returns the correct link url for a given Tag ID.
+
+SYNOPSIS
+--------
+
+Returns the correct link url for a given Tag ID.
+
+USAGE
+-----
+
+` <a href=\"<?php echo get_tag_link($tag_id); ?>\">tag name</a>`
+
+PARAMETERS
+----------
+
+ tag\_id 
+:   (*numeric*) The Tag ID.
+
+RETURN VALUES
+-------------
+
+ (URL) 
+:   `(string)` URL with a link to the tag.
+
+FILTERS
+-------
+
+Output from this function is
+[filtered](/Plugin_API/Filter_Reference "Plugin API/Filter Reference")
+by the 'tag\_link' filter. The first argument (\$taglink) is the url as
+the function would normally output it, the second is the ID passed into
+the function.
+
+    apply_filters('tag_link', $taglink, $tag_id);
+
+SOURCE FILE
+-----------
+
+`get_tag_link()` is located in `wp-includes/category-template.php`.
+

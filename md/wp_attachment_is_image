@@ -1,0 +1,64 @@
+wp attachment is image "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+wp attachment is image - This function determines if a post's attachment is an image. It returns
+
+SYNOPSIS
+--------
+
+This function determines if a post's attachment is an image. It returns
+TRUE if the attachment is an image, FALSE if not. The accepted file
+extensions/mime types are: .jpg, .jpeg, .gif, .png.
+
+USAGE
+-----
+
+`  <?php wp_attachment_is_image( $post_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Integer ID of the post.
+    Default: 0
+
+RETURN VALUES
+-------------
+
+ (bool) 
+:   TRUE if the attachment is an image, FALSE if not.
+
+EXAMPLE
+-------
+
+To check if post ID 37's attachment is an image:
+
+    <?php
+      $id = 37;
+      if ( wp_attachment_is_image( $id ) ) {
+        echo "Post ".$id." is an image!";
+      } else {
+        echo "Post ".$id." is not an image.";
+      }
+    ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`get_attached_file()`](/Function_Reference/get_attached_file "Function Reference/get attached file")
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`wp_attachment_is_image()` is located in `wp-includes/post.php`.
+

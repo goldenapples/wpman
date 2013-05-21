@@ -1,0 +1,194 @@
+in category "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+in category - Tests if the current post (or any specified post) is assigned to any of
+
+SYNOPSIS
+--------
+
+Tests if the current post (or any specified post) is assigned to any of
+the specified [categories](/Glossary#Category "Glossary").
+
+`in_category()` considers only the categories a post is directly
+assigned to (the checked categories in *Write/Edit Post* panel), not the
+parents of the assigned categories (but see [Testing if a post is in a
+descendant category](#Testing_if_a_post_is_in_a_descendant_category)
+below).
+
+This tag can be used to test the current post within [The
+Loop](/The_Loop "The Loop") or (since [Version
+2.7](/Version_2.7 "Version 2.7")) outside the Loop during a single post
+request. You can use it anywhere if you specify which post you want to
+test.
+
+USAGE
+-----
+
+` <?php in_category( $category, $_post ) ?> `
+
+PARAMETERS
+----------
+
+ `$category` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) One or more categories specified by ID (integer), name
+    or slug (string), or an array of these
+    Default: *None*
+
+ `$_post` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The post (integer ID or object). Defaults to the
+    current post in the Loop or the post in the main query.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   Whether the post is assigned to any of the specified categories.
+
+NOTES
+-----
+
+-   Since [Version 2.5](/Version_2.5 "Version 2.5"), you can specify
+    categories by name.
+-   Since [Version 2.7](/Version_2.7 "Version 2.7"), you can specify
+    categories by slug.
+-   Since [Version 2.7](/Version_2.7 "Version 2.7"), you can check
+    against several categories.
+-   Since [Version 2.7](/Version_2.7 "Version 2.7"), you can use this
+    function outside the WordPress Loop (during a single post query,
+    presumably)
+-   Since [Version 2.7](/Version_2.7 "Version 2.7"), you can specify any
+    post to test (not just the current one).
+
+EXAMPLES
+--------
+
+### Testing the current post within the Loop
+
+`in_category()` is often used to take different actions within the Loop
+depending on the current post's category, e.g.
+
+    <?php 
+    if ( in_category( 'pachyderms' )) {
+        // They have long trunks...
+    } elseif ( in_category( array( 'Tropical Birds', 'small-mammals' ) )) {
+        // They are warm-blooded...
+    } else {
+        // & c.
+    }
+    ?>
+
+### Testing the current post outside the Loop
+
+During a request for an individual post (usually handled by the
+`single.php` template), you can test that post's categories even before
+the Loop is begun.
+
+You could use this to switch templates like so:
+
+    <?php
+    if ( in_category('fruit') ) {
+        include 'single-fruit.php';
+    } elseif ( in_category('vegetables') ) {
+        include 'single-vegetables.php';
+    } else {
+        // Continue with normal Loop
+        if ( have_posts() ) : while ( have_posts() ) : the_post();
+        // ...
+    }
+    ?>
+
+(The [Custom Post Templates
+Plugin](http://boren.nu/archives/2005/03/13/custom-post-templates-plugin/ "http://boren.nu/archives/2005/03/13/custom-post-templates-plugin/")
+allows for creation of templates for single posts. It also shows an
+example of how to add a template which is used for *all* posts in a
+given category, not just a single post. That example is commented out in
+the plugin by default but can be easily implemented by uncommenting the
+appropriate lines.)
+
+### Testing if a post is in a descendant category
+
+When showing a category archive, or showing a category's posts via
+`WP_Query()` or `get_posts()`, or when hooking into the main query using
+`is_main_query()`, WordPress retrieves posts from the specified category
+*and* any descendant (child) categories, but `in_category()` tests only
+against a post's assigned categories, not ancestors (parents) of those
+categories.
+
+For example, if you have a post assigned to the subcategory *Fruit →
+Bananas* and not the category *Fruit*, the *Fruit* category archive will
+show the "Bananas" post, but calling `in_category('fruit')` for that
+post always returns `false`.
+
+You can list both the ancestor category and every possible descendant
+category, e.g.,
+
+    <?php if ( in_category( array( 'fruits', 'apples', 'bananas', 'cantaloupes', 'guavas', /*etc*/ ) )) {
+        // These are all fruits
+    }
+    ?>
+
+but you'd have to edit the code every time you moved or added any of the
+"Fruit" categories.
+
+A more-flexible method is to use or adapt the
+`post_is_in_descendant_category` function defined below (you need to
+copy the function definition below into a template, plugin, or theme
+functions file before calling it). You can use it together with
+`in_category()` like this (in this example 11 is the "Fruit" category's
+ID number):
+
+     // Post is assigned to "fruit" category or any descendant of "fruit" category?
+    <?php if ( in_category( 'fruit' ) || post_is_in_descendant_category( 11 ) ) {
+        // These are all fruits…
+    }
+    ?>
+
+If you'd rather refer to the category by name you can use, e.g.,
+
+    if ( $category_to_check = get_term_by( 'name', 'fruit', 'category' ))
+       post_is_in_descendant_category($category_to_check->term_id);
+
+#### post\_is\_in\_descendant\_category function
+
+    <?php
+    /**
+     * Tests if any of a post's assigned categories are descendants of target categories
+     *
+     * @param int|array $cats The target categories. Integer ID or array of integer IDs
+     * @param int|object $_post The post. Omit to test the current post in the Loop or main query
+     * @return bool True if at least 1 of the post's categories is a descendant of any of the target categories
+     * @see get_term_by() You can get a category by name or slug, then pass ID to this function
+     * @uses get_term_children() Passes $cats
+     * @uses in_category() Passes $_post (can be empty)
+     * @version 2.7
+     * @link http://codex.wordpress.org/Function_Reference/in_category#Testing_if_a_post_is_in_a_descendant_category
+     */
+    if ( ! function_exists( 'post_is_in_descendant_category' ) ) {
+        function post_is_in_descendant_category( $cats, $_post = null ) {
+            foreach ( (array) $cats as $cat ) {
+                // get_term_children() accepts integer ID only
+                $descendants = get_term_children( (int) $cat, 'category' );
+                if ( $descendants && in_category( $descendants, $_post ) )
+                    return true;
+            }
+            return false;
+        }
+    }
+    ?>
+
+CHANGE LOG
+----------
+
+Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`in_category()` is located in `wp-includes/category-template.php`.
+

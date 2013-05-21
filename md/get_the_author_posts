@@ -1,0 +1,37 @@
+get the author posts "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+get the author posts - Returns the total number of posts an author has published. Drafts and
+
+SYNOPSIS
+--------
+
+Returns the total number of posts an author has published. Drafts and
+private posts aren't counted. This tag must be used within [The
+Loop](/The_Loop "The Loop").
+
+USAGE
+-----
+
+`  <?php echo get_the_author_posts(); ?> `
+
+EXAMPLE
+-------
+
+Displays the author's name and number of posts.
+
+    <p><?php the_author(); ?> has blogged <?php echo number_format_i18n( get_the_author_posts() ); ?> 
+    posts</p>
+
+Harriett Smith has blogged 4,250 posts.
+
+\
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+

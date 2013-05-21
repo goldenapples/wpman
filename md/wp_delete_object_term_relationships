@@ -1,0 +1,61 @@
+wp delete object term relationships "MAY 2013" WordPress Codex "Function Reference"
+===================================================================================
+
+NAME
+----
+
+wp delete object term relationships - Will unlink the object from the taxonomy or taxonomies. Will remove all
+
+SYNOPSIS
+--------
+
+Will unlink the object from the taxonomy or taxonomies. Will remove all
+relationships between the object and any terms in a particular taxonomy
+or taxonomies. Does not remove the term or the taxonomy itself.
+
+USAGE
+-----
+
+` <?php wp_delete_object_term_relationships( $object_id, $taxonomies ); ?> `
+
+PARAMETERS
+----------
+
+ `$object_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) The term Object ID that refers to the term.
+    Default: *None*
+
+ `$taxonomies` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*required*) List of Taxonomy Names or single Taxonomy name.
+    Default: *None*
+
+\
+
+EXAMPLE
+-------
+
+NOTES
+-----
+
+HOOKS USED
+----------
+
+-   wp\_get\_object\_terms
+-   deleted\_term\_relationship
+-   wp\_update\_term\_count
+
+\
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`wp_delete_object_term_relationships()` is located in
+`wp-includes/taxonomy.php`.
+

@@ -1,0 +1,49 @@
+upload is user over quota "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+upload is user over quota - Check whether a blog has used its allotted upload space.
+
+SYNOPSIS
+--------
+
+Check whether a blog has used its allotted upload space.
+
+USAGE
+-----
+
+`  <?php upload_is_user_over_quota( $echo ) ?> `
+
+PARAMETERS
+----------
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If `$echo` is set and the quota is exceeded, a warning
+    message is echoed.
+    Default: true
+
+RETURN VALUE
+------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   False if quota has not been exceeded or upload quota is disabled,
+    True otherwise.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+CHANGE LOG
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`upload_is_user_over_quota()` is located in `wp-admin/includes/ms.php`
+

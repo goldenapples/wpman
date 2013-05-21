@@ -1,0 +1,60 @@
+the author url "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+the author url - This tag displays the [URL](/Glossary#URI_and_URL "Glossary") to the
+
+SYNOPSIS
+--------
+
+This tag displays the [URL](/Glossary#URI_and_URL "Glossary") to the
+Website for the author of a post. The **Website** field is set in the
+user's profile
+([Administration](/Administration_Panels "Administration Panels") \>
+[Profile](/Administration_Panels#Your_Profile "Administration Panels")
+\> [Your Profile](/Your_Profile_SubPanel "Your Profile SubPanel")). This
+tag must be used within [The Loop](/The_Loop "The Loop").
+
+REPLACE WITH
+------------
+
+-   [the\_author\_meta('user\_url')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+
+USAGE
+-----
+
+`  <?php the_author_url(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+EXAMPLE
+-------
+
+Displays the author's URL as a link and the link text.
+
+    <p>Author's web site: 
+    <a href="<?php the_author_url(); ?>"><?php the_author_url(); ?></a></p>
+
+Which displays as:
+
+Author's web site:
+[www.example.com](/Template_Tags/the_author_url#Example "Template Tags/the author url")
+
+This example displays the author's name as a link to the author's web
+site.
+
+    <?php if (get_the_author_url()) { ?><a href="<?php the_author_url(); ?>"><?php the_author(); ?></a><?php } else { the_author(); } ?>
+
+CHANGE LOG
+----------
+
+-   Since: 1.5.0
+-   Deprecated: 2.8.0
+-   Replace By:
+    [the\_author\_meta('user\_url')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+

@@ -1,0 +1,50 @@
+is 404 "MAY 2013" WordPress Codex "Function Reference"
+======================================================
+
+NAME
+----
+
+is 404 - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+404 error is being displayed (after an "HTTP 404: Not Found" error
+occurs). This is a boolean function, meaning it returns either TRUE or
+FALSE.
+
+USAGE
+-----
+
+` <?php is_404(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+` <?phpif ( is_404() ) {    // add search form so that users can search other posts}?> `
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`is_404()` is located in `wp-includes/query.php`.
+

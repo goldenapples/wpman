@@ -1,0 +1,56 @@
+is archive "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+is archive - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+any type of Archive page is being displayed. An Archive is a
+[Category](/Function_Reference/is_category "Function Reference/is category"),
+[Tag](/Function_Reference/is_tag "Function Reference/is tag"),
+[Author](/Function_Reference/is_author "Function Reference/is author")
+or a [Date](/Function_Reference/is_date "Function Reference/is date")
+based pages. This is a boolean function, meaning it returns either TRUE
+or FALSE.
+
+USAGE
+-----
+
+` <?php is_archive(); ?> `
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+`  is_archive(); `
+
+NOTES
+-----
+
+### Custom Post Types
+
+is\_archive() does not accept any parameters. If you want to check if
+this is the archive of a custom post type, use [is\_post\_type\_archive(
+\$post\_type
+)](http://codex.wordpress.org/Function_Reference/is_post_type_archive "http://codex.wordpress.org/Function_Reference/is_post_type_archive")
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`is_archive()` is located in `wp-includes/query.php`.
+

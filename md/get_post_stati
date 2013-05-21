@@ -1,0 +1,61 @@
+get post stati "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+get post stati - Returns an array of post status names or objects.
+
+SYNOPSIS
+--------
+
+Returns an array of post status names or objects.
+
+USAGE
+-----
+
+` <?php get_post_stati( $args, $output, $operator ); ?> `
+
+PARAMETERS
+----------
+
+See
+[wp\_filter\_object\_list()](/Function_Reference/wp_filter_object_list "Function Reference/wp filter object list")
+for specific arguments list.
+
+ `$args` 
+:   ([*array/string*](/How_to_Pass_Tag_Parameters#Array.2Fstring "How to Pass Tag Parameters"))
+    (*optional*) Array of key =\> value pairs used to filter results
+    Default: array()
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Whether to output names or objects.
+    Default: 'names'
+
+ `$operator` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Whether to return statuses matching ALL ('and') or ANY
+    ('or') arguments.
+    Default: 'and'
+
+RETURN VALUES
+-------------
+
+An array of post names or objects, depending on `$output` parameter.
+
+**Note:** The return value is the `$wp_post_statuses` global passed
+through
+[wp\_filter\_object\_list()](/Function_Reference/wp_filter_object_list "Function Reference/wp filter object list")
+with parameters passed to the function.
+
+CHANGE LOG
+----------
+
+-   Since: 3.0.0
+
+SOURCE FILE
+-----------
+
+`get_post_stati()` is located in `wp-includes/post.php`.
+

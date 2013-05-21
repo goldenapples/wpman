@@ -1,0 +1,57 @@
+is wp error "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+is wp error - Check whether the passed variable is a WordPress Error.
+
+SYNOPSIS
+--------
+
+Check whether the passed variable is a WordPress Error.
+
+Looks at the variable and determines if it is both a PHP object and one
+populated by the `WP_Error` class. Does not check to see if the
+variable's parent is also `WP_Error`.
+
+USAGE
+-----
+
+` <?php is_wp_error( $thing ); ?> `
+
+PARAMETERS
+----------
+
+ `$thing` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Any existing variable of a known or unknown type.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   True, if `WP_Error`. False, if not `WP_Error`.
+
+EXAMPLES
+--------
+
+    if ( is_wp_error( $result ) ) {
+       $error_string = $result->get_error_message();
+       echo '<div id="message" class="error"><p>' . $error_string . '</p></div>';
+    }
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`is_wp_error()` is located in `wp-includes/class-wp-error.php`.
+

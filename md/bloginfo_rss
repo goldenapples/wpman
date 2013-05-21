@@ -1,0 +1,63 @@
+bloginfo rss "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+bloginfo rss - Display [RSS](http://en.wikipedia.org/wiki/Rss "wikipedia:Rss")
+
+SYNOPSIS
+--------
+
+Display [RSS](http://en.wikipedia.org/wiki/Rss "wikipedia:Rss")
+container for the bloginfo function.
+
+You can retrieve anything that you can using the
+[`get_bloginfo()`](/Function_Reference/get_bloginfo "Function Reference/get bloginfo")
+function. Everything will be stripped of tags and characters converted,
+when the values are retrieved for use in the feeds.
+
+USAGE
+-----
+
+` <?php bloginfo_rss( $show ) ?> `
+
+PARAMETERS
+----------
+
+ `$show` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) See
+    [`get_bloginfo()`](/Function_Reference/get_bloginfo "Function Reference/get bloginfo")
+    for possible values.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See
+    [`get_bloginfo()`](/Function_Reference/get_bloginfo "Function Reference/get bloginfo")
+    For the list of possible values to display.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`bloginfo_rss`' hook with two parameters.
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`bloginfo_rss()` is located in `wp-includes/feed.php`.
+

@@ -1,0 +1,73 @@
+edit term link "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+edit term link - Display or retrieve edit term link with formatting.
+
+SYNOPSIS
+--------
+
+Display or retrieve edit term link with formatting.
+
+USAGE
+-----
+
+` <?php edit_term_link( $link, $before, $after, $term, $echo ) ?> `
+
+PARAMETERS
+----------
+
+ `$link` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Anchor text.
+    Default: ''
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Display before edit link.
+    Default: ''
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Display after edit link.
+    Default: ''
+
+ `$term` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*optional*) Term object
+    Default: null
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: true
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") content.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+### Filters
+
+-   **`'edit_term_link'`**:\
+    `apply_filters( 'edit_term_link', $link, $term->term_id )`
+
+CHANGE LOG
+----------
+
+Since: 3.1.0
+
+SOURCE FILE
+-----------
+
+`edit_term_link()` is located in `/wp-includes/link-template.php`.
+

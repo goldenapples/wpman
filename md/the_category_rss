@@ -1,0 +1,54 @@
+the category rss "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+the category rss - Display the post categories in the feed.
+
+SYNOPSIS
+--------
+
+Display the post categories in the feed.
+
+USAGE
+-----
+
+` <?php the_category_rss( $type ) ?> `
+
+PARAMETERS
+----------
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Either '`rss`', '`atom`', or '`rdf`'.
+    Default: 'rss'
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See
+    [`get_the_category_rss()`](/Function_Reference/get_the_category_rss "Function Reference/get the category rss")
+    for better explanation.
+-   Echos the return from
+    [`get_the_category_rss()`](/Function_Reference/get_the_category_rss "Function Reference/get the category rss").
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`the_category_rss()` is located in `wp-includes/feed.php`.
+

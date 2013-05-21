@@ -1,0 +1,34 @@
+get current user id "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+get current user id - Returns the ID of the current user.
+
+SYNOPSIS
+--------
+
+Returns the ID of the current user.
+
+USAGE
+-----
+
+`  <?php $user_ID = get_current_user_id(); ?> `
+
+RETURNS
+-------
+
+ (int) 
+:   The user's ID, if there is a current user; otherwise 0.
+
+CHANGELOG
+---------
+
+Since: [Version 3.0](/Version_3.0 "Version 3.0")
+
+SOURCE CODE
+-----------
+
+`get_current_user_id()` is located in `wp-includes/user.php`.
+

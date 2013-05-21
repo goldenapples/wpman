@@ -1,0 +1,45 @@
+header image "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+header image - Display header image path.
+
+SYNOPSIS
+--------
+
+Display header image path.
+
+USAGE
+-----
+
+` <?php header_image() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`header_image()` is located in `wp-includes/theme.php`.
+

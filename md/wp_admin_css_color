@@ -1,0 +1,74 @@
+wp admin css color "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+wp admin css color - Registers an admin colour scheme css file.
+
+SYNOPSIS
+--------
+
+Registers an admin colour scheme css file.
+
+Allows a plugin to register a new admin colour scheme.
+
+USAGE
+-----
+
+`  <?php wp_admin_css_color( $key, $name, $url, $colors ); ?> `
+
+PARAMETERS
+----------
+
+ `$key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The unique key for this theme.
+    Default: *None*
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the theme.
+    Default: *None*
+
+ `$url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The url of the css file containing the colour scheme.
+    Default: *None*
+
+ `$colors` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of CSS color definitions which are used to
+    give the user a feel for the theme.
+    Default: *None*
+
+EXAMPLE
+-------
+
+To register the classic(blue) scheme use:
+
+     wp_admin_css_color(
+       'classic',
+       __('Blue'),
+       admin_url("css/colors-classic.css"),
+       array('#07273E', '#14568A', '#D54E21', '#2683AE')
+     );
+
+CHANGE LOG
+----------
+
+-   Since: [2.5](/Version_2.5 "Version 2.5")
+
+SOURCE FILE
+-----------
+
+`wp_admin_css_color()` is located in `wp-includes/general-template.php`.
+
+FURTHER READING
+---------------
+
+-   [How to add Custom Admin Color
+    Scheme](http://www.wp-tricks.co.il/%D7%A2%D7%A8%D7%9B%D7%AA-%D7%A6%D7%91%D7%A2%D7%99%D7%9D-%D7%9E%D7%95%D7%AA%D7%90%D7%9E%D7%AA-%D7%90%D7%99%D7%A9%D7%99%D7%AA-%D7%9C%D7%9E%D7%9E%D7%A9%D7%A7-%D7%94%D7%A0%D7%99%D7%94%D7%95%D7%9C/ "http://www.wp-tricks.co.il/%D7%A2%D7%A8%D7%9B%D7%AA-%D7%A6%D7%91%D7%A2%D7%99%D7%9D-%D7%9E%D7%95%D7%AA%D7%90%D7%9E%D7%AA-%D7%90%D7%99%D7%A9%D7%99%D7%AA-%D7%9C%D7%9E%D7%9E%D7%A9%D7%A7-%D7%94%D7%A0%D7%99%D7%94%D7%95%D7%9C/")
+    by
+    [wp-tricks.co.il](http://www.wp-tricks.co.il/ "http://www.wp-tricks.co.il/")
+

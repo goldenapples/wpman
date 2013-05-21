@@ -1,0 +1,107 @@
+register post status "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+register post status - Register a [post status](/Post_Status "Post Status"). Do not use
+
+SYNOPSIS
+--------
+
+Register a [post status](/Post_Status "Post Status"). Do not use
+**register\_post\_status** before init.
+
+A simple function for creating or modifying a post status based on the
+parameters given. The function will accept two parameters; a string for
+the post status name and an array of arguments.
+
+USAGE
+-----
+
+` <?php register_post_status( $post_status, $args ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_status` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the post status.
+    Default: *None*
+
+ `$args` 
+:   ([*array|string*](/How_to_Pass_Tag_Parameters#Array.7Cstring "How to Pass Tag Parameters"))
+    (*optional*) An array of arguments for this post status.
+    Default: *None*
+
+### Arguments
+
+ `label` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) A descriptive name for the post status marked for
+    translation.
+    Default: \$post\_status
+
+ `public` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether posts of this status should be shown in the
+    front end of the site.
+    Default: false
+
+ `exclude_from_search` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to exclude posts with this post status from
+    search results.
+    Default: false
+
+ `show_in_admin_all_list` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to include posts in the edit listing for their
+    post type.
+    Default: false
+
+ `show_in_admin_status_list` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*Published (9)*) Show in the list of statuses with post counts at
+    the top of the edit listings, e.g. All (12)
+    Default: My Custom Status (2) ...
+
+ `label_count` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The text to display on the admin screen (or you won't
+    see your status count).
+    Default: *None*
+
+EXAMPLE
+-------
+
+An example of registering a post status called "Unread":
+
+    function my_custom_post_status(){
+        register_post_status( 'unread', array(
+            'label'                     => _x( 'Unread', 'post' ),
+            'public'                    => true,
+            'exclude_from_search'       => false,
+            'show_in_admin_all_list'    => true,
+            'show_in_admin_status_list' => true,
+            'label_count'               => _n_noop( 'Unread <span class="count">(%s)</span>', 'Unread <span class="count">(%s)</span>' ),
+        ) );
+    }
+    add_action( 'init', 'my_custom_post_status' );
+
+CHANGE LOG
+----------
+
+-   Since: [3.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`register_post_status()` is located in `wp-includes/post.php`
+
+RESOURCES
+---------
+
+-   [WordPress Post Status
+    Generator](http://generatewp.com/post-status/ "http://generatewp.com/post-status/")
+

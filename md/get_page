@@ -1,0 +1,119 @@
+get page "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+get page - Retrieves page data given a page ID or page object.
+
+SYNOPSIS
+--------
+
+Retrieves page data given a page ID or page object.
+
+Pages provide a way to have static content that will not affect things
+like articles or archives or any other blog entry features of WordPress.
+Its simply a way to turn a blog entry into static content.
+
+USAGE
+-----
+
+` <?php get_page( $page_id ) ?> `
+
+PARAMETERS
+----------
+
+ `$page_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Page ID passed by reference (see example below)
+    Default: Page ID from global variable at time function is called
+
+ `$output` 
+:   ([*OBJECT/ARRAY\_A/ARRAY\_N*](/How_to_Pass_Tag_Parameters#OBJECT.2FARRAY_A.2FARRAY_N "How to Pass Tag Parameters"))
+    (*optional*) What to output.
+    Default: OBJECT
+
+ `$filter` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) How the return value should be filtered. Options are
+    'raw', 'edit', 'db', 'display', 'attribute' and 'js'. The
+    'attribute' and 'js' contexts are treated like 'display'.
+    Default: 'raw'
+
+RETURN VALUES
+-------------
+
+ `(object|array)` 
+:   mixed Page data.
+
+<!-- -->
+
+       [ID]                    => (integer)
+       [post_author]           => (integer)
+       [post_date]             => (YYYY-MM-DD HH:MM:SS)
+       [post_date_gmt]         => (YYYY-MM-DD HH:MM:SS)
+       [post_content]          => (all post content is in here)
+       [post_title]            => (Post Title Here)
+       [post_excerpt]          => (Post Excerpt)
+       [post_status]           => (? | publish)
+       [comment_status]        => (? | closed)
+       [ping_status]           => (? | closed)
+       [post_password]         => (blank if not specified)
+       [post_name]             => (slug-is-here)
+       [to_ping]               => (?)
+       [pinged]                => (?)
+       [post_modified]         => (YYYY-MM-DD HH:MM:SS)
+       [post_modified_gmt]     => (YYYY-MM-DD HH:MM:SS)
+       [post_content_filtered] => (?)
+       [post_parent]           => (integer)
+       [guid]                  => (a unique identifier that is not necessarily the URL to the Page)
+       [menu_order]            => (integer)
+       [post_type]             => (? | page)
+       [post_mime_type]        => ()?)
+       [comment_count]         => (integer)
+       [ancestors]             => (object|array)
+       [filter]                => (? | raw)
+
+If you need the URL to the Page, don't try and use the `guid` value. Use
+[the\_permalink](/Function_Reference/the_permalink "Function Reference/the permalink")
+or
+[get\_permalink](/Function_Reference/get_permalink "Function Reference/get permalink")
+instead.
+
+If a page is not found, a null value is returned.
+
+This page is [marked](/Category:Stubs "Category:Stubs") as incomplete.
+You can [help](/Codex:Contributing "Codex:Contributing") Codex by
+**[expanding
+it](http://codex.wordpress.org/index.php?title=Function_Reference/get_page&action=edit "http://codex.wordpress.org/index.php?title=Function_Reference/get_page&action=edit")**.
+
+EXAMPLES
+--------
+
+This example code can be used when you want to include the text of a
+specific page in a theme.
+
+    <?php 
+    $page_id = 123; // 123 should be replaced with a specific Page's id from your site, which you can find by mousing over the link to edit that Page on the Manage Pages admin page. The id will be embedded in the query string of the URL, e.g. page.php?action=edit&post=123.
+
+    $page_data = get_page( $page_id ); // You must pass in a variable to the get_page function. If you pass in a value (e.g. get_page ( 123 ); ), WordPress will generate an error. By default, this will return an object.
+
+    echo '<h3>'. $page_data->post_title .'</h3>';// echo the title
+
+    echo apply_filters('the_content', $page_data->post_content); // echo the content and retain Wordpress filters such as paragraph tags.
+    Origin: http://wordpress.org/support/topic/get_pagepost-and-no-paragraphs-problem
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.5.1
+
+SOURCE FILE
+-----------
+
+`get_page()` is located in `wp-includes/post.php`.
+

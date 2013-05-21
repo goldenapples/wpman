@@ -1,0 +1,62 @@
+wp footer "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+wp footer - Fire the ['wp\_footer'
+
+SYNOPSIS
+--------
+
+Fire the ['wp\_footer'
+action](/Plugin_API/Action_Reference/wp_footer "Plugin API/Action Reference/wp footer").
+Put this template tag immediately before `</body>` tag in a theme
+[template](/Theme_Development#Template_Files "Theme Development") (ex.
+`footer.php`, `index.php`).
+
+USAGE
+-----
+
+`  <?php wp_footer(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters.
+
+EXAMPLES
+--------
+
+### In twentyten theme
+
+`wp-content/themes/twentyten/footer.php`:
+
+    ...
+    <?php
+       /* Always have wp_footer() just before the closing </body>
+        * tag of your theme, or you will break many plugins, which
+        * generally use this hook to reference JavaScript files.
+        */
+        wp_footer();
+    ?>
+    </body>
+    </html>
+
+NOTES
+-----
+
+-   Uses
+    [do\_action()](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'wp\_footer' hook.
+
+CHANGE LOG
+----------
+
+-   Since: 1.5.1
+
+SOURCE FILE
+-----------
+
+`wp_footer()` is located in `wp-includes/general-template.php`.
+

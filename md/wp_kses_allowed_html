@@ -1,0 +1,52 @@
+wp kses allowed html "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+wp kses allowed html - Return a list of allowed tags and attributes for a given context.
+
+SYNOPSIS
+--------
+
+Return a list of allowed tags and attributes for a given context.
+
+USAGE
+-----
+
+` <?php $allowed_tags = wp_kses_allowed_html( $context ); ?> `
+
+PARAMETERS
+----------
+
+ `$context` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The context for which to retrieve tags. Allowed values
+    are post, strip, data, entities or the name of a field filter such
+    as `pre_user_description`.
+    Default: *None*
+
+RETURN
+------
+
+Returns the list of allowed HTML tags for a given context. The Return
+value is a multidimensional array with the tag name as the key and an
+array of attributes as the value.
+` <?php$allowed_tags = wp_kses_allowed_html( 'post' );var_dump( $allowed_tags );/*array(74) {  ['address']=>  array(4) {    ['class']=>    bool(true)    ['id']=>    bool(true)    ['style']=>    bool(true)    ['title']=>    bool(true)  }  ...  ['var']=>  array(4) {    ['class']=>    bool(true)    ['id']=>    bool(true)    ['style']=>    bool(true)    ['title']=>    bool(true)  }}*/ `
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGELOG
+---------
+
+-   Since [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`wp_kses_allowed_html()` is located in `wp-includes/kses.php`.
+

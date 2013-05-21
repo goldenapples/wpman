@@ -1,0 +1,54 @@
+is email "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+is email - Verifies that an email is valid.
+
+SYNOPSIS
+--------
+
+Verifies that an email is valid.
+
+USAGE
+-----
+
+` <?php is_email( $email ) ?> `
+
+PARAMETERS
+----------
+
+ `$email` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Email address to check.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(string|bool)` 
+:   Either returns false or the valid email address.
+
+EXAMPLES
+--------
+
+    <?php if ( is_email( 'email@domain.com' ) ) {
+          echo 'email address is valid.';
+    } ?>
+
+NOTES
+-----
+
+Does not grok i18n domains. Not RFC compliant.
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`is_email()` is located in `wp-includes/formatting.php`.
+

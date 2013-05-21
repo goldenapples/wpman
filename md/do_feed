@@ -1,0 +1,63 @@
+do feed "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+do feed - Loads the feed template from the use of an action hook.
+
+SYNOPSIS
+--------
+
+Loads the feed template from the use of an action hook.
+
+If the feed action does not have a hook, then the function will die with
+a message telling the visitor that the feed is not valid.
+
+It is better to only have one hook for each feed.
+
+USAGE
+-----
+
+` <?php do_feed() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [get\_query\_var()](/Function_Reference/get_query_var "Function Reference/get query var")
+    to get '`feed`' from
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query").
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls '`do_feed_$feed`' hook, if a hook exists for the feed where
+    `$feed` is the '`feed`' property from
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query").
+-   Uses global: (`object`)
+    [`$wp_query`](/Class_Reference/WP_Query "Class Reference/WP Query")
+    Used to tell if the use a comment feed.
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`do_feed()` is located in `wp-includes/functions.php`.
+

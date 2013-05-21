@@ -1,0 +1,74 @@
+get page children "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get page children - Retrieve child pages from list of pages matching page ID.
+
+SYNOPSIS
+--------
+
+Retrieve child pages from list of pages matching page ID.
+
+Matches against the pages parameter against the page ID. Also matches
+all children for the same to retrieve all children of a page. Does not
+make any SQL queries to get the children.
+
+USAGE
+-----
+
+` <?php &get_page_children( $page_id, $pages ) ?><?php get_page_children( $page_id, $pages ) ?> `
+
+PARAMETERS
+----------
+
+ `$page_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Page ID.
+    Default: *None*
+
+ `$pages` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) List of pages' objects.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(array)` 
+:   
+
+EXAMPLES
+--------
+
+    <?php
+    // Set up the objects needed
+    $my_wp_query = new WP_Query();
+    $all_wp_pages = $my_wp_query->query(array('post_type' => 'page'));
+
+    // Get the page as an Object
+    $portfolio =  get_page_by_title('Portfolio');
+
+    // Filter through all pages and find Portfolio's children
+    $portfolio_children = get_page_children( $portfolio->ID, $all_wp_pages );
+
+    // echo what we get back from WP to the browser
+    echo '<pre>' . print_r( $portfolio_children, true ) . '</pre>';
+    ?>
+
+NOTES
+-----
+
+This function calls itself recursively.
+
+CHANGE LOG
+----------
+
+Since: 1.5.1
+
+SOURCE FILE
+-----------
+
+`&get_page_children()` is located in `wp-includes/post.php`.
+

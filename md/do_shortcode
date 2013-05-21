@@ -1,0 +1,71 @@
+do shortcode "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+do shortcode - Searches content for [shortcodes](/Shortcode_API "Shortcode API") and
+
+SYNOPSIS
+--------
+
+Searches content for [shortcodes](/Shortcode_API "Shortcode API") and
+filters shortcodes through their hooks.
+
+USAGE
+-----
+
+` <?php echo do_shortcode( $content ) ?> `
+
+PARAMETERS
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to search for shortcodes
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Content with shortcodes replaced by the output from the shortcode's
+    handler(s).
+
+EXAMPLES
+--------
+
+    add_filter('the_content', 'do_shortcode', 11); // From shortcodes.php
+
+    // Use shortcode in a PHP file (outside the post editor).
+    echo do_shortcode('[gallery]');
+
+    // In case there is opening and closing shortcode.
+    echo do_shortcode('[iscorrect]'.$text_to_be_wrapped_in_shortcode.'[/iscorrect]');
+
+\
+
+    // Use shortcodes in text widgets.
+    add_filter('widget_text', 'do_shortcode');
+
+// Use shortcodes in form like Landing Page Template
+
+    echo do_shortcode('[contact-form-7 id="91" title="quote"]');
+
+NOTES
+-----
+
+If there are no shortcode tags defined, then the content will be
+returned without any filtering. This might cause issues if a plugin is
+disabled as its shortcode will still show up in the post or content.
+
+CHANGE LOG
+----------
+
+Since: 2.5
+
+SOURCE FILE
+-----------
+
+`do_shortcode()` is located in `wp-includes/shortcodes.php`.
+

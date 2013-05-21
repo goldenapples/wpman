@@ -1,0 +1,45 @@
+wp kses post "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+wp kses post - Sanitize content for allowed HTML tags for post content.
+
+SYNOPSIS
+--------
+
+Sanitize content for allowed HTML tags for post content.
+
+Post content refers to the page contents of the 'post' type and not
+\$\_POST data from forms.
+
+USAGE
+-----
+
+` <?php wp_kses_post( $data ); ?> `
+
+PARAMETERS
+----------
+
+ `$data` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post content to filter
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Filtered post content with allowed HTML tags and attributes intact.
+
+CHANGE LOG
+----------
+
+Since: [2.9](/Version_2.9 "Version 2.9")
+
+SOURCE FILE
+-----------
+
+`wp_kses_post()` is located in `wp-includes/kses.php`
+

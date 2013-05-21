@@ -1,0 +1,82 @@
+get header "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+get header - [Includes](/Include_Tags "Include Tags") the `header.php` template file
+
+SYNOPSIS
+--------
+
+[Includes](/Include_Tags "Include Tags") the `header.php` template file
+from your current theme's directory. if a name is specified then a
+specialised header `header-{name}.php` will be included.
+
+If the theme contains no `header.php` file then the header from the
+default theme `wp-includes/theme-compat/header.php` will be included.
+
+USAGE
+-----
+
+` <?php get_header( $name ); ?> `
+
+PARAMETERS
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Calls for `header-name.php`.
+    Default: *None*
+
+EXAMPLES
+--------
+
+### Simple 404 page
+
+The following code is a simple example of a template for an "HTTP 404:
+Not Found" error (which you could include in your
+[Theme](/Theme_Development "Theme Development") as `404.php`).
+
+    <?php get_header(); ?>
+    <h2>Error 404 - Not Found</h2>
+    <?php get_sidebar(); ?>
+    <?php get_footer(); ?>
+
+### Multi headers
+
+Different header for different pages.
+
+    <?php
+    if ( is_home() ) :
+        get_header( 'home' );
+    elseif ( is_404() ) :
+        get_header( '404' );
+    else :
+        get_header();
+    endif;
+    ?>
+
+The file names for the home and 404 headers should be `header-home.php`
+and `header-404.php` respectively.
+
+NOTES
+-----
+
+-   Uses:
+    [locate\_template()](/Function_Reference/locate_template "Function Reference/locate template")
+-   Uses:
+    [do\_action()](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'get\_header' action.
+
+CHANGE LOG
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+-   [2.7.0](/Version_2.7 "Version 2.7") : Added the '`name`' parameters.
+
+SOURCE FILE
+-----------
+
+`get_header()` is located in `wp-includes/general-template.php`.
+

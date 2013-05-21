@@ -1,0 +1,90 @@
+get the content "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+get the content - Retrieve the post content. (Must be used in a Loop)
+
+SYNOPSIS
+--------
+
+Retrieve the post content. (Must be used in a Loop)
+
+USAGE
+-----
+
+` <?php get_the_content( $more_link_text, $stripteaser ) ?> `
+
+PARAMETERS
+----------
+
+ `$more_link_text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Content for when there is more text.
+    Default: null
+
+ `$stripteaser` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Strip teaser content before the more text.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ `(string)` 
+:   
+
+EXAMPLES
+--------
+
+### Display the post content, ending with "Read more" if needed
+
+    <?php
+    $content = get_the_content('Read more');
+    print $content;
+    ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`post_password_required()`](/Function_Reference/post_password_required "Function Reference/post password required")
+-   Uses:
+    [`get_the_password_form()`](/index.php?title=Function_Reference/get_the_password_form&action=edit&redlink=1 "Function Reference/get the password form (page does not exist)")
+    if
+    [`post_password_required()`](/Function_Reference/post_password_required "Function Reference/post password required")
+    fails
+-   Uses:
+    [`wp_kses_no_null()`](/Function_Reference/wp_kses_no_null "Function Reference/wp kses no null")
+    while processing the tag.
+-   Uses:
+    [`balanceTags()`](/Function_Reference/balanceTags "Function Reference/balanceTags")
+-   Uses:
+    [`get_permalink()`](/Template_Tags/get_permalink "Template Tags/get permalink")
+-   Uses global: `$id`
+-   Uses global: `$post`
+-   Uses global: `$more`
+-   Uses global: `$page`
+-   Uses global: `$pages`
+-   Uses global: `$multipage`
+-   Uses global: `$preview`
+-   Uses global: `$pagenow`
+
+If you use plugins that filter content
+([add\_filter](/Function_Reference/add_filter "Function Reference/add filter")('the\_content')),
+then this will not apply the filters, unless you call it this way (using
+[apply\_filters](/Function_Reference/apply_filters "Function Reference/apply filters")):
+
+` <?php apply_filters('the_content',get_the_content( $more_link_text, $stripteaser, $more_file )) ?> `
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`get_the_content()` is located in `wp-includes/post-template.php`.
+

@@ -1,0 +1,26 @@
+comment id fields "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+comment id fields - Generates two hidden inputs for the comment form to identify the
+
+SYNOPSIS
+--------
+
+Generates two hidden inputs for the comment form to identify the
+`comment_post_ID` and `comment_parent` for threaded comments. This tag
+must be within the `<form>` section of `comments.php`. New since
+WordPress version 2.7.
+
+USAGE
+-----
+
+`  <?php comment_id_fields(); ?> `
+
+CHANGE LOG
+----------
+
+Since: 2.7.0
+

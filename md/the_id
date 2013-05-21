@@ -1,0 +1,56 @@
+the ID "MAY 2013" WordPress Codex "Function Reference"
+======================================================
+
+NAME
+----
+
+the ID - Displays the numeric ID of the current post. This tag must be within
+
+SYNOPSIS
+--------
+
+Displays the numeric ID of the current post. This tag must be within
+[The Loop](/The_Loop "The Loop").
+
+**Note**: This function displays the ID of the post, to return the ID
+use
+[get\_the\_ID()](/Function_Reference/get_the_ID "Function Reference/get the ID").
+
+USAGE
+-----
+
+`  <?php the_ID(); ?> `
+
+PARAMETERS
+----------
+
+This tag has no parameters.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+    <p>Post Number: <?php the_ID(); ?></p>
+
+### Post Anchor Identifier
+
+Provides a unique anchor identifier to each post:
+
+    <h3 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h3>
+
+**Note**: In XHTML, the `id` attribute must not start with a digit.
+Since `the_ID` returns the post ID as numerical data, you should include
+at least one alphabetical character before using it in an `id`
+attribute, as in the example above.
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`the_ID()` is located in `wp-includes/post-template.php`.
+

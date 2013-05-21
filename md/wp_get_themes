@@ -1,0 +1,58 @@
+wp get themes "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+wp get themes - Returns an array of WP\_Theme objects based on the argument.
+
+SYNOPSIS
+--------
+
+Returns an array of WP\_Theme objects based on the argument.
+
+USAGE
+-----
+
+` <?php $themes = wp_get_themes( $args ); ?> `
+
+PARAMETERS
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*Optional*) This array can have the key/value pairs below.
+    Default: array( 'errors' =\> false , 'allowed' =\> null, 'blog\_id'
+    =\> 0 )
+
+-   'errors': mixed. Defaults to false.
+    -   true to return themes with errors.
+    -   false to return themes without errors.
+    -   null to return all themes.
+
+-   'allowed': mixed. (Multisite) Defaults to null.
+    -   true to return only allowed themes for a site.
+    -   false to return only disallowed themes for a site.
+    -   'site' to return only site-allowed themes.
+    -   'network' to return only network-allowed themes.
+    -   null to return all themes.
+
+-   'blog\_id': int. (Multisite) The blog ID used to calculate which
+    themes are allowed. Defaults to 0, synonymous with the current blog.
+
+RETURN VALUES
+-------------
+
+This function returns an array of WP\_Theme objects. See
+[wp\_get\_theme()](/Function_Reference/wp_get_theme "Function Reference/wp get theme").
+
+CHANGE LOG
+----------
+
+Since: 3.4.0
+
+SOURCE FILE
+-----------
+
+`wp_get_themes()` is located in `wp-includes/theme.php`.
+

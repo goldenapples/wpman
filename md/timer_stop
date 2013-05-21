@@ -1,0 +1,94 @@
+timer stop "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+timer stop - This function returns the amount of time (in seconds) to generate the
+
+SYNOPSIS
+--------
+
+This function returns the amount of time (in seconds) to generate the
+page.
+
+USAGE
+-----
+
+`  <?php timer_stop( $display = 0, $precision = 3 ) ?> `
+
+EXAMPLE
+-------
+
+### Usage
+
+Determine length of time to render page with a precision of 3, 5 and 10
+digits.
+
+    <?php echo('Seconds: '.timer_stop( 0 ).'<br />'); ?>
+    <?php echo('Seconds: '.timer_stop( 0, 5 ).'<br />'); ?>
+    <?php echo('Seconds: '.timer_stop( 0, 10 ).'<br />'; ?>
+
+Seconds: 0.815\
+ Seconds: 0.81551\
+ Seconds: 0.8155429363
+
+PARAMETERS
+----------
+
+ display 
+:   (*integer*) Possible values: 0 or 1. Defaults to 0.
+ precision 
+:   (*integer*) Possible values: 0 or 1. Defaults to 3.
+
+FURTHER READING
+---------------
+
+For a comprehensive list of functions, take a look at the [category
+Functions](http://codex.wordpress.org/Category:Functions "http://codex.wordpress.org/Category:Functions")
+
+Also, see
+[Function\_Reference](/Function_Reference "Function Reference")
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/timer\_stop](http://codex.wordpress.org/Function_Reference/timer_stop)"
+
+[Category](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

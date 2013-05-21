@@ -1,0 +1,62 @@
+get weekstartend "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+get weekstartend - Get the week start and end from the [MySQL
+
+SYNOPSIS
+--------
+
+Get the week start and end from the [MySQL
+DATETIME](http://dev.mysql.com/doc/refman/4.1/en/datetime.html "http://dev.mysql.com/doc/refman/4.1/en/datetime.html")
+or date string.
+
+USAGE
+-----
+
+` <?php get_weekstartend( $mysqlstring, $start_of_week ) ?> `
+
+PARAMETERS
+----------
+
+ `$mysqlstring` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Date or [MySQL
+    DATETIME](http://dev.mysql.com/doc/refman/4.1/en/datetime.html "http://dev.mysql.com/doc/refman/4.1/en/datetime.html")
+    field type.
+    Default: *None*
+
+ `$start_of_week` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Start of the week as an integer.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   Keys are '`start`' and '`end`'.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+    to retrieve the '`start_of_week`' option if `$start_of_week` is not
+    numeric.
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`get_weekstartend()` is located in `wp-includes/functions.php`.
+

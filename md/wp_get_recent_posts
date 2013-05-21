@@ -1,0 +1,120 @@
+wp get recent posts "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+wp get recent posts - Retrieve the recent posts.
+
+SYNOPSIS
+--------
+
+Retrieve the recent posts.
+
+USAGE
+-----
+
+` <?php wp_get_recent_posts( $args, $output ) ?> `
+
+### Default Usage
+
+` <?php $args = array(    'numberposts' => 10,    'offset' => 0,    'category' => 0,    'orderby' => 'post_date',    'order' => 'DESC',    'include' => ,    'exclude' => ,    'meta_key' => ,    'meta_value' =>,    'post_type' => 'post',    'post_status' => 'draft, publish, future, pending, private',    'suppress_filters' => true );    $recent_posts = wp_get_recent_posts( $args, $output = ARRAY_A );?> `
+
+RETURN VALUE
+------------
+
+ `$posts` `(array)`{style="color:gray"} 
+:   List of post arrays(default) or objects depending on **\$output**
+
+PARAMETERS
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: array
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Constant OBJECT, ARRAY\_A, or ARRAY\_N
+    Default: ARRAY\_A
+
+EXAMPLES
+--------
+
+This is an example that shows how to use the wp\_get\_recent\_posts()
+function to list the recent 10 posts.
+
+    <h2>Recent Posts</h2>
+    <ul>
+    <?php
+        $recent_posts = wp_get_recent_posts();
+        foreach( $recent_posts as $recent ){
+            echo '<li><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </li> ';
+        }
+    ?>
+    </ul>
+
+If you want to delimit more or less recent posts you have to put the
+number in the function parameter like this example below:
+
+    <h2>Recent Posts</h2>
+    <ul>
+    <?php
+        $args = array( 'numberposts' => '5' );
+        $recent_posts = wp_get_recent_posts( $args );
+        foreach( $recent_posts as $recent ){
+            echo '<li><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </li> ';
+        }
+    ?>
+    </ul>
+
+To exclude posts with a certain post format, you can use
+[Class\_Reference/WP\_Query\#Taxonomy\_Parameters](/Class_Reference/WP_Query#Taxonomy_Parameters "Class Reference/WP Query")
+like this next example, which excludes all posts with the 'aside' and
+'image' formats:
+
+    <h2>Recent Posts</h2>
+    <ul>
+    <?php
+        $args = array( 'numberposts' => '5', 'tax_query' => array(
+                array(
+                    'taxonomy' => 'post_format',
+                    'field' => 'slug',
+                    'terms' => 'post-format-aside',
+                    'operator' => 'NOT IN'
+                ), 
+                array(
+                    'taxonomy' => 'post_format',
+                    'field' => 'slug',
+                    'terms' => 'post-format-image',
+                    'operator' => 'NOT IN'
+                )
+        ) );
+        $recent_posts = wp_get_recent_posts( $args );
+        foreach( $recent_posts as $recent ){
+            echo '<li><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </li> ';
+        }
+    ?>
+    </ul>
+
+NOTES
+-----
+
+-   Uses:
+    [wp\_parse\_args()](/Function_Reference/wp_parse_args "Function Reference/wp parse args")
+-   Uses:
+    [get\_posts()](/Function_Reference/get_posts "Function Reference/get posts")
+
+CHANGE LOG
+----------
+
+-   Since: [1.0.0](/Version_1.0 "Version 1.0")
+-   [3.1.0](/Version_3.1 "Version 3.1"): The `$num` parameter deprecated
+    in favor of `$args`.
+
+SOURCE FILE
+-----------
+
+`wp_get_recent_posts()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,101 @@
+wp get post terms "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+wp get post terms - Retrieve the terms for a post.
+
+SYNOPSIS
+--------
+
+Retrieve the terms for a post.
+
+There is only one default for this function, called '`fields`' and by
+default is set to '`all`'. Other values can be '`names`' or '`ids`'.
+There are other defaults that can be overridden in
+[`wp_get_object_terms()`](/Function_Reference/wp_get_object_terms "Function Reference/wp get object terms").
+
+USAGE
+-----
+
+` <?php $terms = wp_get_post_terms( $post_id, $taxonomy, $args ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The Post ID
+    Default: 0
+
+ `$taxonomy` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*optional*) The taxonomy for which to retrieve terms. Defaults to
+    post\_tag.
+    Default: 'post\_tag'
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Overwrite the defaults
+    Default: array()
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   List of post tags.
+
+### Variables in Returned Object
+
+term\_id 
+:   the term id (also stored as 'term\_taxonomy\_id')
+name 
+:   the term name
+slug 
+:   a slug generated from the term name
+term\_group 
+:   the term\_id of the parent term (also stored as 'parent')
+term\_taxonomy\_id 
+:   the id of the taxonomy that the term belongs to
+taxonomy 
+:   the name of the taxonomy that the term belongs to
+description 
+:   the taxonomy description
+parent 
+:   the term\_id of the parent term (also stored as 'term\_group')
+count 
+:   the number of uses of this term
+
+EXAMPLES
+--------
+
+    //Returns All Term Items for "my_term"
+    $term_list = wp_get_post_terms($post->ID, 'my_term', array("fields" => "all"));
+    print_r($term_list);
+
+    //Returns Array of Term Names for "my_term"
+    $term_list = wp_get_post_terms($post->ID, 'my_term', array("fields" => "names"));
+    print_r($term_list);
+
+    //Returns Array of Term ID's for "my_term"
+    $term_list = wp_get_post_terms($post->ID, 'my_term', array("fields" => "ids"));
+    print_r($term_list);
+
+NOTES
+-----
+
+-   Uses:
+    [`wp_get_object_terms()`](/Function_Reference/wp_get_object_terms "Function Reference/wp get object terms")
+    Gets the tags for returning.
+
+CHANGE LOG
+----------
+
+Since: 2.8.0
+
+SOURCE FILE
+-----------
+
+`wp_get_post_terms()` is located in `wp-includes/post.php`.
+

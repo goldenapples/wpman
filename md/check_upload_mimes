@@ -1,0 +1,53 @@
+check upload mimes "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+check upload mimes - Check an array of MIME types against a whitelist.
+
+SYNOPSIS
+--------
+
+Check an array of MIME types against a whitelist.
+
+WordPress ships with a set of allowed upload filetypes, which is defined
+in wp-includes/functions.php in get\_allowed\_mime\_types(). This
+function is used to filter that list against the filetype whitelist
+provided by Multisite Super Admins at wp-admin/network/settings.php.
+
+USAGE
+-----
+
+` <?php check_upload_mimes( $mimes ) ?> `
+
+PARAMETERS
+----------
+
+ `$mimes` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) mime types
+    Default: *None*
+
+RETURN VALUE
+------------
+
+ `` `(array)`{style="color:gray"} 
+:   site mimes
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`check_upload_mimes()` is located in `wp-includes/ms-functions.php`
+

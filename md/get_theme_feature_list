@@ -1,0 +1,45 @@
+get theme feature list "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+get theme feature list - Retrieve list of WordPress theme features (aka theme tags).
+
+SYNOPSIS
+--------
+
+Retrieve list of WordPress theme features (aka theme tags).
+
+USAGE
+-----
+
+` <?php get_theme_feature_list() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   Array of features keyed by category with translations keyed by slug.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 3.1.0
+
+SOURCE FILE
+-----------
+
+`get_theme_feature_list()` is located in `/wp-admin/includes/theme.php`.
+

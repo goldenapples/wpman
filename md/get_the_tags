@@ -1,0 +1,156 @@
+get the tags "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get the tags - Returns an array of objects, one object for each tag assigned to the
+
+SYNOPSIS
+--------
+
+Returns an array of objects, one object for each tag assigned to the
+post. This tag must be used within [The Loop](/The_Loop "The Loop").
+
+USAGE
+-----
+
+This function does not display anything; you should access the objects
+and then echo or otherwise use the desired member variables.
+
+The following example displays the tag name of each tag assigned to the
+post (this is like using
+[`the_tags()`](/Template_Tags/the_tags "Template Tags/the tags"), but
+without linking each tag to the tag view, and using spaces instead of
+commas):
+
+    <?php
+    $posttags = get_the_tags();
+    if ($posttags) {
+      foreach($posttags as $tag) {
+        echo $tag->name . ' '; 
+      }
+    }
+    ?>
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Post id.
+    Default: *None*
+
+EXAMPLES
+--------
+
+### Show tag Images
+
+This outputs tag images named after the `term_id` with the `alt`
+attribute set to `name`. You can also use any of the other member
+variables instead.
+
+    <?php
+    $posttags = get_the_tags();
+    if ($posttags) {
+      foreach($posttags as $tag) {
+        echo '<img src="http://example.com/images/' . $tag->term_id . '.jpg" 
+    alt="' . $tag->name . '" />'; 
+      }
+    }
+    ?>
+
+### Show the First tag Name Only
+
+    <?php
+    $posttags = get_the_tags();
+    $count=0;
+    if ($posttags) {
+      foreach($posttags as $tag) {
+        $count++;
+        if (1 == $count) {
+          echo $tag->name . ' ';
+        }
+      }
+    }
+    ?>
+
+### Display code bases on different tag values
+
+This code will display HTML code depending on if this post has a certain
+tag or tag(s). Just add as many **else if** statements as you require.
+
+    <?php 
+    if ($all_the_tags);
+    $all_the_tags = get_the_tags();
+    foreach($all_the_tags as $this_tag) {
+        if ($this_tag->name == "sometag" ) {
+    ?>
+
+    <p>SOME HTML CODE <img src="someimage.jpg"></p>
+
+    <?php    } else if ($this_tag->name == "someothertag" ) { ?>
+
+    <p>SOME OTHER HTML CODE <img src="someotherimage.jpg"></p>
+
+    <?php    } else {    
+            // it's neither, do nothing
+    ?>
+            <!-- not tagged as one or the other -->
+    <?
+        }
+    }
+    }
+    ?>
+
+### Function to show tags in a dropdown
+
+This function outputs tags in a dropdown.
+
+    function drop_tags()
+    {
+        echo "<select onChange=\"document.location.href=this.options[this.selectedIndex].value;\">";
+        echo "<option>Tags</option>\n";
+        foreach (get_the_tags() as $tag)
+        {
+            echo "<option value=\"";
+            echo get_tag_link($tag->term_id);
+            echo "\">".$tag->name."</option>\n";
+        }
+        echo "</select>";
+    }
+
+RETURN VALUES
+-------------
+
+ `(array)` 
+:   An array of Tag objects
+
+MEMBER VARIABLES
+----------------
+
+term\_id 
+:   the tag id
+name 
+:   the tag name
+slug 
+:   a slug generated from the tag name
+term\_group 
+:   the group of the tag, if any
+taxonomy 
+:   should always be 'post\_tag' for this case
+description 
+:   the tag description
+count 
+:   number of uses of this tag, total
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`get_the_tags()` is located in `wp-includes/category-template.php`.
+

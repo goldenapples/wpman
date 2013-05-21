@@ -1,0 +1,157 @@
+get term by "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+get term by - Get all `Term` data from database by `Term` field and data.
+
+SYNOPSIS
+--------
+
+Get all `Term` data from database by `Term` field and data.
+
+Warning: `$value` is not HTML-escaped for the '`name`' `$field`. You
+must do it yourself, if required.
+
+The default `$field` is '`id`', therefore it is possible to also use
+null for field, but not recommended that you do so.
+
+If `$value` does not exist, the return value will be false. If
+`$taxonomy` exists and `$field` and `$value` combinations exist, the
+Term will be returned.
+
+USAGE
+-----
+
+` <?php get_term_by( $field, $value, $taxonomy, $output, $filter ) ?> `
+
+PARAMETERS
+----------
+
+ `$field` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Either '`slug`', '`name`', or '`id`'
+    Default: 'id'
+
+ `$value` 
+:   ([*string|integer*](/How_to_Pass_Tag_Parameters#String.7Cinteger "How to Pass Tag Parameters"))
+    (*required*) Search for this term value
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Taxonomy Name `category`, `post_tag`, `link_category`
+    or something custom
+    Default: *None*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Constant OBJECT, ARRAY\_A, or ARRAY\_N
+    Default: OBJECT
+
+ `$filter` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) default is raw or no WordPress defined filter will
+    applied.
+    Default: 'raw'
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   Term Row (array) from database. Will return false if `$taxonomy`
+    does not exist or `$term` was not found.
+
+The fields returned are:
+
+-   `term_id`
+-   `name`
+-   `slug`
+-   `term_group`
+-   `term_taxonomy_id`
+-   `taxonomy`
+-   `description`
+-   `parent`
+-   `count`
+
+EXAMPLES
+--------
+
+Taxonomy\_name is the name of taxonomy, not the term\_name and is
+required; the id (term\_id) is the ID of the term, not post\_id;...
+
+Remember:\
+ ↓ Taxonomy type (e.g. post\_tag)\
+ Terms in this taxonomy:\
+ → news\
+ → webdev\
+ → ...
+
+Examples to get terms by name and taxonomy *type* (taxonomy\_name as
+category, post\_tag or custom taxonomy).
+
+    // Get term by name ''news'' in Categories taxonomy.
+    get_term_by('name', 'news', 'category')
+
+    // Get term by name ''news'' in Tags taxonomy.
+    get_term_by('name', 'news', 'post_tag')
+
+    // Get term by name ''news'' in Custom taxonomy.
+    get_term_by('name', 'news', 'my_custom_taxonomy')
+
+By id (term\_id, not post\_id):
+
+    // Get term by id (''term_id'') in Categories taxonomy.
+    get_term_by('id', 12, 'category')
+
+    ...
+
+\
+
+### Wrong example in this page history
+
+Warning: the example below **is wrong** (see in this page history):
+
+    get_term_by('id', (int)$post->ID, 'taxonomy_name'); // return null
+
+This example try to get a term with ID (term\_id) as post\_id and in the
+taxonomy *taxonomy\_name*. This taxonomy not exists and the term\_id is
+wrong.
+
+This is the correct version of this example:
+
+    // get_term_by('id', category_id, 'category')
+
+    $postCategories = get_the_category($post->ID);
+    foreach ( $postCategories as $postCategory ) {
+    $myCategories[] = get_term_by('id', $postCategory->cat_ID, 'category');
+    }
+    // OR:
+    $myCategory = get_term_by('id', $postCategories[0]->cat_ID, 'category');
+
+NOTES
+-----
+
+-   Warning: `$value` is not escaped for '`name`' `$field`. You must do
+    it yourself, if required.
+-   See
+    [`sanitize_term_field()`](/Function_Reference/sanitize_term_field "Function Reference/sanitize term field")
+    The `$context` param lists the available values for '`get_term_by`'
+    `$filter` param.
+-   Uses:
+    [`sanitize_term()`](/Function_Reference/sanitize_term "Function Reference/sanitize term")
+    Cleanses the term based on `$filter` context before returning.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`get_term_by()` is located in `wp-includes/taxonomy.php`.
+

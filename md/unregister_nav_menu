@@ -1,0 +1,47 @@
+unregister nav menu "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+unregister nav menu - Unregisters a [custom navigation
+
+SYNOPSIS
+--------
+
+Unregisters a [custom navigation
+menu](/Navigation_Menus "Navigation Menus") for a theme location.
+
+USAGE
+-----
+
+`  <?php unregister_nav_menu( $location ); ?> `
+
+PARAMETERS
+----------
+
+ `$location` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Menu location identifier slug.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+bool True on success, false on failure.
+
+EXAMPLE
+-------
+
+`  <?php unregister_nav_menu( 'primary' ); ?> `
+
+CHANGELOG
+---------
+
+-   Since: [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+-   `unregister_nav_menu()` is located in `wp-includes/nav-menu.php`.
+

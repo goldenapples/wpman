@@ -1,0 +1,51 @@
+get blog count "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+get blog count - Get the number of active sites on your installation.
+
+SYNOPSIS
+--------
+
+Get the number of active sites on your installation.
+
+*Note: The count is cached and updated twice daily. This is not a live
+count.*
+
+USAGE
+-----
+
+    <?php $blogs = get_blog_count( $id ) ?>
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) A site\_id
+    Default: 0
+
+RETURN VALUES
+-------------
+
+ `integer` 
+:   The number of active sites
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [1.0](/Version_1.0 "Version 1.0")
+
+SOURCE FILE
+-----------
+
+`get_blog_count()` is located in `/wp-includes/ms-functions.php`.
+

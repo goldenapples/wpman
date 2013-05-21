@@ -1,0 +1,47 @@
+spawn cron "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+spawn cron - Send request to run cron through HTTP request that doesn't halt page
+
+SYNOPSIS
+--------
+
+Send request to run cron through HTTP request that doesn't halt page
+loading. Will not run more than once every 60 seconds.
+
+USAGE
+-----
+
+` <?php spawn_cron( $local_time ); ?> `
+
+PARAMETERS
+----------
+
+RETURN VALUES
+-------------
+
+ (null) 
+:   Cron could not be spawned, because it is not needed to run.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Cron is named after a unix program which runs unattended scheduled
+    tasks.
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`spawn_cron()` is located in `wp-includes/cron.php`.
+

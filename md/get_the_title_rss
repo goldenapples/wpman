@@ -1,0 +1,52 @@
+get the title rss "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get the title rss - Retrieve the current post title for the feed.
+
+SYNOPSIS
+--------
+
+Retrieve the current post title for the feed.
+
+USAGE
+-----
+
+` <?php get_the_title_rss() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Current post title.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`the_title_rss`' on the post title.
+-   Uses:
+    [get\_the\_title()](/Function_Reference/get_the_title "Function Reference/get the title")
+    to get the post title.
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`get_the_title_rss()` is located in `wp-includes/feed.php`.
+

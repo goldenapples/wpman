@@ -1,0 +1,61 @@
+is post type hierarchical "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+is post type hierarchical - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the post type is hierarchical. This is a boolean function, meaning it
+returns either TRUE or FALSE (A false return value might also mean that
+the post type does not exist).
+
+Checks to make sure that the post type exists first. Then gets the post
+type object, and finally returns the hierarchical value in the object.
+
+USAGE
+-----
+
+` <?php is_post_type_hierarchical( $post_type) ?> `
+
+PARAMETERS
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of post type
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   Whether the post\_type is hierarchical
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`post_type_exists()`](/Function_Reference/post_type_exists "Function Reference/post type exists")
+    Checks whether post type exists.
+-   Uses:
+    [`get_post_type_object()`](/Function_Reference/get_post_type_object "Function Reference/get post type object")
+    Used to get the post type object.
+
+CHANGE LOG
+----------
+
+Since: 3.0.0
+
+SOURCE FILE
+-----------
+
+`is_post_type_hierarchical()` is located in `wp-includes/post.php`.
+

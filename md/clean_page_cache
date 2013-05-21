@@ -1,0 +1,58 @@
+clean page cache "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+clean page cache - Will clean the page in the cache.
+
+SYNOPSIS
+--------
+
+Will clean the page in the cache.
+
+Clean (delete) page from cache that matches `$id`. Will also clean cache
+associated with '`all_page_ids`' and '`get_pages`'.
+
+USAGE
+-----
+
+` <?php clean_page_cache( $id ) ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Page ID to clean
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls '`clean_page_cache`' on page ID.
+-   Uses:
+    [`clean_post_cache()`](/Function_Reference/clean_post_cache "Function Reference/clean post cache")
+    on page ID.
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`clean_page_cache()` is located in `wp-includes/post.php`.
+

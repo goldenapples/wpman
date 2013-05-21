@@ -1,0 +1,69 @@
+page uri index "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+page uri index - This page is marked as needing to be **renamed**. It does not meet
+
+SYNOPSIS
+--------
+
+This page is marked as needing to be **renamed**. It does not meet
+current [guidelines](/Codex:Guidelines "Codex:Guidelines") or has some
+other issue. A Codex administrator will attend to this as soon as
+possible.
+
+**Note:** This is not a directly callable function, it is a method of
+the WP\_Rewrite class. This page should be moved from Function Reference
+to Rewrite API
+
+* * * * *
+
+Retrieve all pages and attachments for pages URIs.
+
+The attachments are for those that have pages as parents and will be
+retrieved.
+
+USAGE
+-----
+
+` <?php $wp_rewrite->page_uri_index() ?> `
+
+PARAMETERS
+----------
+
+None
+
+RETURN VALUES
+-------------
+
+ `(array)` 
+:   Array of page URIs as first element and attachment URIs as second
+    element.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`get_page_hierarchy()`](/Function_Reference/get_page_hierarchy "Function Reference/get page hierarchy")
+    on db query result in [posts
+    table](/Database_Description#Table:_wp_posts "Database Description").
+-   Uses:
+    [`get_page_uri()`](/Function_Reference/get_page_uri "Function Reference/get page uri")
+    on each page ID.
+
+CHANGE LOG
+----------
+
+Since: 2.5.0
+
+SOURCE FILE
+-----------
+
+`page_uri_index()` is located in `wp-includes/rewrite.php`.
+

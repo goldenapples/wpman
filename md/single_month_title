@@ -1,0 +1,78 @@
+single month title "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+single month title - Displays or returns the month and year title for the current page. This
+
+SYNOPSIS
+--------
+
+Displays or returns the month and year title for the current page. This
+tag only works when the `m` or archive month argument has been passed by
+WordPress to the current page (this occurs when viewing a monthly
+archive page).
+
+**Note:** This tag works only on date archive pages, not on category
+templates or others.
+
+It does not support placing the separator after the title, but by
+leaving the prefix parameter empty, you can set the title separator
+manually. The prefix does not automatically place a space between the
+prefix, so if there should be a space, the parameter value will need to
+have it at the end.
+
+USAGE
+-----
+
+`  <?php single_month_title( $prefix, $display ) ?> `
+
+### Default Usage
+
+`  <?php single_month_title(); ?> `
+
+PARAMETERS
+----------
+
+ `prefix` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to place before the title.
+    Default: *None*
+
+ `display` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display the title (`TRUE`), or return the title to be
+    used in PHP (`FALSE`).
+    Default: `TRUE`
+
+RETURN VALUE
+------------
+
+The generated title will be:
+
+    prefix + MONTH + prefix + YEAR
+
+If prefix parameter is `'*'`, an example would be:
+
+    *February*2004
+
+EXAMPLES
+--------
+
+### Month and Year on New Lines
+
+Displays the title, placing month and year on new lines.
+
+    <p><?php single_month_title('<br />') ?></p>
+
+December\
+ 2004
+
+### Using \$my\_month Variable
+
+Returns the title, which is assigned to the \$my\_month variable. The
+variable's value is then displayed with the PHP echo command.
+
+    <?php $my_month = single_month_title('', false); echo $my_month; ?>
+

@@ -1,0 +1,57 @@
+get lastcommentmodified "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+get lastcommentmodified - The date the last comment was modified. If `$cache_lastcommentmodified`
+
+SYNOPSIS
+--------
+
+The date the last comment was modified. If `$cache_lastcommentmodified`
+is set this function returns its value from the cache without hitting
+the database.
+
+USAGE
+-----
+
+` <?php get_lastcommentmodified( $timezone ) ?> `
+
+PARAMETERS
+----------
+
+ `$timezone` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Which timezone to use in reference to '`gmt`',
+    '`blog`', or '`server`' locations.
+    Default: 'server'
+
+RETURN VALUES
+-------------
+
+ `(string)` 
+:   Last comment modified date as a [MySQL
+    DATETIME](http://dev.mysql.com/doc/refman/4.1/en/datetime.html "http://dev.mysql.com/doc/refman/4.1/en/datetime.html").
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") to
+    read from the [comments
+    table](/Database_Description#Table:_wp_comments "Database Description").
+-   Uses global: array `$cache_lastcommentmodified`
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_lastcommentmodified()` is located in `wp-includes/comment.php`.
+

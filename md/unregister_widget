@@ -1,0 +1,62 @@
+unregister widget "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+unregister widget - Un-registers a widget.
+
+SYNOPSIS
+--------
+
+Un-registers a widget.
+
+USAGE
+-----
+
+` <?php unregister_widget( $widget_class ) ?> `
+
+PARAMETERS
+----------
+
+ \$widget\_class 
+:   (object) The name of a class that extends WP\_Widget
+
+<!-- -->
+
+    WP_Widget_Pages                   = Pages Widget
+    WP_Widget_Calendar                = Calendar Widget
+    WP_Widget_Archives                = Archives Widget
+    WP_Widget_Links                   = Links Widget
+    WP_Widget_Meta                    = Meta Widget
+    WP_Widget_Search                  = Search Widget
+    WP_Widget_Text                    = Text Widget
+    WP_Widget_Categories              = Categories Widget
+    WP_Widget_Recent_Posts            = Recent Posts Widget
+    WP_Widget_Recent_Comments         = Recent Comments Widget
+    WP_Widget_RSS                     = RSS Widget
+    WP_Widget_Tag_Cloud               = Tag Cloud Widget
+    WP_Nav_Menu_Widget                = Menus Widget
+
+RETURN VALUES
+-------------
+
+None.
+
+EXAMPLE
+-------
+
+This will unregister the built-in WP\_Widget\_Calendar widget (useful if
+you wish to replace the built-in version).
+
+    function remove_calendar_widget() {
+        unregister_widget('WP_Widget_Calendar');
+    }
+
+    add_action( 'widgets_init', 'remove_calendar_widget' );
+
+SOURCE FILE
+-----------
+
+`unregister_widget()` is located in `wp-includes/widgets.php`.
+

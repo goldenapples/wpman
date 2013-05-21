@@ -1,0 +1,149 @@
+add node "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+add node - This function is a method of the `$wp_admin_bar` global object (see:
+
+SYNOPSIS
+--------
+
+This function is a method of the `$wp_admin_bar` global object (see:
+[WP\_Admin\_Bar](/Class_Reference/WP_Admin_Bar "Class Reference/WP Admin Bar")),
+and can be used to add a new item to the
+[Toolbar](/Glossary#Toolbar "Glossary"). You can also use it to change
+the properties of an item that is already in the Toolbar.
+
+The Toolbar replaces the [Admin Bar](/Glossary#Admin_Bar "Glossary")
+since WordPress [Version 3.3](/Version_3.3 "Version 3.3").
+
+Toolbar items are also called "nodes". Nodes can be parents for other
+nodes, which creates dropdown menus. Group nodes together with
+[add\_group()](/Function_Reference/add_group "Function Reference/add group")
+to create distinct sections in a Toolbar menu.
+
+**note**: This function is a method of the
+[WP\_Admin\_Bar](/Class_Reference/WP_Admin_Bar "Class Reference/WP Admin Bar")
+class and `$wp_admin_bar` global object, which may not exist except
+during the
+['admin\_bar\_menu'](/index.php?title=Plugin_API/Action_Reference/admin_bar_menu&action=edit&redlink=1 "Plugin API/Action Reference/admin bar menu (page does not exist)")
+or
+['wp\_before\_admin\_bar\_render'](/Plugin_API/Action_Reference/wp_before_admin_bar_render "Plugin API/Action Reference/wp before admin bar render")
+hooks.
+
+USAGE
+-----
+
+` <?php $wp_admin_bar->add_node( $args ); ?> `
+
+PARAMETERS
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) An array of arguments.
+    Default: *None*
+
+### Arguments
+
+ `id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The ID of the node.
+    Default: false
+
+ `title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The text that will be visible in the Toolbar. Including
+    html tags is allowed.
+    Default: false
+
+ `parent` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The ID of the parent node.
+    Default: false
+
+ `href` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The 'href' attribute for the link. If 'href' is not set
+    the node will be a text node.
+    Default: false
+
+ `group` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) This will make the node a group (node) if set to
+    'true'. Group nodes are not visible in the Toolbar, but nodes added
+    to it are. See
+    [add\_group()](/Function_Reference/add_group "Function Reference/add group").
+    Default: false
+
+ `meta` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of meta data for the node.
+    Default: array()
+
+-   'html' - The html used for the node.
+-   'class' - The class attribute for the list item containing the link
+    or text node.
+-   'onclick' - The onclick attribute for the link. This will only be
+    set if the 'href' argument is present.
+-   'target' - The target attribute for the link. This will only be set
+    if the 'href' argument is present.
+-   'title' - The title attribute. Will be set to the link or to a div
+    containing a text node.
+-   'tabindex' - The tabindex attribute. Will be set to the link or to a
+    div containing a text node.
+
+EXAMPLES
+--------
+
+### Add a Page to the Toolbar
+
+This example will add a Page with a "my-toolbar-page" class to the
+Toolbar. It will be a top level item because the 'parent' argument is
+not set (it has no parent node). Put this in your theme's
+[functions.php](/Functions_File_Explained "Functions File Explained")
+file.
+
+    add_action( 'admin_bar_menu', 'toolbar_link_to_mypage', 999 );
+
+    function toolbar_link_to_mypage( $wp_admin_bar ) {
+      $args = array(
+        'id' => 'my_page',
+        'title' => 'My Page',
+        'href' => 'http://mysite.com/my-page/',
+        'meta' => array('class' => 'my-toolbar-page')
+      );
+
+      $wp_admin_bar->add_node($args);
+    }
+
+### Make an Existing Child Node a Parent Node
+
+This example will change the properties of an existing node by using the
+ID of that node. See [Finding Toolbar Node
+ID's](/Function_Reference/get_node#Finding_Toolbar_Node_ID.27s "Function Reference/get node")
+on how to find existing node ID's. The following code will make the
+child node with ID "new-post" (New \> **Post**) a parent node.
+
+    add_action( 'admin_bar_menu', 'make_parent_node', 999);
+
+      function make_parent_node( $wp_admin_bar ) {
+        $args = array(
+          'id' => 'new-post', // id of the existing child node (New > Post)
+          'title' => 'Add New Post', // alter the title of existing node
+          'parent' => false // set parent to false to make it a top level (parent) node
+        );
+
+        $wp_admin_bar->add_node($args);
+        
+      }
+
+CHANGE LOG
+----------
+
+SOURCE FILE
+-----------
+
+`add_node()` is located in `wp-includes/class-wp-admin-bar.php`.
+

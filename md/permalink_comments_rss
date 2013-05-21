@@ -1,0 +1,31 @@
+permalink comments rss "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+permalink comments rss - Displays the [permalink](/Glossary#Permalink "Glossary") to the post to
+
+SYNOPSIS
+--------
+
+Displays the [permalink](/Glossary#Permalink "Glossary") to the post to
+which a comment belongs, formatted for [RSS](/Glossary#RSS "Glossary").
+Typically used in the RSS comment feed template. This tag must be within
+[The Loop](/The_Loop "The Loop"), or a comment loop.
+
+USAGE
+-----
+
+`  <?php permalink_comments_rss(); ?> `
+
+EXAMPLE
+-------
+
+    <link><?php permalink_comments_rss(); ?></link>
+
+PARAMETERS
+----------
+
+This tag has no parameters.
+

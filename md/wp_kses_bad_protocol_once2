@@ -1,0 +1,61 @@
+wp kses bad protocol once2 "MAY 2013" WordPress Codex "Function Reference"
+==========================================================================
+
+NAME
+----
+
+wp kses bad protocol once2 - Callback for
+
+SYNOPSIS
+--------
+
+Callback for
+[`wp_kses_bad_protocol_once()`](/Function_Reference/wp_kses_bad_protocol_once "Function Reference/wp kses bad protocol once")
+regular expression.
+
+This function processes URL protocols, checks to see if they're in the
+white-list or not, and returns different data depending on the answer.
+
+USAGE
+-----
+
+` <?php wp_kses_bad_protocol_once2( $matches, $allowed_protocols ) ?> `
+
+PARAMETERS
+----------
+
+ `$matches` 
+:   ([*\$string*](/How_to_Pass_Tag_Parameters#.24string "How to Pass Tag Parameters"))
+    (*required*) URI scheme to check against the whitelist
+    Default: *None*
+
+ `$allowed_protocols` 
+:   ([*\$string*](/How_to_Pass_Tag_Parameters#.24string "How to Pass Tag Parameters"))
+    (*required*) Allowed protocols
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Sanitized content
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   **This is a private function. It should not be called directly. It
+    is listed in the Codex for completeness.**
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_kses_bad_protocol_once2()` is located in `wp-includes/kses.php`.
+

@@ -1,0 +1,76 @@
+term exists "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+term exists - Check if a given `term` exists and return the term ID, a term object, or
+
+SYNOPSIS
+--------
+
+Check if a given `term` exists and return the term ID, a term object, or
+`0` (`false`) if the term doesn't exist.
+
+USAGE
+-----
+
+` <?php term_exists( $term, $taxonomy, $parent ) ?> `
+
+PARAMETERS
+----------
+
+ `$term` 
+:   ([*integer|string*](/How_to_Pass_Tag_Parameters#Integer.7Cstring "How to Pass Tag Parameters"))
+    (*required*) The term to check
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The taxonomy name to use
+    Default: ''
+
+ `$parent` 
+:   ([*integer|string*](/How_to_Pass_Tag_Parameters#Integer.7Cstring "How to Pass Tag Parameters"))
+    (*optional*) \$parent ID of parent term under which to confine the
+    exists search
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   -   Returns 0 if the term does not exist.
+    -   Returns the term ID if no taxonomy was specified and the term
+        exists.
+    -   Returns an array if the pairing exists. (format:
+        `array('term_id'=>term id, 'term_taxonomy_id'=>taxonomy id)`)
+
+EXAMPLES
+--------
+
+### Checks to see if 'Uncategorized' category exists
+
+    <?php
+    $term = term_exists('Uncategorized', 'category');
+    if ($term !== 0 && $term !== null) {
+      echo "'Uncategorized' category exists!";
+    }
+    ?>
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 3.0
+
+SOURCE FILE
+-----------
+
+`term_exists()` is located in `wp-includes/taxonomy.php`.
+

@@ -1,0 +1,75 @@
+previous posts link "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+previous posts link - Prints a link to the previous set of posts within the current query.
+
+SYNOPSIS
+--------
+
+Prints a link to the previous set of posts within the current query.
+
+If you need the values for use in PHP, use
+[get\_previous\_posts\_link()](/Function_Reference/get_previous_posts_link "Function Reference/get previous posts link").
+
+Because post queries are usually sorted in reverse chronological order,
+`next_posts_link()` usually points to older entries (toward the end of
+the set) and `previous_posts_link()` usually points to newer entries
+(toward the beginning of the set).
+
+USAGE
+-----
+
+`  <?php previous_posts_link( $label , $max_pages ); ?> `
+
+PARAMETERS
+----------
+
+ `$label` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The link text.
+    Default: '« Previous Page'
+
+ `$max_pages` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Limit the number of pages on which the link is
+    displayed
+    Default: 0
+
+EXAMPLES
+--------
+
+### Default Usage
+
+    <?php previous_posts_link(); ?>
+
+### Working example
+
+    <?php previous_posts_link('« Newer Entries', 0) ?>
+
+NOTES
+-----
+
+-   See also:
+    [next\_posts\_link()](/Template_Tags/next_posts_link "Template Tags/next posts link")
+    and
+    [previous\_post\_link()](/Template_Tags/previous_post_link "Template Tags/previous post link").
+
+RESOURCES
+---------
+
+-   [Digging into Wordpress - Definitive Guide to WordPress Page
+    Navigation](http://digwp.com/2009/08/wordpress-page-navigation/ "http://digwp.com/2009/08/wordpress-page-navigation/")
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`previous_posts_link()` is located in `wp-includes/link-template.php`.
+

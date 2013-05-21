@@ -1,0 +1,45 @@
+get space allowed "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get space allowed - Returns the upload quota for the current blog.
+
+SYNOPSIS
+--------
+
+Returns the upload quota for the current blog.
+
+USAGE
+-----
+
+` <?php get_space_allowed() ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters
+
+RETURN VALUE
+------------
+
+ `` `(integer)`{style="color:gray"} 
+:   Quota in megabytes
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`get_space_allowed()` is located in `wp-includes/ms-functions.php`.
+

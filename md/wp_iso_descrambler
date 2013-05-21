@@ -1,0 +1,54 @@
+wp iso descrambler "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+wp iso descrambler - Converts an email subject to
+
+SYNOPSIS
+--------
+
+Converts an email subject to
+[ASCII](http://en.wikipedia.org/wiki/ASCII "wikipedia:ASCII").
+
+USAGE
+-----
+
+` <?php wp_iso_descrambler( $string ) ?> `
+
+PARAMETERS
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Subject line
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Converted string to ASCII
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   "iso" seems to refer to the iso-8859-1 character set.
+-   There is a somewhat related [discussion on WordPress
+    trac](https://core.trac.wordpress.org/ticket/6788 "https://core.trac.wordpress.org/ticket/6788")
+    about Swedish encoding.
+
+CHANGE LOG
+----------
+
+Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`wp_iso_descrambler()` is located in `wp-includes/formatting.php`.
+

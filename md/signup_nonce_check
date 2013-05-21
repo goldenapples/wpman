@@ -1,0 +1,49 @@
+signup nonce check "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+signup nonce check - Process the signup nonce created in `signup_nonce_fields()`.
+
+SYNOPSIS
+--------
+
+Process the signup nonce created in `signup_nonce_fields()`.
+
+USAGE
+-----
+
+` <?php signup_nonce_check( $result ); ?> `
+
+PARAMETERS
+----------
+
+ `$result` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) ????
+    Default: *None*
+
+RETURN VALUE
+------------
+
+ `$result` `(array)`{style="color:gray"} 
+:   entry parameter is returned if nonce checks out, otherwise thread
+    dies with message "Please try again."
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`signup_nonce_check()` is located in `wp-includes/ms-functions.php`
+

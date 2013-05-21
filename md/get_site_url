@@ -1,0 +1,77 @@
+get site url "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get site url - The **get\_site\_url()** template tag retrieves the site url for a given
+
+SYNOPSIS
+--------
+
+The **get\_site\_url()** template tag retrieves the site url for a given
+site. Returns the 'siteurl'
+[option](/Option_Reference "Option Reference") with the appropriate
+protocol, 'https' if
+[is\_ssl()](/Function_Reference/is_ssl "Function Reference/is ssl") and
+'http' otherwise. If [\$scheme](#Parameters) is 'http' or 'https',
+is\_ssl() is overridden.
+
+USAGE
+-----
+
+` <?php get_site_url( $blog_id, $path, $scheme ); ?> `
+
+### Default Usage
+
+` <?php get_site_url(); ?> `
+
+PARAMETERS
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Blog ID.
+    Default: current blog
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path relative to the site url.
+    Default: *None*
+
+ `$scheme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Scheme to give the site url context. Currently 'http',
+    'https', 'login', 'login\_post', or 'admin'.
+    Default: null
+
+RETURN
+------
+
+ (string) 
+:   Site url link with optional path appended.
+
+FILTER
+------
+
+` apply_filters( 'site_url', $url, $path, $orig_scheme, $blog_id );`
+
+EXAMPLES
+--------
+
+    <?php echo get_site_url(); ?>
+
+Results in the full site URL being displayed
+
+    http://www.example.com
+
+CHANGELOG
+---------
+
+-   Since: [3.0](/Version_3.0 "Version 3.0")
+
+SOURCE CODE
+-----------
+
+`get_site_url()` is located in `wp-includes/link-template.php`.
+

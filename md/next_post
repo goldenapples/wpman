@@ -1,0 +1,109 @@
+next post "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+next post - Used on single post/[permalink](/Glossary#Permalink "Glossary") pages,
+
+SYNOPSIS
+--------
+
+Used on single post/[permalink](/Glossary#Permalink "Glossary") pages,
+this tag lists the next post in chronological order from the current
+post. It can work in conjuntion with the
+[previous\_post()](/Template_Tags/previous_post "Template Tags/previous post")
+tag. This tag must be used in [The Loop](/The_Loop "The Loop").
+
+For the index, category, and archives templates, use the
+[posts\_nav\_link()](/Template_Tags/posts_nav_link "Template Tags/posts nav link")
+tag.
+
+REPLACE WITH
+------------
+
+[next\_post\_link()](/Template_Tags/next_post_link "Template Tags/next post link").
+
+USAGE
+-----
+
+`  <?php next_post('format', 'next', 'title', 'in_same_cat',                limitnext, excluded_category); ?> `
+
+EXAMPLES
+--------
+
+### Default Usage
+
+By default, displays text "next post:" as link along with post title.
+
+[next post: Next Post Title](#Examples)
+
+    <?php next_post(); ?>
+
+### Using Text As Link, Without Post Title
+
+Displays specified text as link, without including the post title. If
+excessively long post titles break your layout, you may want to use
+this. "Next »" is the specified text in this example; you can put
+whatever you want.
+
+[Next »](#Examples)
+
+`  <?php next_post('%','Next &raquo;', 'no'); ?> `
+
+### Using Specific Text
+
+Displays previous and next post links in the format with the text before
+the post title not shown as a link.
+
+Previous: [Previous Post Title](#Examples)    |    Next: [Next Post
+Title](#Examples)
+
+    <p><?php previous_post('%', 'Previous:', 'no'); ?> 
+    | <?php next_post('%', 'Next:', 'no'); ?></p>
+
+### Using Arrows Not Text
+
+To display text, like arrows («), at the beginning of the previous post
+link and at the end of the next post link so it looks like:
+
+[« « Previous Post Title](#Examples)    |    [Next Post Title »
+»](#Examples)
+
+    <?php previous_post('&laquo; &laquo; %', '', 'yes'); ?>
+    | <?php next_post('% &raquo; &raquo; ', '', 'yes'); ?>
+
+PARAMETERS
+----------
+
+ format 
+:   (*string*) Format string for the link. `'%'` in string will be
+    replaced with the link, so `'Go to %'` will generate "Go to \<a
+    href=..." Defaults to `'%'`.
+ next 
+:   (*string*) Link text to display. Defaults to `'next post: '`.
+ title 
+:   (*string*) Indicates whether title should be used as link text. If
+    set to `'yes'`, immediately follows **next** (above). Options are:
+    -   `'yes'` (Default)
+    -   `'no'`
+
+ in\_same\_cat 
+:   (*string*) Indicates whether the next post link must be in the same
+    category/categories as current. Parameter works with versions of
+    WordPress 1.5.1.3 and above. If post is listed in more than one
+    category, it will show posts within the parent category, not the
+    child category. Options are:
+    -   `'yes'`
+    -   `'no'` (Default)
+
+ limitnext 
+:   (*integer*) Sets next post link on numeric value of parameter
+    (current post ID plus **limitnext**). Defaults to `1`. Default is
+    recommended.
+ excluded\_category 
+:   (*integer* -or- *string*) Numeric category ID(s) from which the next
+    post should not be listed. Separate multiple categories with an
+    '`and`': `'1 and 5 and 15'`. There is no default. Parameter works
+    with versions of WordPress 1.5.2 and above.
+

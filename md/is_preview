@@ -1,0 +1,45 @@
+is preview "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+is preview - Usage
+
+SYNOPSIS
+--------
+
+USAGE
+-----
+
+` <?php is_preview(); ?> `
+
+PARAMETERS
+----------
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+    if ( ! is_preview() ) {
+        // Include analytics code
+    }
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`is_preview()` is located in `wp-includes/query.php`.
+

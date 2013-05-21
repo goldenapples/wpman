@@ -1,0 +1,68 @@
+the permalink "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+the permalink - Displays the [URL](/Glossary#URI_and_URL "Glossary") for the
+
+SYNOPSIS
+--------
+
+Displays the [URL](/Glossary#URI_and_URL "Glossary") for the
+[permalink](/Glossary#Permalink "Glossary") to the post currently being
+processed in [The Loop](/The_Loop "The Loop"). This tag must be within
+[The Loop](/The_Loop "The Loop"), and is generally used to display the
+permalink for each post, when the posts are being displayed. Since this
+template tag is limited to displaying the permalink for the post that is
+being processed, you cannot use it to display the permalink to an
+arbitrary post on your weblog. Refer to
+[get\_permalink()](/Template_Tags/get_permalink "Template Tags/get permalink")
+if you want to get the permalink for a post, given its unique post id.
+
+USAGE
+-----
+
+`  <?php the_permalink(); ?> `
+
+PARAMETERS
+----------
+
+This tag has no parameters.
+
+EXAMPLES
+--------
+
+### Display Post URL as Text
+
+Displays the URL to the post, without creating a link:
+
+    This address for this post is: <?php the_permalink(); ?>
+
+### As Link With Text
+
+You can use whatever text you like as the link text, in this case,
+"permalink".
+
+    <a href="<?php the_permalink(); ?>">permalink</a>
+
+### Used as Link With Title Tag
+
+Creates a link for the permalink, with the post's title as the link
+text. This is a common way to put the post's title.
+
+    <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+
+CHANGE LOG
+----------
+
+-   Since: [1.2.0](/Version_1.2 "Version 1.2")
+-   Originally defined in `wp-includes/template-functions-links.php`
+-   File renamed to `wp-includes/link-template.php` in
+    [2.1](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`the_permalink()` is located in `wp-includes/link-template.php`.
+

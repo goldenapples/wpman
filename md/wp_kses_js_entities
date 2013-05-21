@@ -1,0 +1,49 @@
+wp kses js entities "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+wp kses js entities - Removes the [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML")
+
+SYNOPSIS
+--------
+
+Removes the [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML")
+JavaScript entities found in early versions of Netscape 4.
+
+USAGE
+-----
+
+` <?php wp_kses_js_entities( $string ) ?> `
+
+PARAMETERS
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_kses_js_entities()` is located in `wp-includes/kses.php`.
+

@@ -1,0 +1,59 @@
+wp rel nofollow "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+wp rel nofollow - Adds` rel="nofollow"` string to all [HTML
+
+SYNOPSIS
+--------
+
+Adds` rel="nofollow"` string to all [HTML
+entities](http://en.wikipedia.org/wiki/HTML_entities "wikipedia:HTML entities")
+`A` elements in content and escapes the content using `esc_sql()`.
+
+Note: this is not appropriate for escaping HTML for output: this
+function is for adding `nofollow` to content being added to the
+database.
+
+USAGE
+-----
+
+` <?php wp_rel_nofollow( $text ) ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content that may contain HTML `A` elements.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Converted content, escaped using
+    [`esc_sql()`](/Function_Reference/esc_sql "Function Reference/esc sql")
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") to escape
+    text.
+
+CHANGE LOG
+----------
+
+-   Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`wp_rel_nofollow()` is located in `wp-includes/formatting.php`.
+

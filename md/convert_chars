@@ -1,0 +1,59 @@
+convert chars "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+convert chars - Converts a number of characters from a string.
+
+SYNOPSIS
+--------
+
+Converts a number of characters from a string.
+
+Metadata tags \<title\> and \<category\> are removed, \<br\> and \<hr\>
+are converted into correct
+[XHTML](http://en.wikipedia.org/wiki/XHTML "wikipedia:XHTML") and
+[Unicode](http://en.wikipedia.org/wiki/Unicode "wikipedia:Unicode")
+characters are converted to the valid range.
+
+USAGE
+-----
+
+` <?php convert_chars( $content, $deprecated ) ?> `
+
+PARAMETERS
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) String of characters to be converted.
+    Default: *None*
+
+ `$deprecated` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Not used.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Converted string.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`convert_chars()` is located in `wp-includes/formatting.php`.
+

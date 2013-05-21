@@ -1,0 +1,43 @@
+permalink single rss "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+permalink single rss - **This function is deprecated since 2.3.**
+
+SYNOPSIS
+--------
+
+**This function is deprecated since 2.3.**
+
+Displays the [permalink](/Glossary#Permalink "Glossary") for the current
+post, formatted for syndication feeds such as
+[RSS](/Glossary#RSS "Glossary") or [Atom](/Glossary#Atom "Glossary").
+This tag must be used within [The Loop](/The_Loop "The Loop").
+
+USAGE
+-----
+
+`  <?php permalink_single_rss( $file ); ?> `
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The page the link should point to.
+    Default: The current page
+
+RETURN VALUES
+-------------
+
+None.
+
+EXAMPLE
+-------
+
+Displays the permalink in an RSS link tag.
+
+    <link><?php permalink_single_rss(); ?></link>
+

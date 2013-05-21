@@ -1,0 +1,51 @@
+is main query "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+is main query - This function enables someone to hook into `pre_get_posts` and modify
+
+SYNOPSIS
+--------
+
+This function enables someone to hook into `pre_get_posts` and modify
+**only** the main query. This is a boolean function, meaning it returns
+either TRUE or FALSE. NOTE: admin screens also have a main query and
+this function can be used to detect it there.
+
+USAGE
+-----
+
+` <?php is_main_query(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+    add_action( 'pre_get_posts', 'foo_modify_query_exclude_category' );
+    function foo_modify_query_exclude_category( $query ) {
+        if ( ! is_admin() && $query->is_main_query() && ! $query->get( 'cat' ) )
+            $query->set( 'cat', '-5' );
+    }
+
+CHANGE LOG
+----------
+
+Since: 3.3
+
+SOURCE FILE
+-----------
+
+`is_main_query()` is located in `wp-includes/query.php`.
+

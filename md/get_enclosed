@@ -1,0 +1,57 @@
+get enclosed "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get enclosed - Retrieve
+
+SYNOPSIS
+--------
+
+Retrieve
+[enclosures](http://en.wikipedia.org/wiki/RSS_enclosure "http://en.wikipedia.org/wiki/RSS_enclosure")
+already enclosed for a post.
+
+USAGE
+-----
+
+` <?php get_enclosed( $post_id ) ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   List of enclosures.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_post_custom()`](/Function_Reference/get_post_custom "Function Reference/get post custom")
+    on `$post_id`.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    on `'get_enclosed'` on enclosures.
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_enclosed()` is located in `wp-includes/post.php`.
+

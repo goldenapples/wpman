@@ -1,0 +1,78 @@
+balanceTags "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+balanceTags - Will balance the tags if forced to or the option is set to balance tags.
+
+SYNOPSIS
+--------
+
+Will balance the tags if forced to or the option is set to balance tags.
+
+The option '`use_balanceTags`' is used for whether the tags will be
+balanced. Either the `$force` parameter or '`use_balanceTags`' option
+need to be true before the tags will be balanced.
+
+USAGE
+-----
+
+` <?php balanceTags( $text, $force ); ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to be balanced
+    Default: *None*
+
+ `$force` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Forces balancing, ignoring the value of the option.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Balanced text
+
+EXAMPLES
+--------
+
+### Unclosed LI tags
+
+    <?php
+    $html = '<ul>
+      <li>this
+      <li>is
+      <li>a
+      <li>list
+    </ul>';
+    echo balanceTags($html, true);
+    ?>
+
+Will output this HTML:
+
+    <ul>
+      <li>this
+      </li><li>is
+      </li><li>a
+      </li><li>list
+    </li></ul>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`balanceTags()` is located in `wp-includes/formatting.php`.
+

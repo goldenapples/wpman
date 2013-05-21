@@ -1,0 +1,104 @@
+get attachment link "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+get attachment link - Returns the URI of [the page for an
+
+SYNOPSIS
+--------
+
+Returns the URI of [the page for an
+attachment](/Templates_Hierarchy#Attachment_page "Templates Hierarchy").
+
+USAGE
+-----
+
+`  <?php $attachment_page = get_attachment_link($id); ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The numeric ID of the
+    [attachment](/Using_Image_and_File_Attachments "Using Image and File Attachments").
+    Default: The current post ID, when used in [The
+    Loop](/The_Loop "The Loop").
+
+EXAMPLES
+--------
+
+### Default Usage
+
+As the tag does not display the permalink, the example uses the PHP echo
+command.
+
+    <?php 
+    $attachment_id = 1; // ID of attachment
+    $attachment_page = get_attachment_link( $attachment_id ); 
+    ?>
+    <a href="<?php echo $attachment_page; ?>"><?php echo get_the_title( $attachment_id ); ?></a>
+
+### Display attached images and titles as a list
+
+To display the images attached to a certain page and display them as a
+list of bullets you can use the following:
+
+    <ul>
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post();    
+
+     $args = array(
+       'post_type' => 'attachment',
+       'numberposts' => -1,
+       'post_status' => null,
+       'post_parent' => $post->ID
+      );
+
+      $attachments = get_posts( $args );
+         if ( $attachments ) {
+            foreach ( $attachments as $attachment ) {
+               echo '<li>';
+               the_attachment_link( $attachment->ID, true );
+               echo '<p>';
+               echo apply_filters( 'the_title', $attachment->post_title );
+               echo '</p></li>';
+              }
+         }
+
+     endwhile; endif; ?>
+    </ul>
+
+RETURN VALUE
+------------
+
+Under a ["pretty" permalink
+structure](/Using_Permalinks#mod_rewrite:_.22Pretty_Permalinks.22 "Using Permalinks"),
+the function returns something like
+`http://wp.example.net/path_to_post/post_name/attachment_name`.
+
+Under [the default permalink
+structure](/Using_Permalinks#Default:_.22Ugly.22 "Using Permalinks") —
+or if Wordpress can't construct a pretty URI — the function returns
+something like `http://wp.example.net/?attachment_id=n`, where n is the
+attachment ID number.
+
+NOTES
+-----
+
+You can change the output of this function through the `attachment_link`
+filter.
+
+If you want a direct link to the attached file (instead of the
+attachment page), you can use the function `wp_get_attachment_url(id)`
+instead.
+
+**Note**: that `get_attachment_link` actually returns an URI, whereas
+`wp_get_attachment_link()` returns an HTML hyperlink.
+
+SOURCE FILE
+-----------
+
+`get_attachment_link()` is located in `wp-includes/link-template.php`.
+

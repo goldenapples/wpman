@@ -1,0 +1,62 @@
+wp login url "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+wp login url - This Template Tag returns the URL that allows the user to log in to the
+
+SYNOPSIS
+--------
+
+This Template Tag returns the URL that allows the user to log in to the
+site.
+
+USAGE
+-----
+
+`  <?php echo wp_login_url( $redirect ); ?> `
+
+PARAMETERS
+----------
+
+ `$redirect` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) URL to redirect to on login.**Must be absolute** (as
+    in,
+    [http://example.com/mypage/](http://example.com/mypage/ "http://example.com/mypage/")).
+    Recommended: site\_url( '/mypage/ ' ).
+    Default: *None*
+
+EXAMPLES
+--------
+
+### Default Usage
+
+    <a href="<?php echo wp_login_url(); ?>" title="Login">Login</a>
+
+### Login and Redirect to Current Page
+
+    <a href="<?php echo wp_login_url( get_permalink() ); ?>" title="Login">Login</a>
+
+### Login and Redirect to Homepage
+
+    <a href="<?php echo wp_login_url( home_url() ); ?>" title="Login">Login</a>
+
+NOTES
+-----
+
+-   Uses:
+    [apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls 'login\_url' hook on HTML link content.
+
+CHANGE LOG
+----------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+SOURCE FILE
+-----------
+
+`wp_login_url()` is located in `wp-includes/general-template.php`.
+

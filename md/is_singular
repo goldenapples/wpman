@@ -1,0 +1,83 @@
+is singular "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+is singular - This [conditional tag](/Conditional_Tags "Conditional Tags") checks if a
+
+SYNOPSIS
+--------
+
+This [conditional tag](/Conditional_Tags "Conditional Tags") checks if a
+singular post is being displayed, which is the case when one of the
+following returns *true*: `is_single()`, `is_page()` or
+`is_attachment()`. If the `$post_types` parameter is specified, the
+function will additionally check if the
+[query](/Glossary#Query "Glossary") is for one of the post types
+specified.
+
+USAGE
+-----
+
+` <?php is_singular( $post_types ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_types` 
+:   ([*string/array*](/How_to_Pass_Tag_Parameters#String.2Farray "How to Pass Tag Parameters"))
+    (*optional*) Post type or types to check in current query.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   *True* on success, *false* on failure.
+
+EXAMPLES
+--------
+
+### Different Sidebar Ads in Singular Page
+
+    <?php
+    if ( is_singular() ) {
+      // show adv. #1
+    } else {
+      // show adv. #2
+    }
+    ?>
+
+### Custom Post Types
+
+When any of the following return true: `is_single()`, `is_page()` or
+`is_attachment()`.
+
+    is_singular();
+
+True when viewing a post of the [Custom Post
+Type](/Post_Types "Post Types") book.
+
+    is_singular('book');
+
+True when viewing a post of the [Custom Post
+Type](/Post_Types "Post Types") newspaper or book.
+
+    is_singular(array( 'newspaper', 'book' ));
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+-   [3.0.0](/Version_3.0 "Version 3.0"): `$post_types` parameter was
+    added.
+
+SOURCE FILE
+-----------
+
+`is_singular()` is located in `wp-includes/query.php`.
+

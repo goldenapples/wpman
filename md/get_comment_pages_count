@@ -1,0 +1,61 @@
+get comment pages count "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+get comment pages count - Calculate the total number of comment pages.
+
+SYNOPSIS
+--------
+
+Calculate the total number of comment pages.
+
+USAGE
+-----
+
+` <?php get_comment_pages_count( $comments, $per_page, $threaded); ?> `
+
+PARAMETERS
+----------
+
+ `$comment` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) array of comment objects.
+    Default: \$wp\_query-\>comments
+
+ `$per_page` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) comments per page.
+    Default: null
+
+ `$threaded` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) control over flat or threaded comments.
+    Default: null
+
+RETURN VALUES
+-------------
+
+ `` `(integer)`{style="color:gray"} 
+:   Number of comment pages.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+Typically you cannot use this function before the
+[The\_Loop](/The_Loop "The Loop") has started.
+
+CHANGE LOG
+----------
+
+Since: [2.7.0](/Version_2.7 "Version 2.7")
+
+SOURCE FILE
+-----------
+
+`get_comment_pages_count()` is located in `wp-includes/comment.php`.
+

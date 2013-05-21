@@ -1,0 +1,48 @@
+clean comment cache "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+clean comment cache - Removes comment ID from the comment cache.
+
+SYNOPSIS
+--------
+
+Removes comment ID from the comment cache.
+
+USAGE
+-----
+
+` <?php clean_comment_cache( $ids ) ?> `
+
+PARAMETERS
+----------
+
+ `$ids` 
+:   ([*integer|array*](/How_to_Pass_Tag_Parameters#Integer.7Carray "How to Pass Tag Parameters"))
+    (*required*) Comment ID or array of comment IDs to remove from cache
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`clean_comment_cache()` is located in `wp-includes/comment.php`.
+

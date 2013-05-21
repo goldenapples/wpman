@@ -1,0 +1,58 @@
+get search comments feed link "MAY 2013" WordPress Codex "Function Reference"
+=============================================================================
+
+NAME
+----
+
+get search comments feed link - Retrieve the permalink for the comments feed of the search results.
+
+SYNOPSIS
+--------
+
+Retrieve the permalink for the comments feed of the search results.
+
+USAGE
+-----
+
+` <?php get_search_comments_feed_link( $search_query, $feed ) ?> `
+
+PARAMETERS
+----------
+
+ `$search_query` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Url search query.
+    Default: ''
+
+ `$feed` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Feed type.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_search_query()`](/Function_Reference/get_search_query "Function Reference/get search query")
+    if no query supplied.
+
+CHANGE LOG
+----------
+
+Since: 2.5.0
+
+SOURCE FILE
+-----------
+
+`get_search_comments_feed_link()` is located in
+`wp-includes/link-template.php`.
+

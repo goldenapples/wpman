@@ -1,0 +1,82 @@
+category description "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+category description - Returns the description of a category defined in the category settings
+
+SYNOPSIS
+--------
+
+Returns the description of a category defined in the category settings
+screen for the current category (Posts \> Categories).
+
+If used in the archive.php template, place this function within the
+is\_category() conditional statement. Otherwise, this function will stop
+the processing of the page for monthly and other archive pages.
+
+USAGE
+-----
+
+`  <?php echo category_description( $category_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$category_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the category to return a description.
+    Default: Description of current query category.
+
+EXAMPLE
+-------
+
+### Default Usage
+
+Displays the description of a category, given its id, by echoing the
+return value of the tag. If no category given and used on a category
+page, it returns the description of the current category.
+
+`  <div><?php echo category_description(3); ?></div> `
+
+Result:
+
+WordPress is a favorite blogging tool of mine and I share tips and
+tricks for using WordPress here.
+
+Note: if there is no category description, the function returns a br
+tag.
+
+### Using Category Slug
+
+Displays the description of a category, using a category slug.
+
+`  <?php echo category_description( get_category_by_slug('category-slug')->term_id ); ?> `
+
+### With Category Title
+
+`  <div><strong><?php single_cat_title('Currently browsing'); ?></strong>: <?php echo category_description(); ?></div> `
+
+Result:
+
+**Currently browsing WordPress:** WordPress is a favorite blogging tool
+of mine and I share tips and tricks for using WordPress here.
+
+CHANGE LOG
+----------
+
+-   Since: [1.0.0](/Version_1.0 "Version 1.0")
+
+NOTES
+-----
+
+-   Uses:
+    [term\_description()](/Function_Reference/term_description "Function Reference/term description")
+
+SOURCE FILE
+-----------
+
+`category_description()` is located in
+`wp-includes/category-template.php`.
+

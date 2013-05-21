@@ -1,0 +1,99 @@
+get the tag list "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+get the tag list - Generates a HTML string of the tags associated with the current post.
+
+SYNOPSIS
+--------
+
+Generates a HTML string of the tags associated with the current post.
+The name of each tag will be linked to the relevant 'tag' page. You can
+tell the function to put a string before and after all the tags, and in
+between each tag. Differently from `get_the_category_list`, this tag
+must be used inside [The Loop](/The_Loop "The Loop").
+
+USAGE
+-----
+
+`  <?php $tag_list = get_the_tag_list( $before, $sep, $after ); ?> `
+
+This function does not display anything - if you want to put it straight
+onto the page, you should use `echo get_the_tag_list();`. Alternatively,
+you can assign it to a variable for further use by using
+`$foo = get_the_tag_list();`.
+
+The variables are all optional. You can use HTML inside each of the
+fields.
+
+PARAMETERS
+----------
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Leading text.
+    Default: ' '
+
+ `$sep` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) String to separate tags.
+    Default: ' '
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Trailing text.
+    Default: ' '
+
+EXAMPLE
+-------
+
+### A Basic Example
+
+This outputs the list of tags inside a paragraph, with tags separated by
+commas.
+
+    <?php
+    echo get_the_tag_list('<p>Tags: ',', ','</p>');
+    ?>
+
+This would return something like:
+
+    <p>Tags: 
+    <a href="tag1">Tag 1</a>,
+    <a href="tag2">Tag 2</a>,
+    ...
+    </p>
+
+### A Slightly More Complex Example
+
+This checks if the post has any tags, and if there are, outputs them to
+a standard unordered list.
+
+    <?php
+    if(get_the_tag_list()) {
+        echo get_the_tag_list('<ul><li>','</li><li>','</li></ul>');
+    }
+    ?>
+
+This will return something in the form:
+
+    <ul>
+    <li><a href="tag1">Tag 1</a></li>
+    <li><a href="tag2">Tag 2</a></li>
+     ... 
+    </ul>
+
+You can add classes and styles with CSS, as necessary.
+
+CHANGE LOG
+----------
+
+-   Since: [2.3.0](/Version_2.3 "Version 2.3")
+
+SOURCE FILE
+-----------
+
+`get_the_tag_list()` is located in `wp-includes/category-template.php`.
+

@@ -1,0 +1,210 @@
+get users "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+get users - Retrieves an array of users matching the criteria given in `$args`.
+
+SYNOPSIS
+--------
+
+Retrieves an array of users matching the criteria given in `$args`.
+
+USAGE
+-----
+
+`  <?php get_users( $args ); ?> `
+
+PARAMETERS
+----------
+
+    <?php $args = array(
+        'blog_id'      => $GLOBALS['blog_id'],
+        'role'         => '',
+        'meta_key'     => '',
+        'meta_value'   => '',
+        'meta_compare' => '',
+        'meta_query'   => array(),
+        'include'      => array(),
+        'exclude'      => array(),
+        'orderby'      => 'login',
+        'order'        => 'ASC',
+        'offset'       => '',
+        'search'       => '',
+        'number'       => '',
+        'count_total'  => false,
+        'fields'       => 'all',
+        'who'          => ''
+     ); ?>
+
+-   **blog\_id** - The current blog's ID, unless multisite is enabled
+    and another ID is provided
+-   **role** - Limit the returned authors to the role specified.
+-   **include** - An array of IDs. Only users matching these IDs will be
+    returned.
+-   **exclude** - An array of IDs. Users matching these IDs will not be
+    returned, regardless of the other arguments.
+-   **meta\_key** - The **meta\_key** in the [wp\_usermeta
+    table](/Database_Description#Table:_wp_usermeta "Database Description")
+    for the **meta\_value** to be returned. See
+    [get\_userdata()](/Function_Reference/get_userdata#Values_in_users_.26_user_meta_table "Function Reference/get userdata")
+    for the possible meta keys.
+-   **meta\_value** - The value of the meta key.
+-   **meta\_compare** - Operator to test the '`meta_value`'. Possible
+    values are '!=', '\>', '\>=', '\<', or '\<='. Default value is '='.
+-   **meta\_query** - A WP\_Query style multiple meta\_key/meta\_value
+    array. See
+    [WP\_Query](/Function_Reference/WP_Query#Custom_Field_Parameters "Function Reference/WP Query")
+    documentation for examples.
+-   **orderby** - Sort by 'ID', 'login', 'nicename', 'email', 'url',
+    'registered', 'display\_name', or 'post\_count'.
+-   **order** - ASC (ascending) or DESC (descending).
+-   **offset** - The first *n* users to be skipped in the returned
+    array.
+-   **search** - Use this argument to search users by email address,
+    URL, ID or username (this **does not** currently include display
+    name).
+-   **number** - Limit the total number of users returned.
+-   **count\_total** - False by default.
+-   **fields** - Which fields to include in the returned array. Default
+    is "all". If set to 'all\_with\_meta', returns an array of WP\_User
+    objects keyed by ID. Other Possible values appear to be those in the
+    main user table (in 3.2.1). Previous documentations advised : fields
+    are the same as those for `meta_key`. However use of meta\_keys
+    gives a SQL error.
+-   **who** - If set to 'authors', only authors (user level greater than
+    0) will be returned.
+
+EXAMPLE
+-------
+
+A basic example to display all subscribers in an unordered list.
+
+    <ul>
+    <?php
+        $blogusers = get_users('blog_id=1&orderby=nicename&role=subscriber');
+        foreach ($blogusers as $user) {
+            echo '<li>' . $user->user_email . '</li>';
+        }
+    ?>
+    </ul>
+
+An example using the 'search' field.
+
+    <ul>
+    <?php
+        $blogusers = get_users('search=john');
+        foreach ($blogusers as $user) {
+            echo '<li>' . $user->user_email . '</li>';
+        }
+    ?>
+    </ul>
+
+This example will find and display all users that have a user name, ID,
+email of "john". You can also do wild card search by adding an \* before
+or after your search query. For example, to search for all users that
+start with "jo", you do this:
+
+    <ul>
+    <?php
+        $blogusers = get_users('search=jo*');
+        foreach ($blogusers as $user) {
+            echo '<li>' . $user->user_email . '</li>';
+        }
+    ?>
+    </ul>
+
+The results will be all users whose user names, IDs, or emails that
+start with "jo". The \* can be placed before or after your search query.
+When placed before, the results will be all users that end in your
+query.
+
+RETURNS
+-------
+
+Array of objects, except when `fields` specifies a single field to be
+returned, then an array of values is returned. If `fields` is set to
+`all_with_meta`, it will return an array of `WP_User` objects.
+
+### Example of Object return
+
+    [ID] => 1
+    [user_login] => admin
+    [user_pass] => $P$Bxudi6gJMk2GRt2ed3xvZ06c1BPZXi/
+    [user_nicename] => admin
+    [user_email] => admin@host.com
+    [user_url] => http://localhost/
+    [user_registered] => 2010-06-29 07:08:55
+    [user_activation_key] => 
+    [user_status] => 0
+    [display_name] => Richard Branson
+
+### Example for Array of Values when single Field specified
+
+    0 => Richard Branson
+    1 => Winston Churchill
+
+NOTE
+----
+
+-   Uses: [\$wpdb](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [WP\_User\_Query](/Class_Reference/WP_User_Query "Class Reference/WP User Query")
+
+CHANGELOG
+---------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+SOURCE CODE
+-----------
+
+`get_users()` is located in `wp-includes/user.php`.
+
+See also index of [Function
+Reference](/Function_Reference "Function Reference") and index of
+[Template Tags](/Template_Tags "Template Tags").
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_users](http://codex.wordpress.org/Function_Reference/get_users)"
+
+[Category](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

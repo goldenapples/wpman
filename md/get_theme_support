@@ -1,0 +1,67 @@
+get theme support "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get theme support - Allows a theme or plugin to get support of a certain [theme
+
+SYNOPSIS
+--------
+
+Allows a theme or plugin to get support of a certain [theme
+feature](/Theme_Features "Theme Features").
+
+USAGE
+-----
+
+` <?php get_theme_support( $feature ); ?> `
+
+PARAMETERS
+----------
+
+ `$feature` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name for the feature being added.
+    Default: *None*
+
+Features list:
+
+-   [Sidebar Widgets](/Widgets_API "Widgets API")
+-   [Navigation Menus](/Navigation_Menus "Navigation Menus")
+-   [Post Formats](/Post_Formats "Post Formats")
+-   [Post Thumbnails](/Post_Thumbnails "Post Thumbnails")
+-   [Custom Backgrounds](/Custom_Backgrounds "Custom Backgrounds")
+-   [Custom Headers](/Custom_Headers "Custom Headers")
+-   [Automatic Feed Links](/Automatic_Feed_Links "Automatic Feed Links")
+-   [Editor Style](/Editor_Style "Editor Style")
+
+See [Theme Features](/Theme_Features "Theme Features") for more
+information.
+
+FEATURE MEANS
+-------------
+
+See
+[Function\_Reference/add\_theme\_support](/Function_Reference/add_theme_support "Function Reference/add theme support")
+for more.
+
+RETURN
+------
+
+Returns either:
+
+-   `array()`{style="font-weight:bold;"} - containing the arguments
+    passed when support for the feature was registered via
+    `add_theme_support( $feature, $arguments )`; OR
+-   `true`{style="font-weight:bold;"} *(bool)* - if support for the
+    feature was added without arguments
+    (`add_theme_support( $feature )`; OR
+-   `false`{style="font-weight:bold;"} *(bool)* - if the feature is not
+    supported by the current theme.
+
+SOURCE FILE
+-----------
+
+`get_theme_support()` is located in `wp-includes/theme.php`.
+

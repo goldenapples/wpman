@@ -1,0 +1,93 @@
+add cap "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+add cap - Adds a
+
+SYNOPSIS
+--------
+
+Adds a
+[capability](/Roles_and_Capabilities#Capabilities "Roles and Capabilities")
+to a [role](/Roles_and_Capabilities#Roles "Roles and Capabilities") or
+specific user. Changing the capabilities of a role or user is
+persistent, meaning the added capability will stay in effect until
+explicitly revoked.
+
+**N.B.: This setting is saved to the database (in table wp\_options,
+field wp\_user\_roles), so it might be better to run this on
+theme/plugin activation**
+
+PARAMETERS
+----------
+
+ `role (just with WP_Roles)` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Required*) role name
+    Default: *None*
+
+ `cap` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Required*) capability name
+    Default: *None*
+
+ `grant` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether the role is capable of performing this
+    capability.
+    Default: true
+
+RETURN VALUES
+-------------
+
+ void 
+:   No return value
+
+EXAMPLE
+-------
+
+    function add_theme_caps() {
+        // gets the author role
+        $role = get_role( 'author' );
+
+        // This only works, because it accesses the class instance.
+        // would allow the author to edit others' posts for current theme only
+        $role->add_cap( 'edit_others_posts' ); 
+    }
+    add_action( 'admin_init', 'add_theme_caps');
+
+**NB: This setting is saved to the database, so it might be better to
+run this on theme/plugin activation**
+
+    //to add capability to specific user
+    $user = new WP_User( $user_id );
+    $user->add_cap( 'can_edit_posts');
+
+NOTES
+-----
+
+There is **no** public function called `add_cap()` - just the class
+methods inside `WP_Roles`, `WP_Role`, `WP_User` that can add
+capabilities.
+
+If you want to add a new role with capabilities, just add them when you
+add the role using `add_role();`.
+
+CHANGELOG
+---------
+
+-   Since [2.0.0](/Version_2.0 "Version 2.0")
+
+SOURCE FILE
+-----------
+
+`add_cap` is located in `wp-includes/capabilities.php`.
+
+RESOURCES
+---------
+
+-   [Ultimate Guide to Roles and Capabilities in WordPress Plugins and
+    Themes](http://www.wphardcore.com/2010/ultimate-guide-to-roles-and-capabilities "http://www.wphardcore.com/2010/ultimate-guide-to-roles-and-capabilities")
+

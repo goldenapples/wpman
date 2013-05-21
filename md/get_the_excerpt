@@ -1,0 +1,91 @@
+get the excerpt "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+get the excerpt - Returns the excerpt of the current post with the "[...]" text at the
+
+SYNOPSIS
+--------
+
+Returns the excerpt of the current post with the "[...]" text at the
+end, which is not a "read more" link. This template tag must be used
+within [The Loop](/The_Loop "The Loop"). Alternatively,
+[`the_excerpt()`](/Template_Tags/the_excerpt "Template Tags/the excerpt")
+can be used to directly display the excerpt, but it also adds opening
+and closing `<p>` tags to the string returned by `get_the_excerpt()`.
+
+USAGE
+-----
+
+    <?php $excerpt = get_the_excerpt( $deprecated ) ?>
+
+PARAMETERS
+----------
+
+`$deprecated` is not required.
+
+RETURN VALUES
+-------------
+
+-   If the post does not have an excerpt, it returns an empty string,
+    with "[...]" at the end.
+-   For password protected pages it returns a string, which has a
+    default value of "*There is no excerpt because this is a protected
+    post.*" This text can be changed in the function definition.
+-   If the post has an excerpt and is not password protected, it returns
+    the excerpt as a string.
+
+EXAMPLES
+--------
+
+**get\_the\_excerpt()** can be used to retrieve and store the value in a
+variable, without outputting it to the page.
+
+    <?php
+    $my_excerpt = get_the_excerpt();
+    if ( $my_excerpt != '' ) {
+        // Some string manipulation performed
+    }
+    echo $my_excerpt; // Outputs the processed value to the page
+    ?>
+
+Use **get\_the\_excerpt()** to print an excerpt by specifying a maximium
+number of characters.
+
+    <?php
+    the_excerpt_max_charlength(140);
+
+    function the_excerpt_max_charlength($charlength) {
+        $excerpt = get_the_excerpt();
+        $charlength++;
+
+        if ( mb_strlen( $excerpt ) > $charlength ) {
+            $subex = mb_substr( $excerpt, 0, $charlength - 5 );
+            $exwords = explode( ' ', $subex );
+            $excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+            if ( $excut < 0 ) {
+                echo mb_substr( $subex, 0, $excut );
+            } else {
+                echo $subex;
+            }
+            echo '[...]';
+        } else {
+            echo $excerpt;
+        }
+    }
+    ?>
+
+\
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`get_the_excerpt()` is located in `wp-includes/post-template.php`.
+

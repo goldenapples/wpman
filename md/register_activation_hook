@@ -1,0 +1,80 @@
+register activation hook "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+register activation hook - The **register\_activation\_hook** function registers a plugin function
+
+SYNOPSIS
+--------
+
+The **register\_activation\_hook** function registers a plugin function
+to be run [when the plugin is
+activated](/Managing_Plugins#Installing_Plugins "Managing Plugins").
+
+This function is a wrapper for the `activate_pluginname` action, and is
+easier to use.
+
+USAGE
+-----
+
+`  <?php register_activation_hook( $file, $function ); ?> `
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Path to the [main plugin
+    file](/Writing_a_Plugin#Plugin_Files "Writing a Plugin") inside the
+    `wp-content/plugins` directory. A full path will work.
+    Default: *None*
+
+ `$function` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) The function to be run when the plugin is activated.
+    Any of [PHP's callback
+    pseudo-types](http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback "http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback")
+    will work.
+    Default: *None*
+
+EXAMPLES
+--------
+
+If you have a function called `myplugin_activate()` in the [main plugin
+file](/Writing_a_Plugin#Plugin_Files "Writing a Plugin") at either
+
+-   `wp-content/plugins/myplugin.php` or
+-   `wp-content/plugins/myplugin/myplugin.php`
+
+use this code:
+
+    register_activation_hook( __FILE__, 'myplugin_activate' );
+
+This will call the `myplugin_activate()` function on activation of the
+plugin.
+
+If your plugin uses the singleton class pattern, add the activation hook
+like so:
+
+    class MyPlugin {
+         static function install() {
+                // do not generate any output here
+         }
+    }
+    register_activation_hook( __FILE__, array('MyPlugin', 'install') );
+
+If the class that holds your activation function/method is in some
+additional file, register your activation function like this:
+
+    include_once dirname( __FILE__ ).'/your_additional_file.php';
+    register_activation_hook( __FILE__, array( 'YourAdditionalClass', 'on_activate_function' ) );
+
+Or if you're inside of a \_\_construct():
+
+    register_activation_hook( __FILE__, array( $this, 'YOUR_METHOD_NAME' ) );
+
+NOTES
+-----
+

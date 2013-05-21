@@ -1,0 +1,129 @@
+get links "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+get links - Like
+
+SYNOPSIS
+--------
+
+Like
+[wp\_get\_links()](/Template_Tags/wp_get_links "Template Tags/wp get links"),
+this tag displays links from the [Links
+Manager](/Links_Manager "Links Manager"), but allows the user to control
+how they are displayed by tag parameters, rather than through the
+WordPress admin interface (useful when displaying links on more than one
+template). This tag does ignore any link where the Visible property is
+set to No.
+
+REPLACE WITH
+------------
+
+[wp\_list\_bookmarks()](/Template_Tags/wp_list_bookmarks "Template Tags/wp list bookmarks").
+
+USAGE
+-----
+
+`  <?php get_links(category, 'before', 'after','between', show_images, 'order', show_description,show_rating, limit, show_updated, echo); ?> `
+
+EXAMPLES
+--------
+
+### Default Usage
+
+By default, the usage shows:
+
+-   All links
+-   Line breaks after each link item
+-   An image if one is included
+-   A space between the image and the text
+-   Sorts the list by name
+-   Shows the description of the link
+-   Does not show the ratings
+-   Unless limit is set, shows all links
+-   Displays links as links not text
+
+<!-- -->
+
+    <?php get_links(); ?>
+
+### Specific Category Sorted by URL
+
+Displays links for link category ID 2 in span tags, uses images for
+links, does not show descriptions, sorts by link URL.
+
+    <?php get_links(2, '<span>', '</span>', '', TRUE, 'url', FALSE); ?>
+
+### Shows Ratings and Timestamp
+
+Displays all links in an ordered list with descriptions on a new line,
+does not use images for links, sorts by link id, shows description, show
+rating, no limit to the number of links, shows last-updated timestamp,
+and echoes the results.
+
+    <ol>
+    <?php get_links('-1', '<li>', '</li>', '<br />', FALSE, 'id', TRUE, 
+    TRUE, -1, TRUE, TRUE); ?>
+    </ol>
+
+PARAMETERS
+----------
+
+ category 
+:   (*integer*) The numeric ID of the link category whose links will be
+    displayed. Display links in multiple categories by passing a string
+    containing comma-separated list of categories, e.g. "4,11,3". If
+    none is specified, all links are shown. Defaults to `-1` (all
+    links).
+ before 
+:   (*string*) Text to place before each link. There is no default.
+ after 
+:   (*string*) Text to place after each link. Defaults to `'<br />'`.
+ between 
+:   (*string*) Text to place between each link/image and its
+    description. Defaults to `' '` (space).
+ show\_images 
+:   (*boolean*) Should images for links be shown (`TRUE`) or not
+    (`FALSE`). Defaults to `TRUE`.
+ order 
+:   (*string*) Value to sort links on. Defaults to `'name'` unless you
+    pass the value of `''` (empty), in which case it sets to `'id'`.
+    Valid options:
+    -   `'id'`
+    -   `'url'`
+    -   `'name'`
+    -   `'target'`
+    -   `'category'`
+    -   `'description'`
+    -   `'owner'` - User who added link through Links Manager.
+    -   `'rating'`
+    -   `'updated'`
+    -   `'rel'` - Link relationship (XFN).
+    -   `'notes'`
+    -   `'rss'`
+    -   `'length'` - The length of the link name, shortest to longest.
+
+**Prefixing any of the above options with an underscore (ex:**`'_id'`**)
+sorts links in reverse order.**
+
+-   `'rand'` - Display links in random order.
+
+ show\_description 
+:   (*boolean*) Should the description be displayed (`TRUE`) or not
+    (`FALSE`). Valid when **show\_images** is `FALSE`, or an image is
+    not defined. Defaults to `TRUE`.
+ show\_rating 
+:   (*boolean*) Should rating stars/characters be displayed (`TRUE`) or
+    not (`FALSE`). Defaults to `FALSE`.
+ limit 
+:   (*integer*) Maximum number of links to display. Defaults to `-1`
+    (all links).
+ show\_updated 
+:   (*boolean*) Should the last updated timestamp be displayed (`TRUE`)
+    or not (`FALSE`). Defaults to `FALSE`.
+ echo 
+:   (*boolean*) Display links (`TRUE`) or return them for use PHP
+    (`FALSE`). Defaults to `TRUE`.
+

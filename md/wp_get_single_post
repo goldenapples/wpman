@@ -1,0 +1,63 @@
+wp get single post "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+wp get single post - Retrieve a single post, based on post ID.
+
+SYNOPSIS
+--------
+
+Retrieve a single post, based on post ID.
+
+USAGE
+-----
+
+` <?php wp_get_single_post( $postid, $mode ) ?> `
+
+PARAMETERS
+----------
+
+ `$postid` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID.
+    Default: 0
+
+ `$mode` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) How to return result. Expects a Constant: `OBJECT`,
+    `ARRAY_N`, or `ARRAY_A`.
+    Default: `OBJECT`
+
+RETURN VALUES
+-------------
+
+ `(object|array)` 
+:   Post object or array holding post contents and information with two
+    additional fields (or keys): '`post_category`' and '`tags_input`'.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_post()`](/Function_Reference/get_post "Function Reference/get post")
+-   Uses:
+    [`wp_get_post_categories()`](/Function_Reference/wp_get_post_categories "Function Reference/wp get post categories")
+-   Uses:
+    [`wp_get_post_tags()`](/Function_Reference/wp_get_post_tags "Function Reference/wp get post tags")
+
+CHANGE LOG
+----------
+
+-   Deprecated: [3.5.0](/Version_3.5 "Version 3.5")
+-   Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_get_single_post()` is located in `wp-includes/post.php`.
+

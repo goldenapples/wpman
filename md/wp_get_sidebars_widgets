@@ -1,0 +1,42 @@
+wp get sidebars widgets "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+wp get sidebars widgets - Retrieve full list of [sidebars](/Sidebars "Sidebars") and their
+
+SYNOPSIS
+--------
+
+Retrieve full list of [sidebars](/Sidebars "Sidebars") and their
+widgets.
+
+Will upgrade sidebar widget list, if needed. Will also save updated
+list, if needed.
+
+PARAMETERS
+----------
+
+ `$deprecated` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Not used (deprecated).
+    Default: true
+
+RETURN VALUES
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   Upgraded list of widgets to version 3 array format when called from
+    the admin.
+
+CHANGE LOG
+----------
+
+Since: [2.2](/Version_2.2 "Version 2.2")
+
+SOURCE FILE
+-----------
+
+wp\_get\_sidebars\_widgets() is located in `wp-includes/widgets.php`
+

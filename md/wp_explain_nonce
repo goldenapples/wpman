@@ -1,0 +1,73 @@
+wp explain nonce "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+wp explain nonce - **This function is deprecated as of WordPress 3.4.1. Please use
+
+SYNOPSIS
+--------
+
+**This function is deprecated as of WordPress 3.4.1. Please use
+[wp\_nonce\_ays](/Function_Reference/wp_nonce_ays "Function Reference/wp nonce ays")
+instead.**
+
+Retrieve
+[nonce](http://en.wikipedia.org/wiki/Cryptographic_nonce "wikipedia:Cryptographic nonce")
+action '`Are you sure`' message.
+
+The action is split by verb and noun. The action format is as follows:
+verb-action\_extra. The verb is before the first dash and has the format
+of letters and no spaces and numbers. The noun is after the dash and
+before the underscore, if an underscore exists. The noun is also only
+letters.
+
+The filter will be called for any action, which is not defined by
+WordPress. You may use the filter for your plugin to explain nonce
+actions to the user, when they get the "Are you sure?" message. The
+filter is in the format of '`explain_nonce_$verb-$noun`' with the
+`$verb` replaced by the found verb and the `$noun` replaced by the found
+noun. The two parameters that are given to the hook are the localized
+'`Are you sure you want to do this?`' message with the extra text (the
+text after the underscore).
+
+USAGE
+-----
+
+` <?php wp_explain_nonce( $action ) ?> `
+
+PARAMETERS
+----------
+
+ `$action` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*)
+    [Nonce](http://en.wikipedia.org/wiki/Cryptographic_nonce "wikipedia:Cryptographic nonce")
+    action.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Are you sure message.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.0.4
+
+Deprecated: 3.4.1
+
+SOURCE FILE
+-----------
+
+`wp_explain_nonce()` is located in `wp-includes/functions.php`.
+

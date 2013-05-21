@@ -1,0 +1,59 @@
+generic ping "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+generic ping - Sends [pings](/Glossary#Ping "Glossary") to all of the ping site
+
+SYNOPSIS
+--------
+
+Sends [pings](/Glossary#Ping "Glossary") to all of the ping site
+services.
+
+USAGE
+-----
+
+` <?php generic_ping( $post_id ) ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID. Only used as a return velue.
+    Default: 0
+
+RETURN VALUES
+-------------
+
+ `(integer)` 
+:   Returns `$post_id` unaltered.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   The `$post_id` and return values do not **have** to be an `integer`
+    data types, but in WordPress `$post_id` is always an `integer` data
+    type.
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+    to get all ping sites.
+-   Uses:
+    [`weblog_ping()`](/Function_Reference/weblog_ping "Function Reference/weblog ping")
+    for each ping site.
+
+CHANGE LOG
+----------
+
+Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`generic_ping()` is located in `wp-includes/comment.php`.
+

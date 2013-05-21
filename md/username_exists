@@ -1,0 +1,60 @@
+username exists "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+username exists - Returns the user ID if the user exists or `null` if the user doesn't
+
+SYNOPSIS
+--------
+
+Returns the user ID if the user exists or `null` if the user doesn't
+exist.
+
+USAGE
+-----
+
+` <?php username_exists( $username ); ?> `
+
+PARAMETERS
+----------
+
+ `$username` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) a string representing the username to check for
+    existence.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   This function returns the user ID if the user exists or `null` if
+    the user does not exist.
+
+EXAMPLES
+--------
+
+Use `username_exists()` in your scripts to decide whether the given
+username exists.
+
+    <?php  
+           $username = $_POST['username'];
+           if ( username_exists( $username ) )
+               echo "Username In Use!";
+           else
+               echo "Username Not In Use!";
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+SOURCE FILE
+-----------
+
+`username_exists()` is located in `wp-includes/user.php`.
+

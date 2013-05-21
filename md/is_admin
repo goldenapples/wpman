@@ -1,0 +1,67 @@
+is admin "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+is admin - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+the Dashboard or the administration panel is attempting to be displayed.
+It *should not* be used as a means to verify whether the current user
+has permission to view the Dashboard or the administration panel. This
+is a boolean function that will return `true` if the URL being accessed
+is in the admin section, or `false` for a front-end page.
+
+USAGE
+-----
+
+` <?php is_admin(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+    if ( ! is_admin() ) {
+         echo "You are viewing the theme";
+    } else {
+         echo "You are viewing the WordPress Administration Panels";
+    }
+
+NOTES
+-----
+
+-   `is_admin()` will return `false` when trying to access wp-login.php.
+-   `is_admin()` will return `true` when trying to make an ajax request.
+-   `is_admin()` will return `true` for calls to load-scripts.php and
+    load-styles.php.
+-   `is_admin()` is *not* intended to be used for security checks. It
+    will return true whenever the current URL is for a page on the admin
+    side of WordPress. It does not check if the user is logged in, nor
+    if the user even has access to the page being requested. It is a
+    convenience function for plugins and themes to use for various
+    purposes, but it is not suitable for validating secured requests.
+
+CHANGE LOG
+----------
+
+Since: 1.5.1
+
+SOURCE FILE
+-----------
+
+`is_admin()` is located in `wp-includes/load.php`.
+

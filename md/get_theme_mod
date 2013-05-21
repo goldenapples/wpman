@@ -1,0 +1,75 @@
+get theme mod "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+get theme mod - Retrieves a modification setting for the current theme. Along with
+
+SYNOPSIS
+--------
+
+Retrieves a modification setting for the current theme. Along with
+[set\_theme\_mod()](/set_theme_mod "set theme mod") this function can
+sometimes offer theme developers a simpler alternative to the [Settings
+API](/Settings_API "Settings API") when there is a need to handle basic
+theme-specific settings.
+
+If the modification name does not exist, then the `$default` will be
+passed through
+[`sprintf()`](http://us2.php.net/manual/en/function.sprintf.php "http://us2.php.net/manual/en/function.sprintf.php")
+with the first string the template directory URI and the second string
+the stylesheet directory URI.
+
+USAGE
+-----
+
+` <?php get_theme_mod( $name, $default ) ?> `
+
+PARAMETERS
+----------
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Theme modification name.
+    Default: *None*
+
+ `$default` 
+:   ([*boolean|string*](/How_to_Pass_Tag_Parameters#Boolean.7Cstring "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   
+
+EXAMPLES
+--------
+
+### Calling the Custom Background Color
+
+This example could be used to add the custom background color as a
+border on the top of the footer. It would be css inserted in the header:
+
+    .footer {
+    border-top: solid 1px #<?php echo get_theme_mod( 'background_color' ); ?>;}
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`theme_mod_$name`' filter on the value.
+
+CHANGE LOG
+----------
+
+-   Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`get_theme_mod()` is located in `wp-includes/theme.php`.
+

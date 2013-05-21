@@ -1,0 +1,47 @@
+unregister sidebar widget "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+unregister sidebar widget - Makes a previously available widget unavailable. This is most commonly
+
+SYNOPSIS
+--------
+
+Makes a previously available widget unavailable. This is most commonly
+used within a theme's functions.php to disable a widget that does not
+work well in that theme's sidebar.
+
+USAGE
+-----
+
+`  <?php unregister_sidebar_widget( $id ); ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*string/int*](/How_to_Pass_Tag_Parameters#String.2Fint "How to Pass Tag Parameters"))
+    (*required*) Widget ID.
+    Default: *None*
+
+EXAMPLE
+-------
+
+NOTES
+-----
+
+-   Uses
+    [wp\_unregister\_sidebar\_widget()](/Function_Reference/wp_unregister_sidebar_widget "Function Reference/wp unregister sidebar widget")
+
+CHANGE LOG
+----------
+
+Since: 2.2.0
+
+SOURCE FILE
+-----------
+
+`unregister_sidebar_widget()` is located in `wp-includes/widgets.php`.
+

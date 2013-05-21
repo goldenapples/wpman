@@ -1,0 +1,54 @@
+get object taxonomies "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+get object taxonomies - Returns all of the taxonomy names of a defined object type
+
+SYNOPSIS
+--------
+
+Returns all of the taxonomy names of a defined object type
+
+USAGE
+-----
+
+` <?php print_r(get_object_taxonomies('post')); ?> `
+
+PARAMETERS
+----------
+
+ `$object` 
+:   ([*array|string|object*](/How_to_Pass_Tag_Parameters#Array.7Cstring.7Cobject "How to Pass Tag Parameters"))
+    (*required*) Name of the type of taxonomy object, or an object (row
+    from posts)
+    Default: *None*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The type of output to return, either taxonomy 'names'
+    or 'objects'.
+    Default: 'names'
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   All taxonomy names for the given object type
+
+EXAMPLES
+--------
+
+` <?php foreach ( get_object_taxonomies( 'post' ) as $tax_name ) {    echo $tax_name .'<br>';}?> `
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`get_object_taxonomies()` is located in `wp-includes/taxonomy.php`.
+

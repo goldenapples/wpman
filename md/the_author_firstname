@@ -1,0 +1,46 @@
+the author firstname "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+the author firstname - This tag displays the first name for the author of a post. The **First
+
+SYNOPSIS
+--------
+
+This tag displays the first name for the author of a post. The **First
+Name** field is set in the user's profile
+([Administration](/Administration_Panels "Administration Panels") \>
+[Profile](/Administration_Panels#Your_Profile "Administration Panels")
+\> [Your Profile](/Your_Profile_SubPanel "Your Profile SubPanel")). This
+tag must be used within [The Loop](/The_Loop "The Loop").
+
+REPLACE WITH
+------------
+
+-   [the\_author\_meta('first\_name')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+
+USAGE
+-----
+
+`  <?php the_author_firstname(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+EXAMPLE
+-------
+
+    <p>This post was written by <?php the_author_firstname(); ?></p>
+
+CHANGE LOG
+----------
+
+-   Since: 1.5.0
+-   Deprecated: 2.8.0
+-   Replace By:
+    [the\_author\_meta('first\_name')](/Template_Tags/the_author_meta "Template Tags/the author meta")
+

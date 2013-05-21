@@ -1,0 +1,211 @@
+bloginfo "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+bloginfo - Displays information about your site, mostly gathered from the
+
+SYNOPSIS
+--------
+
+Displays information about your site, mostly gathered from the
+information you supply in your [User
+Profile](/Administration_Panels#Your_Profile "Administration Panels")
+and [General
+Settings](/Administration_Panels#General_Settings "Administration Panels")
+WordPress [Administration
+Screens](/Administration_Screens "Administration Screens"). It can be
+used anywhere within a template file. This always prints a result to the
+browser. If you need the values for use in PHP, use
+[get\_bloginfo()](/Function_Reference/get_bloginfo "Function Reference/get bloginfo").
+
+USAGE
+-----
+
+`  <?php bloginfo( $show ); ?> `
+
+PARAMETERS
+----------
+
+ `$show` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*Optional*) Keyword naming the information you want.
+    Default: name
+
+-   '**name'** - Displays the "Site Title" set in
+    [Settings](/Administration_Panels#General "Administration Panels")
+    \>
+    [General](/Settings_General_SubPanel "Settings General SubPanel").
+    This data is retrieved from the "blogname" record in the
+    [wp\_options
+    table](/Database_Description#Table:_wp_options "Database Description").
+-   '**description'** - Displays the "Tagline" set in
+    [Settings](/Administration_Panels#General "Administration Panels")
+    \>
+    [General](/Settings_General_SubPanel "Settings General SubPanel").
+    This data is retrieved from the "blogdescription" record in the
+    [wp\_options
+    table](/Database_Description#Table:_wp_options "Database Description").
+-   '**wpurl'** - Displays the "WordPress address (URL)" set in
+    [Settings](/Administration_Panels#General "Administration Panels")
+    \>
+    [General](/Settings_General_SubPanel "Settings General SubPanel").
+    This data is retrieved from the "siteurl" record in the [wp\_options
+    table](/Database_Description#Table:_wp_options "Database Description").
+    Consider echoing
+    [site\_url()](/Function_Reference/site_url "Function Reference/site url")
+    instead, especially for multi-site configurations using paths
+    instead of subdomains (it will return the root site not the current
+    sub-site).
+-   '**siteurl'** / '**home (note this is deprecated! from version
+    2.2)'** / '**url'** - Displays the "Site address (URL)" set in
+    [Settings](/Administration_Panels#General "Administration Panels")
+    \>
+    [General](/Settings_General_SubPanel "Settings General SubPanel").
+    This data is retrieved from the "home" record in the [wp\_options
+    table](/Database_Description#Table:_wp_options "Database Description").
+    Consider echoing
+    [home\_url()](/Function_Reference/home_url "Function Reference/home url")
+    instead.
+-   '**admin\_email'** - Displays the "E-mail address" set in
+    [Settings](/Administration_Panels#General "Administration Panels")
+    \>
+    [General](/Settings_General_SubPanel "Settings General SubPanel").
+    This data is retrieved from the "admin\_email" record in the
+    [wp\_options
+    table](/Database_Description#Table:_wp_options "Database Description").
+-   '**charset'** - Displays the "Encoding for pages and feeds" set in
+    [Settings](/Administration_Panels#Reading "Administration Panels")
+    \>
+    [Reading](/Settings_Reading_SubPanel "Settings Reading SubPanel").
+    This data is retrieved from the "blog\_charset" record in the
+    [wp\_options
+    table](/Database_Description#Table:_wp_options "Database Description").
+-   '**version'** - Displays the WordPress Version you use. This data is
+    retrieved from the `$wp_version` variable set in
+    `wp-includes/version.php`.
+-   '**html\_type'** - Displays the Content-Type of WordPress HTML pages
+    (default: "text/html"). This data is retrieved from the "html\_type"
+    record in the [wp\_options
+    table](/Database_Description#Table:_wp_options "Database Description").
+    Themes and plugins can override the default value using the
+    `pre_option_html_type` filter.
+-   '**text\_direction'** - Displays the Text Direction of WordPress
+    HTML pages. Consider using
+    [is\_rtl()](/Function_Reference/is_rtl "Function Reference/is rtl")
+    instead.
+-   '**language'** - Displays the language of WordPress.
+-   '**stylesheet\_url'** - Displays the primary
+    [CSS](/Glossary#CSS "Glossary") (usually *style.css*) file URL of
+    the active theme. Consider echoing
+    [get\_stylesheet\_uri()](/Function_Reference/get_stylesheet_uri "Function Reference/get stylesheet uri")
+    instead.
+-   '**stylesheet\_directory'** - Displays the stylesheet directory URL
+    of the active theme. (Was a local path in earlier WordPress
+    versions.) Consider echoing
+    [get\_stylesheet\_directory\_uri()](/Function_Reference/get_stylesheet_directory_uri "Function Reference/get stylesheet directory uri")
+    instead.
+-   '**template\_url'** / '**template\_directory'** - URL of the active
+    theme's directory ('template\_directory' was a local path before
+    [2.6](/Version_2.6 "Version 2.6"); see
+    [get\_theme\_root()](/Function_Reference/get_theme_root "Function Reference/get theme root")
+    and
+    [get\_template()](/Function_Reference/get_template "Function Reference/get template")
+    for hackish alternatives.) Within child themes, both
+    get\_bloginfo('template\_url') and get\_template() will return the
+    *parent* theme directory. Consider echoing
+    [get\_template\_directory\_uri()](/Function_Reference/get_template_directory_uri "Function Reference/get template directory uri")
+    instead (for the parent template directory) or
+    [get\_stylesheet\_directory\_uri()](/Function_Reference/get_stylesheet_directory_uri "Function Reference/get stylesheet directory uri")
+    (for the child template directory).
+-   '**pingback\_url'** - Displays the Pingback XML-RPC file URL
+    (*xmlrpc.php*).
+-   '**atom\_url'** - Displays the Atom feed URL (*/feed/atom*).
+-   '**rdf\_url'** - Displays the RDF/RSS 1.0 feed URL (*/feed/rfd*).
+-   '**rss\_url'** - Displays the RSS 0.92 feed URL (*/feed/rss*).
+-   '**rss2\_url'** - Displays the RSS 2.0 feed URL (*/feed*).
+-   '**comments\_atom\_url'** - Displays the comments Atom feed URL
+    (*/comments/feed*).
+-   '**comments\_rss2\_url'** - Displays the comments RSS 2.0 feed URL
+    (*/comments/feed*).
+
+EXAMPLES
+--------
+
+### Show Blog Title
+
+Displays your blog's title in a \<h1\> tag.
+
+    <h1><?php bloginfo('name'); ?></h1>
+
+### Show Blog Title in Link
+
+Displays your blog's title in a link.
+
+    <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>
+
+### Show Character Set
+
+Displays the character set your blog is using (e.g. "utf-8").
+
+    <p>Character set: <?php bloginfo('charset'); ?> </p>
+
+### Show Blog Description
+
+Displays the tagline of your blog as set in
+[Settings](/Administration_Panels#General "Administration Panels") \>
+[General](/Settings_General_SubPanel "Settings General SubPanel").
+
+    <p><?php bloginfo('description'); ?> </p>
+
+### Example output
+
+From version 2.7. On host `example`, the [Blog address
+(URL)](/Settings_General_SubPanel "Settings General SubPanel") is shown
+at `http://www.example.com/home`, and the [WordPress address
+(URL)](/Settings_General_SubPanel "Settings General SubPanel") is
+installed at `http://www.example.com/home/wp`.
+
+Note that directory URLs are missing trailing slashes.
+
+    admin_email          = admin@example.com
+    atom_url             = http://www.example.com/home/feed/atom
+    charset              = UTF-8
+    comments_atom_url    = http://www.example.com/home/comments/feed/atom
+    comments_rss2_url    = http://www.example.com/home/comments/feed
+    description          = Just another WordPress blog
+    home                 = http://www.example.com/home (DEPRECATED! use url option instead)
+    html_type            = text/html
+    language             = en-US
+    name                 = Testpilot
+    pingback_url         = http://www.example.com/home/wp/xmlrpc.php
+    rdf_url              = http://www.example.com/home/feed/rdf
+    rss2_url             = http://www.example.com/home/feed
+    rss_url              = http://www.example.com/home/feed/rss
+    siteurl              = http://www.example.com/home (DEPRECATED! use url option instead)
+    stylesheet_directory = http://www.example.com/home/wp/wp-content/themes/largo
+    stylesheet_url       = http://www.example.com/home/wp/wp-content/themes/largo/style.css
+    template_directory   = http://www.example.com/home/wp/wp-content/themes/largo
+    template_url         = http://www.example.com/home/wp/wp-content/themes/largo
+    text_direction       = ltr
+    url                  = http://www.example.com/home
+    version              = 3.5
+    wpurl                = http://www.example.com/home/wp
+
+NOTES
+-----
+
+-   Uses:
+    [get\_bloginfo()](/Function_Reference/get_bloginfo "Function Reference/get bloginfo")
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+
+SOURCE FILE
+-----------
+
+`bloginfo()` is located in `wp-includes/general-template.php`.
+

@@ -1,0 +1,80 @@
+wp kses "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+wp kses - This function makes sure that only the allowed HTML element names,
+
+SYNOPSIS
+--------
+
+This function makes sure that only the allowed HTML element names,
+attribute names and attribute values plus only sane HTML entities will
+occur in \$string. You have to remove any slashes from PHP's magic
+quotes before you call this function.
+
+USAGE
+-----
+
+`  <?php wp_kses($string, $allowed_html, $allowed_protocols); ?> `
+
+PARAMETERS
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to filter through kses
+    Default: *None*
+
+ `$allowed_html` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) List of allowed HTML elements
+    Default: *None*
+
+ `$allowed_protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Allow links in `$string` to these protocols.
+    Default: The default allowed protocols are **http**, **https**,
+    **ftp**, **mailto**, **news**, **irc**, **gopher**, **nntp**,
+    **feed**, and **telnet**. This covers all common link protocols,
+    except for **javascript**, which should not be allowed for untrusted
+    users.
+
+RETURN
+------
+
+ (string) 
+:   Filtered string of HTML.
+
+EXAMPLES
+--------
+
+### Allowed HTML Tags Array
+
+This is an example of how to format an array of allowed HTML tags and
+attributes.
+
+    array(
+        'a' => array(
+            'href' => array(),
+            'title' => array()
+        ),
+        'br' => array(),
+        'em' => array(),
+        'strong' => array()
+    );
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+-   Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_kses()` is located in `wp-includes/kses.php`.
+

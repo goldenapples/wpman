@@ -1,0 +1,72 @@
+comments number "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+comments number - Displays the total number of comments,
+
+SYNOPSIS
+--------
+
+Displays the total number of comments,
+[Trackbacks](/Glossary#Trackback "Glossary"), and
+[Pingbacks](/Glossary#Pingback "Glossary") for the current post. This
+tag must be within [The Loop](/The_Loop "The Loop").
+
+Use
+[get\_comments\_number()](/Template_Tags/get_comments_number "Template Tags/get comments number")
+to retrieve the value.
+
+USAGE
+-----
+
+`  <?php comments_number( $zero, $one, $more ); ?> `
+
+PARAMETERS
+----------
+
+ `$zero` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display when there are no comments.
+    Default: 'No Comments'
+
+ `$one` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display when there is one comment.
+    Default: '1 Comment'
+
+ `$more` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display when there is more than one comment.
+    `%` is replaced by the number of comments, so `'% so far'` is
+    displayed as "5 so far" when there are five comments.
+    Default: '% Comments'
+
+EXAMPLES
+--------
+
+### Text Response to Number of Comments
+
+Displays text based upon number of comments: Comment count zero - **no
+responses**; comment count one - **one response**; more than one comment
+(total 42) displays **42 responses**.
+
+    <p>
+      This post currently has
+      <?php comments_number( 'no responses', 'one response', '% responses' ); ?>.
+    </p>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [0.71](/Version_0.71 "Version 0.71")
+
+SOURCE FILE
+-----------
+
+comments\_number() is located in `wp-includes/comment-template.php`
+

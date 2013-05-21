@@ -1,0 +1,91 @@
+get avatar "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+get avatar - Retrieve the [avatar](/Glossary#Avater "Glossary") for a user who
+
+SYNOPSIS
+--------
+
+Retrieve the [avatar](/Glossary#Avater "Glossary") for a user who
+provided a user ID or email address. Most commonly used in the comments
+section.
+
+This function is
+[pluggable](/Pluggable_Functions "Pluggable Functions"), however plugin
+authors wishing to change the [gravatar](/Glossary#Gravatar "Glossary")
+output should use the `get_avatar` filter instead, for compatibility
+purposes.
+
+This function will not return an avatar if "Show Avatars" is unchecked
+in Settings \> Discussion.
+
+USAGE
+-----
+
+`  <?php echo get_avatar( $id_or_email, $size, $default, $alt ); ?> `
+
+PARAMETERS
+----------
+
+ `id_or_email` 
+:   ([*integer/string/object*](/How_to_Pass_Tag_Parameters#Integer.2Fstring.2Fobject "How to Pass Tag Parameters"))
+    (*required*) Author’s User ID (an integer or string), an E-mail
+    Address (a string) or the comment object from the comment loop. \
+    *Note: with most comment templates you can use `$comment` here, in
+    order to display the gravatar of the commenter. In other templates
+    within The Loop (for WordPress 2.7 and lower), you can use
+    `get_the_author_id()` (deprecated in WordPress 2.8). For [WordPress
+    2.8](/Version_2.8 "Version 2.8") and up, please use
+    `get_the_author_meta('ID')`.*
+    Default: *None*
+
+ `size` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Size of Gravatar to return (max is 512).
+    Default: 96
+
+ `default` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) url for an image, defaults to the "Mystery Man".
+    Default:
+
+ `alt` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Alternate text for the avatar.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ `string` 
+:   An img element. The function does not output anything; you have to
+    echo the return value.
+
+EXAMPLES
+--------
+
+For comments:
+
+    <?php echo get_avatar( $comment, 32 ); ?>
+
+For a post's author, in The Loop:
+
+    <?php echo get_avatar( get_the_author_meta('ID'), 32 ); ?>
+
+For a random email address:
+
+    <?php echo get_avatar( 'email@example.com', 32 ); ?>
+
+CHANGELOG
+---------
+
+-   Since: 2.5.0
+
+SOURCE FILE
+-----------
+
+`get_avatar()` is located in `wp-includes/pluggable.php`.
+

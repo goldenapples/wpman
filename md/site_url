@@ -1,0 +1,93 @@
+site url "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+site url - The **site\_url** template tag retrieves the site url for the current
+
+SYNOPSIS
+--------
+
+The **site\_url** template tag retrieves the site url for the current
+site (where the WordPress core files reside) with the appropriate
+protocol, 'https' if
+[is\_ssl()](/Function_Reference/is_ssl "Function Reference/is ssl") and
+'http' otherwise. If [scheme](#Parameters) is 'http' or 'https',
+is\_ssl() is overridden. Use this to get the "wordpress address" as
+defined in general settings. Use
+[home\_url()](/Function_Reference/home_url "Function Reference/home url")
+to get the "site address" as defined in general settings.
+
+In case of WordPress Network setup, use
+[network\_site\_url()](/Function_Reference/network_site_url "Function Reference/network site url")
+instead.
+
+USAGE
+-----
+
+` <?php site_url( $path, $scheme ); ?> `
+
+### Default Usage
+
+` <?php echo site_url(); ?> `
+
+PARAMETERS
+----------
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path to be appended to the site url.
+    Default: *None*
+
+ `$scheme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Context for the protocol for the url returned. Setting
+    \$scheme will override the default context. Allowed values are
+    'http','https', 'login', 'login\_post', or 'admin'.
+    Default: null
+
+RETURN
+------
+
+ (string) 
+:   Site url link with optional path appended.
+
+EXAMPLES
+--------
+
+    $url = site_url();
+    echo $url;
+
+Output:
+[http://www.example.com](http://www.example.com "http://www.example.com")
+or
+[http://www.example.com/wordpress](http://www.example.com/wordpress "http://www.example.com/wordpress")
+
+(Note the lack of a trailing slash)
+
+    $url = site_url('/secrets/', 'https');
+    echo $url;
+
+Output:
+[https://www.example.com/secrets/](https://www.example.com/secrets/ "https://www.example.com/secrets/")
+or
+[https://www.example.com/wordpress/secrets/](https://www.example.com/wordpress/secrets/ "https://www.example.com/wordpress/secrets/")
+
+NOTES
+-----
+
+-   Uses
+    [get\_site\_url()](/Function_Reference/get_site_url "Function Reference/get site url")
+-   Uses the 'siteurl' [option](/Option_Reference "Option Reference")
+
+CHANGELOG
+---------
+
+-   Since: [2.6.0](/Version_2.6 "Version 2.6")
+
+SOURCE CODE
+-----------
+
+`site_url()` is located in `wp-includes/link-template.php`.
+

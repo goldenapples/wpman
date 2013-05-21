@@ -1,0 +1,87 @@
+wp delete post "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp delete post - Removes a post, attachment, or page.
+
+SYNOPSIS
+--------
+
+Removes a post, attachment, or page.
+
+When the post and page goes, everything that is tied to it is deleted
+also. This includes comments, post meta fields, and relationships
+between the post and taxonomy terms.
+
+USAGE
+-----
+
+`  <?php wp_delete_post( $postid, $force_delete ); ?> `
+
+PARAMETERS
+----------
+
+ `$postid` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID.
+    Default: 0
+
+ `$force_delete` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to bypass trash and force deletion (added in
+    WordPress 2.9).
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   False on failure and a random wpdb object on success.
+
+EXAMPLES
+--------
+
+### Delete Post
+
+Deleting WP default post "Hello World" which ID is '1'.
+
+`  <?php wp_delete_post(1); ?> `
+
+NOTES
+-----
+
+-   wp\_delete\_post() automatically reverts to
+    [`wp_trash_post()`](/Function_Reference/wp_trash_post "Function Reference/wp trash post")
+    if `$force_delete` is *false*, the `post_type` of `$postid` is
+    *page* or *post*, `$postid` is not already in the trash **and** if
+    [that trash
+    feature](/Editing_wp-config.php#Empty_Trash "Editing wp-config.php")
+    enabled (which it it is by default).
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    on '`delete_post`' before deletion unless post type is
+    '`attachment`'.
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    on '`deleted_post`' after deletion unless `post type` is
+    *attachment*.
+-   Uses:
+    [`wp_delete_attachment()`](/Function_Reference/wp_delete_attachment "Function Reference/wp delete attachment")
+    if `post type` is *attachment*.
+-   Uses global `$wpdb`: (`object`)
+    [wpdb](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses global `$wp_rewrite`: (`object`)
+    [WP\_Rewrite](/Function_Reference/WP_Rewrite "Function Reference/WP Rewrite")
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_delete_post()` is located in `wp-includes/post.php`.
+

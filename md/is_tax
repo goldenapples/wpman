@@ -1,0 +1,85 @@
+is tax "MAY 2013" WordPress Codex "Function Reference"
+======================================================
+
+NAME
+----
+
+is tax - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if a
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if a
+custom taxonomy archive page is being displayed. This is a boolean
+function, meaning it returns either TRUE or FALSE.
+
+Note that when used without the `$taxonomy` parameter, `is_tax()`
+returns false on category archives and tag archives. You should use
+`is_category()` and `is_tag()` respectively when checking for category
+and tag archives.
+
+To check for a taxonomy term on a specific post, use `has_term()`
+
+USAGE
+-----
+
+` <?php is_tax( $taxonomy, $term ); ?> `
+
+PARAMETERS
+----------
+
+ `$taxonomy` 
+:   ([*string,
+    array*](/How_to_Pass_Tag_Parameters#String.2C_array "How to Pass Tag Parameters"))
+    (*optional*) Taxonomy slug or slugs
+    Default: *None*
+
+ `$term` 
+:   ([*int, array,
+    string*](/How_to_Pass_Tag_Parameters#Int.2C_array.2C_string "How to Pass Tag Parameters"))
+    (*optional*) A single or array of, The term's ID, Name or Slug
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+    is_tax();
+    // When any custom taxonomy archive page is being displayed.
+
+    is_tax( 'channel' );
+    // When the archive page for taxonomy of 'channel' is being displayed.
+
+    is_tax( 'channel', 'BBC1' );
+    // When the archive page for taxonomy of 'channel' is being displayed and the 'channel' taxonomy term is 'BBC1'.
+
+### Post Formats
+
+The taxonomy slug for Post Formats differs from the Post Format slug.
+The `register_taxonomy()` function appends a `post-format-` base to the
+Post Format slug. So, e.g. while the "Aside" Post Format type has a slug
+of `aside`, the `post_format` taxonomy term "Aside" has a slug of
+`post-format-aside`.
+
+    is_tax( 'post_format' );
+    // When the archive page for any Post Format term is being displayed.
+
+    is_tax( 'post_format', 'post-format-aside' );
+    // When the archive page for Post Format type 'aside' is being displayed.
+
+NOTES
+-----
+
+-   See also `register_taxonomy()` and [Category
+    Templates](/Category_Templates "Category Templates").
+
+SOURCE FILE
+-----------
+
+`is_tax()` is located in `wp-includes/query.php`.
+

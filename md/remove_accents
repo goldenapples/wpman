@@ -1,0 +1,60 @@
+remove accents "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+remove accents - Converts all accent characters to
+
+SYNOPSIS
+--------
+
+Converts all accent characters to
+[ASCII](http://en.wikipedia.org/wiki/ASCII "wikipedia:ASCII")
+characters.
+
+If there are no accent characters, then the string given is just
+returned.
+
+USAGE
+-----
+
+` <?php remove_accents( $string ) ?> `
+
+PARAMETERS
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text that might have accent characters
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Filtered string with replaced "nice" characters.
+
+EXAMPLES
+--------
+
+    <?php
+    $text = "Hoy será un gran día";
+    echo remove_accents ( $text );
+    ?>
+
+Echo result: Hoy sera un gran dia
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.2.1
+
+SOURCE FILE
+-----------
+
+`remove_accents()` is located in `wp-includes/formatting.php`.
+

@@ -1,0 +1,78 @@
+update usermeta "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+update usermeta - **This function is deprecated as of [Version
+
+SYNOPSIS
+--------
+
+**This function is deprecated as of [Version
+3.0](/Version_3.0 "Version 3.0"). Please use
+[update\_user\_meta](/Function_Reference/update_user_meta "Function Reference/update user meta")
+instead.**
+
+This function updates the value of a specific **meta\_key** pertaining
+to the user whose ID is passed via the **userid** parameter. It returns
+**true** if the update was successful and resulted in a new or changed
+record, and **false** otherwise.
+
+GOTCHAS
+-------
+
+1.  **meta-key:** *Alphanumeric and underscore only.* If the
+    **meta\_key** contains any characters besides **[A-Za-z0-9\_]**
+    (i.e. anything but letters, digits, and underscore), it is
+    automatically stripped and inserted without the disallowed
+    characters. For example, "**opt-in**" becomes "**optin**" – hyphen
+    is not allowed in a **meta\_key**.
+2.  **return value:** *unchanged record treated as error.* If the new
+    **meta\_value** matches an existing value, the operation is
+    considered an error and **false** is returned.
+
+USAGE
+-----
+
+`  <?php update_usermeta( $userid, $metakey, $metavalue ); ?> `
+
+PARAMETERS
+----------
+
+ `$userid` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the user whose data should be updated.
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The **meta\_key** to be updated.
+    -   `'meta_key'` The **meta\_key** in the [wp\_usermeta
+        table](/Database_Description#Table:_wp_usermeta "Database Description")
+        for the **meta\_value** to be updated.
+
+    Default: *None*
+
+ `$meta_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The new desired value of the **meta\_key**, which must
+    be different from the existing value. Arrays and objects will be
+    automatically serialized.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(bool)` 
+:   -   **True** on successful update.
+    -   **False** on update failure.
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+

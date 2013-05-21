@@ -1,0 +1,48 @@
+wp image editor supports "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+wp image editor supports - Tests whether there is an editor that supports a given mime type or
+
+SYNOPSIS
+--------
+
+Tests whether there is an editor that supports a given mime type or
+methods.
+
+USAGE
+-----
+
+    $arg = array(
+        'mime_type' => 'image/png',
+        'methods' => array(
+            'rotate',
+            'resize',
+            'save'
+        )
+    );
+    $img_editor_test = wp_image_editor_supports($arg);
+    if ($img_editor_test !== false) {
+        //mime_type and method(s) supported!
+    }
+
+PARAMETERS
+----------
+
+EXAMPLES
+--------
+
+### Default Usage
+
+CHANGE LOG
+----------
+
+-   Since: [3.5.0](/Version_3.5 "Version 3.5")
+
+SOURCE FILE
+-----------
+
+`WP_Image_Editor_Supports()` is located in `wp-includes/media.php`.
+

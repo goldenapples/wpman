@@ -1,0 +1,91 @@
+get user id from string "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+get user id from string - Get a numeric user ID from either an email address or a login. If a
+
+SYNOPSIS
+--------
+
+Get a numeric user ID from either an email address or a login. If a
+number is sent to the function, that number is returned as the id.
+
+USAGE
+-----
+
+` <?php get_user_id_from_string( $string ); ?> `
+
+PARAMETERS
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) String representation of the user to lookup the ID for.
+    May be either the user's login (their username), or the email
+    address registered in WordPress. A numeric string is considered to
+    be an existing user ID and is simply returned as such.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(int)`{style="color:gray"} 
+:   ID of the user specified by \$string on success, null if no user is
+    found.
+
+SOURCE FILE
+-----------
+
+`get_user_id_from_string()` is located in `wp-includes/ms-functions.php`
+
+CHANGE LOG
+----------
+
+-   Since @WPMU
+-   Deprecated [3.6.0](/Version_3.6 "Version 3.6")
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_user\_id\_from\_string](http://codex.wordpress.org/Function_Reference/get_user_id_from_string)"
+
+[Categories](/Special:Categories "Special:Categories"): [Deprecated
+Functions](/Category:Deprecated_Functions "Category:Deprecated Functions")
+| [Functions](/Category:Functions "Category:Functions")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

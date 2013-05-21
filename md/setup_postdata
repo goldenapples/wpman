@@ -1,0 +1,90 @@
+setup postdata "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+setup postdata - Set up global post data. Helps to format custom query results for using
+
+SYNOPSIS
+--------
+
+Set up global post data. Helps to format custom query results for using
+Template tags.
+
+USAGE
+-----
+
+` <?php global $post;setup_postdata( $post ); ?> `
+
+PARAMETERS
+----------
+
+ `$post` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*required*) A post object.
+    Default: *None*
+
+**Important:** You must make use the global \$post variable to pass the
+post details into this function, otherwise functions like the\_title()
+don't work properly...
+
+Example...
+
+       global $post;
+       
+       // Assign your post details to $post (& not any other variable name!!!!)
+       $post = $post_object;
+       
+       setup_postdata( $post );
+       ...
+
+This will **not** work...
+
+       global $post;
+       
+       setup_postdata( $post_object );
+
+RETURN VALUES
+-------------
+
+This function always returns true.
+
+EXAMPLE 1
+---------
+
+    <ul>
+    <?php
+    global $post;
+    $args = array( 'numberposts' => 5, 'offset'=> 1, 'category' => 1 );
+    $myposts = get_posts( $args );
+    foreach( $myposts as $post ) : setup_postdata($post); ?>
+        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+    <?php endforeach; wp_reset_postdata(); ?>
+    </ul>
+
+EXAMPLE 2
+---------
+
+    <ul>
+    <?php
+    global $wpdb;
+    global $post;
+    $str = "SELECT $wpdb->posts.* FROM $wpdb->posts WHERE post_type = 'post' AND post_status = 'publish'";
+    $result = $wpdb->get_results($str);
+    foreach($result as $post):setup_postdata($post);?>
+        <li><a href="<?php the_permalink()?>"><?php the_title();?></a></li><?php 
+    endforeach;?>
+    </ul>
+
+CHANGE LOG
+----------
+
+-   Since:
+    [1.5.0](/index.php?title=Version_1.5.0&action=edit&redlink=1 "Version 1.5.0 (page does not exist)")
+
+SOURCE FILE
+-----------
+
+`setup_postdata()` is located in `wp-includes/query.php`.
+

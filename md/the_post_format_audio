@@ -1,0 +1,52 @@
+the post format audio "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+the post format audio - Parameters
+
+SYNOPSIS
+--------
+
+PARAMETERS
+----------
+
+ `$var` 
+:   ([*TYPE*](/How_to_Pass_Tag_Parameters#TYPE "How to Pass Tag Parameters"))
+    (*required*) Description.
+    Default: *None*
+
+ `$var` 
+:   ([*TYPE*](/How_to_Pass_Tag_Parameters#TYPE "How to Pass Tag Parameters"))
+    (*optional*) Description.
+    Default: DEFAULT
+
+RETURN
+------
+
+ `` `(TYPE)`{style="color:gray"} 
+:   Description.
+
+USAGE
+-----
+
+`  <?php  ?> `
+
+EXAMPLE
+-------
+
+Description text
+
+    Example code
+
+CHANGE LOG
+----------
+
+-   Since: [3.6.0](/Version_3.6 "Version 3.6")
+
+SOURCE FILE
+-----------
+
+`the_post_format_audio()` is located in `wp-whatever/file.php`.
+

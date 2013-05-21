@@ -1,0 +1,71 @@
+delete user meta "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+delete user meta - Remove metadata matching criteria from a user.
+
+SYNOPSIS
+--------
+
+Remove metadata matching criteria from a user.
+
+You can match based on the key, or key and value. Removing based on key
+and value, will keep from removing duplicate metadata with the same key.
+It also allows removing all metadata matching key, if needed.
+
+USAGE
+-----
+
+` <?php delete_user_meta( $user_id, $meta_key, $meta_value ) ?> `
+
+PARAMETERS
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) user ID
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Metadata name.
+    Default: *None*
+
+ `$meta_value` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Metadata value.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   False for failure. True for success.
+
+EXAMPLES
+--------
+
+    <?php
+    if ( ! delete_user_meta($user_id, '_province') ) {
+      echo "Ooops! Error while deleting this information!";
+    }
+    ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`delete_metadata()`](/Function_Reference/delete_metadata "Function Reference/delete metadata")
+
+CHANGE LOG
+----------
+
+Since: 3.0.0
+
+SOURCE FILE
+-----------
+
+`delete_user_meta()` is located in `wp-includes/user.php`.
+

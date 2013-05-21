@@ -1,0 +1,49 @@
+the author link "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+the author link - This tag displays a link to the Website for the author of a post. The
+
+SYNOPSIS
+--------
+
+This tag displays a link to the Website for the author of a post. The
+**Website** field is set in the user's profile
+([Administration](/Administration_Panels "Administration Panels") \>
+[Profile](/Administration_Panels#Your_Profile "Administration Panels")
+\> [Your Profile](/Your_Profile_SubPanel "Your Profile SubPanel")). The
+text for the link is the author's Profile **Display name publicly as**
+field. This tag must be used within [The Loop](/The_Loop "The Loop").
+
+USAGE
+-----
+
+`  <?php the_author_link(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+EXAMPLE
+-------
+
+Displays the author's Website URL as a link and the text for the link is
+the author's Profile **Display name publicly as** field. In this
+example, the author's Display Name is James Smith.
+
+    <p>Written by: 
+    <?php the_author_link(); ?></p>
+
+Which displays as:
+
+Written by: [James
+Smith](/Template_Tags/the_author_link#Example "Template Tags/the author link")
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+

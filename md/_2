@@ -1,0 +1,61 @@
+ 2 "MAY 2013" WordPress Codex "Function Reference"
+==================================================
+
+NAME
+----
+
+ 2 - Retrieves the translated string from the
+
+SYNOPSIS
+--------
+
+Retrieves the translated string from the
+[`translate()`](/Function_Reference/translate "Function Reference/translate").
+
+USAGE
+-----
+
+` <?php $translated_text = __( $text, $domain ); ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to translate
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Domain to retrieve the translated text
+    Default: 'default'
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Translated text
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See **`__()`** An alias of
+    [`translate()`](/Function_Reference/translate "Function Reference/translate")
+-   *l10n* is an abbreviation for *localization*.
+-   The function name is two underscores in a row. In some fonts it
+    looks like one long underscore. (Who says programmers don't have a
+    sense of humor.)
+
+CHANGE LOG
+----------
+
+-   Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`__()` is located in `wp-includes/l10n.php`.
+

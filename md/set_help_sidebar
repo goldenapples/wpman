@@ -1,0 +1,89 @@
+set help sidebar "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+set help sidebar - This function is used to add a sidebar to the Contextual Help menu in an
+
+SYNOPSIS
+--------
+
+This function is used to add a sidebar to the Contextual Help menu in an
+admin page. The sidebar appears to the right-side of the main help
+content.
+
+set\_help\_sidebar() is a method of the WP\_Screen() class, and can not
+be called directly.
+
+Sidebar must be registers AFTER help tabs have been added using
+`add_help_tab();`.
+
+USAGE
+-----
+
+`  <?php$screen = get_current_screen();$screen->set_help_sidebar( $content );?> `
+
+PARAMETERS
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Help sidebar content in plain text or HTML.
+    Default: *None*
+
+EXAMPLE
+-------
+
+    <?php 
+
+       add_action('admin_menu', 'my_admin_add_page');
+
+       function my_admin_add_page() {
+
+           global $my_admin_page;
+
+           $my_admin_page = add_options_page(__('My Admin Page', 'map'), __('My Admin Page', 'map'), 'manage_options', 'map', 'my_admin_page');
+
+
+           // Adds my_help_tab when my_admin_page loads
+           add_action('load-'.$my_admin_page, 'my_admin_add_help_tab');
+
+       }
+
+       function my_admin_add_help_tab () {
+
+        global $my_admin_page;
+
+        $screen = get_current_screen();
+
+        /*
+         * Check if current screen is My Admin Page
+         * Don't add help tab if it's not
+         */
+        if ( $screen->id != $my_admin_page )
+            return;
+
+        // Add my_help_tab if current screen is My Admin Page
+        $screen->add_help_tab( array(
+            'id'    => 'my_help_tab',
+            'title' => __('My Help Tab'),
+            'content'   => '<p>' . __( 'Descriptive content that will show in My Help Tab-body goes here.' ) . '</p>',
+        ) );
+
+        $screen->set_help_sidebar(
+                                  __('This is the content you will be adding to the sidebar for the current page. You must make sure other tabs have already been added using the "add_help_tab" function above. This sidebar will not show up unless there are tabs for the current screen')
+                                 );
+        }
+    ?>
+
+CHANGE LOG
+----------
+
+-   Since: [Version 3.3](/Version_3.3 "Version 3.3")
+
+SOURCE FILE
+-----------
+
+`set_help_sidebar()` is located in `wp-admin/includes/screen.php`.
+

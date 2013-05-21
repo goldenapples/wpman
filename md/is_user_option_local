@@ -1,0 +1,58 @@
+is user option local "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+is user option local - Check whether a usermeta key has to do with a particular blog.
+
+SYNOPSIS
+--------
+
+Check whether a usermeta key has to do with a particular blog.
+
+USAGE
+-----
+
+` <?php is_user_option_local( $key, $user_id, $blog_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Usermeta key to check
+    Default: *None*
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) User ID whose key to check
+    Default: current user
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Blog ID against which to check
+    Default: current user
+
+RETURN VALUE
+------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True if related, False if not
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`is_user_option_local()` is located in `wp-includes/ms-functions.php`
+

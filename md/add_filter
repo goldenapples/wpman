@@ -1,0 +1,169 @@
+add filter "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+add filter - Hooks a function to a specific filter action.
+
+SYNOPSIS
+--------
+
+Hooks a function to a specific filter action.
+
+Filters are the hooks that WordPress launches to modify text of various
+types before adding it to the database or sending it to the browser
+screen. Plugins can specify that one or more of its PHP functions is
+executed to modify specific types of text at these times, using the
+Filter API. See the
+[Plugin\_API/Filter\_Reference](/Plugin_API/Filter_Reference "Plugin API/Filter Reference")
+for a list of filter hooks.
+
+USAGE
+-----
+
+`  <?php add_filter( $tag, $function_to_add, $priority, $accepted_args ); ?> `
+
+PARAMETERS
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the filter to hook the `$function_to_add`
+    to.
+    Default: *None*
+
+ `$function_to_add` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) A callback for the function to be called when the
+    filter is
+    [applied](/Function_Reference/apply_filters "Function Reference/apply filters").
+    E.g. "my\_filter\_name".
+    Default: *None*
+
+ `$priority` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Used to specify the order in which the functions
+    associated with a particular action are executed. Lower numbers
+    correspond with earlier execution, and functions with the same
+    priority are executed in the order in which they were added to the
+    action.
+    Default: 10
+
+ `$accepted_args` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The number of arguments the function(s) accept(s). In
+    WordPress 1.5.1 and newer hooked functions can take extra arguments
+    that are set when the matching do\_action() or apply\_filters() call
+    is run.
+    Default: 1
+
+RETURN
+------
+
+The function returns true whether the attempted function hook fails or
+not. There is no test that the function exists nor whether the
+`$function_to_add` is even a string. It is up to you to take care and
+this is done for optimization purposes, so everything is as quick as
+possible.
+
+EXAMPLE
+-------
+
+The filter `img_caption_shortcode` is applied in `media.php` using the
+following call:
+
+    // Allow plugins/themes to override the default caption template.
+    $output = apply_filters('img_caption_shortcode', '', $attr, $content);
+    if ( $output != '' )
+        return $output;
+
+The target filter function will be called with three arguments:
+
+-   '' \<= This is normally the value the filter will be modifying
+-   \$attr
+-   \$content
+
+In order for the filter function to actually receive the full argument
+list, the call to `add_filter()` must be modified to specify there are 3
+arguments on the parameter list.
+
+    add_filter('img_caption_shortcode', 'my_img_caption_shortcode_filter',10,3);
+
+    /**
+     * Filter to replace the [caption] shortcode text with HTML5 compliant code
+     *
+     * @return text HTML content describing embedded figure
+     **/
+    function my_img_caption_shortcode_filter($val, $attr, $content = null)
+    {
+        extract(shortcode_atts(array(
+            'id'    => '',
+            'align' => '',
+            'width' => '',
+            'caption' => ''
+        ), $attr));
+        
+        if ( 1 > (int) $width || empty($caption) )
+            return $val;
+
+        $capid = '';
+        if ( $id ) {
+            $id = esc_attr($id);
+            $capid = 'id="figcaption_'. $id . '" ';
+            $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
+        }
+
+        return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: '
+        . (10 + (int) $width) . 'px">' . do_shortcode( $content ) . '<figcaption ' . $capid 
+        . 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
+    }
+
+NOTES
+-----
+
+You can also pass a class method as a callback.
+
+Static class method:
+
+`  <?php add_filter('media_upload_newtab', array('My_Class', 'media_upload_callback')); ?> `
+
+Instance method:
+
+`  <?php add_filter('media_upload_newtab', array($this, 'media_upload_callback')); ?> `
+
+Hooked functions can take extra arguments that are set when the matching
+do\_action() or apply\_filters() call is run. For example, the action
+'comment\_id\_not\_found' will pass the comment ID to each callback.
+
+You can also pass an an anonymous function as a callback. For example:
+
+`  <?php add_filter('the_title', function($title) { return '<b>'. $title. '</b>';}) ?> `
+
+#### Beware
+
+Anonymous functions
+[[1]](http://www.php.net/manual/functions.anonymous.php "http://www.php.net/manual/functions.anonymous.php")
+were introduced in PHP 5.3.0. Check [Hosting
+WordPress](/Hosting_WordPress "Hosting WordPress") requirements and
+double check your PHP version before using them.
+
+If your version of PHP is older than 5.3.0, you can use
+create\_function()
+[[2]](http://es.php.net/manual/function.create-function.php "http://es.php.net/manual/function.create-function.php")
+instead. But keep in mind that lambda functions created by
+create\_function() are not cached by APC or any other optimizer
+[[3]](http://framework.zend.com/issues/browse/ZF-7646 "http://framework.zend.com/issues/browse/ZF-7646").
+So don't use create\_function() if callback is supposed to be used more
+than few times or it has complex logic.
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+
+SOURCE FILE
+-----------
+
+`add_filter()` is located in `wp-includes/plugin.php`.
+

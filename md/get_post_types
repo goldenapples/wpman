@@ -1,0 +1,149 @@
+get post types "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+get post types - Returns the [registered post
+
+SYNOPSIS
+--------
+
+Returns the [registered post
+types](/Function_Reference/register_post_type "Function Reference/register post type")
+as found in *\$wp\_post\_types*.
+
+USAGE
+-----
+
+`  <?php get_post_types( $args, $output, $operator ) ?> `
+
+PARAMETERS
+----------
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of key value arguments to match against the
+    post types.
+    Default: *None*
+
+Some of these include:
+
+-   public - *Boolean. If true, only public post types will be
+    returned.*
+-   publicly\_queryable - *Boolean*
+-   exclude\_from\_search - *Boolean*
+-   show\_ui - *Boolean*
+-   capability\_type
+-   hierarchical
+-   menu\_position
+-   menu\_icon
+-   permalink\_epmask
+-   rewrite
+-   query\_var
+-   \_builtin - *Boolean. If true, will return WordPress default post
+    types. Use false to return only custom post types.*
+
+ `$output` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The type of output to return, either 'names' or
+    'objects'.
+    Default: 'names'
+
+ `$operator` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Operator (and/or) to use with multiple \$args.
+    Default: and
+
+RETURN VALUES
+-------------
+
+ array 
+:   A list of post names or objects.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+The call to **get post types** returns the registered post types.
+
+    <?php $post_types=get_post_types(); ?>
+
+### Output a list all registered post types
+
+    <?php 
+    $post_types=get_post_types('','names'); 
+    foreach ($post_types as $post_type ) {
+      echo '<p>'. $post_type. '</p>';
+    }
+    ?>
+
+### Output a list of all public custom post types
+
+    <?php 
+    $args=array(
+      'public'   => true,
+      '_builtin' => false
+    ); 
+    $output = 'names'; // names or objects, note names is the default
+    $operator = 'and'; // 'and' or 'or'
+    $post_types=get_post_types($args,$output,$operator); 
+      foreach ($post_types  as $post_type ) {
+        echo '<p>'. $post_type. '</p>';
+      }
+    ?>
+
+### Output a named post type
+
+This example uses the 'object' output to retrieve the post type called
+'property':
+
+    <?php 
+    $args=array(
+      'name' => 'property'
+    );
+    $output = 'objects'; // names or objects
+    $post_types=get_post_types($args,$output); 
+      foreach ($post_types  as $post_type ) {
+        echo '<p>' . $post_type->name . '</p>';
+      }
+    ?>
+
+NOTES
+-----
+
+Be careful when retrieving "public" custom post-types that were
+registered using the
+[register\_post\_type()](http://codex.wordpress.org/Function_Reference/register_post_type "http://codex.wordpress.org/Function_Reference/register_post_type")
+function: the inputs to the register\_post\_type function are not
+intelligently processed, so if you verbosely set options for
+**publicly\_queriable**, **show\_ui**, **show\_in\_nav\_menus**, and
+**exclude\_from\_search**, this is NOT considered equivalent to setting
+the **public** option and querying for public post-types will not yield
+results that were defined with the equivalent explicit arguments. See
+[bug
+18950](http://core.trac.wordpress.org/ticket/18950 "http://core.trac.wordpress.org/ticket/18950").
+
+WordPress builtin post types:
+
+-   `post` - WordPress built-in post type
+-   `page` - WordPress built-in post type
+-   `attachment` - WordPress built-in post type
+-   `revision` - WordPress built-in post type
+-   `nav_menu_item` - WordPress built-in post type (Since 3.0)
+-   `custom post type` - any custom post type (Since 3.0)
+
+CHANGE LOG
+----------
+
+-   [3.0](/Version_3.0 "Version 3.0") :
+    -   Added the `operator` parameter.
+
+-   Since: [2.9](/Version_2.9 "Version 2.9")
+
+SOURCE FILE
+-----------
+
+`get_post_types()` is located in `wp-includes/post.php`.
+

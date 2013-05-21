@@ -1,0 +1,36 @@
+cancel comment reply link "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+cancel comment reply link - Displays a link which cancels the replying to a previous comment (a
+
+SYNOPSIS
+--------
+
+Displays a link which cancels the replying to a previous comment (a
+nested comment) and resets the comment form back to the default state.
+
+USAGE
+-----
+
+`  <?php cancel_comment_reply_link('text'); ?> `
+
+EXAMPLE
+-------
+
+    <?php cancel_comment_reply_link(); ?>
+
+PARAMETERS
+----------
+
+ text 
+:   (*string*) Text to display as a link. If empty, it will return the
+    default: 'Click here to cancel reply.'
+
+CHANGE LOG
+----------
+
+Since: 2.7.0
+

@@ -1,0 +1,77 @@
+sanitize title with dashes "MAY 2013" WordPress Codex "Function Reference"
+==========================================================================
+
+NAME
+----
+
+sanitize title with dashes - Sanitizes title, replacing whitespace with dashes.
+
+SYNOPSIS
+--------
+
+Sanitizes title, replacing whitespace with dashes.
+
+Limits the output to alphanumeric characters, underscore (`_`) and dash
+(`-`). Whitespace becomes a dash.
+
+Note that **it does not replace special accented characters** (see
+plugins such as
+[[1]](https://github.com/toscho/Germanix-WordPress-Plugin "https://github.com/toscho/Germanix-WordPress-Plugin")
+to fix that).
+
+USAGE
+-----
+
+` <?php sanitize_title_with_dashes( $title, $unused, $context = 'display' ) ?> `
+
+PARAMETERS
+----------
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The title to be sanitized.
+    Default: *None*
+
+ `$unused` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Used to be the \$raw\_title, but is now unused.
+    Default: *None*
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The context for the sanitization. When set to 'save',
+    additional entities are converted to hyphens or stripped entirely.
+    Default: 'display'
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   The sanitized title.
+
+EXAMPLES
+--------
+
+### Default usage
+
+    <?php
+    echo sanitize_title_with_dashes("I'm in LOVE with WordPress!!!1");
+    // this will print: im-in-love-with-wordpress1
+    ?>
+
+NOTES
+-----
+
+Does not apply the `sanitize_title` filter to the title.
+
+CHANGE LOG
+----------
+
+Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`sanitize_title_with_dashes()` is located in
+`wp-includes/formatting.php`.
+

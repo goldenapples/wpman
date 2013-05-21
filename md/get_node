@@ -1,0 +1,89 @@
+get node "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+get node - This function returns a [Toolbar](/Glossary#Toolbar "Glossary") object
+
+SYNOPSIS
+--------
+
+This function returns a [Toolbar](/Glossary#Toolbar "Glossary") object
+with all the properties of a single Toolbar item. Toolbar items are also
+called "nodes".
+
+The Toolbar replaces the [Admin Bar](/Glossary#Admin_Bar "Glossary")
+since WordPress [Version 3.3](/Version_3.3 "Version 3.3").
+
+**note**: This function is a method of the
+[WP\_Admin\_Bar](/Class_Reference/WP_Admin_Bar "Class Reference/WP Admin Bar")
+class and `$wp_admin_bar` global object, which may not exist except
+during the
+['admin\_bar\_menu'](/index.php?title=Plugin_API/Action_Reference/admin_bar_menu&action=edit&redlink=1 "Plugin API/Action Reference/admin bar menu (page does not exist)")
+or
+['wp\_before\_admin\_bar\_render'](/Plugin_API/Action_Reference/wp_before_admin_bar_render "Plugin API/Action Reference/wp before admin bar render")
+hooks.
+
+USAGE
+-----
+
+` <?php $wp_admin_bar->get_node( $id ); ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The node ID of the Toolbar item you want to get.
+    Default: *None*
+
+FINDING TOOLBAR NODE ID'S
+-------------------------
+
+The node ID's can be found in the HTML source code of any WordPress page
+with a Toolbar on it. Find the list items that have ID's that start with
+"wp-admin-bar-". For example, the list item ID for the WordPress Logo on
+the left in the Toolbar is "wp-admin-bar-wp-logo":
+
+    <li id="wp-admin-bar-wp-logo" class="menupop"> … </li>
+
+Remove "wp-admin-bar-" from the list item ID to get the node ID. From
+this example the node ID is "wp-logo".
+
+**Note**: It's also possible to see all node ID's with this
+[example](/Function_Reference/get_nodes#Display_all_Node_ID.27s_of_the_Current_Page_in_the_Toolbar "Function Reference/get nodes")
+from
+[get\_nodes()](/Function_Reference/get_nodes "Function Reference/get nodes").
+
+EXAMPLES
+--------
+
+### Remove the Toolbar "Updates" Item if it Exists
+
+Put this in your theme's
+[functions.php](/Functions_File_Explained "Functions File Explained")
+file.
+
+      add_action( 'admin_bar_menu', 'check_updates_node', 999);
+      function check_updates_node( $wp_admin_bar ) {
+        $updates_node = $wp_admin_bar->get_node('updates');
+        // check if the Updates node exists
+        if($updates_node) {
+          $wp_admin_bar->remove_node('updates');
+        }
+      }
+
+RETURN VALUES
+-------------
+
+-   Object when the node is found.
+
+CHANGE LOG
+----------
+
+SOURCE FILE
+-----------
+
+`get_node()` is located in `wp-includes/class-wp-admin-bar.php`.
+

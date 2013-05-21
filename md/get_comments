@@ -1,0 +1,238 @@
+get comments "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get comments - Retrieve a list of comments.
+
+SYNOPSIS
+--------
+
+Retrieve a list of comments.
+
+USAGE
+-----
+
+` <?php get_comments( $args ); ?> `
+
+### Default Usage
+
+    <?php $defaults = array(
+        'author_email' => '',
+        'ID' => '',
+        'karma' => '',
+        'number' => '',
+        'offset' => '',
+        'orderby' => '',
+        'order' => 'DESC',
+        'parent' => '',
+        'post_ID' => '',
+        'post_id' => 0,
+        'post_author' => '',
+        'post_name' => '',
+        'post_parent' => '',
+        'post_status' => '',
+        'post_type' => '',
+        'status' => '',
+        'type' => '',
+        'user_id' => '',
+        'search' => '',
+        'count' => false,
+        'meta_key' => '',
+        'meta_value' => '',
+        'meta_query' => '',
+    ); ?>
+
+PARAMETERS
+----------
+
+ `$status` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Only return comments with this status.
+    -   `'hold'` - unapproved comments
+    -   `'approve'` - approved comments
+    -   `'spam'` - spam comments
+    -   `'trash'` - trash comments
+
+    Default: *None*
+
+ `$orderby` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Set the field used to sort comments.
+    Default: comment\_date\_gmt
+
+ `$order` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) How to sort `$orderby`. Valid values:
+    -   `'ASC'` - Ascending (lowest to highest).
+    -   `'DESC'` - Descending (highest to lowest).
+
+    Default: DESC
+
+ `$number` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Number of comments to return. Leave blank to return all
+    comments.
+    Default: unlimited
+
+ `$offset` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Offset from latest comment. You must include \$number
+    along with this.
+    Default: 0
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Only return comments for a particular post or page.
+    Default: *None*
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Only return comments for a particular user.
+    Default: *None*
+
+ `$count` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Only return the total count of comments.
+    Default: *None*
+
+RETURNS
+-------
+
+ (Array) 
+:   Comment fields with the following index keys (or an empty array if
+    there are no comments):
+
+ `comment_ID` 
+:   (*integer*) The comment ID
+ `comment_post_ID` 
+:   (*integer*) The ID of the post/page that this comment responds to
+ `comment_author` 
+:   (*string*) The comment author's name
+ `comment_author_email` 
+:   (*string*) The comment author's email
+ `comment_author_url` 
+:   (*string*) The comment author's webpage
+ `comment_author_IP` 
+:   (*string*) The comment author's IP
+ `comment_date` 
+:   (*string*) The datetime of the comment (`YYYY-MM-DD HH:MM:SS`)
+ `comment_date_gmt` 
+:   (*string*) The GMT datetime of the comment (`YYYY-MM-DD HH:MM:SS`)
+ `comment_content` 
+:   (*string*) The comment's content
+ `comment_karma` 
+:   (*integer*) The comment's karma
+ `comment_approved` 
+:   (*string*) The comment approval level (0, 1 or "spam")
+ `comment_agent` 
+:   (*string*) The commenter's user agent (browser, operating system,
+    etc.)
+ `comment_type` 
+:   (*string*) The comment's type if meaningfull (`pingback|trackback`),
+    empty for normal comments
+ `comment_parent` 
+:   (*string*) The parent comment's ID for nested comments (0 for top
+    level)
+ `user_id` 
+:   (*integer*) The comment author's ID if s/he is registered (0
+    otherwise)
+
+EXAMPLES
+--------
+
+    <?php 
+    $comments = get_comments('post_id=15');
+    foreach($comments as $comment) :
+        echo($comment->comment_author);
+    endforeach;
+    ?>
+
+Show last 5 unapproved comments:
+
+    <?php
+    $args = array(
+        'status' => 'hold',
+        'number' => '5',
+        'post_id' => 1, // use post_id, not post_ID
+    );
+    $comments = get_comments($args);
+    foreach($comments as $comment) :
+        echo($comment->comment_author . '<br />' . $comment->comment_content);
+    endforeach;
+    ?>
+
+Show comment counts of a post:
+
+    <?php
+    $args = array(
+        'post_id' => 1, // use post_id, not post_ID
+            'count' => true //return only the count
+    );
+    $comments = get_comments($args);
+    echo $comments
+
+    ?>
+
+\
+ Show comment counts of a user:
+
+    <?php
+    $args = array(
+        'user_id' => 1, // use user_id
+            'count' => true //return only the count
+    );
+    $comments = get_comments($args);
+    echo $comments
+
+    ?>
+
+Show comments of a user:
+
+    <?php
+    $args = array(
+        'user_id' => 1, // use user_id
+
+    );
+    $comments = get_comments($args);
+    foreach($comments as $comment) :
+        echo($comment->comment_author . '<br />' . $comment->comment_content);
+    endforeach;
+
+    ?>
+
+\
+ Delete duplicate comments (same author and content):
+
+    <?php
+
+    // get all approved comments with empty number arg
+    $all_comments=get_comments( array('status' => 'approve', 'number'=>'') );
+
+    // array to hold comment ids that are dupes
+    $comment_ids_to_delete=array();
+
+    foreach($all_comments as $k=>$c)
+    {
+        $kk=($k-1); // the previous comments index in all_comments array
+        $pc=$all_comments[$kk]; // the previous comment object
+
+        // if comment authors the same, and comment_content the same add to deletions array
+        if($pc->comment_author == $c->comment_author && $pc->comment_content == $c->comment_content) {
+            $comment_ids_to_delete[]=$pc->comment_ID; // previous comment id
+        }
+    }
+
+    // delete the comment by id
+    foreach($comment_ids_to_delete as $k=>$v):
+        wp_delete_comment($v);
+    endforeach;
+
+    ?>
+
+SOURCE FILE
+-----------
+
+`get_comments()` is located in `wp-includes/comment.php`.
+

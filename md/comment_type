@@ -1,0 +1,43 @@
+comment type "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+comment type - Displays the type of comment (regular comment,
+
+SYNOPSIS
+--------
+
+Displays the type of comment (regular comment,
+[Trackback](/Glossary#Trackback "Glossary") or
+[Pingback](/Glossary#Pingback "Glossary")) a comment entry is. This tag
+must be within [The Loop](/The_Loop "The Loop"), or a comment loop.
+
+Use
+[get\_comment\_type](/index.php?title=Template_Tags/get_comment_type&action=edit&redlink=1 "Template Tags/get comment type (page does not exist)")
+to retrieve the value.
+
+USAGE
+-----
+
+`  <?php comment_type('comment', 'trackback', 'pingback'); ?> `
+
+EXAMPLE
+-------
+
+    <p><?php comment_type(); ?> to <?php the_title(); ?>: </p>
+
+PARAMETERS
+----------
+
+ comment 
+:   (*string*) Text to describe a comment type comment. Defaults to
+    `'Comment'`.
+ trackback 
+:   (*string*) Text to describe a Trackback type comment. Defaults to
+    `'Trackback'`.
+ pingback 
+:   (*string*) Text to describe a Pingback type comment. Defaults to
+    `'Pingback'`.
+

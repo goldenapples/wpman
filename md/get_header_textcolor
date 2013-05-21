@@ -1,0 +1,47 @@
+get header textcolor "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+get header textcolor - Retrieve text color for custom header.
+
+SYNOPSIS
+--------
+
+Retrieve text color for custom header.
+
+USAGE
+-----
+
+` <?php get_header_textcolor() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses: `HEADER_TEXTCOLOR`
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`get_header_textcolor()` is located in `wp-includes/theme.php`.
+

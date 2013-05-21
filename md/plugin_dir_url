@@ -1,0 +1,43 @@
+plugin dir url "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+plugin dir url - Gets the URL (with trailing slash) for the plugin \_\_FILE\_\_ passed in
+
+SYNOPSIS
+--------
+
+Gets the URL (with trailing slash) for the plugin \_\_FILE\_\_ passed in
+
+USAGE
+-----
+
+` <?php plugin_dir_url( $file ); ?> `
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The filename of the plugin (\_\_FILE\_\_)
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   The URL of the directory that contains the plugin, including a
+    trailing slash ("/")
+
+CHANGE LOG
+----------
+
+Since: [2.8](/Version_2.8 "Version 2.8")
+
+SOURCE FILE
+-----------
+
+`plugin_dir_url()` is located in `wp-includes/plugin.php`
+

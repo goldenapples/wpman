@@ -1,0 +1,77 @@
+media sideload image "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+media sideload image - Download an image from the specified URL and attach it to a post.
+
+SYNOPSIS
+--------
+
+Download an image from the specified URL and attach it to a post.
+
+USAGE
+-----
+
+`  <?php media_sideload_image($file, $post_id, $desc); ?> `
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) URL of the image to download.
+    Default: *None*
+
+ `$post_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) The post ID the media is to be attached to.
+    Default: *None*
+
+ `$desc` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Description of the image.
+    Default: null
+
+RETURN VALUE
+------------
+
+ (string|WP\_Error)
+:   Either a string of a populated HTML img tag on success, or a
+    WP\_Error on failure.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+    <?php 
+    $url = "http://s.wordpress.org/style/images/wp3-logo.png";
+    $post_id = 1;
+    $desc = "The WordPress Logo";
+
+    $image = media_sideload_image($url, $post_id, $desc);
+    ?>
+
+CHANGE LOG
+----------
+
+Since: [2.6.0](/Version_2.6 "Version 2.6")
+
+SOURCE FILE
+-----------
+
+`media_sideload_image()` is located in `wp-admin/includes/media.php`.
+
+NOTES
+-----
+
+If you want to use this function outside of the context of /wp-admin/
+(typically if you are writing a more advanced custom importer script)
+you need to include media.php and depending includes:
+
+    require_once(ABSPATH . 'wp-admin/includes/media.php');
+    require_once(ABSPATH . 'wp-admin/includes/file.php');
+    require_once(ABSPATH . 'wp-admin/includes/image.php');
+

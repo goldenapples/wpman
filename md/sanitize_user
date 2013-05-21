@@ -1,0 +1,74 @@
+sanitize user "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+sanitize user - Sanitize username stripping out unsafe characters.
+
+SYNOPSIS
+--------
+
+Sanitize username stripping out unsafe characters.
+
+If `$strict` is true, only alphanumeric characters plus these: `_`,
+space, `.`, `-`, `*`, and `@` are returned.
+
+Removes tags, octets, entities, and if strict is enabled, will remove
+all non-[ASCII](http://en.wikipedia.org/wiki/ASCII "wikipedia:ASCII")
+characters. After sanitizing, it passes the username, raw username (the
+username in the parameter), and the strict parameter as parameters for
+the
+[sanitize\_user](/Plugin_API/Filter_Reference/sanitize_user "Plugin API/Filter Reference/sanitize user")
+filter.
+
+USAGE
+-----
+
+` <?php sanitize_user( $username, $strict ) ?> `
+
+PARAMETERS
+----------
+
+ `$username` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The username to be sanitized.
+    Default: *None*
+
+ `$strict` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If set limits `$username` to specific characters.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   The sanitized username, after passing through filters.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`sanitize_user`' hook on username, raw username, and
+    `$strict` parameter.
+
+CHANGE LOG
+----------
+
+-   Since: [2.0.0](/Version_2.0 "Version 2.0")
+-   Originally defined in `wp-includes/functions-formatting.php`
+-   `$strict` parameter and `sanitize_user` filter added in
+    [2.0.1](/Version_2.0.1 "Version 2.0.1")
+-   File renamed to `wp-includes/formatting.php` in
+    [2.1](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`sanitize_user()` is located in `wp-includes/formatting.php`.
+

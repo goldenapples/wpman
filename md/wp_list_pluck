@@ -1,0 +1,134 @@
+wp list pluck "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+wp list pluck - Pluck a certain field out of each object in a list
+
+SYNOPSIS
+--------
+
+Pluck a certain field out of each object in a list
+
+USAGE
+-----
+
+` <?php wp_list_pluck( $list, $field ); ?> `
+
+PARAMETERS
+----------
+
+ `$list` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) A list of objects or arrays
+    Default: *None*
+
+ `$field` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) A field from the object to place instead of the entire
+    object
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(array)`{style="color:gray"} 
+:   
+
+EXAMPLES
+--------
+
+The following is an array listing foods:
+
+    <?php
+    $foods = array(
+        array(
+            'name'  => 'Banana',
+            'color' => 'Yellow',
+        ),
+        array(
+            'name'  => 'Apple',
+            'color' => 'Red',
+        ),
+        array(
+            'name'  => 'Lettuce',
+            'color' => 'Green',
+        ),
+        array(
+            'name'  => 'Apple',
+            'color' => 'Red',
+        ),
+    );
+    ?>
+
+The names of each food can easily be "plucked" from the \$foods array
+using `wp_list_pluck()`.
+
+    <?php $food_names = wp_list_pluck( $foods, 'name' ); ?>
+
+`$food_names` will now contain a numerically indexed array of food names
+equivalent to:
+
+    <?php
+    array(
+        'Banana',
+        'Apple',
+        'Lettuce',
+        'Apple'
+    );
+    ?>
+
+CHANGE LOG
+----------
+
+Since: [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`wp_list_pluck()` is located in `wp-includes/functions.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/wp\_list\_pluck](http://codex.wordpress.org/Function_Reference/wp_list_pluck)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

@@ -1,0 +1,59 @@
+add meta "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+add meta - Adds metadata for a particular post. The information used is POSTed from
+
+SYNOPSIS
+--------
+
+Adds metadata for a particular post. The information used is POSTed from
+the "Custom Fields" form on the Edit Post Administration screen.
+
+USAGE
+-----
+
+`  <?php add_meta( $post_ID ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The post ID to associate the metadata with.
+    Default: *None*
+
+RETURN VALUE
+------------
+
+`(boolean)` False for failure. True for success.
+
+EXAMPLE
+-------
+
+    /*
+    Unless you developed a custom post form that uses the custom field widget,
+    there is little reason to use this function 
+    */
+    add_meta( $post_ID );
+
+NOTES
+-----
+
+Data used for the added metadata is taken from
+`$_POST['metakeyselect'], $_POST['metakeyinput'], $_POST['metavalue']`.
+Either the select or input fields are used for the meta key. If both are
+present, input field is used.
+
+CHANGE LOG
+----------
+
+Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`add_meta()` is located in `wp-admin/includes/post.php`.
+

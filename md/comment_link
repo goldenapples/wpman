@@ -1,0 +1,63 @@
+comment link "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+comment link - Display the full, anchored URL to a single comment. This function must
+
+SYNOPSIS
+--------
+
+Display the full, anchored URL to a single comment. This function must
+be used within the comments loop.
+
+If you want to link to all of the comments for an entry, use the
+function
+[comments\_link()](/Function_Reference/comments_link "Function Reference/comments link")
+instead.
+
+USAGE
+-----
+
+` <?php comment_link() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+Create an anchored permalink to a single comment:
+
+    <a href="<?php comment_link(); ?>">Permalink to this comment</a>
+
+The code shown above will result (depending on your permalink settings)
+in something like this:
+
+    <a href="http://example.com/2009/07/15/example-post/comment-page-1/#comment-3">Permalink to this comment</a>
+
+NOTES
+-----
+
+-   Echos the return value of
+    [`get_comment_link()`](/Function_Reference/get_comment_link "Function Reference/get comment link").
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`comment_link()` is located in `wp-includes/feed.php`.
+

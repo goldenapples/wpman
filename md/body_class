@@ -1,0 +1,250 @@
+body class "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+body class - Themes have a template tag for the body tag which will help theme
+
+SYNOPSIS
+--------
+
+Themes have a template tag for the body tag which will help theme
+authors to style more effectively with CSS. The Template Tag is called
+`body_class`. This function gives the `body` element different classes
+and can be added, typically, in the header.php's HTML `body` tag.
+
+USAGE
+-----
+
+` <body <?php body_class($class); ?>> `
+
+PARAMETERS
+----------
+
+[How to pass parameters to tags with PHP function-style
+parameters](/Template_Tags/How_to_Pass_Tag_Parameters#Tags_with_PHP_function-style_parameters "Template Tags/How to Pass Tag Parameters")
+
+ `class` 
+:   ([*string or
+    array*](/How_to_Pass_Tag_Parameters#String_or_array "How to Pass Tag Parameters"))
+    (*optional*) One or more classes to add to the class attribute,
+    separated by a single space.
+    Default: null
+
+DEFAULT VALUES
+--------------
+
+The `body_class` CSS classes appear based upon the pageview [Conditional
+Tags](/Conditional_Tags "Conditional Tags") as follows.
+
+### Front Page
+
+Site front page: **home**
+
+-   If the site front page displays the blog posts index: **home blog**.
+-   If the site front page displays a static page: **home page**.
+
+### Blog Posts Index
+
+Blog posts index: **blog**
+
+-   If the blog posts index is displayed on the site front page: **home
+    blog**
+-   If the blog posts index is displayed on a static page: **page blog**
+
+### Single Post
+
+Single post pages: **single postid-{ID}**
+
+-   Single blog post page: **single-post**
+-   Single custom post type page: **single-{posttype}**
+-   Post Formats (if supported):
+    -   Post format assigned: **single-format-{format}**
+    -   No post format assigned: **single-format-standard**
+
+-   Single attachment pages: **attachment single-attachment
+    attachmentid-{ID} attachment-mime-type**
+
+### Archives
+
+Archive index pages: **archive**
+
+-   Date archive index pages: **date**
+-   Custom Post Type archive index pages: **post-type-archive
+    post-type-archive-{posttype}**
+-   Author archive index pages: **archive author author-user\_nicename**
+-   Category archive index pages: **archive category category-slug**
+-   Tag archive index pages: **archive tag tag-slug**
+-   Taxonomy archive index pages: **tax-{taxonomy} term-{term}
+    term-{ID}**
+    -   Post Format archive index pages: **tax-post\_format
+        term-post-format-{format} term-{ID}**
+
+### Page
+
+Static page: **page page-id-{ID}**
+
+-   Page Hierarchy
+    -   Parent page: **page-parent**
+    -   Child page: **page-child parent-pageid-{ID}**
+
+-   Page Templates
+    -   Page template: **page-template
+        page-template-{directory}{filename}\_php** if [custom page
+        template](/Page_Templates "Page Templates") is assigned, or
+        **page-template-default** if no custom page template is
+        assigned.
+
+### Search
+
+Search results page: **search**
+
+-   Results: **search-results**
+-   No results: **search-no-results**
+
+### Paged/Multiple Pages
+
+Multi-page index pages and paginated posts: **paged**. Multi-page index
+pages and paginated posts with more than 2 pages **paged paged-n**.
+
+-   Single Blog Post: **single-paged-n**
+-   Static Page: **page-paged-n**
+-   Category archive index: **category-paged-n**
+-   Tag archive index: **tag-paged-n**
+-   Date archive index: **date-paged-n**
+-   Author archive index: **author-paged-n**
+-   Search results index: **search-paged-n**
+-   Custom Post Type archive index: **post-type-paged-n**
+
+### 404 Page Error
+
+Error 404 page: **error404**
+
+### Logged-in
+
+If the current user is logged in: **logged-in**
+
+### Text Direction
+
+If text direction is set to "right-to-left": **rtl**
+
+### Custom Background
+
+If using [Custom
+Background](/Appearance_Background_Screen "Appearance Background Screen")
+to display the site background image or color the class selectors:
+**custom-background**
+
+### Admin Toolbar
+
+If the admin toolbar is displayed: **admin-bar no-customize-support**
+
+EXAMPLES
+--------
+
+### Implementation
+
+The following example shows how to implement the `body_class` template
+tag into a theme.
+
+    <body <?php body_class(); ?>>
+
+The actual HTML output might resemble something like this (the **About
+the Tests** page from the Theme Unit Test):
+
+    <body class="page page-id-2 page-parent page-template-default logged-in">
+
+In the WordPress Theme stylesheet, add the appropriate styles, such as:
+
+    .page {
+            /* styles for all posts within the page class */
+    }
+    .page-id-2 {
+            /* styles for only page ID number 2 */
+    }
+    .logged-in {
+            /* styles for all pageviews when the user is logged in */
+    }
+
+### Adding More Classes
+
+By default, the only classes will be those described above.
+
+To add more classes, the template tag's parameter can be added. For
+example, to add a unique class to the same template used above:
+
+    <body <?php body_class('class-name'); ?>>
+
+The results would be:
+
+    <body class="page page-id-2 page-parent page-template-default logged-in class-name">
+
+#### Add Classes By Filters
+
+You can add additional body classes by filtering the body\_class
+function.
+
+To add the following to the WordPress Theme `functions.php` file,
+changing `my_class_names` and `class-name` to meet your needs:
+
+    // Add specific CSS class by filter
+    add_filter('body_class','my_class_names');
+    function my_class_names($classes) {
+        // add 'class-name' to the $classes array
+        $classes[] = 'class-name';
+        // return the $classes array
+        return $classes;
+    }
+
+To add a category class to single post pageviews and template files, add
+the following to the `functions.php`.
+
+    // add category nicenames in body and post class
+    function category_id_class($classes) {
+        global $post;
+        foreach((get_the_category($post->ID)) as $category)
+            $classes[] = $category->category_nicename;
+        return $classes;
+    }
+    add_filter('post_class', 'category_id_class');
+    add_filter('body_class', 'category_id_class');
+
+#### Add Sidebar Classes
+
+You can add additional body classes by filtering the body\_class
+function, but what if you want to add a class only when the sidebar.php
+file is being shown? Here's a working example you can post in your
+themes `functions.php` file to add a sidebar class to the output of
+body\_class. From: [Add CSS Class to body when Sidebar is
+Present](http://www.askapache.com/wordpress/add-css-class-to-body-sidebar.html "http://www.askapache.com/wordpress/add-css-class-to-body-sidebar.html")
+
+    add_action('wp_head', create_function("",'ob_start();') );
+    add_action('get_sidebar', 'my_sidebar_class');
+    add_action('wp_footer', 'my_sidebar_class_replace');
+     
+    function my_sidebar_class($name=''){
+      static $class="withsidebar";
+      if(!empty($name))$class.=" sidebar-{$name}";
+      my_sidebar_class_replace($class);
+    }
+     
+    function my_sidebar_class_replace($c=''){
+      static $class='';
+      if(!empty($c)) $class=$c;
+      else {
+        echo str_replace('<body class="','<body class="'.$class.' ',ob_get_clean());
+        ob_start();
+      }
+    }
+
+CHANGELOG
+---------
+
+-   Since: 2.8
+
+SOURCE CODE
+-----------
+
+`body_class()` is located in `wp-includes/post-template.php`.
+

@@ -1,0 +1,47 @@
+do settings fields "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+do settings fields - Prints out the settings fields for a particular settings section.
+
+SYNOPSIS
+--------
+
+Prints out the settings fields for a particular settings section.
+
+USAGE
+-----
+
+` <?php do_settings_fields( $page, $section ); ?> `
+
+PARAMETERS
+----------
+
+ `$page` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Slug title of the admin page whose settings fields you
+    want to show. This should match the page name used in
+    [`add_settings_section()`](/Function_Reference/add_settings_section "Function Reference/add settings section").
+    Default: *None*
+
+ `$section` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Slug title of the settings section whose fields you
+    want to show. This should match the section ID used in
+    [`add_settings_section()`](/Function_Reference/add_settings_section "Function Reference/add settings section").
+    Default: *None*
+
+NOTES
+-----
+
+Should normally be called by
+[`do_settings_sections()`](/Function_Reference/do_settings_sections "Function Reference/do settings sections")
+rather than directly.
+
+SOURCE FILE
+-----------
+
+`do_settings_fields()` is located in `wp-admin/includes/template.php`.
+

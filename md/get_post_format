@@ -1,0 +1,98 @@
+get post format "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+get post format - Returns the [post format](/Post_Formats "Post Formats") of a post. This
+
+SYNOPSIS
+--------
+
+Returns the [post format](/Post_Formats "Post Formats") of a post. This
+will usually be called in the [the loop](/The_Loop "The Loop"), but can
+be used anywhere if a post ID is provided.
+
+USAGE
+-----
+
+` <?php $format = get_post_format( $post_id ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*Optional*) ID of the post.
+    Default: current loop post
+
+RETURNS
+-------
+
+ `Format` `(string)`{style="color:gray"} 
+:   The format of the post, or `false` if no format is set.
+
+The set of currently defined formats is:
+
+-   aside
+-   chat
+-   gallery
+-   link
+-   image
+-   quote
+-   status
+-   video
+-   audio
+
+Note also that the default format (i.e., a normal post) returns `false`,
+but this is also referred in some places as the 'standard' format. In
+some cases, developers may wish to do something like the following to
+maintain consistency:
+
+    $format = get_post_format();
+    if ( false === $format )
+        $format = 'standard';
+
+EXAMPLE
+-------
+
+    <?php
+    /*
+     * Pull in a different sub-template, depending on the Post Format.
+     * 
+     * Make sure that there is a default '<tt>format.php</tt>' file to fall back to
+     * as a default. Name templates '<tt>format-link.php</tt>', '<tt>format-aside.php</tt>', etc.
+     *
+     * You should use this in the loop.
+     */
+
+    $format = get_post_format();
+    get_template_part( 'format', $format );
+    ?>
+
+CHANGELOG
+---------
+
+-   Since: [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`get_post_format()` is located in `wp-includes/post.php`.
+
+EXTERNAL RESOURCES
+------------------
+
+-   [Post types and formats and taxonomies, oh
+    my!](http://ottopress.com/2010/post-types-and-formats-and-taxonomies-oh-my/ "http://ottopress.com/2010/post-types-and-formats-and-taxonomies-oh-my/")
+    by Otto
+-   [WordPress 3.1 Post Formats
+    Reference](http://lisasabin-wilson.com/wordpress-3-1-post-formats-reference "http://lisasabin-wilson.com/wordpress-3-1-post-formats-reference")
+    by Lisa Sabin-Wilson
+-   [Smarter Post
+    Formats?](http://dougal.gunters.org/blog/2010/12/10/smarter-post-formats "http://dougal.gunters.org/blog/2010/12/10/smarter-post-formats")
+    by Dougal Campbell
+-   [Smarter Post Formats? Use
+    Carrington](http://alexking.org/blog/2010/12/14/smarter-post-formats-use-carrington "http://alexking.org/blog/2010/12/14/smarter-post-formats-use-carrington")
+    by Alex King
+

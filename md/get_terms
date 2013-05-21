@@ -1,0 +1,230 @@
+get terms "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+get terms - Retrieve the terms in taxonomy or list of taxonomies.
+
+SYNOPSIS
+--------
+
+Retrieve the terms in taxonomy or list of taxonomies.
+
+USAGE
+-----
+
+` <?php get_terms( $taxonomies, $args ) ?> `
+
+### Default Usage
+
+`  <?php // no default values. using these as examples$taxonomies = array(     'post_tag',    'my_tax',);$args = array(    'orderby'       => 'name',     'order'         => 'ASC',    'hide_empty'    => true,     'exclude'       => array(),     'exclude_tree'  => array(),     'include'       => array(),    'number'        => ,     'fields'        => 'all',     'slug'          => ,     'parent'         => ,    'hierarchical'  => true,     'child_of'      => 0,     'get'           => ,     'name__like'    => ,    'pad_counts'    => false,     'offset'        => ,     'search'        => ,     'cache_domain'  => 'core'); ?> `
+
+PARAMETERS
+----------
+
+ `$taxonomies` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*required*) The taxonomies to retrieve terms from.
+    Default: *None*
+
+ `$args` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*optional*) Change what is returned.
+    Default: array
+
+### Possible Arguments
+
+ orderby 
+:   (*string*)
+    -   `id`
+    -   `count`
+    -   `name` - Default
+    -   `slug`
+    -   `term_group`
+    -   `none`
+
+ order 
+:   (*string*)
+    -   `ASC` - Default
+    -   `DESC`
+
+ hide\_empty 
+:   (*boolean*) Whether to return empty \$terms.
+    -   `1 (true)` - Default (i.e. Do not show empty terms)
+    -   `0 (false)`
+
+ exclude 
+:   (*integer|string|array*) An array of term ids to exclude. Also
+    accepts a string of comma-separated ids.
+
+ exclude\_tree 
+:   (*integer*) An array of parent term ids to exclude
+
+ include 
+:   (*integer*) An array of term ids to include. Empty returns all.
+
+ number 
+:   (*integer*) The maximum number of terms to return. Default is to
+    return them all.
+
+ fields 
+:   (*string*)
+    -   all - returns an array of term objects - Default
+    -   ids - returns an array of integers
+    -   names - returns an array of strings
+    -   count - (3.2+) returns the number of terms found
+    -   id=\>parent - returns an associative array where the key is the
+        term id and the value is the parent term id if present or 0
+
+ slug 
+:   (*string*) Returns terms whose "slug" matches this value. Default is
+    empty string.
+
+ parent 
+:   (*integer*) Get direct children of this term (only terms whose
+    explicit parent is this value). If 0 is passed, only top-level terms
+    are returned. Default is an empty string.
+
+ hierarchical 
+:   (*boolean*) Whether to include terms that have non-empty descendants
+    (even if 'hide\_empty' is set to true).
+    -   `1 (true)` - Default
+    -   `0 (false)`
+
+ child\_of 
+:   (*integer*) Get all descendents of this term. Default is 0.
+
+ get 
+:   (*string*) Default is nothing . Allow for overwriting 'hide\_empty'
+    and 'child\_of', which can be done by setting the value to 'all'.
+
+ name\_\_like 
+:   (*string*) The term name you wish to match. It does a LIKE
+    'term\_name%' query. This matches terms that **begin with** the
+    'name\_\_like' string.
+
+ pad\_counts 
+:   (*boolean*) If true, count all of the children along with the
+    \$terms.
+    -   `1 (true)`
+    -   `0 (false)` - Default
+
+ offset 
+:   (*integer*) The number by which to offset the terms query.
+
+ search 
+:   (*string*) The term name you wish to match. It does a LIKE
+    '%term\_name%' query. This matches terms that contain the 'search'
+    string.
+
+ cache\_domain 
+:   (*string*) Version 3.2 and above. The 'cache\_domain' argument
+    enables a unique cache key to be produced when the query produced by
+    get\_terms() is stored in object cache. For instance, if you are
+    using one of this function's filters to modify the query (such as
+    'terms\_clauses'), setting 'cache\_domain' to a unique value will
+    not overwrite the cache for similar queries. Default value is
+    'core'.
+
+**NOTE**: Arguments are passed in the format used by
+[wp\_parse\_args()](/Function_Reference/wp_parse_args "Function Reference/wp parse args").
+e.g.
+
+**NOTE**: The difference between 'search' and 'name\_\_like' is the
+leading '%' in the LIKE clause. So search is '%search%' and name\_\_like
+is 'name\_\_like%'
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   Term Row from database. Will return false if `$taxonomy` does not
+    exist or `$term` was not found.
+
+The fields returned are:
+
+-   `term_id`
+-   `name`
+-   `slug`
+-   `term_group`
+-   `term_taxonomy_id`
+-   `taxonomy`
+-   `description`
+-   `parent`
+-   `count`
+
+EXAMPLES
+--------
+
+Get all post categories ordered by count.
+
+String syntax:
+
+    $categories = get_terms( 'category', 'orderby=count&hide_empty=0' );
+
+Array syntax:
+
+     $categories = get_terms( 'category', array(
+        'orderby'    => 'count',
+        'hide_empty' => 0
+     ) );
+
+Get all the links categories:
+
+    $mylinks_categories = get_terms('link_category', 'orderby=count&hide_empty=0');
+
+List all the terms in a custom taxonomy, without a link:
+
+     $terms = get_terms("my_taxonomy");
+     $count = count($terms);
+     if ( $count > 0 ){
+         echo "<ul>";
+         foreach ( $terms as $term ) {
+           echo "<li>" . $term->name . "</li>";
+            
+         }
+         echo "</ul>";
+     }
+
+List all the terms, with link to term archive, separated by an
+interpunct (**·**). (*language specific, WPML method*):
+
+~~~~ {lang="php"}
+$args = array( 'taxonomy' => 'my_term' );
+
+$terms = get_terms('my_term', $args);
+
+$count = count($terms); $i=0;
+if ($count > 0) {
+    $cape_list = '<p class="my_term-archive">';
+    foreach ($terms as $term) {
+        $i++;
+        $term_list .= '<a href="/term-base/' . $term->slug . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a>';
+        if ($count != $i) $term_list .= ' &middot; '; else $term_list .= '</p>';
+    }
+    echo $term_list;
+}
+~~~~
+
+DETAILS
+-------
+
+You can inject any customizations to the query before it is sent or
+control the output with filters.
+
+The 'get\_terms' filter will be called when the cache has the term and
+will pass the found term along with the array of \$taxonomies and array
+of \$args.
+
+This filter is also called before the array of terms is passed and will
+pass the array of terms, along with the \$taxonomies and \$args.
+
+The 'list\_terms\_exclusions' filter passes the compiled exclusions
+along with the \$args.
+
+SOURCE FILE
+-----------
+
+`get_terms()` is located in `wp-includes/taxonomy.php`.
+

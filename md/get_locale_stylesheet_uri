@@ -1,0 +1,73 @@
+get locale stylesheet uri "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+get locale stylesheet uri - Retrieve localized stylesheet URI.
+
+SYNOPSIS
+--------
+
+Retrieve localized stylesheet URI.
+
+The
+[stylesheet](http://en.wikipedia.org/wiki/Cascading_Style_Sheets "http://en.wikipedia.org/wiki/Cascading_Style_Sheets")
+directory for the localized stylesheet files are located, by default, in
+the base [theme](/Glossary#Theme "Glossary") directory. The name of the
+locale file will be the locale followed by `'.css'`. If that does not
+exist, then the text direction stylesheet will be checked for existence,
+for example `'ltr.css'`.
+
+The theme may change the location of the stylesheet directory by either
+using the `'stylesheet_directory_uri'` filter or the
+`'locale_stylesheet_uri'` filter. If you want to change the location of
+the stylesheet files for the entire WordPress workflow, then change the
+former. If you just have the locale in a separate folder, then change
+the latter.
+
+USAGE
+-----
+
+` <?php get_locale_stylesheet_uri() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Returns localized stylesheet URI.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`object`) `$wp_locale` handles the date and time
+    locales.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls `'locale_stylesheet_uri'` filter on stylesheet URI path and
+    stylesheet directory URI.
+-   Uses:
+    [`get_stylesheet_directory_uri()`](/Function_Reference/get_stylesheet_directory_uri "Function Reference/get stylesheet directory uri")
+-   Uses:
+    [`get_stylesheet_directory()`](/Function_Reference/get_stylesheet_directory "Function Reference/get stylesheet directory")
+-   Uses:
+    [`get_locale()`](/Function_Reference/get_locale "Function Reference/get locale")
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`get_locale_stylesheet_uri()` is located in `wp-includes/theme.php`.
+

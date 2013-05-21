@@ -1,0 +1,36 @@
+ return false "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+ return false - Returns false.
+
+SYNOPSIS
+--------
+
+Returns false.
+
+Useful for returning false to filters easily.
+
+USAGE
+-----
+
+``  <?php // This will add a filter on `example_filter` that returns false add_filter('example_filter', '__return_false'); ?>  ``
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   false
+
+CHANGE LOG
+----------
+
+Since: [3.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`__return_false()` is located in `wp-includes/functions.php`
+

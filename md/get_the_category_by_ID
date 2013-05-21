@@ -1,0 +1,43 @@
+get the category by ID "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+get the category by ID - Retrieve category name based on category ID.
+
+SYNOPSIS
+--------
+
+Retrieve category name based on category ID.
+
+USAGE
+-----
+
+` <?php get_the_category_by_ID( $cat_ID ); ?> `
+
+PARAMETERS
+----------
+
+ `$cat_ID` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Category ID.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Category name.
+
+CHANGE LOG
+----------
+
+Since: [0.71](/Version_0.71 "Version 0.71")
+
+SOURCE FILE
+-----------
+
+`get_the_category_by_ID()` is located in
+`wp-includes/category-template.php`
+

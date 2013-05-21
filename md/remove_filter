@@ -1,0 +1,98 @@
+remove filter "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+remove filter - This function removes a function attached to a specified filter hook.
+
+SYNOPSIS
+--------
+
+This function removes a function attached to a specified filter hook.
+This method can be used to remove default functions attached to a
+specific filter hook and possibly replace them with a substitute. See
+also
+[remove\_action()](/Function_Reference/remove_action "Function Reference/remove action"),
+[add\_filter()](/Function_Reference/add_filter "Function Reference/add filter")
+and
+[add\_action()](/Function_Reference/add_action "Function Reference/add action").
+
+***Important:** To remove a hook, the `$function_to_remove` and
+`$priority` arguments must match when the hook was added. This goes for
+both filters and actions. No warning will be given on removal failure.*
+
+USAGE
+-----
+
+` <?php remove_filter( $tag, $function_to_remove, $priority, $accepted_args ); ?> `
+
+PARAMETERS
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The action hook to which the function to be removed is
+    hooked.
+    Default: *None*
+
+ `$function_to_remove` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) The callback for the function which should be removed.
+    Default: *None*
+
+ `$priority` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The priority of the function (as defined when the
+    function was originally hooked).
+    Default: 10
+
+ `$accepted_args` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) The number of arguments the function accepts.
+    Default: 1
+
+RETURN
+------
+
+ (*boolean*) 
+:   Whether the function is removed.
+    -   `True` - The function was successfully removed.
+    -   `False` - The function could not be removed.
+
+EXAMPLE
+-------
+
+    remove_filter( 'the_content', 'wpautop' );
+
+    foreach ( array( 'the_content', 'the_title', 'comment_text' ) as $hook )
+        remove_filter( $hook, 'capital_P_dangit' );
+
+If an filter has been added from within a class, for example by a
+plugin, removing it will require accessing the class variable.
+
+    global $my_class;
+    remove_filter( 'the_content', array($my_class, 'class_filter_function') );
+
+It is also worth noting that you may need to prioritise the removal of
+the filter to a hook that occurs after the filter is added. You cannot
+successfully remove the filter before it has been added.
+
+NOTES
+-----
+
+When using filters passed with objects, you most often need to pass the
+exact same object back to the remove filter call, not just another
+instance of that object.(read \_wp\_filter\_build\_unique\_id() for the
+gory details)
+
+CHANGE LOG
+----------
+
+-   Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`remove_filter()` is located in `wp-includes/plugin.php`.
+

@@ -1,0 +1,57 @@
+get the author link "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+get the author link - This tag returns a link to the Website for the author of a post. The
+
+SYNOPSIS
+--------
+
+This tag returns a link to the Website for the author of a post. The
+**Website** field is set in the user's profile
+([Administration](/Administration_Panels "Administration Panels") \>
+[Users](/Administration_Panels#Users "Administration Panels") \> [Your
+Profile](/Your_Profile_SubPanel "Your Profile SubPanel")). The text for
+the link is the author's Profile **Display name publicly as** field.
+This tag must be used within [The Loop](/The_Loop "The Loop").
+
+get\_the\_author\_link() returns the link for use in PHP. To *display*
+the link instead, use
+[the\_author\_link()](/Function_Reference/the_author_link "Function Reference/the author link").
+
+USAGE
+-----
+
+`  <?php get_the_author_link(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+EXAMPLE
+-------
+
+The example echos (displays) the author's Website URL as a link and the
+text for the link is the author's Profile **Display name publicly as**
+field. In this example, the author's Display Name is James Smith.
+
+    <p>Written by: 
+    <?php echo get_the_author_link(); ?></p>
+
+Which displays as:
+
+Written by: [James Smith](#Example)
+
+CHANGELOG
+---------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`get_the_author_link()` is located in `wp-includes/author-template.php`
+

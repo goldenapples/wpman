@@ -1,0 +1,43 @@
+wp load image "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+wp load image - Load an image from a string, if PHP supports it.
+
+SYNOPSIS
+--------
+
+Load an image from a string, if PHP supports it.
+
+USAGE
+-----
+
+` <?php wp_load_image( $file ); ?> `
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Filename of the image to load.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(resource)`{style="color:gray"} 
+:   The resulting image resource on success, Error string on failure.
+
+CHANGE LOG
+----------
+
+-   Deprecated: [3.5.0](/Version_3.5 "Version 3.5")
+-   Since: [2.1](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`wp_load_image()` is located in `wp-includes/media.php`
+

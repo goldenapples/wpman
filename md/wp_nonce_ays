@@ -1,0 +1,55 @@
+wp nonce ays "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+wp nonce ays - Display '`Are You Sure?`' message to confirm the action being taken.
+
+SYNOPSIS
+--------
+
+Display '`Are You Sure?`' message to confirm the action being taken.
+
+If the action has the
+[nonce](http://en.wikipedia.org/wiki/Cryptographic_nonce "wikipedia:Cryptographic nonce")
+explain message, then it will be displayed along with the
+'`Are you sure?`' message.
+
+USAGE
+-----
+
+` <?php wp_nonce_ays( $action ) ?> `
+
+PARAMETERS
+----------
+
+ `$action` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The
+    [nonce](http://en.wikipedia.org/wiki/Cryptographic_nonce "wikipedia:Cryptographic nonce")
+    action.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.0.4
+
+SOURCE FILE
+-----------
+
+`wp_nonce_ays()` is located in `wp-includes/functions.php`.
+

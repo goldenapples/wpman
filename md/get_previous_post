@@ -1,0 +1,63 @@
+get previous post "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get previous post - Retrieve previous post that is adjacent to current post.
+
+SYNOPSIS
+--------
+
+Retrieve previous post that is adjacent to current post.
+
+USAGE
+-----
+
+` <?php get_previous_post( $in_same_cat, $excluded_categories ) ?> `
+
+PARAMETERS
+----------
+
+ `$in_same_cat` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether post should be in same category.
+    Default: false
+
+ `$excluded_categories` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Excluded categories IDs.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+-   Post object if successful.
+-   Null if global `$post` is not set.
+-   Empty string if no corresponding post exists.
+
+EXAMPLES
+--------
+
+    <?php
+    $prev_post = get_previous_post();
+    if (!empty( $prev_post )): ?>
+      <a href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php echo $prev_post->post_title; ?></a>
+    <?php endif; ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`get_adjacent_post()`](/Function_Reference/get_adjacent_post "Function Reference/get adjacent post")
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_previous_post()` is located in `wp-includes/link-template.php`.
+

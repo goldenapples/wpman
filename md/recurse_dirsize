@@ -1,0 +1,52 @@
+recurse dirsize "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+recurse dirsize - Get the size of a directory recursively.
+
+SYNOPSIS
+--------
+
+Get the size of a directory recursively.
+
+Used by
+[get\_dirsize()](/Function_Reference/get_dirsize "Function Reference/get dirsize")
+to get a directory's size when it contains other directories.
+
+USAGE
+-----
+
+` <?php recurse_dirsize( $directory ); ?> `
+
+PARAMETERS
+----------
+
+ `$directory` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Directory to recurse
+    Default: *None*
+
+RETURN VALUE
+------------
+
+ `` `(integer)`{style="color:gray"} 
+:   The size of the directory
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`recurse_dirsize()` is located in `wp-includes/ms-functions.php`
+

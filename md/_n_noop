@@ -1,0 +1,84 @@
+ n noop "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+ n noop - Register plural strings in POT file, but don't translate them.
+
+SYNOPSIS
+--------
+
+Register plural strings in POT file, but don't translate them.
+
+Used when you want to keep structures with translatable plural strings
+and use them later.
+
+USAGE
+-----
+
+` <?php _n_noop( $singular, $plural, $domain ) ?> `
+
+PARAMETERS
+----------
+
+ `$singular` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Single form to be i18ned
+    Default: *None*
+
+ `$plural` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Plural form to be i18ned
+    Default: *None*
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The domain identifier the text will be retrieved in
+    Default: null
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   array
+
+<!-- -->
+
+    array(
+        0          =>  $singular,
+        1          =>  $plural,
+        'singular' =>  $singular,
+        'plural'   =>  $plural,
+        'context'  =>  null,
+        'domain'   =>  $domain
+    )
+
+EXAMPLES
+--------
+
+    $messages = array(
+        'post' => _n_noop('%s post', '%s posts'),
+        'page' => _n_noop('%s pages', '%s pages')
+    );
+    ...
+    $message = $messages[$type];
+    $usable_text = sprintf( translate_nooped_plural( $message, $count, $domain ), $count );
+
+\
+
+NOTES
+-----
+
+This function replaces \_\_ngettext\_noop which was deprecated
+
+CHANGE LOG
+----------
+
+-   Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+SOURCE FILE
+-----------
+
+`_n_noop()` is located in `/wp-includes/l10n.php`.
+

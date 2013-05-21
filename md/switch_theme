@@ -1,0 +1,72 @@
+switch theme "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+switch theme - Switches current theme to new template and stylesheet names. \
+
+SYNOPSIS
+--------
+
+Switches current theme to new template and stylesheet names. \
+Accepts one argument: \$stylesheet of the theme. It also accepts an
+additional function signature of two arguments: \$template then
+\$stylesheet. This is for backwards compatibility.
+
+USAGE
+-----
+
+` <?php switch_theme( $stylesheet ) ?> ` Optional usage for backwards
+compatibility: ` <?php switch_theme( $template, $stylesheet ) ?> `
+
+PARAMETERS
+----------
+
+### Current Parameters
+
+ `$stylesheet` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Stylesheet name.
+    Default: *None*
+
+### Alternate Function Signature Parameters for Backwards Compatibility
+
+ `$template` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Template name.
+    Default: *None*
+
+ `$stylesheet` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Stylesheet name.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls '`switch_theme`' action on updated theme display name.
+
+CHANGE LOG
+----------
+
+Since: 2.5.0 \
+Altered 4/23 to define default/alternate function signature and
+parameters
+
+SOURCE FILE
+-----------
+
+`switch_theme()` is located in `wp-includes/theme.php`.
+

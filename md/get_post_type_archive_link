@@ -1,0 +1,53 @@
+get post type archive link "MAY 2013" WordPress Codex "Function Reference"
+==========================================================================
+
+NAME
+----
+
+get post type archive link - Retrieve the permalink for a post type archive.
+
+SYNOPSIS
+--------
+
+Retrieve the permalink for a post type archive.
+
+USAGE
+-----
+
+` <?php get_post_type_archive_link( $post_type ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post type
+    Default: *None*
+
+\
+
+RETURN VALUES
+-------------
+
+ `(string)` 
+:   the permalink for a post type archive.
+
+EXAMPLES
+--------
+
+       <a href="<?php echo get_post_type_archive_link( 'Movies' ); ?>">Movies Archive</a>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 3.1.0
+
+SOURCE FILE
+-----------
+
+`get_post_type_archive_link()` is located in
+`wp-includes/link-template.php`.
+

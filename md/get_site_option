@@ -1,0 +1,62 @@
+get site option "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+get site option - Retrieve option value based on name of option. In multisite, return
+
+SYNOPSIS
+--------
+
+Retrieve option value based on name of option. In multisite, return
+network option, blog option otherwise.
+
+USAGE
+-----
+
+` <?php get_site_option( $option, $default , $use_cache ) ?> `
+
+PARAMETERS
+----------
+
+ `$option` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of option to retrieve. Expected to not be
+    SQL-escaped .
+    Default: *None*
+
+ `$default` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Optional value to return if option doesn't exist.
+    Default: false
+
+ `$use_cache` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to use cache. Multisite only.
+    Default: true
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   Value set for the option.
+
+EXAMPLES
+--------
+
+    echo get_site_option('siteurl');
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+since 2.8.0
+
+SOURCE FILE
+-----------
+
+`get_site_option()` is located in `wp-includes/option.php`.
+

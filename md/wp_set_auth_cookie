@@ -1,0 +1,71 @@
+wp set auth cookie "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+wp set auth cookie - This function can be replaced via
+
+SYNOPSIS
+--------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Sets the authentication cookies based User ID.
+
+The `$remember` parameter increases the time that the cookie will be
+kept. The default the cookie is kept without remembering is two days.
+When `$remember` is set, the cookies will be kept for 14 days or two
+weeks.
+
+USAGE
+-----
+
+` <?php wp_set_auth_cookie( $user_id, $remember, $secure ) ?> `
+
+PARAMETERS
+----------
+
+ `$user_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) User ID
+    Default: *None*
+
+ `$remember` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to remember the user or not
+    Default: false
+
+ `$secure` 
+:   ([*unknown*](/How_to_Pass_Tag_Parameters#Unknown "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+
+CHANGE LOG
+----------
+
+Since: 2.5
+
+SOURCE FILE
+-----------
+
+`wp_set_auth_cookie()` is located in `wp-includes/pluggable.php`.
+

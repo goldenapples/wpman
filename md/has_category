@@ -1,0 +1,54 @@
+has category "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+has category - Check if the current post has any of the given categories. The given
+
+SYNOPSIS
+--------
+
+Check if the current post has any of the given categories. The given
+categories are checked against the post's categories' term\_ids, names
+and slugs. Categories given as integers will only be checked against the
+post's categories' term\_ids.
+
+If no categories are given, determines if post has any categories.
+
+USAGE
+-----
+
+` <?php has_category( $category, $post ); ?> `
+
+PARAMETERS
+----------
+
+ `$category` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The category name, term\_id or slug. Also accepts an
+    array of category names, term ids and slugs
+    Default: *None*
+
+ `$post` 
+:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
+    (*optional*) Post to check instead of the current post.
+    Default: Current post
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True if the current post has any of the the given categories (or any
+    category, if no category specified), false otherwise.
+
+CHANGELOG
+---------
+
+Since: 3.1.0
+
+SOURCE FILE
+-----------
+
+`has_category()` is located in `wp-includes/category-template.php`.
+

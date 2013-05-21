@@ -1,0 +1,81 @@
+checked "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+checked - Compares two given values (for example, a saved option vs. one chosen in
+
+SYNOPSIS
+--------
+
+Compares two given values (for example, a saved option vs. one chosen in
+a form) and, if the values are the same, adds the `checked` attribute to
+the current radio button or checkbox.
+
+This is essentially the same as comparing values with `if()`, but
+results in more concise code.
+
+FORMAT
+------
+
+`<?php function checked( $checked, $current=true, $echo=true ); ?>`
+
+PARAMETERS
+----------
+
+ `$checked` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) One of the values to compare.
+    Default: *None*
+
+ `$current` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The other value to compare if not just true.
+    Default: true
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to echo or just return the string. This
+    function will always return the result regardless.
+    Default: true
+
+RETURNS
+-------
+
+ `` `(string)`{style="color:gray"} 
+:   HTML attribute (`checked='checked'`) or empty string.
+
+USAGE
+-----
+
+` <?php checked( $checked, $current, $echo); ?> `
+
+### Example
+
+    <?php
+    $options = get_option( 'slug_option' ); // get our options array from the db
+    $checked = $variable_we_are_checking = $options['self-destruct']; // get the value of the option we want
+    $current = $check_when_variable_equals_this = true; // this is true by default, just here to make things clearer
+    $echo = $should_it_echo = true; // also true by default
+    ?>
+    <input name="slug-option[self-destruct]" value="1" <?php checked( $checked, $current, $echo ); ?>/>
+
+Testing the value with `if()`:
+
+    <input type='checkbox' name='options[postlink]' value='1' <?php if ( 1 == $options['postlink'] ) echo 'checked="checked"'; ?> />
+
+Using `checked()` instead:
+
+    <input type="checkbox" name="options[postlink]" value="1" <?php checked( $options['postlink'], 1 ); ?> />
+
+CHANGELOG
+---------
+
+Since: 1.0
+
+SOURCE FILE
+-----------
+
+`checked()` is located in `wp-includes/general-template.php`.
+

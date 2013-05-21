@@ -1,0 +1,53 @@
+update archived "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+update archived - Update the 'archived' status of a particular blog.
+
+SYNOPSIS
+--------
+
+Update the 'archived' status of a particular blog.
+
+USAGE
+-----
+
+` <?php update_archived( $id, $archived ) ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The blog id
+    Default: *None*
+
+ `$archived` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The new status
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   \$archived
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+update\_archived() is located in `wp-includes/ms-blogs.php`
+

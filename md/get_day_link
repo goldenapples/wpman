@@ -1,0 +1,87 @@
+get day link "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get day link - Returns the daily archive [URL](/Glossary#URI_and_URL "Glossary") to a
+
+SYNOPSIS
+--------
+
+Returns the daily archive [URL](/Glossary#URI_and_URL "Glossary") to a
+specific year, month and day for use in [PHP](/Glossary#PHP "Glossary").
+It does NOT display the URL. If year, month and day parameters are set
+to `''`, the tag returns the URL for the current day's archive.
+
+USAGE
+-----
+
+`  <?php get_day_link( $year, $month, $day ); ?> `
+
+PARAMETERS
+----------
+
+ `year` 
+:   ([*boolean/integer*](/How_to_Pass_Tag_Parameters#Boolean.2Finteger "How to Pass Tag Parameters"))
+    (*optional*) The year for the archive. Use `''` to assign current
+    year.
+    Default: *None*
+
+ `month` 
+:   ([*boolean/integer*](/How_to_Pass_Tag_Parameters#Boolean.2Finteger "How to Pass Tag Parameters"))
+    (*optional*) The month for the archive. Use `''` to assign current
+    month.
+    Default: *None*
+
+ `day` 
+:   ([*boolean/integer*](/How_to_Pass_Tag_Parameters#Boolean.2Finteger "How to Pass Tag Parameters"))
+    (*optional*) The day for the archive. Use `''` to assign current
+    day.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(string)` 
+:   The URL for the day's archive
+
+EXAMPLES
+--------
+
+### Current Day as Link
+
+Returns the URL to the current day's archive as a link by displaying it
+within an anchor tag with the PHP echo command.
+
+    <a href="<?php echo get_day_link('', '', ''); ?>">Today's posts</a>
+
+### Use With Variables
+
+PHP code block for use within [The Loop](/The_Loop "The Loop"): Assigns
+year, month and day of a post to the variables \$arc\_year, \$arc\_month
+and \$arc\_day. These are used with the get\_day\_link() tag, which
+returns the URL as a link to the daily archive for that post, displaying
+it within an anchor tag with the PHP echo command. See [Formatting Date
+and Time](/Formatting_Date_and_Time "Formatting Date and Time") for info
+on format strings used in
+[get\_the\_time()](/Function_Reference/get_the_time "Function Reference/get the time")
+tag.
+
+    <?php 
+    $archive_year  = get_the_time('Y'); 
+    $archive_month = get_the_time('m'); 
+    $archive_day   = get_the_time('d'); 
+    ?>
+    <a href="<?php echo get_day_link( $archive_year, $archive_month, $archive_day); ?>">This day's posts</a>
+
+CHANGELOG
+---------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`get_day_link()` is located in `wp-includes/link-template.php`.
+

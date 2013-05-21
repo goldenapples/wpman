@@ -1,0 +1,60 @@
+ms site check "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+ms site check - Checks status of current blog.
+
+SYNOPSIS
+--------
+
+Checks status of current blog.
+
+Checks if the blog is deleted, inactive, archived, or spammed.
+
+Dies with a default message if the blog does not pass the check, or if
+an appropriate drop-in file exists, returns path to that file.
+
+USAGE
+-----
+
+` <?php ms_site_check(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters
+
+RETURN VALUE
+------------
+
+ `` `(boolean|string)`{style="color:gray"} 
+:   Returns true on success, or path to drop-in file to include on
+    failure.
+
+If no appropriate drop-in file exists, function dies with default
+message.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+To change the default message when a blog does not pass the check, use
+the wp-content/blog-deleted.php, blog-inactive.php and
+blog-suspended.php drop-ins. Then include the returned path if the
+function does not return True.
+
+CHANGE LOG
+----------
+
+Since:
+[??](/index.php?title=Version_%3F%3F&action=edit&redlink=1 "Version ?? (page does not exist)")
+
+SOURCE FILE
+-----------
+
+`ms_site_check()` is located in `wp-includes/ms-load.php`
+

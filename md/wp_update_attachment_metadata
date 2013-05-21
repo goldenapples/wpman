@@ -1,0 +1,55 @@
+wp update attachment metadata "MAY 2013" WordPress Codex "Function Reference"
+=============================================================================
+
+NAME
+----
+
+wp update attachment metadata - Update metadata for an attachment.
+
+SYNOPSIS
+--------
+
+Update metadata for an attachment.
+
+USAGE
+-----
+
+` <?php wp_update_attachment_metadata( $post_id, $data ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Attachment ID.
+    Default: *None*
+
+ `$data` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Attachment data.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   Returns value from
+    [`update_post_meta()`](/Function_Reference/update_post_meta "Function Reference/update post meta")
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    to add `wp_update_attachment_metadata()` on `$data` and post ID.
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`wp_update_attachment_metadata()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,64 @@
+set post format "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+set post format - Set the [post format](/Post_Formats "Post Formats") of a post. This can
+
+SYNOPSIS
+--------
+
+Set the [post format](/Post_Formats "Post Formats") of a post. This can
+be called and used anywhere if a post Object and the format is provided.
+
+USAGE
+-----
+
+` <?php set_post_format( $post , $format); ?> `
+
+PARAMETERS
+----------
+
+ `$post` 
+:   ([*int or
+    object*](/How_to_Pass_Tag_Parameters#Int_or_object "How to Pass Tag Parameters"))
+    (*Required*) ID of the post or Object of the post.
+    Default: none
+
+ `$format` 
+:   ([*string or
+    array*](/How_to_Pass_Tag_Parameters#String_or_array "How to Pass Tag Parameters"))
+    (*Required*) The format of the post. Use an empty string or array to
+    remove all formats from the post.
+    Default: none
+
+RETURNS
+-------
+
+ `Array` `(array)`{style="color:gray"} 
+:   Array of affected term IDs. or mixed WP\_Error if no or wrong post
+    id or post object is passed.
+
+EXAMPLE
+-------
+
+    <?php
+    /*
+     * Set the post format of a post (in the loop).
+     */
+
+    set_post_format($post->ID, 'gallery' ); //sets the given post to the 'gallery' format
+
+    ?>
+
+CHANGELOG
+---------
+
+-   Since: [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`set_post_format()` is located in `wp-includes/post.php`.
+

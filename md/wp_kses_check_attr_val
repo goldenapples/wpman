@@ -1,0 +1,67 @@
+wp kses check attr val "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+wp kses check attr val - Performs different checks for attribute values.
+
+SYNOPSIS
+--------
+
+Performs different checks for attribute values.
+
+The currently implemented checks are '`maxlen`', '`minlen`', '`maxval`',
+'`minval`' and '`valueless`' with even more checks to come soon.
+
+USAGE
+-----
+
+` <?php wp_kses_check_attr_val( $value, $vless, $checkname, $checkvalue ) ?> `
+
+PARAMETERS
+----------
+
+ `$value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Attribute value
+    Default: *None*
+
+ `$vless` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Whether the value is valueless or not. Use '`y`' or
+    '`n`'
+    Default: *None*
+
+ `$checkname` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) What `$checkvalue` is checking for.
+    Default: *None*
+
+ `$checkvalue` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) What constraint the value should pass
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   Whether check passes (true) or not (false)
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_kses_check_attr_val()` is located in `wp-includes/kses.php`.
+

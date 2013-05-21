@@ -1,0 +1,76 @@
+get adjacent post "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get adjacent post - Retrieve adjacent post.
+
+SYNOPSIS
+--------
+
+Retrieve adjacent post.
+
+Can either be next or previous post.
+
+USAGE
+-----
+
+` <?php get_adjacent_post( $in_same_cat, $excluded_categories, $previous ) ?> `
+
+PARAMETERS
+----------
+
+ `$in_same_cat` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether post should be in same category.
+    Default: false
+
+ `$excluded_categories` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Excluded categories IDs.
+    Default: ''
+
+ `$previous` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to retrieve previous post.
+    Default: true
+
+RETURN VALUES
+-------------
+
+-   Post object if successful.
+-   Null if global `$post` is not set.
+-   Empty string if no corresponding post exists.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`object`) `$post`
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+### Filters
+
+`$adjacent` is either 'previous' or 'next'.
+
+-   **`"get_{$adjacent}_post_join"`**:\
+    `$join, $in_same_cat, $excluded_categories`
+-   **`"get_{$adjacent}_post_where"`**:\
+    `$wpdb->prepare("WHERE p.post_date $op %s AND p.post_type = %s AND p.post_status = 'publish' $posts_in_ex_cats_sql", $current_post_date, $post->post_type), $in_same_cat, $excluded_categories`
+-   **`"get_{$adjacent}_post_sort"`**:\
+    `"ORDER BY p.post_date $order LIMIT 1"`
+
+CHANGE LOG
+----------
+
+Since: 2.5.0
+
+SOURCE FILE
+-----------
+
+`get_adjacent_post()` is located in `wp-includes/link-template.php`.
+

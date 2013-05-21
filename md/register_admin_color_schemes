@@ -1,0 +1,74 @@
+register admin color schemes "MAY 2013" WordPress Codex "Function Reference"
+============================================================================
+
+NAME
+----
+
+register admin color schemes - Registers the default Admin color schemes.
+
+SYNOPSIS
+--------
+
+Registers the default Admin color schemes.
+
+The function is being used to register the two default admin color
+schemes, "classic" (Blue) and the "fresh" (Grey), in
+[Administration](/Administration_Panels "Administration Panels") \>
+[Users](/Users_Users_SubPanel "Users Users SubPanel") \> [Your
+Profile](/Users_Your_Profile_SubPanel "Users Your Profile SubPanel")
+SubPanel.
+
+ \* 
+
+     
+
+     
+
+     
+
+     
+
+Blue
+
+  ------ ------- ------- ------- ------- ------
+   \*                                    Grey
+  ------ ------- ------- ------- ------- ------
+
+USAGE
+-----
+
+`  <?php register_admin_color_schemes(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters.
+
+EXAMPLE
+-------
+
+NOTES
+-----
+
+-   Uses
+    [wp\_admin\_css\_color()](/Function_Reference/wp_admin_css_color "Function Reference/wp admin css color")
+
+CHANGE LOG
+----------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`register_admin_color_schemes()` is located in
+`wp-includes/general-template.php`.
+
+FURTHER READING
+---------------
+
+-   [How to add Custom Admin Color
+    Scheme](http://www.wp-tricks.co.il/%D7%A2%D7%A8%D7%9B%D7%AA-%D7%A6%D7%91%D7%A2%D7%99%D7%9D-%D7%9E%D7%95%D7%AA%D7%90%D7%9E%D7%AA-%D7%90%D7%99%D7%A9%D7%99%D7%AA-%D7%9C%D7%9E%D7%9E%D7%A9%D7%A7-%D7%94%D7%A0%D7%99%D7%94%D7%95%D7%9C/ "http://www.wp-tricks.co.il/%D7%A2%D7%A8%D7%9B%D7%AA-%D7%A6%D7%91%D7%A2%D7%99%D7%9D-%D7%9E%D7%95%D7%AA%D7%90%D7%9E%D7%AA-%D7%90%D7%99%D7%A9%D7%99%D7%AA-%D7%9C%D7%9E%D7%9E%D7%A9%D7%A7-%D7%94%D7%A0%D7%99%D7%94%D7%95%D7%9C/")
+    by
+    [wp-tricks.co.il](http://www.wp-tricks.co.il/ "http://www.wp-tricks.co.il/")
+

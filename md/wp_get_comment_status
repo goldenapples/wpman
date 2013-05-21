@@ -1,0 +1,59 @@
+wp get comment status "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+wp get comment status - The status of a comment by ID.
+
+SYNOPSIS
+--------
+
+The status of a comment by ID.
+
+USAGE
+-----
+
+` <?php wp_get_comment_status( $comment_id ) ?> `
+
+PARAMETERS
+----------
+
+ `$comment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Comment ID
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(string|boolean)` 
+:   Status might be '`deleted`', '`approved`', '`unapproved`', '`spam`'
+    or `false` on failure.
+
+EXAMPLES
+--------
+
+    <?php
+    $status = wp_get_comment_status( $comment_id );
+    if ( $status == "approved" ) {
+      // show the comment
+    }
+    ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`get_comment()`](/Function_Reference/get_comment "Function Reference/get comment")
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_get_comment_status()` is located in `wp-includes/comment.php`.
+

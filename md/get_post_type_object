@@ -1,0 +1,119 @@
+get post type object "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+get post type object - Retrieves an object which describes any registered post type (i.e.
+
+SYNOPSIS
+--------
+
+Retrieves an object which describes any registered post type (i.e.
+built-in types like 'post' and 'page', or any user-created custom post
+type).
+
+USAGE
+-----
+
+` <?php get_post_type_object($post_type); ?> `
+
+PARAMETERS
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The name of the post type as used when registering the
+    post type.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(object)` 
+:   on success.
+
+Nothing on failure (e.g. can check for null).
+
+EXAMPLES
+--------
+
+    $obj = get_post_type_object('post');
+    print $obj->labels->singular_name;
+
+Technically, this is the same as
+
+    global $wp_post_types;
+    $obj = $wp_post_types['post'];
+    print $obj->labels->singular_name; 
+
+print\_r(\$obj) might return something like this:
+
+    stdClass Object
+    (
+       [labels] => stdClass Object
+           (
+               [name] => Posts
+               [singular_name] => Post
+               [add_new] => Add New
+               [add_new_item] => Add New Post
+               [edit_item] => Edit Post
+               [new_item] => New Post
+               [view_item] => View Post
+               [search_items] => Search Posts
+               [not_found] => No posts found
+               [not_found_in_trash] => No posts found in Trash
+               [parent_item_colon] => 
+           )
+
+       [description] => 
+       [publicly_queryable] => 1
+       [exclude_from_search] => 
+       [_builtin] => 1
+       [_edit_link] => post.php?post=%d
+       [capability_type] => post
+       [hierarchical] => 
+       [public] => 1
+       [rewrite] => 
+       [query_var] => 
+       [register_meta_box_cb] => 
+       [taxonomies] => Array
+           (
+           )
+
+       [show_ui] => 1
+       [menu_position] => 
+       [menu_icon] => 
+       [permalink_epmask] => 1
+       [can_export] => 1
+       [show_in_nav_menus] => 1
+       [name] => post
+       [cap] => stdClass Object
+           (
+               [edit_post] => edit_post
+               [edit_posts] => edit_posts
+               [edit_others_posts] => edit_others_posts
+               [publish_posts] => publish_posts
+               [read_post] => read_post
+               [read_private_posts] => read_private_posts
+               [delete_post] => delete_post
+           )
+
+       [label] => Posts
+    )
+
+Note that the object's attribute names are slightly different than the
+arguments expected for the
+[register\_post\_type()](/Function_Reference/register_post_type "Function Reference/register post type")
+function.
+
+CHANGE LOG
+----------
+
+-   Since: [3.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`get_post_type_object()` is located in `wp-includes/post.php`.
+

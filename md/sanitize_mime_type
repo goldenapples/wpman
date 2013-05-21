@@ -1,0 +1,58 @@
+sanitize mime type "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+sanitize mime type - Sanitize a mime type.
+
+SYNOPSIS
+--------
+
+Sanitize a mime type.
+
+After `sanitize_mime_type()` has done its work, it passes the sanitized
+MIME type through the
+[sanitize\_mime\_type](/index.php?title=Plugin_API/Filter_Reference/sanitize_mime_type&action=edit&redlink=1 "Plugin API/Filter Reference/sanitize mime type (page does not exist)")
+filter.
+
+USAGE
+-----
+
+    <?php sanitize_mime_type( $mime_type ); ?>
+
+PARAMETERS
+----------
+
+ `$mime_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Mime Type
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Sanitized mime type.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+### Filters
+
+-   **`'sanitize_mime_type'`**:\
+    `apply_filters( 'sanitize_mime_type', $sanitized_mime_type, $raw_mime_type )`
+
+CHANGE LOG
+----------
+
+Since: [3.1.3](/Version_3.1.3 "Version 3.1.3")
+
+SOURCE FILE
+-----------
+
+`sanitize_mime_type()` is located in `/wp-includes/formatting.php`.
+

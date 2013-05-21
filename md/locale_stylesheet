@@ -1,0 +1,59 @@
+locale stylesheet "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+locale stylesheet - Display localized stylesheet link element.
+
+SYNOPSIS
+--------
+
+Display localized stylesheet link element.
+
+If
+[`get_locale_stylesheet_uri()`](/Function_Reference/get_locale_stylesheet_uri "Function Reference/get locale stylesheet uri")
+returns a value, locale\_stylesheet will echo a valid xhtml `<link>` tag
+like this:\
+
+    <link rel="stylesheet" href="path_to_stylesheet" type="text/css" media="screen" />
+
+If
+[`get_locale_stylesheet_uri()`](/Function_Reference/get_locale_stylesheet_uri "Function Reference/get locale stylesheet uri")
+does not return a value then the function exits immediately.
+
+USAGE
+-----
+
+` <?php locale_stylesheet() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+Uses
+[`get_locale_stylesheet_uri()`](/Function_Reference/get_locale_stylesheet_uri "Function Reference/get locale stylesheet uri").
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`locale_stylesheet()` is located in `wp-includes/theme.php`.
+

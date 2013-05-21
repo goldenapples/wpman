@@ -1,0 +1,42 @@
+comments link "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+comments link - The **comments\_link** template tag displays the
+
+SYNOPSIS
+--------
+
+The **comments\_link** template tag displays the
+[URL](/Glossary#URI_and_URL "Glossary") to the current post's comments.
+This tag must be within [The Loop](/The_Loop "The Loop"), or the loop
+set up for comments.
+
+Use
+[get\_comments\_link](/Template_Tags/get_comments_link "Template Tags/get comments link")
+to retrieve the value.
+
+USAGE
+-----
+
+`  <?php comments_link(); ?> `
+
+EXAMPLE
+-------
+
+    <a href="<?php comments_link(); ?>">
+        Comments to this post
+    </a>
+
+PARAMETERS
+----------
+
+This tag has no parameters.
+
+SOURCE CODE
+-----------
+
+`comments_link()` is located in `wp-includes/comment-template.php`.
+

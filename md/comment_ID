@@ -1,0 +1,63 @@
+comment ID "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+comment ID - Displays the numeric ID of the current comment. This tag must be within
+
+SYNOPSIS
+--------
+
+Displays the numeric ID of the current comment. This tag must be within
+[The Loop](/The_Loop "The Loop"), or a comment loop.
+
+Use
+[get\_comment\_ID](/Function_Reference/get_comment_ID "Function Reference/get comment ID")
+to retrieve the value.
+
+USAGE
+-----
+
+`  <?php comment_ID(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept parameters
+
+RETURN VALUES
+-------------
+
+see
+[get\_comment\_ID()](/Function_Reference/get_comment_ID "Function Reference/get comment ID")
+Echoes Result
+
+EXAMPLES
+--------
+
+### Default Usage
+
+    <p>This is comment <?php comment_ID(); ?> for all comments.</p>
+
+### Comment ID as Anchor ID
+
+Uses the comment ID as an anchor id for a comment.
+
+    <div id="comment-<?php comment_ID() ?>">Comment by 
+    <?php comment_author() ?>: </div>
+    <div class="comment-text"><?php comment_text() ?></div>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+comment\_ID() is located in `wp-includes/comment-template.php`
+

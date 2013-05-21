@@ -1,0 +1,71 @@
+language attributes "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+language attributes - Display the language attributes for the `<html>` tag.
+
+SYNOPSIS
+--------
+
+Display the language attributes for the `<html>` tag.
+
+Builds up a set of html attributes containing the text direction and
+language information for the page.
+
+USAGE
+-----
+
+` <?php language_attributes( $doctype ) ?> `
+
+PARAMETERS
+----------
+
+ `$doctype` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The type of
+    [html](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML") document
+    '`xhtml`' or '`html`'.
+    Default: 'html'
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+    <!DOCTYPE html>
+    <html <?php language_attributes(); ?>>
+    <head>
+    ...
+
+(from `wp-content/themes/twentyten/header.php`)
+
+\
+
+NOTES
+-----
+
+-   Uses:
+    [`get_bloginfo()`](/Function_Reference/get_bloginfo "Function Reference/get bloginfo")
+    May call to get '`text_direction`' or '`language`'.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`language_attributes`' on output just before sending it to
+    browser.
+
+CHANGELOG
+---------
+
+Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`language_attributes()` is located in
+`wp-includes/general-template.php`.
+

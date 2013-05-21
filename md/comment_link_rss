@@ -1,0 +1,35 @@
+comment link rss "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+comment link rss - Displays the [URL](/Glossary#URI_and_URL "Glossary") to an entry's
+
+SYNOPSIS
+--------
+
+Displays the [URL](/Glossary#URI_and_URL "Glossary") to an entry's
+comments formatted for [RSS](/Glossary#RSS "Glossary"). Typically used
+in the RSS comment feed template. This tag must be within [The
+Loop](/The_Loop "The Loop"), or a comment loop.
+
+This function has been depreciated, you might want to try
+[get\_comment\_link()](/Function_Reference/get_comment_link "Function Reference/get comment link")
+instead.
+
+USAGE
+-----
+
+`  <?php comment_link_rss(); ?> `
+
+EXAMPLE
+-------
+
+    <link><?php comment_link_rss() ?></link>
+
+PARAMETERS
+----------
+
+This tag has no parameters.
+

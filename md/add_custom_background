@@ -1,0 +1,75 @@
+add custom background "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+add custom background - Add callbacks for background image display.
+
+SYNOPSIS
+--------
+
+Add callbacks for background image display.
+
+The parameter `$header_callback` callback will be required to display
+the content for the '`wp_head`' action. The parameter
+`$admin_header_callback` callback will be added to Custom\_Background
+class and that will be added to the '`admin_menu`' action.
+
+REPLACE WITH
+------------
+
+**After deprecation this function was replaced with the following:
+[add\_theme\_support( 'custom-background'
+)](/Function_Reference/add_theme_support#Custom_Background "Function Reference/add theme support")**
+
+USAGE
+-----
+
+` <?php add_custom_background( $header_callback, $admin_header_callback, $admin_image_div_callback ) ?> `
+
+PARAMETERS
+----------
+
+ `$header_callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*optional*) Call on '`wp_head`' action.
+    Default: ''
+
+ `$admin_header_callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*optional*) Call on custom background administration screen.
+    Default: ''
+
+ `$admin_image_div_callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*optional*) Output a custom background image div on the custom
+    background administration screen. Optional.
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses: Custom\_Background Sets up for `$admin_header_callback` for
+    administration panel display.
+
+CHANGE LOG
+----------
+
+-   Deprecated: [3.4.0](/Version_3.4 "Version 3.4")
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`add_custom_background()` is located in `wp-includes/theme.php`.
+

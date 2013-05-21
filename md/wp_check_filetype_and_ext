@@ -1,0 +1,74 @@
+wp check filetype and ext "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+wp check filetype and ext - Attempts to determine the real file type of a file.\
+
+SYNOPSIS
+--------
+
+Attempts to determine the real file type of a file.\
+ If unable to, the file name extension will be used to determine type.
+If it's determined that the extension does not match the file's real
+type, then the "proper\_filename" value will be set with a proper
+filename and extension.
+
+USAGE
+-----
+
+` <?php$validate = wp_check_filetype_and_ext( $file, $filename, $mimes );if( $validate['proper_filename'] !== false )    $filename = $validate['proper_filename'];?> `
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Full path to the image.
+    Default: *None*
+
+ `$filename` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The filename of the image (may differ from \$file due
+    to \$file being in a tmp directory)
+    Default: *None*
+
+ `$mimes` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*null*) optional
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   Values for the extension, MIME, and either a corrected filename or
+    false if original \$filename is valid
+
+-   ['ext'] - Extension (eg 'jpg')
+-   ['type'] - Mime Type (eg 'image/jpeg')
+-   ['proper\_filename'] -
+    (*[boolean](/How_to_Pass_Tag_Parameters#boolean "How to Pass Tag Parameters")*)
+    false or a string containing a proper file name if the original was
+    invalid.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+Currently this function only supports validating images known to
+getimagesize().
+
+If using in a plugin/theme and you get an error about this function not
+being defined, you probably need to add
+`require_once ABSPATH .'wp-admin/includes/file.php';` before the
+function gets called.
+
+CHANGE LOG
+----------
+
+Since: 3.0.0
+

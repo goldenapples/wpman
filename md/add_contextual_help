@@ -1,0 +1,107 @@
+add contextual help "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+add contextual help - This function is used to add HTML to the Contextual Help tab for a
+
+SYNOPSIS
+--------
+
+This function is used to add HTML to the Contextual Help tab for a
+specific admin page.
+
+USAGE
+-----
+
+`  <?php add_contextual_help( $screen, $help ); ?> `
+
+PARAMETERS
+----------
+
+ `$screen` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The handle for the screen to add help to. This is
+    usually the hook name returned by the add\_\*\_page() functions.
+    Default: *None*
+
+ `$help` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) An arbitrary string containing HTML for help text.
+    Default: *None*
+
+EXAMPLE
+-------
+
+### Default Usage
+
+This example shows how you would add contextual help to an admin page
+you've created with the `add_theme_page()` function. Here, we will
+assume that your page has a slug of 'my\_theme\_options' and exists
+under the Appearance tab, which has a slug of 'appearance\_page'. To
+keep things organized, we can use the 'admin\_init' hook to declare a
+function with our custom contextual help.
+
+    <?php 
+    function add_my_contextual_help() {
+        $text = __("<p>This is a help text for 'my_theme_options' page (a subpage of 'appearance_page').</p>");
+        add_contextual_help( 'appearance_page_my_theme_options', $text ); 
+    }
+    add_action( 'admin_init', 'add_my_contextual_help' );
+    ?>
+
+### Finding the Screen Name
+
+If you need to find the current screen name (for the \$screen parameter)
+then you can use this function. Just put it in your functions.php file
+and then browse to the page you wish to find the screen name. It will
+then be printed across the top of your admin screen. This is very useful
+for people who create custom administration menus (typically advanced
+premium themes) and aren't quite sure what the screen name would be.
+
+    <?php
+    function check_current_screen() {
+        if( !is_admin() ) return;
+        global $current_screen;
+        print_r( $current_screen );
+    }
+    add_action( 'admin_notices', 'check_current_screen' );
+    ?>
+
+NOTES
+-----
+
+When using this function to add contextual help to an admin page created
+by a plugin or theme, it is important to remember that the
+add\_\*\_page() set of functions build and return custom hook names -
+which are needed in order to use add\_contextual\_help().
+
+This page hook name is *usually* made up of two page slugs separated by
+an underscore - the slug for the current page (as defined in your
+add\_\*\_page() function), an underscore, and the slug for the parent
+page.
+
+For example, if you created a new "theme\_options" subpage under the
+Admin \> Appearance menu (which itself has a slug of
+"appearance\_page"), your page hook would be
+"appearance\_page\_theme\_options".
+
+To modify or add to the hard-coded help text for default WordPress admin
+pages, you have to use the
+[`gettext`](/Plugin_API/Filter_Reference/gettext "Plugin API/Filter Reference/gettext")
+filter hook.
+
+CHANGE LOG
+----------
+
+-   Since: [2.7.0](/Version_2.7 "Version 2.7")
+-   Deprecated: [3.3.0](/Version_3.3 "Version 3.3")
+-   Replace by:
+    [add\_help\_tab()](/Function_Reference/add_help_tab "Function Reference/add help tab")
+
+SOURCE FILE
+-----------
+
+`add_contextual_help()` is located in `wp-admin/includes/template.php`.
+

@@ -1,0 +1,60 @@
+comment author email link "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+comment author email link - Displays the comment author's email address, as a mailto link. An email
+
+SYNOPSIS
+--------
+
+Displays the comment author's email address, as a mailto link. An email
+address must be provided if "User must fill out name and email" is
+enabled under [Discussion
+Options](/Discussion_Options#Before_a_comment_appears: "Discussion Options").
+This tag must be within [The Loop](/The_Loop "The Loop"), or a comment
+loop.
+
+**Note:** Displaying email addresses is not recommended, as it provides
+spam collection tools the opportunity to cull them from your site.
+
+Use
+[get\_comment\_author\_email\_link](/index.php?title=Template_Tags/get_comment_author_email_link&action=edit&redlink=1 "Template Tags/get comment author email link (page does not exist)")
+to retrieve the value.
+
+USAGE
+-----
+
+`  <?php comment_author_email_link('linktext', 'before', 'after'); ?> `
+
+EXAMPLES
+--------
+
+### Default Usage
+
+    email: <?php comment_author_email_link(); ?><br />
+
+### Link Text and Styling
+
+Displays comment author's email link as text string **Email Comment
+Author** and adds arrows before and after the link to style it.
+
+    <?php comment_author_email_link('Email Comment Author', ' > ', ' < '); ?>
+
+\> [Email Comment Author](#Link_Text_and_Styling) \<
+
+PARAMETERS
+----------
+
+ linktext 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Link text for the email link. Default is the comment author's email
+    address.
+ before 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Text to display before the link. There is no default.
+ after 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    Text to display after the link. There is no default.
+

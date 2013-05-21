@@ -1,0 +1,90 @@
+get default post to edit "MAY 2013" WordPress Codex "Function Reference"
+========================================================================
+
+NAME
+----
+
+get default post to edit - Default post information to use when populating the "Write Post" form.
+
+SYNOPSIS
+--------
+
+Default post information to use when populating the "Write Post" form.
+
+USAGE
+-----
+
+` <?php get_default_post_to_edit( $post_type, $create_in_db ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) A post type string, defaults to 'post'.
+    Default: post
+
+ `$create_in_db` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*)
+    Default: false
+
+RETURN VALUES
+-------------
+
+ `` `(object)`{style="color:gray"} 
+:   stdClass object containing all the default post data as attributes
+
+CHANGE LOG
+----------
+
+Since: [2.0](/Version_2.0 "Version 2.0")
+
+SOURCE FILE
+-----------
+
+`get_default_post_to_edit()` is located in `wp-admin/includes/post.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/get\_default\_post\_to\_edit](http://codex.wordpress.org/Function_Reference/get_default_post_to_edit)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

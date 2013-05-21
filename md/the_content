@@ -1,0 +1,146 @@
+the content "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+the content - Displays the contents of the current post. This template tag must be
+
+SYNOPSIS
+--------
+
+Displays the contents of the current post. This template tag must be
+within [The\_Loop](/The_Loop "The Loop").
+
+If the quicktag
+[`<!--more-->`](/Writing_Posts#Visual_Versus_HTML_Editor "Writing Posts")
+is used in a post to designate the "cut-off" point for the post to be
+excerpted, the\_content() tag will only show the excerpt up to the
+`<!--more-->` quicktag point on
+non-single/non-[permalink](/Glossary#Permalink "Glossary") post pages.
+By design, `the_content()` tag includes a parameter for formatting the
+`<!--more-->` content and look, which creates a link to "continue
+reading" the full post.
+
+**Note about `<!--more-->`** :
+
+-   No whitespaces are allowed **before** the "more" in the
+    `<!--more-->` quicktag. In other words `<!-- more -->` will *not*
+    work!
+-   *The `<!--more-->` quicktag will not operate and is ignored in
+    [Templates](/Templates "Templates") where just one post is
+    displayed, such as **single.php**.*
+-   Read [Customizing the Read
+    More](/Customizing_the_Read_More "Customizing the Read More") for
+    more details.
+
+USAGE
+-----
+
+` <?php the_content( $more_link_text, $stripteaser ); ?> `
+
+[How to pass parameters to tags with PHP function-style
+parameters](/Template_Tags/How_to_Pass_Tag_Parameters#Tags_with_PHP_function-style_parameters "Template Tags/How to Pass Tag Parameters")
+
+PARAMETERS
+----------
+
+ `$more_link_text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The link text to display for the "more" link.
+    Default: '(more...)'
+
+ `$stripteaser` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Strip teaser content before the more text.
+    Default: false
+
+EXAMPLES
+--------
+
+### Designating the "More" Text
+
+Displays the content of the post and uses "Read more..." for the more
+link text when the `<!--more-->` Quicktag is used.
+
+    <?php the_content('Read more...'); ?>
+
+### Include Title in "More"
+
+Similar to the above example, but thanks to
+[the\_title()](/Template_Tags/the_title "Template Tags/the title") tag
+and the *display* parameter, it can show "Continue reading *ACTUAL POST
+TITLE*" when the `<!--more-->` Quicktag is used.
+
+    <?php the_content("Continue reading " . the_title('', '', false)); ?>
+
+### Overriding Archive/Single Page Behavior
+
+If the\_content() isn't working as you desire (displaying the entire
+story when you only want the content above the `<!--more-->` Quicktag,
+for example) you can override the behavior with global \$more.
+
+    <?php 
+    global $more;    // Declare global $more (before the loop).
+    $more = 0;       // Set (inside the loop) to display content above the more tag.
+    the_content("More...");
+    ?>
+
+if you need to display all of the content:
+
+    <?php 
+    global $more;    // Declare global $more (before the loop).
+    $more = 1;       // Set (inside the loop) to display all content, including text below more.
+    the_content();
+    ?>
+
+IGNORE THE "MORE" ON A STICKY POST
+----------------------------------
+
+This will ignore the more tag in a sticky post--meaning it will display
+the full content even if there is a `<!--more-->` in the content, but
+for all other posts it will display a more link.
+
+    <?php
+    if (is_sticky()) {
+      global $more;    // Declare global $more (before the loop).
+      $more = 1;       // Set (inside the loop) to display all content, including text below more.
+      the_content();
+    } else {
+      global $more;
+      $more = 0;
+      the_content('Read the rest of this entry »');
+    }
+    ?>
+
+ALTERNATIVE USAGE
+-----------------
+
+You may use
+[get\_the\_content()](/Function_Reference/get_the_content "Function Reference/get the content")
+to return the content value instead of outputting it directly. Example:
+
+    <?php $content = get_the_content(); ?>
+
+**Please note!**
+[get\_the\_content](/Function_Reference/get_the_content "Function Reference/get the content")
+will return the unfiltered content. If you want to achieve the same
+output that
+[the\_content()](/Template_Tags/the_content "Template Tags/the content")
+returns, use the following code:
+
+    <?php
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+    ?>
+
+CHANGELOG
+---------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`the_content()` is located in `wp-includes/post-template.php`.
+

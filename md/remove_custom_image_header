@@ -1,0 +1,48 @@
+remove custom image header "MAY 2013" WordPress Codex "Function Reference"
+==========================================================================
+
+NAME
+----
+
+remove custom image header - Remove image header support.
+
+SYNOPSIS
+--------
+
+Remove image header support.
+
+USAGE
+-----
+
+` <?php remove_custom_image_header(); ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   Whether support was removed.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See
+    [`add_custom_image_header()`](/Function_Reference/add_custom_image_header "Function Reference/add custom image header")
+
+CHANGE LOG
+----------
+
+Since: 3.1.0
+
+SOURCE FILE
+-----------
+
+`remove_custom_image_header()` is located in `/wp-includes/theme.php`.
+

@@ -1,0 +1,57 @@
+maybe redirect 404 "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+maybe redirect 404 - Applies only for WordPress Multisite installation
+
+SYNOPSIS
+--------
+
+Applies only for WordPress Multisite installation
+
+Correct 404 redirects when NOBLOGREDIRECT is defined
+
+USAGE
+-----
+
+` <?php maybe_redirect_404() ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters
+
+RETURN VALUE
+------------
+
+This function does not return any value. If all conditions are met, it
+does not return at all, rather the redirect is executed.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+If registration is disabled, please set NOBLOGREDIRECT in wp-config.php
+to a URL you will redirect visitors to if they visit a non-existent
+site:
+
+    define( 'NOBLOGREDIRECT', '%siteurl%' );
+
+or
+
+    define( 'NOBLOGREDIRECT', 'http://www.my-ms.com' );
+
+CHANGE LOG
+----------
+
+Since: [MU](/Version_MU "Version MU")
+
+SOURCE FILE
+-----------
+
+`maybe_redirect_404()` is located in `wp-includes/ms-functions.php`
+

@@ -1,0 +1,171 @@
+add editor style "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+add editor style - Allows theme developers to link a custom stylesheet file to the
+
+SYNOPSIS
+--------
+
+Allows theme developers to link a custom stylesheet file to the
+[TinyMCE](/TinyMCE "TinyMCE") visual editor. The function test the
+existence of the relative path(s) given as the `$stylesheet` argument,
+or of `editor-style.css` if no argument is specified, against the
+current [theme
+directory](/Theme_Development#Anatomy_of_a_Theme "Theme Development")
+and links the file(s) on success. If a [child
+theme](/Child_Themes "Child Themes") is used, both the current child and
+parent theme directories are tested and both the files with the same
+relative path are linked with this single call if they are found.
+
+To link a stylesheet file from a location other than the current theme
+directory, such as under your plugin directory, use a
+[filter](/Glossary#Filter "Glossary") attached to the
+[mce\_css](/Plugin_API/Filter_Reference/mce_css "Plugin API/Filter Reference/mce css")
+hook instead.
+
+Note that the behavior of this function with respect to child themes was
+changed in [Version 3.4](/Version_3.4 "Version 3.4") and changed back in
+[Version 3.5](/Version_3.5 "Version 3.5"), see the [Notes](#Notes)
+section below.
+
+USAGE
+-----
+
+`  <?php add_editor_style( $stylesheet ); ?> `
+
+PARAMETERS
+----------
+
+ `$stylesheet` 
+:   ([*array/string*](/How_to_Pass_Tag_Parameters#Array.2Fstring "How to Pass Tag Parameters"))
+    (*optional*) Path to a stylesheet file, relative to the current
+    [theme
+    directory](/Theme_Development#Anatomy_of_a_Theme "Theme Development"),
+    or an array thereof to link multiple stylesheet files. If a [child
+    theme](/Child_Themes "Child Themes") is used, both the current child
+    and parent theme directories are considered, see the
+    [Description](#Description) section above.
+    Default: "editor-style.css"
+
+RETURN VALUES
+-------------
+
+ `` `(void)`{style="color:gray"} 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+### Basic Usage
+
+Add the following to the
+*[functions.php](/Functions_File_Explained "Functions File Explained")*
+file of your theme.
+
+    <?php
+    function my_theme_add_editor_styles() {
+        add_editor_style( 'custom-editor-style.css' );
+    }
+    add_action( 'init', 'my_theme_add_editor_styles' );
+    ?>
+
+Next, create a file named *custom-editor-style.css* directly under your
+[theme
+directory](/Theme_Development#Anatomy_of_a_Theme "Theme Development").
+Any CSS rules added to that file will be reflected within the TinyMCE
+visual editor. The contents of the file might look like this:
+
+    body#tinymce.wp-editor { 
+        font-family: Arial, Helvetica, sans-serif; 
+        margin: 10px; 
+    }
+
+    body#tinymce.wp-editor a {
+        color: #4CA6CF;
+    }
+
+### Reusing Your Theme Styles
+
+You can reuse the styles from your [theme
+stylesheet](/Theme_Development#Theme_Stylesheet "Theme Development")
+file in your custom editor stylesheet file using the `@import` CSS rule.
+Working on the [previous example](#Basic_Usage_Example), put the
+following instead into the *custom-editor-style.css* file.
+
+    @import url( 'style.css' );
+
+    /* Add overwrites as needed so that the content of the editor field is attractive and not broken */
+    body { padding: 0; background: #fff; } 
+
+If necessary, change *'style.css'* to the path to your theme stylesheet,
+relative to the *custom-editor-style.css* file.
+
+### Choosing Styles Based on Post Type
+
+To link a custom editor stylesheet file based on the [post
+type](/Post_Types "Post Types") being edited, you can use the following
+in the
+*[functions.php](/Functions_File_Explained "Functions File Explained")*
+file of your theme. This assumes the stylesheet files with names in the
+form of *editor-style-**{post\_type}**.css* are present directly under
+your [theme
+directory](/Theme_Development#Anatomy_of_a_Theme "Theme Development").
+
+    <?php
+    function my_theme_add_editor_styles() {
+        global $post;
+        $post_type = get_post_type( $post->ID );
+        $editor_style = 'editor-style-' . $post_type . '.css';
+        add_editor_style( $editor_style );
+    }
+    add_action( 'pre_get_posts', 'my_theme_add_editor_styles' );
+    ?>
+
+Note that the
+[pre\_get\_posts](/Plugin_API/Action_Reference/pre_get_posts "Plugin API/Action Reference/pre get posts")
+action [hook](/Glossary#Hook "Glossary") is used to ensure that the post
+type is already determined but, at the sime time, that TinyMCE has not
+been configured yet.
+
+NOTES
+-----
+
+-   As of [Version 3.4](/Version_3.4 "Version 3.4"), WordPress will link
+    the stylesheet file only if its path determined by the `$stylesheet`
+    argument passes the `file_exists()` test, so arguments like
+    "*editor.css?version=1.0*" will not work. Prior to [Version
+    3.4](/Version_3.4 "Version 3.4"), this will apply only to [child
+    themes](/Child_Themes "Child Themes").
+-   In [Version 3.4](/Version_3.4 "Version 3.4"), using this function by
+    a [child theme](/Child_Themes "Child Themes") to add a stylesheet
+    file will not link the file if a stylesheet file on the same
+    relative path was already added by a parent theme. As of [Version
+    3.5](/Version_3.5 "Version 3.5"), this was fixed and WordPress will
+    look for the file in both the parent and child theme directories, as
+    was the case before [Version 3.4](/Version_3.4 "Version 3.4"). See
+    the [ticket
+    \#21026](http://core.trac.wordpress.org/ticket/21026 "http://core.trac.wordpress.org/ticket/21026")
+    for details about these changes.
+
+CHANGE LOG
+----------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`add_editor_style()` is located in `wp-includes/theme.php`.
+
+REFERENCES
+----------
+
+-   [PHP: file\_exists() -
+    Manual](http://php.net/manual/en/function.file-exists.php "http://php.net/manual/en/function.file-exists.php")
+-   [\#21026 (add\_editor\_style() in child theme not working for
+    editor\_style.css) – WordPress
+    Trac](http://core.trac.wordpress.org/ticket/21026 "http://core.trac.wordpress.org/ticket/21026")
+

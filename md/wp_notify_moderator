@@ -1,0 +1,59 @@
+wp notify moderator "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+wp notify moderator - This function can be replaced via
+
+SYNOPSIS
+--------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Notifies the moderator of the blog about a new comment that is awaiting
+approval.
+
+USAGE
+-----
+
+` <?php wp_notify_moderator( $comment_id ) ?> `
+
+PARAMETERS
+----------
+
+ `$comment_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Comment ID
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   Always returns true
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 1.0
+
+SOURCE FILE
+-----------
+
+`wp_notify_moderator()` is located in `wp-includes/pluggable.php`.
+

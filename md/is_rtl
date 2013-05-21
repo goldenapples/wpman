@@ -1,0 +1,53 @@
+is rtl "MAY 2013" WordPress Codex "Function Reference"
+======================================================
+
+NAME
+----
+
+is rtl - Checks if current locale is RTL.
+
+SYNOPSIS
+--------
+
+Checks if current locale is RTL.
+
+USAGE
+-----
+
+` <?php is_rtl() ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True if current locale is RTL, False on LTR.
+
+EXAMPLES
+--------
+
+    if ( is_rtl() ) {
+      wp_enqueue_style(  'style-rtl',  plugins_url('/css/style-rtl.css', __FILE__) );
+      wp_enqueue_script( 'script-rtl', plugins_url('/js/script-rtl.js',  __FILE__) );
+    }
+
+NOTES
+-----
+
+-   Deprecate get\_bloginfo('text\_direction') in favor of is\_rtl() in
+    [Version 3.0](/Version_3.0 "Version 3.0").
+
+CHANGELOG
+---------
+
+-   Since: [3.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`is_rtl()` is located in `wp-includes/locale.php`.
+

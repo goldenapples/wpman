@@ -1,0 +1,71 @@
+selected "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+selected - For use in dropdown form fields. Compares two given values (for example,
+
+SYNOPSIS
+--------
+
+For use in dropdown form fields. Compares two given values (for example,
+a saved option vs. one chosen in a form) and, if the values are the
+same, adds the `selected` attribute to the current `option` tag.
+
+USAGE
+-----
+
+` <?php selected( $selected, $current, $echo); ?> `
+
+PARAMETERS
+----------
+
+ `$selected` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) One of the values to compare.
+    Default: *None*
+
+ `$current` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) The other value to compare if not just true.
+    Default: true
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to echo or just return the string.
+    Default: true
+
+RETURN VALUE
+------------
+
+ `` `(string)`{style="color:gray"} 
+:   html attribute (`selected='selected'`) or empty string
+
+EXAMPLE
+-------
+
+    <!-- Testing the values with if() -->
+    <select name="options[foo]">
+        <option value="1" <?php if ( $options['foo'] == 1 ) echo 'selected="selected"'; ?>>1</option>
+        <option value="2" <?php if ( $options['foo'] == 2 ) echo 'selected="selected"'; ?>>2</option>
+        <option value="3" <?php if ( $options['foo'] == 3 ) echo 'selected="selected"'; ?>>3</option>
+    </select>
+     
+    <!-- Using selected() instead -->
+    <select name="options[foo]">
+        <option value="1" <?php selected( $options['foo'], 1 ); ?>>1</option>
+        <option value="2" <?php selected( $options['foo'], 2 ); ?>>2</option>
+        <option value="3" <?php selected( $options['foo'], 3 ); ?>>3</option>
+    </select>
+
+CHANGELOG
+---------
+
+Since: 1.0
+
+SOURCE FILE
+-----------
+
+`selected()` is located in `wp-includes/general-template.php`.
+

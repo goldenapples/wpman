@@ -1,0 +1,62 @@
+post type archive title "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+post type archive title - Display or retrieve title for a [post type](/Post_Types "Post Types")
+
+SYNOPSIS
+--------
+
+Display or retrieve title for a [post type](/Post_Types "Post Types")
+archive.
+
+This is optimized for `archive.php` and `archive-{posttype}.php`
+template files for displaying the title of the post type.
+
+USAGE
+-----
+
+` <?php post_type_archive_title( $prefix, $display ); ?> `
+
+PARAMETERS
+----------
+
+ `$prefix` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) What to display before the title
+    Default: *None*
+
+ `$display` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether to display or retrieve title
+    Default: true
+
+RETURN VALUES
+-------------
+
+ `(string)` 
+:   Title when retrieving, null when displaying or failure.
+
+EXAMPLES
+--------
+
+Display the Custom Post Type title:
+
+    <h1><?php post_type_archive_title(); ?></h1>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`post_type_archive_title()` is located in
+`wp-includes/general-template.php`.
+

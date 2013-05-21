@@ -1,0 +1,78 @@
+wp get post categories "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+wp get post categories - The function wp\_get\_post\_categories() retrieve a list of categories
+
+SYNOPSIS
+--------
+
+The function wp\_get\_post\_categories() retrieve a list of categories
+for a post.
+
+Compatibility layer for [themes](/Glossary#themes "Glossary") and
+[plugins](/Glossary#plugins "Glossary"). Also an easy layer of
+abstraction away from the complexity of the [taxonomy
+layer](/WordPress_Taxonomy "WordPress Taxonomy").
+
+USAGE
+-----
+
+` <?php wp_get_post_categories( $post_id, $args ); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The Post ID.
+    Default: 0
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Overwrite the defaults.
+    Default: array
+
+Default \$args are:
+
+    $defaults = array('fields' => 'ids');
+
+RETURN VALUES
+-------------
+
+ `(array)` 
+:   The array contains a list of category ID's.
+
+EXAMPLES
+--------
+
+The example below shows how categories are retrieved, and then
+additional information is retrieved for each category.
+
+    $post_categories = wp_get_post_categories( $post_id );
+    $cats = array();
+        
+    foreach($post_categories as $c){
+        $cat = get_category( $c );
+        $cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug );
+    }
+
+NOTES
+-----
+
+-   Uses:
+    [`wp_get_object_terms()`](/Function_Reference/wp_get_object_terms "Function Reference/wp get object terms")
+    Retrieves the categories.
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`wp_get_post_categories()` is located in `wp-includes/post.php`.
+

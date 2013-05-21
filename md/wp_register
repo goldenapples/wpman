@@ -1,0 +1,96 @@
+wp register "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+wp register - This tag displays either the "Site Admin" link if the user is logged in
+
+SYNOPSIS
+--------
+
+This tag displays either the "Site Admin" link if the user is logged in
+or "Register" link if the user is not logged in.
+
+The "Register" link is not offered if the
+[Administration](/Administration_Panels "Administration Panels") \>
+[Settings](/Administration_Panels#General "Administration Panels") \>
+[General](/Settings_General_SubPanel "Settings General SubPanel") \>
+**Membership: Anyone can register** box is not checked.
+
+This tag does not function as intended on [WordPress
+µ](/WordPressMU "WordPressMU").
+
+USAGE
+-----
+
+`  <?php wp_register( $before, $after, $echo); ?> `
+
+PARAMETERS
+----------
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display before the Register or Site Admin link.
+    Default: '\<li\>'
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display after the Register or Site Admin link.
+    Default: '\</li\>'
+
+ `$echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) If true, echos the link, if false, returns the link as
+    a string
+    Default: true
+
+EXAMPLES
+--------
+
+### Default Usage
+
+*wp\_register* displays the link in list format `<li>`.
+
+    <?php wp_register(); ?>
+
+### Display Without Text Before or After
+
+The following code example displays the "Register" or "Site Admin" link
+with no text in **before** or **after** parameters.
+
+    <?php wp_register('', ''); ?>
+
+When not logged in the following HTML is produced:
+
+    <a href="http://www.example.com/wp-login.php?action=register">Register</a>
+
+When logged in the following HTML is produced:
+
+    <a href="http://www.example.com/wp-admin/">Site Admin</a>
+
+WORDPRESS Μ
+-----------
+
+On [WordPress µ](/WordPressMU "WordPressMU"), there is no
+`/wp-register.php` file, and `/wp-login.php?action=register` is not a
+valid registration form. Thus, *wp\_register* function does not show a
+registration link.
+
+NOTES
+-----
+
+-   Uses:
+    [apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls 'register' hook on register / admin link content.
+
+CHANGE LOG
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+`wp_register()` is located in `wp-includes/general-template.php`.
+

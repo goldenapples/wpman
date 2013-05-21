@@ -1,0 +1,57 @@
+get to ping "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+get to ping - Retrieve URLs that need to be [pinged](/Glossary#Ping "Glossary").
+
+SYNOPSIS
+--------
+
+Retrieve URLs that need to be [pinged](/Glossary#Ping "Glossary").
+
+USAGE
+-----
+
+` <?php get_to_ping( $post_id ) ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   Returns array of URLs that need to be pinged.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") to read
+    `'to_ping'` field from
+    [`_posts table`](/Database_Description#Table:_wp_posts "Database Description")
+    from database.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    on `'get_to_ping'` on the URLs that need to be pinged.
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_to_ping()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,43 @@
+comment author link "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+comment author link - Displays the comment author's name linked to his/her
+
+SYNOPSIS
+--------
+
+Displays the comment author's name linked to his/her
+[URL](/Glossary#URI_and_URL "Glossary"), if one was provided.
+
+Use
+[get\_comment\_author\_link](/Template_Tags/get_comment_author_link "Template Tags/get comment author link")
+to retrieve the value.
+
+USAGE
+-----
+
+`  <?php comment_author_link( $comment_ID ); ?> `
+
+EXAMPLE
+-------
+
+    <p>Comment by: <?php comment_author_link(); ?></p>
+
+PARAMETERS
+----------
+
+ `comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the comment for which to print the author's
+    link.
+    Default: 0 (the current comment)
+
+CHANGELOG
+---------
+
+-    ? : Added the 'comment\_ID' parameter.
+-   Since: 0.71
+

@@ -1,0 +1,94 @@
+is page "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+is page - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+[Pages](/Pages "Pages") are being displayed. This is a boolean function,
+meaning it returns either TRUE or FALSE. This tag must be used BEFORE
+[The Loop](/The_Loop "The Loop") and does not work inside The Loop (see
+[Notes](#Notes) below).
+
+USAGE
+-----
+
+` <?php is_page($page); ?> `
+
+PARAMETERS
+----------
+
+ `$page` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Page ID, Page Title or Page Slug
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   `true` on success, `false` on failure.
+
+EXAMPLES
+--------
+
+    is_page();
+    // When any single Page is being displayed.
+
+    is_page(42);
+    // When Page 42 (ID) is being displayed.
+
+    is_page('Contact');
+    // When the Page with a post_title of "Contact" is being displayed.
+
+    is_page('about-me');
+    // When the Page with a post_name (slug) of "about-me" is being displayed.
+
+    is_page(array(42,'about-me','Contact'));
+    // Returns true when the Pages displayed is either post ID 42, or post_name "about-me", or post_title "Contact".  Note: the array ability was added at Version 2.5.
+
+NOTES
+-----
+
+### Passing Empty Value Returns TRUE
+
+Be very careful if there's a possibility of passing an empty value as a
+parameter to check for a specific page, since the following lines will
+return `true`:
+
+    is_page( '' )
+    is_page( 0 )
+    is_page( '0' )
+    is_page( null )
+    is_page( false )
+    is_page( array() )
+
+-   See also:
+    [is\_singular()](/Function_Reference/is_singular "Function Reference/is singular")
+
+### Cannot Be Used Inside The Loop
+
+Due to certain global variables being overwritten during The Loop
+`is_page()` will not work. In order to use it after The Loop you must
+call
+[wp\_reset\_query()](/Function_Reference/wp_reset_query "Function Reference/wp reset query")
+after The Loop.
+
+-   See also
+    [is\_page\_template()](/Function_Reference/is_page_template "Function Reference/is page template")
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`is_page()` is located in `wp-includes/query.php`.
+

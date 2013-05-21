@@ -1,0 +1,136 @@
+get userdata "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get userdata - Returns a [WP\_User](/Class_Reference/WP_User "Class Reference/WP User")
+
+SYNOPSIS
+--------
+
+Returns a [WP\_User](/Class_Reference/WP_User "Class Reference/WP User")
+object with the information pertaining to the user whose ID is passed to
+it. Properties map directly to wp\_users and wp\_usermeta tables in the
+database (see [Database
+Description](/Database_Description#Table:_wp_users "Database Description")).
+
+If the user does not exist, the function returns `false`.
+
+An alias of
+[get\_user\_by('id')](/Function_Reference/get_user_by "Function Reference/get user by").
+
+USAGE
+-----
+
+`  <?php get_userdata( $userid ); ?> `
+
+PARAMETERS
+----------
+
+ `$userid` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the user whose data should be retrieved.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(bool|object)` 
+:   False on failure, WP\_User object on success.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+`get_userdata()` returns an object of the user's data that you can
+assign to a variable. After that, you can echo various parts of the
+returned object or loop through the data to display it all.
+
+Example displaying certain parts:
+
+    <?php $user_info = get_userdata(1);
+          echo 'Username: ' . $user_info->user_login . "\n";
+          echo 'User level: ' . $user_info->user_level . "\n";
+          echo 'User ID: ' . $user_info->ID . "\n";
+    ?>
+
+Results in:
+
+Username: admin\
+User level: 10\
+User ID: 1
+
+You can also assign certain parts into individual variables for
+displaying later or in multiple places.
+
+Example for extracting certain parts:
+
+    <?php $user_info = get_userdata(1);
+          $username = $user_info->user_login;
+          $first_name = $user_info-> user_firstname;
+          $last_name = $user_info-> user_lastname;
+          echo "$first_name $last_name logs into her WordPress site with the user name of $username.";
+    ?>
+
+Results in:
+
+Harriet Smith logs into her WordPress site with the user name of
+mrssmith.
+
+### Accessing Usermeta Data
+
+    <?php $user_info = get_userdata(1);
+          echo $user_info-> user_lastname .  ", " . $user_info-> user_firstname . "\n";
+    ?>
+
+Doe, John\
+
+NOTES
+-----
+
+Here are some of the useful values in the `wp_users` and `wp_usermeta`
+tables you can access with this function for use in your theme or
+plugin:
+
+-   **users**
+    -   ID
+    -   user\_login
+    -   user\_pass
+    -   user\_nicename
+    -   user\_email
+    -   user\_url
+    -   user\_registered
+    -   display\_name
+
+-   **user\_meta**
+    -   user\_firstname
+    -   user\_lastname
+    -   nickname
+    -   user\_description
+    -   wp\_capabilities (array)
+    -   admin\_color (Theme of your admin page. Default is fresh.)
+    -   closedpostboxes\_page
+    -   primary\_blog
+    -   rich\_editing
+    -   source\_domain
+
+Note that after wp 3.2, the return value has changed, a WP\_User object
+is returned instead of a dumb object. However, through the usage of
+magic methods, data fields (such as the meta key rich\_editing),
+get\_userdata(1)-\>rich\_editing will map to
+get\_userdata(1)-\>data-\>rich\_editing, even though in a var\_dump() or
+similar will not show these extra fields. Refer
+[http://core.trac.wordpress.org/ticket/18551](http://core.trac.wordpress.org/ticket/18551 "http://core.trac.wordpress.org/ticket/18551").
+
+SOURCE FILE
+-----------
+
+`get_userdata()` is located in `wp-includes/pluggable.php`.
+
+SEE ALSO
+--------
+
+-   [Author Templates](/Author_Templates "Author Templates")
+

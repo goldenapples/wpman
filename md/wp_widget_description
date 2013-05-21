@@ -1,0 +1,43 @@
+wp widget description "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+wp widget description - Retrieve description for widget.
+
+SYNOPSIS
+--------
+
+Retrieve description for widget.
+
+When registering widgets, the options can also include 'description'
+that describes the widget for display on the widget administration panel
+or in the theme.
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*Widget ID.*) string
+    Default: required
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Widget description, if available. Null on failure to retrieve
+    description.
+
+CHANGE LOG
+----------
+
+Since:
+[2.5.0](/index.php?title=Version_2.5.0&action=edit&redlink=1 "Version 2.5.0 (page does not exist)")
+
+SOURCE FILE
+-----------
+
+wp\_widget\_description() is located in `wp-includes/widgets.php`
+

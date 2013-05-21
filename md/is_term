@@ -1,0 +1,69 @@
+is term "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+is term - Check if `Term` exists.
+
+SYNOPSIS
+--------
+
+Check if `Term` exists.
+
+Returns the index of a defined term, or `0` (`false`) if the term
+doesn't exist.
+
+REPLACE WITH
+------------
+
+[term\_exists](/Function_Reference/term_exists "Function Reference/term exists")
+for check that term exists or
+[is\_tax](/Function_Reference/is_tax "Function Reference/is tax") with
+optional \$term argument for check that you are in term archive.
+
+USAGE
+-----
+
+` <?php is_term( $term, $taxonomy ) ?> `
+
+PARAMETERS
+----------
+
+ `$term` 
+:   ([*integer|string*](/How_to_Pass_Tag_Parameters#Integer.7Cstring "How to Pass Tag Parameters"))
+    (*required*) The term to check
+    Default: *None*
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The taxonomy name to use
+    Default: ''
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   Get the term id or `Term Object`, if exists.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses global: (`object`) `$term`
+
+CHANGE LOG
+----------
+
+-   Since: [2.3](/Version_2.3 "Version 2.3")
+-   Deprecated: [3.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`is_term()` is located in `wp-includes/taxonomy.php`.
+

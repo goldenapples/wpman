@@ -1,0 +1,59 @@
+comments popup script "MAY 2013" WordPress Codex "Function Reference"
+=====================================================================
+
+NAME
+----
+
+comments popup script - Outputs the [JavaScript](/Glossary#JavaScript "Glossary") code for a
+
+SYNOPSIS
+--------
+
+Outputs the [JavaScript](/Glossary#JavaScript "Glossary") code for a
+comments popup window. Used in tandem with
+[comments\_popup\_link()](/Template_Tags/comments_popup_link "Template Tags/comments popup link"),
+this tag can be used anywhere within a template, though is typically
+placed within the \<head\> portion of a page.
+
+USAGE
+-----
+
+`  <?php comments_popup_script(width, height, 'file'); ?> `
+
+EXAMPLE
+-------
+
+Sets the popup window's width to 400 pixels, and height to 500 pixels.
+
+    <?php comments_popup_script(400, 500); ?>
+
+PARAMETERS
+----------
+
+ `width` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The width of the popup window.
+    Default: `400` (pixels)
+
+ `height` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The height of the popup window.
+    Default: `400` (pixels)
+
+ `file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Sets the location of the popup window.
+    Default: *None*
+
+CHANGELOG
+---------
+
+-    ? : Added the `file` parameter.
+-   Since: [0.7](/Version_0.7 "Version 0.7")
+
+SOURCE CODE
+-----------
+
+`comments_popup_script()` is located in
+`wp-includes/comment-template.php`.
+

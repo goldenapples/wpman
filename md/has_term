@@ -1,0 +1,70 @@
+has term "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+has term - Check if the current post has any of given terms.
+
+SYNOPSIS
+--------
+
+Check if the current post has any of given terms.
+
+The given terms are checked against the post's terms' term\_ids, names
+and slugs. Terms given as integers will only be checked against the
+post's terms' term\_ids.
+
+If no terms are given, determines if post has any terms.
+
+USAGE
+-----
+
+` <?php has_term( $term, $taxonomy, $post ) ?> `
+
+PARAMETERS
+----------
+
+ `$term` 
+:   ([*string|integer|array*](/How_to_Pass_Tag_Parameters#String.7Cinteger.7Carray "How to Pass Tag Parameters"))
+    (*optional*) The term name/term\_id/slug or array of them to check
+    for.
+    Default: ''
+
+ `$taxonomy` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Taxonomy name
+    Default: ''
+
+ `$post` 
+:   ([*integer|object*](/How_to_Pass_Tag_Parameters#Integer.7Cobject "How to Pass Tag Parameters"))
+    (*optional*) Post to check instead of the current post.
+    Default: null
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   True if the current post has any of the given terms (or any term, if
+    no term specified).
+
+EXAMPLES
+--------
+
+    if( has_term( 'jazz', 'genre' ) ) {
+        // do something
+    }
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 3.1.0
+
+SOURCE FILE
+-----------
+
+`has_term()` is located in `/wp-includes/category-template.php`.
+

@@ -1,0 +1,93 @@
+the content rss "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+the content rss - Display the post content for the feed.
+
+SYNOPSIS
+--------
+
+Display the post content for the feed.
+
+For encoding the html or the `$encode_html` parameter, there are three
+possible values. '`0`' will make urls footnotes and use
+[`make_url_footnote()`](/Function_Reference/make_url_footnote "Function Reference/make url footnote").
+'`1`' will encode special characters and automatically display all of
+the content. The value of '`2`' will strip all HTML tags from the
+content.
+
+Also note that you cannot set the amount of words and not set the html
+encoding. If that is the case, then the html encoding will default to
+`2`, which will strip all HTML tags.
+
+To restrict the amount of words of the content, you can use the cut
+parameter. If the content is less than the amount, then there won't be
+any dots added to the end. If there is content left over, then dots will
+be added and the rest of the content will be removed.
+
+USAGE
+-----
+
+` <?php the_content_rss( $more_link_text, $stripteaser, $more_file, $cut, $encode_html ) ?> `
+
+PARAMETERS
+----------
+
+ `$more_link_text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display when more content is available but not
+    displayed.
+    Default: 'more...'
+
+ `$stripteaser` 
+:   ([*integer|boolean*](/How_to_Pass_Tag_Parameters#Integer.7Cboolean "How to Pass Tag Parameters"))
+    (*optional*) Default is 0.
+    Default: 0
+
+ `$more_file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional.
+    Default: ''
+
+ `$cut` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Amount of words to keep for the content.
+    Default: 0
+
+ `$encode_html` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) How to encode the content.
+    Default: 0
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See
+    [`get_the_content()`](/Function_Reference/get_the_content "Function Reference/get the content")
+    For the `$more_link_text`, `$stripteaser`, and `$more_file`
+    parameters.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls '`the_content_rss`' on the content before processing.
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`the_content_rss()` is located in `wp-includes/feed.php`.
+

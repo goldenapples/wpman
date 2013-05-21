@@ -1,0 +1,50 @@
+trackback url "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+trackback url - Displays or returns the trackback
+
+SYNOPSIS
+--------
+
+Displays or returns the trackback
+[URL](/Glossary#URI_and_URL "Glossary") for the current post. This tag
+must be within [The Loop](/The_Loop "The Loop").
+
+A trackback URL is where somebody posts a link to their site on your
+site. In return, they have posted a link to your site on their site and
+have copied an article you have written.
+
+USAGE
+-----
+
+`  <?php trackback_url(); ?> `
+
+PARAMETERS
+----------
+
+This tag has no parameters.
+
+EXAMPLE
+-------
+
+    <p>Trackback URL for this post: <?php trackback_url(); ?></p>
+
+NOTES
+-----
+
+Uses:
+[get\_trackback\_url()](/index.php?title=Template_Tags/get_trackback_url&action=edit&redlink=1 "Template Tags/get trackback url (page does not exist)")
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`trackback_url()` is located in `wp-includes/comment-template.php`.
+

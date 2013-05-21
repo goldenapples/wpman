@@ -1,0 +1,82 @@
+get template directory uri "MAY 2013" WordPress Codex "Function Reference"
+==========================================================================
+
+NAME
+----
+
+get template directory uri - Retrieve [template](/Templates "Templates") directory URI for the
+
+SYNOPSIS
+--------
+
+Retrieve [template](/Templates "Templates") directory URI for the
+current theme. Checks for SSL.
+
+**Note:** Does not return a trailing slash following the directory
+address.
+
+In the event a [child theme](/Child_Themes "Child Themes") is being
+used, the parent theme directory URI will be returned,
+`get_template_directory_uri()` should be used for resources that are not
+intended to be included in/over-ridden by a child theme. Use
+[` get_stylesheet_directory_uri()`](/Function_Reference/get_stylesheet_directory_uri "Function Reference/get stylesheet directory uri")
+to include resources that are intended to be included in/over-ridden by
+the Child Theme.
+
+USAGE
+-----
+
+**Use the URI** ` <?php get_template_directory_uri(); ?> `
+
+**Output the URI** ` <?php echo get_template_directory_uri(); ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ `uri` `(string)`{style="color:gray"} 
+:   Template directory URI.
+
+EXAMPLES
+--------
+
+Using get\_template\_directory\_uri() to enqueue a script with the
+correct path
+
+    <?php
+    function my_scripts_method() {
+        wp_enqueue_script(
+            'custom_script',
+            get_template_directory_uri() . '/js/custom_script.js',
+            array('jquery')
+        );
+    }
+    add_action('wp_enqueue_scripts', 'my_scripts_method');
+    ?>
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls 'template\_directory\_uri' filter on template directory URI
+    path and template name.
+-   Uses:
+    [`get_template()`](/Function_Reference/get_template "Function Reference/get template")
+-   Uses:
+    [`get_theme_root_uri()`](/Function_Reference/get_theme_root_uri "Function Reference/get theme root uri")
+
+CHANGE LOG
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+`get_template_directory_uri()` is located in `wp-includes/theme.php`.
+

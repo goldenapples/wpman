@@ -1,0 +1,61 @@
+maybe serialize "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+maybe serialize - Serialize data, if needed.
+
+SYNOPSIS
+--------
+
+Serialize data, if needed.
+
+USAGE
+-----
+
+` <?php maybe_serialize( $data ); ?> `
+
+PARAMETERS
+----------
+
+ `$data` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Data that might be serialized.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (mixed) 
+:   A scalar data
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Data might need to be *serialized* to allow it to be successfully
+    stored and retrieved from a database in a form that PHP can
+    understand.
+-   Confusingly, strings that contain already serialized values are
+    serialized again, resulting in a nested serialization. Other strings
+    are unmodified.
+
+A possible solution to prevent nested serialization is to check if a
+variable is serialized using
+` <?php if(!is_serialized( $data )) { $data = maybe_serialize($data); } ?> `
+More info at
+[http://codex.wordpress.org/Function\_Reference/is\_serialized](http://codex.wordpress.org/Function_Reference/is_serialized "http://codex.wordpress.org/Function_Reference/is_serialized")
+
+CHANGE LOG
+----------
+
+Since: 2.0.5
+
+SOURCE FILE
+-----------
+
+`maybe_serialize()` is located in `wp-includes/functions.php`.
+

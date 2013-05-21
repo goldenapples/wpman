@@ -1,0 +1,23 @@
+get file data "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+get file data - **get\_file\_data** is the name of a function in the global namespace
+
+SYNOPSIS
+--------
+
+**get\_file\_data** is the name of a function in the global namespace
+within WordPress. It is a [File Header](/File_Header "File Header")
+related function.
+
+More in [WordPress get\_file\_data function
+documentation](http://phpdoc.wordpress.org/trunk/WordPress/_wp-includes---functions.php.html#functionget_file_data "http://phpdoc.wordpress.org/trunk/WordPress/_wp-includes---functions.php.html#functionget_file_data")
+
+SOURCE FILE
+-----------
+
+`get_file_data()` is located in `wp-includes/functions.php`.
+

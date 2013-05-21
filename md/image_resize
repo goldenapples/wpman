@@ -1,0 +1,82 @@
+image resize "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+image resize - Scale down an image to fit a particular size and save a new copy of the
+
+SYNOPSIS
+--------
+
+Scale down an image to fit a particular size and save a new copy of the
+image.
+
+The PNG transparency will be preserved using the function, as well as
+the image type. If the file going in is PNG, then the resized image is
+going to be PNG. The only supported image types are PNG, GIF, and JPEG.
+
+Some functionality requires API to exist, so some PHP version may lose
+out support. This is not the fault of WordPress (where functionality is
+downgraded, not actual defects), but of your PHP version.
+
+USAGE
+-----
+
+` <?php image_resize( $file, $max_w, $max_h, $crop, $suffix, $dest_path, $jpeg_quality ); ?> `
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Image file path.
+    Default: *None*
+
+ `$max_w` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Maximum width to resize to.
+    Default: *None*
+
+ `$max_h` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Maximum height to resize to.
+    Default: *None*
+
+ `$crop` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Optional. Whether to crop image or resize.
+    Default: false
+
+ `$suffix` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. File Suffix.
+    Default: null
+
+ `$dest_path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. New image file path.
+    Default: null
+
+ `$jpeg_quality` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Optional, default is 90. Image quality percentage.
+    Default: 90
+
+RETURN VALUES
+-------------
+
+ `` `(mixed)`{style="color:gray"} 
+:   WP\_Error on failure. String with new destination path.
+
+CHANGE LOG
+----------
+
+-   Deprecated: [3.5.0](/Version_3.5 "Version 3.5")
+-   Since: [2.5](/Version_2.5 "Version 2.5")
+
+SOURCE FILE
+-----------
+
+`image_resize()` is located in `wp-includes/media.php`
+

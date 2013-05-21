@@ -1,0 +1,104 @@
+wp count posts "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp count posts - This function was introduced in WordPress [Version
+
+SYNOPSIS
+--------
+
+This function was introduced in WordPress [Version
+2.5](/Version_2.5 "Version 2.5"), and outputs the number for each post
+status of a post type. You can also use `wp_count_posts()` as a
+template\_tag with the second parameter and include the private post
+status. By default, or if the user isn't logged in or is a guest of your
+site, then private post status post count will not be included.
+
+This function will return an object with the post statuses as the
+properties. You should check for the property using `isset()` PHP
+function, if you are wanting the value for the private post status. Not
+all post statuses will be part of the object.
+
+USAGE
+-----
+
+`  <?php wp_count_posts( $type, $perm ); ?> `
+
+PARAMETERS
+----------
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Post type to count
+    Default: 'post'
+
+ `$perm` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) To include private posts readable by the current user,
+    set to 'readable'
+    Default: *empty string*
+
+EXAMPLES
+--------
+
+### Default Usage
+
+The default usage returns a count of the posts that are published. This
+will be an object, you can var\_dump() the contents to debug the output.
+
+    <?php
+    $count_posts = wp_count_posts();
+    ?>
+
+### Get the Publish Status Post Count
+
+To get the published status type, you would call the `wp_count_posts()`
+function and then access the '**publish'** property.
+
+    <?php
+    $count_posts = wp_count_posts();
+
+    $published_posts = $count_posts->publish;
+    ?>
+
+If you are developing for PHP5 only, then you can use shorthand, if you
+only want to get one status. This will not work in PHP4 and if you want
+to maintain backwards compatibility, then you must use the above code.
+
+    <?php
+    $published_posts = wp_count_posts()->publish;
+    ?>
+
+### Count Drafts
+
+Counting drafts is handled the same way as the publish status.
+
+    <?php
+    $count_posts = wp_count_posts();
+
+    $draft_posts = $count_posts->draft;
+    ?>
+
+### Count Pages
+
+Counting pages status types are done in the same way as posts and make
+use of the first parameter. Finding the number of posts for the post
+status is done the same way as for posts.
+
+    <?php
+    $count_pages = wp_count_posts('page');
+    ?>
+
+### Other Uses
+
+The `wp_count_posts()` can be used to find the number for post statuses
+of any post type. This includes attachments or any post type added in
+the future, either by a plugin or part of the WordPress Core.
+
+SOURCE FILE
+-----------
+
+`wp_count_posts()` is located in `wp-includes/post.php`.
+

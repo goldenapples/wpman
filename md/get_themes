@@ -1,0 +1,51 @@
+get themes "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+get themes - Retrieve list of [themes](/Glossary#Theme "Glossary") with theme data in
+
+SYNOPSIS
+--------
+
+Retrieve list of [themes](/Glossary#Theme "Glossary") with theme data in
+theme directory.
+
+The theme is broken if it doesn't have a parent theme and is missing
+either `style.css` or `index.php`. If the theme has a parent theme, it
+is broken if it is missing `style.css`; `index.php` is optional. The
+broken theme list is saved in the `$wp_broken_themes` global, which is
+displayed on the theme list in the administration panels.
+
+USAGE
+-----
+
+` <?php get_themes() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   Theme list with theme data.
+
+NOTES
+-----
+
+-   Uses global: (`array`) `$wp_themes` holds working themes list.
+
+CHANGE LOG
+----------
+
+Since: 1.5.0. Deprecated since 3.4.0.
+
+SOURCE FILE
+-----------
+
+`get_themes()` is located in `wp-includes/deprecated.php`.
+

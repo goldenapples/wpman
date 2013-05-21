@@ -1,0 +1,48 @@
+comment author rss "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+comment author rss - Display the current comment author in the feed.
+
+SYNOPSIS
+--------
+
+Display the current comment author in the feed.
+
+USAGE
+-----
+
+` <?php comment_author_rss() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Echos the return from
+    [`get_comment_author_rss()`](/Function_Reference/get_comment_author_rss "Function Reference/get comment author rss").
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`comment_author_rss()` is located in `wp-includes/feed.php`.
+

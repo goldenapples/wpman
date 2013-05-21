@@ -1,0 +1,63 @@
+wp check filetype "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+wp check filetype - Retrieve the file type from the file name.
+
+SYNOPSIS
+--------
+
+Retrieve the file type from the file name.
+
+You can optionally define the mime array, if needed.
+
+USAGE
+-----
+
+` <?php wp_check_filetype( $filename, $mimes ) ?> `
+
+PARAMETERS
+----------
+
+ `$filename` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) File name or path.
+    Default: *None*
+
+ `$mimes` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Key is the file extension with value as the mime type.
+    Default: null
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   Values with extension first and mime type.
+
+-   ['ext'] - Extension (eg 'jpg')
+-   ['type'] - Mime Type (eg 'image/jpeg')
+
+EXAMPLES
+--------
+
+    <?php
+    $filetype = wp_check_filetype('image.jpg');
+    echo $filetype['ext']; // will output jpg
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.0.4
+
+SOURCE FILE
+-----------
+
+`wp_check_filetype()` is located in `wp-includes/functions.php`.
+

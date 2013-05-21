@@ -1,0 +1,67 @@
+current theme supports "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+current theme supports - Checks a theme's support for a given [theme
+
+SYNOPSIS
+--------
+
+Checks a theme's support for a given [theme
+feature](/Theme_Features "Theme Features").
+
+USAGE
+-----
+
+` <?php current_theme_supports( $feature ); ?> `
+
+PARAMETERS
+----------
+
+ `$feature` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) the feature being checked
+    Default: *None*
+
+Features list:
+
+-   'custom-header'
+-   'custom-background'
+-   'post-thumbnails'
+-   'menus'
+-   'automatic-feed-links'
+-   'editor-style'
+-   'widgets'
+
+RETURN VALUES
+-------------
+
+ (boolean) 
+:   
+
+EXAMPLES
+--------
+
+    <?php 
+    if (current_theme_supports('custom-header')) {
+      // do something special when custom-header is supported...
+    }
+    ?>
+
+NOTES
+-----
+
+-   Uses global: (`unknown type`) `$_wp_theme_features`
+
+CHANGE LOG
+----------
+
+-   Since: [2.9.0](/Version_2.9 "Version 2.9")
+
+SOURCE FILE
+-----------
+
+`current_theme_supports()` is located in `wp-includes/theme.php`.
+

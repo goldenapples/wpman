@@ -1,0 +1,44 @@
+wp dequeue style "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+wp dequeue style - Remove a CSS file that was enqueued with
+
+SYNOPSIS
+--------
+
+Remove a CSS file that was enqueued with
+[wp\_enqueue\_style()](/Function_Reference/wp_enqueue_style "Function Reference/wp enqueue style").
+
+USAGE
+-----
+
+` <?php wp_dequeue_style( $handle ) ?> `
+
+PARAMETERS
+----------
+
+ `$handle` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name of the enqueued stylesheet.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+CHANGE LOG
+----------
+
+-   Since: [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`wp_dequeue_style()` is located in
+`wp-includes/functions.wp-styles.php`.
+

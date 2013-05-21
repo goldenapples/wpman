@@ -1,0 +1,730 @@
+register post type "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+register post type - Create or modify a [post type](/Glossary#Post_Type "Glossary"). Do not
+
+SYNOPSIS
+--------
+
+Create or modify a [post type](/Glossary#Post_Type "Glossary"). Do not
+use **register\_post\_type** before init.
+
+TAXONOMIES
+----------
+
+It's important to note, that you should in every way, always register
+your taxonomies using the `taxonomies` argument when you register your
+post type. Else they won't get recognized as connected when using
+filters like `parse_query` or `pre_get_posts`, which can lead to
+unexpected results and failure.
+
+### Reserved Post Types
+
+The following post types are reserved and used by WordPress already.
+
+-   post
+-   page
+-   attachment
+-   revision
+-   nav\_menu\_item
+
+More information: [Post Types](/Post_Types "Post Types").
+
+USAGE
+-----
+
+` <?php register_post_type( $post_type, $args ) ?> `
+
+PARAMETERS
+----------
+
+ `$post_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post type. (**max. 20 characters, can not contain
+    capital letters or spaces**)
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of arguments.
+    Default: *None*
+
+### Arguments
+
+ `label` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) A **plural** descriptive name for the post type marked
+    for translation.
+    Default: \$post\_type
+
+ `labels` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) labels - An array of labels for this post type. By
+    default post labels are used for non-hierarchical types and page
+    labels for hierarchical ones.
+    Default: if empty, name is set to label value, and singular\_name is
+    set to name value
+
+-   '**name'** - general name for the post type, usually plural. The
+    same as, and overridden by \$post\_type\_object-\>label
+-   '**singular\_name'** - name for one object of this post type.
+    Defaults to value of name
+-   '**menu\_name'** - the menu name text. This string is the name to
+    give menu items. Defaults to value of name
+-   '**all\_items'** - the all items text used in the menu. Default is
+    the Name label
+-   '**add\_new'** - the add new text. The default is Add New for both
+    hierarchical and non-hierarchical types. When internationalizing
+    this string, please use a [gettext
+    context](/I18n_for_WordPress_Developers#Disambiguation_by_context "I18n for WordPress Developers")
+    matching your post type. Example: `_x('Add New', 'product');`
+-   '**add\_new\_item'** - the add new item text. Default is Add New
+    Post/Add New Page
+-   '**edit\_item'** - the edit item text. Default is Edit Post/Edit
+    Page
+-   '**new\_item'** - the new item text. Default is New Post/New Page
+-   '**view\_item'** - the view item text. Default is View Post/View
+    Page
+-   '**search\_items'** - the search items text. Default is Search
+    Posts/Search Pages
+-   '**not\_found'** - the not found text. Default is No posts found/No
+    pages found
+-   '**not\_found\_in\_trash'** - the not found in trash text. Default
+    is No posts found in Trash/No pages found in Trash
+-   '**parent\_item\_colon'** - the parent text. This string isn't used
+    on non-hierarchical types. In hierarchical ones the default is
+    Parent Page
+
+ `description` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) A short descriptive summary of what the post type is.
+    Default: blank
+
+ `public` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether a post type is intended to be used publicly
+    either via the admin interface or by front-end users.
+    Default: false
+
+-   '**false'** - Post type is not intended to be used publicly and
+    should generally be unavailable in wp-admin and on the front end
+    unless explicitly planned for elsewhere.
+-   '**true'** - Post type **is** intended for public use. This includes
+    on the front end and in wp-admin.
+
+**Note:** While the default settings of exclude\_from\_search,
+publicly\_queryable, show\_ui, and show\_in\_nav\_menus are inherited
+from public, each does not rely on this relationship and controls a very
+specific intention.
+
+ `exclude_from_search` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*importance*) Whether to exclude posts with this post type from
+    front end search results.
+    Default: value of the opposite of the public argument
+
+-   'true' - site/?s=search-term will **not** include posts of this post
+    type.
+-   'false' - site/?s=search-term will include posts of this post type.
+
+**Note:** If you want to show the posts's list that are associated to
+taxonomy's terms, you must set exclude\_from\_search to false (ie : for
+call site\_domaine/?taxonomy\_slug=term\_slug or
+site\_domaine/taxonomy\_slug/term\_slug). If you set to true, on the
+taxonomy page (ex: taxonomy.php) worpress will not find your posts
+and/or pagination will make 404 error...
+
+ `publicly_queryable` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether queries can be performed on the front end as
+    part of parse\_request().
+    Default: value of public argument
+
+**Note:** The queries affected include the following (also initiated
+when rewrites are handled)
+
+-    ?post\_type={post\_type\_key}
+-    ?{post\_type\_key}={single\_post\_slug}
+-    ?{post\_type\_query\_var}={single\_post\_slug}
+
+**Note:** If you set this to FALSE, you will find that you cannot
+preview/see your custom post (return 404).
+
+ `show_ui` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to generate a default UI for managing this post
+    type in the admin.
+    Default: value of public argument
+
+-   'false' - do not display a user-interface for this post type
+-   'true' - display a user-interface (admin panel) for this post type
+
+Note: `_built-in` post types, such as post and page, are intentionally
+set to false.
+
+ `show_in_nav_menus` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether post\_type is available for selection in
+    navigation menus.
+    Default: value of public argument
+
+ `show_in_menu` 
+:   ([*boolean or
+    string*](/How_to_Pass_Tag_Parameters#Boolean_or_string "How to Pass Tag Parameters"))
+    (*optional*) Where to show the post type in the admin menu.
+    `show_ui` must be `true`.
+    Default: value of show\_ui argument
+
+-   'false' - do not display in the admin menu
+-   'true' - display as a top level menu
+-   'some string' - If an existing top level page such as 'tools.php' or
+    'edit.php?post\_type=page', the post type will be placed as a sub
+    menu of that.
+
+Note: When using 'some string' to show as a submenu of a menu page
+created by a plugin, this item will become the first submenu item, and
+replace the location of the top level link. If this isn't desired, the
+plugin that creates the menu page needs to set the add\_action priority
+for admin\_menu to 9 or lower.
+
+Note: As this one inherits its value from `show_ui`, which inherits its
+value from `public`, it seems to be the most reliable property to
+determine, if a post type is meant to be publicly useable. At least this
+works for `_builtin` post types and only gives back `post` and `page`.
+
+ `show_in_admin_bar` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to make this post type available in the
+    WordPress admin bar.
+    Default: value of the show\_in\_menu argument
+
+ `menu_position` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The position in the menu order the post type should
+    appear. `show_in_menu` must be `true`.
+    Default: null - defaults to below Comments
+
+-   5 - below Posts
+-   10 - below Media
+-   15 - below Links
+-   20 - below Pages
+-   25 - below comments
+-   60 - below first separator
+-   65 - below Plugins
+-   70 - below Users
+-   75 - below Tools
+-   80 - below Settings
+-   100 - below second separator
+
+ `menu_icon` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The url to the icon to be used for this menu.
+    Default: null - defaults to the posts icon
+
+ `capability_type` 
+:   ([*string or
+    array*](/How_to_Pass_Tag_Parameters#String_or_array "How to Pass Tag Parameters"))
+    (*optional*) The string to use to build the read, edit, and delete
+    capabilities. May be passed as an array to allow for alternative
+    plurals when using this argument as a base to construct the
+    capabilities, e.g. array('story', 'stories'). By default the
+    capability\_type is used as a base to construct capabilities. It
+    seems that \`map\_meta\_cap\` needs to be set to true, to make this
+    work.
+    Default: "post"
+
+Some of the capability types that can be used (probably not exhaustive
+list):
+
+-   post (default)
+-   page
+
+These built-in types cannot be used:
+
+-   attachment
+-   mediapage
+
+ `capabilities` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of the capabilities for this post type.
+    Default: capability\_type is used to construct
+
+By default, seven keys are accepted as part of the capabilities array:
+
+-   edit\_post, read\_post, and delete\_post - These three are **meta
+    capabilities**, which are then generally mapped to corresponding
+    **primitive capabilities** depending on the context, for example the
+    post being edited/read/deleted and the user or role being checked.
+    Thus these capabilities would generally not be granted directly to
+    users or roles.
+-   edit\_posts - Controls whether objects of this post type can be
+    edited.
+-   edit\_others\_posts - Controls whether objects of this type owned by
+    other users can be edited. If the post type does not support an
+    author, then this will behave like edit\_posts.
+-   publish\_posts - Controls publishing objects of this post type.
+-   read\_private\_posts - Controls whether private objects can be read.
+
+Note: those last four **primitive capabilities** are checked in core in
+various locations.
+
+There are also seven other **primitive capabilities** which are not
+referenced directly in core, except in map\_meta\_cap(), which takes the
+three aforementioned **meta capabilities** and translates them into one
+or more **primitive capabilities** that must then be checked against the
+user or role, depending on the context. These additional capabilities
+are only used in map\_meta\_cap(). Thus, they are only assigned by
+default if the post type is registered with the 'map\_meta\_cap'
+argument set to true (default is false).
+
+-   read - Controls whether objects of this post type can be read.
+-   delete\_posts - Controls whether objects of this post type can be
+    deleted.
+-   delete\_private\_posts - Controls whether private objects can be
+    deleted.
+-   delete\_published\_posts - Controls whether published objects can be
+    deleted.
+-   delete\_others\_posts - Controls whether objects owned by other
+    users can be can be deleted. If the post type does not support an
+    author, then this will behave like delete\_posts.
+-   edit\_private\_posts - Controls whether private objects can be
+    edited.
+-   edit\_published\_posts - Controls whether published objects can be
+    edited.
+
+If you assign a `'capability_type'` and then take a look into the
+`$GLOBALS['wp_post_types']['your_cpt_name']` array, then you'll see the
+following:
+
+    [cap] => stdClass Object
+    (
+        [edit_post]      => "edit_{$capability_type}"
+        [read_post]      => "read_{$capability_type}"
+        [delete_post]        => "delete_{$capability_type}"
+        [edit_posts]         => "edit_{$capability_type}s"
+        [edit_others_posts]  => "edit_others_{$capability_type}s"
+        [publish_posts]      => "publish_{$capability_type}s"
+        [read_private_posts]     => "read_private_{$capability_type}s"
+            [delete_posts]           => "delete_{$capability_type}s"
+            [delete_private_posts]   => "delete_private_{$capability_type}s"
+            [delete_published_posts] => "delete_published_{$capability_type}s"
+            [delete_others_posts]    => "delete_others_{$capability_type}s"
+            [edit_private_posts]     => "edit_private_{$capability_type}s"
+            [edit_published_posts]   => "edit_published_{$capability_type}s"
+    )
+
+*Note the "s" at the end of plural capabilities.*
+
+ `map_meta_cap` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to use the internal default meta capability
+    handling.
+    Default: false
+
+ `hierarchical` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether the post type is hierarchical (e.g. page).
+    Allows Parent to be specified. The 'supports' parameter should
+    contain 'page-attributes' to show the parent select box on the
+    editor page.
+    Default: false
+
+ `supports` 
+:   ([*array/boolean*](/How_to_Pass_Tag_Parameters#Array.2Fboolean "How to Pass Tag Parameters"))
+    (*optional*) An alias for calling
+    [add\_post\_type\_support()](/Function_Reference/add_post_type_support "Function Reference/add post type support")
+    directly. As of [3.5](/Version_3.5 "Version 3.5"), boolean **false**
+    can be passed as value instead of an array to prevent default (title
+    and editor) behavior.
+    Default: title and editor
+
+-   'title'
+-   'editor' (content)
+-   'author'
+-   'thumbnail' (featured image, current theme must also support
+    [post-thumbnails](/Post_Thumbnails "Post Thumbnails"))
+-   'excerpt'
+-   'trackbacks'
+-   'custom-fields'
+-   'comments' (also will see comment count balloon on edit screen)
+-   'revisions' (will store revisions)
+-   'page-attributes' (menu order, hierarchical must be true to show
+    Parent option)
+-   'post-formats' add post formats, see [Post
+    Formats](/Post_Formats "Post Formats")
+
+**Note:** When you use custom post type that use thumbnails remember to
+check that the theme also supports thumbnails or use
+[add\_theme\_support](/add_theme_support "add theme support") function.
+
+ `register_meta_box_cb` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Provide a callback function that will be called when
+    setting up the meta boxes for the edit form. Do
+    [remove\_meta\_box()](/Function_Reference/remove_meta_box "Function Reference/remove meta box")
+    and
+    [add\_meta\_box()](/Function_Reference/add_meta_box "Function Reference/add meta box")
+    calls in the callback.
+    Default: *None*
+
+ `taxonomies` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An array of registered taxonomies like `category` or
+    `post_tag` that will be used with this post type. This can be used
+    in lieu of calling
+    [register\_taxonomy\_for\_object\_type()](/Function_Reference/register_taxonomy_for_object_type "Function Reference/register taxonomy for object type")
+    directly. Custom taxonomies still need to be registered with
+    [register\_taxonomy()](/Function_Reference/register_taxonomy "Function Reference/register taxonomy").
+    Default: no taxonomies
+
+ `has_archive` 
+:   ([*boolean or
+    string*](/How_to_Pass_Tag_Parameters#Boolean_or_string "How to Pass Tag Parameters"))
+    (*optional*) Enables post type archives. Will use `$post_type` as
+    archive slug by default.
+    Default: false
+
+Note: Will generate the proper rewrite rules if `rewrite` is enabled.
+Also use `rewrite` to change the slug used.
+
+ `permalink_epmask` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The default rewrite endpoint bitmasks. For more info
+    see [Trac Ticket
+    12605](http://core.trac.wordpress.org/ticket/12605 "http://core.trac.wordpress.org/ticket/12605")
+    and [this Make WordPress Plugins summary of
+    endpoints](http://make.wordpress.org/plugins/2012/06/07/rewrite-endpoints-api/ "http://make.wordpress.org/plugins/2012/06/07/rewrite-endpoints-api/").
+    Default: EP\_PERMALINK
+
+**Note:** In 3.4, this argument is effectively replaced by the
+`'ep_mask'` argument under `rewrite`.
+
+ `rewrite` 
+:   ([*boolean or
+    array*](/How_to_Pass_Tag_Parameters#Boolean_or_array "How to Pass Tag Parameters"))
+    (*optional*) Triggers the handling of rewrites for this post type.
+    To prevent rewrites, set to false.
+    Default: true and use \$post\_type as slug
+
+\$args array
+
+-   `'slug' => string` Customize the permastruct slug. Defaults to the
+    `$post_type` value. Should be translatable.
+-   `'with_front' => bool` Should the permastruct be prepended with the
+    front base. (example: if your permalink structure is /blog/, then
+    your links will be: false-\>/news/, true-\>/blog/news/). Defaults to
+    true
+-   `'feeds' => bool` Should a feed permastruct be built for this post
+    type. Defaults to `has_archive` value.
+-   `'pages' => bool` Should the permastruct provide for pagination.
+    Defaults to true
+-   `'ep_mask' => const` *As of 3.4* Assign an endpoint mask for this
+    post type. For more info see [Trac Ticket
+    19275](http://core.trac.wordpress.org/ticket/19275 "http://core.trac.wordpress.org/ticket/19275")
+    and [this Make WordPress Plugins summary of
+    endpoints](https://make.wordpress.org/plugins/2012/06/07/rewrite-endpoints-api/ "https://make.wordpress.org/plugins/2012/06/07/rewrite-endpoints-api/").
+    -   If not specified and `permalink_epmask` is set, inherits from
+        `permalink_epmask`
+    -   If not specified and `permalink_epmask` is not set, defaults to
+        `EP_PERMALINK`
+
+**Note:** If registering a post type inside of a plugin, call
+[flush\_rewrite\_rules()](/Function_Reference/flush_rewrite_rules "Function Reference/flush rewrite rules")
+in your activation and deactivation hook (see [Flushing Rewrite on
+Activation](#Flushing_Rewrite_on_Activation) below). If
+flush\_rewrite\_rules() is not used, then you will have to manually go
+to Settings \> Permalinks and refresh your permalink structure before
+your custom post type will show the correct structure.
+
+ `query_var` 
+:   ([*boolean or
+    string*](/How_to_Pass_Tag_Parameters#Boolean_or_string "How to Pass Tag Parameters"))
+    (*optional*) Sets the `query_var` key for this post type.
+    Default: true - set to \$post\_type
+
+-   'false' - Disables `query_var` key use. A post type cannot be loaded
+    at /?{query\_var}={single\_post\_slug}
+-   'string' - /?{query\_var\_string}={single\_post\_slug} will work as
+    intended.
+
+**Note:** The query\_var parameter has no effect if the
+‘publicly\_queryable’ parameter is set to false. query\_var adds the
+custom post type’s query var to the built-in query\_vars array so that
+WordPress will recognize it. WordPress removes any query var not
+included in that array.
+
+If set to true it allow you to request a custom posts type (book) using
+this: example.com/?book=life-of-pi\
+
+If set to a string rather than true (for example ‘publication’), you can
+do: example.com/?publication=life-of-pi
+
+\
+
+ `can_export` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Can this post\_type be exported.
+    Default: true
+
+ `_builtin` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*not for general use*) Whether this post type is a native or
+    "built-in" post\_type. **Note: this Codex entry is for documentation
+    - core developers recommend you don't use this when registering your
+    own post type**
+    Default: false
+
+-   'false' - default this is a custom post type
+-   'true' - this is a built-in native post type (post, page,
+    attachment, revision, nav\_menu\_item)
+
+ `_edit_link` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*not for general use*) Link to edit an entry with this post type.
+    **Note: this Codex entry is for documentation '-' core developers
+    recommend you don't use this when registering your own post type**
+    Default:
+
+-   'post.php?post=%d'
+
+RETURN VALUES
+-------------
+
+ (object | WP\_Error) 
+:   The registered post type object, or an error object
+
+EXAMPLE
+-------
+
+An example of registering a post type called "book".
+
+Basic:
+
+    function codex_custom_init() {
+        $args = array( 'public' => true, 'label' => 'Books' );
+        register_post_type( 'book', $args );
+    }
+    add_action( 'init', 'codex_custom_init' );
+
+Elaborate:
+
+    function codex_custom_init() {
+      $labels = array(
+        'name' => 'Books',
+        'singular_name' => 'Book',
+        'add_new' => 'Add New',
+        'add_new_item' => 'Add New Book',
+        'edit_item' => 'Edit Book',
+        'new_item' => 'New Book',
+        'all_items' => 'All Books',
+        'view_item' => 'View Book',
+        'search_items' => 'Search Books',
+        'not_found' =>  'No books found',
+        'not_found_in_trash' => 'No books found in Trash', 
+        'parent_item_colon' => '',
+        'menu_name' => 'Books'
+      );
+
+      $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true, 
+        'show_in_menu' => true, 
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'book' ),
+        'capability_type' => 'post',
+        'has_archive' => true, 
+        'hierarchical' => false,
+        'menu_position' => null,
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+      ); 
+
+      register_post_type( 'book', $args );
+    }
+    add_action( 'init', 'codex_custom_init' );
+
+Customizing the messages:
+
+    //add filter to ensure the text Book, or book, is displayed when user updates a book 
+
+    function codex_book_updated_messages( $messages ) {
+      global $post, $post_ID;
+
+      $messages['book'] = array(
+        0 => '', // Unused. Messages start at index 1.
+        1 => sprintf( __('Book updated. <a href="%s">View book</a>', 'your_text_domain'), esc_url( get_permalink($post_ID) ) ),
+        2 => __('Custom field updated.', 'your_text_domain'),
+        3 => __('Custom field deleted.', 'your_text_domain'),
+        4 => __('Book updated.', 'your_text_domain'),
+        /* translators: %s: date and time of the revision */
+        5 => isset($_GET['revision']) ? sprintf( __('Book restored to revision from %s', 'your_text_domain'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+        6 => sprintf( __('Book published. <a href="%s">View book</a>', 'your_text_domain'), esc_url( get_permalink($post_ID) ) ),
+        7 => __('Book saved.', 'your_text_domain'),
+        8 => sprintf( __('Book submitted. <a target="_blank" href="%s">Preview book</a>', 'your_text_domain'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+        9 => sprintf( __('Book scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview book</a>', 'your_text_domain'),
+          // translators: Publish box date format, see http://php.net/date
+          date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+        10 => sprintf( __('Book draft updated. <a target="_blank" href="%s">Preview book</a>', 'your_text_domain'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+      );
+
+      return $messages;
+    }
+    add_filter( 'post_updated_messages', 'codex_book_updated_messages' );
+
+Adding contextual help:
+
+    //display contextual help for Books
+
+    function codex_add_help_text( $contextual_help, $screen_id, $screen ) { 
+      //$contextual_help .= var_dump( $screen ); // use this to help determine $screen->id
+      if ( 'book' == $screen->id ) {
+        $contextual_help =
+          '<p>' . __('Things to remember when adding or editing a book:', 'your_text_domain') . '</p>' .
+          '<ul>' .
+          '<li>' . __('Specify the correct genre such as Mystery, or Historic.', 'your_text_domain') . '</li>' .
+          '<li>' . __('Specify the correct writer of the book.  Remember that the Author module refers to you, the author of this book review.', 'your_text_domain') . '</li>' .
+          '</ul>' .
+          '<p>' . __('If you want to schedule the book review to be published in the future:', 'your_text_domain') . '</p>' .
+          '<ul>' .
+          '<li>' . __('Under the Publish module, click on the Edit link next to Publish.', 'your_text_domain') . '</li>' .
+          '<li>' . __('Change the date to the date to actual publish this article, then click on Ok.', 'your_text_domain') . '</li>' .
+          '</ul>' .
+          '<p><strong>' . __('For more information:', 'your_text_domain') . '</strong></p>' .
+          '<p>' . __('<a href="http://codex.wordpress.org/Posts_Edit_SubPanel" target="_blank">Edit Posts Documentation</a>', 'your_text_domain') . '</p>' .
+          '<p>' . __('<a href="http://wordpress.org/support/" target="_blank">Support Forums</a>', 'your_text_domain') . '</p>' ;
+      } elseif ( 'edit-book' == $screen->id ) {
+        $contextual_help = 
+          '<p>' . __('This is the help screen displaying the table of books blah blah blah.', 'your_text_domain') . '</p>' ;
+      }
+      return $contextual_help;
+    }
+    add_action( 'contextual_help', 'codex_add_help_text', 10, 3 );
+
+Adding WordPress 3.3+ Help Tab:
+
+    function codex_custom_help_tab() {
+        global $post_ID;
+        $screen = get_current_screen();
+
+        if( isset($_GET['post_type']) ) $post_type = $_GET['post_type'];
+        else $post_type = get_post_type( $post_ID );
+
+        if( $post_type == 'book' ) :
+
+            $screen->add_help_tab( array(
+                'id' => 'you_custom_id', //unique id for the tab
+                'title' => 'Custom  Help', //unique visible title for the tab
+                'content' => '<h3>Help Title</h3><p>Help content</p>',  //actual help text
+            ));
+
+        endif;
+
+    }
+
+    add_action('admin_head', 'codex_custom_help_tab');
+
+FLUSHING REWRITE ON ACTIVATION
+------------------------------
+
+To get permalinks to work when you activate the plugin use the following
+example, paying attention to how my\_cpt\_init is called in the
+register\_activation\_hook callback:
+
+    add_action( 'init', 'my_cpt_init' );
+    function my_cpt_init() {
+        register_post_type( ... );
+    }
+
+    function my_rewrite_flush() {
+        // First, we "add" the custom post type via the above written function.
+        // Note: "add" is written with quotes, as CPTs don't get added to the DB,
+        // They are only referenced in the post_type column with a post entry, 
+        // when you add a post of this CPT.
+        my_cpt_init();
+
+        // ATTENTION: This is *only* done during plugin activation hook in this example!
+        // You should *NEVER EVER* do this on every page load!!
+        flush_rewrite_rules();
+    }
+    register_activation_hook( __FILE__, 'my_rewrite_flush' );
+
+For themes, you'll need to use the after\_switch\_theme hook instead.
+Like so:
+
+    add_action( 'init', 'my_cpt_init' );
+    function my_cpt_init() {
+        register_post_type( ... );
+    }
+
+    function my_rewrite_flush() {
+        flush_rewrite_rules();
+    }
+    add_action( 'after_switch_theme', 'my_rewrite_flush' );
+
+NOTES
+-----
+
+Note that although the **\$public** attribute is optional, the inputs
+passed to the **register\_post\_type()** function are *exactly* what is
+queried by the
+[[get\_post\_types()](http://codex.wordpress.org/Function_Reference/get_post_types "http://codex.wordpress.org/Function_Reference/get_post_types")]
+function. So if you verbosely set the equivalent options for
+**publicly\_queriable**, **show\_ui**, **show\_in\_nav\_menus**, and
+**exclude\_from\_search**, this will not be handled the same as if you
+had set the **\$public** attribute. See [bug
+18950](http://core.trac.wordpress.org/ticket/18950 "http://core.trac.wordpress.org/ticket/18950").
+
+CHANGE LOG
+----------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"): `'supports'` argument can be
+    set to Boolean `false` to disable default title and editor.
+-   Since [2.9](/Version_2.9 "Version 2.9")
+
+SOURCE FILE
+-----------
+
+`register_post_type()` is located in `wp-includes/post.php`.
+
+RESOURCES
+---------
+
+-   [Custom Post Types](/Custom_Post_Types "Custom Post Types")
+-   [Feeds for Custom Post Types (Trac
+    12943)](http://core.trac.wordpress.org/ticket/12943 "http://core.trac.wordpress.org/ticket/12943")
+-   [Discussion on wp-hackers about
+    capabilities](http://lists.automattic.com/pipermail/wp-hackers/2010-June/032655.html "http://lists.automattic.com/pipermail/wp-hackers/2010-June/032655.html")
+-   [Another discussion on wp-hackers about
+    capabilities](http://lists.automattic.com/pipermail/wp-hackers/2010-June/032657.html "http://lists.automattic.com/pipermail/wp-hackers/2010-June/032657.html")
+-   [Register Custom Post Types and Taxonomies the right way, so you
+    have a reliable
+    interconnection](http://wpkrauts.com/2013/registering-custom-taxonomies-for-custom-post-types-the-right-way/ "http://wpkrauts.com/2013/registering-custom-taxonomies-for-custom-post-types-the-right-way/")
+
+### Generators
+
+-   [WordPress Post Type
+    Generator](http://generatewp.com/post-type/ "http://generatewp.com/post-type/")
+-   [Custom Post Type
+    Generator](http://weareo3.com/wordpress-custom-post-type-generator/ "http://weareo3.com/wordpress-custom-post-type-generator/")
+-   [Themergency Custom Post Type code
+    generator](http://themergency.com/generators/wordpress-custom-post-types/ "http://themergency.com/generators/wordpress-custom-post-types/")
+
+### Plugins
+
+-   [Types Plugin - Custom Post Types, Custom Taxonomy and Custom
+    Fields](http://wordpress.org/extend/plugins/types/ "http://wordpress.org/extend/plugins/types/")
+-   [Custom Post Type UI
+    Plugin](http://wordpress.org/extend/plugins/custom-post-type-ui/ "http://wordpress.org/extend/plugins/custom-post-type-ui/")
+-   [CMS
+    Press](http://wordpress.org/extend/plugins/cms-press/ "http://wordpress.org/extend/plugins/cms-press/")
+-   [GD Custom Posts And Taxonomies
+    Tools](http://wordpress.org/extend/plugins/gd-taxonomies-tools/ "http://wordpress.org/extend/plugins/gd-taxonomies-tools/")
+-   [Change Order for Custom Post Types in WordPress
+    3.0](http://wordpress.org/extend/plugins/post-types-order/ "http://wordpress.org/extend/plugins/post-types-order/")
+-   [Custom Post Type
+    Example](http://web-profile.com.ua/wordpress/custom-post-types/ "http://web-profile.com.ua/wordpress/custom-post-types/")
+

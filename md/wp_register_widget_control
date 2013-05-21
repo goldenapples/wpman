@@ -1,0 +1,53 @@
+wp register widget control "MAY 2013" WordPress Codex "Function Reference"
+==========================================================================
+
+NAME
+----
+
+wp register widget control - Registers widget control callback for customizing options.
+
+SYNOPSIS
+--------
+
+Registers widget control callback for customizing options.
+
+The options contains the `height`, `width`, and `id_base` keys. The
+`height` option is never used. The `width` option is the width of the
+fully expanded control form, but try hard to use the default width. The
+`id_base` is for multi-widgets (widgets which allow multiple instances
+such as the text widget), an id\_base must be provided. The widget id
+will end up looking like {\$id\_base}-{\$unique\_number}.
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*Sidebar ID.*) string
+    Default: required
+
+ `$name` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Sidebar display name.
+    Default: *None*
+
+ `$control_callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) Run when sidebar is displayed.
+    Default: *None*
+
+ `$options` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*Optional. Widget options. See above long description.*) string
+    Default: optional
+
+CHANGE LOG
+----------
+
+Since: [2.2.0](/Version_2.2.0 "Version 2.2.0")
+
+SOURCE FILE
+-----------
+
+wp\_register\_widget\_control() is located in `wp-includes/widgets.php`
+

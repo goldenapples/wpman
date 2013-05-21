@@ -1,0 +1,50 @@
+esc html "MAY 2013" WordPress Codex "Function Reference"
+========================================================
+
+NAME
+----
+
+esc html - Escaping for HTML blocks.
+
+SYNOPSIS
+--------
+
+Escaping for HTML blocks.
+
+USAGE
+-----
+
+` <?php esc_html( $text ) ?> `
+
+PARAMETERS
+----------
+
+ `$text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Text to escape
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `HTML` `(string)`{style="color:gray"} 
+:   Escaped HTML string.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses the 'esc\_html' filter.
+
+CHANGE LOG
+----------
+
+-   Since: [2.8.0](/Version_2.8 "Version 2.8")
+
+SOURCE FILE
+-----------
+
+`esc_html()` is located in `wp-includes/formatting.php`.
+

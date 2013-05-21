@@ -1,0 +1,45 @@
+get comment ID "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+get comment ID - Retrieve the comment id of the current comment.
+
+SYNOPSIS
+--------
+
+Retrieve the comment id of the current comment.
+
+USAGE
+-----
+
+` <?php $comment_id = get_comment_ID(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept parameters
+
+RETURN VALUES
+-------------
+
+ `` `(integer)`{style="color:gray"} 
+:   The comment ID
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+get\_comment\_ID() is located in `wp-includes/comment-template.php`
+

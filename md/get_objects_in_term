@@ -1,0 +1,99 @@
+get objects in term "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+get objects in term - Retrieves the object\_id(s) belonging to a term in a taxonomy. Which
+
+SYNOPSIS
+--------
+
+Retrieves the object\_id(s) belonging to a term in a taxonomy. Which
+Objects have the given term from the given taxonomy.
+
+The strings of `$taxonomies` must exist before this function will
+continue. On failure of finding a valid taxonomy, it will return an
+WP\_Error class, kind of like Exceptions in PHP 5, except you can't
+catch them. Even so, you can still test for the WP\_Error class and get
+the error message.
+
+The `$terms` aren't checked the same as `$taxonomies`, but still need to
+exist for `$object_ids` to be returned.
+
+It is possible to change the order that object\_ids is returned by
+either using PHP sort family functions or using the database by using
+`$args` with either ASC or DESC array. The value should be in the key
+named '`order`'.
+
+USAGE
+-----
+
+` <?php get_objects_in_term( $term_ids, $taxonomies, $args ) ?> `
+
+PARAMETERS
+----------
+
+ `$term_ids` 
+:   ([*integer|array*](/How_to_Pass_Tag_Parameters#Integer.7Carray "How to Pass Tag Parameters"))
+    (*required*) Term id or array of term ids of terms that will be used
+    Default: *None*
+
+ `$taxonomies` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*required*) String of taxonomy name or Array of string values of
+    taxonomy names
+    Default: *None*
+
+ `$args` 
+:   ([*array|optional*](/How_to_Pass_Tag_Parameters#Array.7Coptional "How to Pass Tag Parameters"))
+    (*required*) array()
+    Default: *None*
+
+### Possible Arguments
+
+ order 
+:   (*string*)
+    -   `ASC` - Default
+    -   `DESC`
+
+\
+ **NOTE**: Arguments are passed in the format used by
+[wp\_parse\_args()](/Function_Reference/wp_parse_args "Function Reference/wp parse args").
+e.g.
+
+RETURN VALUES
+-------------
+
+ (WP\_Error|array) 
+:   If the taxonomy does not exist, then WP\_Error will be returned. On
+    success the array can be empty meaning that there are no
+    `$object_ids` found or it will return an array of the `$object_ids`
+    found.
+
+**NOTE**: If an object is in more than one of the terms passed to
+\$terms, the results returned will contain duplicate object\_ids
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   Uses:
+    [`wp_parse_args()`](/Function_Reference/wp_parse_args "Function Reference/wp parse args")
+    Creates an array from string `$args`.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`get_objects_in_term()` is located in `/wp-includes/taxonomy.php`.
+

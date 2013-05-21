@@ -1,0 +1,82 @@
+get query template "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+get query template - Retrieve path to file without the use of extension.
+
+SYNOPSIS
+--------
+
+Retrieve path to file without the use of extension.
+
+Used to quickly retrieve the path of file without including the file
+extension. It will also check the parent template, if the file exists,
+with the use of
+[`locate_template()`](/Function_Reference/locate_template "Function Reference/locate template").
+Allows for more generic file location without the use of the other
+`get_*_template()` functions.
+
+Can be used with
+[`include()`](http://us3.php.net/manual/en/function.include.php "http://us3.php.net/manual/en/function.include.php")
+or
+[`require()`](http://us3.php.net/manual/en/function.require.php "http://us3.php.net/manual/en/function.require.php")
+to retrieve path. ` `
+
+       if ( '' != get_query_template( '404' ) )
+           include( get_query_template( '404' ) );
+
+or the same can be accomplished with ` `
+
+       if ( '' != get_404_template() )
+           include( get_404_template() );
+
+USAGE
+-----
+
+` <?php get_query_template( $type, $templates ); ?> `
+
+PARAMETERS
+----------
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Filename without extension.
+    Default: *None*
+
+ `$templates` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An optional list of template candidates
+    Default: array()
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Full path to file.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    on `{$type}_template` on result from
+    [`locate_template()`](/Function_Reference/locate_template "Function Reference/locate template").
+-   Uses:
+    [`locate_template()`](/Function_Reference/locate_template "Function Reference/locate template")
+    on "{`$type`}.php".
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_query_template()` is located in `wp-includes/template.php`.
+

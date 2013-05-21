@@ -1,0 +1,84 @@
+is page template "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+is page template - This [Conditional Tag](/Conditional_Tags "Conditional Tags") allows you
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") allows you
+to determine if you are in any page template. Optionally checks if a
+specific [Page Template](/Page_Templates "Page Templates") is being used
+in a [Page](/Pages "Pages"). This is a boolean function, meaning it
+returns either TRUE or FALSE. This tag must be used BEFORE [The
+Loop](/The_Loop "The Loop") and does not work inside The Loop (see
+[Notes](#Notes) below).
+
+USAGE
+-----
+
+` <?php is_page_template($template); ?> `
+
+PARAMETERS
+----------
+
+ `$template` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Full template filename with ext
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+Is [Page Template](/Page_Templates "Page Templates") 'about' being used?
+Note that unlike with other conditionals, if you want to specify a
+particular Page Template, you need to use the filename, such as
+about.php or my\_page\_template.php.
+
+    if ( is_page_template('about.php') ) {
+        // Returns true when 'about.php' is being used.
+    } else {
+        // Returns false when 'about.php' is not being used.
+    }
+
+NOTES
+-----
+
+### Page template in subdirectory
+
+If the page template is located in a subdirectory of the theme (since WP
+3.4), prepend the folder name and a slash to the template filename,
+e.g.:
+
+    if ( is_page_template('templates/about.php') )
+
+### Cannot Be Used Inside The Loop
+
+Due to certain global variables being overwritten during The Loop
+`is_page_template()` will not work. In order to use it after The Loop
+you must call
+[wp\_reset\_query()](/Function_Reference/wp_reset_query "Function Reference/wp reset query")
+after The Loop.
+
+-   See also
+    [is\_page()](/Function_Reference/is_page "Function Reference/is page")
+
+CHANGE LOG
+----------
+
+Since: 2.5.0
+
+SOURCE FILE
+-----------
+
+`is_page_template()` is located in `wp-includes/post-template.php`.
+

@@ -1,0 +1,46 @@
+the modified author "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+the modified author - The author who last modified a post can be **displayed** by using this
+
+SYNOPSIS
+--------
+
+The author who last modified a post can be **displayed** by using this
+[Template Tag](/Template_Tags "Template Tags"). This tag must be used
+within [The Loop](/The_Loop "The Loop"). Note:
+[the\_modified\_author](/Template_Tags/the_modified_author "Template Tags/the modified author")
+was first available with [Version 2.8](/Version_2.8 "Version 2.8").
+
+USAGE
+-----
+
+`  <?php the_modified_author(); ?> `
+
+PARAMETERS
+----------
+
+This function takes no arguments.
+
+EXAMPLES
+--------
+
+### Display Last Modified Author's 'Public' Name
+
+Displays the value in the user's **Display name publicly as** field.
+
+    <p>This post was last modified by <?php the_modified_author(); ?></p>
+
+CHANGE LOG
+----------
+
+Since: 2.8.0
+
+SOURCE FILE
+-----------
+
+`the_modified_author()` is located in `wp-includes/author-template.php`.
+

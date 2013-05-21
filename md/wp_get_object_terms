@@ -1,0 +1,112 @@
+wp get object terms "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+wp get object terms - Retrieves the terms associated with the given object(s), in the supplied
+
+SYNOPSIS
+--------
+
+Retrieves the terms associated with the given object(s), in the supplied
+taxonomies.
+
+\
+
+USAGE
+-----
+
+` <?php wp_get_object_terms( $object_ids, $taxonomies, $args ) ?> `
+
+PARAMETERS
+----------
+
+ `$object_ids` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*required*) The id's of objects to retrieve terms from.
+    Default: *None*
+
+ `$taxonomies` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*required*) The [taxonomies](/Taxonomies "Taxonomies") to retrieve
+    terms from. For example: 'category', 'post\_tag', 'taxonomy slug'
+    Default: *None*
+
+ `$args` 
+:   ([*array|string*](/How_to_Pass_Tag_Parameters#Array.7Cstring "How to Pass Tag Parameters"))
+    (*optional*) Change what is returned
+    Default: array
+
+### Default Arguments
+
+    $args = array('orderby' => 'name', 'order' => 'ASC', 'fields' => 'all');
+
+### Argument Options
+
+The following information has to do the `$args` parameter and for what
+can be contained in the string or array of that parameter, if it exists.
+
+The first argument is called '`orderby`' and has the default value of
+'`name`'. Other supported values include '`count`', '`slug`',
+'`term_group`', '`term_order`', and '`term_id`'.
+
+The second argument is called '`order`' and has the default value of
+'`ASC`'. The only other value that will be acceptable is '`DESC`'.
+
+The final argument supported is called '`fields`' and has the default
+value of '`all`'. There are multiple other options that can be used
+instead. Supported values are as follows: '`all`', '`ids`', '`names`',
+'`slugs`', and finally '`all_with_object_id`'.
+
+The fields argument also decides what will be returned. If '`all`' or
+'`all_with_object_id`' is choosen or the default kept intact, then all
+matching terms objects will be returned. If '`ids`', '`slugs`' or
+'`names`' is used, then an array of all matching term ids or term names
+will be returned respectively.
+
+RETURN VALUES
+-------------
+
+ (array|WP\_Error) 
+:   The requested term data or empty array if no terms found. WP\_Error
+    if `$taxonomy` does not exist. See
+    [is\_wp\_error()](/Function_Reference/is_wp_error "Function Reference/is wp error")
+    for more information.
+
+EXAMPLES
+--------
+
+Return a list of all 'product' taxonomy terms which are applied to
+`$post`:
+
+    $product_terms = wp_get_object_terms($post->ID, 'product');
+    if(!empty($product_terms)){
+      if(!is_wp_error( $product_terms )){
+        echo '<ul>';
+        foreach($product_terms as $term){
+          echo '<li><a href="'.get_term_link($term->slug, 'product').'">'.$term->name.'</a></li>'; 
+        }
+        echo '</ul>';
+      }
+    }
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+-   May return
+    [`WP_Error`](/Function_Reference/WP_Error "Function Reference/WP Error")
+    object.
+
+CHANGE LOG
+----------
+
+Since: 2.3.0
+
+SOURCE FILE
+-----------
+
+`wp_get_object_terms()` is located in `wp-includes/taxonomy.php`.
+

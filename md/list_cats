@@ -1,0 +1,178 @@
+list cats "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+list cats - Displays a list of [Categories](/Glossary#Category "Glossary") as links.
+
+SYNOPSIS
+--------
+
+Displays a list of [Categories](/Glossary#Category "Glossary") as links.
+When one of those links is clicked, all the posts in that Category will
+display in the appropriate [Category
+Template](/Category_Templates "Category Templates") dicatated by the
+[Template Hierarchy rules](/Template_Hierarchy "Template Hierarchy").
+This tag works like the
+[wp\_list\_cats](/Template_Tags/wp_list_cats "Template Tags/wp list cats")
+tag, except that
+[list\_cats](/Template_Tags/list_cats "Template Tags/list cats") uses a
+long query string of arguments while
+[wp\_list\_cats](/Template_Tags/wp_list_cats "Template Tags/wp list cats")
+uses text-based query arguments. WordPress 2.1 saw the introduction of a
+new and more inclusive template tag
+[wp\_list\_categories](/Template_Tags/wp_list_categories "Template Tags/wp list categories"),
+intended to replace *wp\_list\_cats* and *list\_cats*.
+
+REPLACE WITH
+------------
+
+-   [wp\_list\_categories()](/Template_Tags/wp_list_categories "Template Tags/wp list categories")
+
+USAGE
+-----
+
+`  <?php list_cats( $optionall, $all, $sort_column,                $sort_order, $file, $list, $optiondates,                 $optioncount, $hide_empty, $use_desc_for_title,                 $children, $child_of, $categories, $recurse,                 $feed, $feed_img, $exclude, $hierarchical); ?> `
+
+PARAMETERS
+----------
+
+ optionall 
+:   (*boolean*) Sets whether to display a link to all Categories. Note:
+    This feature no longer works in WordPress 1.5.x and 2.0 but is
+    slated to be added back at Version 2.1. Valid values:
+    -   `TRUE` (Default)
+    -   `FALSE`
+
+ all 
+:   (*string*) If *optionall* is set to TRUE, this defines the text to
+    be displayed for the link to all Categories. Note: This feature no
+    longer works in WordPress 1.5.x and 2.0 but is slated to be added
+    back at Version 2.1. Defaults to `'All'`.
+ sort\_column 
+:   (*string*) Key to sort options by. Valid values:
+    -   `'ID'` (Default)
+    -   `'name'`
+
+ sort\_order 
+:   (*string*) Sort order for options. Valid values:
+    -   `'asc'` (Default)
+    -   `'desc'`
+
+ file 
+:   (*string*) The php file a Category link is to be displayed on.
+    Defaults to `'index.php'`.
+ list 
+:   (*boolean*) Sets whether the Categories are enclosed in an unordered
+    list (\<ul\>\<li\>). Valid values:
+    -   `TRUE` (Default)
+    -   `FALSE`
+
+ optiondates 
+:   (*boolean*) Sets whether to display the date of the last post in
+    each Category. Valid values:
+    -   `TRUE`
+    -   `FALSE` (Default)
+
+ optioncount 
+:   (*boolean*) Sets whether to display a count of posts in each
+    Category. Valid values:
+    -   `TRUE`
+    -   `FALSE` (Default)
+
+ hide\_empty 
+:   (*boolean*) Sets whether to hide (not display) Categories with no
+    posts. Valid values:
+    -   `TRUE` (Default)
+    -   `FALSE`
+
+ use\_desc\_for\_title 
+:   (*boolean*) Sets whether the Category description is displayed as
+    link title (i.e. `<a title="Category Description" href="...`). Valid
+    values:
+    -   `TRUE` (Default)
+    -   `FALSE`
+
+ children 
+:   (*boolean*) Sets whether to show children (sub) Categories. Valid
+    values:
+    -   `TRUE`
+    -   `FALSE` (Default)
+
+ child\_of 
+:   (*integer*) Display only the Categories that are children of this
+    Category (ID number). There is no default.
+ Categories 
+:   (*integer*) This parameter should be set to `0` (zero) when calling
+    this template tag. (For the curious, other values are used *only
+    internally* by the tag when generating a hierarchical list.)
+ recurse 
+:   (*boolean*) Display the list (`FALSE`) or return it for use in PHP
+    (`TRUE`). Defaults to `FALSE`.
+ feed 
+:   (*string*) Text to display for the link to each Category's
+    [RSS2](/Glossary#RSS "Glossary") feed. Default is no text, and no
+    feed displayed.
+ feed\_image 
+:   (*string*) Path/filename for a graphic to act as a link to each
+    Category's RSS2 feed. Overrides the **feed** parameter.
+ exclude 
+:   (*string*) Sets the Categories to be excluded. This must be in the
+    form of an array (ex: `'1, 2, 3'`).
+ hierarchical 
+:   (*boolean*) Sets whether to display child (sub) Categories in a
+    hierarchical (after parent) list. Valid values:
+    -   `TRUE` (Default)
+    -   `FALSE`
+
+:   **Note: The hierarchical parameter is not available in versions of
+    WordPress prior to 1.5**
+
+EXAMPLES
+--------
+
+### Default List
+
+Displays the list of Categories using default settings:
+
+    <?php list_cats(); ?>
+
+### Sorted by Category Name
+
+Displays the list of Categories, with not all Categories linked, and
+sorted by Category name:
+
+    <?php list_cats(FALSE, ' ', 'name'); ?>
+
+### Customized List with Excluded Categories
+
+Sets the list to not list all the Categories (based upon further
+parameters), sorts by ID in ascending order and in an unordered list
+(`<ul><li>`) without dates or post counts, does not hide empty
+Categories, uses Category "description" for the title in the links, does
+not show the children of the parent Categories, and excludes Categories
+1 and 33:
+
+    <?php list_cats(FALSE, '', 'ID',
+                    'asc', '', TRUE, FALSE, 
+                    FALSE, FALSE, TRUE, 
+                    FALSE, FALSE, '', FALSE, 
+                    '', '', '1,33', 
+                    TRUE); ?>
+
+NOTES ON USE
+------------
+
+When the 'list' parameter is set for an unordered list, the list\_cats()
+tag automatically begins and ends with `UL` and each item listed as an
+`LI`.
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+-   Deprecated: 2.1
+-   Replace By:
+    [wp\_list\_categories()](/Template_Tags/wp_list_categories "Template Tags/wp list categories")
+

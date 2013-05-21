@@ -1,0 +1,240 @@
+add theme support "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+add theme support - Allows a theme or plugin to register support of a certain [theme
+
+SYNOPSIS
+--------
+
+Allows a theme or plugin to register support of a certain [theme
+feature](/Theme_Features "Theme Features"). If called from a theme, it
+should be done in the theme's
+*[functions.php](/Theme_Development#Functions_File "Theme Development")*
+file to work. It can also be [called from a
+plugin](http://wordpress.stackexchange.com/questions/23839/using-add-theme-support-inside-a-plugin "http://wordpress.stackexchange.com/questions/23839/using-add-theme-support-inside-a-plugin")
+if attached to an action [hook](/Glossary#Hook "Glossary").
+
+If attached to an action hook, it should be
+[after\_setup\_theme](/Plugin_API/Action_Reference/after_setup_theme "Plugin API/Action Reference/after setup theme").
+The
+[init](/Plugin_API/Action_Reference/init "Plugin API/Action Reference/init")
+action hook may be too late for some features.
+
+USAGE
+-----
+
+` <?php add_theme_support( $feature ); ?> `
+
+PARAMETERS
+----------
+
+ `$feature` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name for the feature being added.
+    Features list:
+    -   [`'post-formats'`](#Post_Formats)
+    -   [`'post-thumbnails'`](#Post_Thumbnails)
+    -   [`'custom-background'`](#Custom_Background)
+    -   [`'custom-header'`](#Custom_Header)
+    -   [`'automatic-feed-links'`](#Feed_Links)
+    -   `'menus'`
+
+Default: *None*
+
+ADDABLE FEATURES
+----------------
+
+### Post Formats
+
+This feature enables [Post Formats](/Post_Formats "Post Formats")
+support for a Theme. This feature became available with [Version
+3.1](/Version_3.1 "Version 3.1"). When using [Child
+Themes](/Child_Themes "Child Themes"), be aware that
+*add\_theme\_support( 'post-formats' )* will **override** the formats as
+defined by the parent theme, not add to it.
+
+To enable the specific formats (see supported formats at [Post
+Formats](/Post_Formats "Post Formats")), use:
+
+    add_theme_support( 'post-formats', array( 'aside', 'gallery' ) );
+
+To check if there is a 'quote' post format assigned to the post, use
+
+    // in your theme single.php, page.php or custom post type
+    if ( has_post_format( 'quote' ) ) {
+        echo 'This is a quote.';
+    }
+
+### Post Thumbnails
+
+This feature enables [Post
+Thumbnails](/Post_Thumbnails "Post Thumbnails") support for a Theme. The
+feature became available with [Version 2.9](/Version_2.9 "Version 2.9").
+Note that you can optionally pass a second argument with an array of the
+[Post Types](/Post_Types "Post Types") for which you want to enable this
+feature.
+
+    add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'post-thumbnails', array( 'post' ) );          // Posts only
+    add_theme_support( 'post-thumbnails', array( 'page' ) );          // Pages only
+    add_theme_support( 'post-thumbnails', array( 'post', 'movie' ) ); // Posts and Movies
+
+This feature must be called before the init hook is fired. That means it
+needs to be placed directly into functions.php or within a function
+attached to the 'after\_setup\_theme' hook. For custom post types, you
+can also add post thumbnails using the
+[register\_post\_type](/register_post_type "register post type")
+function as well.
+
+To display thumbnails in themes index.php or single.php or custom
+templates, use:
+
+    the_post_thumbnail();
+
+To check if there is a post thumbnail assigned to the post before
+displaying it, use:
+
+    if ( has_post_thumbnail() ) {
+        the_post_thumbnail();
+    }
+
+### Custom Background
+
+This feature enables
+[Custom\_Backgrounds](/Custom_Backgrounds "Custom Backgrounds") support
+for a theme as of [Version 3.4](/Version_3.4 "Version 3.4").
+
+    add_theme_support( 'custom-background' );
+
+Note that you can add default arguments using:
+
+    $defaults = array(
+        'default-color'          => '',
+        'default-image'          => '',
+        'wp-head-callback'       => '_custom_background_cb',
+        'admin-head-callback'    => '',
+        'admin-preview-callback' => ''
+    );
+    add_theme_support( 'custom-background', $defaults );
+
+-   To make this backwards compatible you can use this check to
+    determine if WordPress is at least version 3.4 or not. So during the
+    transition to 3.4, you can support both functions by using them in
+    the alternative:
+
+<!-- -->
+
+    global $wp_version;
+    if ( version_compare( $wp_version, '3.4', '>=' ) ) 
+        add_theme_support( 'custom-background' ); 
+    else
+        add_custom_background( $args );
+
+### Custom Header
+
+This feature enables [Custom\_Headers](/Custom_Headers "Custom Headers")
+support for a theme as of [Version 3.4](/Version_3.4 "Version 3.4").
+
+    add_theme_support( 'custom-header' );
+
+Note that you can add default arguments using:
+
+    $defaults = array(
+        'default-image'          => '',
+        'random-default'         => false,
+        'width'                  => 0,
+        'height'                 => 0,
+        'flex-height'            => false,
+        'flex-width'             => false,
+        'default-text-color'     => '',
+        'header-text'            => true,
+        'uploads'                => true,
+        'wp-head-callback'       => '',
+        'admin-head-callback'    => '',
+        'admin-preview-callback' => '',
+    );
+    add_theme_support( 'custom-header', $defaults );
+
+-   To make this backwards compatible you can use this check to
+    determine if WordPress is at least version 3.4 or not. So during the
+    transition to 3.4, you can support both functions by using them in
+    the alternative:
+
+<!-- -->
+
+    global $wp_version;
+    if ( version_compare( $wp_version, '3.4', '>=' ) )
+        add_theme_support( 'custom-header' );
+    else
+        add_custom_image_header( $wp_head_callback, $admin_head_callback, $admin_preview_callback );
+
+### Feed Links
+
+This feature enables post and comment RSS feed links to head. This
+should be used in place of the deprecated *automatic\_feed\_links()*
+function. This feature became available with [Version
+3.0](/Version_3.0 "Version 3.0").
+
+    add_theme_support( 'automatic-feed-links' );
+
+MULTISITE
+---------
+
+To show the "Featured Image" meta box in multisite installation, make
+sure you update the allowed upload file types, in Network Admin,
+[Network Admin Settings
+SubPanel\#Upload\_Settings](/Network_Admin_Settings_SubPanel#Upload_Settings "Network Admin Settings SubPanel"),
+Media upload buttons options. Default is jpg jpeg png gif mp3 mov avi
+wmv midi mid pdf.
+
+NOTES
+-----
+
+The following parameters are read only, and should only be used in the
+context of
+[current\_theme\_supports()](/Function_Reference/current_theme_supports "Function Reference/current theme supports"):
+
+-   `sidebars`: Use
+    [register\_sidebar()](/Function_Reference/register_sidebar "Function Reference/register sidebar")
+    or
+    [register\_sidebars()](/Function_Reference/register_sidebars "Function Reference/register sidebars")
+    instead.
+-   `menus`: Use
+    [register\_nav\_menu()](/Function_Reference/register_nav_menu "Function Reference/register nav menu")
+    or
+    [register\_nav\_menus()](/Function_Reference/register_nav_menus "Function Reference/register nav menus")
+    instead.
+-   `editor-style`: Use
+    [add\_editor\_style()](/Function_Reference/add_editor_style "Function Reference/add editor style")
+    instead.
+
+CHANGELOG
+---------
+
+-   [3.4](/Version_3.4 "Version 3.4"): Added `'custom-background'` and
+    deprecated
+    [add\_custom\_background()](/Function_Reference/add_custom_background "Function Reference/add custom background").
+-   [3.4](/Version_3.4 "Version 3.4"): Added `'custom-header'` and
+    deprecated
+    [add\_custom\_image\_header()](/Function_Reference/add_custom_image_header "Function Reference/add custom image header").
+-   [3.1](/Version_3.1 "Version 3.1"): Added `'post-formats'`.([Ticket
+    \#14746](http://core.trac.wordpress.org/ticket/14746 "http://core.trac.wordpress.org/ticket/14746"))
+-   [3.0](/Version_3.0 "Version 3.0"): Added `'automatic-feed-links'`
+    and deprecated `automatic_feed_links()`.
+-   [2.9](/Version_2.9 "Version 2.9"): Introduced with
+    `'post-thumbnails'` feature.
+
+SOURCE FILE
+-----------
+
+`add_theme_support()` is located in `wp-includes/theme.php`.
+
+EXTERNAL RESOURCES
+------------------
+
+-   [WordPress Theme Support
+    Generator](http://generatewp.com/theme-support/ "http://generatewp.com/theme-support/")
+

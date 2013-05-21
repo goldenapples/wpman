@@ -1,0 +1,89 @@
+wp setcookie "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+wp setcookie - This function can be replaced via
+
+SYNOPSIS
+--------
+
+This function can be replaced via
+[plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+these functions, then this will be used instead.
+
+Sets a cookie for a user who just logged in.
+
+**This function is deprecated. Use
+[`wp_set_auth_cookie()`](/Function_Reference/wp_set_auth_cookie "Function Reference/wp set auth cookie")
+instead.**
+
+USAGE
+-----
+
+` <?php wp_setcookie( $username, $password, $already_md5, $home, $siteurl, $remember ) ?> `
+
+PARAMETERS
+----------
+
+ `$username` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The user's username
+    Default: *None*
+
+ `$password` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The user's password
+    Default: ''
+
+ `$already_md5` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether the password has already been through MD5
+    Default: false
+
+ `$home` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Will be used instead of COOKIEPATH if set
+    Default: ''
+
+ `$siteurl` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Will be used instead of SITECOOKIEPATH if set
+    Default: ''
+
+ `$remember` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Remember that the user is logged in
+    Default: false
+
+RETURN VALUES
+-------------
+
+ void 
+:   This function doesn't return anything.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   This function can be replaced via
+    [plugins](/Glossary#plugins "Glossary"). If plugins do not redefine
+    these functions, then this will be used instead.
+-   **This function is deprecated. Use
+    [`wp_set_auth_cookie()`](/Function_Reference/wp_set_auth_cookie "Function Reference/wp set auth cookie")
+    instead.**
+
+CHANGE LOG
+----------
+
+-   Since: 1.5
+-   Deprecated: 2.5.0
+
+SOURCE FILE
+-----------
+
+`wp_setcookie()` is located in `wp-includes/pluggable.php`.
+

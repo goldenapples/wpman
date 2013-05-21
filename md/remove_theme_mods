@@ -1,0 +1,45 @@
+remove theme mods "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+remove theme mods - Remove all theme modification options for current theme.
+
+SYNOPSIS
+--------
+
+Remove all theme modification options for current theme.
+
+USAGE
+-----
+
+` <?php remove_theme_mods() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`remove_theme_mods()` is located in `wp-includes/theme.php`.
+

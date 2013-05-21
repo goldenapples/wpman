@@ -1,0 +1,132 @@
+wp update post "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp update post - This function updates posts (and pages) in the database. To work as
+
+SYNOPSIS
+--------
+
+This function updates posts (and pages) in the database. To work as
+expected, it is necessary to pass the ID of the post to be updated.
+
+Note that when the post is "updated", the existing Post record is
+duplicated for audit/revision purposes. The primary record is then
+updated with the new values. Category associations, custom fields, post
+meta, and other related entries continue to be linked to the primary
+Post record.
+
+USAGE
+-----
+
+`  <?php wp_update_post( $post ); ?> `
+
+EXAMPLE
+-------
+
+Before calling wp\_update\_post() it is necessary to create an array to
+pass the necessary elements. Unlike
+[wp\_insert\_post()](/Function_Reference/wp_insert_post "Function Reference/wp insert post"),
+it is only necessary to pass the ID of the post to be updated and the
+elements to be updated. The names of the elements should match those in
+the database.
+
+    // Update post 37
+      $my_post = array();
+      $my_post['ID'] = 37;
+      $my_post['post_content'] = 'This is the updated content.';
+
+    // Update the post into the database
+      wp_update_post( $my_post );
+
+### Categories
+
+Categories need to be passed as an array of integers that match the
+category IDs in the database. This is the case even where only one
+category is assigned to the post.
+
+### Caution!
+
+When executed by an action hooked into save\_post (e.g. a custom
+metabox), wp\_update\_post() has the potential to create an infinite
+loop. This happens because (1) wp\_update\_post() results in save\_post
+being fired and (2) save\_post is called twice when revisions are
+enabled (first when creating the revision, then when updating the
+original post—resulting in the creation of endless revisions).
+
+If you must update a post from code called by save\_post, make sure to
+verify the post\_type is not set to 'revision' and that the \$post
+object does indeed need to be updated.
+
+Likewise, an action hooked into edit\_attachment can cause an infinite
+loop if it contains a function call to wp\_update\_post passing an array
+parameter with a key value of "ID" and an associated value that
+corresponds to an Attachment.
+
+Note you will need to remove then add the hook, code sample modified
+from the API/Action ref.
+[save\_posts]([http://codex.wordpress.org/Plugin\_API/Action\_Reference/save\_post](http://codex.wordpress.org/Plugin_API/Action_Reference/save_post "http://codex.wordpress.org/Plugin_API/Action_Reference/save_post"))
+
+    <?php
+    function my_function(){
+        if ( ! wp_is_post_revision( $post_id ) ){
+        
+            // unhook this function so it doesn't loop infinitely
+            remove_action('save_post', 'my_function');
+        
+            // update the post, which calls save_post again
+            wp_update_post( $my_args );
+
+            // re-hook this function
+            add_action('save_post', 'my_function');
+        }
+    }
+    add_action('save_posts', 'my_function');
+    ?>
+
+### Scheduling posts
+
+If you are trying to use wp\_update\_post() to schedule an existing
+draft, it will not work unless you pass \$my\_post-\>edit\_date = true.
+WordPress will ignore the post\_date when updating drafts unless
+edit\_date is true.
+
+PARAMETERS
+----------
+
+ `$post` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) An object representing the elements that make up a
+    post. There is a one-to-one relationship between these elements and
+    the names of columns in the wp\_posts table in the database. Filling
+    out the ID field is not strictly necessary but without it there is
+    little point to using the function.
+    Default: An empty array
+
+ `$wp_error` 
+:   ([*Boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) A Boolean that can be passed to control what is
+    returned on failure. The default setting (false) will return a 0 if
+    the post fails to update. However, if this is set to true, it will
+    return with a WP\_Error object.
+    Default: false
+
+RETURN
+------
+
+ `(integer)` 
+:   The ID of the post if the post is successfully updated in the
+    database. Otherwise returns `0`.
+
+CHANGE LOG
+----------
+
+-   Since: [1.0.0](/Version_1.0 "Version 1.0")
+
+SOURCE FILE
+-----------
+
+`wp_update_post()` is located in `wp-includes/post.php`.
+

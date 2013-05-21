@@ -1,0 +1,122 @@
+wp insert user "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp insert user - Insert a user into the database.
+
+SYNOPSIS
+--------
+
+Insert a user into the database.
+
+Can update a current user or insert a new user based on whether the
+user's ID is present.
+
+Can be used to update the user's info (see below), set the user's role,
+and set the user's preference on the use of the rich editor.
+
+Note: As late as 2.7.1, if you are attempting to update the password for
+the user, this function will not hash the password, thus failing. Use
+the
+[`wp_update_user`](/Function_Reference/wp_update_user "Function Reference/wp update user")
+function instead.
+
+Note: 3.4.1, does hash the password. You can verify this in the
+[wp-includes/user.php]([http://core.trac.wordpress.org/browser/tags/3.4.1/wp-includes/user.php\#L1264](http://core.trac.wordpress.org/browser/tags/3.4.1/wp-includes/user.php#L1264 "http://core.trac.wordpress.org/browser/tags/3.4.1/wp-includes/user.php#L1264"))
+
+USAGE
+-----
+
+` <?php wp_insert_user( $userdata ) ?> `
+
+PARAMETERS
+----------
+
+ `$userdata` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) An array of user data, stdClass or
+    [WP\_User](/Class_Reference/WP_User "Class Reference/WP User")
+    object.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(mixed)` 
+:   If successful, returns the newly-created user's user\_id, otherwise
+    returns a
+    [WP\_Error](/Class_Reference/WP_Error "Class Reference/WP Error")
+    object.
+
+EXAMPLES
+--------
+
+Below is an example showing how to update a user's Website profile field
+
+    <?php
+    $user_id = 1;
+    $website = 'http://wordpress.org';
+    wp_insert_user( array ('ID' => $user_id, 'user_url' => $website) ) ;
+    ?>
+
+NOTES
+-----
+
+-   Uses: [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+    WordPress database layer.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls filters for most of the `$userdata` fields with the prefix
+    'pre\_user'. See [description above](#Description).
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'profile\_update' hook when updating giving the user's ID
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    Calls 'user\_register' hook when creating a new user giving the
+    user's ID
+
+  Field Name         Description                                                                                                                                                                                                                             [Associated Filter](/Plugin_API/Filter_Reference#Database_Writes_4 "Plugin API/Filter Reference")
+  ------------------ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------
+  ID                 An integer that will be used for updating an existing user.                                                                                                                                                                             (none)
+  user\_pass         A string that contains the plain text password for the user.                                                                                                                                                                            `pre_user_pass`
+  user\_login        A string that contains the user's username for logging in.                                                                                                                                                                              `pre_user_login`
+  user\_nicename     A string that contains a URL-friendly name for the user. The default is the user's username.                                                                                                                                            `pre_user_nicename`
+  user\_url          A string containing the user's URL for the user's web site.                                                                                                                                                                             `pre_user_url`
+  user\_email        A string containing the user's email address.                                                                                                                                                                                           `pre_user_email`
+  display\_name      A string that will be shown on the site. Defaults to user's username. It is likely that you will want to change this, for both appearance and security through obscurity (that is if you dont use and delete the default admin user).   `pre_user_display_name`
+  nickname           The user's nickname, defaults to the user's username.                                                                                                                                                                                   `pre_user_nickname`
+  first\_name        The user's first name.                                                                                                                                                                                                                  `pre_user_first_name`
+  last\_name         The user's last name.                                                                                                                                                                                                                   `pre_user_last_name`
+  description        A string containing content about the user.                                                                                                                                                                                             `pre_user_description`
+  rich\_editing      A string for whether to enable the rich editor or not. False if not empty.                                                                                                                                                              (none)
+  user\_registered   The date the user registered. Format is Y-m-d H:i:s.                                                                                                                                                                                    (none)
+  role               A string used to set the user's role.                                                                                                                                                                                                   (none)
+  jabber             User's Jabber account.                                                                                                                                                                                                                  (none)
+  aim                User's AOL IM account.                                                                                                                                                                                                                  (none)
+  yim                User's Yahoo IM account.                                                                                                                                                                                                                (none)
+
+  :  The `$userdata` array can contain the following fields
+
+\
+ When performing an update operation, user\_pass should be the hashed
+password and not the plain text password.
+
+If you pass an ID, the user with that ID will be updated. If there is no
+ID, a new user will be created.
+
+CHANGE LOG
+----------
+
+-   [3.5.0](/Version_3.5 "Version 3.5"): Now accepts stdClass or
+    [WP\_User](/Class_Reference/WP_User "Class Reference/WP User")
+    object
+-   Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+As of 3.1 `wp_insert_user()` is located in `wp-includes/user.php`.
+

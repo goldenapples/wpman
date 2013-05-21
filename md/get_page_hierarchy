@@ -1,0 +1,54 @@
+get page hierarchy "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+get page hierarchy - Order the pages with children under parents in a flat list.
+
+SYNOPSIS
+--------
+
+Order the pages with children under parents in a flat list.
+
+USAGE
+-----
+
+` <?php get_page_hierarchy( $posts, $parent ) ?> `
+
+PARAMETERS
+----------
+
+ `$posts` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Posts array.
+    Default: *None*
+
+ `$parent` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Parent page ID.
+    Default: 0
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   A list arranged by hierarchy. Children immediately follow their
+    parents.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`get_page_hierarchy()` is located in `wp-includes/post.php`.
+

@@ -1,0 +1,134 @@
+add custom image header "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+add custom image header - Add callbacks for image header display.
+
+SYNOPSIS
+--------
+
+Add callbacks for image header display.
+
+The parameter `$header_callback` callback will be required to display
+the content for the '`wp_head`' action. The parameter
+`$admin_header_callback` callback will be added to `Custom_Image_Header`
+class and that will be added to the '`admin_menu`' action.
+
+REPLACE WITH
+------------
+
+[add\_theme\_support( 'custom-header'
+)](/Function_Reference/add_theme_support "Function Reference/add theme support")
+
+USAGE
+-----
+
+` <?php add_custom_image_header( $header_callback, $admin_header_callback, $admin_image_div_callback ) ?> `
+
+PARAMETERS
+----------
+
+ `$header_callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) Call on '`wp_head`' action.
+    Default: *None*
+
+ `$admin_header_callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) Call on custom header administration screen.
+    Default: *None*
+
+ `$admin_image_div_callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) Output a custom header image div on the custom header
+    administration screen. Optional.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+Edit the file `functions.php` inside your theme and add the following
+code.
+
+Four constants must be defined in order for the custom image header to
+work:
+
+    define('HEADER_TEXTCOLOR', 'ffffff');
+    define('HEADER_IMAGE', '%s/images/default_header.jpg'); // %s is the template dir uri
+    define('HEADER_IMAGE_WIDTH', 775); // use width and height appropriate for your theme
+    define('HEADER_IMAGE_HEIGHT', 200);
+
+If you don't want to allow changing the header text color, add:
+
+    define('NO_HEADER_TEXT', true );
+
+Then change the first definition to:
+
+    define('HEADER_TEXTCOLOR', '');
+
+If you intend to create child themes use:
+
+    define('HEADER_IMAGE', trailingslashit( get_stylesheet_directory_uri() ).'images/banner.jpg');
+
+Otherwise, you'll pick up the header image for the parent theme rather
+than the child.
+
+Next you need to write two functions. One will be included in the site
+header. The second will be included in the admin header. Both of these
+functions are required. The smallest possible amount of code would be
+something like this, although you can do anything you need.
+
+    // gets included in the site header
+    function header_style() {
+        ?><style type="text/css">
+            #header {
+                background: url(<?php header_image(); ?>);
+            }
+        </style><?php
+    }
+
+    // gets included in the admin header
+    function admin_header_style() {
+        ?><style type="text/css">
+            #headimg {
+                width: <?php echo HEADER_IMAGE_WIDTH; ?>px;
+                height: <?php echo HEADER_IMAGE_HEIGHT; ?>px;
+                background: no-repeat;
+            }
+        </style><?php
+    }
+
+Finish with calling the add\_custom\_image\_header function with the two
+earlier function names as parameters:
+
+    add_custom_image_header('header_style', 'admin_header_style');
+
+Taking this last step will make the Custom Header item appear in the
+Appearance menu. WordPress takes care of everything else.
+
+NOTES
+-----
+
+-   Uses: `Custom_Image_Header`. Sets up for `$admin_header_callback`
+    for [administration
+    panel](/Administration_Panels "Administration Panels") display.
+
+CHANGE LOG
+----------
+
+-   Deprecated: [3.4.0](/Version_3.4 "Version 3.4")
+-   Since: [2.1.0](/Version_2.1 "Version 2.1")
+
+SOURCE FILE
+-----------
+
+`add_custom_image_header()` is located in `wp-includes/theme.php`.
+

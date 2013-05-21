@@ -1,0 +1,97 @@
+register sidebars "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+register sidebars - Creates multiple [Sidebars](/Sidebars "Sidebars").
+
+SYNOPSIS
+--------
+
+Creates multiple [Sidebars](/Sidebars "Sidebars").
+
+Registers one or more sidebars to be used in the current theme. Most
+themes have only one sidebar. For this reason, the number parameter is
+optional and defaults to one.
+
+The args array parameter can contain a 'name' which will be prepended to
+the sidebar number if there is more than one sidebar. If no name is
+specified, 'Sidebar' is used.
+
+USAGE
+-----
+
+`  <?php register_sidebars( $number, $args ); ?> `
+
+### Default Usage
+
+    <?php $args = array(
+        'name'          => sprintf(__('Sidebar %d'), $i ),
+        'id'            => "sidebar-$i",
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>' ); ?>
+
+PARAMETERS
+----------
+
+ `number` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Number of sidebars to create.
+    Default: 1
+
+ `args` 
+:   ([*string/array*](/How_to_Pass_Tag_Parameters#String.2Farray "How to Pass Tag Parameters"))
+    (*optional*) Builds Sidebar based off of 'name' and 'id' values.
+    Default: *None*
+
+-   `name` - Sidebar name. (Note: If copying from default usage above,
+    remove `sprintf( )` wrapper function.)
+-   `id` - Sidebar id. (Note: "-\$i" is added automatically to supplied
+    'id' value after the first; e.g., "Sidebar", "Sidebar-2",
+    "Sidebar-3", etc.)
+-   `before_widget` - HTML to place before every widget.
+-   `after_widget` - HTML to place after every widget.
+-   `before_title` - HTML to place before every title.
+-   `after_title` - HTML to place after every title.
+
+The optional `args` parameter is an associative array that will be
+passed as a first argument to every active widget callback. (If a string
+is passed instead of an array, it will be passed through
+[parse\_str()](http://php.net/manual/en/function.parse-str.php "http://php.net/manual/en/function.parse-str.php")
+to generate an associative array.) The basic use for these arguments is
+to pass theme-specific HTML tags to wrap the widget and its title.
+
+RETURN VALUES
+-------------
+
+None.
+
+EXAMPLE
+-------
+
+This will register 1 sidebar named Sidebar:
+
+    register_sidebars();
+
+This will create 2 sidebars named “Foobar 1″ and “Foobar 2″:
+
+    register_sidebars(2, array('name'=>'Foobar %d'));
+
+This will create 2 sidebars with \<h1\> and \</h1\> before and after the
+title:
+
+    register_sidebars(2, array('before_title'=>'<h1>','after_title'=>'</h1>'));
+
+CHANGELOG
+---------
+
+Since: [2.2.0](/Version_2.2 "Version 2.2")
+
+SOURCE FILE
+-----------
+
+`register_sidebars()` is located in `wp-includes/widgets.php`.
+

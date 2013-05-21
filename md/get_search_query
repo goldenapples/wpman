@@ -1,0 +1,56 @@
+Template Tags/get search query « WordPress Codex
+================================================
+-----------
+NAME
+----
+
+
+
+The search query string is passed through
+[esc\_attr()](/Function_Reference/esc_attr "Function Reference/esc attr")
+to ensure that it is safe for placing in an html attribute. This
+function is used to get the query string when a user performs a search
+on the site. It returns the query string rather than displaying it, as
+the `the_search_query()` function does.
+
+USAGE
+-----
+
+` <?php $search_query = get_search_query(); ?> `
+
+PARAMETERS
+----------
+
+ `$escaped` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Whether the result is escaped. Default true. Only use
+    when you are later escaping it. Do not use unescaped.
+    Default: *None*
+
+RETURN
+------
+
+ (string) 
+:   query.
+
+EXAMPLES
+--------
+
+Examples of the different usage methods.\
+
+    <?php echo get_search_query(); ?>
+
+    <?php $search_query = get_search_query(); ?>
+
+CHANGELOG
+---------
+
+since 2.3.0
+
+SOURCE CODE
+-----------
+
+`get_search_query()` is located in `wp-includes/general-template.php`.
+
+\
+

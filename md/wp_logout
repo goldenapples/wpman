@@ -1,0 +1,43 @@
+wp logout "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+wp logout - Log the current user out, by destroying the current user session.
+
+SYNOPSIS
+--------
+
+Log the current user out, by destroying the current user session.
+
+USAGE
+-----
+
+`  <?php wp_logout(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+None.
+
+EXAMPLE
+-------
+
+    <p><?php wp_logout(); ?></p>
+
+CHANGE LOG
+----------
+
+Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+SOURCE FILE
+-----------
+
+`wp_logout()` is located in `wp-includes/pluggable.php`.
+

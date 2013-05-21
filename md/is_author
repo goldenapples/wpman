@@ -1,0 +1,68 @@
+is author "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+is author - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+an Author archive page is being displayed. This is a boolean function,
+meaning it returns either TRUE or FALSE.
+
+USAGE
+-----
+
+` <?php is_author($author); ?> `
+
+PARAMETERS
+----------
+
+ `$author` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Author ID or Author Nickname
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+    is_author();
+    // When any Author page is being displayed.
+
+    is_author('4');
+    // When the archive page for Author number (ID) 4 is being displayed.
+
+    is_author('Vivian');
+    // When the archive page for the Author with Nickname "Vivian" is being displayed.
+
+    is_author('john-jones');
+    // When the archive page for the Author with Nicename "john-jones" is being displayed.
+
+    is_author(array(4,'john-jones','Vivian'));
+    // When the archive page for the author is either user ID 4, or user_nicename "john-jones", or nickname "Vivian".  Note: the array ability was added at Version 2.5.
+
+NOTES
+-----
+
+-   See also `is_archive()` and [Category
+    Templates](/Category_Templates "Category Templates").
+
+CHANGE LOG
+----------
+
+Since: [Version 1.5](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+`is_author()` is located in `wp-includes/query.php`.
+

@@ -1,0 +1,122 @@
+wp generate attachment metadata "MAY 2013" WordPress Codex "Function Reference"
+===============================================================================
+
+NAME
+----
+
+wp generate attachment metadata - This function generates metadata for an image attachment. It also
+
+SYNOPSIS
+--------
+
+This function generates metadata for an image attachment. It also
+creates a thumbnail and other intermediate sizes of the image attachment
+based on the sizes defined on the
+[Settings\_Media\_Screen](/Settings_Media_Screen "Settings Media Screen").
+
+USAGE
+-----
+
+`  <?php wp_generate_attachment_metadata( $attachment_id, $file ); ?> `
+
+PARAMETERS
+----------
+
+ `$attachment_id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Attachment Id to process.
+    Default: *None*
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Location of the file on the server. Use absolute path
+    and not the URI of the file. The file MUST be on the uploads
+    directory. See
+    [wp\_upload\_dir()](/Function_Reference/wp_upload_dir "Function Reference/wp upload dir")
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(array)` 
+:   attachment metadata in the format required by
+    [wp\_update\_attachment\_metadata()](/Function_Reference/wp_update_attachment_metadata "Function Reference/wp update attachment metadata")
+
+The elements returned in the array are:
+
+ `["width"]` 
+:   (*string*) Horizontal size of image attachment, in pixels.
+ `["height"]` 
+:   (*string*) Vertical size of image attachment, in pixels.
+ `["file"]` 
+:   (*string*) Path to image attachment, relative to the currently
+    configured uploads directory.
+ `["hwstring_small"]` 
+:   (*string*) Height/width string for HTML img tag used to display the
+    Small size of this image.\
+    For example: `height='96' width='126'`
+ `["sizes"]["thumbnail"]["file"]` 
+:   (*string*) File name of Thumbnail-sized copy of image attachment.
+ `["sizes"]["thumbnail"]["width"]` 
+:   (*string*) Horizontal size of Thumbnail-sized copy of image
+    attachment, in pixels.
+ `["sizes"]["thumbnail"]["height"]` 
+:   (*string*) Vertical size of Thumbnail-sized copy of image
+    attachment, in pixels.
+ `["sizes"]["medium"]` 
+:   (*array*) Same three elements as `["sizes"]["thumbnail"]` but for
+    Medium-sized copy of image attachment.
+ `["sizes"]["large"]` 
+:   (*array*) Same three elements as `["sizes"]["thumbnail"]` but for
+    Large-sized copy of image attachment.
+ `["sizes"]["post-thumbnail"]` 
+:   (*array*) Same three elements as `["sizes"]["thumbnail"]` but for
+    Post Thumbnail-sized copy of image attachment.
+ `["sizes"]["large-feature"]` 
+:   (*array*) Same three elements as `["sizes"]["thumbnail"]` but for
+    Large Feature-sized copy of image attachment.
+ `["sizes"]["small-feature"]` 
+:   (*array*) Same three elements as `["sizes"]["thumbnail"]` but for
+    Small Feature-sized copy of image attachment.
+ `["image_meta"]` 
+:   (*array*) Image attachment Metadata returned by
+    [wp\_read\_image\_metadata()](/Function_Reference/wp_read_image_metadata#Return_Values "Function Reference/wp read image metadata")
+
+EXAMPLE
+-------
+
+To generate attachment metadata for attachment with parent post ID 37:
+
+    <?php
+      $attach_id = wp_insert_attachment( $attachment, $filename, 37 );
+      $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+      wp_update_attachment_metadata( $attach_id,  $attach_data );
+    ?>
+
+NOTES
+-----
+
+This function can be used to regenerate thumbnail and intermediate sizes
+of the image after changes have been made on the
+[Settings\_Media\_Screen](/Settings_Media_Screen "Settings Media Screen")
+but it does not check or delete intermediate sizes it previously created
+for the same image.
+
+Thumbnail and intermediate sizes of the image, and ["sizes"] elements in
+the array returned by this function, are only generated when the
+intermediate size is smaller than the size of the image.
+
+The function should be used in conjunction with
+[wp\_update\_attachment\_metadata()](/Function_Reference/wp_update_attachment_metadata "Function Reference/wp update attachment metadata").
+
+If this function is undefined in the environment where it is to be used,
+such as within a Shortcode, use the include function:
+
+    <?php include( ABSPATH . 'wp-admin/includes/image.php' ); ?>
+
+SOURCE FILE
+-----------
+
+`wp_generate_attachment_metadata()` is located in
+`wp-admin/includes/image.php`.
+

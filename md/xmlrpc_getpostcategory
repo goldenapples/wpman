@@ -1,0 +1,57 @@
+xmlrpc getpostcategory "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+xmlrpc getpostcategory - Retrieve the post category or categories from
+
+SYNOPSIS
+--------
+
+Retrieve the post category or categories from
+[XMLRPC](/XML-RPC_Support "XML-RPC Support") XML.
+
+If the category element is not found, then the default post category
+will be used. The return type then would be what
+`$post_default_category`. If the category is found, then it will always
+be an array.
+
+USAGE
+-----
+
+` <?php xmlrpc_getpostcategory( $content ); ?> `
+
+PARAMETERS
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) [XMLRPC](/XML-RPC_Support "XML-RPC Support") XML
+    Request content
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string|array) 
+:   List of categories or category name.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`unknown`) `$post_default_category`
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`xmlrpc_getpostcategory()` is located in `wp-includes/functions.php`.
+

@@ -1,0 +1,64 @@
+sanitize email "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+sanitize email - Strips out all characters that are not allowable in an email.
+
+SYNOPSIS
+--------
+
+Strips out all characters that are not allowable in an email.
+
+After `sanitize_email()` has done its work, it passes the sanitized
+e-mail address through the
+[sanitize\_email](/index.php?title=Plugin_API/Filter_Reference/sanitize_email&action=edit&redlink=1 "Plugin API/Filter Reference/sanitize email (page does not exist)")
+filter.
+
+USAGE
+-----
+
+` <?php sanitize_email( $email ) ?> `
+
+PARAMETERS
+----------
+
+ `$email` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Email address to filter.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Filtered email address.
+
+EXAMPLES
+--------
+
+    <?php
+    $sanitized_email = sanitize_email('        éric@loremipsum.com!');
+    print $sanitized_email; // will output: 'ric@loremipsum.com'
+    ?>
+
+NOTES
+-----
+
+-   This function uses a smaller allowable character set than the set
+    defined by [RFC
+    5322](http://tools.ietf.org/html/rfc5322 "http://tools.ietf.org/html/rfc5322").
+    Some legal email addresses may be changed.
+-   Allowed character regular expression: `/[^a-z0-9+_.@-]/i`.
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`sanitize_email()` is located in `wp-includes/formatting.php#L1860`.
+

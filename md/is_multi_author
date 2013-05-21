@@ -1,0 +1,49 @@
+is multi author "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+is multi author - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+more than one author has published posts for this site, meaning it
+returns either TRUE if their is more than one author or FALSE if there
+is one, or no, authors.
+
+USAGE
+-----
+
+` <?php is_multi_author(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True when two or more authors have published post, false on failure
+    in one or no authors.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+-   Since: [3.2](/Version_3.2 "Version 3.2")
+
+SOURCE FILE
+-----------
+
+` is_multi_author()` is located in `wp-includes/author-template.php`.
+

@@ -1,0 +1,56 @@
+wp get schedule "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+wp get schedule - Retrieve Cron schedule for hook with arguments.
+
+SYNOPSIS
+--------
+
+Retrieve Cron schedule for hook with arguments.
+
+USAGE
+-----
+
+` <?php wp_get_schedule( $hook, $args ); ?> `
+
+PARAMETERS
+----------
+
+ `$hook` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) Function or method to call, when cron is run.
+    Default: *None*
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Arguments to pass to the hook function.
+    Default: array
+
+RETURN VALUES
+-------------
+
+ (string|boolean) 
+:   False, if no schedule. Schedule on success.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Cron is named after a unix program which runs unattended scheduled
+    tasks.
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`wp_get_schedule()` is located in `wp-includes/cron.php`.
+

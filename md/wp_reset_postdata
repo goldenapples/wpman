@@ -1,0 +1,62 @@
+wp reset postdata "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+wp reset postdata - After looping through a separate query, this function restores the
+
+SYNOPSIS
+--------
+
+After looping through a separate query, this function restores the
+\$post global to the current post in the main query.
+
+USAGE
+-----
+
+` <?php wp_reset_postdata(); ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+This function does not return any values.
+
+EXAMPLES
+--------
+
+    $original_query = $wp_query;
+    $wp_query = null;
+    $wp_query = new WP_Query( $args );
+    if ( have_posts() ) :
+        while ( have_posts() ) : the_post();
+            the_title();
+            the_excerpt();
+        endwhile;
+    else:
+        echo 'no posts found';
+    endif;
+    $wp_query = null;
+    $wp_query = $original_query;
+    wp_reset_postdata();
+
+NOTES
+-----
+
+-   Uses: \$wp\_query
+
+CHANGE LOG
+----------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`wp_reset_postdata()` is located in `wp-includes/query.php`.
+

@@ -1,0 +1,62 @@
+get usermeta "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get usermeta - This function returns the value of a specific **metakey** pertaining to
+
+SYNOPSIS
+--------
+
+This function returns the value of a specific **metakey** pertaining to
+the user whose ID is passed via the **userid** parameter.
+
+Version 2.9.2 currently requires the use of this function despite
+previous notes stating that it is deprecated. Using the new function
+causes undefined function error.
+
+USAGE
+-----
+
+`  <?php get_usermeta( $userid, $metakey ); ?> `
+
+PARAMETERS
+----------
+
+ `$userid` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) The ID of the user whose data should be retrieved.
+    Default: *None*
+
+ `$metakey` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The metakey value to be returned.
+    -   `'metakey'` The **meta\_key** in the [wp\_usermeta
+        table](/Database_Description#Table:_wp_usermeta "Database Description")
+        for the **meta\_value** to be returned.
+
+    Default: *None*
+
+EXAMPLE
+-------
+
+This example returns and then displays the last name for user id 9.
+
+    <?php $user_last = get_usermeta(9,'last_name'); ?>
+    <?php echo('User ID 9's last name: ' . $user_last . '\n'); ?>
+
+User ID 9's last name: Jones\
+
+ NOTE
+:   If the meta value does not exist, the function will return an empty
+    string or an empty array.
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+

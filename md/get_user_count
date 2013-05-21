@@ -1,0 +1,52 @@
+get user count "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+get user count - The number of active users in your installation.
+
+SYNOPSIS
+--------
+
+The number of active users in your installation.
+
+The count is cached and updated twice daily. This is not a live count.
+
+USAGE
+-----
+
+` <?php get_user_count() ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters
+
+RETURN VALUES
+-------------
+
+ `` `(integer)`{style="color:gray"} 
+:   The number of active users
+
+EXAMPLES
+--------
+
+    <?php
+      $user_count = get_user_count();
+      echo "There are currently $user_count users on this site.";
+    ?>
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.7](/Version_2.7 "Version 2.7")
+
+SOURCE FILE
+-----------
+
+`get_user_count()` is located in `wp-includes/ms-functions.php`
+

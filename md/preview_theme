@@ -1,0 +1,49 @@
+preview theme "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+preview theme - Start preview theme output buffer.
+
+SYNOPSIS
+--------
+
+Start preview theme output buffer.
+
+Will only preform task if the user has permissions and '`template`' and
+'`preview`' query variables exist. Will add '`stylesheet`' filter if
+'`stylesheet`' query variable exists.
+
+USAGE
+-----
+
+` <?php preview_theme() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.5.0
+
+SOURCE FILE
+-----------
+
+`preview_theme()` is located in `wp-includes/theme.php`.
+

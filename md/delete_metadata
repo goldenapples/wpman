@@ -1,0 +1,66 @@
+delete metadata "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+delete metadata - Delete metadata for the specified object.
+
+SYNOPSIS
+--------
+
+Delete metadata for the specified object.
+
+Calls 'deleted\_{\$meta\_type}\_meta' after deleting with meta\_id of
+deleted metadata entries, object ID, meta key, and meta value
+
+PARAMETERS
+----------
+
+ `$meta_type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Type of object metadata is for (e.g., comment, post, or
+    user)
+    Default: *None*
+
+ `$object_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of the object metadata is for
+    Default: *None*
+
+ `$meta_key` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Metadata key
+    Default: *None*
+
+ `$meta_value` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Optional. Metadata value. If specified, only delete
+    metadata entries with this value. Otherwise, delete all entries with
+    the specified meta\_key.
+    Default:
+
+ `$delete_all` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Optional, default is false. If true, delete matching
+    metadata entries for all objects, ignoring the specified object\_id.
+    Otherwise, only delete matching metadata entries for the specified
+    object\_id.
+    Default: false
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True on successful delete, false on failure.
+
+CHANGE LOG
+----------
+
+Since: [2.9](/Version_2.9 "Version 2.9")
+
+SOURCE FILE
+-----------
+
+delete\_metadata() is located in `wp-includes/meta.php`
+

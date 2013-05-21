@@ -1,0 +1,278 @@
+get pages "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+get pages - This function returns an array of pages that are in the blog, optionally
+
+SYNOPSIS
+--------
+
+This function returns an array of pages that are in the blog, optionally
+constrained by parameters. This array is not tree-like (hierarchical).
+See the
+[wp\_list\_pages()](/Template_Tags/wp_list_pages "Template Tags/wp list pages")
+[template tag](/Template_Tags "Template Tags") for the output of page
+titles in a tree-like fashion.
+
+This function can also retrieve posts, attachments etc. by specifying
+'post\_type'.
+
+Note that, although similar to
+[get\_posts()](/Function_Reference/get_posts "Function Reference/get posts"),
+several of the parameter names and values differ. (It is implemented
+quite differently, see get\_posts().)
+
+USAGE
+-----
+
+`  <?php get_pages( $args ); ?> `
+
+### Default Usage
+
+    <?php $args = array(
+        'sort_order' => 'ASC',
+        'sort_column' => 'post_title',
+        'hierarchical' => 1,
+        'exclude' => '',
+        'include' => '',
+        'meta_key' => '',
+        'meta_value' => '',
+        'authors' => '',
+        'child_of' => 0,
+        'parent' => -1,
+        'exclude_tree' => '',
+        'number' => '',
+        'offset' => 0,
+        'post_type' => 'page',
+        'post_status' => 'publish'
+    ); 
+    $pages = get_pages($args); 
+    ?>
+
+PARAMETERS
+----------
+
+ sort\_column 
+:   (*string*) Sorts the list of Pages in a number of different ways.
+    The default setting is *sort alphabetically by Page title*.
+    -   `'post_title'` - Sort Pages alphabetically (by title) - default
+    -   `'menu_order'` - Sort Pages by Page Order. *N.B.* Note the
+        difference between *Page Order* and *Page ID*. The Page ID is a
+        unique number assigned by WordPress to every post or page. The
+        Page Order can be set by the user in the
+        [Write\>Pages](/Write_Page_SubPanel "Write Page SubPanel")
+        administrative panel.
+    -   `'post_date'` - Sort by creation time.
+    -   `'post_modified'` - Sort by time last modified.
+    -   `'ID'` - Sort by numeric Page ID.
+    -   `'post_author'` - Sort by the Page author's numeric ID.
+    -   `'post_name'` - Sort alphabetically by Post
+        [slug](/Glossary#Slug "Glossary"). Not supported yet, as of WP
+        3.3 (See:
+        [http://core.trac.wordpress.org/ticket/14368](http://core.trac.wordpress.org/ticket/14368 "http://core.trac.wordpress.org/ticket/14368")
+        )
+
+:   **Note:** The **sort\_column** parameter can be used to sort the
+    list of Pages by the descriptor of any field in the [wp\_post
+    table](/Database_Description#Table:_wp_posts "Database Description")
+    of the WordPress database. Some useful examples are listed here.
+:   **Note:** get\_posts() uses the parameter `'orderby'` instead of
+    `'sort_column'`. Also, get\_posts() automatically prepends `'post_'`
+    to these values:
+    `'author, date, modified, parent, title, excerpt, content'`.
+
+ sort\_order 
+:   (*string*) Change the sort order of the list of Pages (either
+    ascending or descending). The default is *ascending*. Valid values:
+    -   `'asc'` - Sort from lowest to highest (Default).
+    -   `'desc'` - Sort from highest to lowest.
+
+:   **Note:** get\_posts() uses the parameter `'order'` instead of
+    `'sort_order'`.
+
+ exclude 
+:   (*string or array*) Define a comma-separated list of Page IDs to be
+    excluded from the list (example: `'exclude=3,7,31'`). Beginning with
+    [Version 3.0](/Version_3.0 "Version 3.0"), an array of Page ID also
+    can be used. There is no default value.
+
+ include 
+:   (*string or array*) Only include certain Pages in the list generated
+    by *get\_pages*. Like **exclude**, this parameter takes a
+    comma-separated list of Page IDs. Beginning with [Version
+    3.0](/Version_3.0 "Version 3.0"), an array of Page ID also can be
+    used. There is no default value.
+:   **Note:** If this parameter is provided, child\_of, parent, exclude,
+    meta\_key, and meta\_value params are ignored, and hierarchical is
+    set to false.
+
+ child\_of 
+:   (*integer*) Lists the sub-pages of a single Page only; uses the ID
+    for a Page as the value. Defaults to *0* (list all Pages). Note that
+    the child\_of parameter will also fetch "grandchildren" of the given
+    ID, not just direct descendants.
+    -   `0` - default, no child\_of restriction
+
+:   **Note:** The `child_of` parameter is not applied to the SQL query
+    for pages. It is applied to the results of the query. If a number
+    parameter is also provided, the final results may be less than the
+    number specified.
+
+ parent 
+:   (*integer*) List those pages that have the provided single page only
+    ID as parent. Defaults to -1 (displays all Pages regardless of
+    parent). Note that the 'hierarchical' parameter must be set to 0
+    (false) -- which is not default -- or else no results will be
+    returned for any page other than the top level pages with no parent
+    (ID=0) and the default all pages (ID=-1). In contrast to the
+    'child\_of' parameter, this parameter only returns the direct
+    descendants of the parent, no 'grandchildren'. You can obviate the
+    'hierarchical' set to 0 requirement by passing a 'child\_of'
+    parameter set to the same (parent) ID value.
+    -   `-1` - default, no parent restriction
+    -   `0` - returns all top level pages
+
+ exclude\_tree 
+:   (*integer*) The opposite of 'child\_of', 'exclude\_tree' will remove
+    all children of a given ID from the results. Useful for hiding all
+    children of a given page. Can also be used to hide grandchildren in
+    conjunction with a 'child\_of' value. This parameter was available
+    at [Version 2.7](/Version_2.7 "Version 2.7").
+
+ hierarchical 
+:   (*boolean*) Lists sub-Pages below their parent or lists the Pages
+    inline. The default is *true* (list sub-Pages below the parent list
+    item). NOTE: This default value will prevent meta\_key & parent page
+    searches from finding sub-pages. You need to set 'hierarchical' =\>
+    0 for these parameters to work properly. Valid values:
+    -   `1 (true)` - default
+    -   `0 (false)`
+
+ meta\_key 
+:   (*string*) Only include the Pages that have this Custom Field Key
+    (use in conjunction with the meta\_value field).
+ meta\_value 
+:   (*string*) Only include the Pages that have this Custom Field Value
+    (use in conjunction with the meta\_key field).
+
+ authors 
+:   (*string*) Only include the Pages written by the given author(s)
+:   **Note:** get\_posts() uses the parameter `'author'` instead of
+    `'authors'`.
+
+ number 
+:   (*integer*) Sets the number of Pages to list. This causes the SQL
+    LIMIT value to be defined. Default to no LIMIT. This parameter was
+    added with [Version 2.8](/Version_2.8 "Version 2.8").
+:   **Note:** get\_posts() uses the parameter `'numberposts'` instead of
+    `'number'`.
+
+ post\_type 
+:   ("string") Show posts associated with certain
+    [type](/Post_Types "Post Types"). Valid values include:
+    -   `post`' - a post.
+    -   '`page`' - a page.
+    -   '`revision`' - a revision.
+    -   '`attachment`' - an attachment.
+    -   Custom Post Types.
+
+ offset 
+:   (*integer*) The number of Pages to pass over (or displace) before
+    collecting the set of Pages. Default is no OFFSET. This parameter
+    was added with [Version 2.8](/Version_2.8 "Version 2.8").
+
+ post\_status 
+:   (*string*) A comma-separated list of post status types that should
+    be included. For example, `'publish,private'`.
+
+RETURN
+------
+
+ (Array) 
+:   An array containing all the [Pages](/Pages "Pages") matching the
+    request. The returned array is an array of "page" objects. Each page
+    object is a map containing 24 keys:
+
+-   `ID`: page/post ID (*int*)
+-   `post_author`: author ID (*string*)
+-   `post_date`: time-date string (`YYYY-MM-DD HH:MM:SS`), e.g.,
+    "2012-10-15 01:02:59"
+-   `post_date_gmt`: time-date string
+-   `post_content`: HTML (*string*)
+-   `post_title`
+-   `post_excerpt`: HTML (*string*)
+-   `post_status`:
+    (`publish|inherit|pending|private|future|draft|trash`)
+-   `comment_status`: closed/open
+-   `ping_status`: (`closed|open`)
+-   `post_password`
+-   `post_name`: slug for page/post
+-   `to_ping`
+-   `pinged`
+-   `post_modified`: time-date string
+-   `post_modified_gmt`: time-date string
+-   `post_content_filtered`
+-   `post_parent`: parent ID (*int*)
+-   `guid`: URL
+-   `menu_order`: (*int*)
+-   `post_type`: (`page|post|attachment`)
+-   `post_mime_type`
+-   `comment_count`: number of comments (*string*)
+-   `filter`
+
+All values are strings unless otherwise shown as (*int*).
+
+EXAMPLE
+-------
+
+### Displaying pages in dropdown list
+
+In this example a dropdown list with all the pages. Note how you can
+grab the link for the page with a simple call to the function
+get\_page\_link passing the ID of the page.
+
+    <select name="page-dropdown"
+     onchange='document.location.href=this.options[this.selectedIndex].value;'> 
+     <option value="">
+    <?php echo esc_attr( __( 'Select page' ) ); ?></option> 
+     <?php 
+      $pages = get_pages(); 
+      foreach ( $pages as $page ) {
+        $option = '<option value="' . get_page_link( $page->ID ) . '">';
+        $option .= $page->post_title;
+        $option .= '</option>';
+        echo $option;
+      }
+     ?>
+    </select>
+
+### Displaying Child pages of the current page in post format
+
+    <?php
+        $mypages = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'post_date', 'sort_order' => 'desc' ) );
+
+        foreach( $mypages as $page ) {      
+            $content = $page->post_content;
+            if ( ! $content ) // Check for empty page
+                continue;
+
+            $content = apply_filters( 'the_content', $content );
+        ?>
+            <h2><a href="<?php echo get_page_link( $page->ID ); ?>"><?php echo $page->post_title; ?></a></h2>
+            <div class="entry"><?php echo $content; ?></div>
+        <?php
+        }   
+    ?>
+
+CHANGELOG
+---------
+
+-   Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_pages()` is located in `wp-includes/post.php`.
+

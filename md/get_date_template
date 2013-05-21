@@ -1,0 +1,49 @@
+get date template "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+get date template - Retrieve path of date template in current or parent template.
+
+SYNOPSIS
+--------
+
+Retrieve path of date template in current or parent template.
+
+USAGE
+-----
+
+` <?php get_date_template() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Result of
+    [`get_query_template('date')`](/Function_Reference/get_query_template "Function Reference/get query template").
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_query_template()`](/Function_Reference/get_query_template "Function Reference/get query template")
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_date_template()` is located in `wp-includes/theme.php`.
+

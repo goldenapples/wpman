@@ -1,0 +1,59 @@
+get stylesheet uri "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+get stylesheet uri - Retrieves the URI of the current [theme](/Glossary#Theme "Glossary")
+
+SYNOPSIS
+--------
+
+Retrieves the URI of the current [theme](/Glossary#Theme "Glossary")
+[stylesheet](http://en.wikipedia.org/wiki/Cascading_Style_Sheets "http://en.wikipedia.org/wiki/Cascading_Style_Sheets").
+
+The stylesheet file name is `'style.css'` which is appended to
+[`get_stylesheet_directory_uri()`](/Function_Reference/get_stylesheet_directory_uri "Function Reference/get stylesheet directory uri")
+path.
+
+USAGE
+-----
+
+` <?php get_stylesheet_uri(); ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Returns URI of current theme stylesheet.
+
+EXAMPLES
+--------
+
+To output the URL ` <?php echo get_stylesheet_uri(); ?> `
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    Calls `'stylesheet_uri'` filter on stylesheet URI path and
+    stylesheet directory URI.
+-   Uses:
+    [`get_stylesheet_directory_uri()`](/Function_Reference/get_stylesheet_directory_uri "Function Reference/get stylesheet directory uri")
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_stylesheet_uri()` is located in `wp-includes/theme.php`.
+

@@ -1,0 +1,48 @@
+get theme "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+get theme - Retrieve [theme](/Glossary#Theme "Glossary") data.
+
+SYNOPSIS
+--------
+
+Retrieve [theme](/Glossary#Theme "Glossary") data.
+
+USAGE
+-----
+
+` <?php get_theme( $theme ) ?> `
+
+PARAMETERS
+----------
+
+ `$theme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Theme name.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array|null) 
+:   Null, if theme name does not exist. Theme data, if exists.
+
+NOTES
+-----
+
+-   Uses:
+    [`get_themes()`](/Function_Reference/get_themes "Function Reference/get themes")
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`get_theme()` is located in `wp-includes/deprecated.php`.
+

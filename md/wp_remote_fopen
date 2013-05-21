@@ -1,0 +1,49 @@
+wp remote fopen "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+wp remote fopen - Returns the contents of a remote URI. Tries to retrieve the HTTP content
+
+SYNOPSIS
+--------
+
+Returns the contents of a remote URI. Tries to retrieve the HTTP content
+with fopen first and then using cURL, if fopen can't be used.
+
+USAGE
+-----
+
+`  <?php $contents = wp_remote_fopen($uri); ?> `
+
+PARAMETERS
+----------
+
+ `$uri` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The URI of the remote page to be retrieved.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(bool|string)`{style="color:gray"} 
+:   HTTP content. False on failure.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [1.5.1](/Version_1.5.1 "Version 1.5.1")
+
+SOURCE FILE
+-----------
+
+wp\_remote\_fopen() is located in `wp-includes/functions.php`
+

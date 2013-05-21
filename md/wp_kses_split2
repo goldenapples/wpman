@@ -1,0 +1,74 @@
+wp kses split2 "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp kses split2 - Callback for
+
+SYNOPSIS
+--------
+
+Callback for
+[`wp_kses_split()`](/Function_Reference/wp_kses_split "Function Reference/wp kses split")
+for fixing malformed HTML tags.
+
+This function does a lot of work. It rejects some very malformed things
+like `<:::>`. It returns an empty string, if the element isn't allowed
+(look ma, no `strip_tags()`!). Otherwise it splits the tag into an
+element and an attribute list.
+
+After the tag is split into an element and an attribute list, it is run
+through another filter which will remove illegal attributes and once
+that is completed, will be returned.
+
+USAGE
+-----
+
+` <?php wp_kses_split2( $string, $allowed_html, $allowed_protocols ) ?> `
+
+PARAMETERS
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Content to filter
+    Default: *None*
+
+ `$allowed_html` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Allowed HTML elements
+    Default: *None*
+
+ `$allowed_protocols` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Allowed protocols to keep
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   Fixed HTML element
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   **This is a private function. It should not be called directly. It
+    is listed in the Codex for completeness.**
+-   Uses:
+    [`wp_kses_attr()`](/Function_Reference/wp_kses_attr "Function Reference/wp kses attr")
+
+CHANGE LOG
+----------
+
+Since: 1.0.0
+
+SOURCE FILE
+-----------
+
+`wp_kses_split2()` is located in `wp-includes/kses.php`.
+

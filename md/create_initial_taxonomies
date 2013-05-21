@@ -1,0 +1,56 @@
+create initial taxonomies "MAY 2013" WordPress Codex "Function Reference"
+=========================================================================
+
+NAME
+----
+
+create initial taxonomies - Creates the initial taxonomies.
+
+SYNOPSIS
+--------
+
+Creates the initial taxonomies.
+
+This function fires twice: in wp-settings.php before plugins are loaded
+(for backwards compatibility reasons), and again on the '`init`' action.
+We must avoid registering rewrite rules before the '`init`' action.
+
+USAGE
+-----
+
+` <?php create_initial_taxonomies() ?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`unknown type`) `$wp_rewrite`
+
+### Filters
+
+-   **`'post_format_rewrite_base'`**:\
+    `apply_filters(  'post_format_rewrite_base', 'type'  )`
+
+CHANGE LOG
+----------
+
+Since: Unknown
+
+SOURCE FILE
+-----------
+
+`create_initial_taxonomies()` is located in `/wp-includes/taxonomy.php`.
+

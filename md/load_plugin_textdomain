@@ -1,0 +1,89 @@
+load plugin textdomain "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+load plugin textdomain - Loads the plugin's translated strings.
+
+SYNOPSIS
+--------
+
+Loads the plugin's translated strings.
+
+If the path is not given then it will be the root of the plugin
+directory. The .mo file should be named based on the domain followed by
+a dash, and then the locale exactly. The locale is the language code
+and/or country code you defined in the constant WPLANG in the file
+wp-config.php. For example, the locale for German is 'de\_DE', and the
+locale for Danish is 'da\_DK'. If your plugin's text domain is
+"my-plugin" the Danish .mo and.po files should be named
+"my-plugin-da\_DK.mo" and "my-plugin-da\_DK.po" Call this function in
+your plugin as early as the `plugins_loaded`
+[action](/Plugin_API#Actions "Plugin API").
+
+If you call `load_plugin_textdomain` multiple times for the same domain,
+the translations will be merged. If both sets have the same string, the
+translation from the original value will be taken.
+
+USAGE
+-----
+
+` <?php load_plugin_textdomain( $domain, $abs_rel_path, $plugin_rel_path ) ?> `
+
+PARAMETERS
+----------
+
+ `$domain` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Unique identifier for retrieving translated strings.
+    Default: *None*
+
+ `$abs_rel_path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Relative path to `ABSPATH` of a folder, where the .mo
+    file resides. **Deprecated**, but still functional until 2.7
+    Default: false
+
+ `$plugin_rel_path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Relative path to `WP_PLUGIN_DIR`, **with a trailing
+    slash**. This is the preferred argument to use. It takes precendence
+    over `$abs_rel_path`
+    Default: false
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+    function myplugin_init() {
+      load_plugin_textdomain( 'my-plugin', false, dirname( plugin_basename( __FILE__ ) ) ); 
+    }
+    add_action('plugins_loaded', 'myplugin_init');
+
+Or if you'd like to put language files in a sub folder.
+
+    load_plugin_textdomain( 'my-plugin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
+NOTES
+-----
+
+-   *l10n* is an abbreviation for *localization*.
+
+CHANGE LOG
+----------
+
+-   Since: [1.5.0](/Version_1.5 "Version 1.5")
+-   [2.7.0](/Version_2.7 "Version 2.7"): '`$abs_rel_path`' parameter was
+    deprecated.
+
+SOURCE FILE
+-----------
+
+`load_plugin_textdomain()` is located in `wp-includes/l10n.php`.
+

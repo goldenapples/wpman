@@ -1,0 +1,45 @@
+restore current blog "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+restore current blog - Restore the current blog, after calling switch\_to\_blog()
+
+SYNOPSIS
+--------
+
+Restore the current blog, after calling switch\_to\_blog()
+
+USAGE
+-----
+
+` <?php restore_current_blog() ?> `
+
+PARAMETERS
+----------
+
+This function does not accept any parameters
+
+RETURN VALUES
+-------------
+
+ `` `(boolean)`{style="color:gray"} 
+:   True on success, False if we're already on the current blog
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+restore\_current\_blog() is located in `wp-includes/ms-blogs.php`
+

@@ -1,0 +1,49 @@
+is search "MAY 2013" WordPress Codex "Function Reference"
+=========================================================
+
+NAME
+----
+
+is search - This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+
+SYNOPSIS
+--------
+
+This [Conditional Tag](/Conditional_Tags "Conditional Tags") checks if
+search result page archive is being displayed. This is a boolean
+function, meaning it returns either TRUE or FALSE.
+
+USAGE
+-----
+
+` <?php is_search(); ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+` <?phpif ( is_search() ) {    // add external search form (Google, Yahoo, Live...)}?> `
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`is_search()` is located in `wp-includes/query.php`.
+

@@ -1,0 +1,65 @@
+get post permalink "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+get post permalink - The **get\_post\_permalink** template tag retrieves the permalink for a
+
+SYNOPSIS
+--------
+
+The **get\_post\_permalink** template tag retrieves the permalink for a
+post with a [custom post type](/Glossary#Post_Type "Glossary").
+
+USAGE
+-----
+
+` <?php get_post_permalink( $id, $leavename, $sample ); ?> `
+
+### Default Usage
+
+` <?php get_post_permalink(); ?> `
+
+PARAMETERS
+----------
+
+ `id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Post ID.
+    Default: 0
+
+ `leavename` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to keep post name.
+    Default: false
+
+ `sample` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Is it a sample permalink.
+    Default: false
+
+RETURN
+------
+
+(*string*)
+
+HOOKS
+-----
+
+[apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+Calls 'post\_type\_link' hook
+
+EXAMPLES
+--------
+
+CHANGELOG
+---------
+
+-   [3.0.0](/Version_3.0 "Version 3.0") : New template tag.
+
+SOURCE CODE
+-----------
+
+`get_post_permalink()` is located in `wp-includes/link-template.php`.
+

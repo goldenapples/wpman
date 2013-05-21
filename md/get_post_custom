@@ -1,0 +1,77 @@
+get post custom "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+get post custom - Returns a multidimensional array with all custom fields of a particular
+
+SYNOPSIS
+--------
+
+Returns a multidimensional array with all custom fields of a particular
+post or page. See also
+[get\_post\_custom\_keys()](/Function_Reference/get_post_custom_keys "Function Reference/get post custom keys")
+and
+[get\_post\_custom\_values()](/Function_Reference/get_post_custom_values "Function Reference/get post custom values")
+
+USAGE
+-----
+
+`  <?php get_post_custom($post_id); ?> `
+
+PARAMETERS
+----------
+
+ `$post_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The post ID whose custom fields will be retrieved.
+    Default: Current post
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Use the following example to set a variable (`$custom_fields`) as a
+multidimensional array containing all custom fields of the **current**
+post.
+
+    <?php $custom_fields = get_post_custom(); ?>
+
+### Retrieving data from the array
+
+The following example will retrieve all custom field values with the key
+*my\_custom\_field* from post ID *72* (assuming there are three custom
+fields with this key, and the values are "dogs", "47" and "This is
+another value").
+
+    <?php
+
+      $custom_fields = get_post_custom(72);
+      $my_custom_field = $custom_fields['my_custom_field'];
+      foreach ( $my_custom_field as $key => $value )
+        echo $key . " => " . $value . "<br />";
+
+    ?>
+
+0 =\> dogs\
+ 1 =\> 47\
+ 2 =\> This is another value
+
+Note: not only does the function return a multi-dimensional array (ie:
+always be prepared to deal with an array of arrays, even if expecting
+array of single values), but it also returns serialized values of any
+arrays stored as meta values. If you expect that possibly an array may
+be stored as a metavalue, then be prepared to 'maybe\_unserialize'.
+
+SOURCE CODE
+-----------
+
+`get_post_custom()` is located in `wp-includes/post.php`
+
+CHANGELOG
+---------
+
+-   since [1.5.0](/Version_1.5 "Version 1.5")
+

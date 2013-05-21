@@ -1,0 +1,55 @@
+comment author email "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+comment author email - Displays the comment author's email address, not linked. An email
+
+SYNOPSIS
+--------
+
+Displays the comment author's email address, not linked. An email
+address must be provided if "User must fill out name and email" is
+enabled under [Discussion
+Options](/Discussion_Options#Before_a_comment_appears: "Discussion Options").
+
+Use
+[get\_comment\_author\_email](/index.php?title=Template_Tags/get_comment_author_email&action=edit&redlink=1 "Template Tags/get comment author email (page does not exist)")
+to retrieve the value.
+
+USAGE
+-----
+
+`  <?php comment_author_email( $comment_ID ); ?> `
+
+EXAMPLE
+-------
+
+    <a href="mailto:<?php comment_author_email(); ?>">contact 
+    <?php comment_author(); ?></a>
+
+(**Note:** Displaying email addresses is not recommended, as email
+spammers could collect them from your site.)
+
+PARAMETERS
+----------
+
+ `comment_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) The ID of the comment for which to print the author's
+    email.
+    Default: 0 (the current post)
+
+FILTERS
+-------
+
+[apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+Calls 'author\_email' hook on the author email.
+
+CHANGELOG
+---------
+
+-    ? : Added the 'comment\_ID' parameter.
+-   Since: 0.71
+

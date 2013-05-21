@@ -1,0 +1,35 @@
+wp set sidebars widgets "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+wp set sidebars widgets - Set the sidebar widget option to update
+
+SYNOPSIS
+--------
+
+Set the sidebar widget option to update
+[sidebars](/Sidebars "Sidebars").
+
+EXAMPLE
+-------
+
+PARAMETERS
+----------
+
+ `$sidebars_widgets` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Sidebar widgets and their settings.
+    Default: *None*
+
+CHANGE LOG
+----------
+
+Since: [2.2.0](/Version_2.2.0 "Version 2.2.0")
+
+SOURCE FILE
+-----------
+
+wp\_set\_sidebars\_widgets() is located in `wp-includes/widgets.php`
+

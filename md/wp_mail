@@ -1,0 +1,161 @@
+wp mail "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+wp mail - Send mail, similar to PHP's
+
+SYNOPSIS
+--------
+
+Send mail, similar to PHP's
+[mail](http://php.net/manual/en/function.mail.php "http://php.net/manual/en/function.mail.php").
+
+The default sender name is "WordPress" and the default sender email
+address is wordpress@yoursite.com. These may be overridden by including
+a header like:
+
+    From: "Example User" <email@example.com>
+
+Then, the optional hooks 'wp\_mail\_from' and 'wp\_mail\_from\_name' are
+run on the sender email address and name. The return values are
+reassembled into a 'from' address like '"Example User"
+\<email@address.com\>' If only 'wp\_mail\_from' returns a value, then
+just the email address will be used with no name.
+
+The default content type is 'text/plain' which does not allow using
+HTML. You can set the content type of the email either by using the
+'wp\_mail\_content\_type' filter (see example below), or by including a
+header like "Content-type: text/html". Be careful to reset
+wp\_mail\_content\_type back to 'text/plain' after you send your
+message, though, because [failing to do so could lead to unexpected
+problems with e-mails from WP or
+plugins/themes](http://core.trac.wordpress.org/ticket/23578 "http://core.trac.wordpress.org/ticket/23578").
+
+The default charset is based on the charset used on the blog. The
+charset can be set using the 'wp\_mail\_charset' filter.
+
+USAGE
+-----
+
+`  <?php wp_mail( $to, $subject, $message, $headers, $attachments ); ?> `
+
+PARAMETERS
+----------
+
+ `$to` 
+:   ([*string or
+    array*](/How_to_Pass_Tag_Parameters#String_or_array "How to Pass Tag Parameters"))
+    (*required*) The intended recipient(s). Multiple recipients may be
+    specified using an array or a comma-separated string.
+    Default: *None*
+
+ `$subject` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The subject of the message.
+    Default: *None*
+
+ `$message` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Message content.
+    Default: *None*
+
+ `$headers` 
+:   ([*string or
+    array*](/How_to_Pass_Tag_Parameters#String_or_array "How to Pass Tag Parameters"))
+    (*optional*) Mail headers to send with the message. (advanced)
+    Default: *Empty*
+
+ `$attachments` 
+:   ([*string or
+    array*](/How_to_Pass_Tag_Parameters#String_or_array "How to Pass Tag Parameters"))
+    (*optional*) Files to attach: a single filename, an array of
+    filenames, or a newline-delimited string list of multiple filenames.
+    (advanced)
+    Default: *Empty*
+
+RETURN
+------
+
+ (bool) 
+:   Whether the email contents were sent successfully.
+
+A true return value does not automatically mean that the user received
+the email successfully. It just only means that the method used was able
+to process the request without any errors.
+
+USING \$HEADERS TO SET "FROM:", "CC:" AND "BCC:" PARAMETERS
+-----------------------------------------------------------
+
+To set the "From:" email address to something other than the WordPress
+default sender (see `to:` above), or to add "Cc:" and/or "Bcc:"
+recipients, you must use the `$headers` argument.
+
+`$headers` can be a string or an array, but is probably easiest to use
+in its array form. To use it, push a string onto the array, starting
+with "From:", "Bcc:" or "Cc:" (note the use of the ":"), followed by a
+valid email address.
+
+When you're using the array form, you do not need to supply linebreaks
+("\\n" or "\\r\\n"). Although the function can handle multiple emails
+per line, it may simply be easier to push each email address separately
+onto the `$headers` array. The function will figure it out and will
+build the proper Mime header automagically. Just don't forget that each
+string you push must have the header type as the first part of the
+string ("From:", "Cc:" or "Bcc:")
+
+EXAMPLES
+--------
+
+`  <?php wp_mail('me@example.net', 'The subject', 'The message'); ?> `
+
+    <?php
+       $attachments = array(WP_CONTENT_DIR . '/uploads/file_to_attach.zip');
+       $headers = 'From: My Name <myname@mydomain.com>' . "\r\n";
+       wp_mail('test@test.com', 'subject', 'message', $headers, $attachments);
+    ?>
+
+    <?php
+    add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+    wp_mail( 'me@example.net', 'The subject', '<p>The <em>HTML</em> message</p>' );
+    remove_filter( 'wp_mail_content_type', 'set_html_content_type' ); // reset content-type to to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
+
+    function set_html_content_type()
+    {
+        return 'text/html';
+    }
+    ?>
+
+    <?php
+    // Example using the array form of $headers
+    // assumes $to, $subject, $message have already been defined earlier...
+
+    $headers[] = 'From: Me Myself <me@example.net>';
+    $headers[] = 'Cc: John Q Codex <jqc@wordpress.org>';
+    $headers[] = 'Cc: iluvwp@wordpress.org'; // note you can just use a simple email address
+
+    wp_mail( $to, $subject, $message, $headers );
+    ?>
+
+NOTES
+-----
+
+A true return value does not automatically mean that the user received
+the email successfully.
+
+For this function to work, the settings `SMTP` and `smtp_port` (default:
+25) need to be set in your php.ini file.
+
+The function is available after the hook `'plugins_loaded'`.
+
+CHANGE LOG
+----------
+
+Since: [1.2.1](/Version_1.2.1 "Version 1.2.1")
+
+SOURCE FILE
+-----------
+
+`wp_mail()` is located in `wp-includes/pluggable.php`.
+

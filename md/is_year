@@ -1,0 +1,46 @@
+is year "MAY 2013" WordPress Codex "Function Reference"
+=======================================================
+
+NAME
+----
+
+is year - Test to see if the page is a year based archive page.
+
+SYNOPSIS
+--------
+
+Test to see if the page is a year based archive page.
+
+USAGE
+-----
+
+` <?php is_year(); ?> `
+
+PARAMETERS
+----------
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See also `is_archive()` and [Category
+    Templates](/Category_Templates "Category Templates").
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`is_year()` is located in `wp-includes/functions.php`.
+

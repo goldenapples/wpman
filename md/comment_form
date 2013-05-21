@@ -1,0 +1,246 @@
+comment form "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+comment form - This tag outputs a complete commenting form for use within a
+
+SYNOPSIS
+--------
+
+This tag outputs a complete commenting form for use within a
+[template](/Templates "Templates").
+
+Most strings and form fields may be controlled through the
+[\$args](#.24args) array passed into the function, while you may also
+choose to use the `comment_form_default_fields`
+[filter](/Plugin_API "Plugin API") to modify the [array of default
+fields](#.24args) if you'd just like to add a new one or remove a single
+field. All fields are also individually passed through a filter of the
+form `comment_form_field_$name` where `$name` is the key used in the
+array of fields.
+
+Please note, that although most parameters are marked as optional, not
+including them all in your code will produce errors when using
+`define('WP_DEBUG', true);`
+
+USAGE
+-----
+
+` <?php comment_form( $args, $post_id ); ?> `
+
+### Default Usage
+
+` <?php comment_form(); ?> `
+
+[![](/images/thumb/9/97/twentytendefault6.png/180px-twentytendefault6.png)](/File:twentytendefault6.png "twentytendefault6.png")
+
+[![](/skins/common/images/magnify-clip.png)](/File:twentytendefault6.png "Enlarge")
+
+cf. `wp-content/themes/twentyten/comments.php`
+
+PARAMETERS
+----------
+
+ `args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Options for strings, fields etc in the form.
+    Default: ([See below](#.24args))
+
+ `post_id` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*optional*) Post ID to generate the form for, uses the current post
+    if null
+    Default: null (the current post)
+
+### \$args
+
+**Note:** If you change the \$defaults in your comments template using
+\$new\_defaults, you must declare the \$new\_defaults BEFORE you call
+`comment_form($new_defaults);`, otherwise, they won't take effect.
+
+Default values:
+
+ `fields` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Input fields: 'author', 'email', 'url'.
+    Default: `apply_filters( 'comment_form_default_fields', $fields )`
+
+ `comment_field` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The textarea and the label of comment body.
+
+    Default:
+
+        '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>'
+
+ `must_log_in` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*)
+
+    Default:
+
+        <p class="must-log-in">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>
+
+ `logged_in_as` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*)
+
+    Default:
+
+        '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>'
+
+ `comment_notes_before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text or HTML to be displayed before the set of comment
+    form fields if the user is not logged in.
+
+    Default:
+
+        '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>'
+
+ `comment_notes_after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text or HTML to be displayed after the set of comment
+    fields (and before the submit button)
+
+    Default:
+
+        '<p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>'
+
+ `id_form` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) value of the `id` attribute of `form` element (`<form>`
+    tag).
+    Default: 'commentform'
+
+ `id_submit` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) value of the `id` attribute of submit button.
+    Default: 'submit'
+
+ `title_reply` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The title of comment form (when not replying to a
+    comment, see
+    [comment\_form\_title](/Function_Reference/comment_form_title "Function Reference/comment form title")).
+    Default: [\_\_](/Function_Reference/_2 "Function Reference/ 2")(
+    'Leave a Reply' )
+
+ `title_reply_to` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The title of comment form (when replying to a comment,
+    see
+    [comment\_form\_title](/Function_Reference/comment_form_title "Function Reference/comment form title")).
+    Default: [\_\_](/Function_Reference/_2 "Function Reference/ 2")(
+    'Leave a Reply to %s' )
+
+ `cancel_reply_link` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) link label to cancel reply.
+    Default: [\_\_](/Function_Reference/_2 "Function Reference/ 2")(
+    'Cancel reply' )
+
+ `label_submit` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) the name of submit button.
+    Default: [\_\_](/Function_Reference/_2 "Function Reference/ 2")(
+    'Post Comment' )
+
+### \$fields
+
+Default input items:
+
+    <?php
+    $fields =  array(
+        'author' => '<p class="comment-form-author"><label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+        'email' => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+        'url' => '<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>'
+    ); ?>
+
+Note: To use the variables present in the above code in a custom
+callback function, you must first set these variables within your
+callback using:
+
+    $commenter = wp_get_current_commenter();
+    $req = get_option( 'require_name_email' );
+    $aria_req = ( $req ? " aria-required='true'" : '' );
+
+### Default \$args array
+
+``
+
+    $args = array(
+        'id_form' => 'commentform',
+        'id_submit' => 'submit',
+        'title_reply' => __( 'Leave a Reply' ),
+        'title_reply_to' => __( 'Leave a Reply to %s' ),
+        'cancel_reply_link' => __( 'Cancel Reply' ),
+        'label_submit' => __( 'Post Comment' ),
+        'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+        'must_log_in' => '<p class="must-log-in">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>',
+        'logged_in_as' => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>',
+        'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',
+        'comment_notes_after' => '<p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
+        'fields' => apply_filters( 'comment_form_default_fields', array(
+            'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+            'email' => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+            'url' => '<p class="comment-form-url"><label for="url">' . __( 'Website', 'domainreference' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>' ) ) );
+
+RETURN
+------
+
+void
+
+EXAMPLES
+--------
+
+Simple example how to change some comment form fields.
+
+    $comments_args = array(
+            // change the title of send button 
+            'label_submit'=>'Send',
+            // change the title of the reply section
+            'title_reply'=>'Write a Reply or Comment',
+            // remove "Text or HTML to be displayed after the set of comment fields"
+            'comment_notes_after' => '',
+            // redefine your own textarea (the comment body)
+            'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><br /><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
+    );
+
+    comment_form($comments_args);
+
+USES FILTER HOOKS
+-----------------
+
+-   comment\_form\_default\_fields
+-   the\_permalink
+-   comment\_form\_defaults
+-   comment\_form\_logged\_in
+-   comment\_form\_field\_{\$name}
+-   comment\_form\_field\_comment
+
+PLUGGABLE ACTIONS
+-----------------
+
+-   comment\_form\_before
+-   comment\_form\_must\_log\_in\_after
+-   comment\_form\_top
+-   comment\_form\_logged\_in\_after
+-   comment\_form\_before\_fields
+-   comment\_form\_after\_fields
+-   comment\_form
+-   comment\_form\_after
+-   comment\_form\_comments\_closed
+
+CHANGELOG
+---------
+
+-   Since [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE CODE
+-----------
+
+`comment_form()` is located in `wp-includes/comment-template.php`.
+

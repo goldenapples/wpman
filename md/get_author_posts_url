@@ -1,0 +1,50 @@
+get author posts url "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+get author posts url - Gets the URL of the author page for the author with a given ID.
+
+SYNOPSIS
+--------
+
+Gets the URL of the author page for the author with a given ID.
+
+USAGE
+-----
+
+` <?php get_author_posts_url( $author_id, $author_nicename ); ?> `
+
+PARAMETERS
+----------
+
+ `$author_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) ID of the author whose URL should be retrieved.
+    Default: *None*
+
+ `$author_nicename` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) User nicename.
+    Default: empty
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   The URL to the author's page.
+
+EXAMPLES
+--------
+
+Display the link of the author page for the author of the current post
+
+    <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author_meta( 'display_name' ); ?></a>
+
+SOURCE FILE
+-----------
+
+`get_author_posts_url()` can be located in
+`wp-includes/author-template.php`
+

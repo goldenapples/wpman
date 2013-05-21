@@ -1,0 +1,35 @@
+tag escape "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+tag escape - Replaces anything other than a-zA-Z0-9\_:, the set of valid HTML tag
+
+SYNOPSIS
+--------
+
+Replaces anything other than a-zA-Z0-9\_:, the set of valid HTML tag
+characters.
+
+USAGE
+-----
+
+PARAMETERS
+----------
+
+RETURN VALUES
+-------------
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+SOURCE FILE
+-----------
+

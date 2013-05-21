@@ -1,0 +1,258 @@
+wp list comments "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+wp list comments - Displays all comments for a post or Page based on a variety of
+
+SYNOPSIS
+--------
+
+Displays all comments for a post or Page based on a variety of
+parameters including ones set in the administration area.
+
+**See also**: [Migrating Plugins and Themes to
+2.7](/Migrating_Plugins_and_Themes_to_2.7 "Migrating Plugins and Themes to 2.7")
+
+USAGE
+-----
+
+`  <?php wp_list_comments( $args, $comments ); ?> `
+
+### Default Usage
+
+`  <?php wp_list_comments(); ?> `
+
+ `$args` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) The options for the function.
+    Default:
+
+<!-- -->
+
+    <?php $args = array(
+        'walker'            => null,
+        'max_depth'         => '',
+        'style'             => 'ul',
+        'callback'          => null,
+        'end-callback'      => null,
+        'type'              => 'all',
+        'reply_text'        => 'Reply',
+        'page'              => '',
+        'per_page'          => '',
+        'avatar_size'       => 32,
+        'reverse_top_level' => null,
+        'reverse_children'  => ''
+    ); ?>
+
+`max_depth`, `per_page`, and `reverse_top_level` can be more easily
+controlled through the Administration Panel
+[Settings\_Discussion\_SubPanel](/Settings_Discussion_SubPanel "Settings Discussion SubPanel")
+but a theme can override those settings here.
+
+ `$comments` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*optional*) Array obtained by
+    [get\_comments](/get_comments "get comments") query.
+    Default: The default return of
+    [get\_comments](/get_comments "get comments").
+
+PARAMETERS
+----------
+
+*This needs expanding / explaining.*
+
+ `$avatar_size` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Size that the avatar should be shown as, in pixels.
+    [http://gravatar.com/](http://gravatar.com/ "http://gravatar.com/")
+    supports sizes between 1 and 512. Use 0 to hide avatars.
+    Default: 32
+
+ `$style` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Can be either 'div', 'ol', or 'ul', to display comments
+    using divs, ordered, or unordered lists. Note that there are
+    containing tags that must be written explicitly such as
+
+        <div class="commentlist"><?php wp_list_comments(array('style' => 'div')); ?></div>
+
+    or
+
+        <ol class="commentlist"><?php wp_list_comments(array('style' => 'ol')); ?></ol>
+
+    Default: 'ul'
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The type of comment(s) to display. Can be 'all',
+    'comment', 'trackback', 'pingback', or 'pings'. 'pings' is
+    'trackback' and 'pingback' together.
+    Default: 'all'
+
+ `$page` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The current page in the pagination to display.
+    Default: null
+
+ `$reply_text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display in each comment as a reply link. (This
+    isn't an argument of this function but it gets passed to the
+    `get_comment_reply_link` function.)
+    Default: 'Reply'
+
+ `$login_text` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to display in each comment if users must be
+    registered and logged in to comment. (This isn't an argument of this
+    function but it gets passed to the `get_comment_reply_link`
+    function.)
+    Default: 'Log in to Reply'
+
+ `$callback` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The name of a custom function to use to open and
+    display each comment. Using this will make your custom function get
+    called to display each comment, bypassing all internal WordPress
+    functionality in this respect. Use to customize comments display for
+    extreme changes to the HTML layout. Note that your callback must
+    include the opening `<div>`, `<ol>`, or `<ul>` tag (corresponding
+    with the `style` parameter), but **not** the closing tags. WordPress
+    will supply the closing tag automatically, or you can use
+    `end-callback` to override this default. The `callback` is separate
+    from the `end-callback` to facilitate hierarchical comments. Use
+    with caution.
+    Default: null
+
+ `$end-callback` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The name of a custom function to use to close each
+    comment. Using this will make your custom function get called to at
+    the end of each comment, bypassing the WordPress default of using
+    `</div>`, `</ol>`, or `</li>` based on the `style` parameter. Use to
+    customize the ending tags for a comment. The `callback` is separate
+    from the `end-callback` to facilitate hierarchical comments. Use
+    with caution.
+    Default: null
+
+ `$reverse_top_level` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Setting this to false will display the most recent
+    comment first then going back in order.
+    Default: null
+
+ `$reverse_children` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Setting this to true will display the children (reply
+    level comments) with the most recent ones first, then going back in
+    order.
+    Default:
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Outputs an ordered list of the comments. Things like threading or paging
+being enabled or disabled are controlled via the [Settings Discussion
+SubPanel](/Settings_Discussion_SubPanel "Settings Discussion SubPanel").
+
+    <ol class="commentlist">
+    <?php wp_list_comments(); ?>
+    </ol>
+
+### Comments Only With A Custom Comment Display
+
+Displays just comments (no pingbacks or trackbacks) while using a custom
+callback function to control the look of the comment. You may want to
+add an max\_depth=X parameter, if the reply links are not appearing.
+
+    <ul class="commentlist">
+    <?php wp_list_comments('type=comment&callback=mytheme_comment'); ?>
+    </ul>
+
+You will need to define your custom callback function in your theme's
+[functions.php](/Theme_Development#Functions_File "Theme Development")
+file. Here is an example:
+
+    function mytheme_comment($comment, $args, $depth) {
+            $GLOBALS['comment'] = $comment;
+            extract($args, EXTR_SKIP);
+
+            if ( 'div' == $args['style'] ) {
+                $tag = 'div';
+                $add_below = 'comment';
+            } else {
+                $tag = 'li';
+                $add_below = 'div-comment';
+            }
+    ?>
+            <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
+            <?php if ( 'div' != $args['style'] ) : ?>
+            <div id="div-comment-<?php comment_ID() ?>" class="comment-body">
+            <?php endif; ?>
+            <div class="comment-author vcard">
+            <?php if ($args['avatar_size'] != 0) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+            <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
+            </div>
+    <?php if ($comment->comment_approved == '0') : ?>
+            <em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
+            <br />
+    <?php endif; ?>
+
+            <div class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ?>">
+                <?php
+                    /* translators: 1: date, 2: time */
+                    printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','' );
+                ?>
+            </div>
+
+            <?php comment_text() ?>
+
+            <div class="reply">
+            <?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+            </div>
+            <?php if ( 'div' != $args['style'] ) : ?>
+            </div>
+            <?php endif; ?>
+    <?php
+            }
+
+Note the lack of a trailing `</li>`. WordPress will add it itself once
+it's done listing any children and whatnot.
+
+### Display Comments for a Specific Page/Post
+
+Outputs an ordered list of comments for a specific page or post. Things
+like threading or paging being enabled or disabled are controlled via
+the [Settings Discussion
+SubPanel](/Settings_Discussion_SubPanel "Settings Discussion SubPanel").
+
+    <ol class="commentlist">
+        <?php
+            //Gather comments for a specific page/post 
+            $comments = get_comments(array(
+                'post_id' => XXX,
+                'status' => 'approve' //Change this to the type of comments to be displayed
+            ));
+
+            //Display the list of comments
+            wp_list_comments(array(
+                'per_page' => 10, //Allow comment pagination
+                'reverse_top_level' => false //Show the latest comments at the top of the list
+            ), $comments);
+        ?>
+    </ol>
+
+CHANGE LOG
+----------
+
+Since: 2.7.0
+
+SOURCE FILE
+-----------
+
+`wp_list_comments()` is located in `wp-includes/comment-template.php`.
+

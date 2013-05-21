@@ -1,0 +1,79 @@
+next posts link "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+next posts link - Prints a link to the next set of posts within the current query.
+
+SYNOPSIS
+--------
+
+Prints a link to the next set of posts within the current query.
+
+If you need the values for use in PHP, use
+[get\_next\_posts\_link()](/Function_Reference/get_next_posts_link "Function Reference/get next posts link").
+
+Because post queries are usually sorted in reverse chronological order,
+`next_posts_link()` usually points to older entries (toward the end of
+the set) and `previous_posts_link()` usually points to newer entries
+(toward the beginning of the set).
+
+USAGE
+-----
+
+`  <?php next_posts_link( $label , $max_pages ); ?> `
+
+PARAMETERS
+----------
+
+ `$label` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The link text.
+    Default: 'Next Page »'
+
+ `$max_pages` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Limit the number of pages on which the link is
+    displayed. The default value "0" means "no limit".
+    Default: 0
+
+EXAMPLES
+--------
+
+### Default Usage
+
+    <?php next_posts_link(); ?>
+
+### Working example
+
+    <?php next_posts_link('Older Entries »', 0); ?>
+
+NOTES
+-----
+
+-   This function will not work (fail silently) if `mysql.trace_mode` is
+    enabled in your `php.ini`. If you can't edit that file, try adding
+    `ini_set( 'mysql.trace_mode', 0 );` to your theme's `functions.php`.
+
+-   See also:
+    [previous\_posts\_link()](/Template_Tags/previous_posts_link "Template Tags/previous posts link")
+    and
+    [next\_post\_link()](/Template_Tags/next_post_link "Template Tags/next post link").
+
+RESOURCES
+---------
+
+-   [Digging into Wordpress - Definitive Guide to WordPress Page
+    Navigation](http://digwp.com/2009/08/wordpress-page-navigation/ "http://digwp.com/2009/08/wordpress-page-navigation/")
+
+CHANGE LOG
+----------
+
+Since: 0.71
+
+SOURCE FILE
+-----------
+
+`next_posts_link()` is located in `wp-includes/link-template.php`.
+

@@ -1,0 +1,92 @@
+sanitize title "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+sanitize title - Sanitizes title or use fallback title.
+
+SYNOPSIS
+--------
+
+Sanitizes title or use fallback title.
+
+Specifically, [HTML](http://en.wikipedia.org/wiki/HTML "wikipedia:HTML")
+and PHP tags are stripped, and (in a 'save' context) [accents are
+removed](/Function_Reference/remove_accents "Function Reference/remove accents")
+(accented characters are replaced with non-accented equivalents).
+Further filtering can be added via the plugin API by hooking the
+`sanitize_title` filter. If `$title` is empty and `$fallback_title` is
+set, the latter will be used.
+
+*Despite the name of this function, the returned value is intended to be
+suitable for use in a URL, not as a human-readable title.*
+
+USAGE
+-----
+
+` <?php sanitize_title( $title, $fallback_title, $context ) ?> `
+
+PARAMETERS
+----------
+
+ `$title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The string to be sanitized.
+    Default: *None*
+
+ `$fallback_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) A title to use if `$title` is empty.
+    Default: ''
+
+ `$context` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The operation for which the string is sanitized.
+    Default: 'save'
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   The sanitized string.
+
+EXAMPLES
+--------
+
+### WordPress Titles
+
+To create the file name portion of a URL the same way that WordPress
+does use this:
+
+    <?php
+      $new_url = sanitize_title('This Long Title is what My Post or Page might be');
+      echo $new_url;
+    ?>
+
+It should return a formatted value, the output would be this:
+` this-long-title-is-what-my-post-or-page-might-be`
+
+NOTES
+-----
+
+The 'save' context is used most often when saving a value in the
+database, but is used for other purposes as well. The 'query' context is
+used by
+[sanitize\_title\_for\_query()](/Function_Reference/sanitize_title_for_query "Function Reference/sanitize title for query")
+when the value is going to be used in the `WHERE` clause of a query.
+
+CHANGE LOG
+----------
+
+-   Since: [1.0.0](/Version_1.0 "Version 1.0")
+-   Originally defined in `wp-includes/functions-formatting.php`
+-   File renamed to `wp-includes/formatting.php` in
+    [2.1](/Version_2.1 "Version 2.1")
+-   `$context` parameter added in [3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`sanitize_title()` is located in `wp-includes/formatting.php`.
+

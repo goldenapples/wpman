@@ -1,0 +1,58 @@
+wp cache set "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+wp cache set - Saves the data to the cache.
+
+SYNOPSIS
+--------
+
+Saves the data to the cache.
+
+USAGE
+-----
+
+` <?php wp_cache_set( $key, $data, $group, $expire ); ?> `
+
+PARAMETERS
+----------
+
+ `$key` 
+:   ([*int/string*](/How_to_Pass_Tag_Parameters#Int.2Fstring "How to Pass Tag Parameters"))
+    (*required*) the key to indicate the value.
+    Default: *None*
+
+ `$data` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) The value you want to store.
+    Default: *None*
+
+ `$group` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) this is a way of grouping data within the cache. Allows
+    you to use the same key across different groups.
+    Default: *None*
+
+ `$expire` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Defines how many seconds to keep the cache for.
+    Defaults to 0 (as long as possible).
+    Default: 0
+
+RETURN
+------
+
+Always returns `true`
+
+CHANGE LOG
+----------
+
+Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+SOURCE FILE
+-----------
+
+`wp_cache_set()` is located in `wp-includes/cache.php`.
+

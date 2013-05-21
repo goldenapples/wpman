@@ -1,0 +1,99 @@
+display space usage "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+display space usage - Displays the amount of disk space used by a site.
+
+SYNOPSIS
+--------
+
+Displays the amount of disk space used by a site.
+
+USAGE
+-----
+
+` <?php display_space_usage(); ?> `
+
+PARAMETERS
+----------
+
+none
+
+RETURN
+------
+
+Outputs a preformatted string (see example)
+
+EXAMPLE
+-------
+
+The following are all examples of output when using
+`display_space_usage()`:
+
+    <strong>Used: 25% of 50MB</strong>
+
+    <strong>Used: 15% of 2GB</strong>
+
+(Note: The `<strong>` tags wrap the text displayed by
+`display_space_usage()` and are not an error in the examples above)
+
+SOURCE FILE
+-----------
+
+`display_space_usage()` is located in `wp-admin/includes/ms.php`.
+
+See also index of [Function
+Reference](/Function_Reference "Function Reference") and index of
+[Template Tags](/Template_Tags "Template Tags").
+
+This page is [marked](/Category:Stubs "Category:Stubs") as incomplete.
+You can [help](/Codex:Contributing "Codex:Contributing") Codex by
+**[expanding
+it](http://codex.wordpress.org/index.php?title=Function_Reference/display_space_usage&action=edit "http://codex.wordpress.org/index.php?title=Function_Reference/display_space_usage&action=edit")**.
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/display\_space\_usage](http://codex.wordpress.org/Function_Reference/display_space_usage)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Stubs](/Category:Stubs "Category:Stubs") |
+[Functions](/Category:Functions "Category:Functions") |
+[WPMS](/Category:WPMS "Category:WPMS")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

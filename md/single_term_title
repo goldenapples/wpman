@@ -1,0 +1,62 @@
+single term title "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+single term title - Displays or returns the term title for the current page.
+
+SYNOPSIS
+--------
+
+Displays or returns the term title for the current page.
+
+USAGE
+-----
+
+`  <?php single_term_title( $prefix, $display ); ?> `
+
+### Default Usage
+
+`  <?php single_term_title(); ?> `
+
+PARAMETERS
+----------
+
+ `$prefix` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to output before the title.
+    Default: *None*
+
+ `$display` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display the title (`TRUE`), or return the title to be
+    used in PHP (`FALSE`).
+    Default: `TRUE`
+
+EXAMPLES
+--------
+
+This example displays the text "**Currently browsing**" followed by the
+term title.
+
+    <p><?php single_term_title('Currently browsing '); ?>.</p>
+
+Currently browsing WordPress.
+
+\
+ This example assigns the current term title to the variable
+\$current\_term for use in PHP.
+
+    <?php $current_term = single_term_title("", false); ?>
+
+CHANGE LOG
+----------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`single_term_title()` is located in `wp-includes/general-template.php`.
+

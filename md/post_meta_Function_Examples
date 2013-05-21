@@ -1,0 +1,29 @@
+post meta Function Examples "MAY 2013" WordPress Codex "Function Reference"
+===========================================================================
+
+NAME
+----
+
+post meta Function Examples - The following is a detailed example for the usage of the
+
+SYNOPSIS
+--------
+
+The following is a detailed example for the usage of the
+[add\_post\_meta](/Function_Reference/add_post_meta "Function Reference/add post meta"),
+[delete\_post\_meta](/Function_Reference/delete_post_meta "Function Reference/delete post meta"),
+[update\_post\_meta](/Function_Reference/update_post_meta "Function Reference/update post meta"),
+and
+[get\_post\_meta](/Function_Reference/get_post_meta "Function Reference/get post meta")
+functions.
+
+EXAMPLE
+-------
+
+` <?php /*******************This function handles the mood and listening_to meta tags.It can be called with an action of update, delete, and get (default)When called with an action of update, either $mood or $listening_to must be provided.i.e. mood_music( $post->ID, 'update', 'Happy', 'Bon Jovi - It's My Life' );*******************/function mood_music( $post_id, $action = 'get', $mood = 0, $listening_to = 0 ) {    //Let's make a switch to handle the three cases of 'Action'  switch ($action) {    case 'update' :      if( ! $mood && ! $listening_to )        //If nothing is given to update, end here        return false;            //add_post_meta usage:      //add_post_meta( $post_id, $meta_key, $meta_value, $unique = false )            //If the $mood variable is supplied,      //add a new key named 'mood', containing that value.      //If the 'mood' key already exists on this post,      //this command will simply add another one.      if( $mood ) {        add_post_meta( $post_id, 'mood', $mood );        return true;        }      //update_post_meta usage:      //update_post_meta( $post_id, $meta_key, $meta_value )            //If the $listening_to variable is supplied,      //add a new key named 'listening_to', containing that value.      //If the 'listening_to' key already exists on this post,      //this command will update it to the new value      if( $listening_to ) {        add_post_meta( $post_id, 'listening_to', $listening_to, true ) or          update_post_meta( $post_id, 'listening_to', $listening_to );        return true;      }    case 'delete' :      //delete_post_meta usage:      //delete_post_meta( $post_id, $meta_key, $prev_value = ' ' )          //This will delete all instances of the following keys from the given post      delete_post_meta( $post_id, 'mood' );      delete_post_meta( $post_id, 'listening_to' );            //To only delete 'mood' if it's value is 'sad':      //delete_post_meta( $post_id, 'mood', 'sad' );    break;    case 'get' :      //get_post_custom usage:      //get_post_meta( $post_id, $meta_key, $single value = false )        //$stored_moods will be an array containing all values of the meta key 'mood'      $stored_moods = get_post_meta( $post_id, 'mood' );      //$stored_listening_to will be the first value of the key 'listening_to'      $stored_listening_to = get_post_meta( $post_id, 'listening_to', 'true' );      //Now we need a nice ouput format, so that      //the user can implement it how he/she wants:      //ie. echo mood_music( $post->ID, 'get' );            $return = '<div class='mood-music'>';      if ( ! empty( $stored_moods ) )        $return .= '<strong>Current Mood</strong>: ';      foreach( $stored_moods as $mood )        $return .= $mood . ', ';      $return .= '<br/>';      if ( ! empty( $stored_listening_to ) ) {        $return .= '<strong>Currently Listening To</strong>: ';        $return .= $stored_listening_to;        }      $return .= '</div>';            return $return;    default :      return false;    break;  } //end switch} //end function?>  `
+
+RESOURCES
+---------
+
+-   
+

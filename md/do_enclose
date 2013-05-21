@@ -1,0 +1,74 @@
+do enclose "MAY 2013" WordPress Codex "Function Reference"
+==========================================================
+
+NAME
+----
+
+do enclose - Check content for video and audio links to add as
+
+SYNOPSIS
+--------
+
+Check content for video and audio links to add as
+[enclosures](http://en.wikipedia.org/wiki/RSS_enclosure "http://en.wikipedia.org/wiki/RSS_enclosure").
+
+Will not add enclosures that have already been added.
+
+USAGE
+-----
+
+` <?php do_enclose( $content, $post_ID ) ?> `
+
+PARAMETERS
+----------
+
+ `$content` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Post Content
+    Default: *None*
+
+ `$post_ID` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*required*) Post ID
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (void) 
+:   This function does not return a value.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb") to read and
+    condtionally insert records on
+    [`_postmeta table`](/Database_Description#Table:_wp_postmeta "Database Description")
+    in the database.
+-   Uses:
+    [`debug_fopen()`](/Function_Reference/debug_fopen "Function Reference/debug fopen")
+    to open 'enclosures.log' file.
+-   Uses:
+    [`debug_fwrite()`](/Function_Reference/debug_fwrite "Function Reference/debug fwrite")
+    to write to 'enclosures.log' file.
+-   Uses:
+    [`get_enclosed()`](/Function_Reference/get_enclosed "Function Reference/get enclosed")
+-   Uses:
+    [`wp_get_http_headers()`](/Function_Reference/wp_get_http_headers "Function Reference/wp get http headers")
+
+\
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`do_enclose()` is located in `wp-includes/functions.php`.
+

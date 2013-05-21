@@ -1,0 +1,73 @@
+register uninstall hook "MAY 2013" WordPress Codex "Function Reference"
+=======================================================================
+
+NAME
+----
+
+register uninstall hook - Sets the uninstallation hook for a plugin. Available since WordPress
+
+SYNOPSIS
+--------
+
+Sets the uninstallation hook for a plugin. Available since WordPress
+2.7.
+
+Registers the uninstall hook that will be called when the user clicks on
+the uninstall link that calls for the plugin to uninstall itself. The
+link won't be active unless the plugin hooks into the action.
+
+The plugin should not run arbitrary code outside of functions, when
+registering the uninstall hook. In order to run using the hook, the
+plugin will have to be included, which means that any code laying
+outside of a function will be run during the uninstall process. The
+plugin should not hinder the uninstall process.
+
+If the plugin can not be written without running code within the plugin,
+then the plugin should create a file named 'uninstall.php' in the base
+plugin folder. This file will be called, if it exists, during the
+uninstall process bypassing the uninstall hook.
+
+When using 'uninstall.php' the plugin should always check for the
+`WP_UNINSTALL_PLUGIN` constant, before executing. The
+`WP_UNINSTALL_PLUGIN` constant is defined by WordPress at runtime during
+a plugin uninstall, it will not be present if 'uninstall.php' is
+requested directly.
+
+USAGE
+-----
+
+` <?php register_uninstall_hook($file, $callback) ?> `
+
+### uninstall.php
+
+    //if uninstall not called from WordPress exit
+    if ( !defined( 'WP_UNINSTALL_PLUGIN' ) )
+        exit ();
+
+    delete_option('example');
+
+PARAMETERS
+----------
+
+ `$file` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The PHP file that the callback is located within.
+    Default: *None*
+
+ `$callback` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*required*) The callback to run when the hook is called.
+    Default: *None*
+
+NOTES
+-----
+
+Emphasis is put on using the 'uninstall.php' way of uninstalling the
+plugin rather than register\_uninstall\_hook.
+
+DISCUSSIONS
+-----------
+
+-   An activation, deactivation & uninstall helper class on [WordPress
+    Answers](http://wordpress.stackexchange.com/questions/25910/uninstall-a-plugin-method-typical-features-how-to/25979#25979/ "http://wordpress.stackexchange.com/questions/25910/uninstall-a-plugin-method-typical-features-how-to/25979#25979/")
+

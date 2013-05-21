@@ -1,0 +1,194 @@
+wp insert post "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+wp insert post - This function inserts posts (and pages) in the database. It sanitizes
+
+SYNOPSIS
+--------
+
+This function inserts posts (and pages) in the database. It sanitizes
+variables, does some checks, fills in missing variables like date/time,
+etc. It takes an array as its argument and returns the post ID of the
+created post (or `0` if there is an error).
+
+USAGE
+-----
+
+`  <?php wp_insert_post( $post, $wp_error ); ?> `
+
+PARAMETERS
+----------
+
+ `$post` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) An array representing the elements that make up a post.
+    There is a one-to-one relationship between these elements and the
+    names of columns in the wp\_posts table in the database.
+    Default: *None*
+
+**IMPORTANT**: Setting a value for \$post['ID'] WILL NOT create a post
+with that ID number. Setting this value will cause the function to
+update the post with that ID number with the other values specified in
+\$post. In short, to insert a new post, \$post['ID'] must be blank or
+not set at all.
+
+The contents of the post array can depend on how much (or little) you
+want to trust the defaults. Here is a list with a short description of
+all the keys you can set for a post:
+
+    $post = array(
+      'ID'             => [ <post id> ] //Are you updating an existing post?
+      'menu_order'     => [ <order> ] //If new post is a page, it sets the order in which it should appear in the tabs.
+      'comment_status' => [ 'closed' | 'open' ] // 'closed' means no comments.
+      'ping_status'    => [ 'closed' | 'open' ] // 'closed' means pingbacks or trackbacks turned off
+      'pinged'         => [ ? ] //?
+      'post_author'    => [ <user ID> ] //The user ID number of the author.
+      'post_category'  => [ array(<category id>, <...>) ] //post_category no longer exists, try wp_set_post_terms() for setting a post's categories
+      'post_content'   => [ <the text of the post> ] //The full text of the post.
+      'post_date'      => [ Y-m-d H:i:s ] //The time post was made.
+      'post_date_gmt'  => [ Y-m-d H:i:s ] //The time post was made, in GMT.
+      'post_excerpt'   => [ <an excerpt> ] //For all your post excerpt needs.
+      'post_name'      => [ <the name> ] // The name (slug) for your post
+      'post_parent'    => [ <post ID> ] //Sets the parent of the new post.
+      'post_password'  => [ ? ] //password for post?
+      'post_status'    => [ 'draft' | 'publish' | 'pending'| 'future' | 'private' | 'custom_registered_status' ] //Set the status of the new post.
+      'post_title'     => [ <the title> ] //The title of your post.
+      'post_type'      => [ 'post' | 'page' | 'link' | 'nav_menu_item' | 'custom_post_type' ] //You may want to insert a regular post, page, link, a menu item or some custom post type
+      'tags_input'     => [ '<tag>, <tag>, <...>' ] //For tags.
+      'to_ping'        => [ ? ] //?
+      'tax_input'      => [ array( 'taxonomy_name' => array( 'term', 'term2', 'term3' ) ) ] // support for custom taxonomies. 
+    );  
+
+**NOTE**: The **page\_template** key was removed from the \$post table
+and is now located in the wp\_postmeta table. To set the page template
+of a page, use
+[update\_post\_meta](/Function_Reference/update_post_meta "Function Reference/update post meta")
+instead with a meta key of **\_wp\_page\_template**.
+
+**NOTE 2**: The **post\_status** is documented at [Post Status
+Transitions](/Post_Status_Transitions "Post Status Transitions").
+
+**NOTE 3**: If providing a post\_status of 'future' you must specify the
+post\_date in order for WordPress to know when to publish your post.
+
+**NOTE 4**: If the current user doesn't have the capability to work with
+a custom taxonomy then using tax\_input to add a term won't work. You
+will need to use
+[wp\_set\_object\_terms](/Function_Reference/wp_set_object_terms "Function Reference/wp set object terms").
+
+ `$wp_error` 
+:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
+    (*optional*) Allow return of
+    [WP\_Error](/Class_Reference/WP_Error "Class Reference/WP Error")
+    object on failure
+    Default: false
+
+RETURN
+------
+
+The ID of the post if the post is successfully added to the database. On
+failure, it returns `0` if \$wp\_error is set to false, or a
+[WP\_Error](/Class_Reference/WP_Error "Class Reference/WP Error") object
+if \$wp\_error is set to true.
+
+USAGE
+-----
+
+`  <?php wp_insert_post( $post, $wp_error ); ?> `
+
+EXAMPLE
+-------
+
+Before calling wp\_insert\_post() it is necessary to create an array to
+pass the necessary elements that make up a post. The wp\_insert\_post()
+will fill out a default list of these but the user is required to
+provide the title and content otherwise the database write will fail.
+
+The user can provide more elements than are listed here by simply
+defining new keys in the database. The keys should match the names of
+the columns in the wp\_posts table in the database.
+
+    // Create post object
+    $my_post = array(
+      'post_title'    => 'My post',
+      'post_content'  => 'This is my post.',
+      'post_status'   => 'publish',
+      'post_author'   => 1,
+      'post_category' => array(8,39)
+    );
+
+    // Insert the post into the database
+    wp_insert_post( $my_post );
+
+Insert a new post and return the new post id.
+
+    $post_id = wp_insert_post( $post, $wp_error );
+    //now you can use $post_id withing add_post_meta or update_post_meta
+
+The default list referred to above is defined in the function body. It
+is as follows:
+
+    $defaults = array(
+      'post_status'           => 'draft', 
+      'post_type'             => 'post',
+      'post_author'           => $user_ID,
+      'ping_status'           => get_option('default_ping_status'), 
+      'post_parent'           => 0,
+      'menu_order'            => 0,
+      'to_ping'               =>  '',
+      'pinged'                => '',
+      'post_password'         => '',
+      'guid'                  => '',
+      'post_content_filtered' => '',
+      'post_excerpt'          => '',
+      'import_id'             => 0
+    );
+
+### Categories
+
+Categories need to be passed as an array of integers that match the
+category IDs in the database. This is the case even where only one
+category is assigned to the post.
+
+See also:
+[wp\_set\_post\_terms()](/Function_Reference/wp_set_post_terms "Function Reference/wp set post terms")
+
+SECURITY
+--------
+
+`wp_insert_post()` passes data through sanitize\_post(), which itself
+handles all necessary sanitization and validation (kses, etc.).
+
+As such, you don't need to worry about that.
+
+You may wish, however, to remove HTML, JavaScript, and PHP tags from the
+post\_title and any other fields. Surprisingly, WordPress does not do
+this automatically. This can be easily done by using the
+wp\_strip\_all\_tags() function (as of 2.9) and is especially useful
+when building front-end post submission forms.
+
+    // Create post object
+    $my_post = array(
+      'post_title'    => wp_strip_all_tags( $_POST['post_title'] ),
+      'post_content'  => $_POST['post_content'],
+      'post_status'   => 'publish',
+      'post_author'   => 1,
+      'post_category' => array( 8,39 )
+    );
+
+    // Insert the post into the database
+    wp_insert_post( $my_post );
+
+CHANGE LOG
+----------
+
+-   Since: [1.0](/Version_1.0 "Version 1.0")
+
+SOURCE FILE
+-----------
+
+`wp_insert_post()` is located in `wp-includes/post.php`.
+

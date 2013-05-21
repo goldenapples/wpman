@@ -1,0 +1,112 @@
+add object page "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+add object page - Add a top level menu page at the 'object' level. This new menu will
+
+SYNOPSIS
+--------
+
+Add a top level menu page at the 'object' level. This new menu will
+appear in the group including the default WordPress Posts, Media, Links,
+Pages and Comments.
+
+Specifically, creates a new top level menu section in the admin menu
+sidebar and registers a hook to callback your function for outputting
+the page content when the linked menu page is requested. Returns the
+\$hookname.
+
+This essentially does the exact same thing as
+[add\_menu\_page()](/Function_Reference/add_menu_page "Function Reference/add menu page"),
+but checks (and increments) the \$\_wp\_last\_object\_menu global
+variable to add the menu item to the last position in the menu items.
+So, if \$\_wp\_last\_object\_menu has already been incremented to 25,
+this call to add\_object\_page() will send 26 in the \$position argument
+to the add\_menu\_page() function.
+
+USAGE
+-----
+
+` <?phpadd_object_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url );?> `
+
+PARAMETERS
+----------
+
+ `$page_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be displayed in the title tags of the page
+    when the menu is selected.
+    Default: *None*
+
+ `$menu_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The on-screen name text for the menu.
+    Default: *None*
+
+ `$capability` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The
+    [capability](/Roles_and_Capabilities "Roles and Capabilities")
+    required for this menu to be displayed to the user. [User
+    levels](/User_Levels "User Levels") are deprecated and should not be
+    used here!
+    Default: *None*
+
+ `$menu_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug name to refer to this menu by (should be
+    unique for this menu). Prior to [Version
+    3.0](/Version_3.0 "Version 3.0") this was called the file (or
+    handle) parameter. If the function parameter is omitted, the
+    menu\_slug should be the PHP file that handles the display of the
+    menu page content.
+    Default: *None*
+
+\$function
+:   The function that displays the page content for the menu page.
+    Technically, the *function* parameter is optional, but if it is not
+    supplied, then WordPress will basically assume that including the
+    PHP file will generate the administration screen, without calling a
+    function. Most plugin authors choose to put the page-generating code
+    in a function within their main plugin file.:In the event that the
+    *function* parameter is specified, it is possible to use any string
+    for the *file* parameter. This allows usage of pages such as
+    *?page=my\_super\_plugin\_page* instead of
+    *?page=my-super-plugin/admin-options.php*.
+:   The function must be referenced in one of two ways:
+    1.  if the function is a member of a class within the plugin it
+        should be referenced as `array( $this, 'function_name' )`,
+    2.  in all other cases, using the function name itself is
+        sufficient.
+
+ `$icon_url` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The url to the icon to be used for this menu. This
+    parameter is optional. Icons should be fairly small, around 20 x 20
+    pixels (?). You can use the **WP\_CONTENT\_URL** constant to help
+    point to an image contained in your plugin folder.
+    Default:
+
+RETURN VALUES
+-------------
+
+ `string` 
+:   \$hookname used internally to track menu page callbacks for
+    outputting the page inside the global `$menu` array
+
+NOTES
+-----
+
+This function takes a 'capability' (see [Roles and
+Capabilities](/Roles_and_Capabilities "Roles and Capabilities")) which
+will be used to determine whether or not a page is included in the menu.
+The function which is hooked in to handle the output of the page must
+check that the user has the required 'capability' as well.
+
+SOURCE FILE
+-----------
+
+`add_object_page()` is located in `wp-admin/includes/plugin.php`.
+

@@ -1,0 +1,73 @@
+edit bookmark link "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+edit bookmark link - Displays a link to edit the current bookmark, if the user is logged in
+
+SYNOPSIS
+--------
+
+Displays a link to edit the current bookmark, if the user is logged in
+and allowed to edit the bookmark. It must be within [The
+Loop](/The_Loop "The Loop").
+
+Use
+[get\_edit\_bookmark\_link](/index.php?title=get_edit_bookmark_link&action=edit&redlink=1 "get edit bookmark link (page does not exist)")
+to retrieve the url.
+
+USAGE
+-----
+
+`  <?php edit_bookmark_link( $link, $before, $after, $bookmark ); ?> `
+
+PARAMETERS
+----------
+
+ `$link` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) The link text.
+    Default: 'Edit This'
+
+ `$before` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to put before the link text.
+    Default: *None*
+
+ `$after` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Text to put after the link text.
+    Default: *None*
+
+ `$bookmark` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*optional*) Bookmark ID.
+    Default: Current bookmark ID.
+
+EXAMPLES
+--------
+
+### Default Usage
+
+Displays edit bookmark link using defaults.
+
+    <?php edit_bookmark_link(); ?>
+
+### Displays Edit Bookmark in Paragraph Tag
+
+Displays edit bookmark link, with link text "edit bookmark", in a
+paragraph (\<p\>) tag.
+
+    <?php edit_bookmark_link('edit bookmark', '<p>', '</p>'); ?>
+
+CHANGE LOG
+----------
+
+Since: 2.7.0
+
+SOURCE FILE
+-----------
+
+`edit_bookmark_link()` is located in `wp-includes/link-template.php`.
+

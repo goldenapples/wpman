@@ -1,0 +1,53 @@
+wp array slice assoc "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+wp array slice assoc - Extract a slice of an array, given a list of keys
+
+SYNOPSIS
+--------
+
+Extract a slice of an array, given a list of keys
+
+USAGE
+-----
+
+` <?php wp_array_slice_assoc( $array, $keys ) ?> `
+
+PARAMETERS
+----------
+
+ `$array` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) The original array
+    Default: *None*
+
+ `$keys` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) The list of keys
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   The array slice
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 3.1.0
+
+SOURCE FILE
+-----------
+
+`wp_array_slice_assoc()` is located in `/wp-includes/functions.php`.
+

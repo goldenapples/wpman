@@ -1,0 +1,48 @@
+get num queries "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+get num queries - Retrieve the number of database queries during the WordPress execution.
+
+SYNOPSIS
+--------
+
+Retrieve the number of database queries during the WordPress execution.
+
+USAGE
+-----
+
+` <?php echo get_num_queries();?> `
+
+PARAMETERS
+----------
+
+None.
+
+RETURN VALUES
+-------------
+
+ (integer) 
+:   Number of database queries
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`get_num_queries()` is located in `wp-includes/functions.php`.
+

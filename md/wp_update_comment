@@ -1,0 +1,81 @@
+wp update comment "MAY 2013" WordPress Codex "Function Reference"
+=================================================================
+
+NAME
+----
+
+wp update comment - Updates an existing comment in the database.
+
+SYNOPSIS
+--------
+
+Updates an existing comment in the database.
+
+Filters the comment and makes sure certain fields are valid before
+updating.
+
+USAGE
+-----
+
+` <?php wp_update_comment( $commentarr ) ?> `
+
+PARAMETERS
+----------
+
+ `$commentarr` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Contains information on the comment.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(integer)` 
+:   Comment was updated if value is 1, or was not updated if value is 0.
+
+EXAMPLES
+--------
+
+### Unapproving a comment
+
+    <?php
+    $commentarr = get_comment($comment->comment_ID, ARRAY_A);
+    $commentarr['comment_approved'] = 0; 
+    wp_update_comment($commentarr);
+    ?>
+
+Source:
+[http://wordpress.stackexchange.com/a/15595](http://wordpress.stackexchange.com/a/15595 "http://wordpress.stackexchange.com/a/15595")
+
+NOTES
+-----
+
+-   Uses:
+    [`wp_transition_comment_status()`](/Function_Reference/wp_transition_comment_status "Function Reference/wp transition comment status")
+    Passes new and old comment status along with `$comment` object
+-   Uses:
+    [`get_comment()`](/Function_Reference/get_comment "Function Reference/get comment")
+-   Uses:
+    [`wp_filter_comment()`](/Function_Reference/wp_filter_comment "Function Reference/wp filter comment")
+-   Uses:
+    [`get_gmt_from_date()`](/Function_Reference/get_gmt_from_date "Function Reference/get gmt from date")
+-   Uses:
+    [`clean_comment_cache()`](/Function_Reference/clean_comment_cache "Function Reference/clean comment cache")
+-   Uses:
+    [`wp_update_comment_count()`](/Function_Reference/wp_update_comment_count "Function Reference/wp update comment count")
+-   Uses:
+    [`do_action()`](/Function_Reference/do_action "Function Reference/do action")
+    on `'edit_comment'` on `$comment_ID`.
+-   Uses global: (`object`)
+    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
+
+CHANGE LOG
+----------
+
+Since: 2.0.0
+
+SOURCE FILE
+-----------
+
+`wp_update_comment()` is located in `wp-includes/comment.php`.
+

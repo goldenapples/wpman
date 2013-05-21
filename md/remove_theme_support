@@ -1,0 +1,81 @@
+remove theme support "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+remove theme support - Allows a theme to de-register its support of a certain [theme
+
+SYNOPSIS
+--------
+
+Allows a theme to de-register its support of a certain [theme
+feature](/Theme_Features "Theme Features"). Should be called in the
+theme's
+[`functions.php`](/Theme_Development#Functions_File "Theme Development")
+file. Generally would be used for child themes to override support from
+the parent theme.
+
+USAGE
+-----
+
+` <?php remove_theme_support( $feature ); ?> `
+
+PARAMETERS
+----------
+
+ `$feature` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Name for the feature being added.
+    Features list:
+    -   [`'post-formats'`](#Post_Formats)
+    -   [`'post-thumbnails'`](#Post_Thumbnails)
+    -   [`'custom-background'`](#Custom_Background)
+    -   [`'custom-header'`](#Custom_Header)
+    -   [`'automatic-feed-links'`](#Feed_Links)
+    -   `'menus'`
+
+Default: *None*
+
+RETURNS
+-------
+
+returns boolean value on whether the feature was removed
+
+EXAMPLES
+--------
+
+### Removing a Feature In a Child Theme
+
+In some cases, a Parent Theme may have activated a feature that you do
+not want to have available in your Child Theme. For instance, if you are
+using a parent theme that has activated Featured Images for all Pages
+and Posts, but you'd like to remove the functionality of having Featured
+Images for Pages in your Child Theme, you could do something like this:
+
+    // in your Child Theme's functions.php    
+
+    // Use the after_setup_theme hook with a priority of 11 to load after the
+    // parent theme, which will fire on the default priority of 10
+    add_action( 'after_setup_theme', 'remove_featured_images_from_child_theme', 11 ); 
+
+    function remove_featured_images_from_child_theme() {
+        // This will remove support for post thumbnails on ALL Post Types
+        remove_theme_support('post-thumbnails');
+        // Add this line in to re-enable support for just Posts
+        add_theme_support('post-thumbnails', array('post'));
+    }
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+-   Since: [3.1.0](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`remove_theme_support()` is located in `wp-includes/theme.php`.
+

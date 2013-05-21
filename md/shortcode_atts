@@ -1,0 +1,84 @@
+shortcode atts "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+shortcode atts - Combines user [shortcode](/Shortcode_API "Shortcode API") attributes
+
+SYNOPSIS
+--------
+
+Combines user [shortcode](/Shortcode_API "Shortcode API") attributes
+with known attributes and fills in defaults when needed. The result will
+contain every key from the known attributes, merged with values from
+shortcode attributes.
+
+USAGE
+-----
+
+` <?php shortcode_atts( $pairs , $atts ); ?> `
+
+PARAMETERS
+----------
+
+ `$pairs` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) Entire list of supported attributes and their defaults
+    Default: *None*
+
+ `$atts` 
+:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
+    (*required*) User defined attributes in shortcode tag
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (array) 
+:   Combined and filtered attribute list.
+
+EXAMPLES
+--------
+
+    function bartag_func($atts) {
+        extract(shortcode_atts(array(
+            'foo' => 'no foo',
+            'bar' => 'default bar'
+        ), $atts));
+
+        return 'bartag: ' . $foo . ' ' . $bar;
+    }
+    add_shortcode('bartag', 'bartag_func');
+
+*[bartag foo="koala" bar="bears"]* outputs the following: \
+ **bartag: koala bears**
+
+This creates a "[bartag]" shortcode that supports two attributes:
+[bartag foo="something" bar="something else"]. Both attributes are
+optional and will take on default options if they are not provided. Note
+that using extract method here turns each key in the merged array into
+its own variable such as *\$foo* and *\$bar* for easy access. The
+*\$atts* or the default array will not be modified after the call to
+*shortcode\_atts*.
+
+NOTES
+-----
+
+The pairs should be considered to be all of the attributes which are
+supported by the caller and given as a list. The returned attributes
+will only contain the attributes in the \$pairs list.
+
+If the \$atts list has unsupported attributes, then they will be ignored
+and removed from the final returned list.
+
+CHANGE LOG
+----------
+
+Since: 2.5
+
+SOURCE FILE
+-----------
+
+`shortcode_atts()` is located in `wp-includes/shortcodes.php`.
+

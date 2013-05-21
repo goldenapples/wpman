@@ -1,0 +1,48 @@
+remove shortcode "MAY 2013" WordPress Codex "Function Reference"
+================================================================
+
+NAME
+----
+
+remove shortcode - Removes hook for [shortcode](/Shortcode_API "Shortcode API").
+
+SYNOPSIS
+--------
+
+Removes hook for [shortcode](/Shortcode_API "Shortcode API").
+
+USAGE
+-----
+
+` <?php remove_shortcode( $tag ); ?> `
+
+PARAMETERS
+----------
+
+ `$tag` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Shortcode tag to remove hook for
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (none) 
+:   
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: 2.5
+
+SOURCE FILE
+-----------
+
+`remove_shortcode()` is located in `wp-includes/shortcodes.php`.
+

@@ -1,0 +1,71 @@
+get home url "MAY 2013" WordPress Codex "Function Reference"
+============================================================
+
+NAME
+----
+
+get home url - The **get\_home\_url** template tag retrieves the home url for a given
+
+SYNOPSIS
+--------
+
+The **get\_home\_url** template tag retrieves the home url for a given
+site. Returns the 'home' [option](/Option_Reference "Option Reference")
+with the appropriate protocol, 'https' if
+[is\_ssl()](/Function_Reference/is_ssl "Function Reference/is ssl") and
+'http' otherwise. If [scheme](#Parameters) is 'http' or 'https',
+is\_ssl() is overridden.
+
+USAGE
+-----
+
+` <?php get_home_url( $blog_id, $path, $scheme ); ?> `
+
+### Default Usage
+
+` <?php get_home_url(); ?> `
+
+PARAMETERS
+----------
+
+ `$blog_id` 
+:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
+    (*optional*) Blog ID.
+    Default: null (the current blog)
+
+ `$path` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Path relative to the home url.
+    Default: *None*
+
+ `$scheme` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) Scheme to give the home url context. Currently
+    'http','https'.
+    Default: null
+
+RETURN
+------
+
+ (string) 
+:   Home url link with optional path appended.
+
+HOOKS
+-----
+
+[apply\_filters()](/Function_Reference/apply_filters "Function Reference/apply filters")
+Calls 'home\_url' hook on home url before returning.
+
+EXAMPLES
+--------
+
+CHANGELOG
+---------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE CODE
+-----------
+
+`get_home_url()` is located in `wp-includes/link-template.php`.
+

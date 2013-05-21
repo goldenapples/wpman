@@ -1,0 +1,51 @@
+sanitize sql orderby "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+sanitize sql orderby - Ensures a string is a valid SQL order by clause.
+
+SYNOPSIS
+--------
+
+Ensures a string is a valid SQL order by clause.
+
+Accepts one or more columns, with or without ASC/DESC, and also accepts
+RAND().
+
+USAGE
+-----
+
+` <?php sanitize_sql_orderby( $orderby ); ?> `
+
+PARAMETERS
+----------
+
+ `$orderby` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Order by string to be checked.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string | boolean) 
+:   Returns the order by clause if it is a match, false otherwise.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+CHANGE LOG
+----------
+
+Since: [2.5.1](/Version_2.5.1 "Version 2.5.1")
+
+SOURCE FILE
+-----------
+
+`sanitize_sql_orderby()` is located in `/wp-includes/formatting.php`.
+

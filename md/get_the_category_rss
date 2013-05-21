@@ -1,0 +1,56 @@
+get the category rss "MAY 2013" WordPress Codex "Function Reference"
+====================================================================
+
+NAME
+----
+
+get the category rss - Retrieve all of the post categories, formatted for use in feeds.
+
+SYNOPSIS
+--------
+
+Retrieve all of the post categories, formatted for use in feeds.
+
+All of the categories for the current post in the feed loop, will be
+retrieved and have feed markup added, so that they can easily be added
+to the RSS2, Atom, or RSS1 and RSS0.91 RDF feeds.
+
+USAGE
+-----
+
+` <?php get_the_category_rss( $type ); ?> `
+
+PARAMETERS
+----------
+
+ `$type` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) default is '`rss`'. Either '`rss`', '`atom`', or
+    '`rdf`'.
+    Default: 'rss'
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   All of the post categories for displaying in the feed.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`get_the_category_rss()` is located in `wp-includes/feed.php`.
+

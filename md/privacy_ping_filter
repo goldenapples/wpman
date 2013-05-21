@@ -1,0 +1,54 @@
+privacy ping filter "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+privacy ping filter - Check whether blog is public before returning sites.
+
+SYNOPSIS
+--------
+
+Check whether blog is public before returning sites.
+
+USAGE
+-----
+
+` <?php privacy_ping_filter( $sites ) ?> `
+
+PARAMETERS
+----------
+
+ `$sites` 
+:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
+    (*required*) Will return if blog is public, will not return if not
+    public.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `(mixed)` 
+:   Returns empty string (`''`) if blog is not public. Returns value in
+    `$sites` if site is public.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_option()`](/Function_Reference/get_option "Function Reference/get option")
+    to check `'blog_public'` option.
+
+CHANGE LOG
+----------
+
+Since: 2.1.0
+
+SOURCE FILE
+-----------
+
+`privacy_ping_filter()` is located in `wp-includes/comment.php`.
+

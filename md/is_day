@@ -1,0 +1,46 @@
+is day "MAY 2013" WordPress Codex "Function Reference"
+======================================================
+
+NAME
+----
+
+is day - Test to see if the page is a date based archive page.
+
+SYNOPSIS
+--------
+
+Test to see if the page is a date based archive page.
+
+USAGE
+-----
+
+` <?php is_day(); ?> `
+
+PARAMETERS
+----------
+
+RETURN VALUES
+-------------
+
+ `(boolean)` 
+:   True on success, false on failure.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See also `is_archive()` and [Category
+    Templates](/Category_Templates "Category Templates").
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`is_day()` is located in `wp-includes/functions.php`.
+

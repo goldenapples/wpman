@@ -1,0 +1,68 @@
+add management page "MAY 2013" WordPress Codex "Function Reference"
+===================================================================
+
+NAME
+----
+
+add management page - Add sub menu page to the tools main menu.
+
+SYNOPSIS
+--------
+
+Add sub menu page to the tools main menu.
+
+**NOTE: If you're running into the »You do not have sufficient
+permissions to access this page.« message in a \`wp\_die()\` screen,
+then you've hooked too early. The hook you should use is
+\`admin\_menu\`.**
+
+USAGE
+-----
+
+`  <?phpadd_management_page( $page_title, $menu_title, $capability, $menu_slug, $function );?> `
+
+PARAMETERS
+----------
+
+ `$page_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be displayed in the title tags of the page
+    when the menu is selected.
+    Default: *None*
+
+ `$menu_title` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The text to be used for the menu
+    Default: *None*
+
+ `$capability` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The
+    [capability](/Roles_and_Capabilities "Roles and Capabilities")
+    required for this menu to be displayed to the user. [User
+    levels](/User_Levels "User Levels") are deprecated and should not be
+    used here!
+    Default: *None*
+
+ `$menu_slug` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) The slug name to refer to this menu by (should be
+    unique for this menu).
+    Default: *None*
+
+ `$function` 
+:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
+    (*optional*) The function to be called to output the content for
+    this page.
+    Default: Empty string
+
+EXAMPLES
+--------
+
+    add_management_page( 'Custom Permalinks', 'Custom Permalinks', 'manage_options', 'my-unique-identifier', 'custom_permalinks_options_page' );
+
+SOURCE FILES
+------------
+
+`add_management_page()` is located in `wp-admin/includes/plugin.php`.
+

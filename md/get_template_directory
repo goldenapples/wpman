@@ -1,0 +1,63 @@
+get template directory "MAY 2013" WordPress Codex "Function Reference"
+======================================================================
+
+NAME
+----
+
+get template directory - Retrieves the absolute path to the directory of the current
+
+SYNOPSIS
+--------
+
+Retrieves the absolute path to the directory of the current
+[theme](/Glossary#Theme "Glossary"), without the trailing slash.
+
+In the case a child theme is being used, the absolute path to the parent
+theme directory will be returned. Use
+[`get_stylesheet_directory()`](/Function_Reference/get_stylesheet_directory "Function Reference/get stylesheet directory")
+to get the absolute path to the child theme directory.
+
+USAGE
+-----
+
+` <?php get_template_directory(); ?> `
+
+PARAMETERS
+----------
+
+This tag has no parameters.
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   Absolute path to the directory of the current theme (without the
+    trailing slash).
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   Uses:
+    [`get_theme_root()`](/Function_Reference/get_theme_root "Function Reference/get theme root")
+    to retrieve the absolute path to the themes directory,
+    [`get_template()`](/Function_Reference/get_template "Function Reference/get template")
+    to retrieve the directory name of the current theme.
+-   Uses:
+    [`apply_filters()`](/Function_Reference/apply_filters "Function Reference/apply filters")
+    to apply the
+    [template\_directory](/Plugin_API/Filter_Reference/template_directory "Plugin API/Filter Reference/template directory")
+    filters on the resultant path.
+
+CHANGE LOG
+----------
+
+Since: [1.5.0](/Version_1.5 "Version 1.5")
+
+SOURCE FILE
+-----------
+
+`get_template_directory()` is located in `wp-includes/theme.php`.
+

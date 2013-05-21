@@ -1,0 +1,134 @@
+get the terms "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+get the terms - Retrieve the terms of the taxonomy that are attached to the post.
+
+SYNOPSIS
+--------
+
+Retrieve the terms of the taxonomy that are attached to the post.
+
+USAGE
+-----
+
+`  <?php get_the_terms( $id, $taxonomy ); ?> `
+
+PARAMETERS
+----------
+
+ `$id` 
+:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
+    (*required*) Post ID
+    Default: 0
+
+ `$taxonomy` 
+:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
+    (*required*) Name of [taxonomy](/Taxonomies "Taxonomies") to
+    retrieve terms from. For example: 'category', 'post\_tag', 'taxonomy
+    slug'
+    Default: *None*
+
+RETURNS
+-------
+
+ (array|false|wp\_error) 
+:   Array of term objects on success. False if no terms are found in the
+    given taxonomy and a wp\_error object if an invalid taxonomy is
+    entered.
+
+Each term object will contain the following fields:
+
+    stdClass Object
+    (
+        [term_id] =>
+        [name] =>
+        [slug] =>
+        [term_group] => 
+        [term_order] => 
+        [term_taxonomy_id] =>
+        [taxonomy] =>
+        [description] => 
+        [parent] =>
+        [count] =>
+        [object_id] =>
+    )
+
+EXAMPLE
+-------
+
+### A Basic Example
+
+Echoing the list of terms (for a taxonomy called on-draught). This is
+similar to the output from get\_the\_term\_list, but without the terms
+being hyperlinked:
+
+    <?php
+    $terms = get_the_terms( $post->ID, 'on-draught' );
+                            
+    if ( $terms && ! is_wp_error( $terms ) ) : 
+
+        $draught_links = array();
+
+        foreach ( $terms as $term ) {
+            $draught_links[] = $term->name;
+        }
+                            
+        $on_draught = join( ", ", $draught_links );
+    ?>
+
+    <p class="beers draught">
+        On draught: <span><?php echo $on_draught; ?></span>
+    </p>
+
+    <?php endif; ?>
+
+### Get terms for all custom taxonomies
+
+place this function in theme functions.php
+
+    <?php // get taxonomies terms links
+    function custom_taxonomies_terms_links() {
+        global $post, $post_id;
+        // get post by post id
+        $post = &get_post($post->ID);
+        // get post type by post
+        $post_type = $post->post_type;
+        // get post type taxonomies
+        $taxonomies = get_object_taxonomies($post_type);
+        foreach ($taxonomies as $taxonomy) {
+            // get the terms related to post
+            $terms = get_the_terms( $post->ID, $taxonomy );
+            if ( !empty( $terms ) ) {
+                $out = array();
+                foreach ( $terms as $term )
+                    $out[] = '<a href="' .get_term_link($term->slug, $taxonomy) .'">'.$term->name.'</a>';
+                $return = join( ', ', $out );
+            }
+        }
+        return $return;
+    } ?>
+
+Now you can use this function in your themes for your post types without
+the need to input anything
+
+    <?php echo custom_taxonomies_terms_links(); ?>
+
+NOTES
+-----
+
+It uses `get_object_term_cache()` or `wp_get_object_terms()` to retrieve
+results.
+
+CHANGE LOG
+----------
+
+-   Since: [2.5.0](/Version_2.5 "Version 2.5")
+
+SOURCE FILE
+-----------
+
+`get_the_terms()` is located in `wp-includes/category-template.php`.
+

@@ -1,0 +1,106 @@
+get current screen "MAY 2013" WordPress Codex "Function Reference"
+==================================================================
+
+NAME
+----
+
+get current screen - This function returns an object that includes the screen’s ID, base,
+
+SYNOPSIS
+--------
+
+This function returns an object that includes the screen’s ID, base,
+post type, and taxonomy, among other data points
+
+USAGE
+-----
+
+`  <?php $screen = get_current_screen(); ?> `
+
+PARAMETERS
+----------
+
+None
+
+USAGE RESTRICTIONS
+------------------
+
+The function returns **null** if called from the
+[`admin_init`](/Plugin_API/Action_Reference/admin_init "Plugin API/Action Reference/admin init")
+hook. It should be OK to use in a later hook.
+
+RETURN VALUE
+------------
+
+*Example return value on a post edit page (as of WP version 3.3.1):*
+
+    WP_Screen Object
+    (
+        [action] => 
+        [base] => post
+        [id] => post
+        [is_network] => 
+        [is_user] => 
+        [parent_base] => edit
+        [parent_file] => edit.php
+        [post_type] => post
+        [taxonomy] => 
+        ...
+        (private fields)
+    )
+
+EXAMPLE
+-------
+
+### Default Usage
+
+This example shows how you would add contextual help to an admin page
+you've created with the `add_options_page()` function. Here, we assume
+that your admin page has a slug of 'my\_admin\_page' and exists under
+the Options tab.
+
+The `get_current_screen()` function is used in this example.
+
+    <?php 
+    add_action('admin_menu', 'my_admin_add_page');
+    function my_admin_add_page() {
+        global $my_admin_page;
+        $my_admin_page = add_options_page(__('My Admin Page', 'map'), __('My Admin Page', 'map'), 'manage_options', 'map', 'my_admin_page');
+
+        // Adds my_help_tab when my_admin_page loads
+        add_action('load-'.$my_admin_page, 'my_admin_add_help_tab');
+    }
+
+    function my_admin_add_help_tab () {
+        global $my_admin_page;
+        $screen = get_current_screen();
+
+        /*
+         * Check if current screen is My Admin Page
+         * Don't add help tab if it's not
+         */
+        if ( $screen->id != $my_admin_page )
+            return;
+
+        // Add my_help_tab if current screen is My Admin Page
+        $screen->add_help_tab( array(
+            'id'    => 'my_help_tab',
+            'title' => __('My Help Tab'),
+            'content'   => '<p>' . __( 'Descriptive content that will show in My Help Tab-body goes here.' ) . '</p>',
+        ) );
+    }
+    ?>
+
+CHANGE LOG
+----------
+
+-   Since: [Version 3.1](/Version_3.1 "Version 3.1")
+
+SOURCE FILE
+-----------
+
+`get_current_screen()` since [Version 3.1](/Version_3.1 "Version 3.1")
+is located in `wp-admin/includes/template.php`. Since [Version
+3.3](/Version_3.3 "Version 3.3") is moved to
+`wp-admin/includes/screen.php`.
+

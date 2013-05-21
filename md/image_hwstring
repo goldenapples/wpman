@@ -1,0 +1,99 @@
+image hwstring "MAY 2013" WordPress Codex "Function Reference"
+==============================================================
+
+NAME
+----
+
+image hwstring - Retrieve width and height attributes using given width and height
+
+SYNOPSIS
+--------
+
+Retrieve width and height attributes using given width and height
+values.
+
+Both attributes are required in the sense that both parameters must have
+a value, but are optional in that if you set them to false or null, then
+they will not be added to the returned string.
+
+You can set the value using a string, but it will only take numeric
+values. If you wish to put 'px' after the numbers, then it will be
+stripped out of the return.
+
+USAGE
+-----
+
+` <?php image_hwstring( $width, $height ); ?> `
+
+PARAMETERS
+----------
+
+ `$width` 
+:   ([*int|string*](/How_to_Pass_Tag_Parameters#Int.7Cstring "How to Pass Tag Parameters"))
+    (*required*) Optional. Width attribute value.
+    Default: *None*
+
+ `$height` 
+:   ([*int|string*](/How_to_Pass_Tag_Parameters#Int.7Cstring "How to Pass Tag Parameters"))
+    (*required*) Optional. Height attribute value.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ `` `(string)`{style="color:gray"} 
+:   HTML attributes for width and, or height.
+
+CHANGE LOG
+----------
+
+Since: [2.5](/Version_2.5 "Version 2.5")
+
+SOURCE FILE
+-----------
+
+`image_hwstring()` is located in `wp-includes/media.php`
+
+Retrieved from
+"[http://codex.wordpress.org/Function\_Reference/image\_hwstring](http://codex.wordpress.org/Function_Reference/image_hwstring)"
+
+[Categories](/Special:Categories "Special:Categories"):
+[Functions](/Category:Functions "Category:Functions") | [New page
+created](/Category:New_page_created "Category:New page created")
+
+-   [Home Page](/Main_Page)
+-   [WordPress Lessons](/WordPress_Lessons)
+-   [Getting Started](/Getting_Started_with_WordPress)
+-   [Working with WordPress](/Working_with_WordPress)
+-   [Design and Layout](/Blog_Design_and_Layout)
+-   [Advanced Topics](/Advanced_Topics)
+-   [Troubleshooting](/Troubleshooting)
+-   [Developer Docs](/Developer_Documentation)
+-   [About WordPress](/About_WordPress)
+
+### Codex Resources
+
+-   [Community portal](/Codex:Community_Portal)
+-   [Current events](/Current_events)
+-   [Recent changes](/Special:RecentChanges)
+-   [Random page](/Special:Random)
+-   [Help](/Help:Contents)
+
+[Privacy](http://wordpress.org/about/privacy/) | [License /
+GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
+WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
+| [WordPress.TV
+Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
+Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
+| [BuddyPress Social
+Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
+| [bbPress
+Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
+[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
+[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
+
+\
+
+###### Code is Poetry
+
+![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

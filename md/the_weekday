@@ -1,0 +1,49 @@
+the weekday "MAY 2013" WordPress Codex "Function Reference"
+===========================================================
+
+NAME
+----
+
+the weekday - Displays the day of the week (e.g. Friday). This tag must be used within
+
+SYNOPSIS
+--------
+
+Displays the day of the week (e.g. Friday). This tag must be used within
+[The Loop](/The_Loop "The Loop").
+
+REPLACE WITH
+------------
+
+To replace this tag, use
+[the\_time()](/Template_Tags/the_time "Template Tags/the time") with
+`'l'` as the format string:
+
+    <?php the_time('l'); ?>
+
+See [Formatting Date and
+Time](/Formatting_Date_and_Time "Formatting Date and Time") for
+information on date and time format string use.
+
+USAGE
+-----
+
+`  <?php the_weekday() ?> `
+
+PARAMETERS
+----------
+
+This tag does not accept any parameters.
+
+EXAMPLE
+-------
+
+     <p>This was posted on a <?php the_weekday() ?>.</p>
+
+CHANGE LOG
+----------
+
+-   Since: 0.71
+-   Replace By:
+    [the\_time('l')](/Formatting_Date_and_Time "Formatting Date and Time")
+

@@ -1,0 +1,87 @@
+wp login form "MAY 2013" WordPress Codex "Function Reference"
+=============================================================
+
+NAME
+----
+
+wp login form - Provides a simple login form for use anywhere within WordPress. By
+
+SYNOPSIS
+--------
+
+Provides a simple login form for use anywhere within WordPress. By
+default, it echoes the HTML immediately. Pass `array('echo' => false)`
+to return the string instead.
+
+USAGE
+-----
+
+`  <?php wp_login_form( $args ); ?> `
+
+### Default Usage
+
+`  <?php $args = array(        'echo' => true,        'redirect' => site_url( $_SERVER['REQUEST_URI'] ),         'form_id' => 'loginform',        'label_username' => __( 'Username' ),        'label_password' => __( 'Password' ),        'label_remember' => __( 'Remember Me' ),        'label_log_in' => __( 'Log In' ),        'id_username' => 'user_login',        'id_password' => 'user_pass',        'id_remember' => 'rememberme',        'id_submit' => 'wp-submit',        'remember' => true,        'value_username' => NULL,        'value_remember' => false ); ?> `
+
+PARAMETERS
+----------
+
+ `echo` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Display the results. Options are:
+    -   `1` (true)
+    -   `0` (false)
+
+Default: true
+
+ `redirect` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) URL to redirect to. **Must be absolute** (as in,
+    [http://example.com/mypage/](http://example.com/mypage/ "http://example.com/mypage/")).
+    Recommended: site\_url( '/mypage/ ' ).
+    Default: the current page
+
+ `form_id` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) form\_id.
+    Default: loginform
+
+ `remember` 
+:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
+    (*optional*) Whether to remember the values.
+    -   `1` (true)
+    -   `0` (false)
+
+Default: true
+
+ `value_username` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*) form\_id.
+    Default: 'loginform'
+
+ `value_remember` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*optional*)
+    -   `1` (true)
+    -   `0` (false)
+
+Default: false
+
+EXAMPLES
+--------
+
+### Default Usage
+
+This simple function displays a login form:
+
+    <?php wp_login_form(); ?>
+
+CHANGE LOG
+----------
+
+-   Since: [3.0.0](/Version_3.0 "Version 3.0")
+
+SOURCE FILE
+-----------
+
+`wp_login_form()` is located in `wp-includes/general-template.php`.
+

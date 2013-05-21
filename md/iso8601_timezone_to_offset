@@ -1,0 +1,52 @@
+iso8601 timezone to offset "MAY 2013" WordPress Codex "Function Reference"
+==========================================================================
+
+NAME
+----
+
+iso8601 timezone to offset - Computes an offset in seconds from an ISO 8601 timezone.
+
+SYNOPSIS
+--------
+
+Computes an offset in seconds from an ISO 8601 timezone.
+
+USAGE
+-----
+
+` <?php iso8601_timezone_to_offset( $timezone ) ?> `
+
+PARAMETERS
+----------
+
+ `$timezone` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) Either 'Z' for 0 offset or 'Â±hhmm'.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (integer|float) 
+:   The offset in seconds.
+
+EXAMPLES
+--------
+
+NOTES
+-----
+
+-   See Also: [ISO
+    8601](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601")
+
+CHANGE LOG
+----------
+
+Since: 1.5.0
+
+SOURCE FILE
+-----------
+
+`iso8601_timezone_to_offset()` is located in
+`wp-includes/formatting.php`.
+

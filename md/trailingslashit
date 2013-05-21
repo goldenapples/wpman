@@ -1,0 +1,66 @@
+trailingslashit "MAY 2013" WordPress Codex "Function Reference"
+===============================================================
+
+NAME
+----
+
+trailingslashit - Appends a trailing slash.
+
+SYNOPSIS
+--------
+
+Appends a trailing slash.
+
+Will remove trailing slash if it exists already before adding a trailing
+slash. This prevents double slashing a string or path.
+
+The primary use of this is for paths and thus should be used for paths.
+It is not restricted to paths and offers no specific path support.
+
+USAGE
+-----
+
+` <?php trailingslashit( $string ) ?> `
+
+PARAMETERS
+----------
+
+ `$string` 
+:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
+    (*required*) What to add the trailing slash to.
+    Default: *None*
+
+RETURN VALUES
+-------------
+
+ (string) 
+:   String with trailing slash added.
+
+EXAMPLES
+--------
+
+    <?php
+    $path = trailingslashit( '/home/julien/bin/dotfiles' ); 
+    ?>
+
+\$path will now contain: ` /home/julien/bin/dotfiles/` (Notice the
+trailing slash)
+
+NOTES
+-----
+
+-   Uses:
+    [`untrailingslashit()`](/Function_Reference/untrailingslashit "Function Reference/untrailingslashit")
+    Unslashes string if it was slashed already.
+-   This: '`/`' is a slash.
+
+CHANGE LOG
+----------
+
+Since: 1.2.0
+
+SOURCE FILE
+-----------
+
+`trailingslashit()` is located in `wp-includes/formatting.php`.
+
