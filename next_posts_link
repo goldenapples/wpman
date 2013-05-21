@@ -1,71 +1,278 @@
-Function Reference/next posts link « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Prints a link to the next set of posts within the current query.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/next posts link,Function Reference,Function Reference/get next posts link,Function Reference/get previous posts link,Function Reference/next image link,Function Reference/next post link,Function Reference/paginate links,Function Reference/posts nav link,Function Reference/previous image link,Function Reference/previous post link,Function Reference/previous posts link" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/next posts link &laquo; WordPress Codex</title>
 
-If you need the values for use in PHP, use
-[get\_next\_posts\_link()](/Function_Reference/get_next_posts_link "Function Reference/get next posts link").
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-Because post queries are usually sorted in reverse chronological order,
-`next_posts_link()` usually points to older entries (toward the end of
-the set) and `previous_posts_link()` usually points to newer entries
-(toward the beginning of the set).
 
-Usage
------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-`  <?php next_posts_link( $label , $max_pages ); ?> `
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Parameters
-----------
+</head>
 
- `$label` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) The link text.
-    Default: 'Next Page »'
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
- `$max_pages` 
-:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
-    (*optional*) Limit the number of pages on which the link is
-    displayed. The default value "0" means "no limit".
-    Default: 0
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-Examples
---------
 
-### Default Usage
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/next_posts_link">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-    <?php next_posts_link(); ?>
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/next posts link</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<a href="/Template_Tags/next_posts_link" title="Template Tags/next posts link" class="mw-redirect">English</a> • 
+<a href="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/next_posts_link" class="external text" title="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/next_posts_link">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Default_Usage"><span class="tocnumber">4.1</span> <span class="toctext">Default Usage</span></a></li>
+<li class="toclevel-2"><a href="#Working_example"><span class="tocnumber">4.2</span> <span class="toctext">Working example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Resources"><span class="tocnumber">6</span> <span class="toctext">Resources</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Prints a link to the next set of posts within the current query.
+</p><p>If you need the values for use in PHP, use <a href="/Function_Reference/get_next_posts_link" title="Function Reference/get next posts link">get_next_posts_link()</a>.
+</p><p>Because post queries are usually sorted in reverse chronological order, <tt>next_posts_link()</tt> usually points to older entries (toward the end of the set) and <tt>previous_posts_link()</tt> usually points to newer entries (toward the beginning of the set).
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;next_posts_link</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$label&nbsp;</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$max_pages&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$label</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) The link text.
+<dl><dd> Default: 'Next Page &raquo;'
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$max_pages</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Integer" title="How to Pass Tag Parameters"><i>integer</i></a>) (<i>optional</i>) Limit the number of pages on which the link is displayed. The default value "0" means "no limit".
+<dl><dd> Default: 0
+</dd></dl>
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples  </span></h2>
+<a name="Default_Usage" id="Default_Usage"></a><h3> <span class="mw-headline">Default Usage</span></h3>
+<pre>&lt;?php next_posts_link();&nbsp;?&gt;
+</pre>
+<a name="Working_example" id="Working_example"></a><h3> <span class="mw-headline">Working example</span></h3>
+<pre>&lt;?php next_posts_link('Older Entries &raquo;', 0);&nbsp;?&gt;
+</pre>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<ul><li> This function will not work (fail silently) if <tt>mysql.trace_mode</tt> is enabled in your <tt>php.ini</tt>. If you can't edit that file, try adding <tt>ini_set( 'mysql.trace_mode', 0 );</tt> to your theme's <tt>functions.php</tt>.
+</li></ul>
+<ul><li> See also: <a href="/Template_Tags/previous_posts_link" title="Template Tags/previous posts link" class="mw-redirect">previous_posts_link()</a> and <a href="/Template_Tags/next_post_link" title="Template Tags/next post link" class="mw-redirect">next_post_link()</a>.
+</li></ul>
+<a name="Resources" id="Resources"></a><h2> <span class="mw-headline">Resources</span></h2>
+<ul><li> <a href="http://digwp.com/2009/08/wordpress-page-navigation/" class="external text" title="http://digwp.com/2009/08/wordpress-page-navigation/">Digging into Wordpress - Definitive Guide to WordPress Page Navigation</a>
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<p>Since: 0.71
+</p>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>next_posts_link()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/link-template.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/link-template.php#L0">wp-includes/link-template.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Pagination" title="Pagination"> Pagination</a>:
+<a href="/Function_Reference/posts_nav_link" title="Function Reference/posts nav link"> posts_nav_link()</a>,
+<strong class="selflink"> next_posts_link()</strong>,
+<a href="/Function_Reference/previous_posts_link" title="Function Reference/previous posts link"> previous_posts_link()</a>,
+<a href="/Function_Reference/get_next_posts_link" title="Function Reference/get next posts link"> get_next_posts_link()</a>,
+<a href="/Function_Reference/get_previous_posts_link" title="Function Reference/get previous posts link"> get_previous_posts_link()</a>,
+<a href="/Function_Reference/paginate_links" title="Function Reference/paginate links"> paginate_links()</a>
+<a href="/Function_Reference/wp_link_pages" title="Function Reference/wp link pages"> wp_link_pages()</a>,
+<a href="/Function_Reference/next_post_link" title="Function Reference/next post link"> next_post_link()</a>,
+<a href="/Function_Reference/previous_post_link" title="Function Reference/previous post link"> previous_post_link()</a>, 
+<a href="/Function_Reference/next_image_link" title="Function Reference/next image link"> next_image_link()</a>,
+<a href="/Function_Reference/previous_image_link" title="Function Reference/previous image link"> previous_image_link()</a>,
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-### Working example
+<!-- 
+NewPP limit report
+Preprocessor node count: 95/1000000
+Post-expand include size: 2494/2097152 bytes
+Template argument size: 625/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/next_posts_link">http://codex.wordpress.org/Function_Reference/next_posts_link</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Template_Tags" title="Category:Template Tags">Template Tags</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-    <?php next_posts_link('Older Entries »', 0); ?>
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-Notes
------
 
--   This function will not work (fail silently) if `mysql.trace_mode` is
-    enabled in your `php.ini`. If you can't edit that file, try adding
-    `ini_set( 'mysql.trace_mode', 0 );` to your theme's `functions.php`.
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
--   See also:
-    [previous\_posts\_link()](/Template_Tags/previous_posts_link "Template Tags/previous posts link")
-    and
-    [next\_post\_link()](/Template_Tags/next_post_link "Template Tags/next post link").
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Resources
----------
 
--   [Digging into Wordpress - Definitive Guide to WordPress Page
-    Navigation](http://digwp.com/2009/08/wordpress-page-navigation/ "http://digwp.com/2009/08/wordpress-page-navigation/")
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213636 -->
+</html>
 
-Change Log
-----------
-
-Since: 0.71
-
-Source File
------------
-
-`next_posts_link()` is located in `wp-includes/link-template.php`.
+</body>
+<!-- Cached 20130405213636 -->
+</html>
 

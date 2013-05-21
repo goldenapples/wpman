@@ -1,258 +1,474 @@
-Function Reference/wp dropdown categories « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Display or retrieve the HTML dropdown list of categories.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/wp dropdown categories,Function Reference,Function Reference/category description,Function Reference/get categories,Function Reference/get category by slug,Function Reference/get category link,Function Reference/get category parents,Function Reference/get the category,Function Reference/get the category by ID,Function Reference/get the category list,Function Reference/in category" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/wp dropdown categories &laquo; WordPress Codex</title>
 
-Usage
------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-`  <?php wp_dropdown_categories( $args ); ?> `
 
-### Default Usage
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-    <?php $args = array(
-        'show_option_all'    => '',
-        'show_option_none'   => '',
-        'orderby'            => 'ID', 
-        'order'              => 'ASC',
-        'show_count'         => 0,
-        'hide_empty'         => 1, 
-        'child_of'           => 0,
-        'exclude'            => '',
-        'echo'               => 1,
-        'selected'           => 0,
-        'hierarchical'       => 0, 
-        'name'               => 'cat',
-        'id'                 => '',
-        'class'              => 'postform',
-        'depth'              => 0,
-        'tab_index'          => 0,
-        'taxonomy'           => 'category',
-        'hide_if_empty'      => false
-    ); ?>
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-By default, the usage shows:
+</head>
 
--   Sorts by category id in ascending order
--   Does not show the count of posts within a category
--   Does not show 'empty' categories
--   Excludes nothing
--   Displays (echos) the categories
--   No category is 'selected' in the form
--   Does not display the categories in a hierarchical structure
--   Assigns 'cat' to the form name
--   Assigns the form to the class 'postform'
--   No select ID so will default to 'name'
--   Class of postform
--   No depth limit
--   Tab index of 0
--   Use taxonomy = category
--   Hide dropdown if no terms returned
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-Parameters
-----------
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
- `$args` 
-:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
-    (*optional*) Override default arguments. See Notes.
-    Default:
 
-Return Values
--------------
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/wp_dropdown_categories">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
- (string) 
-:   HTML content only if '`echo`' argument is 0.
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/wp dropdown categories</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_dropdown_categories" class="external text" title="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_dropdown_categories">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Default_Usage"><span class="tocnumber">2.1</span> <span class="toctext">Default Usage</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Arguments"><span class="tocnumber">5</span> <span class="toctext">Arguments</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Dropdown_with_Submit_Button"><span class="tocnumber">6.1</span> <span class="toctext">Dropdown with Submit Button</span></a></li>
+<li class="toclevel-2"><a href="#Dropdown_without_a_Submit_Button_using_JavaScript"><span class="tocnumber">6.2</span> <span class="toctext">Dropdown without a Submit Button using JavaScript</span></a></li>
+<li class="toclevel-2"><a href="#Dropdown_without_a_Submit_Button_using_JavaScript_.282.29"><span class="tocnumber">6.3</span> <span class="toctext">Dropdown without a Submit Button using JavaScript (2)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Multiple_values"><span class="tocnumber">7</span> <span class="toctext">Multiple values</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">8</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">9</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">10</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Display or retrieve the HTML dropdown list of categories. 
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;wp_dropdown_categories</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$args&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Default_Usage" id="Default_Usage"></a><h3> <span class="mw-headline"> Default Usage </span></h3>
+<pre>
+&lt;?php $args = array(
+	'show_option_all'    =&gt; '',
+	'show_option_none'   =&gt; '',
+	'orderby'            =&gt; 'ID', 
+	'order'              =&gt; 'ASC',
+	'show_count'         =&gt; 0,
+	'hide_empty'         =&gt; 1, 
+	'child_of'           =&gt; 0,
+	'exclude'            =&gt; '',
+	'echo'               =&gt; 1,
+	'selected'           =&gt; 0,
+	'hierarchical'       =&gt; 0, 
+	'name'               =&gt; 'cat',
+	'id'                 =&gt; '',
+	'class'              =&gt; 'postform',
+	'depth'              =&gt; 0,
+	'tab_index'          =&gt; 0,
+	'taxonomy'           =&gt; 'category',
+	'hide_if_empty'      =&gt; false
+);&nbsp;?&gt;
+</pre>
+<p>By default, the usage shows:
+</p>
+<ul><li> Sorts by category id in ascending order
+</li><li> Does not show the count of posts within a category
+</li><li> Does not show 'empty' categories
+</li><li> Excludes nothing
+</li><li> Displays (echos) the categories
+</li><li> No category is 'selected' in the form
+</li><li> Does not display the categories in a hierarchical structure 
+</li><li> Assigns 'cat' to the form name
+</li><li> Assigns the form to the class 'postform'
+</li><li> No select ID so will default to 'name'
+</li><li> Class of postform
+</li><li> No depth limit
+</li><li> Tab index of 0
+</li><li> Use taxonomy = category
+</li><li> Hide dropdown if no terms returned
+</li></ul>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$args</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String.7Carray" title="How to Pass Tag Parameters"><i>string&#124;array</i></a>) (<i>optional</i>) Override default arguments. See Notes.
+<dl><dd> Default:  
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<dl><dt> (string)&nbsp;</dt><dd> HTML content only if '<tt>echo</tt>' argument is 0.
+</dd></dl>
+<a name="Arguments" id="Arguments"></a><h2> <span class="mw-headline"> Arguments </span></h2>
+<dl><dt> <tt>show_option_all</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Text to display for showing an '<tt>all categories</tt>' option. Default will not show an option to select '<tt>all categories</tt>'.
+<dl><dd> Default: &#39;&#39;
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>show_option_none</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Text to display for showing a '<tt>no categories</tt>' option. Default will not show an option to select '<tt>no categories</tt>'.
+<dl><dd> Default: &#39;&#39;
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>orderby</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Column name to use for ordering the categories.
+<dl><dd> Default: 'ID'
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>order</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Direction to sort categories. Valid values are '<tt>ASC</tt>' and '<tt>DESC</tt>'.
+<dl><dd> Default: 'ASC'
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>show_count</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Boolean" title="How to Pass Tag Parameters"><i>boolean</i></a>) (<i>optional</i>) Show (1/True) or hide (0/False) post count in category.
+<dl><dd> Default: 0/False
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>hide_empty</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Boolean" title="How to Pass Tag Parameters"><i>boolean</i></a>) (<i>optional</i>) Show (0/False) or hide (1/True) category with no posts.
+<dl><dd> Default: 1/True
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>child_of</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Integer" title="How to Pass Tag Parameters"><i>integer</i></a>) (<i>optional</i>) Display all categories that are descendants (i.e. children &amp; grandchildren) of the category identified by its ID. See <a href="/Function_Reference/get_categories" title="Function Reference/get categories"><tt>get_categories()</tt></a>.
+<dl><dd> Default: 0/False
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>exclude</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Category IDs to exclude. See <a href="/Function_Reference/get_categories" title="Function Reference/get categories"><tt>get_categories()</tt></a>.
+<dl><dd> Default: &#39;&#39;
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>exclude_tree</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) optional
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>echo</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Boolean" title="How to Pass Tag Parameters"><i>boolean</i></a>) (<i>optional</i>) Send output to browser (1/True) or return output to PHP (0/False)
+<dl><dd> Default: 1/True
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>depth</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Integer" title="How to Pass Tag Parameters"><i>integer</i></a>) (<i>optional</i>) The max depth. This is ignore unless hierarchical is set to true.
+<dl><dd> Default: 0/False
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>tab_index</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Integer" title="How to Pass Tag Parameters"><i>integer</i></a>) (<i>optional</i>) The '<tt>tabindex</tt>' attribute for the select element.
+<dl><dd> Default: 0/False
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>name</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) The '<tt>name</tt>' attribute value for select element.
+<dl><dd> Default: 'cat'
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>id</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) The '<tt>id</tt>' attribute value for select element.
+<dl><dd> Default: 'name'
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>class</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) The '<tt>class</tt>' attribute value for select element.
+<dl><dd> Default: 'postform'
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>selected</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Integer" title="How to Pass Tag Parameters"><i>integer</i></a>) (<i>optional</i>) Which category ID is selected.
+<dl><dd> Default: 0/False
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>hierarchical</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Boolean" title="How to Pass Tag Parameters"><i>boolean</i></a>) (<i>optional</i>) Display all categories (0/False) or display categories (1/True) to a depth of '<tt>depth</tt>'.
+<dl><dd> Default: 0/False
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>pad_counts</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Boolean" title="How to Pass Tag Parameters"><i>boolean</i></a>) (<i>optional</i>) Calculates link or post counts by including items from child categories.  If '<tt>show_counts</tt>' and '<tt>hierarchical</tt>' are true this is automatically set to true.
+<dl><dd> Default: 0/False
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>taxonomy</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Taxonomy to return. Valid values are '<tt>category</tt>', '<tt>post_tag</tt>' or any registered <a href="/Taxonomies" title="Taxonomies">taxonomy</a>.
+<dl><dd> Default: category
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>hide_if_empty</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Boolean" title="How to Pass Tag Parameters"><i>boolean</i></a>) (<i>optional</i>) Hide dropdown (1/True) or show (0/False) if no terms returned.
+<dl><dd> Default: 0/False
+</dd></dl>
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Dropdown_with_Submit_Button" id="Dropdown_with_Submit_Button"></a><h3> <span class="mw-headline"> Dropdown with Submit Button </span></h3>
+<p>Displays a hierarchical category dropdown list in HTML form with a submit button, in a WordPress sidebar unordered list, with a count of posts in each category.
+</p>
+<pre>
+&lt;li id=&quot;categories&quot;&gt;
+	&lt;h2&gt;&lt;?php _e('Categories:');&nbsp;?&gt;&lt;/h2&gt;
+	&lt;form action=&quot;&lt;?php bloginfo('url');&nbsp;?&gt;&quot; method=&quot;get&quot;&gt;
+	&lt;div&gt;
+	&lt;?php wp_dropdown_categories('show_count=1&amp;hierarchical=1');&nbsp;?&gt;
+	&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;view&quot; /&gt;
+	&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/li&gt;
+</pre>
+<a name="Dropdown_without_a_Submit_Button_using_JavaScript" id="Dropdown_without_a_Submit_Button_using_JavaScript"></a><h3> <span class="mw-headline"> Dropdown without a Submit Button using JavaScript </span></h3>
+<p>Example depicts using the show_option_none parameter and was gleaned from <a href="http://wordpress.org/support/topic/145489?replies=13#post-657759" class="external text" title="http://wordpress.org/support/topic/145489?replies=13#post-657759">Moshu's forum post</a>.
+</p>
+<pre>
+&lt;li id=&quot;categories&quot;&gt;&lt;h2&gt;&lt;?php _e('Posts by Category');&nbsp;?&gt;&lt;/h2&gt;
+	&lt;?php wp_dropdown_categories('show_option_none=Select category');&nbsp;?&gt;
 
-Arguments
----------
+&lt;script type=&quot;text/javascript&quot;&gt;&lt;!--
+    var dropdown = document.getElementById(&quot;cat&quot;);
+    function onCatChange() {
+		if ( dropdown.options[dropdown.selectedIndex].value &gt; 0 ) {
+			location.href = &quot;&lt;?php echo get_option('home');
+?&gt;/?cat=&quot;+dropdown.options[dropdown.selectedIndex].value;
+		}
+    }
+    dropdown.onchange = onCatChange;
+--&gt;&lt;/script&gt;
+&lt;/li&gt;
+</pre>
+<a name="Dropdown_without_a_Submit_Button_using_JavaScript_.282.29" id="Dropdown_without_a_Submit_Button_using_JavaScript_.282.29"></a><h3> <span class="mw-headline"> Dropdown without a Submit Button using JavaScript (2) </span></h3>
+<p>In this example the <i>echo</i> parameter (echo=0) is used. A simple <i>preg_replace</i> inserts the JavaScript code. It even works without JavaScript (submit button is wrapped by <i>noscript</i> tags).
+</p>
+<pre>
+&lt;li id=&quot;categories&quot;&gt;
+	&lt;h2&gt;&lt;?php _e('Posts by Category');&nbsp;?&gt;&lt;/h2&gt;
+	&lt;form action=&quot;&lt;?php bloginfo('url');&nbsp;?&gt;/&quot; method=&quot;get&quot;&gt;
+	&lt;div&gt;
+&lt;?php
+$select = wp_dropdown_categories('show_option_none=Select category&amp;show_count=1&amp;orderby=name&amp;echo=0');
+$select = preg_replace(&quot;#&lt;select([^&gt;]*)&gt;#&quot;, &quot;&lt;select$1 onchange='return this.form.submit()'&gt;&quot;, $select);
+echo $select;
+?&gt;
+	&lt;noscript&gt;&lt;div&gt;&lt;input type=&quot;submit&quot; value=&quot;View&quot; /&gt;&lt;/div&gt;&lt;/noscript&gt;
+	&lt;/div&gt;&lt;/form&gt;
+&lt;/li&gt;
+</pre>
+<a name="Multiple_values" id="Multiple_values"></a><h2> <span class="mw-headline"> Multiple values </span></h2>
+<p>If you want to allow users to select multiple values, use <a href="/Function_Reference/wp_category_checklist" title="Function Reference/wp category checklist">wp_category_checklist</a>.
+</p>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> Since: <a href="/Version_2.1" title="Version 2.1">2.1</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>wp_dropdown_categories()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category-template.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category-template.php#L0">wp-includes/category-template.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Taxonomies" title="Taxonomies"><b>Categories</b></a>: 
+<a href="/Function_Reference/the_category" title="Function Reference/the category"> the_category()</a>, 
+<a href="/Function_Reference/the_category_rss" title="Function Reference/the category rss"> the_category_rss()</a>, 
+<a href="/Function_Reference/single_cat_title" title="Function Reference/single cat title"> single_cat_title()</a>, 
+<a href="/Function_Reference/category_description" title="Function Reference/category description"> category_description()</a>, 
+<strong class="selflink"> wp_dropdown_categories()</strong>, 
+<a href="/Function_Reference/wp_list_categories" title="Function Reference/wp list categories" class="mw-redirect"> wp_list_categories()</a>, 
+<a href="/Function_Reference/get_the_category" title="Function Reference/get the category"> get_the_category()</a>, 
+<a href="/Function_Reference/get_the_category_by_ID" title="Function Reference/get the category by ID"> get_the_category_by_ID()</a>,
+<a href="/Function_Reference/get_category_by_slug" title="Function Reference/get category by slug"> get_category_by_slug()</a>, 
+<a href="/Function_Reference/get_the_category_list" title="Function Reference/get the category list"> get_the_category_list()</a>, 
+<a href="/Function_Reference/get_category_parents" title="Function Reference/get category parents"> get_category_parents()</a>, 
+<a href="/Function_Reference/get_category_link" title="Function Reference/get category link"> get_category_link()</a>, 
+<a href="/Function_Reference/is_category" title="Function Reference/is category"> is_category()</a>, 
+<a href="/Function_Reference/in_category" title="Function Reference/in category"> in_category()</a>
+</p><p><a href="/Function_Reference/wp_list_authors" title="Function Reference/wp list authors"> wp_list_authors()</a>, 
+<a href="/Function_Reference/wp_list_categories" title="Function Reference/wp list categories" class="mw-redirect"> wp_list_categories()</a>, 
+<a href="/Function_Reference/wp_list_pages" title="Function Reference/wp list pages"> wp_list_pages()</a>, 
+<a href="/Function_Reference/wp_list_bookmarks" title="Function Reference/wp list bookmarks"> wp_list_bookmarks()</a>, 
+<a href="/Function_Reference/wp_list_comments" title="Function Reference/wp list comments"> wp_list_comments()</a>, 
+<a href="/Function_Reference/wp_get_archives" title="Function Reference/wp get archives"> wp_get_archives()</a>, 
+<a href="/Function_Reference/wp_page_menu" title="Function Reference/wp page menu"> wp_page_menu()</a>, 
+<a href="/Function_Reference/wp_dropdown_pages" title="Function Reference/wp dropdown pages"> wp_dropdown_pages()</a>, 
+<strong class="selflink"> wp_dropdown_categories()</strong>, 
+<a href="/Function_Reference/wp_dropdown_users" title="Function Reference/wp dropdown users"> wp_dropdown_users()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
- `show_option_all` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Text to display for showing an '`all categories`'
-    option. Default will not show an option to select
-    '`all categories`'.
-    Default: ''
+<!-- 
+NewPP limit report
+Preprocessor node count: 375/1000000
+Post-expand include size: 7167/2097152 bytes
+Template argument size: 2900/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/wp_dropdown_categories">http://codex.wordpress.org/Function_Reference/wp_dropdown_categories</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Template_Tags" title="Category:Template Tags">Template Tags</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
- `show_option_none` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Text to display for showing a '`no categories`' option.
-    Default will not show an option to select '`no categories`'.
-    Default: ''
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
- `orderby` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Column name to use for ordering the categories.
-    Default: 'ID'
 
- `order` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Direction to sort categories. Valid values are '`ASC`'
-    and '`DESC`'.
-    Default: 'ASC'
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
- `show_count` 
-:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
-    (*optional*) Show (1/True) or hide (0/False) post count in category.
-    Default: 0/False
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
- `hide_empty` 
-:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
-    (*optional*) Show (0/False) or hide (1/True) category with no posts.
-    Default: 1/True
 
- `child_of` 
-:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
-    (*optional*) Display all categories that are descendants (i.e.
-    children & grandchildren) of the category identified by its ID. See
-    [`get_categories()`](/Function_Reference/get_categories "Function Reference/get categories").
-    Default: 0/False
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213700 -->
+</html>
 
- `exclude` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Category IDs to exclude. See
-    [`get_categories()`](/Function_Reference/get_categories "Function Reference/get categories").
-    Default: ''
-
- `exclude_tree` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) optional
-    Default: *None*
-
- `echo` 
-:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
-    (*optional*) Send output to browser (1/True) or return output to PHP
-    (0/False)
-    Default: 1/True
-
- `depth` 
-:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
-    (*optional*) The max depth. This is ignore unless hierarchical is
-    set to true.
-    Default: 0/False
-
- `tab_index` 
-:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
-    (*optional*) The '`tabindex`' attribute for the select element.
-    Default: 0/False
-
- `name` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) The '`name`' attribute value for select element.
-    Default: 'cat'
-
- `id` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) The '`id`' attribute value for select element.
-    Default: 'name'
-
- `class` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) The '`class`' attribute value for select element.
-    Default: 'postform'
-
- `selected` 
-:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
-    (*optional*) Which category ID is selected.
-    Default: 0/False
-
- `hierarchical` 
-:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
-    (*optional*) Display all categories (0/False) or display categories
-    (1/True) to a depth of '`depth`'.
-    Default: 0/False
-
- `pad_counts` 
-:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
-    (*optional*) Calculates link or post counts by including items from
-    child categories. If '`show_counts`' and '`hierarchical`' are true
-    this is automatically set to true.
-    Default: 0/False
-
- `taxonomy` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Taxonomy to return. Valid values are '`category`',
-    '`post_tag`' or any registered [taxonomy](/Taxonomies "Taxonomies").
-    Default: category
-
- `hide_if_empty` 
-:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
-    (*optional*) Hide dropdown (1/True) or show (0/False) if no terms
-    returned.
-    Default: 0/False
-
-Examples
---------
-
-### Dropdown with Submit Button
-
-Displays a hierarchical category dropdown list in HTML form with a
-submit button, in a WordPress sidebar unordered list, with a count of
-posts in each category.
-
-    <li id="categories">
-        <h2><?php _e('Categories:'); ?></h2>
-        <form action="<?php bloginfo('url'); ?>" method="get">
-        <div>
-        <?php wp_dropdown_categories('show_count=1&hierarchical=1'); ?>
-        <input type="submit" name="submit" value="view" />
-        </div>
-        </form>
-    </li>
-
-### Dropdown without a Submit Button using JavaScript
-
-Example depicts using the show\_option\_none parameter and was gleaned
-from [Moshu's forum
-post](http://wordpress.org/support/topic/145489?replies=13#post-657759 "http://wordpress.org/support/topic/145489?replies=13#post-657759").
-
-    <li id="categories"><h2><?php _e('Posts by Category'); ?></h2>
-        <?php wp_dropdown_categories('show_option_none=Select category'); ?>
-
-    <script type="text/javascript"><!--
-        var dropdown = document.getElementById("cat");
-        function onCatChange() {
-            if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
-                location.href = "<?php echo get_option('home');
-    ?>/?cat="+dropdown.options[dropdown.selectedIndex].value;
-            }
-        }
-        dropdown.onchange = onCatChange;
-    --></script>
-    </li>
-
-### Dropdown without a Submit Button using JavaScript (2)
-
-In this example the *echo* parameter (echo=0) is used. A simple
-*preg\_replace* inserts the JavaScript code. It even works without
-JavaScript (submit button is wrapped by *noscript* tags).
-
-    <li id="categories">
-        <h2><?php _e('Posts by Category'); ?></h2>
-        <form action="<?php bloginfo('url'); ?>/" method="get">
-        <div>
-    <?php
-    $select = wp_dropdown_categories('show_option_none=Select category&show_count=1&orderby=name&echo=0');
-    $select = preg_replace("#<select([^>]*)>#", "<select$1 onchange='return this.form.submit()'>", $select);
-    echo $select;
-    ?>
-        <noscript><div><input type="submit" value="View" /></div></noscript>
-        </div></form>
-    </li>
-
-Multiple values
----------------
-
-If you want to allow users to select multiple values, use
-[wp\_category\_checklist](/Function_Reference/wp_category_checklist "Function Reference/wp category checklist").
-
-Change Log
-----------
-
--   Since: [2.1](/Version_2.1 "Version 2.1")
-
-Source File
------------
-
-`wp_dropdown_categories()` is located in
-`wp-includes/category-template.php`.
+</body>
+<!-- Cached 20130405213700 -->
+</html>
 

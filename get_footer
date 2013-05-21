@@ -1,79 +1,282 @@
-Function Reference/get footer « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-[Includes](/Include_Tags "Include Tags") the `footer.php` template file
-from your current theme's directory. if a name is specified then a
-specialised footer `footer-{name}.php` will be included.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get footer,Function Reference,Function Reference/comments template,Function Reference/do action,Function Reference/get header,Function Reference/get search form,Function Reference/get sidebar,Function Reference/get template part,Function Reference/locate template,How to Pass Tag Parameters,Include Tags" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get footer &laquo; WordPress Codex</title>
 
-If the theme contains no `footer.php` file then the footer from the
-default theme `wp-includes/theme-compat/footer.php` will be included.
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-Usage
------
 
-` <?php get_footer( $name ); ?> `
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-Parameters
-----------
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
- `$name` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Calls for `footer-name.php`.
-    Default: *None*
+</head>
 
-Return Values
--------------
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-None.
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-Examples
---------
 
-### Simple 404 page
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_footer">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-The following code is a simple example of a template for an "HTTP 404:
-Not Found" error (which you could include in your
-[Theme](/Theme_Development "Theme Development") as `404.php`).
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get footer</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Simple_404_page"><span class="tocnumber">5.1</span> <span class="toctext">Simple 404 page</span></a></li>
+<li class="toclevel-2"><a href="#Mullti_footers"><span class="tocnumber">5.2</span> <span class="toctext">Mullti footers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline">Description</span></h2>
+<p><a href="/Include_Tags" title="Include Tags">Includes</a> the <tt>footer.php</tt> template file from your current theme's directory. if a name is specified then a specialised footer <tt>footer-{name}.php</tt> will be included.
+</p><p>If the theme contains no <tt>footer.php</tt> file then the footer from the default theme <code>wp-includes/theme-compat/footer.php</code> will be included.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline">Usage</span></h2>
+<p><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;get_footer</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline">Parameters</span></h2>
+<dl><dt> <tt>$name</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Calls for <tt>footer-name.php</tt>.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<p>None.
+</p>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline">Examples</span></h2>
+<a name="Simple_404_page" id="Simple_404_page"></a><h3> <span class="mw-headline">Simple 404 page</span></h3>
+<p>The following code is a simple example of a template for an "HTTP 404: Not Found" error (which you could include in your <a href="/Theme_Development" title="Theme Development">Theme</a> as <tt>404.php</tt>).
+</p>
+<pre>
+&lt;?php get_header();&nbsp;?&gt;
+&lt;h2&gt;Error 404 - Not Found&lt;/h2&gt;
+&lt;?php get_sidebar();&nbsp;?&gt;
+&lt;?php get_footer();&nbsp;?&gt;
+</pre>
+<a name="Mullti_footers" id="Mullti_footers"></a><h3> <span class="mw-headline">Mullti footers</span></h3>
+<p>Different footer for different pages.
+</p>
+<pre>
+&lt;?php
+if ( is_home() )&nbsp;:
+	get_footer( 'home' );
+elseif ( is_404() )&nbsp;:
+	get_footer( '404' );
+else&nbsp;:
+	get_footer();
+endif;
+?&gt;
+</pre>
+<p>The file names for the home and 404 footers should be <tt>footer-home.php</tt> and <tt>footer-404.php</tt> respectively.
+</p>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline">Notes</span></h2>
+<ul><li> Uses: <a href="/Function_Reference/locate_template" title="Function Reference/locate template">locate_template()</a>
+</li><li> Uses: <a href="/Function_Reference/do_action" title="Function Reference/do action">do_action()</a> Calls 'get_footer' action.
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline">Change Log</span></h2>
+<ul><li> Since: <a href="/Version_1.5" title="Version 1.5">1.5.0</a>
+</li><li> <a href="/Version_2.7" title="Version 2.7">2.7.0</a>&nbsp;: Added the '<code>name</code>' parameters.
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline">Source File</span></h2>
+<p><tt>get_footer()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/general-template.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/general-template.php#L0">wp-includes/general-template.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline">Related</span></h2>
+<p><a href="/Include_Tags" title="Include Tags"><b>Include Tags</b></a>: 
+<a href="/Function_Reference/get_header" title="Function Reference/get header"> get_header()</a>, 
+<strong class="selflink"> get_footer()</strong>, 
+<a href="/Function_Reference/get_sidebar" title="Function Reference/get sidebar"> get_sidebar()</a>, 
+<a href="/Function_Reference/get_template_part" title="Function Reference/get template part"> get_template_part()</a>, 
+<a href="/Function_Reference/get_search_form" title="Function Reference/get search form"> get_search_form()</a>, 
+<a href="/Function_Reference/comments_template" title="Function Reference/comments template"> comments_template()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-    <?php get_header(); ?>
-    <h2>Error 404 - Not Found</h2>
-    <?php get_sidebar(); ?>
-    <?php get_footer(); ?>
+<!-- 
+NewPP limit report
+Preprocessor node count: 65/1000000
+Post-expand include size: 1204/2097152 bytes
+Template argument size: 250/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_footer">http://codex.wordpress.org/Function_Reference/get_footer</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-### Mullti footers
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-Different footer for different pages.
 
-    <?php
-    if ( is_home() ) :
-        get_footer( 'home' );
-    elseif ( is_404() ) :
-        get_footer( '404' );
-    else :
-        get_footer();
-    endif;
-    ?>
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-The file names for the home and 404 footers should be `footer-home.php`
-and `footer-404.php` respectively.
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Notes
------
 
--   Uses:
-    [locate\_template()](/Function_Reference/locate_template "Function Reference/locate template")
--   Uses:
-    [do\_action()](/Function_Reference/do_action "Function Reference/do action")
-    Calls 'get\_footer' action.
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213725 -->
+</html>
 
-Change Log
-----------
-
--   Since: [1.5.0](/Version_1.5 "Version 1.5")
--   [2.7.0](/Version_2.7 "Version 2.7") : Added the '`name`' parameters.
-
-Source File
------------
-
-`get_footer()` is located in `wp-includes/general-template.php`.
+</body>
+<!-- Cached 20130405213725 -->
+</html>
 

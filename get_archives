@@ -1,112 +1,320 @@
-Function Reference/get archives « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Displays a list of links to date-based archives. This tag can be used
-anywhere within a template.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get archives,Function Reference,Function Reference/,Function Reference/wp dropdown categories,Function Reference/wp dropdown pages,Function Reference/wp dropdown users,Function Reference/wp get archives,Function Reference/wp list authors,Function Reference/wp list bookmarks,Function Reference/wp list categories,Function Reference/wp list comments" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get archives &laquo; WordPress Codex</title>
 
-Replace With
-------------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
--   [wp\_get\_archives()](/Template_Tags/wp_get_archives "Template Tags/wp get archives")
 
-Usage
------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-`  <?php get_archives( $type, $limit, $format, $before, $after, $show_post_count ); ?> `
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Parameters
-----------
+</head>
 
- type 
-:   (*string*) The type of archive list to display. Defaults to
-    WordPress setting (defaults to `'monthly'` in 1.5). Valid values:
-    -   `'monthly'` (Default)
-    -   `'daily'`
-    -   `'weekly'`
-    -   `'postbypost'`
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
- limit 
-:   (*integer*) Number of archives to get. Use `''` for no limit.
- format 
-:   (*string*) Format for the archive list. Valid values:
-    -   `'html'` - In HTML list (\<li\>) tags. This is the default.
-    -   `'option'` - In select or dropdown option (\<option\>) tags.
-    -   `'link'` - Within link (\<link\>) tags.
-    -   `'custom'` - Custom list.
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
- before 
-:   (*string*) Text to place before the link when using `'custom'` or
-    `'html'` for **format** option. Defaults to `''`.
- after 
-:   (*string*) Text to place after the link when using `'custom'` or
-    `'html'` for **format** option. Defaults to `''`.
- show\_post\_count 
-:   (*boolean*) Display number of posts in an archive (`TRUE`) or do not
-    (`FALSE`). For use when **type** is set to `'monthly'`. Defaults to
-    `FALSE`.
 
-Examples
---------
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_archives">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-### Default Usage
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get archives</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/get_archives" class="external text" title="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/get_archives">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<hr />
+<div style="clear:both; background-color:#FFFFFF; border:1px solid #FFFFFF; color:#c00; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;"><b>This function has been <a href="/Category:Deprecated_Functions" title="Category:Deprecated Functions">deprecated</a>.  That means it has been replaced by a new function or is no longer supported, and may be removed from future versions.  All code that uses this function should be converted to use its replacement if one exists. See also <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/deprecated.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/deprecated.php#L0">wp-includes/deprecated.php</a></code>.</b>
+Use <a href="/Function_Reference/" title="Function Reference/" class="mw-redirect">any of these functions</a> instead.</div>
+<hr />
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Replace_With"><span class="tocnumber">2</span> <span class="toctext">Replace With</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">3</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Default_Usage"><span class="tocnumber">5.1</span> <span class="toctext">Default Usage</span></a></li>
+<li class="toclevel-2"><a href="#By_Month_with_Post_Count"><span class="tocnumber">5.2</span> <span class="toctext">By Month with Post Count</span></a></li>
+<li class="toclevel-2"><a href="#Displays_Last_10_Posts_In_A_List"><span class="tocnumber">5.3</span> <span class="toctext">Displays Last 10 Posts In A List</span></a></li>
+<li class="toclevel-2"><a href="#Using_Dropdown_List"><span class="tocnumber">5.4</span> <span class="toctext">Using Dropdown List</span></a></li>
+<li class="toclevel-2"><a href="#List_of_Limited_Number_of_Recent_Posts"><span class="tocnumber">5.5</span> <span class="toctext">List of Limited Number of Recent Posts</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">6</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">7</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Displays a list of links to date-based archives. This tag can be used anywhere within a template.
+</p>
+<a name="Replace_With" id="Replace_With"></a><h2> <span class="mw-headline"> Replace With </span></h2>
+<ul><li> <a href="/Template_Tags/wp_get_archives" title="Template Tags/wp get archives" class="mw-redirect">wp_get_archives()</a>
+</li></ul>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;get_archives</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$type</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$limit</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$format</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$before</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$after</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$show_post_count&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> type&nbsp;</dt><dd> (<i>string</i>) The type of archive list to display. Defaults to WordPress setting (defaults to <tt>'monthly'</tt> in 1.5). Valid values:
+<ul><li> <tt>'monthly'</tt> (Default)
+</li><li> <tt>'daily'</tt>
+</li><li> <tt>'weekly'</tt>
+</li><li> <tt>'postbypost'</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> limit&nbsp;</dt><dd> (<i>integer</i>) Number of archives to get.  Use <tt>&#39;&#39;</tt> for no limit.
+</dd><dt> format&nbsp;</dt><dd> (<i>string</i>) Format for the archive list. Valid values:
+<ul><li> <tt>'html'</tt> - In HTML list (&lt;li&gt;) tags. This is the default.
+</li><li> <tt>'option'</tt> - In select or dropdown option (&lt;option&gt;) tags.
+</li><li> <tt>'link'</tt> - Within link (&lt;link&gt;) tags. 
+</li><li> <tt>'custom'</tt> - Custom list.
+</li></ul>
+</dd></dl>
+<dl><dt> before&nbsp;</dt><dd> (<i>string</i>) Text to place before the link when using <tt>'custom'</tt> or <tt>'html'</tt> for <b>format</b> option. Defaults to <tt>&#39;&#39;</tt>.
+</dd><dt> after&nbsp;</dt><dd> (<i>string</i>) Text to place after the link when using <tt>'custom'</tt> or <tt>'html'</tt> for <b>format</b> option.  Defaults to <tt>&#39;&#39;</tt>.
+</dd><dt> show_post_count&nbsp;</dt><dd> (<i>boolean</i>) Display number of posts in an archive (<tt>TRUE</tt>) or do not (<tt>FALSE</tt>). For use when <b>type</b> is set to <tt>'monthly'</tt>. Defaults to <tt>FALSE</tt>.
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Default_Usage" id="Default_Usage"></a><h3> <span class="mw-headline"> Default Usage </span></h3>
+<p>Displays archive links using defaults.
+</p>
+<pre>&lt;?php get_archives();&nbsp;?&gt;
+</pre>
+<p><br />
+</p>
+<a name="By_Month_with_Post_Count" id="By_Month_with_Post_Count"></a><h3> <span class="mw-headline"> By Month with Post Count </span></h3>
+<p>Displays all archives by month in an unordered list, with count of posts by month.
+</p>
+<pre>&lt;ul&gt;
+&lt;?php get_archives('monthly', &#39;&#39;, 'html', &#39;&#39;, &#39;&#39;, TRUE);&nbsp;?&gt;
+&lt;/ul&gt;
+</pre>
+<p><br />
+</p>
+<a name="Displays_Last_10_Posts_In_A_List" id="Displays_Last_10_Posts_In_A_List"></a><h3> <span class="mw-headline"> Displays Last 10 Posts In A List </span></h3>
+<p>Displays a non-bulleted list of the last 10 posts separated by line breaks.
+</p>
+<pre>&lt;?php get_archives('postbypost', '10', 'custom', &#39;&#39;, '&lt;br /&gt;');&nbsp;?&gt;
+</pre>
+<a name="Using_Dropdown_List" id="Using_Dropdown_List"></a><h3> <span class="mw-headline"> Using Dropdown List </span></h3>
+<p>Displays monthly archives in a dropdown list; the use of <a href="/Glossary#JavaScript" title="Glossary">javascript</a> is required to have an archive selection open on the page.
+</p>
+<pre>&lt;form id="archiveform" action=""&gt;
+&lt;select name="archive_chrono" onchange="window.location =
+(document.forms.archiveform.archive_chrono[document.forms.archiveform.archive_chrono.selectedIndex].value);"&gt;
+&lt;option value=&#39;&#39;&gt;Select Month&lt;/option&gt;
+&lt;?php get_archives('monthly',&#39;&#39;,'option');&nbsp;?&gt;
+&lt;/select&gt;
+&lt;/form&gt;
+</pre>
+<p>You also can use piece of code below, that works better than the example above. It shows the months list, including the number of posts/month.
+</p>
+<pre> &lt;select name="archivemenu" onChange="document.location.href=this.options[this.selectedIndex].value;"&gt;
+ &lt;option value=""&gt;Select month&lt;/option&gt;
+ &lt;?php get_archives('monthly',<i>,'option',</i>,<i>,'TRUE');&nbsp;?&gt;</i>
+ &lt;/select&gt;
+</pre>
+<a name="List_of_Limited_Number_of_Recent_Posts" id="List_of_Limited_Number_of_Recent_Posts"></a><h3> <span class="mw-headline"> List of Limited Number of Recent Posts </span></h3>
+<p>Displays a custom number of recent posts in an unordered list.
+</p>
+<pre> &lt;ul&gt;&lt;?php get_archives('postbypost','10','custom','&lt;li&gt;','&lt;/li&gt;');&nbsp;?&gt;&lt;/ul&gt;
+</pre>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> Since: 0.71
+</li><li> Deprecated: <a href="/Version_2.1" title="Version 2.1">2.1.0</a>
+</li><li> Replace By: <a href="/Template_Tags/wp_get_archives" title="Template Tags/wp get archives" class="mw-redirect">wp_get_archives()</a>
+</li></ul>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Function_Reference/wp_list_authors" title="Function Reference/wp list authors"> wp_list_authors()</a>, 
+<a href="/Function_Reference/wp_list_categories" title="Function Reference/wp list categories" class="mw-redirect"> wp_list_categories()</a>, 
+<a href="/Function_Reference/wp_list_pages" title="Function Reference/wp list pages"> wp_list_pages()</a>, 
+<a href="/Function_Reference/wp_list_bookmarks" title="Function Reference/wp list bookmarks"> wp_list_bookmarks()</a>, 
+<a href="/Function_Reference/wp_list_comments" title="Function Reference/wp list comments"> wp_list_comments()</a>, 
+<a href="/Function_Reference/wp_get_archives" title="Function Reference/wp get archives"> wp_get_archives()</a>, 
+<a href="/Function_Reference/wp_page_menu" title="Function Reference/wp page menu"> wp_page_menu()</a>, 
+<a href="/Function_Reference/wp_dropdown_pages" title="Function Reference/wp dropdown pages"> wp_dropdown_pages()</a>, 
+<a href="/Function_Reference/wp_dropdown_categories" title="Function Reference/wp dropdown categories"> wp_dropdown_categories()</a>, 
+<a href="/Function_Reference/wp_dropdown_users" title="Function Reference/wp dropdown users"> wp_dropdown_users()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-Displays archive links using defaults.
+<!-- 
+NewPP limit report
+Preprocessor node count: 95/1000000
+Post-expand include size: 3368/2097152 bytes
+Template argument size: 925/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_archives">http://codex.wordpress.org/Function_Reference/get_archives</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/Category:Deprecated_Functions" title="Category:Deprecated Functions">Deprecated Functions</a></span> | <span dir='ltr'><a href="/Category:Template_Tags" title="Category:Template Tags">Template Tags</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-    <?php get_archives(); ?>
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-\
 
-### By Month with Post Count
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-Displays all archives by month in an unordered list, with count of posts
-by month.
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-    <ul>
-    <?php get_archives('monthly', '', 'html', '', '', TRUE); ?>
-    </ul>
 
-\
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213553 -->
+</html>
 
-### Displays Last 10 Posts In A List
-
-Displays a non-bulleted list of the last 10 posts separated by line
-breaks.
-
-    <?php get_archives('postbypost', '10', 'custom', '', '<br />'); ?>
-
-### Using Dropdown List
-
-Displays monthly archives in a dropdown list; the use of
-[javascript](/Glossary#JavaScript "Glossary") is required to have an
-archive selection open on the page.
-
-    <form id="archiveform" action="">
-    <select name="archive_chrono" onchange="window.location =
-    (document.forms.archiveform.archive_chrono[document.forms.archiveform.archive_chrono.selectedIndex].value);">
-    <option value=''>Select Month</option>
-    <?php get_archives('monthly','','option'); ?>
-    </select>
-    </form>
-
-You also can use piece of code below, that works better than the example
-above. It shows the months list, including the number of posts/month.
-
-     <select name="archivemenu" onChange="document.location.href=this.options[this.selectedIndex].value;">
-     <option value="">Select month</option>
-     <?php get_archives('monthly',,'option',,,'TRUE'); ?>
-     </select>
-
-### List of Limited Number of Recent Posts
-
-Displays a custom number of recent posts in an unordered list.
-
-     <ul><?php get_archives('postbypost','10','custom','<li>','</li>'); ?></ul>
-
-Change Log
-----------
-
--   Since: 0.71
--   Deprecated: [2.1.0](/Version_2.1 "Version 2.1")
--   Replace By:
-    [wp\_get\_archives()](/Template_Tags/wp_get_archives "Template Tags/wp get archives")
+</body>
+<!-- Cached 20130405213553 -->
+</html>
 

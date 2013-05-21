@@ -1,131 +1,296 @@
-Function Reference/get tags « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Retrieve an array of objects for each term in post\_tag taxonomy.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get tags,Function Reference,Function Reference/get tag link,Function Reference/get the tag list,Function Reference/get the tags,Function Reference/single tag title,Function Reference/tag description,Function Reference/the tags,Function Reference/wp generate tag cloud,Function Reference/wp tag cloud,Multilingual Codex" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get tags &laquo; WordPress Codex</title>
 
-Parameters
-----------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-Retrieves a list of post tags based on the criteria provided in \$args.
-The list of arguments that \$args can contain, which will overwrite the
-defaults:
 
-orderby 
-:   Default is 'name'. Can be name, count, or nothing (will use
-    term\_id).
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-order 
-:   Default is ASC. Can use DESC.
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-hide\_empty 
-:   Default is true. Will not return empty terms, which means terms
-    whose count is 0 according to the given taxonomy.
+</head>
 
-exclude 
-:   Default is an empty string. A comma- or space-delimited string of
-    term ids to exclude from the return array. If 'include' is
-    non-empty, 'exclude' is ignored.
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-include 
-:   Default is an empty string. A comma- or space-delimited string of
-    term ids to include in the return array.
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-number 
-:   The maximum number of terms to return. Default is empty.
 
-offset 
-:   The number by which to offset the terms query.
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_tags">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-fields 
-:   Default is 'all', which returns an array of term objects. If
-    'fields' is 'ids' or 'names', returns an array of integers or
-    strings, respectively.
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get tags</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_tags" class="external text" title="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_tags">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Returns"><span class="tocnumber">3</span> <span class="toctext">Returns</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">5</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">6</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Retrieve an array of objects for each term in post_tag taxonomy.
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<p>Retrieves a list of post tags based on the criteria provided in $args.  The list of arguments that $args can contain, which will overwrite the defaults:
+</p>
+<dl><dt>orderby&nbsp;</dt><dd>Default is 'name'. Can be name, count, or nothing (will use term_id).
+</dd></dl>
+<dl><dt>order&nbsp;</dt><dd>Default is ASC. Can use DESC.
+</dd></dl>
+<dl><dt>hide_empty&nbsp;</dt><dd>Default is true. Will not return empty terms, which means terms whose count is 0 according to the given taxonomy.
+</dd></dl>
+<dl><dt>exclude&nbsp;</dt><dd>Default is an empty string.  A comma- or space-delimited string of term ids to exclude from the return array.  If 'include' is non-empty, 'exclude' is ignored.
+</dd></dl>
+<dl><dt>include&nbsp;</dt><dd>Default is an empty string.  A comma- or space-delimited string of term ids to include in the return array.
+</dd></dl>
+<dl><dt>number&nbsp;</dt><dd>The maximum number of terms to return.  Default is empty.
+</dd></dl>
+<dl><dt>offset&nbsp;</dt><dd>The number by which to offset the terms query.
+</dd></dl>
+<dl><dt>fields&nbsp;</dt><dd>Default is 'all', which returns an array of term objects.  If 'fields' is 'ids' or 'names', returns an array of integers or strings, respectively.
+</dd></dl>
+<dl><dt>slug&nbsp;</dt><dd>Returns terms whose "slug" matches this value. Default is empty string.
+</dd></dl>
+<dl><dt>hierarchical&nbsp;</dt><dd>Whether to include terms that have non-empty descendants (even if 'hide_empty' is set to true).
+</dd></dl>
+<dl><dt>search&nbsp;</dt><dd>Returned terms' names will contain the value of 'search', case-insensitive.  Default is an empty string.
+</dd></dl>
+<dl><dt>name__like&nbsp;</dt><dd>Returned terms' names will begin with the value of 'name__like', case-insensitive. Default is empty string.
+</dd></dl>
+<dl><dt>pad_counts&nbsp;</dt><dd>If set to true will include the quantity of a term's children in the quantity of each term's "count" object variable.
+</dd></dl>
+<dl><dt>get&nbsp;</dt><dd>If set to 'all' instead of its default empty string, returns terms regardless of ancestry or whether the terms are empty.
+</dd></dl>
+<dl><dt>child_of&nbsp;</dt><dd>When used, should be set to the integer of a term ID.  Its default is 0.  If set to a non-zero value, all returned terms will be descendants of that term according to the given taxonomy.  Hence 'child_of' is set to 0 if more than one taxonomy is passed in $taxonomies, because multiple taxonomies make term ancestry ambiguous.
+</dd></dl>
+<dl><dt>parent&nbsp;</dt><dd>When used, should be set to the integer of a term ID.  Its default is the empty string, which has a different meaning from the integer 0. If set to an integer value, all returned terms will have as an immediate ancestor the term whose ID is specified by that integer according to the given taxonomy. The 'parent' argument is different from 'child_of' in that a term X is considered a 'parent' of term Y only if term X is the father of term Y, not its grandfather or great-grandfather, etc.
+</dd></dl>
+<a name="Returns" id="Returns"></a><h2> <span class="mw-headline"> Returns </span></h2>
+<p>Each returned object has the following properties
+</p>
+<dl><dt>term_id&nbsp;</dt><dd> (<i>string</i>)
+</dd><dt>name&nbsp;</dt><dd> (<i>string</i>)
+</dd><dt>slug&nbsp;</dt><dd> (<i>string</i>)
+</dd><dt>term_group&nbsp;</dt><dd> (<i>string</i>)
+</dd><dt>term_taxonomy_id&nbsp;</dt><dd> (<i>string</i>)
+</dd><dt>taxonomy&nbsp;</dt><dd> (<i>string</i>)
+</dd><dt>description&nbsp;</dt><dd> (<i>string</i>)
+</dd><dt>parent&nbsp;</dt><dd> (<i>string</i>)
+</dd><dt>count&nbsp;</dt><dd> (<i>string</i>)
+</dd></dl>
+<a name="Example" id="Example"></a><h2> <span class="mw-headline"> Example </span></h2>
+<p>Displays a list of tags with links to each one and a specific class for each tag:
+</p>
+<pre>
+$tags = get_tags();
+$html = '&lt;div class=&quot;post_tags&quot;&gt;';
+foreach ( $tags as $tag ) {
+	$tag_link = get_tag_link( $tag-&gt;term_id );
+			
+	$html .= &quot;&lt;a href='{$tag_link}' title='{$tag-&gt;name} Tag' class='{$tag-&gt;slug}'&gt;&quot;;
+	$html .= &quot;{$tag-&gt;name}&lt;/a&gt;&quot;;
+}
+$html .= '&lt;/div&gt;';
+echo $html;
+</pre>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>get_tags()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category.php#L0">wp-includes/category.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Taxonomies" title="Taxonomies"><b>Tags</b></a>: 
+<a href="/Function_Reference/the_tags" title="Function Reference/the tags"> the_tags()</a>,
+<a href="/Function_Reference/tag_description" title="Function Reference/tag description"> tag_description()</a>,
+<a href="/Function_Reference/single_tag_title" title="Function Reference/single tag title"> single_tag_title()</a>,
+<a href="/Function_Reference/wp_tag_cloud" title="Function Reference/wp tag cloud"> wp_tag_cloud()</a>,
+<a href="/Function_Reference/wp_generate_tag_cloud" title="Function Reference/wp generate tag cloud"> wp_generate_tag_cloud()</a>,
+<strong class="selflink"> get_tags()</strong>,
+<a href="/Function_Reference/get_the_tags" title="Function Reference/get the tags"> get_the_tags()</a>,
+<a href="/Function_Reference/get_the_tag_list" title="Function Reference/get the tag list"> get_the_tag_list()</a>,
+<a href="/Function_Reference/get_tag_link" title="Function Reference/get tag link"> get_tag_link()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
+<div style="clear:both; background-color:#EEEEFF; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">This article is <a href="/Category:Copyedits" title="Category:Copyedits" class="mw-redirect">marked</a> as in need of editing. You can <a href="/Codex:Contributing" title="Codex:Contributing">help</a> Codex by <b><a href="http://codex.wordpress.org/index.php?title=Function_Reference/get_tags&amp;action=edit" class="external text" title="http://codex.wordpress.org/index.php?title=Function_Reference/get_tags&amp;action=edit">editing it</a></b>.</div>
 
-slug 
-:   Returns terms whose "slug" matches this value. Default is empty
-    string.
+<!-- 
+NewPP limit report
+Preprocessor node count: 79/1000000
+Post-expand include size: 2816/2097152 bytes
+Template argument size: 646/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_tags">http://codex.wordpress.org/Function_Reference/get_tags</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span> | <span dir='ltr'><a href="/Category:Copyedit" title="Category:Copyedit">Copyedit</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-hierarchical 
-:   Whether to include terms that have non-empty descendants (even if
-    'hide\_empty' is set to true).
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-search 
-:   Returned terms' names will contain the value of 'search',
-    case-insensitive. Default is an empty string.
 
-name\_\_like 
-:   Returned terms' names will begin with the value of 'name\_\_like',
-    case-insensitive. Default is empty string.
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-pad\_counts 
-:   If set to true will include the quantity of a term's children in the
-    quantity of each term's "count" object variable.
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-get 
-:   If set to 'all' instead of its default empty string, returns terms
-    regardless of ancestry or whether the terms are empty.
 
-child\_of 
-:   When used, should be set to the integer of a term ID. Its default is
-    0. If set to a non-zero value, all returned terms will be
-    descendants of that term according to the given taxonomy. Hence
-    'child\_of' is set to 0 if more than one taxonomy is passed in
-    \$taxonomies, because multiple taxonomies make term ancestry
-    ambiguous.
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405215737 -->
+</html>
 
-parent 
-:   When used, should be set to the integer of a term ID. Its default is
-    the empty string, which has a different meaning from the integer 0.
-    If set to an integer value, all returned terms will have as an
-    immediate ancestor the term whose ID is specified by that integer
-    according to the given taxonomy. The 'parent' argument is different
-    from 'child\_of' in that a term X is considered a 'parent' of term Y
-    only if term X is the father of term Y, not its grandfather or
-    great-grandfather, etc.
-
-Returns
--------
-
-Each returned object has the following properties
-
-term\_id 
-:   (*string*)
-name 
-:   (*string*)
-slug 
-:   (*string*)
-term\_group 
-:   (*string*)
-term\_taxonomy\_id 
-:   (*string*)
-taxonomy 
-:   (*string*)
-description 
-:   (*string*)
-parent 
-:   (*string*)
-count 
-:   (*string*)
-
-Example
--------
-
-Displays a list of tags with links to each one and a specific class for
-each tag:
-
-    $tags = get_tags();
-    $html = '<div class="post_tags">';
-    foreach ( $tags as $tag ) {
-        $tag_link = get_tag_link( $tag->term_id );
-                
-        $html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
-        $html .= "{$tag->name}</a>";
-    }
-    $html .= '</div>';
-    echo $html;
-
-Source File
------------
-
-`get_tags()` is located in `wp-includes/category.php`.
+</body>
+<!-- Cached 20130405215737 -->
+</html>
 

@@ -1,262 +1,390 @@
-Function Reference/get categories « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Returns an array of category objects matching the query parameters.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get categories,Function Reference,Multilingual Codex,Template Tags,Template Tags/wp get archives,Template Tags/wp list categories,Version 3.0" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get categories &laquo; WordPress Codex</title>
 
-Arguments are pretty much the same as
-[wp\_list\_categories](/Template_Tags/wp_list_categories "Template Tags/wp list categories")
-and can be passed as either array or in query syntax.
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-Usage
------
 
-`  <?php $categories = get_categories( $args ); ?> `
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-### Default Usage
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-    <?php $args = array(
-        'type'                     => 'post',
-        'child_of'                 => 0,
-        'parent'                   => '',
-        'orderby'                  => 'name',
-        'order'                    => 'ASC',
-        'hide_empty'               => 1,
-        'hierarchical'             => 1,
-        'exclude'                  => '',
-        'include'                  => '',
-        'number'                   => '',
-        'taxonomy'                 => 'category',
-        'pad_counts'               => false );?>
+</head>
 
-Parameters
-----------
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
- **type** 
-:   (*string*) Type of category to retrieve
-    -   `post` - default
-    -   `link`
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-*Note:* **`type=link`** has been deprecated from WordPress 3.0 onwards.
-Use **`taxonomy=link_category`** instead.
 
- **child\_of** 
-:   (*integer*) Display all categories that are descendants (i.e.
-    children & grandchildren) of the category identified by its ID.
-    There is no default for this parameter. If the parameter is used,
-    the **hide\_empty** parameter is set to *false*.
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_categories">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
- **parent** 
-:   (*integer*) Display only categories that are direct descendants
-    (i.e. children only) of the category identified by its ID. This does
-    NOT work like the 'child\_of' parameter. There is no default for
-    this parameter. [In 2.8.4]
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get categories</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_categories" class="external text" title="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_categories">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Default_Usage"><span class="tocnumber">2.1</span> <span class="toctext">Default Usage</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_values"><span class="tocnumber">4</span> <span class="toctext">Return values</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Dropdown_Box_as_used_in_Parent_category_at_post_category_page"><span class="tocnumber">5.1</span> <span class="toctext">Dropdown Box as used in Parent category at post category page</span></a></li>
+<li class="toclevel-2"><a href="#Dropdown_Box"><span class="tocnumber">5.2</span> <span class="toctext">Dropdown Box</span></a></li>
+<li class="toclevel-2"><a href="#List_Categories_and_Descriptions"><span class="tocnumber">5.3</span> <span class="toctext">List Categories and Descriptions</span></a></li>
+<li class="toclevel-2"><a href="#Get_only_top_level_categories"><span class="tocnumber">5.4</span> <span class="toctext">Get only top level categories</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">6</span> <span class="toctext">Source File</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Returns an array of category objects matching the query parameters.
+</p><p>Arguments are pretty much the same as <a href="/Template_Tags/wp_list_categories" title="Template Tags/wp list categories">wp_list_categories</a> and can be passed as either array or in query syntax.  
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;$categories&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">get_categories</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$args&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Default_Usage" id="Default_Usage"></a><h3> <span class="mw-headline"> Default Usage </span></h3>
+<pre>&lt;?php $args = array(
+	'type'                     =&gt; 'post',
+	'child_of'                 =&gt; 0,
+	'parent'                   =&gt; '',
+	'orderby'                  =&gt; 'name',
+	'order'                    =&gt; 'ASC',
+	'hide_empty'               =&gt; 1,
+	'hierarchical'             =&gt; 1,
+	'exclude'                  =&gt; '',
+	'include'                  =&gt; '',
+	'number'                   =&gt; '',
+	'taxonomy'                 =&gt; 'category',
+	'pad_counts'               =&gt; false );?&gt;</pre>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <b>type</b>&nbsp;</dt><dd> (<i>string</i>) Type of category to retrieve
+<ul><li> <tt>post</tt> - default
+</li><li> <tt>link</tt>
+</li></ul>
+</dd></dl>
+<p><i><span style="color:red;">Note:</span></i> <b><tt>type=link</tt></b> has been deprecated from WordPress 3.0 onwards. Use <b><tt>taxonomy=link_category</tt></b> instead.
+</p>
+<dl><dt> <b>child_of</b>&nbsp;</dt><dd> (<i>integer</i>) Display all categories that are descendants (i.e. children &amp; grandchildren) of the category identified by its ID. There is no default for this parameter. If the parameter is used, the <b>hide_empty</b> parameter is set to <i>false</i>.
+</dd></dl>
+<dl><dt> <b>parent</b>&nbsp;</dt><dd> (<i>integer</i>) Display only categories that are direct descendants (i.e. children only) of the category identified by its ID. This does NOT work like the 'child_of' parameter. There is no default for this parameter. [In 2.8.4]
+</dd></dl>
+<dl><dt> <b>orderby</b>&nbsp;</dt><dd> (<i>string</i>) Sort categories alphabetically or by unique category ID. The default is <i>sort by Category ID</i>. Valid values:
+<ul><li> <tt>id</tt>
+</li><li> <tt>name</tt> - default
+</li><li> <tt>slug</tt>
+</li><li> <tt>count</tt>
+</li><li> <tt>term_group</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> <b>order</b>&nbsp;</dt><dd> (<i>string</i>) Sort order for categories (either ascending or descending). The default is <i>ascending</i>. Valid values:
+<ul><li> <tt>asc</tt> - default
+</li><li> <tt>desc</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> <b>hide_empty</b>&nbsp;</dt><dd> (<i>boolean</i>) Toggles the display of categories with no posts. The default is <i>1</i> for true or you can add '0' for false (show empty categories). Valid values:
+<ul><li> <tt>1</tt> - default
+</li><li> <tt>0</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> <b>hierarchical</b>&nbsp;</dt><dd> (<i>boolean</i>) When <i>true</i>, the results will include sub-categories that are empty, as long as those sub-categories have sub-categories that are not empty.  The default is <i>true</i>. Valid values:
+<ul><li> <tt>1 (true)</tt> - default
+</li><li> <tt>0 (false)</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> <b>exclude</b>&nbsp;</dt><dd> (<i>string</i>) Excludes one or more categories from the list generated by <i>wp_list_categories</i>. This parameter takes a comma-separated list of categories by unique ID, in ascending order. See <a href="/Template_Tags/wp_list_categories#Include_or_Exclude_Categories" title="Template Tags/wp list categories">the example</a>.
+</dd></dl>
+<dl><dt> <b>include</b>&nbsp;</dt><dd> (<i>string</i>) Only include certain categories in the list generated by <i>wp_list_categories</i>. This parameter takes a comma-separated list of categories by unique ID, in ascending order. See <a href="/Template_Tags/wp_list_categories#Include_or_Exclude_Categories" title="Template Tags/wp list categories">the example</a>.
+<ul><li> <tt>list</tt> - default.
+</li><li> <tt>none</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> <b>number</b>&nbsp;</dt><dd> (<i>string</i>) The number of categories to return
+</dd></dl>
+<dl><dt> <b>taxonomy</b>&nbsp;</dt><dd> (<i>string or array</i>) Taxonomy to return.  This parameter added at <a href="/Version_3.0" title="Version 3.0">Version 3.0</a> Valid values:
+<ul><li> <tt>category</tt> - default
+</li><li> <tt>taxonomy</tt> - or any registered taxonomy
+</li></ul>
+</dd></dl>
+<dl><dt> <b>pad_counts</b>&nbsp;</dt><dd> (<i>boolean</i>) Calculates link or post counts by including items from child categories.  Valid values:
+<ul><li> <tt>1 (true)</tt> 
+</li><li> <tt>0 (false)</tt> - default
+</li></ul>
+</dd></dl>
+<a name="Return_values" id="Return_values"></a><h2> <span class="mw-headline"> Return values </span></h2>
+<dl><dt> (array)&nbsp;</dt><dd> Returns an array of category objects matching the query parameters.
+</dd></dl>
+<p>The complete content of $category is:
+</p>
+<pre>
+$category-&gt;term_id
+$category-&gt;name
+$category-&gt;slug
+$category-&gt;term_group
+$category-&gt;term_taxonomy_id
+$category-&gt;taxonomy
+$category-&gt;description
+$category-&gt;parent
+$category-&gt;count
+$category-&gt;cat_ID
+$category-&gt;category_count
+$category-&gt;category_description
+$category-&gt;cat_name
+$category-&gt;category_nicename
+$category-&gt;category_parent
+</pre>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Dropdown_Box_as_used_in_Parent_category_at_post_category_page" id="Dropdown_Box_as_used_in_Parent_category_at_post_category_page"></a><h3> <span class="mw-headline"> Dropdown Box as used in Parent category at post category page </span></h3>
+<p>This is the code used in the build in category page.
+Code from 3.0.1
+</p>
+<pre>
+wp_dropdown_categories(array('hide_empty' =&gt; 0, 'name' =&gt; 'category_parent', 'orderby' =&gt; 'name', 'selected' =&gt; $category-&gt;parent, 'hierarchical' =&gt; true, 'show_option_none' =&gt; __('None')));</pre>
+<p>This slightly altered code will grab all categories and display them with indent for a new level (child category). The select box will have a name= and id= called 'select_name'.
+This select will not display a default "none" as the original code was used to attach a category as a child to another category (or none).
+</p>
+<pre>
+wp_dropdown_categories(array('hide_empty' =&gt; 0, 'name' =&gt; 'select_name', 'hierarchical' =&gt; true));
+</pre>
+<a name="Dropdown_Box" id="Dropdown_Box"></a><h3> <span class="mw-headline"> Dropdown Box </span></h3>
+<p>Here's how to create a dropdown box of the subcategories of, say, a category that archives information on past events. This mirrors the example of the dropdown example of <a href="/Template_Tags/wp_get_archives" title="Template Tags/wp get archives" class="mw-redirect"> wp_get_archives</a> which shows how to create a dropdown box for monthly archives.
+</p><p>Suppose the category whose subcategories you want to show is category 10, and that its category "nicename" is "archives".
+</p>
+<pre>
+&lt;select name=&quot;event-dropdown&quot; onchange='document.location.href=this.options[this.selectedIndex].value;'&gt; 
+ &lt;option value=&quot;&quot;&gt;&lt;?php echo esc_attr(__('Select Event'));&nbsp;?&gt;&lt;/option&gt; 
+ &lt;?php 
+  $categories=  get_categories('child_of=10'); 
+  foreach ($categories as $category) {
+  	$option = '&lt;option value=&quot;/category/archives/'.$category-&gt;category_nicename.'&quot;&gt;';
+	$option .= $category-&gt;cat_name;
+	$option .= ' ('.$category-&gt;category_count.')';
+	$option .= '&lt;/option&gt;';
+	echo $option;
+  }
+ ?&gt;
+&lt;/select&gt;
+</pre>
+<a name="List_Categories_and_Descriptions" id="List_Categories_and_Descriptions"></a><h3> <span class="mw-headline">List Categories and Descriptions</span></h3>
+<p>This example will list in alphabetic order, all categories presented as links to the corresponding category archive.  Each category descripition is listed after the category link.
+</p>
+<pre>
+&lt;?php
+$args=array(
+  'orderby' =&gt; 'name',
+  'order' =&gt; 'ASC'
+  );
+$categories=get_categories($args);
+  foreach($categories as $category) { 
+    echo '&lt;p&gt;Category: &lt;a href=&quot;' . get_category_link( $category-&gt;term_id ) . '&quot; title=&quot;' . sprintf( __( &quot;View all posts in&nbsp;%s&quot; ), $category-&gt;name ) . '&quot; ' . '&gt;' . $category-&gt;name.'&lt;/a&gt; &lt;/p&gt; ';
+    echo '&lt;p&gt; Description:'. $category-&gt;description . '&lt;/p&gt;';
+    echo '&lt;p&gt; Post Count: '. $category-&gt;count . '&lt;/p&gt;';  } 
+?&gt;
+</pre>
+<a name="Get_only_top_level_categories" id="Get_only_top_level_categories"></a><h3> <span class="mw-headline">Get only top level categories </span></h3>
+<p>To get the top level categories only, set parent value to zero. This example gets link and name of top level categories.
+</p>
+<pre>
+&lt;?php
+$args = array(
+  'orderby' =&gt; 'name',
+  'parent' =&gt; 0
+  );
+$categories = get_categories( $args );
+foreach ( $categories as $category ) {
+	echo '&lt;a href=&quot;' . get_category_link( $category-&gt;term_id ) . '&quot;&gt;' . $category-&gt;name . '&lt;/a&gt;&lt;br/&gt;';
+}
+?&gt;
+</pre>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>get_categories()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category.php#L0">wp-includes/category.php</a></code>.
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
- **orderby** 
-:   (*string*) Sort categories alphabetically or by unique category ID.
-    The default is *sort by Category ID*. Valid values:
-    -   `id`
-    -   `name` - default
-    -   `slug`
-    -   `count`
-    -   `term_group`
+<!-- 
+NewPP limit report
+Preprocessor node count: 87/1000000
+Post-expand include size: 1417/2097152 bytes
+Template argument size: 432/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_categories">http://codex.wordpress.org/Function_Reference/get_categories</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
- **order** 
-:   (*string*) Sort order for categories (either ascending or
-    descending). The default is *ascending*. Valid values:
-    -   `asc` - default
-    -   `desc`
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
- **hide\_empty** 
-:   (*boolean*) Toggles the display of categories with no posts. The
-    default is *1* for true or you can add '0' for false (show empty
-    categories). Valid values:
-    -   `1` - default
-    -   `0`
 
- **hierarchical** 
-:   (*boolean*) When *true*, the results will include sub-categories
-    that are empty, as long as those sub-categories have sub-categories
-    that are not empty. The default is *true*. Valid values:
-    -   `1 (true)` - default
-    -   `0 (false)`
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
- **exclude** 
-:   (*string*) Excludes one or more categories from the list generated
-    by *wp\_list\_categories*. This parameter takes a comma-separated
-    list of categories by unique ID, in ascending order. See [the
-    example](/Template_Tags/wp_list_categories#Include_or_Exclude_Categories "Template Tags/wp list categories").
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
- **include** 
-:   (*string*) Only include certain categories in the list generated by
-    *wp\_list\_categories*. This parameter takes a comma-separated list
-    of categories by unique ID, in ascending order. See [the
-    example](/Template_Tags/wp_list_categories#Include_or_Exclude_Categories "Template Tags/wp list categories").
-    -   `list` - default.
-    -   `none`
 
- **number** 
-:   (*string*) The number of categories to return
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213823 -->
+</html>
 
- **taxonomy** 
-:   (*string or array*) Taxonomy to return. This parameter added at
-    [Version 3.0](/Version_3.0 "Version 3.0") Valid values:
-    -   `category` - default
-    -   `taxonomy` - or any registered taxonomy
+</body>
+<!-- Cached 20130405213823 -->
+</html>
 
- **pad\_counts** 
-:   (*boolean*) Calculates link or post counts by including items from
-    child categories. Valid values:
-    -   `1 (true)`
-    -   `0 (false)` - default
-
-Return values
--------------
-
- (array) 
-:   Returns an array of category objects matching the query parameters.
-
-The complete content of \$category is:
-
-    $category->term_id
-    $category->name
-    $category->slug
-    $category->term_group
-    $category->term_taxonomy_id
-    $category->taxonomy
-    $category->description
-    $category->parent
-    $category->count
-    $category->cat_ID
-    $category->category_count
-    $category->category_description
-    $category->cat_name
-    $category->category_nicename
-    $category->category_parent
-
-Examples
---------
-
-### Dropdown Box as used in Parent category at post category page
-
-This is the code used in the build in category page. Code from 3.0.1
-
-    wp_dropdown_categories(array('hide_empty' => 0, 'name' => 'category_parent', 'orderby' => 'name', 'selected' => $category->parent, 'hierarchical' => true, 'show_option_none' => __('None')));
-
-This slightly altered code will grab all categories and display them
-with indent for a new level (child category). The select box will have a
-name= and id= called 'select\_name'. This select will not display a
-default "none" as the original code was used to attach a category as a
-child to another category (or none).
-
-    wp_dropdown_categories(array('hide_empty' => 0, 'name' => 'select_name', 'hierarchical' => true));
-
-### Dropdown Box
-
-Here's how to create a dropdown box of the subcategories of, say, a
-category that archives information on past events. This mirrors the
-example of the dropdown example of
-[wp\_get\_archives](/Template_Tags/wp_get_archives "Template Tags/wp get archives")
-which shows how to create a dropdown box for monthly archives.
-
-Suppose the category whose subcategories you want to show is category
-10, and that its category "nicename" is "archives".
-
-    <select name="event-dropdown" onchange='document.location.href=this.options[this.selectedIndex].value;'> 
-     <option value=""><?php echo esc_attr(__('Select Event')); ?></option> 
-     <?php 
-      $categories=  get_categories('child_of=10'); 
-      foreach ($categories as $category) {
-        $option = '<option value="/category/archives/'.$category->category_nicename.'">';
-        $option .= $category->cat_name;
-        $option .= ' ('.$category->category_count.')';
-        $option .= '</option>';
-        echo $option;
-      }
-     ?>
-    </select>
-
-### List Categories and Descriptions
-
-This example will list in alphabetic order, all categories presented as
-links to the corresponding category archive. Each category descripition
-is listed after the category link.
-
-    <?php
-    $args=array(
-      'orderby' => 'name',
-      'order' => 'ASC'
-      );
-    $categories=get_categories($args);
-      foreach($categories as $category) { 
-        echo '<p>Category: <a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a> </p> ';
-        echo '<p> Description:'. $category->description . '</p>';
-        echo '<p> Post Count: '. $category->count . '</p>';  } 
-    ?>
-
-### Get only top level categories
-
-To get the top level categories only, set parent value to zero. This
-example gets link and name of top level categories.
-
-    <?php
-    $args = array(
-      'orderby' => 'name',
-      'parent' => 0
-      );
-    $categories = get_categories( $args );
-    foreach ( $categories as $category ) {
-        echo '<a href="' . get_category_link( $category->term_id ) . '">' . $category->name . '</a><br/>';
-    }
-    ?>
-
-Source File
------------
-
-`get_categories()` is located in `wp-includes/category.php`.
-
-See also index of [Function
-Reference](/Function_Reference "Function Reference") and index of
-[Template Tags](/Template_Tags "Template Tags").
-
-Retrieved from
-"[http://codex.wordpress.org/Function\_Reference/get\_categories](http://codex.wordpress.org/Function_Reference/get_categories)"
-
-[Category](/Special:Categories "Special:Categories"):
-[Functions](/Category:Functions "Category:Functions")
-
--   [Home Page](/Main_Page)
--   [WordPress Lessons](/WordPress_Lessons)
--   [Getting Started](/Getting_Started_with_WordPress)
--   [Working with WordPress](/Working_with_WordPress)
--   [Design and Layout](/Blog_Design_and_Layout)
--   [Advanced Topics](/Advanced_Topics)
--   [Troubleshooting](/Troubleshooting)
--   [Developer Docs](/Developer_Documentation)
--   [About WordPress](/About_WordPress)
-
-### Codex Resources
-
--   [Community portal](/Codex:Community_Portal)
--   [Current events](/Current_events)
--   [Recent changes](/Special:RecentChanges)
--   [Random page](/Special:Random)
--   [Help](/Help:Contents)
-
-[Privacy](http://wordpress.org/about/privacy/) | [License /
-GPLv2](http://wordpress.org/about/license/)     See also: [Hosted
-WordPress.com](http://wordpress.com/?ref=wporg-footer "Hassle-free WP hosting")
-| [WordPress.TV
-Videos](http://wordpress.tv/ "Videos, tutorials, WordCamps") | [WordCamp
-Events](http://central.wordcamp.org/ "Find a WordPress event near your home")
-| [BuddyPress Social
-Layer](http://buddypress.org/ "A set of plugins to transform your WordPress into a social network")
-| [bbPress
-Forums](http://bbpress.org/ "Fast, slick forums built on WordPress") |
-[WP Jobs](http://jobs.wordpress.net/ "Find or post WordPress jobs") |
-[Matt](http://ma.tt/ "Co-founder of WordPress, an example of what WordPress can do")
-
-\
-
-###### Code is Poetry
-
-![](http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif)

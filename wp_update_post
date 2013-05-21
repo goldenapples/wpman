@@ -1,124 +1,299 @@
-Function Reference/wp update post « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-This function updates posts (and pages) in the database. To work as
-expected, it is necessary to pass the ID of the post to be updated.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/wp update post,Function Reference,Function Reference/wp insert post,How to Pass Tag Parameters,Multilingual Codex,Template Tags,Version 1.0,tr:Fonksiyon Listesi/wp update post,Contributing,Copyedits" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/wp update post &laquo; WordPress Codex</title>
 
-Note that when the post is "updated", the existing Post record is
-duplicated for audit/revision purposes. The primary record is then
-updated with the new values. Category associations, custom fields, post
-meta, and other related entries continue to be linked to the primary
-Post record.
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-Usage
------
 
-`  <?php wp_update_post( $post ); ?> `
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-Example
--------
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Before calling wp\_update\_post() it is necessary to create an array to
-pass the necessary elements. Unlike
-[wp\_insert\_post()](/Function_Reference/wp_insert_post "Function Reference/wp insert post"),
-it is only necessary to pass the ID of the post to be updated and the
-elements to be updated. The names of the elements should match those in
-the database.
+</head>
 
-    // Update post 37
-      $my_post = array();
-      $my_post['ID'] = 37;
-      $my_post['post_content'] = 'This is the updated content.';
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-    // Update the post into the database
-      wp_update_post( $my_post );
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-### Categories
 
-Categories need to be passed as an array of integers that match the
-category IDs in the database. This is the case even where only one
-category is assigned to the post.
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/wp_update_post">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-### Caution!
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/wp update post</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_update_post" class="external text" title="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_update_post">日本語</a> • 
+<a href="/tr:Fonksiyon_Listesi/wp_update_post" title="tr:Fonksiyon Listesi/wp update post">Türkçe</a> • 
 
-When executed by an action hooked into save\_post (e.g. a custom
-metabox), wp\_update\_post() has the potential to create an infinite
-loop. This happens because (1) wp\_update\_post() results in save\_post
-being fired and (2) save\_post is called twice when revisions are
-enabled (first when creating the revision, then when updating the
-original post—resulting in the creation of endless revisions).
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Categories"><span class="tocnumber">3.1</span> <span class="toctext">Categories</span></a></li>
+<li class="toclevel-2"><a href="#Caution.21"><span class="tocnumber">3.2</span> <span class="toctext">Caution!</span></a></li>
+<li class="toclevel-2"><a href="#Scheduling_posts"><span class="tocnumber">3.3</span> <span class="toctext">Scheduling posts</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">5</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">6</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">7</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">8</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline">Description</span></h2>
+<p>This function updates posts (and pages) in the database. To work as expected, it is necessary to pass the ID of the post to be updated.
+</p><p>Note that when the post is "updated", the existing Post record is duplicated for audit/revision purposes.  The primary record is then updated with the new values. Category associations, custom fields, post meta, and other related entries continue to be linked to the primary Post record.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline">Usage</span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;wp_update_post</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$post&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Example" id="Example"></a><h2> <span class="mw-headline">Example</span></h2>
+<p>Before calling wp_update_post() it is necessary to create an array to pass the necessary elements. Unlike <a href="/Function_Reference/wp_insert_post" title="Function Reference/wp insert post">wp_insert_post()</a>, it is only necessary to pass the ID of the post to be updated and the elements to be updated. The names of the elements should match those in the database.
+</p>
+<pre>
+// Update post 37
+  $my_post = array();
+  $my_post['ID'] = 37;
+  $my_post['post_content'] = 'This is the updated content.';
 
-If you must update a post from code called by save\_post, make sure to
-verify the post\_type is not set to 'revision' and that the \$post
-object does indeed need to be updated.
+// Update the post into the database
+  wp_update_post( $my_post );
+</pre>
+<a name="Categories" id="Categories"></a><h3> <span class="mw-headline">Categories</span></h3>
+<p>Categories need to be passed as an array of integers that match the category IDs in the database. This is the case even where only one category is assigned to the post.
+</p>
+<a name="Caution.21" id="Caution.21"></a><h3> <span class="mw-headline">Caution!</span></h3>
+<p>When executed by an action hooked into save_post (e.g. a custom metabox), wp_update_post() has the potential to create an infinite loop. This happens because (1) wp_update_post() results in save_post being fired and (2) save_post is called twice when revisions are enabled (first when creating the revision, then when updating the original post&mdash;resulting in the creation of endless revisions).
+</p><p>If you must update a post from code called by save_post, make sure to verify the post_type is not set to 'revision' and that the $post object does indeed need to be updated.
+</p><p>Likewise, an action hooked into edit_attachment can cause an infinite loop if it contains a function call to wp_update_post passing an array parameter with a key value of "ID" and an associated value that corresponds to an Attachment.
+</p><p>Note you will need to remove then add the hook, code sample modified from the API/Action ref. [save_posts](<a href="http://codex.wordpress.org/Plugin_API/Action_Reference/save_post" class="external free" title="http://codex.wordpress.org/Plugin_API/Action_Reference/save_post">http://codex.wordpress.org/Plugin_API/Action_Reference/save_post</a>)
+</p>
+<pre>
+&lt;?php
+function my_function(){
+	if (&nbsp;! wp_is_post_revision( $post_id ) ){
+	
+		// unhook this function so it doesn't loop infinitely
+		remove_action('save_post', 'my_function');
+	
+		// update the post, which calls save_post again
+		wp_update_post( $my_args );
 
-Likewise, an action hooked into edit\_attachment can cause an infinite
-loop if it contains a function call to wp\_update\_post passing an array
-parameter with a key value of "ID" and an associated value that
-corresponds to an Attachment.
+		// re-hook this function
+		add_action('save_post', 'my_function');
+	}
+}
+add_action('save_posts', 'my_function');
+?&gt;
+</pre>
+<a name="Scheduling_posts" id="Scheduling_posts"></a><h3> <span class="mw-headline">Scheduling posts</span></h3>
+<p>If you are trying to use wp_update_post() to schedule an existing draft, it will not work unless you pass $my_post-&gt;edit_date = true. WordPress will ignore the post_date when updating drafts unless edit_date is true.
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline">Parameters</span></h2>
+<dl><dt> <tt>$post</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Array" title="How to Pass Tag Parameters"><i>array</i></a>) (<i>optional</i>) An object representing the elements that make up a post. There is a one-to-one relationship between these elements and the names of columns in the wp_posts table in the database. Filling out the ID field is not strictly necessary but without it there is little point to using the function.
+<dl><dd> Default: An empty array
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$wp_error</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Boolean" title="How to Pass Tag Parameters"><i>Boolean</i></a>) (<i>optional</i>) A Boolean that can be passed to control what is returned on failure. The default setting (false) will return a 0 if the post fails to update. However, if this is set to true, it will return with a WP_Error object.
+<dl><dd> Default: false
+</dd></dl>
+</dd></dl>
+<a name="Return" id="Return"></a><h2> <span class="mw-headline">Return</span></h2>
+<dl><dt> <tt>(integer)</tt>&nbsp;</dt><dd> The ID of the post if the post is successfully updated in the database. Otherwise returns <tt>0</tt>.
+</dd></dl>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline">Change Log</span></h2>
+<ul><li> Since: <a href="/Version_1.0" title="Version 1.0">1.0.0</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>wp_update_post()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0">wp-includes/post.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline">Related</span></h2>
+<p><a href="/Function_Reference/wp_insert_post" title="Function Reference/wp insert post">wp_insert_post()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
+<div style="clear:both; background-color:#EEEEFF; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">This article is <a href="/Category:Copyedits" title="Category:Copyedits" class="mw-redirect">marked</a> as in need of editing. You can <a href="/Codex:Contributing" title="Codex:Contributing">help</a> Codex by <b><a href="http://codex.wordpress.org/index.php?title=Function_Reference/wp_update_post&amp;action=edit" class="external text" title="http://codex.wordpress.org/index.php?title=Function_Reference/wp_update_post&amp;action=edit">editing it</a></b>.</div>
 
-Note you will need to remove then add the hook, code sample modified
-from the API/Action ref.
-[save\_posts]([http://codex.wordpress.org/Plugin\_API/Action\_Reference/save\_post](http://codex.wordpress.org/Plugin_API/Action_Reference/save_post "http://codex.wordpress.org/Plugin_API/Action_Reference/save_post"))
+<!-- 
+NewPP limit report
+Preprocessor node count: 125/1000000
+Post-expand include size: 3168/2097152 bytes
+Template argument size: 1330/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/wp_update_post">http://codex.wordpress.org/Function_Reference/wp_update_post</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/Category:Copyedit" title="Category:Copyedit">Copyedit</a></span> | <span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span> | <span dir='ltr'><a href="/Category:New_page_created" title="Category:New page created">New page created</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-    <?php
-    function my_function(){
-        if ( ! wp_is_post_revision( $post_id ) ){
-        
-            // unhook this function so it doesn't loop infinitely
-            remove_action('save_post', 'my_function');
-        
-            // update the post, which calls save_post again
-            wp_update_post( $my_args );
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-            // re-hook this function
-            add_action('save_post', 'my_function');
-        }
-    }
-    add_action('save_posts', 'my_function');
-    ?>
 
-### Scheduling posts
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-If you are trying to use wp\_update\_post() to schedule an existing
-draft, it will not work unless you pass \$my\_post-\>edit\_date = true.
-WordPress will ignore the post\_date when updating drafts unless
-edit\_date is true.
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Parameters
-----------
 
- `$post` 
-:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
-    (*optional*) An object representing the elements that make up a
-    post. There is a one-to-one relationship between these elements and
-    the names of columns in the wp\_posts table in the database. Filling
-    out the ID field is not strictly necessary but without it there is
-    little point to using the function.
-    Default: An empty array
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213737 -->
+</html>
 
- `$wp_error` 
-:   ([*Boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
-    (*optional*) A Boolean that can be passed to control what is
-    returned on failure. The default setting (false) will return a 0 if
-    the post fails to update. However, if this is set to true, it will
-    return with a WP\_Error object.
-    Default: false
-
-Return
-------
-
- `(integer)` 
-:   The ID of the post if the post is successfully updated in the
-    database. Otherwise returns `0`.
-
-Change Log
-----------
-
--   Since: [1.0.0](/Version_1.0 "Version 1.0")
-
-Source File
------------
-
-`wp_update_post()` is located in `wp-includes/post.php`.
+</body>
+<!-- Cached 20130405213737 -->
+</html>
 

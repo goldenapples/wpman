@@ -1,137 +1,341 @@
-Function Reference/dropdown cats « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Displays a list of categories in a select (i.e dropdown) box.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/dropdown cats,Function Reference,Function Reference/,Function Reference/category description,Function Reference/get category by slug,Function Reference/get category link,Function Reference/get category parents,Function Reference/get the category,Function Reference/get the category by ID,Function Reference/get the category list,Function Reference/in category" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/dropdown cats &laquo; WordPress Codex</title>
 
-Replace With
-------------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
--   [wp\_dropdown\_categories()](/Template_Tags/wp_dropdown_categories "Template Tags/wp dropdown categories")
 
-Usage
------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-`  <?php dropdown_cats( $optionall, $all, $sort_column,              $sort_order, $optiondates, $optioncount,              $hide_empty, $optionnone, $selected, $hide ); ?> `
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Parameters
-----------
+</head>
 
- optionall 
-:   (*boolean*) Sets whether to have an option to display all
-    categories. Valid values:
-    -   `TRUE` (Default)
-    -   `FALSE`
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
- all 
-:   (*string*) Text to display for the option to display all categories.
-    Defaults to `'All'`.
- sort\_column 
-:   (*string*) Key to sort options by. Valid values:
-    -   `'ID'` (Default)
-    -   `'name'`
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
- sort\_order 
-:   (*string*) Sort order for options. Valid values:
-    -   `'asc'` (Default)
-    -   `'desc'`
 
- optiondates 
-:   (*boolean*) Sets whether to display the date of the last post in
-    each category. Valid values:
-    -   `TRUE`
-    -   `FALSE` (Default)
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/dropdown_cats">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
- optioncount 
-:   (*boolean*) Sets whether to display a count of posts in each
-    category. Valid values:
-    -   `TRUE`
-    -   `FALSE` (Default)
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/dropdown cats</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/dropdown_cats" class="external text" title="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/dropdown_cats">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<hr />
+<div style="clear:both; background-color:#FFFFFF; border:1px solid #FFFFFF; color:#c00; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;"><b>This function has been <a href="/Category:Deprecated_Functions" title="Category:Deprecated Functions">deprecated</a>.  That means it has been replaced by a new function or is no longer supported, and may be removed from future versions.  All code that uses this function should be converted to use its replacement if one exists. See also <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/deprecated.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/deprecated.php#L0">wp-includes/deprecated.php</a></code>.</b>
+Use <a href="/Function_Reference/" title="Function Reference/" class="mw-redirect">any of these functions</a> instead.</div>
+<hr />
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Replace_With"><span class="tocnumber">2</span> <span class="toctext">Replace With</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">3</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Dropdown_with_Submit_Button"><span class="tocnumber">5.1</span> <span class="toctext">Dropdown with Submit Button</span></a></li>
+<li class="toclevel-2"><a href="#Dropdown_without_Submit_Button"><span class="tocnumber">5.2</span> <span class="toctext">Dropdown without Submit Button</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Fixes"><span class="tocnumber">6</span> <span class="toctext">Fixes</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">8</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Displays a list of categories in a select (i.e dropdown) box.
+</p>
+<a name="Replace_With" id="Replace_With"></a><h2> <span class="mw-headline"> Replace With </span></h2>
+<ul><li> <a href="/Template_Tags/wp_dropdown_categories" title="Template Tags/wp dropdown categories" class="mw-redirect"> wp_dropdown_categories()</a>
+</li></ul>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;dropdown_cats</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$optionall</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$all</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sort_column</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sort_order</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$optiondates</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$optioncount</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$hide_empty</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$optionnone</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$selected</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$hide&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> optionall&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to have an option to display all categories. Valid values:
+<ul><li> <tt>TRUE</tt> (Default)
+</li><li> <tt>FALSE</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> all&nbsp;</dt><dd> (<i>string</i>) Text to display for the option to display all categories. Defaults to <tt>'All'</tt>.
+</dd><dt> sort_column&nbsp;</dt><dd> (<i>string</i>) Key to sort options by. Valid values:
+<ul><li> <tt>'ID'</tt> (Default)
+</li><li> <tt>'name'</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> sort_order&nbsp;</dt><dd> (<i>string</i>) Sort order for options. Valid values:
+<ul><li> <tt>'asc'</tt> (Default)
+</li><li> <tt>'desc'</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> optiondates&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to display the date of the last post in each category. Valid values:
+<ul><li> <tt>TRUE</tt>
+</li><li> <tt>FALSE</tt> (Default)
+</li></ul>
+</dd></dl>
+<dl><dt> optioncount&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to display a count of posts in each category. Valid values:
+<ul><li> <tt>TRUE</tt>
+</li><li> <tt>FALSE</tt> (Default)
+</li></ul>
+</dd></dl>
+<dl><dt> hide_empty&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to hide (not display) categories with no posts. Valid values:
+<ul><li> <tt>TRUE</tt> (Default)
+</li><li> <tt>FALSE</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> optionnone&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to have an option to display none of the categories. Valid values:
+<ul><li> <tt>TRUE</tt>
+</li><li> <tt>FALSE</tt> (Default)
+</li></ul>
+</dd></dl>
+<dl><dt> selected&nbsp;</dt><dd> (<i>integer</i>) Sets the default selected category ID number. Defaults to current category.
+</dd><dt> hide&nbsp;</dt><dd> (<i>integer</i>) Do not display this category (specified by category ID number). There is no default.
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Dropdown_with_Submit_Button" id="Dropdown_with_Submit_Button"></a><h3> <span class="mw-headline">Dropdown with Submit Button</span></h3>
+<p>Displays category select (dropdown) list in HTML form with a submit button, in a WordPress sidebar unordered list.
+</p>
+<pre>&lt;li id="categories"&gt;&lt;?php _e('Categories:');&nbsp;?&gt;
+   &lt;ul&gt;&lt;li&gt;
+   &lt;form action="&lt;?php echo $PHP_SELF&nbsp;?&gt;" method="get"&gt;
+   &lt;?php dropdown_cats();&nbsp;?&gt;
+   &lt;input type="submit" name="submit" value="view" /&gt;
+   &lt;/form&gt;
+   &lt;/li&gt;&lt;/ul&gt;
+&lt;/li&gt;
+</pre>
+<a name="Dropdown_without_Submit_Button" id="Dropdown_without_Submit_Button"></a><h3> <span class="mw-headline">Dropdown without Submit Button</span></h3>
+<p>Displays category select (dropdown) in HTML form <i>without</i> a submit button.
+</p>
+<dl><dd><ul><li> Download and install the plugin <b>Drop Down Categories</b> <a href="http://typedby.com/archives/2004/06/22/dropdown-plugin-with-ability-to-exclude/" class="external text" title="http://typedby.com/archives/2004/06/22/dropdown-plugin-with-ability-to-exclude/">found here</a>.
+</li><li> Add the following code to your header.php template file:
+</li></ul>
+</dd></dl>
+<pre>&lt;script type=&quot;text/JavaScript&quot;&gt;
+&lt;!-- function MM_jumpMenu(targ,selObj,restore){ //v3.0
+eval(targ+&quot;.location='&quot;+selObj.options[selObj.selectedIndex].value+&quot;'&quot;);
+if (restore) selObj.selectedIndex=0;
+}
+//--&gt;
+&lt;/script&gt;</pre>
+<dl><dd><ul><li> Then add the following code to wherever you'd like the dropdown categories to be displayed (for example, your sidebar.php file):
+</li></ul>
+</dd></dl>
+<pre>&lt;form action=&quot;&quot;&gt;
+&lt;select name=&quot;menu&quot; onchange=&quot;MM_jumpMenu('parent',this,0)&quot;&gt;
+&lt;option&gt;Choose one&lt;/option&gt;  
+&lt;?php dropdown_cats_exclude('name', 'asc');&nbsp;?&gt; 
+&lt;/select&gt;
+&lt;/form&gt;</pre>
+<a name="Fixes" id="Fixes"></a><h2> <span class="mw-headline"> Fixes </span></h2>
+<p>When you choose a category when you are not on the main page, you will not move to that category. To fix this find the following line in the template where you are using Dropdown cats.
+<tt>&lt;form action="&lt;?php echo $PHP_SELF&nbsp;?&gt;" method="get"&gt;</tt>
+Replace it with&nbsp;: 
+<tt>&lt;form action="&lt;?bloginfo('url');?&gt;/index.php" method="get"&gt;</tt>
+</p><p>This is a temporary fix to the problem, a real fix will probably come soon. This problem is usually only found on blogs using Apache Rewrite rules.
+</p>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> Since: 0.71
+</li><li> Deprecated: 2.1
+</li><li> Replace By: <a href="/Template_Tags/wp_dropdown_categories" title="Template Tags/wp dropdown categories" class="mw-redirect"> wp_dropdown_categories()</a>
+</li></ul>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Taxonomies" title="Taxonomies"><b>Categories</b></a>: 
+<a href="/Function_Reference/the_category" title="Function Reference/the category"> the_category()</a>, 
+<a href="/Function_Reference/the_category_rss" title="Function Reference/the category rss"> the_category_rss()</a>, 
+<a href="/Function_Reference/single_cat_title" title="Function Reference/single cat title"> single_cat_title()</a>, 
+<a href="/Function_Reference/category_description" title="Function Reference/category description"> category_description()</a>, 
+<a href="/Function_Reference/wp_dropdown_categories" title="Function Reference/wp dropdown categories"> wp_dropdown_categories()</a>, 
+<a href="/Function_Reference/wp_list_categories" title="Function Reference/wp list categories" class="mw-redirect"> wp_list_categories()</a>, 
+<a href="/Function_Reference/get_the_category" title="Function Reference/get the category"> get_the_category()</a>, 
+<a href="/Function_Reference/get_the_category_by_ID" title="Function Reference/get the category by ID"> get_the_category_by_ID()</a>,
+<a href="/Function_Reference/get_category_by_slug" title="Function Reference/get category by slug"> get_category_by_slug()</a>, 
+<a href="/Function_Reference/get_the_category_list" title="Function Reference/get the category list"> get_the_category_list()</a>, 
+<a href="/Function_Reference/get_category_parents" title="Function Reference/get category parents"> get_category_parents()</a>, 
+<a href="/Function_Reference/get_category_link" title="Function Reference/get category link"> get_category_link()</a>, 
+<a href="/Function_Reference/is_category" title="Function Reference/is category"> is_category()</a>, 
+<a href="/Function_Reference/in_category" title="Function Reference/in category"> in_category()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
- hide\_empty 
-:   (*boolean*) Sets whether to hide (not display) categories with no
-    posts. Valid values:
-    -   `TRUE` (Default)
-    -   `FALSE`
+<!-- 
+NewPP limit report
+Preprocessor node count: 109/1000000
+Post-expand include size: 3689/2097152 bytes
+Template argument size: 929/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/dropdown_cats">http://codex.wordpress.org/Function_Reference/dropdown_cats</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/Category:Deprecated_Functions" title="Category:Deprecated Functions">Deprecated Functions</a></span> | <span dir='ltr'><a href="/Category:Template_Tags" title="Category:Template Tags">Template Tags</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
- optionnone 
-:   (*boolean*) Sets whether to have an option to display none of the
-    categories. Valid values:
-    -   `TRUE`
-    -   `FALSE` (Default)
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
- selected 
-:   (*integer*) Sets the default selected category ID number. Defaults
-    to current category.
- hide 
-:   (*integer*) Do not display this category (specified by category ID
-    number). There is no default.
 
-Examples
---------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-### Dropdown with Submit Button
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Displays category select (dropdown) list in HTML form with a submit
-button, in a WordPress sidebar unordered list.
 
-    <li id="categories"><?php _e('Categories:'); ?>
-       <ul><li>
-       <form action="<?php echo $PHP_SELF ?>" method="get">
-       <?php dropdown_cats(); ?>
-       <input type="submit" name="submit" value="view" />
-       </form>
-       </li></ul>
-    </li>
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405215245 -->
+</html>
 
-### Dropdown without Submit Button
-
-Displays category select (dropdown) in HTML form *without* a submit
-button.
-
--   Download and install the plugin **Drop Down Categories** [found
-    here](http://typedby.com/archives/2004/06/22/dropdown-plugin-with-ability-to-exclude/ "http://typedby.com/archives/2004/06/22/dropdown-plugin-with-ability-to-exclude/").
--   Add the following code to your header.php template file:
-
-<!-- -->
-
-    <script type="text/JavaScript">
-    <!-- function MM_jumpMenu(targ,selObj,restore){ //v3.0
-    eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-    if (restore) selObj.selectedIndex=0;
-    }
-    //-->
-    </script>
-
--   Then add the following code to wherever you'd like the dropdown
-    categories to be displayed (for example, your sidebar.php file):
-
-<!-- -->
-
-    <form action="">
-    <select name="menu" onchange="MM_jumpMenu('parent',this,0)">
-    <option>Choose one</option>  
-    <?php dropdown_cats_exclude('name', 'asc'); ?> 
-    </select>
-    </form>
-
-Fixes
------
-
-When you choose a category when you are not on the main page, you will
-not move to that category. To fix this find the following line in the
-template where you are using Dropdown cats.
-`<form action="<?php echo $PHP_SELF ?>" method="get">` Replace it with :
-`<form action="<?bloginfo('url');?>/index.php" method="get">`
-
-This is a temporary fix to the problem, a real fix will probably come
-soon. This problem is usually only found on blogs using Apache Rewrite
-rules.
-
-Change Log
-----------
-
--   Since: 0.71
--   Deprecated: 2.1
--   Replace By:
-    [wp\_dropdown\_categories()](/Template_Tags/wp_dropdown_categories "Template Tags/wp dropdown categories")
+</body>
+<!-- Cached 20130405215245 -->
+</html>
 

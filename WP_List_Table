@@ -1,1 +1,391 @@
-Class Reference/WP List Table « WordPress Codex
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<meta charset="utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Class Reference/WP List Table,Class Reference,Class Reference/WP List Table/prepare items,Function Reference,Function Reference/ get list table,Version 3.1,Version 3.5.1,Class Reference/WP List Table/ construct,Class Reference/WP List Table/set pagination args,Class Reference/WP List Table/display,Class Reference/WP List Table/column default" />
+		<link rel="canonical" href="/Class_Reference/WP_List_Table" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Class Reference/WP List Table &laquo; WordPress Codex</title>
+
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?36" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
+
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
+
+</head>
+
+<body id="wordpress-org" >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>				<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
+
+
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Class_Reference/WP_List_Table">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
+
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+			<div id="siteNotice"><div style="clear:both; background-color:#FCECAD; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto;"><a href="/File:Ambox_notice.png" class="image" title="Ambox notice.png"><img alt="Attention" src="/images/c/c8/Ambox_notice.png" width="40" height="40" border="0" style="vertical-align: middle" /></a> Help us to improve the Codex by filling out our <a href="http://wordpressdotorg.polldaddy.com/s/documentation-survey" class="external text" title="http://wordpressdotorg.polldaddy.com/s/documentation-survey">documentation survey</a>!</div>
+</div>			<h2 class="pagetitle">Class Reference/WP List Table</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Role_of_WP_List_Table"><span class="tocnumber">1</span> <span class="toctext">Role of WP_List_Table</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2"><a href="#In_the_WordPress_Core"><span class="tocnumber">2.1</span> <span class="toctext">In the WordPress Core</span></a></li>
+<li class="toclevel-2"><a href="#Developer_Usage"><span class="tocnumber">2.2</span> <span class="toctext">Developer Usage</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Methods_and_Properties"><span class="tocnumber">3</span> <span class="toctext">Methods and Properties</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Properties"><span class="tocnumber">3.1</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-2"><a href="#Extended_Properties"><span class="tocnumber">3.2</span> <span class="toctext">Extended Properties</span></a></li>
+<li class="toclevel-2"><a href="#Methods"><span class="tocnumber">3.3</span> <span class="toctext">Methods</span></a></li>
+<li class="toclevel-2"><a href="#Extended_Methods"><span class="tocnumber">3.4</span> <span class="toctext">Extended Methods</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Using_within_Meta_Boxes"><span class="tocnumber">4.1</span> <span class="toctext">Using within Meta Boxes</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Why_This_Happens"><span class="tocnumber">4.1.1</span> <span class="toctext">Why This Happens</span></a></li>
+<li class="toclevel-3"><a href="#The_Fix"><span class="tocnumber">4.1.2</span> <span class="toctext">The Fix</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Version"><span class="tocnumber">5</span> <span class="toctext">Version</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">6</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">7</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Role_of_WP_List_Table" id="Role_of_WP_List_Table"></a><h2> <span class="mw-headline">Role of WP_List_Table</span></h2>
+<p>This class is used to generate the List Tables that populate WordPress' various admin screens. It has an advantage over previous implementations in that it can be dynamically altered with AJAX and may be hooked in future WordPress releases.
+</p><p>This class may be used by developers through extending the class and overriding its methods.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline">Usage</span></h2>
+<p>This class is meant to be used as a kind of framework, since any data queries need to loaded, sorted, and filtered manually. Nevertheless, it is potentially a very powerful tool for developers as it creates WordPress-standard list tables, which makes it very easy to implement advanced features like pagination, actions, bulk actions, and filtering.
+</p><p>To use the WP_List_Table, you first create a new class that extends the original. Your new class must be instantiated, and the prepare_items() and display() methods called explicitly on the instance. See the method descriptions below for more details.
+</p>
+<a name="In_the_WordPress_Core" id="In_the_WordPress_Core"></a><h3> <span class="mw-headline">In the WordPress Core</span></h3>
+<p>The WordPress core loads and returns its classes dynamically by using the <a href="/Function_Reference/_get_list_table" title="Function Reference/ get list table">_get_list_table()</a> function, which automatically loads the appropriate extended class and instantiates it. <i>This is a private function, however, and should not be used by developers.</i>
+</p>
+<a name="Developer_Usage" id="Developer_Usage"></a><h3> <span class="mw-headline">Developer Usage</span></h3>
+<p>Since developers cannot use the <tt>_get_list_table()</tt> function directly, the class needs to be extended and instantiated manually, like so...
+</p>
+<pre>
+class Example_List_Table extends WP_List_Table {}
+$example_lt = new Example_List_Table();
+</pre>
+<p>The above example won't be able to output anything meaningful, however, as several methods MUST be specified (as well as your data) in order for WP_List_Table to render a useful table.
+</p>
+<a name="Methods_and_Properties" id="Methods_and_Properties"></a><h2> <span class="mw-headline">Methods and Properties</span></h2>
+<a name="Properties" id="Properties"></a><h3> <span class="mw-headline">Properties</span></h3>
+<p>The following properties are built into the base WP_List_Table class.
+</p>
+<dl><dt>	<tt>$items</tt>
+</dt><dd>		This is used to store the raw data you want to display. Generally you will set this property directly in the prepare_items() method.
+</dd><dt>	<tt>$_args</tt>
+</dt><dd>		Stores various information about the current table (as an array). This generally isn't manipulated directly.
+</dd><dt>	<tt>$_pagination_args</tt>
+</dt><dd>		Stores information needed for handling table pagination (as an array). This generally isn't manipulated directly.
+</dd><dt>	<tt>$screen</tt>
+</dt><dd>		This can be used to store the current screen, when it's necessary to keep it consistent with the entire instance.
+</dd><dt>	<tt>$_actions</tt>
+</dt><dd>		Stores cached bulk actions. This generally isn't manipulated directly.
+</dd><dt>	<tt>$_pagination</tt>
+</dt><dd>		Stores cached pagination output. This generally isn't manipulated directly.
+</dd></dl>
+<a name="Extended_Properties" id="Extended_Properties"></a><h3> <span class="mw-headline">Extended Properties</span></h3>
+<p>These properties are not built-in, but are expected by several class methods. You must define them manually in your extended class.
+</p>
+<dl><dt>	<tt>$_column_headers</tt>
+</dt><dd>		In core, this property is assigned automatically. Developers <b>must</b> manually define it in their prepare_items() <i>or</i> __construct() methods. 
+</dd><dd>This property requires a 3-value array&nbsp;: 
+<ul><li> The first value is an array containing column slugs and titles (see the <tt>get_columns()</tt> method). 
+</li><li> The second value is an array containing the values of fields to be hidden. 
+</li><li> The third value is an array of columns that should allow sorting (see the <tt>get_sortable_columns()</tt> method).
+</li></ul>
+</dd></dl>
+<a name="Methods" id="Methods"></a><h3> <span class="mw-headline">Methods</span></h3>
+<dl><dt>	<tt><a href="/index.php?title=Class_Reference/WP_List_Table/_construct&amp;action=edit&amp;redlink=1" class="new" title="Class Reference/WP List Table/ construct (page does not exist)">__construct( $args=array() )</a></tt>
+</dt><dd>		Constructor. This sets default arguments and filters. Developers should override this, calling the parent constructor to provide values for singular and plural labels, as well as whether the class supports AJAX.
+</dd><dt>	<tt>ajax_user_can()</tt>
+</dt><dd>		Can be overridden to provide some permissions functionality to your table.
+</dd><dt>	<tt><a href="/Class_Reference/WP_List_Table/prepare_items" title="Class Reference/WP List Table/prepare items">prepare_items()</a></tt>
+</dt><dd>		Developers should use this class to query and filter data, handle sorting, and pagination, and any other data-manipulation required prior to rendering. This method should be called explicitly after instantiating your class, and before rendering.
+</dd><dt>	<tt><a href="/index.php?title=Class_Reference/WP_List_Table/set_pagination_args&amp;action=edit&amp;redlink=1" class="new" title="Class Reference/WP List Table/set pagination args (page does not exist)">set_pagination_args( $args )</a></tt>
+</dt><dd>		This method should be called internally (usually from <tt>prepare_items()</tt>) to set basic pagination arguments. Available arguments include:
+<ul><li> <b>total_items</b> - the total number of items to be displayed. Usually as simple as <tt>count($data)</tt>
+</li><li> <b>per_page</b> - the number of items to show per page
+</li><li> <b>total_pages</b> - the total number of pages. Can be left blank or calculated manually, like so: <tt>ceil($total_items/$per_page)</tt>
+</li></ul>
+</dd></dl>
+<dl><dt>	<tt>get_pagination_arg( $key )</tt>
+</dt><dd>		Gets a single pagination argument by its key.
+</dd><dt>	<tt>has_items()</tt>
+</dt><dd>		Returns a boolean indicating whether the <tt>items</tt> property is empty.
+</dd><dt>	<tt>no_items()</tt>
+</dt><dd>		Returns the message to be displayed when there are no <tt>items</tt>.
+</dd><dt>	<tt>search_box( $text, $input_id )</tt>
+</dt><dd>		This renders a search box. To use this, you will still need to manually wrap your list table (including search box) in a form.
+</dd><dt>	<tt>get_views()</tt>
+</dt><dd>		Returns an associative array listing all the views that can be used with this table.
+</dd><dt>	<tt>views()</tt>
+</dt><dd>		Renders out the <tt>&lt;ul&gt;</tt> element that contains the view names.
+</dd><dt>	<tt>get_bulk_actions()</tt>
+</dt><dd>		Override this method to return an associative array ( action_slug =&gt; action_title ) containing all the bulk actions available for the table.
+</dd><dt>	<tt>bulk_actions()</tt>
+</dt><dd>		When called, this renders out the bulk-actions drop-down. To use this, you will still need to manually wrap your list table (including search box) in a form. 
+</dd><dt>	<tt>current_action()</tt>
+</dt><dd>		This returns the current action selected in the bulk actions dropdown.
+</dd><dt>	<tt>row_actions( $actions, $always_visible = false )</tt>
+</dt><dd>		Call this method (usually from one of your column methods) to insert a row actions div. The $actions parameter should be an associative array, where the key is the name of the action and the value is a link.
+</dd><dt>	<tt>months_dropdown( $post_type )</tt>
+</dt><dd>		Call this to render a date dropdown, for filtering <tt>items</tt> by month.
+</dd><dt>	<tt>view_switcher( $current_mode )</tt>
+</dt><dd>		Call this to render post-type view switcher buttons (List View and Excerpt View)
+</dd><dt>	<tt>comments_bubble( $post_id, $pending_comments )</tt>
+</dt><dd>		Call this to render comment-count bubble.
+</dd><dt>	<tt>get_pagenum()</tt>
+</dt><dd>		Returns the currently selected page number.
+</dd><dt>	<tt>get_items_per_page( $option, $default = 20 )</tt>
+</dt><dd>		Fetches the number of <tt>items</tt> to be displayed on the page, as set by users.
+</dd><dt>	<tt>pagination( $which )</tt>
+</dt><dd>		Creates the pagination HTML and assigns it to the _pagination property. Generally, you don't need to call this directly as it's handled for you on <tt>display()</tt>.
+</dd><dt>	<tt>get_columns()</tt>
+</dt><dd>		This method should be overridden to return an associative array of columns. The associative array should follow the format <tt>'slug' =&gt; array( 'Title', true )</tt>. Typically, you will use this in the <tt>prepare_items()</tt> method to build part of the <tt>_column_headers</tt> property.
+</dd><dt>	<tt>get_columns()</tt>
+</dt><dd>		This method should be overridden to return an associative array of columns. The associative array should follow the format 'slug'=&gt;'Title' and is frequently used to provide part of the <tt>_column_headers</tt> property.
+</dd><dt>	<tt>get_sortable_columns()</tt>
+</dt><dd>		This method should be overridden to return an associative array of columns that you want to make sortable. The associative array should follow the format <tt>'column_slug'=&gt;array('sortby',true)</tt>, where the second property states whether the field is presorted. This is frequently used to provide part of the <tt>_column_headers</tt> property.
+</dd><dt>	<tt>get_column_info()</tt>
+</dt><dd>		This is used by WordPress to build and fetch the <tt>_column_headers</tt> property. Generally, this should not be used by developers. Instead, assign the <tt>_column_headers</tt> property directly from your <tt>prepare_items()</tt> method. 
+</dd><dt>	<tt>get_column_count()</tt>
+</dt><dd>		This simply returns the number of visible columns.
+</dd><dt>	<tt>print_column_headers( $with_id = true )</tt>
+</dt><dd>		This method renders out the column headers. Generally, you don't need to call this directly as it's handled for you in the <tt>display()</tt> method.
+</dd><dt>	<tt><a href="/index.php?title=Class_Reference/WP_List_Table/display&amp;action=edit&amp;redlink=1" class="new" title="Class Reference/WP List Table/display (page does not exist)">display()</a></tt>
+</dt><dd>		Call this method to render the completed list table to the page.
+</dd><dt>	<tt>get_table_classes()</tt>
+</dt><dd>		Returns a list of css classes to be attached to the table element. Override to customize table classes.
+</dd><dt>	<tt>display_tablenav( $which )</tt>
+</dt><dd>		This generates the table navigation <i>above</i> or <i>below</i> the table. Generally, you don't need to call this explicitly as it is handled in the <tt>display()</tt> method.
+</dd><dt>	<tt>extra_tablenav( $which )</tt>
+</dt><dd>		This can be overridden to display additional controls between the rendered bulk actions and pagination controls.
+</dd><dt>	<tt>display_rows_or_placeholder()</tt>
+</dt><dd>		This generates the tbody part of the table. Generally, you don't need to call this explicitly as it is handled in the <tt>display()</tt> method.
+</dd><dt>	<tt>display_rows()</tt>
+</dt><dd>		This loops through the <tt>items</tt> property and renders them to the page as table rows. Generally, you don't need to call this explicitly as it is handled automatically on <tt>display()</tt>.
+</dd><dt>	<tt>single_row( $item )</tt>
+</dt><dd>		This echos a single item (from the <tt>items</tt> property) to the page.  Generally, you don't need to call this explicitly as it is handled automatically on <tt>display()</tt>.
+</dd><dt>	<tt>single_row_columns( $item )</tt>
+</dt><dd>		This renders out all the columns for a single item row. It is important to understand that this method assumes the existence of some custom column methods (eg <tt>column_mycolumn()</tt>) and/or a <b><tt>column_default()</tt></b> method. Neither of these are provided by the base class and should be defined in your extended class. Generally, you don't need to call this explicitly as it is handled automatically on <tt>display()</tt>.
+</dd><dt>	<tt>ajax_response()</tt>
+</dt><dd>		Handles incoming Ajax requests.
+</dd><dt>	<tt>_js_vars()</tt>
+</dt><dd>		Outputs key Javascript variables that were dynamically created by the class.
+</dd></dl>
+<a name="Extended_Methods" id="Extended_Methods"></a><h3> <span class="mw-headline">Extended Methods</span></h3>
+<p>These methods are not included in the base class but can, and should, be defined in your extended class!
+</p>
+<dl><dt>	<tt><a href="/index.php?title=Class_Reference/WP_List_Table/column_default&amp;action=edit&amp;redlink=1" class="new" title="Class Reference/WP List Table/column default (page does not exist)">column_default($item, $column_name)</a></tt>
+</dt><dd>		This is method that is used to render a column when no other specific method exists for that column. When WP_List_Tables attempts to render your columns (within <tt>single_row_columns()</tt>), it first checks for a column-specific method. If none exists, it defaults to <i>this</i> method instead. This method accepts two arguments, a single <b>$item</b> array and the <b>$column_name</b> (as a slug).
+</dd></dl>
+<dl><dd><b>NOTICE</b>: As of <a href="/Version_3.5.1" title="Version 3.5.1">WordPress 3.5.1</a>, in core <tt>$item</tt> is passed an Object, not an array.
+</dd></dl>
+<dl><dt>	<tt><a href="/index.php?title=Class_Reference/WP_List_Table/column_custom&amp;action=edit&amp;redlink=1" class="new" title="Class Reference/WP List Table/column custom (page does not exist)">column_$custom($item, $column_name)</a></tt>
+</dt><dd>		Custom columns must be provided by the developer and can be used to handle each type column individually. For example: if a method named <i><tt>column_movie_title()</tt></i> were provided, it would be used to render any column that had the slug "<tt>movie_title</tt>". As with <tt>column_default()</tt>, this accepts two arguments - a single <b>$item</b> array and the <b>$column_name</b> (as a slug).
+</dd></dl>
+<dl><dd><b>NOTICE</b>: As of <a href="/Version_3.5.1" title="Version 3.5.1">WordPress 3.5.1</a>, in core <tt>$item</tt> is passed an Object, not an array.
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline">Examples</span></h2>
+<p>For a detailed, functional example, download the <a href="http://wordpress.org/extend/plugins/custom-list-table-example" class="external text" title="http://wordpress.org/extend/plugins/custom-list-table-example">Custom List Table Example</a> plugin.
+</p>
+<a name="Using_within_Meta_Boxes" id="Using_within_Meta_Boxes"></a><h3> <span class="mw-headline">Using within Meta Boxes</span></h3>
+<p><b>Attention</b> when using the <tt>WP_List_Table</tt> class within a <b>Meta Box</b>:
+</p><p>If you don't set <tt>$this-&gt;_column_headers</tt> in your own class within <tt>prepare_items()</tt> (like shown in the code block below), then the complete <tt>&lt;thead&gt;</tt> and <tt>&lt;tfoot&gt;</tt> will disappear!
+</p>
+<pre>
+$this-&gt;_column_headers = array( 
+	 $this-&gt;get_columns(),		// columns
+	 array(),			// hidden
+	 $this-&gt;get_sortable_columns(),	// sortable
+);
+</pre>
+<a name="Why_This_Happens" id="Why_This_Happens"></a><h4> <span class="mw-headline">Why This Happens</span></h4>
+<p>If you don't set <tt>$this-&gt;_column_headers;</tt> manually in the extending class, then the sortable columns are set up by the <i>parent</i> class and the <tt>$this-&gt;get_columns();</tt> function.
+</p><p>Unfortunately, when this happens your column headers array is empty - even if you set it up with <tt>get_columns();</tt> from your child class. 
+</p>
+<a name="The_Fix" id="The_Fix"></a><h4> <span class="mw-headline">The Fix</span></h4>
+<p>Use the <tt>$GLOBALS['wp_filter']["manage_{$GLOBALS['screen']-&gt;id}_screen_columns"];</tt> filter to get them back!
+</p><p><i>Sidenote:</i> The <tt>get_column_headers()</tt> function that applies this filter is located in <tt>/core_root/wp-admin/includes/template.php</tt>
+</p><p>'<b>There is one major drawback:'</b> If you do this, no other meta box may contain an extension for the <tt>WP_List_Table</tt> class, as this would break the columns of the additional meta boxes since only one filter exists to setup the screen columns <i>per screen</i>.
+</p>
+<a name="Version" id="Version"></a><h2> <span class="mw-headline">Version</span></h2>
+<p>WP_List_Table was implemented in <a href="/Version_3.1" title="Version 3.1">WordPress 3.1</a>.
+</p>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline">Source File</span></h2>
+<p><tt>WP_List_Table()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1//wp-admin/includes/class-wp-list-table.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1//wp-admin/includes/class-wp-list-table.php#L0">/wp-admin/includes/class-wp-list-table.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline">Related</span></h2>
+<ul><li> <a href="http://wordpress.org/extend/plugins/custom-list-table-example" class="external text" title="http://wordpress.org/extend/plugins/custom-list-table-example">Custom List Table Example Plugin</a> - A practical example of WP_List_Table in plugin form
+</li></ul>
+<div style="clear:both; background-color:#DFDFDF; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Class_Reference" title="Class Reference">Class Reference</a> and index of <a href="/Function_Reference" title="Function Reference">Function Reference</a>.</div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 49/1000000
+Post-expand include size: 704/2097152 bytes
+Template argument size: 214/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Class_Reference/WP_List_Table">http://codex.wordpress.org/Class_Reference/WP_List_Table</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Classes" title="Category:Classes">Classes</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
+
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="//www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
+
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
+
+
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="//edge.quantserve.com/quant.js"></script>
+<noscript><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="//gravatar.com/js/gprofiles.js"></script>
+
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+</html>
+
+</body>
+</html>
+

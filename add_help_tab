@@ -1,184 +1,390 @@
-Function Reference/add help tab « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-This function is used to add a tab to the Contextual Help menu in an
-admin page.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/add help tab,Class Reference/WP Screen,Function Reference/add menu page,Function Reference/add options page,Function Reference/add submenu page,Function Reference/add theme page,Function Reference/get current screen,Function Reference/set help sidebar,How to Pass Tag Parameters,Plugin API/Admin Screen Reference,Version 3.3" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/add help tab &laquo; WordPress Codex</title>
 
-`add_help_tab()` is a method of the
-[WP\_Screen()](/Class_Reference/WP_Screen "Class Reference/WP Screen")
-class, and can not be called directly.
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-To use the method, fetch the `$current_screen` object or use
-[get\_current\_screen()](/Function_Reference/get_current_screen "Function Reference/get current screen")
-and then call the method from the object. Developers should keep in mind
-that you may need to filter `$current_screen` using an `if` or `switch`
-statement to prevent new help tabs from being added to ALL admin
-screens.
 
-Usage
------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-     <?php
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
+
+</head>
+
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
+
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
+
+
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/add_help_tab">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
+
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/add help tab</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Arguments"><span class="tocnumber">3.1</span> <span class="toctext">Arguments</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Default_Usage"><span class="tocnumber">4.1</span> <span class="toctext">Default Usage</span></a></li>
+<li class="toclevel-2"><a href="#Advanced_Usage_.28from_within_a_class.29"><span class="tocnumber">4.2</span> <span class="toctext">Advanced Usage (from within a class)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">5</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">6</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">7</span> <span class="toctext">Related</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Topics"><span class="tocnumber">7.1</span> <span class="toctext">Topics</span></a></li>
+<li class="toclevel-2"><a href="#Functions"><span class="tocnumber">7.2</span> <span class="toctext">Functions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Resources"><span class="tocnumber">8</span> <span class="toctext">Resources</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>This function is used to add a tab to the Contextual Help menu in an admin page.
+</p><p><tt>add_help_tab()</tt> is a method of the <a href="/Class_Reference/WP_Screen" title="Class Reference/WP Screen">WP_Screen()</a> class, and can not be called directly.
+</p><p>To use the method, fetch the <tt>$current_screen</tt> object or use <a href="/Function_Reference/get_current_screen" title="Function Reference/get current screen">get_current_screen()</a> and then call the method from the object. Developers should keep in mind that you may need to filter <tt>$current_screen</tt> using an <tt>if</tt> or <tt>switch</tt> statement to prevent new help tabs from being added to ALL admin screens.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<pre> &lt;?php
+$screen = get_current_screen();
+$screen-&gt;add_help_tab( array( 
+   'id' =&gt; $id,            //unique id for the tab
+   'title' =&gt; $title,      //unique visible title for the tab
+   'content' =&gt; $content,  //actual help text
+   'callback' =&gt; $callback //optional function to callback
+) );
+?&gt; </pre>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$args</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Array" title="How to Pass Tag Parameters"><i>array</i></a>) (<i>required</i>) Contains values to be displayed by the created help tab and a callback argument
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<a name="Arguments" id="Arguments"></a><h3> <span class="mw-headline"> Arguments </span></h3>
+<dl><dt> <tt>$title</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) Title for the tab.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$id</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) Tab ID. Must be HTML-safe and should be unique for this menu. It is **NOT** allowed to contain any empty spaces!
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$content</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Help tab content in plain text or HTML.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$function</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Callback" title="How to Pass Tag Parameters"><i>callback</i></a>) (<i>optional</i>) The function to be called to output the content for this page.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<p><br />
+</p>
+<a name="Example" id="Example"></a><h2> <span class="mw-headline"> Example </span></h2>
+<a name="Default_Usage" id="Default_Usage"></a><h3> <span class="mw-headline"> Default Usage </span></h3>
+<p>This example shows how you would add contextual help to an admin page you've created with the <tt>add_options_page()</tt> function. Here, we assume that your admin page has a slug of 'my_admin_page' and exists under the Options tab.
+</p>
+<pre>
+&lt;?php 
+add_action('admin_menu', 'my_admin_add_page');
+function my_admin_add_page() {
+    global $my_admin_page;
+    $my_admin_page = add_options_page(__('My Admin Page', 'map'), __('My Admin Page', 'map'), 'manage_options', 'map', 'my_admin_page');
+
+    // Adds my_help_tab when my_admin_page loads
+    add_action('load-'.$my_admin_page, 'my_admin_add_help_tab');
+}
+
+function my_admin_add_help_tab () {
+    global $my_admin_page;
     $screen = get_current_screen();
-    $screen->add_help_tab( array( 
-       'id' => $id,            //unique id for the tab
-       'title' => $title,      //unique visible title for the tab
-       'content' => $content,  //actual help text
-       'callback' => $callback //optional function to callback
-    ) );
-    ?> 
 
-Parameters
-----------
-
- `$args` 
-:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
-    (*required*) Contains values to be displayed by the created help tab
-    and a callback argument
-    Default: *None*
-
-### Arguments
-
- `$title` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) Title for the tab.
-    Default: *None*
-
- `$id` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) Tab ID. Must be HTML-safe and should be unique for this
-    menu. It is \*\*NOT\*\* allowed to contain any empty spaces!
-    Default: *None*
-
- `$content` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Help tab content in plain text or HTML.
-    Default: *None*
-
- `$function` 
-:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
-    (*optional*) The function to be called to output the content for
-    this page.
-    Default: *None*
-
-\
-
-Example
--------
-
-### Default Usage
-
-This example shows how you would add contextual help to an admin page
-you've created with the `add_options_page()` function. Here, we assume
-that your admin page has a slug of 'my\_admin\_page' and exists under
-the Options tab.
-
-    <?php 
-    add_action('admin_menu', 'my_admin_add_page');
-    function my_admin_add_page() {
-        global $my_admin_page;
-        $my_admin_page = add_options_page(__('My Admin Page', 'map'), __('My Admin Page', 'map'), 'manage_options', 'map', 'my_admin_page');
-
-        // Adds my_help_tab when my_admin_page loads
-        add_action('load-'.$my_admin_page, 'my_admin_add_help_tab');
-    }
-
-    function my_admin_add_help_tab () {
-        global $my_admin_page;
-        $screen = get_current_screen();
-
-        /*
-         * Check if current screen is My Admin Page
-         * Don't add help tab if it's not
-         */
-        if ( $screen->id != $my_admin_page )
-            return;
-
-        // Add my_help_tab if current screen is My Admin Page
-        $screen->add_help_tab( array(
-            'id'    => 'my_help_tab',
-            'title' => __('My Help Tab'),
-            'content'   => '<p>' . __( 'Descriptive content that will show in My Help Tab-body goes here.' ) . '</p>',
-        ) );
-    }
-    ?>
-
-### Advanced Usage (from within a class)
-
-        <?php
-    /**
-     * Plugin Name: Help Tab Test Case
-     * Plugin URI:  http://unserkaiser.com
-     * Description: Add Help Tab test case
+    /*
+     * Check if current screen is My Admin Page
+     * Don't add help tab if it's not
      */
-    class example_help
-    {
-        public $tabs = array(
-            // The assoc key represents the ID
-            // It is NOT allowed to contain spaces
-             'EXAMPLE' => array(
-                 'title'   => 'TEST ME!'
-                ,'content' => 'FOO'
-             )
-        );
+    if ( $screen-&gt;id&nbsp;!= $my_admin_page )
+        return;
 
-        static public function init()
-        {
-            $class = __CLASS__ ;
-            new $class;
-        }
+    // Add my_help_tab if current screen is My Admin Page
+    $screen-&gt;add_help_tab( array(
+        'id'	=&gt; 'my_help_tab',
+        'title'	=&gt; __('My Help Tab'),
+        'content'	=&gt; '&lt;p&gt;' . __( 'Descriptive content that will show in My Help Tab-body goes here.' ) . '&lt;/p&gt;',
+    ) );
+}
+?&gt;
+</pre>
+<a name="Advanced_Usage_.28from_within_a_class.29" id="Advanced_Usage_.28from_within_a_class.29"></a><h3> <span class="mw-headline"> Advanced Usage (from within a class) </span></h3>
+<pre>
+    &lt;?php
+/**
+ * Plugin Name: Help Tab Test Case
+ * Plugin URI:  http://unserkaiser.com
+ * Description: Add Help Tab test case
+ */
+class example_help
+{
+	public $tabs = array(
+		// The assoc key represents the ID
+		// It is NOT allowed to contain spaces
+		 'EXAMPLE' =&gt; array(
+		 	 'title'   =&gt; 'TEST ME!'
+		 	,'content' =&gt; 'FOO'
+		 )
+	);
 
-        public function __construct()
-        {
-            add_action( "load-{$GLOBALS['pagenow']}", array( $this, 'add_tabs' ), 20 );
-        }
+	static public function init()
+	{
+		$class = __CLASS__&nbsp;;
+		new $class;
+	}
 
-        public function add_tabs()
-        {
-            foreach ( $this->tabs as $id => $data )
-            {
-                get_current_screen()->add_help_tab( array(
-                     'id'       => $id
-                    ,'title'    => __( $data['title'], 'some_textdomain' )
-                    // Use the content only if you want to add something
-                    // static on every help tab. Example: Another title inside the tab
-                    ,'content'  => '<p>Some stuff that stays above every help text</p>'
-                    ,'callback' => array( $this, 'prepare' )
-                ) );
-            }
-        }
+	public function __construct()
+	{
+		add_action( &quot;load-{$GLOBALS['pagenow']}&quot;, array( $this, 'add_tabs' ), 20 );
+	}
 
-        public function prepare( $screen, $tab )
-            {
-                printf( 
-                 '<p>%s</p>'
-                ,__( 
-                         $tab['callback'][0]->tabs[ $tab['id'] ]['content']
-                    ,'dmb_textdomain' 
-                 )
-            );
-        }
-    }
-    // Always add help tabs during "load-{$GLOBALS['pagenow'}".
-    // There're some edge cases, as for example on reading options screen, your
-    // Help Tabs get loaded before the built in tabs. This seems to be a core error.
-    add_action( 'load-post.php', array( 'example_help', 'init' ) );
-    add_action( 'load-post-new.php', array( 'example_help', 'init' ) );
+	public function add_tabs()
+	{
+		foreach ( $this-&gt;tabs as $id =&gt; $data )
+		{
+			get_current_screen()-&gt;add_help_tab( array(
+				 'id'       =&gt; $id
+				,'title'    =&gt; __( $data['title'], 'some_textdomain' )
+				// Use the content only if you want to add something
+				// static on every help tab. Example: Another title inside the tab
+				,'content'  =&gt; '&lt;p&gt;Some stuff that stays above every help text&lt;/p&gt;'
+				,'callback' =&gt; array( $this, 'prepare' )
+			) );
+		}
+	}
 
-[Above example came out of a WPSE
-question](http://wordpress.stackexchange.com/questions/53595/help-tabs-with-add-help-tab-callback-how-does-the-argument-work/53598#53598 "http://wordpress.stackexchange.com/questions/53595/help-tabs-with-add-help-tab-callback-how-does-the-argument-work/53598#53598").
+	public function prepare( $screen, $tab )
+	    {
+	    	printf( 
+			 '&lt;p&gt;%s&lt;/p&gt;'
+			,__( 
+	    			 $tab['callback'][0]-&gt;tabs[ $tab['id'] ]['content']
+				,'dmb_textdomain' 
+			 )
+		);
+	}
+}
+// Always add help tabs during &quot;load-{$GLOBALS['pagenow'}&quot;.
+// There're some edge cases, as for example on reading options screen, your
+// Help Tabs get loaded before the built in tabs. This seems to be a core error.
+add_action( 'load-post.php', array( 'example_help', 'init' ) );
+add_action( 'load-post-new.php', array( 'example_help', 'init' ) );
+</pre>
+<p><a href="http://wordpress.stackexchange.com/questions/53595/help-tabs-with-add-help-tab-callback-how-does-the-argument-work/53598#53598" class="external text" title="http://wordpress.stackexchange.com/questions/53595/help-tabs-with-add-help-tab-callback-how-does-the-argument-work/53598#53598">Above example came out of a WPSE question</a>.
+</p><p><a href="http://wordpress.stackexchange.com/questions/45210/positioning-screen-contextual-help-tabs" class="external text" title="http://wordpress.stackexchange.com/questions/45210/positioning-screen-contextual-help-tabs">You can read this WPSE question about how to fix the wrong order bug without changing core code</a>.
+</p>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> Since: <a href="/Version_3.3" title="Version 3.3">Version 3.3</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>add_help_tab()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-admin/includes/screen.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-admin/includes/screen.php#L0">wp-admin/includes/screen.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<a name="Topics" id="Topics"></a><h3> <span class="mw-headline"> Topics </span></h3>
+<ul><li> <a href="/Plugin_API/Admin_Screen_Reference" title="Plugin API/Admin Screen Reference">Admin Screen ID Reference</a>
+</li></ul>
+<a name="Functions" id="Functions"></a><h3> <span class="mw-headline"> Functions </span></h3>
+<ul><li> <a href="/Function_Reference/add_options_page" title="Function Reference/add options page">add_options_page</a>
+</li><li> <a href="/Function_Reference/add_menu_page" title="Function Reference/add menu page">add_menu_page</a>
+</li><li> <a href="/Function_Reference/add_submenu_page" title="Function Reference/add submenu page">add_submenu_page</a>
+</li><li> <a href="/Function_Reference/add_theme_page" title="Function Reference/add theme page">add_theme_page</a>
+</li><li> <a href="/Function_Reference/get_current_screen" title="Function Reference/get current screen">get_current_screen</a>
+</li><li> <a href="/Function_Reference/set_help_sidebar" title="Function Reference/set help sidebar">set_help_sidebar</a>
+</li></ul>
+<a name="Resources" id="Resources"></a><h2> <span class="mw-headline"> Resources </span></h2>
+<ul><li> <a href="http://wpdevel.wordpress.com/2011/12/06/help-and-screen-api-changes-in-3-3/" class="external text" title="http://wpdevel.wordpress.com/2011/12/06/help-and-screen-api-changes-in-3-3/">Help and screen API changes in 3.3</a> - New Help and Screen usage example. On the official WPDevel blog, by Nacin (core team member) 
+</li><li> <a href="http://ottopress.com/2011/new-in-wordpress-3-3-more-useful-help-screens/" class="external text" title="http://ottopress.com/2011/new-in-wordpress-3-3-more-useful-help-screens/">New in WordPress 3.3: More Useful Help Screens</a> - Otto (core team member) explains the new Help Screens suing his SFC plugin as an example
+</li></ul>
 
-[You can read this WPSE question about how to fix the wrong order bug
-without changing core
-code](http://wordpress.stackexchange.com/questions/45210/positioning-screen-contextual-help-tabs "http://wordpress.stackexchange.com/questions/45210/positioning-screen-contextual-help-tabs").
+<!-- 
+NewPP limit report
+Preprocessor node count: 94/1000000
+Post-expand include size: 1009/2097152 bytes
+Template argument size: 475/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/add_help_tab">http://codex.wordpress.org/Function_Reference/add_help_tab</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-Change Log
-----------
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
--   Since: [Version 3.3](/Version_3.3 "Version 3.3")
 
-Source File
------------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-`add_help_tab()` is located in `wp-admin/includes/screen.php`.
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
+
+
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405214540 -->
+</html>
+
+</body>
+<!-- Cached 20130405214540 -->
+</html>
 

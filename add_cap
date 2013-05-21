@@ -1,85 +1,275 @@
-Function Reference/add cap « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Adds a
-[capability](/Roles_and_Capabilities#Capabilities "Roles and Capabilities")
-to a [role](/Roles_and_Capabilities#Roles "Roles and Capabilities") or
-specific user. Changing the capabilities of a role or user is
-persistent, meaning the added capability will stay in effect until
-explicitly revoked.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/add cap,Function Reference,Function Reference/add role,Function Reference/get role,Function Reference/remove cap,Function Reference/remove role,How to Pass Tag Parameters,Roles and Capabilities,Template Tags,Version 2.0" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/add cap &laquo; WordPress Codex</title>
 
-**N.B.: This setting is saved to the database (in table wp\_options,
-field wp\_user\_roles), so it might be better to run this on
-theme/plugin activation**
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-Parameters
-----------
 
- `role (just with WP_Roles)` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*Required*) role name
-    Default: *None*
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
- `cap` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*Required*) capability name
-    Default: *None*
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
- `grant` 
-:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
-    (*optional*) Whether the role is capable of performing this
-    capability.
-    Default: true
+</head>
 
-Return Values
--------------
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
- void 
-:   No return value
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-Example
--------
 
-    function add_theme_caps() {
-        // gets the author role
-        $role = get_role( 'author' );
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/add_cap">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-        // This only works, because it accesses the class instance.
-        // would allow the author to edit others' posts for current theme only
-        $role->add_cap( 'edit_others_posts' ); 
-    }
-    add_action( 'admin_init', 'add_theme_caps');
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/add cap</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">3</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Changelog"><span class="tocnumber">6</span> <span class="toctext">Changelog</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">7</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Resources"><span class="tocnumber">8</span> <span class="toctext">Resources</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Adds a <a href="/Roles_and_Capabilities#Capabilities" title="Roles and Capabilities">capability</a> to a <a href="/Roles_and_Capabilities#Roles" title="Roles and Capabilities">role</a> or specific user. Changing the capabilities of a role or user is persistent, meaning the added capability will stay in effect until explicitly revoked.
+</p><p><b>N.B.: This setting is saved to the database (in table wp_options, field wp_user_roles), so it might be better to run this on theme/plugin activation</b>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>role (just with WP_Roles)</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>Required</i>) role name
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>cap</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>Required</i>) capability name
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>grant</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Boolean" title="How to Pass Tag Parameters"><i>boolean</i></a>) (<i>optional</i>) Whether the role is capable of performing this capability.
+<dl><dd> Default: true
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<dl><dt> void&nbsp;</dt><dd> No return value
+</dd></dl>
+<a name="Example" id="Example"></a><h2> <span class="mw-headline"> Example </span></h2>
+<pre>
+function add_theme_caps() {
+    // gets the author role
+    $role = get_role( 'author' );
 
-**NB: This setting is saved to the database, so it might be better to
-run this on theme/plugin activation**
+    // This only works, because it accesses the class instance.
+    // would allow the author to edit others' posts for current theme only
+    $role-&gt;add_cap( 'edit_others_posts' ); 
+}
+add_action( 'admin_init', 'add_theme_caps');
+</pre>
+<p><b>NB: This setting is saved to the database, so it might be better to run this on theme/plugin activation</b>
+</p>
+<pre>
+//to add capability to specific user
+$user = new WP_User( $user_id );
+$user-&gt;add_cap( 'can_edit_posts');
+</pre>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<p>There is <b>no</b> public function called <code>add_cap()</code> - just the class methods inside <code>WP_Roles</code>, <code>WP_Role</code>, <code>WP_User</code> that can add capabilities.
+</p><p>If you want to add a new role with capabilities, just add them when you add the role using <code>add_role();</code>.
+</p>
+<a name="Changelog" id="Changelog"></a><h2> <span class="mw-headline"> Changelog </span></h2>
+<ul><li> Since <a href="/Version_2.0" title="Version 2.0">2.0.0</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline">Source File</span></h2>
+<p><tt>add_cap</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/capabilities.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/capabilities.php#L0">wp-includes/capabilities.php</a></code>.
+</p>
+<a name="Resources" id="Resources"></a><h2> <span class="mw-headline"> Resources </span></h2>
+<ul><li> <a href="http://www.wphardcore.com/2010/ultimate-guide-to-roles-and-capabilities" class="external text" title="http://www.wphardcore.com/2010/ultimate-guide-to-roles-and-capabilities">Ultimate Guide to Roles and Capabilities in WordPress Plugins and Themes</a>
+</li></ul>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Roles_and_Capabilities" title="Roles and Capabilities"><b>Roles and Capabilities</b></a>:
+<a href="/Function_Reference/add_role" title="Function Reference/add role">add_role()</a>,
+<a href="/Function_Reference/remove_role" title="Function Reference/remove role">remove_role()</a>,
+<a href="/Function_Reference/get_role" title="Function Reference/get role">get_role()</a>,
+<strong class="selflink">add_cap()</strong>,
+<a href="/Function_Reference/remove_cap" title="Function Reference/remove cap">remove_cap()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-    //to add capability to specific user
-    $user = new WP_User( $user_id );
-    $user->add_cap( 'can_edit_posts');
+<!-- 
+NewPP limit report
+Preprocessor node count: 84/1000000
+Post-expand include size: 1386/2097152 bytes
+Template argument size: 363/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/add_cap">http://codex.wordpress.org/Function_Reference/add_cap</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-Notes
------
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-There is **no** public function called `add_cap()` - just the class
-methods inside `WP_Roles`, `WP_Role`, `WP_User` that can add
-capabilities.
 
-If you want to add a new role with capabilities, just add them when you
-add the role using `add_role();`.
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-Changelog
----------
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
--   Since [2.0.0](/Version_2.0 "Version 2.0")
 
-Source File
------------
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405214841 -->
+</html>
 
-`add_cap` is located in `wp-includes/capabilities.php`.
-
-Resources
----------
-
--   [Ultimate Guide to Roles and Capabilities in WordPress Plugins and
-    Themes](http://www.wphardcore.com/2010/ultimate-guide-to-roles-and-capabilities "http://www.wphardcore.com/2010/ultimate-guide-to-roles-and-capabilities")
+</body>
+<!-- Cached 20130405214841 -->
+</html>
 

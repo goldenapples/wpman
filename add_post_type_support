@@ -1,88 +1,288 @@
-Function Reference/add post type support « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Registers support of certain feature(s) for a given [post
-type](/Post_Types "Post Types"). Each feature has a direct impact on the
-corresponding field displayed in the [post
-edit](/Writing_Posts "Writing Posts") screen, such as the editor or a
-meta box. Additionally, the 'revisions' feature dictates whether the
-post type will store
-[revisions](/Revision_Management "Revision Management"), and the
-'comments' feature dictates whether the
-[comments](/Comments_in_WordPress "Comments in WordPress") count will
-show on the post edit screen.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/add post type support,Comments in WordPress,Function Reference,Function Reference/get post type,Function Reference/get post type capabilities,Function Reference/get post type labels,Function Reference/get post type object,Function Reference/get post types,Function Reference/is post type archive,Function Reference/is post type hierarchical,Function Reference/post type archive title" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/add post type support &laquo; WordPress Codex</title>
 
-Usage
------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-` <?php add_post_type_support( $post_type, $supports ) ?> `
 
-Parameters
-----------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
- `$post_type` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) Post type. (max. 20 characters)
-    Default: *None*
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
- `$supports` 
-:   ([*string/array*](/How_to_Pass_Tag_Parameters#String.2Farray "How to Pass Tag Parameters"))
-    (*required*) Feature to add.
-    -   'title'
-    -   'editor' (content)
-    -   'author'
-    -   'thumbnail' (featured image) (current theme must also support
-        [Post Thumbnails](/Post_Thumbnails "Post Thumbnails"))
-    -   'excerpt'
-    -   'trackbacks'
-    -   'custom-fields'
-    -   'comments' (also will see comment count balloon on edit screen)
-    -   'revisions' (will store revisions)
-    -   'page-attributes' (~~template and~~ menu order) (hierarchical
-        must be true) *(the page template selector is [only available
-        for the page post
-        type](http://core.trac.wordpress.org/ticket/12759 "http://core.trac.wordpress.org/ticket/12759"))*
-    -   'post-formats' add post formats, see [Post
-        Formats](/Post_Formats "Post Formats")
+</head>
 
-    Default: *None*
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-Multisite
----------
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-To show the "Featured Image" meta box in mulsite installation, make sure
-you update the allowed upload file types, in Network Admin, [Network
-Admin Settings
-SubPanel\#Upload\_Settings](/Network_Admin_Settings_SubPanel#Upload_Settings "Network Admin Settings SubPanel"),
-Media upload buttons options. Default is off.
 
-Example
--------
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/add_post_type_support">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-This example adds support for excerpts in [Pages](/Pages "Pages")
-(assuming it is \*not\* showing under "Screen Options"):
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/add post type support</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Multisite"><span class="tocnumber">4</span> <span class="toctext">Multisite</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Registers support of certain feature(s) for a given <a href="/Post_Types" title="Post Types">post type</a>. Each feature has a direct impact on the corresponding field displayed in the <a href="/Writing_Posts" title="Writing Posts">post edit</a> screen, such as the editor or a meta box.  Additionally, the 'revisions' feature dictates whether the post type will store <a href="/Revision_Management" title="Revision Management">revisions</a>, and the 'comments' feature dictates whether the <a href="/Comments_in_WordPress" title="Comments in WordPress">comments</a> count will show on the post edit screen.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;add_post_type_support</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$post_type</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$supports&nbsp;</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$post_type</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) Post type. (max. 20 characters)
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$supports</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String.2Farray" title="How to Pass Tag Parameters"><i>string/array</i></a>) (<i>required</i>) Feature to add.
+<ul><li> 'title'
+</li><li> 'editor' (content)
+</li><li> 'author'
+</li><li> 'thumbnail' (featured image) (current theme must also support <a href="/Post_Thumbnails" title="Post Thumbnails">Post Thumbnails</a>)
+</li><li> 'excerpt'
+</li><li> 'trackbacks'
+</li><li> 'custom-fields'
+</li><li> 'comments' (also will see comment count balloon on edit screen)
+</li><li> 'revisions' (will store revisions)
+</li><li> 'page-attributes' (<del>template and</del> menu order) (hierarchical must be true) <i>(the page template selector is <a href="http://core.trac.wordpress.org/ticket/12759" class="external text" title="http://core.trac.wordpress.org/ticket/12759">only available for the page post type</a>)</i>
+</li><li> 'post-formats' add post formats, see <a href="/Post_Formats" title="Post Formats">Post Formats</a>
+</li></ul>
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<a name="Multisite" id="Multisite"></a><h2> <span class="mw-headline"> Multisite </span></h2>
+<p>To show the "Featured Image" meta box in mulsite installation, make sure you update the allowed upload file types, in Network Admin, <a href="/Network_Admin_Settings_SubPanel#Upload_Settings" title="Network Admin Settings SubPanel" class="mw-redirect">Network Admin Settings SubPanel#Upload_Settings</a>, Media upload buttons options. Default is off.
+</p>
+<a name="Example" id="Example"></a><h2> <span class="mw-headline"> Example </span></h2>
+<p>This example adds support for excerpts in <a href="/Pages" title="Pages">Pages</a> (assuming it is *not* showing under "Screen Options"):
+</p>
+<pre>
+&lt;?php
+add_action('init', 'my_custom_init');
+function my_custom_init() {
+	add_post_type_support( 'page', 'excerpt' );
+}
+?&gt;
+</pre>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<ul><li> The function should be called using the <a href="/Plugin_API/Action_Reference/init" title="Plugin API/Action Reference/init">init</a> action <a href="/Glossary#Hook" title="Glossary">hook</a>, like in the above example.
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> Since <a href="/Version_3.0" title="Version 3.0">3.0</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>add_post_type_support()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0">wp-includes/post.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Post_Types" title="Post Types"><b>Post Types</b></a>: 
+<a href="/Function_Reference/register_post_type" title="Function Reference/register post type"> register_post_type()</a>, 
+<strong class="selflink"> add_post_type_support()</strong>, 
+<a href="/Function_Reference/remove_post_type_support" title="Function Reference/remove post type support"> remove_post_type_support()</a>, 
+<a href="/Function_Reference/post_type_supports" title="Function Reference/post type supports"> post_type_supports()</a>, 
+<a href="/Function_Reference/post_type_exists" title="Function Reference/post type exists"> post_type_exists()</a>, 
+<a href="/Function_Reference/set_post_type" title="Function Reference/set post type"> set_post_type()</a>, 
+<a href="/Function_Reference/get_post_type" title="Function Reference/get post type"> get_post_type()</a>, 
+<a href="/Function_Reference/get_post_types" title="Function Reference/get post types"> get_post_types()</a>, 
+<a href="/Function_Reference/get_post_type_object" title="Function Reference/get post type object"> get_post_type_object()</a>, 
+<a href="/Function_Reference/get_post_type_capabilities" title="Function Reference/get post type capabilities"> get_post_type_capabilities()</a>, 
+<a href="/Function_Reference/get_post_type_labels" title="Function Reference/get post type labels"> get_post_type_labels()</a>, 
+<a href="/Function_Reference/is_post_type_hierarchical" title="Function Reference/is post type hierarchical"> is_post_type_hierarchical()</a>, 
+<a href="/Function_Reference/is_post_type_archive" title="Function Reference/is post type archive"> is_post_type_archive()</a>, 
+<a href="/Function_Reference/post_type_archive_title" title="Function Reference/post type archive title"> post_type_archive_title()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-    <?php
-    add_action('init', 'my_custom_init');
-    function my_custom_init() {
-        add_post_type_support( 'page', 'excerpt' );
-    }
-    ?>
+<!-- 
+NewPP limit report
+Preprocessor node count: 85/1000000
+Post-expand include size: 2919/2097152 bytes
+Template argument size: 913/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/add_post_type_support">http://codex.wordpress.org/Function_Reference/add_post_type_support</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-Notes
------
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
--   The function should be called using the
-    [init](/Plugin_API/Action_Reference/init "Plugin API/Action Reference/init")
-    action [hook](/Glossary#Hook "Glossary"), like in the above example.
 
-Change Log
-----------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
--   Since [3.0](/Version_3.0 "Version 3.0")
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Source File
------------
 
-`add_post_type_support()` is located in `wp-includes/post.php`.
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405214427 -->
+</html>
+
+</body>
+<!-- Cached 20130405214427 -->
+</html>
 

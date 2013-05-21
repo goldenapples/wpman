@@ -1,72 +1,331 @@
-Function Reference/register activation hook « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-The **register\_activation\_hook** function registers a plugin function
-to be run [when the plugin is
-activated](/Managing_Plugins#Installing_Plugins "Managing Plugins").
+<meta charset="utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/register activation hook,Function Reference,Function Reference/register deactivation hook,Function Reference/register uninstall hook,How to Pass Tag Parameters,Managing Plugins,Multilingual Codex,Template Tags,Version 2.0,Version 3.1,Writing a Plugin" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/register activation hook &laquo; WordPress Codex</title>
 
-This function is a wrapper for the `activate_pluginname` action, and is
-easier to use.
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?36" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-Usage
------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-`  <?php register_activation_hook( $file, $function ); ?> `
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Parameters
-----------
+</head>
 
- `$file` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) Path to the [main plugin
-    file](/Writing_a_Plugin#Plugin_Files "Writing a Plugin") inside the
-    `wp-content/plugins` directory. A full path will work.
-    Default: *None*
+<body id="wordpress-org" >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>				<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
- `$function` 
-:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
-    (*required*) The function to be run when the plugin is activated.
-    Any of [PHP's callback
-    pseudo-types](http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback "http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback")
-    will work.
-    Default: *None*
 
-Examples
---------
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/register_activation_hook">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-If you have a function called `myplugin_activate()` in the [main plugin
-file](/Writing_a_Plugin#Plugin_Files "Writing a Plugin") at either
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/register activation hook</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/register_activation_hook" class="external text" title="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/register_activation_hook">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Process_Flow"><span class="tocnumber">5.1</span> <span class="toctext">Process Flow</span></a></li>
+<li class="toclevel-2"><a href="#A_Note_on_Variable_Scope"><span class="tocnumber">5.2</span> <span class="toctext">A Note on Variable Scope</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Discussions"><span class="tocnumber">6</span> <span class="toctext">Discussions</span></a></li>
+<li class="toclevel-1"><a href="#Changelog"><span class="tocnumber">7</span> <span class="toctext">Changelog</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>The <b>register_activation_hook</b> function registers a plugin function to be run <a href="/Managing_Plugins#Installing_Plugins" title="Managing Plugins">when the plugin is activated</a>.
+</p><p>This function is a wrapper for the <tt>activate_<var>pluginname</var></tt> action, and is easier to use.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;register_activation_hook</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$function&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$file</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) Path to the <a href="/Writing_a_Plugin#Plugin_Files" title="Writing a Plugin">main plugin file</a> inside the <tt>wp-content/plugins</tt> directory. A full path will work.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$function</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Callback" title="How to Pass Tag Parameters"><i>callback</i></a>) (<i>required</i>) The function to be run when the plugin is activated. Any of <a href="http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback" class="external text" title="http://us2.php.net/manual/en/language.pseudo-types.php#language.types.callback">PHP's callback pseudo-types</a> will work.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<p>If you have a function called <tt>myplugin_activate()</tt> in the <a href="/Writing_a_Plugin#Plugin_Files" title="Writing a Plugin">main plugin file</a> at either 
+</p>
+<ul><li>	<tt>wp-content/plugins/<var>myplugin</var>.php</tt> or
+</li><li>	<tt>wp-content/plugins/<var>myplugin</var>/<var>myplugin</var>.php</tt>
+</li></ul>
+<p>use this code:
+</p>
+<pre>register_activation_hook( __FILE__, 'myplugin_activate' );
+</pre>
+<p>This will call the <tt>myplugin_activate()</tt> function on activation of the plugin.
+</p><p>If your plugin uses the singleton class pattern, add the activation hook like so:
+</p>
+<pre>class MyPlugin {
+     static function install() {
+            // do not generate any output here
+     }
+}
+register_activation_hook( __FILE__, array('MyPlugin', 'install') );
+</pre>
+<p>If the class that holds your activation function/method is in some additional file, register your activation function like this:
+</p>
+<pre>
+include_once dirname( __FILE__ ).'/your_additional_file.php';
+register_activation_hook( __FILE__, array( 'YourAdditionalClass', 'on_activate_function' ) );
+</pre>
+<p>Or if you're inside of a __construct():
+</p>
+<pre>register_activation_hook( __FILE__, array( $this, 'YOUR_METHOD_NAME' ) );</pre>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<ul><li> Related discussion with another sample of working code: <a href="http://wordpress.org/support/topic/312342" class="external free" title="http://wordpress.org/support/topic/312342">http://wordpress.org/support/topic/312342</a> 
+</li><li> <strong>Registering the hook inside your plugins_loaded hook is too late and it won't run</strong>! (<em>Even when it seems to work for <code>register_deactivation_hook</code> until the <code>wp_loaded</code> hook.</em>)
+</li></ul>
+<a name="Process_Flow" id="Process_Flow"></a><h3> <span class="mw-headline"> Process Flow </span></h3>
+<p>If you are interested in doing something just after a plugin has been activated it is important to note that the hook process performs an instant redirect after it fires.  So it is impossible to fire add_action, do_action, add_filter, ... type calls until the redirect has occurred.  A quick workaround to this quirk is to use the add_option method like so.
+</p>
+<pre>
+/* Main Plugin File */
+...
+register_activation_hook( __FILE__, function() {
+  add_option('Activated_Plugin','Plugin-Slug');
+  /* activation code here */
+});
 
--   `wp-content/plugins/myplugin.php` or
--   `wp-content/plugins/myplugin/myplugin.php`
-
-use this code:
-
-    register_activation_hook( __FILE__, 'myplugin_activate' );
-
-This will call the `myplugin_activate()` function on activation of the
-plugin.
-
-If your plugin uses the singleton class pattern, add the activation hook
-like so:
-
-    class MyPlugin {
-         static function install() {
-                // do not generate any output here
-         }
+add_action('admin_init','load_plugin');
+function load_plugin() {
+    if(is_admin()&amp;&amp;get_option('Activated_Plugin')=='Plugin-Slug') {
+     delete_option('Activated_Plugin');
+     /* do stuff once right after activation */
     }
-    register_activation_hook( __FILE__, array('MyPlugin', 'install') );
+}
+</pre>
+<p>You can check out the full post @ <a href="http://stackoverflow.com/questions/7738953/is-there-a-way-to-determine-if-a-wordpress-plugin-is-just-installed/13927297#13927297" class="external free" title="http://stackoverflow.com/questions/7738953/is-there-a-way-to-determine-if-a-wordpress-plugin-is-just-installed/13927297#13927297">http://stackoverflow.com/questions/7738953/is-there-a-way-to-determine-if-a-wordpress-plugin-is-just-installed/13927297#13927297</a>
+</p>
+<a name="A_Note_on_Variable_Scope" id="A_Note_on_Variable_Scope"></a><h3> <span class="mw-headline"> A Note on Variable Scope </span></h3>
+<p>If you're using global variables, you may find that the function you pass to <tt>register_activation_hook()</tt> does not have access to global variables at the point when it is called, even though you state their global scope within the function like this:
+</p>
+<pre>
+$myvar='whatever';
 
-If the class that holds your activation function/method is in some
-additional file, register your activation function like this:
+function myplugin_activate() {
+  global $myvar;
+  echo $myvar; // this will NOT be 'whatever'
+}
 
-    include_once dirname( __FILE__ ).'/your_additional_file.php';
-    register_activation_hook( __FILE__, array( 'YourAdditionalClass', 'on_activate_function' ) );
+register_activation_hook( __FILE__, 'myplugin_activate' );
+</pre>
+<p>This is because on that very first include, your plugin is NOT included within the global scope. It's included in the activate_plugin function, and so its "main body" is not automatically in the global scope.
+</p><p>This is why you should *always* be explicit. If you want a variable to be global, then you need to declare it as such, and that means anywhere and everywhere you use it. If you use it in the main body of the plugin, then you need to declare it global there too.
+</p><p>When activation occurs, your plugin is included from another function and then your <tt>myplugin_activate()</tt> is called from within that function (specifically, within the <tt>activate_plugin()</tt> function) at the point where your plugin is activated. The main body variables are therefore in the scope of the <tt>activate_plugin()</tt> function and are not global, unless you explicitly declare their global scope:
+</p>
+<pre>
+global $myvar;
+$myvar='whatever';
 
-Or if you're inside of a \_\_construct():
+function myplugin_activate() {
+  global $myvar;
+  echo $myvar; // this will be 'whatever'
+}
 
-    register_activation_hook( __FILE__, array( $this, 'YOUR_METHOD_NAME' ) );
+register_activation_hook( __FILE__, 'myplugin_activate' );
+</pre>
+<p>More information on this is available here: <a href="http://wordpress.org/support/topic/201309" class="external free" title="http://wordpress.org/support/topic/201309">http://wordpress.org/support/topic/201309</a>
+</p>
+<a name="Discussions" id="Discussions"></a><h2> <span class="mw-headline"> Discussions </span></h2>
+<p>A good example for a basic activation/deactivation/uninstall class by "kaiser" can be found here on WPSE: <a href="http://wordpress.stackexchange.com/questions/25910/uninstall-a-plugin-method-typical-features-how-to/25979#25979" class="external free" title="http://wordpress.stackexchange.com/questions/25910/uninstall-a-plugin-method-typical-features-how-to/25979#25979">http://wordpress.stackexchange.com/questions/25910/uninstall-a-plugin-method-typical-features-how-to/25979#25979</a>
+</p>
+<a name="Changelog" id="Changelog"></a><h2> <span class="mw-headline"> Changelog </span></h2>
+<ul><li> <a href="/Version_3.1" title="Version 3.1">3.1</a>&nbsp;: This hook is now fired only when the user activates the plugin and not when an automatic plugin update occurs (<a href="http://core.trac.wordpress.org/ticket/14915" class="external text" title="http://core.trac.wordpress.org/ticket/14915">#14915</a>).
+<ul><li> <a href="http://wpdevel.wordpress.com/2010/10/27/plugin-activation-hooks-no-longer-fire-for-updates/" class="external text" title="http://wpdevel.wordpress.com/2010/10/27/plugin-activation-hooks-no-longer-fire-for-updates/">Plugin activation hooks no longer fire for updates «&nbsp;WordPress Development Updates</a> (2010-10-28)
+</li><li> <a href="http://wpdevel.wordpress.com/2010/10/27/plugin-activation-hooks/" class="external text" title="http://wpdevel.wordpress.com/2010/10/27/plugin-activation-hooks/">Plugin activation hooks «&nbsp;WordPress Development Updates</a> (2010-10-27)
+</li></ul>
+</li></ul>
+<ul><li> since <a href="/Version_2.0" title="Version 2.0">2.0</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>register_activation_hook()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/plugin.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/plugin.php#L0">wp-includes/plugin.php</a></code>
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<ul><li> See also <a href="/Function_Reference/register_deactivation_hook" title="Function Reference/register deactivation hook">register_deactivation_hook()</a>, <a href="/Function_Reference/register_uninstall_hook" title="Function Reference/register uninstall hook">register_uninstall_hook()</a>
+</li></ul>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-Notes
------
+<!-- 
+NewPP limit report
+Preprocessor node count: 104/1000000
+Post-expand include size: 2011/2097152 bytes
+Template argument size: 824/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/register_activation_hook">http://codex.wordpress.org/Function_Reference/register_activation_hook</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span> | <span dir='ltr'><a href="/Category:New_page_created" title="Category:New page created">New page created</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
+
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="//www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
+
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
+
+
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="//edge.quantserve.com/quant.js"></script>
+<noscript><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="//gravatar.com/js/gprofiles.js"></script>
+
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130517144910 -->
+</html>
+
+</body>
+<!-- Cached 20130517144910 -->
+</html>
 

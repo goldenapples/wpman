@@ -1,97 +1,292 @@
-Function Reference/get template part « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Load a template part into a template (other than header, sidebar,
-footer). Makes it easy for a theme to reuse sections of code and an easy
-way for [child themes](/Child_Themes "Child Themes") to replace sections
-of their parent theme.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get template part,Child Themes,Function Reference,Function Reference/comments template,Function Reference/do action,Function Reference/get footer,Function Reference/get header,Function Reference/get search form,Function Reference/get sidebar,Function Reference/locate template,How to Pass Tag Parameters" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get template part &laquo; WordPress Codex</title>
 
-[Includes](/Include_Tags "Include Tags") the named template part for a
-theme or if a name is specified then a specialized part will be
-included. If the theme contains no `{slug}.php` file then no template
-will be included.
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?35" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-For the parameter, if the file is called "{slug}-{name}.php".
 
-Usage
------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-`  <?php get_template_part( $slug, $name ); ?> `
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Parameters
-----------
+</head>
 
- `$slug` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) The slug name for the generic template.
-    Default: *None*
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>				<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
- `$name` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) The name of the specialized template.
-    Default: *None*
 
-Examples
---------
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_template_part">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-### Using loop.php in child themes
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get template part</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_template_part" class="external text" title="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_template_part">日本語</a> • 
+<a href="/zh-cn:%E8%B0%83%E7%94%A8%E6%A8%A1%E6%9D%BF%E9%83%A8%E5%88%86/get_template_part" title="zh-cn:调用模板部分/get template part">中文(简体)</a> • 
+<a href="/pt-br:get_template_part" title="pt-br:get template part">Português do Brasil</a> • 
 
-Assuming the theme folder is wp-content/themes, that the parent theme is
-twentyten, and the child theme is *twentytenchild*, then the following
-code --
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Using_loop.php_in_child_themes"><span class="tocnumber">4.1</span> <span class="toctext">Using loop.php in child themes</span></a></li>
+<li class="toclevel-2"><a href="#Using_with_theme_subfolders"><span class="tocnumber">4.2</span> <span class="toctext">Using with theme subfolders</span></a></li>
+<li class="toclevel-2"><a href="#Navigation"><span class="tocnumber">4.3</span> <span class="toctext">Navigation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">6</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">7</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#External_Resources"><span class="tocnumber">8</span> <span class="toctext">External Resources</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Load a template part into a template (other than header, sidebar, footer). Makes it easy for a theme to reuse sections of code and an easy way for <a href="/Child_Themes" title="Child Themes">child themes</a> to replace sections of their parent theme.
+</p><p><a href="/Include_Tags" title="Include Tags">Includes</a> the named template part for a theme or if a name is specified then a specialized part will be included. If the theme contains no <tt>{slug}.php</tt> file then no template will be included.
+</p><p>For the parameter, if the file is called "{slug}-{name}.php".
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;get_template_part</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$slug</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$slug</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) The slug name for the generic template.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$name</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) The name of the specialized template.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples  </span></h2>
+<a name="Using_loop.php_in_child_themes" id="Using_loop.php_in_child_themes"></a><h3> <span class="mw-headline"> Using loop.php in child themes </span></h3>
+<p>Assuming the theme folder is wp-content/themes, that the parent theme is twentyten,  and the child theme is <i>twentytenchild</i>, then the following code --
+</p>
+<pre>&lt;?php get_template_part( 'loop', 'index' );&nbsp;?&gt;
+</pre>
+<p>will do a <a href="http://www.php.net/manual/en/function.require.php" class="external text" title="http://www.php.net/manual/en/function.require.php">PHP require()</a> for the first file that exists among these, in this priority:
+</p>
+<dl><dd><ol><li><i>wp-content/themes/twentytenchild/loop-index.php</i>
+</li><li><i>wp-content/themes/twentyten/loop-index.php</i>
+</li><li><i>wp-content/themes/twentytenchild/loop.php</i>
+</li><li><i>wp-content/themes/twentyten/loop.php</i>
+</li></ol>
+</dd></dl>
+<a name="Using_with_theme_subfolders" id="Using_with_theme_subfolders"></a><h3> <span class="mw-headline"> Using with theme subfolders </span></h3>
+<p>To use this function with subfolders in your theme directory, simply prepend the folder name before the slug. For example, if you have a folder called "partials" in your theme directory and a template part called "content-page.php" in that sub-folder, you would use get_template_part() like this: 
+</p>
+<pre>&lt;?php get_template_part( 'partials/content', 'page' );&nbsp;?&gt;
+</pre>
+<a name="Navigation" id="Navigation"></a><h3> <span class="mw-headline"> Navigation </span></h3>
+<p>Adding a navigation bar to theme using a generic nav.php template file:
+</p>
+<pre>&lt;?php get_template_part( 'nav' );           // Navigation bar (nav.php)&nbsp;?&gt;
+&lt;?php get_template_part( 'nav', '2' );      // Navigation bar #2 (nav-2.php)&nbsp;?&gt;
+&lt;?php get_template_part( 'nav', 'single' ); // Navigation bar to use in single pages (nav-single.php)&nbsp;?&gt;
+</pre>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes  </span></h2>
+<ul><li> Uses: <a href="/Function_Reference/locate_template" title="Function Reference/locate template">locate_template()</a>
+</li><li> Uses: <a href="/Function_Reference/do_action" title="Function Reference/do action">do_action()</a> Calls 'get_template_part_{$slug}' action.
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> Since: <a href="/Version_3.0" title="Version 3.0">3.0</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>get_template_part()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/general-template.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/general-template.php#L0">wp-includes/general-template.php</a></code>.
+</p>
+<a name="External_Resources" id="External_Resources"></a><h2> <span class="mw-headline"> External Resources </span></h2>
+<ul><li> <a href="http://kovshenin.com/2013/get_template_part/" class="external text" title="http://kovshenin.com/2013/get_template_part/">Understanding get_template_part</a> by Konstantin Kovshenin
+</li></ul>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Include_Tags" title="Include Tags"><b>Include Tags</b></a>: 
+<a href="/Function_Reference/get_header" title="Function Reference/get header"> get_header()</a>, 
+<a href="/Function_Reference/get_footer" title="Function Reference/get footer"> get_footer()</a>, 
+<a href="/Function_Reference/get_sidebar" title="Function Reference/get sidebar"> get_sidebar()</a>, 
+<strong class="selflink"> get_template_part()</strong>, 
+<a href="/Function_Reference/get_search_form" title="Function Reference/get search form"> get_search_form()</a>, 
+<a href="/Function_Reference/comments_template" title="Function Reference/comments template"> comments_template()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-    <?php get_template_part( 'loop', 'index' ); ?>
+<!-- 
+NewPP limit report
+Preprocessor node count: 105/1000000
+Post-expand include size: 2371/2097152 bytes
+Template argument size: 753/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_template_part">http://codex.wordpress.org/Function_Reference/get_template_part</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-will do a [PHP
-require()](http://www.php.net/manual/en/function.require.php "http://www.php.net/manual/en/function.require.php")
-for the first file that exists among these, in this priority:
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-1.  *wp-content/themes/twentytenchild/loop-index.php*
-2.  *wp-content/themes/twentyten/loop-index.php*
-3.  *wp-content/themes/twentytenchild/loop.php*
-4.  *wp-content/themes/twentyten/loop.php*
 
-### Using with theme subfolders
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-To use this function with subfolders in your theme directory, simply
-prepend the folder name before the slug. For example, if you have a
-folder called "partials" in your theme directory and a template part
-called "content-page.php" in that sub-folder, you would use
-get\_template\_part() like this:
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-    <?php get_template_part( 'partials/content', 'page' ); ?>
 
-### Navigation
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130429174559 -->
+</html>
 
-Adding a navigation bar to theme using a generic nav.php template file:
-
-    <?php get_template_part( 'nav' );           // Navigation bar (nav.php) ?>
-    <?php get_template_part( 'nav', '2' );      // Navigation bar #2 (nav-2.php) ?>
-    <?php get_template_part( 'nav', 'single' ); // Navigation bar to use in single pages (nav-single.php) ?>
-
-Notes
------
-
--   Uses:
-    [locate\_template()](/Function_Reference/locate_template "Function Reference/locate template")
--   Uses:
-    [do\_action()](/Function_Reference/do_action "Function Reference/do action")
-    Calls 'get\_template\_part\_{\$slug}' action.
-
-Change Log
-----------
-
--   Since: [3.0](/Version_3.0 "Version 3.0")
-
-Source File
------------
-
-`get_template_part()` is located in `wp-includes/general-template.php`.
-
-External Resources
-------------------
-
--   [Understanding
-    get\_template\_part](http://kovshenin.com/2013/get_template_part/ "http://kovshenin.com/2013/get_template_part/")
-    by Konstantin Kovshenin
+</body>
+<!-- Cached 20130429174559 -->
+</html>
 

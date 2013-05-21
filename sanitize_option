@@ -1,161 +1,342 @@
-Function Reference/sanitize option « WordPress Codex
------------
-
-Sanitizes various option values based on the nature of the option.
-
-This is basically a switch statement which will pass `$value` through a
-number of functions depending on the `$option`. After the value has been
-handled by these functions, it will be passed through a
-[sanitize\_option\_\$option](/index.php?title=Plugin_API/Filter_Reference/sanitize_option&action=edit&redlink=1 "Plugin API/Filter Reference/sanitize option (page does not exist)")
-filter.
-
-Usage
------
-
-    <?php sanitize_option( $option, $value ); ?>
-
-Parameters
-----------
-
- `$option` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) The name of the option.
-    Default: *None*
-
- `$value` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) The unsanitized value.
-    Default: *None*
-
-Return Values
--------------
-
- (string) 
-:   Sanitized Value.
-
-Examples
---------
-
-Notes
------
-
-Existing options handled by `sanitize_option()`:
-
-admin\_email
-
-new\_admin\_email
-
-thumbnail\_size\_w
-
-thumbnail\_size\_h
-
-medium\_size\_w
-
-medium\_size\_h
-
-large\_size\_w
-
-large\_size\_h
-
-mailserver\_port
-
-comment\_max\_links
-
-page\_on\_front
-
-page\_for\_posts
-
-rss\_excerpt\_length
-
-default\_category
-
-default\_email\_category
-
-default\_link\_category
-
-close\_comments\_days\_old
-
-comments\_per\_page
-
-thread\_comments\_depth
-
-users\_can\_register
-
-start\_of\_week
-
-posts\_per\_page
-
-posts\_per\_rss
-
-default\_ping\_status
-
-default\_comment\_status
-
-blogdescription
-
-blogname
-
-blog\_charset
-
-blog\_public
-
-date\_format
-
-time\_format
-
-mailserver\_url
-
-mailserver\_login
-
-mailserver\_pass
-
-upload\_path
-
-ping\_sites
-
-gmt\_offset
-
-siteurl
-
-home
-
-WPLANG
-
-illegal\_names
-
-limited\_email\_domains
-
-banned\_email\_domains
-
-timezone\_string
-
-permalink\_structure
-
-category\_base
-
-tag\_base
-
-New options can be defined by adding an appropriate
-[sanitize\_option\_\$option](/Plugin_API/Filter_Reference/sanitize_option_$option "Plugin API/Filter Reference/sanitize option $option")
-filter (e.g. '`sanitize_option_avatar`' for a filter for an 'avatar'
-option)
-
-### Filters
-
--   **`'sanitize_option_$option'`**:\
-    `apply_filters( 'sanitize_option_$option', $value, $option )`
-
-Change Log
-----------
-
--   Since: [2.0.5](/Version_2.0.5 "Version 2.0.5")
--   Originally defined in `wp-admin/options.php`
--   Moved to `wp-includes/formatting.php` in
-    [2.2.3](/Version_2.2.3 "Version 2.2.3") by [changeset
-    5915](http://core.trac.wordpress.org/changeset/5915 "http://core.trac.wordpress.org/changeset/5915").
-
-Source File
------------
-
-`sanitize_option()` is located in `wp-includes/formatting.php`.
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/sanitize option,Function Reference/add option,Function Reference/add site option,Function Reference/sanitize email,Function Reference/sanitize file name,Function Reference/sanitize html class,Function Reference/sanitize key,Function Reference/sanitize mime type,Function Reference/sanitize sql orderby,Function Reference/sanitize text field,Function Reference/sanitize title" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/sanitize option &laquo; WordPress Codex</title>
+
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
+
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
+
+</head>
+
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
+
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
+
+
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/sanitize_option">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
+
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/sanitize option</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Filters"><span class="tocnumber">6.1</span> <span class="toctext">Filters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Functions"><span class="tocnumber">9.1</span> <span class="toctext">Functions</span></a></li>
+<li class="toclevel-2"><a href="#Filters_2"><span class="tocnumber">9.2</span> <span class="toctext">Filters</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Sanitizes various option values based on the nature of the option.
+</p><p>This is basically a switch statement which will pass <code>$value</code> through a number of functions depending on the <code>$option</code>. After the value has been handled by these functions, it will be passed through a <a href="/index.php?title=Plugin_API/Filter_Reference/sanitize_option&amp;action=edit&amp;redlink=1" class="new" title="Plugin API/Filter Reference/sanitize option (page does not exist)">sanitize_option_$option</a> filter.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<pre>&lt;?php sanitize_option( $option, $value );&nbsp;?&gt;
+</pre>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$option</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) The name of the option.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$value</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) The unsanitized value.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<dl><dt> (string)&nbsp;</dt><dd> Sanitized Value.
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<p>Existing options handled by <code>sanitize_option()</code>:
+</p>
+<dl><dt> admin_email
+</dt><dt> new_admin_email
+</dt><dt> thumbnail_size_w
+</dt><dt> thumbnail_size_h
+</dt><dt> medium_size_w
+</dt><dt> medium_size_h
+</dt><dt> large_size_w
+</dt><dt> large_size_h
+</dt><dt> mailserver_port
+</dt><dt> comment_max_links
+</dt><dt> page_on_front
+</dt><dt> page_for_posts
+</dt><dt> rss_excerpt_length
+</dt><dt> default_category
+</dt><dt> default_email_category
+</dt><dt> default_link_category
+</dt><dt> close_comments_days_old
+</dt><dt> comments_per_page
+</dt><dt> thread_comments_depth
+</dt><dt> users_can_register
+</dt><dt> start_of_week
+</dt><dt> posts_per_page
+</dt><dt> posts_per_rss
+</dt><dt> default_ping_status
+</dt><dt> default_comment_status
+</dt><dt> blogdescription
+</dt><dt> blogname
+</dt><dt> blog_charset
+</dt><dt> blog_public
+</dt><dt> date_format
+</dt><dt> time_format
+</dt><dt> mailserver_url
+</dt><dt> mailserver_login
+</dt><dt> mailserver_pass
+</dt><dt> upload_path
+</dt><dt> ping_sites
+</dt><dt> gmt_offset
+</dt><dt> siteurl
+</dt><dt> home
+</dt><dt> WPLANG
+</dt><dt> illegal_names
+</dt><dt> limited_email_domains
+</dt><dt> banned_email_domains
+</dt><dt> timezone_string
+</dt><dt> permalink_structure
+</dt><dt> category_base
+</dt><dt> tag_base
+</dt></dl>
+<p>New options can be defined by adding an appropriate <a href="/Plugin_API/Filter_Reference/sanitize_option_$option" title="Plugin API/Filter Reference/sanitize option $option">sanitize_option_$option</a> filter (e.g. '<tt>sanitize_option_avatar</tt>' for a filter for an 'avatar' option)
+</p>
+<a name="Filters" id="Filters"></a><h3> <span class="mw-headline"> Filters </span></h3>
+<ul><li> <b><tt>'sanitize_option_$option'</tt></b>:<br /><tt>apply_filters( 'sanitize_option_$option', $value, $option )</tt>
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> Since: <a href="/Version_2.0.5" title="Version 2.0.5">2.0.5</a>
+</li><li> Originally defined in <code><a href="http://core.trac.wordpress.org/browser/tags/2.0.5/wp-admin/options.php#L27" class="external text" title="http://core.trac.wordpress.org/browser/tags/2.0.5/wp-admin/options.php#L27">wp-admin/options.php</a></code> 
+</li><li> Moved to <code><a href="http://core.trac.wordpress.org/browser/tags/2.2.3/wp-includes/formatting.php#L1121" class="external text" title="http://core.trac.wordpress.org/browser/tags/2.2.3/wp-includes/formatting.php#L1121">wp-includes/formatting.php</a></code> in <a href="/Version_2.2.3" title="Version 2.2.3">2.2.3</a> by <a href="http://core.trac.wordpress.org/changeset/5915" class="external text" title="http://core.trac.wordpress.org/changeset/5915">changeset 5915</a>.
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>sanitize_option()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/formatting.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/formatting.php#L0">wp-includes/formatting.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<a name="Functions" id="Functions"></a><h3> <span class="mw-headline"> Functions </span></h3>
+<p><code>sanitize_option()</code> is in a class of functions that help you sanitize potentially unsafe data which allow you to pass an arbitrary variable and receive the clean version based on data type. Others include:
+</p>
+<ul><li> <a href="/Function_Reference/sanitize_email" title="Function Reference/sanitize email">sanitize_email()</a>
+</li><li> <a href="/Function_Reference/sanitize_file_name" title="Function Reference/sanitize file name">sanitize_file_name()</a>
+</li><li> <a href="/Function_Reference/sanitize_html_class" title="Function Reference/sanitize html class">sanitize_html_class()</a>
+</li><li> <a href="/Function_Reference/sanitize_key" title="Function Reference/sanitize key">sanitize_key()</a>
+</li><li> <a href="/Function_Reference/sanitize_mime_type" title="Function Reference/sanitize mime type">sanitize_mime_type()</a>
+</li><li> <strong class="selflink">sanitize_option()</strong>
+</li><li> <a href="/Function_Reference/sanitize_sql_orderby" title="Function Reference/sanitize sql orderby">sanitize_sql_orderby()</a>
+</li><li> <a href="/Function_Reference/sanitize_text_field" title="Function Reference/sanitize text field">sanitize_text_field()</a>
+</li><li> <a href="/Function_Reference/sanitize_title" title="Function Reference/sanitize title">sanitize_title()</a>
+</li><li> <a href="/Function_Reference/sanitize_title_for_query" title="Function Reference/sanitize title for query">sanitize_title_for_query()</a>
+</li><li> <a href="/Function_Reference/sanitize_title_with_dashes" title="Function Reference/sanitize title with dashes">sanitize_title_with_dashes()</a>
+</li><li> <a href="/Function_Reference/sanitize_user" title="Function Reference/sanitize user">sanitize_user()</a>
+</li></ul>
+<p><code>sanitize_option()</code> is called by functions that add and update <a href="/Option_Reference" title="Option Reference">options</a>:</p>
+<ul><li> <a href="/Function_Reference/add_option" title="Function Reference/add option">add_option()</a>
+</li><li> <a href="/Function_Reference/add_site_option" title="Function Reference/add site option">add_site_option()</a>
+</li><li> <a href="/Function_Reference/update_option" title="Function Reference/update option">update_option()</a>
+</li><li> <a href="/Function_Reference/update_site_option" title="Function Reference/update site option">update_site_option()</a>
+</li></ul>
+<a name="Filters_2" id="Filters_2"></a><h3> <span class="mw-headline"> Filters </span></h3>
+<ul><li> <a href="/index.php?title=Plugin_API/Filter_Reference/sanitize_email&amp;action=edit&amp;redlink=1" class="new" title="Plugin API/Filter Reference/sanitize email (page does not exist)">sanitize_email</a>
+</li><li> <a href="/index.php?title=Plugin_API/Filter_Reference/sanitize_file_name&amp;action=edit&amp;redlink=1" class="new" title="Plugin API/Filter Reference/sanitize file name (page does not exist)">sanitize_file_name</a>
+</li><li> <a href="/index.php?title=Plugin_API/Filter_Reference/sanitize_file_name_chars&amp;action=edit&amp;redlink=1" class="new" title="Plugin API/Filter Reference/sanitize file name chars (page does not exist)">sanitize_file_name_chars</a>
+</li><li> <a href="/index.php?title=Plugin_API/Filter_Reference/sanitize_html_class&amp;action=edit&amp;redlink=1" class="new" title="Plugin API/Filter Reference/sanitize html class (page does not exist)">sanitize_html_class</a>
+</li><li> <a href="/index.php?title=Plugin_API/Filter_Reference/sanitize_key&amp;action=edit&amp;redlink=1" class="new" title="Plugin API/Filter Reference/sanitize key (page does not exist)">sanitize_key</a>
+</li><li> <a href="/index.php?title=Plugin_API/Filter_Reference/sanitize_mime_type&amp;action=edit&amp;redlink=1" class="new" title="Plugin API/Filter Reference/sanitize mime type (page does not exist)">sanitize_mime_type</a>
+</li><li> <a href="/Plugin_API/Filter_Reference/sanitize_option_$option" title="Plugin API/Filter Reference/sanitize option $option">sanitize_option_$option</a>
+</li><li> <a href="/index.php?title=Plugin_API/Filter_Reference/sanitize_text_field&amp;action=edit&amp;redlink=1" class="new" title="Plugin API/Filter Reference/sanitize text field (page does not exist)">sanitize_text_field</a>
+</li><li> <a href="/Plugin_API/Filter_Reference/sanitize_title" title="Plugin API/Filter Reference/sanitize title">sanitize_title</a>
+</li><li> <a href="/index.php?title=Plugin_API/Filter_Reference/sanitize_trackback_urls&amp;action=edit&amp;redlink=1" class="new" title="Plugin API/Filter Reference/sanitize trackback urls (page does not exist)">sanitize_trackback_urls</a>
+</li><li> <a href="/Plugin_API/Filter_Reference/sanitize_user" title="Plugin API/Filter Reference/sanitize user">sanitize_user</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 79/1000000
+Post-expand include size: 2625/2097152 bytes
+Template argument size: 519/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/sanitize_option">http://codex.wordpress.org/Function_Reference/sanitize_option</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
+
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
+
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
+
+
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405220141 -->
+</html>
+
+</body>
+<!-- Cached 20130405220141 -->
+</html>
 

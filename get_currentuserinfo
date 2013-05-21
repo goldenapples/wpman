@@ -1,109 +1,307 @@
-Function Reference/get currentuserinfo « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Retrieves the information pertaining to the currently logged in user,
-and places it in the global variable `$current_user`. Properties map
-directly to the wp\_users table in the database (see [Database
-Description](/Database_Description#Table:_wp_users "Database Description")).
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get currentuserinfo,Database Description,Function Reference,Function Reference/current user can,Function Reference/get current user id,Function Reference/get user by,Function Reference/get userdata,Template Tags,Contributing,Copyedits" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get currentuserinfo &laquo; WordPress Codex</title>
 
-Also places the individual attributes into the following separate global
-variables:
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
--   `$user_login`
--   `$user_ID`
--   `$user_email`
--   `$user_url` (User's website, as entered in the user's Profile)
--   `$user_pass` (The phpass hash of the user password - useful for
-    comparing input at a password prompt with the actual user password.)
--   `$display_name` (User's name, displayed according to the 'How to
-    display name' User option)
--   `$user_identity` (User's name, displayed according to the 'How to
-    display name' User option (since 3.0))
 
-Usage
------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-`  <?php get_currentuserinfo(); ?> `
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Examples
---------
+</head>
 
-### Default Usage
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-The call to `get_currentuserinfo()` places the current user's info into
-`$current_user`, where it can be retrieved using member variables.
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-    <?php global $current_user;
-          get_currentuserinfo();
 
-          echo 'Username: ' . $current_user->user_login . "\n";
-          echo 'User email: ' . $current_user->user_email . "\n";
-          echo 'User first name: ' . $current_user->user_firstname . "\n";
-          echo 'User last name: ' . $current_user->user_lastname . "\n";
-          echo 'User display name: ' . $current_user->display_name . "\n";
-          echo 'User ID: ' . $current_user->ID . "\n";
-    ?>
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_currentuserinfo">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-Username: Zedd\
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get currentuserinfo</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Default_Usage"><span class="tocnumber">3.1</span> <span class="toctext">Default Usage</span></a></li>
+<li class="toclevel-2"><a href="#Using_Separate_Globals"><span class="tocnumber">3.2</span> <span class="toctext">Using Separate Globals</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">5</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">6</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Retrieves the information pertaining to the currently logged in user, and places it in the global variable <tt>$current_user</tt>. Properties map directly to the wp_users table in the database (see <a href="/Database_Description#Table:_wp_users" title="Database Description">Database Description</a>).
+</p><p>Also places the individual attributes into the following separate global variables:
+</p>
+<dl><dd><ul><li> <tt>$user_login</tt>
+</li><li> <tt>$user_ID</tt>
+</li><li> <tt>$user_email</tt>
+</li><li> <tt>$user_url</tt> (User's website, as entered in the user's Profile)
+</li><li> <tt>$user_pass</tt> (The phpass hash of the user password - useful for comparing input at a password prompt with the actual user password.)
+</li><li> <tt>$display_name</tt> (User's name, displayed according to the 'How to display name' User option)
+</li><li> <tt>$user_identity</tt> (User's name, displayed according to the 'How to display name' User option (since 3.0))
+</li></ul>
+</dd></dl>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;get_currentuserinfo</span><span style="color: #007700">();&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Default_Usage" id="Default_Usage"></a><h3> <span class="mw-headline"> Default Usage </span></h3>
+<p>The call to <tt>get_currentuserinfo()</tt> places the current user's info into <tt>$current_user</tt>, where it can be retrieved using member variables.
+</p>
+<pre>&lt;?php global $current_user;
+      get_currentuserinfo();
 
-User email: my@email.com\
- User first name: John\
- User last name: Doe\
- User display name: John Doe\
+      echo 'Username: ' . $current_user-&gt;user_login . "\n";
+      echo 'User email: ' . $current_user-&gt;user_email . "\n";
+      echo 'User first name: ' . $current_user-&gt;user_firstname . "\n";
+      echo 'User last name: ' . $current_user-&gt;user_lastname . "\n";
+      echo 'User display name: ' . $current_user-&gt;display_name . "\n";
+      echo 'User ID: ' . $current_user-&gt;ID . "\n";
+?&gt;
+</pre>
+<div style="border:1px solid blue; width:70%; padding:10px">Username: Zedd<br />
+<p>User email: my@email.com<br />
+User first name: John<br />
+User last name: Doe<br />
+User display name: John Doe<br />
+</p>
+User ID: 1</div>
+<a name="Using_Separate_Globals" id="Using_Separate_Globals"></a><h3> <span class="mw-headline"> Using Separate Globals </span></h3>
+<p>Much of the user data is placed in separate global variables, which can be accessed directly.
+</p>
+<pre>&lt;?php global $display_name , $user_email;
+      get_currentuserinfo();
 
-User ID: 1
+      echo $display_name . "'s email address is: " . $user_email;
+?&gt;
+</pre>
+<div style="border:1px solid blue; width:50%; padding:10px">Zedd's email address is: john@example.com</div>
+<p><br />
+<b> NOTE:</b> $display_name does not appear to work in 2.5+? Use $user_identity
+</p><p><br />
+</p>
+<pre>&lt;?php global $user_login , $user_email;
+      get_currentuserinfo();
 
-### Using Separate Globals
+      echo($user_login . "'s email address is: " . $user_email;
+?&gt;
+</pre>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<p>This function does not accept any parameters.
+</p><p>To determine if there is a user currently logged in, do this:
+</p>
+<pre>&lt;?php 
+      if(!is_user_logged_in()) {
+         //no user logged in
+      }
+?&gt;
+</pre>
+<p>Here is another example:
+</p>
+<pre>
+&lt;?php if ( is_user_logged_in() ) {&nbsp;?&gt;
+    &lt;!-- text that logged in users will see --&gt;
+&lt;?php } else {  &nbsp;?&gt;
+    &lt;!-- here is a paragraph that is shown to anyone not logged in --&gt;
 
-Much of the user data is placed in separate global variables, which can
-be accessed directly.
+&lt;p&gt;By &lt;a href=&quot;&lt;?php home_url();&nbsp;?&gt;/wp-register.php&quot;&gt;registering&lt;/a&gt;, you can save your favorite posts for future reference.&lt;/p&gt;
 
-    <?php global $display_name , $user_email;
-          get_currentuserinfo();
+&lt;?php }&nbsp;?&gt;
+</pre>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>get_currentuserinfo()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/pluggable.php#L74#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/pluggable.php#L74#L0">wp-includes/pluggable.php#L74</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<ul><li> <a href="/Function_Reference/current_user_can" title="Function Reference/current user can">current_user_can()</a>
+</li><li> <a href="/Function_Reference/get_current_user_id" title="Function Reference/get current user id">get_current_user_id()</a>
+</li><li> <strong class="selflink">get_currentuserinfo()</strong>
+</li><li> <a href="/Function_Reference/get_userdata" title="Function Reference/get userdata">get_userdata()</a>
+</li><li> <a href="/Function_Reference/get_user_by" title="Function Reference/get user by">get_user_by()</a>
+</li></ul>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
+<div style="clear:both; background-color:#EEEEFF; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">This article is <a href="/Category:Copyedits" title="Category:Copyedits" class="mw-redirect">marked</a> as in need of editing. You can <a href="/Codex:Contributing" title="Codex:Contributing">help</a> Codex by <b><a href="http://codex.wordpress.org/index.php?title=Function_Reference/get_currentuserinfo&amp;action=edit" class="external text" title="http://codex.wordpress.org/index.php?title=Function_Reference/get_currentuserinfo&amp;action=edit">editing it</a></b>.</div>
 
-          echo $display_name . "'s email address is: " . $user_email;
-    ?>
+<!-- 
+NewPP limit report
+Preprocessor node count: 71/1000000
+Post-expand include size: 1607/2097152 bytes
+Template argument size: 433/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_currentuserinfo">http://codex.wordpress.org/Function_Reference/get_currentuserinfo</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/Category:Copyedit" title="Category:Copyedit">Copyedit</a></span> | <span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-Zedd's email address is: john@example.com
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-\
- **NOTE:** \$display\_name does not appear to work in 2.5+? Use
-\$user\_identity
 
-\
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-    <?php global $user_login , $user_email;
-          get_currentuserinfo();
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-          echo($user_login . "'s email address is: " . $user_email;
-    ?>
 
-Parameters
-----------
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213519 -->
+</html>
 
-This function does not accept any parameters.
-
-To determine if there is a user currently logged in, do this:
-
-    <?php 
-          if(!is_user_logged_in()) {
-             //no user logged in
-          }
-    ?>
-
-Here is another example:
-
-    <?php if ( is_user_logged_in() ) { ?>
-        <!-- text that logged in users will see -->
-    <?php } else {   ?>
-        <!-- here is a paragraph that is shown to anyone not logged in -->
-
-    <p>By <a href="<?php home_url(); ?>/wp-register.php">registering</a>, you can save your favorite posts for future reference.</p>
-
-    <?php } ?>
-
-Source File
------------
-
-`get_currentuserinfo()` is located in `wp-includes/pluggable.php#L74`.
+</body>
+<!-- Cached 20130405213519 -->
+</html>
 

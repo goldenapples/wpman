@@ -1,180 +1,376 @@
-Function Reference/wp enqueue style « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-A safe way to add/enqueue a CSS style file to the wordpress generated
-page. If it was first registered with
-[wp\_register\_style()](/Function_Reference/wp_register_style "Function Reference/wp register style")
-it can now be added using its handle.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/wp enqueue style,Function Reference,Function Reference/get template directory uri,Function Reference/plugins url,Function Reference/wp dequeue script,Function Reference/wp dequeue style,Function Reference/wp deregister script,Function Reference/wp deregister style,Function Reference/wp enqueue script,Function Reference/wp localize script,Function Reference/wp register script" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/wp enqueue style &laquo; WordPress Codex</title>
 
-Usage
------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-` wp_enqueue_style( $handle, $src, $deps, $ver, $media );`
 
-Parameters
-----------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
- `$handle` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) Name used as a handle for the stylesheet. As a special
-    case, if the string contains a '?' character, the preceding part of
-    the string refers to the registered handle, and the succeeding part
-    is appended to the URL as a query string.
-    Default: *None*
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
- `$src` 
-:   ([*string|boolean*](/How_to_Pass_Tag_Parameters#String.7Cboolean "How to Pass Tag Parameters"))
-    (*optional*) URL to the stylesheet. Example:
-    '[http://example.com/css/mystyle.css'](http://example.com/css/mystyle.css' "http://example.com/css/mystyle.css'").
-    This parameter is only required when WordPress does not already know
-    about this style. You should never hardcode URLs to local styles,
-    use
-    [plugins\_url](/Function_Reference/plugins_url "Function Reference/plugins url")
-    (for Plugins) and
-    [get\_template\_directory\_uri](/Function_Reference/get_template_directory_uri "Function Reference/get template directory uri")
-    (for Themes) to get a proper URL. Remote assets can be specified
-    with a protocol-agnostic URL, i.e.
-    '//otherdomain.com/css/theirstyle.css'.
-    Default: false
+</head>
 
- `$deps` 
-:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
-    (*optional*) Array of handles of any stylesheet that this stylesheet
-    depends on; stylesheets that must be loaded before this stylesheet.
-    false if there are no dependencies.
-    Default: array()
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
- `$ver` 
-:   ([*string|boolean*](/How_to_Pass_Tag_Parameters#String.7Cboolean "How to Pass Tag Parameters"))
-    (*optional*) String specifying the stylesheet version number, if it
-    has one. This parameter is used to ensure that the correct version
-    is sent to the client regardless of caching, and so should be
-    included if a version number is available and makes sense for the
-    stylesheet.
-    Default: false
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
- `$media` 
-:   ([*string|boolean*](/How_to_Pass_Tag_Parameters#String.7Cboolean "How to Pass Tag Parameters"))
-    (*optional*) String specifying the media for which this stylesheet
-    has been defined. Examples: '`all`', '`screen`', '`handheld`',
-    '`print`'. See this
-    [list](http://www.w3.org/TR/CSS2/media.html#media-types "http://www.w3.org/TR/CSS2/media.html#media-types")
-    for the full range of valid CSS-media-types.
-    Default: 'all'
 
-Return Values
--------------
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/wp_enqueue_style">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
- (void) 
-:   This function does not return a value.
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/wp enqueue style</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="/%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA_%D0%BF%D0%BE_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F%D0%BC/wp_enqueue_style" title="Справочник по функциям/wp enqueue style">Русский</a> • 
 
-Examples
---------
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Using_a_Hook"><span class="tocnumber">5.1</span> <span class="toctext">Using a Hook</span></a></li>
+<li class="toclevel-2"><a href="#Load_stylesheet_only_on_a_plugin.27s_options_page"><span class="tocnumber">5.2</span> <span class="toctext">Load stylesheet only on a plugin's options page</span></a></li>
+<li class="toclevel-2"><a href="#Loading_stylesheets_in_WordPress_themes"><span class="tocnumber">5.3</span> <span class="toctext">Loading stylesheets in WordPress themes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Resources"><span class="tocnumber">9</span> <span class="toctext">Resources</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">10</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>A safe way to add/enqueue a CSS style file to the wordpress generated page. If it was first registered with <a href="/Function_Reference/wp_register_style" title="Function Reference/wp register style">wp_register_style()</a> it can now be added using its handle.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+wp_enqueue_style(&nbsp;$handle,&nbsp;$src,&nbsp;$deps,&nbsp;$ver,&nbsp;$media&nbsp;);</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$handle</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) Name used as a handle for the stylesheet. As a special case, if the string contains a '?' character, the preceding part of the string refers to the registered handle, and the succeeding part is appended to the URL as a query string.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$src</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String.7Cboolean" title="How to Pass Tag Parameters"><i>string&#124;boolean</i></a>) (<i>optional</i>) URL to the stylesheet. Example: '<a href="http://example.com/css/mystyle.css'" class="external free" title="http://example.com/css/mystyle.css'">http://example.com/css/mystyle.css'</a>. This parameter is only required when WordPress does not already know about this style. You should never hardcode URLs to local styles, use <a href="/Function_Reference/plugins_url" title="Function Reference/plugins url">plugins_url</a> (for Plugins) and <a href="/Function_Reference/get_template_directory_uri" title="Function Reference/get template directory uri">get_template_directory_uri</a> (for Themes) to get a proper URL. Remote assets can be specified with a protocol-agnostic URL, i.e. '//otherdomain.com/css/theirstyle.css'.
+<dl><dd> Default: false
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$deps</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Array" title="How to Pass Tag Parameters"><i>array</i></a>) (<i>optional</i>) Array of handles of any stylesheet that this stylesheet depends on; stylesheets that must be loaded before this stylesheet. false if there are no dependencies.
+<dl><dd> Default: array()
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$ver</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String.7Cboolean" title="How to Pass Tag Parameters"><i>string&#124;boolean</i></a>) (<i>optional</i>) String specifying the stylesheet version number, if it has one. This parameter is used to ensure that the correct version is sent to the client regardless of caching, and so should be included if a version number is available and makes sense for the stylesheet.
+<dl><dd> Default: false
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$media</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String.7Cboolean" title="How to Pass Tag Parameters"><i>string&#124;boolean</i></a>) (<i>optional</i>) String specifying the media for which this stylesheet has been defined. Examples: '<tt>all</tt>', '<tt>screen</tt>', '<tt>handheld</tt>', '<tt>print</tt>'. See this <a href="http://www.w3.org/TR/CSS2/media.html#media-types" class="external text" title="http://www.w3.org/TR/CSS2/media.html#media-types">list</a> for the full range of valid CSS-media-types.
+<dl><dd> Default: 'all'
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<dl><dt> (void)&nbsp;</dt><dd> This function does not return a value.
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Using_a_Hook" id="Using_a_Hook"></a><h3> <span class="mw-headline"> Using a Hook </span></h3>
+<pre>
+&lt;?php
+    /**
+     * Register with hook 'wp_enqueue_scripts', which can be used for front end CSS and JavaScript
+     */
+    add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
 
-### Using a Hook
-
-    <?php
-        /**
-         * Register with hook 'wp_enqueue_scripts', which can be used for front end CSS and JavaScript
-         */
-        add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
-
-        /**
-         * Enqueue plugin style-file
-         */
-        function prefix_add_my_stylesheet() {
-            // Respects SSL, Style.css is relative to the current file
-            wp_register_style( 'prefix-style', plugins_url('style.css', __FILE__) );
-            wp_enqueue_style( 'prefix-style' );
-        }
-    ?>
-
-### Load stylesheet only on a plugin's options page
-
-       /*
-        * This example will work at least on WordPress 2.6.3, 
-        * but maybe on older versions too.
-        */
-       add_action( 'admin_init', 'my_plugin_admin_init' );
-       add_action( 'admin_menu', 'my_plugin_admin_menu' );
-       
-       function my_plugin_admin_init() {
-           /* Register our stylesheet. */
-           wp_register_style( 'myPluginStylesheet', plugins_url('stylesheet.css', __FILE__) );
-       }
-       
-       function my_plugin_admin_menu() {
-           /* Register our plugin page */
-           $page = add_submenu_page( 'edit.php', 
-                                     __( 'My Plugin', 'myPlugin' ), 
-                                     __( 'My Plugin', 'myPlugin' ),
-                                     'administrator',
-                                     __FILE__, 
-                                     'my_plugin_manage_menu' );
-      
-           /* Using registered $page handle to hook stylesheet loading */
-           add_action( 'admin_print_styles-' . $page, 'my_plugin_admin_styles' );
-       }
-       
-       function my_plugin_admin_styles() {
-           /*
-            * It will be called only on your plugin admin page, enqueue our stylesheet here
-            */
-           wp_enqueue_style( 'myPluginStylesheet' );
-       }
-       
-       function my_plugin_manage_menu() {
-           /* Output our admin page */
-       }
-
-### Loading stylesheets in WordPress themes
-
-    function theme_styles()  
-    { 
-      // Register the style like this for a theme:  
-      // (First the unique name for the style (custom-style) then the src, 
-      // then dependencies and ver no. and media type)
-      wp_register_style( 'custom-style', 
-        get_template_directory_uri() . '/css/custom-style.css', 
-        array(), 
-        '20120208', 
-        'all' );
-
-      // enqueing:
-      wp_enqueue_style( 'custom-style' );
+    /**
+     * Enqueue plugin style-file
+     */
+    function prefix_add_my_stylesheet() {
+        // Respects SSL, Style.css is relative to the current file
+        wp_register_style( 'prefix-style', plugins_url('style.css', __FILE__) );
+        wp_enqueue_style( 'prefix-style' );
     }
-    add_action('wp_enqueue_scripts', 'theme_styles');
+?&gt;
+</pre>
+<a name="Load_stylesheet_only_on_a_plugin.27s_options_page" id="Load_stylesheet_only_on_a_plugin.27s_options_page"></a><h3> <span class="mw-headline"> Load stylesheet only on a plugin's options page </span></h3>
+<pre>   /*
+    * This example will work at least on WordPress 2.6.3, 
+    * but maybe on older versions too.
+    */
+   add_action( 'admin_init', 'my_plugin_admin_init' );
+   add_action( 'admin_menu', 'my_plugin_admin_menu' );
+   
+   function my_plugin_admin_init() {
+       /* Register our stylesheet. */
+       wp_register_style( 'myPluginStylesheet', plugins_url('stylesheet.css', __FILE__) );
+   }
+   
+   function my_plugin_admin_menu() {
+       /* Register our plugin page */
+       $page = add_submenu_page( 'edit.php', 
+                                 __( 'My Plugin', 'myPlugin' ), 
+                                 __( 'My Plugin', 'myPlugin' ),
+                                 'administrator',
+                                 __FILE__, 
+                                 'my_plugin_manage_menu' );
+  
+       /* Using registered $page handle to hook stylesheet loading */
+       add_action( 'admin_print_styles-' . $page, 'my_plugin_admin_styles' );
+   }
+   
+   function my_plugin_admin_styles() {
+       /*
+        * It will be called only on your plugin admin page, enqueue our stylesheet here
+        */
+       wp_enqueue_style( 'myPluginStylesheet' );
+   }
+   
+   function my_plugin_manage_menu() {
+       /* Output our admin page */
+   }
+</pre>
+<a name="Loading_stylesheets_in_WordPress_themes" id="Loading_stylesheets_in_WordPress_themes"></a><h3> <span class="mw-headline"> Loading stylesheets in WordPress themes  </span></h3>
+<pre>
+function theme_styles()  
+{ 
+  // Register the style like this for a theme:  
+  // (First the unique name for the style (custom-style) then the src, 
+  // then dependencies and ver no. and media type)
+  wp_register_style( 'custom-style', 
+    get_template_directory_uri() . '/css/custom-style.css', 
+    array(), 
+    '20120208', 
+    'all' );
 
-Notes
------
+  // enqueing:
+  wp_enqueue_style( 'custom-style' );
+}
+add_action('wp_enqueue_scripts', 'theme_styles');
+</pre>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<ul><li> See <tt>WP_Styles::add()</tt>, <tt>WP_Styles::enqueue()</tt>
+</li><li> Uses global: (<tt>unknown type</tt>) <tt>$wp_styles</tt>
+</li><li> Tip: print_r( $wp_styles );
+</li><li> As of WordPress 3.3 <tt>wp_enqueue_style()</tt> can be called mid-page (in the HTML body). This will load styles in the footer.
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> Since: <a href="/Version_2.1" title="Version 2.1">2.1</a> (BackPress version: r79)
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>wp_enqueue_style()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/functions.wp-styles.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/functions.wp-styles.php#L0">wp-includes/functions.wp-styles.php</a></code>.
+</p>
+<a name="Resources" id="Resources"></a><h2> <span class="mw-headline"> Resources </span></h2>
+<ul><li> <a href="http://www.nkuttler.de/2010/07/28/wordpress-style-version-conditional-comments/" class="external text" title="http://www.nkuttler.de/2010/07/28/wordpress-style-version-conditional-comments/">How to enqueue styles with proper versioning info and conditional comments for IE</a>
+</li><li> <a href="http://www.nkuttler.de/post/minify-wordpress-theme-css/" class="external text" title="http://www.nkuttler.de/post/minify-wordpress-theme-css/">How to enqueue your style so that it can be minified</a>
+</li><li> <a href="http://wordpress.stackexchange.com/questions/89494/how-to-enqueue-the-style-using-wp-enqueue-style/89495" class="external text" title="http://wordpress.stackexchange.com/questions/89494/how-to-enqueue-the-style-using-wp-enqueue-style/89495">How to enqueue style with conditions</a>
+</li><li> <a href="http://justintadlock.com/archives/2009/08/06/how-to-disable-scripts-and-styles" class="external text" title="http://justintadlock.com/archives/2009/08/06/how-to-disable-scripts-and-styles">How to disable scripts and styles</a>
+</li></ul>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><b>Enqueue functions</b>: <a href="/Function_Reference/wp_register_script" title="Function Reference/wp register script">wp_register_script()</a>,
+<a href="/Function_Reference/wp_deregister_script" title="Function Reference/wp deregister script">wp_deregister_script()</a>,
+<a href="/Function_Reference/wp_enqueue_script" title="Function Reference/wp enqueue script">wp_enqueue_script()</a>,
+<a href="/Function_Reference/wp_dequeue_script" title="Function Reference/wp dequeue script">wp_dequeue_script()</a>,
+<a href="/Function_Reference/wp_localize_script" title="Function Reference/wp localize script">wp_localize_script()</a>,
+<a href="/Function_Reference/wp_script_is" title="Function Reference/wp script is">wp_script_is()</a>,
+<a href="/Function_Reference/wp_register_style" title="Function Reference/wp register style">wp_register_style()</a>,
+<a href="/Function_Reference/wp_deregister_style" title="Function Reference/wp deregister style">wp_deregister_style()</a>,
+<strong class="selflink">wp_enqueue_style()</strong>,
+<a href="/Function_Reference/wp_dequeue_style" title="Function Reference/wp dequeue style">wp_dequeue_style()</a>,
+<a href="/Function_Reference/wp_style_is" title="Function Reference/wp style is">wp_style_is()</a>
+</p><p><b>Enqueue actions</b>: 
+<a href="/Plugin_API/Action_Reference/admin_enqueue_scripts" title="Plugin API/Action Reference/admin enqueue scripts">admin_enqueue_scripts</a>,
+<a href="/Plugin_API/Action_Reference/admin_print_scripts" title="Plugin API/Action Reference/admin print scripts">admin_print_scripts</a>,
+<a href="/Plugin_API/Action_Reference/admin_print_scripts-(hookname)" title="Plugin API/Action Reference/admin print scripts-(hookname)" class="mw-redirect">admin_print_scripts-(hookname)</a>,
+<a href="/Plugin_API/Action_Reference/wp_enqueue_scripts" title="Plugin API/Action Reference/wp enqueue scripts">wp_enqueue_scripts</a>,
+<a href="/Plugin_API/Action_Reference/wp_print_scripts" title="Plugin API/Action Reference/wp print scripts">wp_print_scripts</a>,
+<a href="/Plugin_API/Action_Reference/admin_print_styles" title="Plugin API/Action Reference/admin print styles">admin_print_styles</a>,
+<a href="/Plugin_API/Action_Reference/admin_print_styles-(hookname)" title="Plugin API/Action Reference/admin print styles-(hookname)" class="mw-redirect">admin_print_styles-(hookname)</a>,
+<a href="/Plugin_API/Action_Reference/wp_print_styles" title="Plugin API/Action Reference/wp print styles">wp_print_styles</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
--   See `WP_Styles::add()`, `WP_Styles::enqueue()`
--   Uses global: (`unknown type`) `$wp_styles`
--   Tip: print\_r( \$wp\_styles );
--   As of WordPress 3.3 `wp_enqueue_style()` can be called mid-page (in
-    the HTML body). This will load styles in the footer.
+<!-- 
+NewPP limit report
+Preprocessor node count: 139/1000000
+Post-expand include size: 5985/2097152 bytes
+Template argument size: 2052/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/wp_enqueue_style">http://codex.wordpress.org/Function_Reference/wp_enqueue_style</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-Change Log
-----------
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
--   Since: [2.1](/Version_2.1 "Version 2.1") (BackPress version: r79)
 
-Source File
------------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-`wp_enqueue_style()` is located in
-`wp-includes/functions.wp-styles.php`.
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Resources
----------
 
--   [How to enqueue styles with proper versioning info and conditional
-    comments for
-    IE](http://www.nkuttler.de/2010/07/28/wordpress-style-version-conditional-comments/ "http://www.nkuttler.de/2010/07/28/wordpress-style-version-conditional-comments/")
--   [How to enqueue your style so that it can be
-    minified](http://www.nkuttler.de/post/minify-wordpress-theme-css/ "http://www.nkuttler.de/post/minify-wordpress-theme-css/")
--   [How to enqueue style with
-    conditions](http://wordpress.stackexchange.com/questions/89494/how-to-enqueue-the-style-using-wp-enqueue-style/89495 "http://wordpress.stackexchange.com/questions/89494/how-to-enqueue-the-style-using-wp-enqueue-style/89495")
--   [How to disable scripts and
-    styles](http://justintadlock.com/archives/2009/08/06/how-to-disable-scripts-and-styles "http://justintadlock.com/archives/2009/08/06/how-to-disable-scripts-and-styles")
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213415 -->
+</html>
+
+</body>
+<!-- Cached 20130405213415 -->
+</html>
 

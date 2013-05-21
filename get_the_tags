@@ -1,148 +1,347 @@
-Function Reference/get the tags « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Returns an array of objects, one object for each tag assigned to the
-post. This tag must be used within [The Loop](/The_Loop "The Loop").
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get the tags,Function Reference,Function Reference/get tag link,Function Reference/get tags,Function Reference/get the tag list,Function Reference/get the terms,Function Reference/single tag title,Function Reference/tag description,Function Reference/the tags,Function Reference/wp generate tag cloud,Function Reference/wp get object terms" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get the tags &laquo; WordPress Codex</title>
 
-Usage
------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-This function does not display anything; you should access the objects
-and then echo or otherwise use the desired member variables.
 
-The following example displays the tag name of each tag assigned to the
-post (this is like using
-[`the_tags()`](/Template_Tags/the_tags "Template Tags/the tags"), but
-without linking each tag to the tag view, and using spaces instead of
-commas):
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-    <?php
-    $posttags = get_the_tags();
-    if ($posttags) {
-      foreach($posttags as $tag) {
-        echo $tag->name . ' '; 
-      }
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
+
+</head>
+
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
+
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
+
+
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_the_tags">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
+
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get the tags</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/get_the_tags" class="external text" title="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/get_the_tags">日本語</a> • 
+<a href="/ko:Function_Reference/get_the_tags" title="ko:Function Reference/get the tags">한국어</a> • 
+
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Show_tag_Images"><span class="tocnumber">4.1</span> <span class="toctext">Show tag Images</span></a></li>
+<li class="toclevel-2"><a href="#Show_the_First_tag_Name_Only"><span class="tocnumber">4.2</span> <span class="toctext">Show the First tag Name Only</span></a></li>
+<li class="toclevel-2"><a href="#Display_code_bases_on_different_tag_values"><span class="tocnumber">4.3</span> <span class="toctext">Display code bases on different tag values</span></a></li>
+<li class="toclevel-2"><a href="#Function_to_show_tags_in_a_dropdown"><span class="tocnumber">4.4</span> <span class="toctext">Function to show tags in a dropdown</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">5</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Member_Variables"><span class="tocnumber">6</span> <span class="toctext">Member Variables</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Returns an array of objects, one object for each tag assigned to the post. This tag must be used within <a href="/The_Loop" title="The Loop">The Loop</a>.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p>This function does not display anything; you should access the objects and then echo or otherwise use the desired member variables.
+</p><p>The following example displays the tag name of each tag assigned to the post (this is like using <a href="/Template_Tags/the_tags" title="Template Tags/the tags" class="mw-redirect"><tt>the_tags()</tt></a>, but without linking each tag to the tag view, and using spaces instead of commas):
+</p>
+<pre>&lt;?php
+$posttags = get_the_tags();
+if ($posttags) {
+  foreach($posttags as $tag) {
+    echo $tag-&gt;name . ' '; 
+  }
+}
+?&gt;</pre>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$id</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Int" title="How to Pass Tag Parameters"><i>int</i></a>) (<i>optional</i>) Post id.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Show_tag_Images" id="Show_tag_Images"></a><h3> <span class="mw-headline">Show tag Images</span></h3>
+<p>This outputs tag images named after the <tt>term_id</tt> with the <tt>alt</tt> attribute set to <tt>name</tt>. You can also use any of the other member variables instead.
+</p>
+<pre>&lt;?php
+$posttags = get_the_tags();
+if ($posttags) {
+  foreach($posttags as $tag) {
+    echo '&lt;img src=&quot;http://example.com/images/' . $tag-&gt;term_id . '.jpg&quot; 
+alt=&quot;' . $tag-&gt;name . '&quot; /&gt;'; 
+  }
+}
+?&gt;</pre>
+<a name="Show_the_First_tag_Name_Only" id="Show_the_First_tag_Name_Only"></a><h3> <span class="mw-headline">Show the First tag Name Only</span></h3>
+<pre>&lt;?php
+$posttags = get_the_tags();
+$count=0;
+if ($posttags) {
+  foreach($posttags as $tag) {
+    $count++;
+    if (1 == $count) {
+      echo $tag-&gt;name . ' ';
     }
-    ?>
+  }
+}
+?&gt;</pre>
+<a name="Display_code_bases_on_different_tag_values" id="Display_code_bases_on_different_tag_values"></a><h3> <span class="mw-headline">Display code bases on different tag values</span></h3>
+<p>This code will display HTML code depending on if this post has a certain tag or tag(s).  Just add as many <b>else if</b> statements as you require.
+</p>
+<pre>
+&lt;?php 
+if ($all_the_tags);
+$all_the_tags = get_the_tags();
+foreach($all_the_tags as $this_tag) {
+	if ($this_tag-&gt;name == &quot;sometag&quot; ) {
+?&gt;
 
-Parameters
-----------
+&lt;p&gt;SOME HTML CODE &lt;img src=&quot;someimage.jpg&quot;&gt;&lt;/p&gt;
 
- `$id` 
-:   ([*int*](/How_to_Pass_Tag_Parameters#Int "How to Pass Tag Parameters"))
-    (*optional*) Post id.
-    Default: *None*
+&lt;?php 	} else if ($this_tag-&gt;name == &quot;someothertag&quot; ) {&nbsp;?&gt;
 
-Examples
---------
+&lt;p&gt;SOME OTHER HTML CODE &lt;img src=&quot;someotherimage.jpg&quot;&gt;&lt;/p&gt;
 
-### Show tag Images
-
-This outputs tag images named after the `term_id` with the `alt`
-attribute set to `name`. You can also use any of the other member
-variables instead.
-
-    <?php
-    $posttags = get_the_tags();
-    if ($posttags) {
-      foreach($posttags as $tag) {
-        echo '<img src="http://example.com/images/' . $tag->term_id . '.jpg" 
-    alt="' . $tag->name . '" />'; 
-      }
-    }
-    ?>
-
-### Show the First tag Name Only
-
-    <?php
-    $posttags = get_the_tags();
-    $count=0;
-    if ($posttags) {
-      foreach($posttags as $tag) {
-        $count++;
-        if (1 == $count) {
-          echo $tag->name . ' ';
-        }
-      }
-    }
-    ?>
-
-### Display code bases on different tag values
-
-This code will display HTML code depending on if this post has a certain
-tag or tag(s). Just add as many **else if** statements as you require.
-
-    <?php 
-    if ($all_the_tags);
-    $all_the_tags = get_the_tags();
-    foreach($all_the_tags as $this_tag) {
-        if ($this_tag->name == "sometag" ) {
-    ?>
-
-    <p>SOME HTML CODE <img src="someimage.jpg"></p>
-
-    <?php    } else if ($this_tag->name == "someothertag" ) { ?>
-
-    <p>SOME OTHER HTML CODE <img src="someotherimage.jpg"></p>
-
-    <?php    } else {    
-            // it's neither, do nothing
-    ?>
-            <!-- not tagged as one or the other -->
-    <?
-        }
-    }
-    }
-    ?>
-
-### Function to show tags in a dropdown
-
-This function outputs tags in a dropdown.
-
-    function drop_tags()
+&lt;?php 	} else {	
+		// it's neither, do nothing
+?&gt;
+		&lt;!-- not tagged as one or the other --&gt;
+&lt;?
+	}
+}
+}
+?&gt;
+</pre>
+<a name="Function_to_show_tags_in_a_dropdown" id="Function_to_show_tags_in_a_dropdown"></a><h3> <span class="mw-headline">Function to show tags in a dropdown</span></h3>
+<p>This function outputs tags in a dropdown.
+</p>
+<pre>
+function drop_tags()
+{
+    echo &quot;&lt;select onChange=\&quot;document.location.href=this.options[this.selectedIndex].value;\&quot;&gt;&quot;;
+    echo &quot;&lt;option&gt;Tags&lt;/option&gt;\n&quot;;
+    foreach (get_the_tags() as $tag)
     {
-        echo "<select onChange=\"document.location.href=this.options[this.selectedIndex].value;\">";
-        echo "<option>Tags</option>\n";
-        foreach (get_the_tags() as $tag)
-        {
-            echo "<option value=\"";
-            echo get_tag_link($tag->term_id);
-            echo "\">".$tag->name."</option>\n";
-        }
-        echo "</select>";
+        echo &quot;&lt;option value=\&quot;&quot;;
+        echo get_tag_link($tag-&gt;term_id);
+        echo &quot;\&quot;&gt;&quot;.$tag-&gt;name.&quot;&lt;/option&gt;\n&quot;;
     }
+    echo &quot;&lt;/select&gt;&quot;;
+}
+</pre>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<dl><dt> <tt>(array)</tt>&nbsp;</dt><dd> An array of Tag objects
+</dd></dl>
+<a name="Member_Variables" id="Member_Variables"></a><h2> <span class="mw-headline">Member Variables</span></h2>
+<dl><dt>term_id&nbsp;</dt><dd>the tag id
+</dd><dt>name&nbsp;</dt><dd>the tag name
+</dd><dt>slug&nbsp;</dt><dd>a slug generated from the tag name
+</dd><dt>term_group&nbsp;</dt><dd>the group of the tag, if any
+</dd><dt>taxonomy&nbsp;</dt><dd>should always be 'post_tag' for this case
+</dd><dt>description&nbsp;</dt><dd>the tag description
+</dd><dt>count&nbsp;</dt><dd>number of uses of this tag, total
+</dd></dl>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<p>Since: 2.3.0
+</p>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>get_the_tags()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category-template.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category-template.php#L0">wp-includes/category-template.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Taxonomies" title="Taxonomies"><b>Tags</b></a>: 
+<a href="/Function_Reference/the_tags" title="Function Reference/the tags"> the_tags()</a>,
+<a href="/Function_Reference/tag_description" title="Function Reference/tag description"> tag_description()</a>,
+<a href="/Function_Reference/single_tag_title" title="Function Reference/single tag title"> single_tag_title()</a>,
+<a href="/Function_Reference/wp_tag_cloud" title="Function Reference/wp tag cloud"> wp_tag_cloud()</a>,
+<a href="/Function_Reference/wp_generate_tag_cloud" title="Function Reference/wp generate tag cloud"> wp_generate_tag_cloud()</a>,
+<a href="/Function_Reference/get_tags" title="Function Reference/get tags"> get_tags()</a>,
+<strong class="selflink"> get_the_tags()</strong>,
+<a href="/Function_Reference/get_the_tag_list" title="Function Reference/get the tag list"> get_the_tag_list()</a>,
+<a href="/Function_Reference/get_tag_link" title="Function Reference/get tag link"> get_tag_link()</a>, <a href="/Function_Reference/get_the_terms" title="Function Reference/get the terms">get_the_terms()</a>, <a href="/Function_Reference/wp_get_object_terms" title="Function Reference/wp get object terms">wp_get_object_terms()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-Return Values
--------------
+<!-- 
+NewPP limit report
+Preprocessor node count: 95/1000000
+Post-expand include size: 2179/2097152 bytes
+Template argument size: 553/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_the_tags">http://codex.wordpress.org/Function_Reference/get_the_tags</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
- `(array)` 
-:   An array of Tag objects
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-Member Variables
-----------------
 
-term\_id 
-:   the tag id
-name 
-:   the tag name
-slug 
-:   a slug generated from the tag name
-term\_group 
-:   the group of the tag, if any
-taxonomy 
-:   should always be 'post\_tag' for this case
-description 
-:   the tag description
-count 
-:   number of uses of this tag, total
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-Change Log
-----------
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Since: 2.3.0
 
-Source File
------------
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213745 -->
+</html>
 
-`get_the_tags()` is located in `wp-includes/category-template.php`.
+</body>
+<!-- Cached 20130405213745 -->
+</html>
 

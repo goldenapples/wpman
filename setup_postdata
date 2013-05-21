@@ -1,82 +1,298 @@
-Function Reference/setup postdata « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Set up global post data. Helps to format custom query results for using
-Template tags.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/setup postdata,Class Reference/WP Query,Class Reference/wpdb,Displaying Posts Using a Custom Select Query,Function Reference,Function Reference/get pages,Function Reference/get posts,Function Reference/get query var,Function Reference/have posts,Function Reference/is main query,Function Reference/query posts" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/setup postdata &laquo; WordPress Codex</title>
 
-Usage
------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-` <?php global $post;setup_postdata( $post ); ?> `
 
-Parameters
-----------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
- `$post` 
-:   ([*object*](/How_to_Pass_Tag_Parameters#Object "How to Pass Tag Parameters"))
-    (*required*) A post object.
-    Default: *None*
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-**Important:** You must make use the global \$post variable to pass the
-post details into this function, otherwise functions like the\_title()
-don't work properly...
+</head>
 
-Example...
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-       global $post;
-       
-       // Assign your post details to $post (& not any other variable name!!!!)
-       $post = $post_object;
-       
-       setup_postdata( $post );
-       ...
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-This will **not** work...
 
-       global $post;
-       
-       setup_postdata( $post_object );
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/setup_postdata">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-Return Values
--------------
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/setup postdata</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Example_1"><span class="tocnumber">5</span> <span class="toctext">Example 1</span></a></li>
+<li class="toclevel-1"><a href="#Example_2"><span class="tocnumber">6</span> <span class="toctext">Example 2</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline">Description</span></h2>
+<p>Set up global post data. Helps to format custom query results for using Template tags.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline">Usage</span></h2>
+<p><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;<br /></span><span style="color: #007700">global&nbsp;</span><span style="color: #0000BB">$post</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">setup_postdata</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$post&nbsp;</span><span style="color: #007700">);&nbsp;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$post</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Object" title="How to Pass Tag Parameters"><i>object</i></a>) (<i>required</i>) A post object.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<p><b>Important:</b>  You must make use the global $post variable to pass the post details into this function, otherwise functions like the_title() don't work properly...
+</p><p>Example...
+</p>
+<pre>   global $post;
+   
+   // Assign your post details to $post (&amp; not any other variable name!!!!)
+   $post = $post_object;
+   
+   setup_postdata( $post );
+   ...
+</pre>
+<p>This will <b>not</b> work...
+</p>
+<pre>   global $post;
+   
+   setup_postdata( $post_object );
+</pre>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline">Return Values</span></h2>
+<p>This function always returns true.
+</p>
+<a name="Example_1" id="Example_1"></a><h2> <span class="mw-headline">Example 1</span></h2>
+<pre>
+&lt;ul&gt;
+&lt;?php
+global $post;
+$args = array( 'numberposts' =&gt; 5, 'offset'=&gt; 1, 'category' =&gt; 1 );
+$myposts = get_posts( $args );
+foreach( $myposts as $post )&nbsp;:	setup_postdata($post);&nbsp;?&gt;
+	&lt;li&gt;&lt;a href=&quot;&lt;?php the_permalink();&nbsp;?&gt;&quot;&gt;&lt;?php the_title();&nbsp;?&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;?php endforeach; wp_reset_postdata();&nbsp;?&gt;
+&lt;/ul&gt;
+</pre>
+<a name="Example_2" id="Example_2"></a><h2> <span class="mw-headline">Example 2</span></h2>
+<pre>
+&lt;ul&gt;
+&lt;?php
+global $wpdb;
+global $post;
+$str = &quot;SELECT $wpdb-&gt;posts.* FROM $wpdb-&gt;posts WHERE post_type = 'post' AND post_status = 'publish'&quot;;
+$result = $wpdb-&gt;get_results($str);
+foreach($result as $post):setup_postdata($post);?&gt;
+	&lt;li&gt;&lt;a href=&quot;&lt;?php the_permalink()?&gt;&quot;&gt;&lt;?php the_title();?&gt;&lt;/a&gt;&lt;/li&gt;&lt;?php 
+endforeach;?&gt;
+&lt;/ul&gt;
+</pre>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline">Change Log</span></h2>
+<ul><li> Since: <a href="/index.php?title=Version_1.5.0&amp;action=edit&amp;redlink=1" class="new" title="Version 1.5.0 (page does not exist)">1.5.0</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline">Source File</span></h2>
+<p><tt>setup_postdata()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/query.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/query.php#L0">wp-includes/query.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline">Related</span></h2>
+<ul><li> Class: <a href="/Class_Reference/WP_Query" title="Class Reference/WP Query"> WP_Query</a> - Detailed overview of the WP_Query class
+</li><li> Class: <a href="/Class_Reference/wpdb" title="Class Reference/wpdb">$wpdb</a> - Overview of using the $wpdb object
+</li><li> Function: <a href="/Function_Reference/get_query_var" title="Function Reference/get query var"> get_query_var()</a> 
+</li><li> Function: <a href="/Function_Reference/query_posts" title="Function Reference/query posts"> query_posts()</a>  - Make additional custom queries
+</li><li> Function: <a href="/Function_Reference/get_posts" title="Function Reference/get posts" class="mw-redirect">get_posts()</a> - A specialized function that returns an array of posts
+</li><li> Function: <a href="/Function_Reference/get_pages" title="Function Reference/get pages">get_pages()</a> - A specialized function that returns an array of pages
+</li><li> Function: <a href="/Function_Reference/have_posts" title="Function Reference/have posts"> have posts()</a> - A conditional that determines if the query returned any posts
+</li><li> Function: <a href="/Function_Reference/the_post" title="Function Reference/the post"> the_post()</a> - Used to automatically set up the loop after a query
+</li><li> Function: <a href="/Function_Reference/rewind_posts" title="Function Reference/rewind posts"> rewind_posts()</a> - Resets the current loop
+</li><li> Function: <strong class="selflink">setup_postdata()</strong> - Setup query data for individual results within a loop
+</li><li> Function: <a href="/Function_Reference/wp_reset_postdata" title="Function Reference/wp reset postdata"> wp_reset_postdata()</a> - Restores the previous query (usually after a loop-within-a-loop)
+</li><li> Function: <a href="/Function_Reference/wp_reset_query" title="Function Reference/wp reset query"> wp_reset_query()</a>
+</li><li> Function: <a href="/Function_Reference/is_main_query" title="Function Reference/is main query">is_main_query()</a> - Ensures the query being changed is only the main query
+</li><li> Action Hook: <a href="/Plugin_API/Action_Reference/pre_get_posts" title="Plugin API/Action Reference/pre get posts">pre_get_posts</a> - Modify WordPress queries before they are executed
+</li><li> Filter Hook: <a href="/Plugin_API/Filter_Reference/found_posts" title="Plugin API/Filter Reference/found posts">found_posts</a> - Modify the WP_Query object's found_posts value
+</li><li> Tutorial: <a href="/Displaying_Posts_Using_a_Custom_Select_Query" title="Displaying Posts Using a Custom Select Query">Displaying Posts Using a Custom Select Query</a>
+</li><li> Tutorial: <a href="/Making_Advanced_Taxonomy_Queries" title="Making Advanced Taxonomy Queries">Making Advanced Taxonomy Queries</a>
+</li><li> Tutorial: <a href="/Making_Custom_Queries_using_Offset_and_Pagination" title="Making Custom Queries using Offset and Pagination">Making Custom Queries using Offset and Pagination</a>
+</li></ul>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-This function always returns true.
+<!-- 
+NewPP limit report
+Preprocessor node count: 69/1000000
+Post-expand include size: 2544/2097152 bytes
+Template argument size: 199/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/setup_postdata">http://codex.wordpress.org/Function_Reference/setup_postdata</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-Example 1
----------
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-    <ul>
-    <?php
-    global $post;
-    $args = array( 'numberposts' => 5, 'offset'=> 1, 'category' => 1 );
-    $myposts = get_posts( $args );
-    foreach( $myposts as $post ) : setup_postdata($post); ?>
-        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-    <?php endforeach; wp_reset_postdata(); ?>
-    </ul>
 
-Example 2
----------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-    <ul>
-    <?php
-    global $wpdb;
-    global $post;
-    $str = "SELECT $wpdb->posts.* FROM $wpdb->posts WHERE post_type = 'post' AND post_status = 'publish'";
-    $result = $wpdb->get_results($str);
-    foreach($result as $post):setup_postdata($post);?>
-        <li><a href="<?php the_permalink()?>"><?php the_title();?></a></li><?php 
-    endforeach;?>
-    </ul>
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Change Log
-----------
 
--   Since:
-    [1.5.0](/index.php?title=Version_1.5.0&action=edit&redlink=1 "Version 1.5.0 (page does not exist)")
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405214816 -->
+</html>
 
-Source File
------------
-
-`setup_postdata()` is located in `wp-includes/query.php`.
+</body>
+<!-- Cached 20130405214816 -->
+</html>
 

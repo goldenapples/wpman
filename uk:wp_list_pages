@@ -1,1 +1,718 @@
-Function Reference/uk:wp list pages « WordPress Codex
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<meta charset="utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/uk:wp list pages,Administration Panels,Customizing Your Sidebar,Database Description,Designing Headers,Formatting Date and Time,Function Reference,Function Reference/get pages,Function Reference/wp dropdown categories,Function Reference/wp dropdown pages,Function Reference/wp dropdown users" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/uk:wp list pages &laquo; WordPress Codex</title>
+
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?36" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
+
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
+
+</head>
+
+<body id="wordpress-org" >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>				<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
+
+
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/uk:wp_list_pages">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
+
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/uk:wp list pages</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<a href="/zh-cn:%E6%A8%A1%E6%9D%BF%E6%A0%87%E7%AD%BE/wp_list_pages" title="zh-cn:模板标签/wp list pages">中文(简体)</a> • 
+<a href="/Template_Tags/wp_list_pages" title="Template Tags/wp list pages" class="mw-redirect">English</a> • 
+<a href="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_list_pages" class="external text" title="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_list_pages">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#.D0.9E.D0.BF.D0.B8.D1.81"><span class="tocnumber">1</span> <span class="toctext">Опис</span></a></li>
+<li class="toclevel-1"><a href="#.D0.92.D0.B8.D0.BA.D0.BE.D1.80.D0.B8.D1.81.D1.82.D0.B0.D0.BD.D0.BD.D1.8F"><span class="tocnumber">2</span> <span class="toctext">Використання</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.D0.A2.D0.B8.D0.BF.D0.BE.D0.B2.D0.B5_.D0.B2.D0.B8.D0.BA.D0.BE.D1.80.D0.B8.D1.81.D1.82.D0.B0.D0.BD.D0.BD.D1.8F"><span class="tocnumber">2.1</span> <span class="toctext">Типове використання</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#.D0.9F.D0.B0.D1.80.D0.B0.D0.BC.D0.B5.D1.82.D1.80.D0.B8"><span class="tocnumber">3</span> <span class="toctext">Параметри</span></a></li>
+<li class="toclevel-1"><a href="#.D0.9F.D1.80.D0.B8.D0.BA.D0.BB.D0.B0.D0.B4.D0.B8"><span class="tocnumber">4</span> <span class="toctext">Приклади</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.D0.9F.D1.80.D0.B8.D1.85.D0.BE.D0.B2.D1.83.D0.B2.D0.B0.D0.BD.D0.BD.D1.8F_.D0.B0.D0.B1.D0.BE_.D0.B7.D0.BC.D1.96.D0.BD.D0.B0_.D0.B7.D0.B0.D0.B3.D0.BE.D0.BB.D0.BE.D0.B2.D0.BA.D0.B0_.D1.81.D0.BF.D0.B8.D1.81.D0.BA.D1.83"><span class="tocnumber">4.1</span> <span class="toctext">Приховування або зміна заголовка списку</span></a></li>
+<li class="toclevel-2"><a href="#List_Pages_by_Page_Order"><span class="tocnumber">4.2</span> <span class="toctext">List Pages by Page Order</span></a></li>
+<li class="toclevel-2"><a href="#Sort_Pages_by_Post_Date"><span class="tocnumber">4.3</span> <span class="toctext">Sort Pages by Post Date</span></a></li>
+<li class="toclevel-2"><a href="#Exclude_Pages_from_List"><span class="tocnumber">4.4</span> <span class="toctext">Exclude Pages from List</span></a></li>
+<li class="toclevel-2"><a href="#Include_Pages_in_List"><span class="tocnumber">4.5</span> <span class="toctext">Include Pages in List</span></a></li>
+<li class="toclevel-2"><a href="#List_Sub-Pages"><span class="tocnumber">4.6</span> <span class="toctext">List Sub-Pages</span></a>
+<ul>
+<li class="toclevel-3"><a href="#List_subpages_even_if_on_a_subpage"><span class="tocnumber">4.6.1</span> <span class="toctext">List subpages even if on a subpage</span></a></li>
+<li class="toclevel-3"><a href="#List_whole_subpages"><span class="tocnumber">4.6.2</span> <span class="toctext">List whole subpages</span></a></li>
+<li class="toclevel-3"><a href="#List_parent_Page_and_all_descendant_Pages"><span class="tocnumber">4.6.3</span> <span class="toctext">List parent Page and all descendant Pages</span></a></li>
+<li class="toclevel-3"><a href="#List_current_Page_with_its_ancestors_and_children"><span class="tocnumber">4.6.4</span> <span class="toctext">List current Page with its ancestors and children</span></a></li>
+<li class="toclevel-3"><a href="#List_topmost_ancestor_and_its_immediate_children"><span class="tocnumber">4.6.5</span> <span class="toctext">List topmost ancestor and its immediate children</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#List_the_Home_page"><span class="tocnumber">4.7</span> <span class="toctext">List the Home page</span></a></li>
+<li class="toclevel-2"><a href="#List_members_of_a_custom_post_type"><span class="tocnumber">4.8</span> <span class="toctext">List members of a custom post type</span></a></li>
+<li class="toclevel-2"><a href="#Markup_and_styling_of_page_items"><span class="tocnumber">4.9</span> <span class="toctext">Markup and styling of page items</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Menu_Item_CSS_Classes"><span class="tocnumber">5</span> <span class="toctext">Menu Item CSS Classes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#All_Menu_Items"><span class="tocnumber">5.1</span> <span class="toctext">All Menu Items</span></a></li>
+<li class="toclevel-2"><a href="#Current-Page_Menu_Items"><span class="tocnumber">5.2</span> <span class="toctext">Current-Page Menu Items</span></a></li>
+<li class="toclevel-2"><a href="#Current-Page_Parent_Menu_Items"><span class="tocnumber">5.3</span> <span class="toctext">Current-Page Parent Menu Items</span></a></li>
+<li class="toclevel-2"><a href="#Current-Page_Ancestor_Menu_Items"><span class="tocnumber">5.4</span> <span class="toctext">Current-Page Ancestor Menu Items</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Changelog"><span class="tocnumber">7</span> <span class="toctext">Changelog</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name=".D0.9E.D0.BF.D0.B8.D1.81" id=".D0.9E.D0.BF.D0.B8.D1.81"></a><h2> <span class="mw-headline"> Опис </span></h2>
+<p>Displays a list of WordPress <a href="/Pages" title="Pages">Pages</a> as links. It is often used to customize the <a href="/Customizing_Your_Sidebar" title="Customizing Your Sidebar">Sidebar</a> or <a href="/Designing_Headers" title="Designing Headers">Header</a>, but may be used in other <a href="/Templates" title="Templates">Templates</a> as well.
+</p>
+<a name=".D0.92.D0.B8.D0.BA.D0.BE.D1.80.D0.B8.D1.81.D1.82.D0.B0.D0.BD.D0.BD.D1.8F" id=".D0.92.D0.B8.D0.BA.D0.BE.D1.80.D0.B8.D1.81.D1.82.D0.B0.D0.BD.D0.BD.D1.8F"></a><h2> <span class="mw-headline"> Використання </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;wp_list_pages</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$args&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name=".D0.A2.D0.B8.D0.BF.D0.BE.D0.B2.D0.B5_.D0.B2.D0.B8.D0.BA.D0.BE.D1.80.D0.B8.D1.81.D1.82.D0.B0.D0.BD.D0.BD.D1.8F" id=".D0.A2.D0.B8.D0.BF.D0.BE.D0.B2.D0.B5_.D0.B2.D0.B8.D0.BA.D0.BE.D1.80.D0.B8.D1.81.D1.82.D0.B0.D0.BD.D0.BD.D1.8F"></a><h3> <span class="mw-headline"> Типове використання </span></h3>
+<pre>
+&lt;?php $args = array(
+	'depth'        =&gt; 0,
+	'show_date'    =&gt; '',
+	'date_format'  =&gt; get_option('date_format'),
+	'child_of'     =&gt; 0,
+	'exclude'      =&gt; '',
+	'include'      =&gt; '',
+	'title_li'     =&gt; __('Pages'),
+	'echo'         =&gt; 1,
+	'authors'      =&gt; '',
+	'sort_column'  =&gt; 'menu_order, post_title',
+	'link_before'  =&gt; '',
+	'link_after'   =&gt; '',
+	'walker'       =&gt; '',
+	'post_type'    =&gt; 'page',
+        'post_status'  =&gt; 'publish' 
+);&nbsp;?&gt;
+</pre>
+<p>By default, the usage shows:
+</p>
+<ul><li> All Pages and sub-pages are displayed (no depth restriction)
+</li><li> Date created is not displayed
+</li><li> Is not restricted to the child_of any Page
+</li><li> No pages are excluded
+</li><li> No pages are explicitly included
+</li><li> The title of the pages listed is "Pages"
+</li><li> Results are echoed (displayed)
+</li><li> Is not restricted to any specific author
+</li><li> Sorted by Page Order then Page Title.
+</li><li> Sorted in ascending order
+</li><li> Pages displayed in a hierarchical indented fashion (not shown in defaults above)
+</li><li> Includes all Pages (not shown in defaults above)
+</li><li> Not restricted to Pages with specific meta key/meta value (not shown in defaults above)
+</li><li> No Parent/Child trees excluded
+</li></ul>
+<a name=".D0.9F.D0.B0.D1.80.D0.B0.D0.BC.D0.B5.D1.82.D1.80.D0.B8" id=".D0.9F.D0.B0.D1.80.D0.B0.D0.BC.D0.B5.D1.82.D1.80.D0.B8"></a><h2> <span class="mw-headline"> Параметри </span></h2>
+<p>Note: generically, arguments are inherited from <a href="/Function_Reference/get_pages#Parameters" title="Function Reference/get pages">get_pages</a>.
+</p>
+<dl><dt> <b>sort_column</b>&nbsp;</dt><dd> (<i>string</i>) Sorts the list of Pages in a number of different ways. The default setting is <i>sort alphabetically by Page title</i>.
+<ul><li> <tt>'post_title'</tt> - Sort Pages alphabetically (by title) - default
+</li><li> <tt>'menu_order'</tt> - Sort Pages by Page Order. Note the difference between <i>Page Order</i> and <i>Page ID</i>. The Page ID is a unique number assigned by WordPress to every post or page. The Page Order can be set by the user in the <a href="/Pages_Pages_SubPanel" title="Pages Pages SubPanel" class="mw-redirect">Pages→Edit</a> panel. See the <a href="#List_Pages_by_Page_Order" title="">example</a> below.
+</li><li> <tt>'post_date'</tt> - Sort by creation time.
+</li><li> <tt>'post_modified'</tt> - Sort by time last modified.
+</li><li> <tt>'ID'</tt> - Sort by numeric Page ID.
+</li><li> <tt>'post_author'</tt> - Sort by the Page author's numeric ID.
+</li><li> <tt>'post_name'</tt> - Sort alphabetically by Post <a href="/Glossary#Slug" title="Glossary">slug</a>.
+</li></ul>
+</dd><dd><b>Note:</b> The <b>sort_column</b> parameter can be used to sort the list of Pages by the descriptor of any field in the <a href="/Database_Description#Table:_wp_posts" title="Database Description">wp_post table</a> of the WordPress database. Some useful examples are listed here.
+</dd></dl>
+<dl><dt> <b>sort_order</b>&nbsp;</dt><dd> (<i>string</i>) Change the sort order of the list of Pages (either ascending or descending). The default is <i>ascending</i>. Valid values:
+<ul><li> <tt>'ASC'</tt> - Sort from lowest to highest (Default).
+</li><li> <tt>'DESC'</tt> - Sort from highest to lowest.
+</li></ul>
+</dd></dl>
+<dl><dt> <b>exclude</b>&nbsp;</dt><dd> (<i>string</i>) Define a comma-separated list of Page IDs to be excluded from the list (example: <tt>'exclude=3,7,31'</tt>). There is no default value. See the <a href="#Exclude_Pages_from_List" title="">Exclude Pages from List</a> example below.
+</dd></dl>
+<dl><dt> <b>exclude_tree</b>&nbsp;</dt><dd> (<i>string</i>) Define a comma-separated list of parent Page IDs to be excluded.  Use this parameter to exclude a parent and all of that parent's child Pages.  So <tt>'exclude_tree=5'</tt> would exclude the parent Page 5, and its child (all descendant) Pages. (This parameter was added with <a href="/Version_2.7" title="Version 2.7">Version 2.7</a>, and it does not function as described as of version 2.8.1 - <a href="http://core.trac.wordpress.org/ticket/8683" class="external text" title="http://core.trac.wordpress.org/ticket/8683">See bug report</a>.)
+</dd></dl>
+<dl><dt> <b>include</b>&nbsp;</dt><dd> (<i>string</i>) Only include certain Pages in the list generated by <i>wp_list_pages</i>. Like <b>exclude</b>, this parameter takes a comma-separated list of Page IDs. There is no default value. See the <a href="#Include_Pages_in_List" title="">Include Pages in List</a> example below.
+</dd></dl>
+<dl><dt> <b>depth</b>&nbsp;</dt><dd> (<i>integer</i>) This parameter controls how many levels in the hierarchy of pages are to be included in the list generated by <i>wp_list_pages</i>. The default value is <i>0</i> (display all pages, including all sub-pages).
+<ul><li> <tt>0</tt> (default) Displays pages at any depth and arranges them hierarchically in nested lists
+</li><li> <tt>-1</tt> Displays pages at any depth and arranges them in a single, flat list
+</li><li> <tt>1</tt> Displays top-level Pages only
+</li><li> <tt>2</tt>, <tt>3</tt> … Displays Pages to the given depth
+</li></ul>
+</dd></dl>
+<dl><dt> <b>child_of</b>&nbsp;</dt><dd> (<i>integer</i>) Displays the sub-pages of a single Page only; uses the ID for a Page as the value. Note that the child_of parameter will also fetch "grandchildren" of the given ID, not just direct descendants.  Defaults to <i>0</i> (displays all Pages).
+</dd></dl>
+<dl><dt> <b>show_date</b>&nbsp;</dt><dd> (<i>string</i>) Display creation or last modified date next to each Page. The default value is the <i>null value</i> (do not display dates). Valid values:
+<ul><li> <tt>''</tt> - Display no date (Default).
+</li><li> <tt>'modified'</tt> - Display the date last modified.
+</li><li> <tt>'xxx'</tt> - Any value other than <i>modified</i> displays the date (<b>post_date</b>) the Page was first created. See the <a href="#Sort_Pages_by_Post_Date" title="">example</a> below.
+</li></ul>
+</dd></dl>
+<dl><dt> <b>date_format</b>&nbsp;</dt><dd> (<i>string</i>) Controls the format of the Page date set by the <b>show_date</b> parameter (example: "<tt>l, F j, Y</tt>"). This parameter defaults to the date format configured in your WordPress options. See <a href="/Formatting_Date_and_Time" title="Formatting Date and Time">Formatting Date and Time</a> and the <a href="http://php.net/date" class="external text" title="http://php.net/date">date format page on the php web site</a>.
+</dd></dl>
+<dl><dt> <b>title_li</b>&nbsp;</dt><dd> (<i>string</i>) Set the text and style of the Page list's heading. Defaults to <tt>'__('Pages')'</tt>, which displays "Pages" (the <tt>__(&#39;&#39;)</tt> is used for <a href="/Localization" title="Localization" class="mw-redirect">localization purposes</a>). If passed a null or empty value (<tt>&#39;&#39;</tt>), no heading is displayed, and the list will not be wrapped with <tt>&lt;ul&gt;, &lt;/ul&gt;</tt> tags. See the example for <a href="#Hiding_or_Changing_the_List_Heading" title="">Headings</a>.
+</dd></dl>
+<dl><dt> <b>echo</b>&nbsp;</dt><dd> (<i>boolean</i>) Toggles the display of the generated list of links or return the list as an HTML text string to be used in PHP. The default value is <i>1</i> (display the generated list items). Valid values:
+<ul><li> <tt>1 (True)</tt> - default
+</li><li> <tt>0 (False)</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> meta_key&nbsp;</dt><dd> (<i>string</i>) Only include the Pages that have this Custom Field Key (use in conjunction with the meta_value field).
+</dd><dt> meta_value&nbsp;</dt><dd> (<i>string</i>) Only include the Pages that have this Custom Field Value (use in conjunction with the meta_key field).
+</dd></dl>
+<dl><dt> <b>link_before</b>&nbsp;</dt><dd> (<i>string</i>) Sets the text or html that precedes the link text inside &lt;a&gt; tag. (This parameter was added with <a href="/Version_2.7" title="Version 2.7">Version 2.7</a>)
+</dd></dl>
+<dl><dt> <b>link_after</b>&nbsp;</dt><dd> (<i>string</i>) Sets the text or html that follows the link text inside &lt;a&gt; tag. (This parameter was added with <a href="/Version_2.7" title="Version 2.7">Version 2.7</a>)
+</dd></dl>
+<dl><dt> <b>authors</b>&nbsp;</dt><dd> (<i>string</i>) Only include Pages authored by the authors in this comma-separated list of author IDs. If no authors are specified, all authors are included.
+</dd></dl>
+<dl><dt> <b>number</b>&nbsp;</dt><dd> (<i>integer</i>) Sets the number of Pages to display. This causes the SQL LIMIT value to be defined. Default to no LIMIT. (This parameter was added with <a href="/Version_2.8" title="Version 2.8">Version 2.8</a>)  NOTE: this is currently not working, see <a href="http://core.trac.wordpress.org/ticket/10745" class="external free" title="http://core.trac.wordpress.org/ticket/10745">http://core.trac.wordpress.org/ticket/10745</a>
+</dd></dl>
+<dl><dt> <b>offset</b>&nbsp;</dt><dd> (<i>integer</i>) The number of Pages to pass over (or displace) before collecting the set of Pages.  Default is no OFFSET.  (This parameter was added with <a href="/Version_2.8" title="Version 2.8">Version 2.8</a>)
+</dd></dl>
+<dl><dt> <b>post_type</b></dt><dd> (<i>string</i>) List posts associated with certain <a href="/Post_Types" title="Post Types">type</a>. Default is 'page'. Valid values include:
+<ul><li> <tt>post</tt>' - a post. 
+</li><li> '<tt>page</tt>' - a page.
+</li><li> '<tt>revision</tt>' - a revision.
+</li><li> '<tt>attachment</tt>' - an attachment.
+</li><li> Custom Post Types.
+</li></ul>
+</dd></dl>
+<dl><dt> <b>post_status</b></dt><dd> a comma-separated list of all post status types to return. For example: <tt>'publish,private'</tt>
+</dd></dl>
+<a name=".D0.9F.D1.80.D0.B8.D0.BA.D0.BB.D0.B0.D0.B4.D0.B8" id=".D0.9F.D1.80.D0.B8.D0.BA.D0.BB.D0.B0.D0.B4.D0.B8"></a><h2> <span class="mw-headline"> Приклади </span></h2>
+<a name=".D0.9F.D1.80.D0.B8.D1.85.D0.BE.D0.B2.D1.83.D0.B2.D0.B0.D0.BD.D0.BD.D1.8F_.D0.B0.D0.B1.D0.BE_.D0.B7.D0.BC.D1.96.D0.BD.D0.B0_.D0.B7.D0.B0.D0.B3.D0.BE.D0.BB.D0.BE.D0.B2.D0.BA.D0.B0_.D1.81.D0.BF.D0.B8.D1.81.D0.BA.D1.83" id=".D0.9F.D1.80.D0.B8.D1.85.D0.BE.D0.B2.D1.83.D0.B2.D0.B0.D0.BD.D0.BD.D1.8F_.D0.B0.D0.B1.D0.BE_.D0.B7.D0.BC.D1.96.D0.BD.D0.B0_.D0.B7.D0.B0.D0.B3.D0.BE.D0.BB.D0.BE.D0.B2.D0.BA.D0.B0_.D1.81.D0.BF.D0.B8.D1.81.D0.BA.D1.83"></a><h3> <span class="mw-headline"> Приховування або зміна заголовка списку </span></h3>
+<p>The default heading of the list ("Pages") of Pages generated by <i>wp_list_pages</i> can be hidden by passing a null or empty value to the <b>title_li</b> parameter. The following example displays no heading text above the list.
+</p>
+<pre>&lt;ul&gt;
+&lt;?php wp_list_pages('title_li=');&nbsp;?&gt;
+&lt;/ul&gt;</pre>
+<p>In the following example, only Pages with IDs 9, 5, and 23 are included in the list and the heading text has been changed to the word "Poetry", with a heading style of <tt>&lt;h2&gt;</tt>:
+</p>
+<pre>&lt;ul&gt;
+  &lt;?php wp_list_pages('include=5,9,23&amp;title_li=&lt;h2&gt;' . __('Poetry') . '&lt;/h2&gt;' );&nbsp;?&gt;
+&lt;/ul&gt;</pre>
+<a name="List_Pages_by_Page_Order" id="List_Pages_by_Page_Order"></a><h3> <span class="mw-headline"> List Pages by Page Order </span></h3>
+<p>The following example lists the Pages in the order defined by the <b>Order</b> setting for each Page in the <a href="/Pages_Pages_SubPanel" title="Pages Pages SubPanel" class="mw-redirect">Pages→Edit</a> panel.
+</p>
+<pre>&lt;ul&gt;
+  &lt;?php wp_list_pages('sort_column=menu_order');&nbsp;?&gt;
+&lt;/ul&gt;</pre>
+<p>If you wanted to sort the list by Page Order and display the word "Prose" as the list heading (in h2 style) on a Sidebar, you could add the following code to the sidebar.php file:
+</p>
+<pre>&lt;ul&gt;
+  &lt;?php wp_list_pages('sort_column=menu_order&amp;title_li=&lt;h2&gt;' . __('Prose') . '&lt;/h2&gt;' );&nbsp;?&gt;
+&lt;/ul&gt;</pre>
+<p>Using the following piece of code, the Pages will display without heading and in <i>Page Order</i>:
+</p>
+<pre>&lt;ul&gt;
+  &lt;?php wp_list_pages('sort_column=menu_order&amp;title_li=');&nbsp;?&gt;
+&lt;/ul&gt;</pre>
+<a name="Sort_Pages_by_Post_Date" id="Sort_Pages_by_Post_Date"></a><h3> <span class="mw-headline"> Sort Pages by Post Date</span></h3>
+<p>This example displays Pages sorted by (creation) date, and shows the date next to each Page list item.
+</p>
+<pre>&lt;ul&gt;
+  &lt;?php wp_list_pages('sort_column=post_date&amp;show_date=created');&nbsp;?&gt;
+&lt;/ul&gt;</pre>
+<a name="Exclude_Pages_from_List" id="Exclude_Pages_from_List"></a><h3> <span class="mw-headline"> Exclude Pages from List </span></h3>
+<p>Use the <b>exclude</b> parameter to hide certain Pages from the list to be generated by <i>wp_list_pages</i>.  
+</p>
+<pre>&lt;ul&gt;
+  &lt;?php wp_list_pages('exclude=17,38' );&nbsp;?&gt;
+&lt;/ul&gt;</pre>
+<a name="Include_Pages_in_List" id="Include_Pages_in_List"></a><h3> <span class="mw-headline"> Include Pages in List </span></h3>
+<p>To include only certain Pages in the list, for instance, Pages with ID numbers 35, 7, 26 and 13, use the <b>include</b> parameter. 
+</p>
+<pre>&lt;ul&gt;
+  &lt;?php wp_list_pages('include=7,13,26,35&amp;title_li=&lt;h2&gt;' . __('Pages') . '&lt;/h2&gt;' );&nbsp;?&gt;
+  &lt;/ul&gt;
+</pre>
+<a name="List_Sub-Pages" id="List_Sub-Pages"></a><h3> <span class="mw-headline"> List Sub-Pages </span></h3>
+<p><b>Versions prior to Wordpress 2.0.1&nbsp;:</b>
+</p><p>Put this inside the <tt>the_post()</tt> section of the page.php template of your WordPress theme after <tt>the_content()</tt>, or put it in a copy of the page.php template that you use for pages that have sub-pages:
+</p>
+<pre>&lt;ul&gt;
+  &lt;?php
+  global $id;
+  wp_list_pages(&quot;title_li=&amp;child_of=$id&amp;show_date=modified
+  &amp;date_format=$date_format&quot;);&nbsp;?&gt;
+&lt;/ul&gt;</pre>
+<p>This example does not work with Wordpress 2.0.1 or newer if placed in a page template because the global $id is not set. Use the following code instead.
+</p><p><b>Wordpress 2.0.1 or newer&nbsp;:</b>
+</p><p>NOTE: Requires an HTML tag (either <tt>&lt;ul&gt;</tt> or <tt>&lt;ol&gt;</tt>) even if  there are no subpages. Keep this in mind if you are using css to style the list.
+</p>
+<pre>&lt;ul&gt;
+  &lt;?php
+  wp_list_pages('title_li=&amp;child_of='.$post-&gt;ID.'&amp;show_date=modified
+  &amp;date_format=$date_format');&nbsp;?&gt;
+  &lt;/ul&gt;
+</pre>
+<p>The following example will generate a list only if there are child pages (pages that designate the current page as a parent) for the current page:
+</p>
+<pre>&lt;?php
+  $children = wp_list_pages('title_li=&amp;child_of='.$post-&gt;ID.'&amp;echo=0');
+  if ($children) {&nbsp;?&gt;
+  &lt;ul&gt;
+  &lt;?php echo $children;&nbsp;?&gt;
+  &lt;/ul&gt;
+  &lt;?php }&nbsp;?&gt;
+</pre>
+<a name="List_subpages_even_if_on_a_subpage" id="List_subpages_even_if_on_a_subpage"></a><h4> <span class="mw-headline"> List subpages even if on a subpage </span></h4>
+<p>The above examples will only show the children from the parent page, but not when actually on a child page.  This code will show the child pages, and only the child pages, when on a parent or on one of the children.
+</p><p>This code will not work if placed after a widget block in the sidebar.
+</p><p><br />
+</p>
+<pre>&lt;?php
+  if($post-&gt;post_parent)
+  $children = wp_list_pages(&quot;title_li=&amp;child_of=&quot;.$post-&gt;post_parent.&quot;&amp;echo=0&quot;);
+  else
+  $children = wp_list_pages(&quot;title_li=&amp;child_of=&quot;.$post-&gt;ID.&quot;&amp;echo=0&quot;);
+  if ($children) {&nbsp;?&gt;
+  &lt;ul&gt;
+  &lt;?php echo $children;&nbsp;?&gt;
+  &lt;/ul&gt;
+  &lt;?php }&nbsp;?&gt;
+</pre>
+<p>As an alternative, this code in a <i>sidebar.php</i>, displays only top level Pages, but when viewing a Page that has children (or is a child) it displays only children of that parent.  
+</p>
+<ul><li> When visiting main page, all top level pages are listed in the sidebar.  
+</li><li> When visiting a top level page with no children, all top level pages are listed.  
+</li><li> When visiting a top level page with children, just the children pages, and descendant pages, are listed.  
+</li><li> When visiting a child page, just the children, and descendant pages, of that parent, are listed.
+</li></ul>
+<pre>
+&lt;?php
+$output = wp_list_pages('echo=0&amp;depth=1&amp;title_li=&lt;h2&gt;Top Level Pages &lt;/h2&gt;' );
+if (is_page( )) {
+  $page = $post-&gt;ID;
+  if ($post-&gt;post_parent) {
+    $page = $post-&gt;post_parent;
+  }
+  $children=wp_list_pages( 'echo=0&amp;child_of=' . $page . '&amp;title_li=' );
+  if ($children) {
+    $output = wp_list_pages ('echo=0&amp;child_of=' . $page . '&amp;title_li=&lt;h2&gt;Child Pages&lt;/h2&gt;');
+  }
+}
+echo $output;
+?&gt;
+</pre>
+<ul><li>Page List that: Only displays if child (sub) pages exist, displays page list of subpages on the parent page AND on the child pages HOWEVER this code keeps the parent page name in the title which makes it different from the previous example.)
+</li></ul>
+<pre>
+&lt;?php
+  if($post-&gt;post_parent) {
+  $children = wp_list_pages(&quot;title_li=&amp;child_of=&quot;.$post-&gt;post_parent.&quot;&amp;echo=0&quot;);
+  $titlenamer = get_the_title($post-&gt;post_parent);
+  }
+
+  else {
+  $children = wp_list_pages(&quot;title_li=&amp;child_of=&quot;.$post-&gt;ID.&quot;&amp;echo=0&quot;);
+  $titlenamer = get_the_title($post-&gt;ID);
+  }
+  if ($children) {&nbsp;?&gt;
+
+  &lt;h2&gt; &lt;?php echo $titlenamer;&nbsp;?&gt; &lt;/h2&gt;
+  &lt;ul&gt;
+  &lt;?php echo $children;&nbsp;?&gt;
+  &lt;/ul&gt;
+
+&lt;?php }&nbsp;?&gt;
+</pre>
+<a name="List_whole_subpages" id="List_whole_subpages"></a><h4> <span class="mw-headline"> List whole subpages </span></h4>
+<p>This is how to get the whole subpages list
+</p>
+<pre>
+&lt;?php
+if(!$post-&gt;post_parent){
+	// will display the subpages of this top level page
+	$children = wp_list_pages(&quot;title_li=&amp;child_of=&quot;.$post-&gt;ID.&quot;&amp;echo=0&quot;);
+}
+else{
+
+	if($post-&gt;ancestors) {
+		// now you can get the the top ID of this page
+		// wp is putting the ids DESC, thats why the top level ID is the last one
+		$ancestors = get_post_ancestors($this_page);
+		$children = wp_list_pages(&quot;title_li=&amp;child_of=&quot;.$ancestors.&quot;&amp;echo=0&quot;);
+	}
+}
+
+if ($children) {&nbsp;?&gt;
+	&lt;ul&gt;
+		&lt;?php echo $children;&nbsp;?&gt;
+	&lt;/ul&gt;
+&lt;?php }&nbsp;?&gt;
+</pre>
+<a name="List_parent_Page_and_all_descendant_Pages" id="List_parent_Page_and_all_descendant_Pages"></a><h4> <span class="mw-headline"> List parent Page and all descendant Pages </span></h4>
+<p>Since there's no way to tell <a href="/Template_Tags/wp_list_pages" title="Template Tags/wp list pages" class="mw-redirect">wp_list_pages</a> to display a particular parent tree (parent and all generations displayes) this example uses <a href="/Function_Reference/get_pages" title="Function Reference/get pages">get_pages</a> to get all the descendants for a parent, then use <a href="/Template_Tags/wp_list_pages" title="Template Tags/wp list pages" class="mw-redirect">wp_list_pages</a> to display the 'family tree'.
+</p>
+<pre>
+&lt;?php 
+// use wp_list_pages to display parent and all child pages all generations (a tree with parent)
+$parent = 93;
+$args=array(
+  'child_of' =&gt; $parent
+);
+$pages = get_pages($args);  
+if ($pages) {
+  $pageids = array();
+  foreach ($pages as $page) {
+    $pageids[]= $page-&gt;ID;
+  }
+
+  $args=array(
+    'title_li' =&gt; 'Tree of Parent Page ' . $parent,
+    'include' =&gt;  $parent . ',' . implode(&quot;,&quot;, $pageids)
+  );
+  wp_list_pages($args);
+}
+?&gt;
+</pre>
+<a name="List_current_Page_with_its_ancestors_and_children" id="List_current_Page_with_its_ancestors_and_children"></a><h4> <span class="mw-headline"> List current Page with its ancestors and children </span></h4>
+<p>This example will list current Page, ancestors of current page, and children of current page,
+Since child_of displays all children, wpdb is used instead, along with include to not display everything 'and the kitchen sink'. 
+</p>
+<pre>
+&lt;?php
+//if the post has a parent
+if($post-&gt;post_parent){
+  //collect ancestor pages
+  $relations = get_post_ancestors($post-&gt;ID);
+  //get child pages
+  $result = $wpdb-&gt;get_results( &quot;SELECT ID FROM wp_posts WHERE post_parent = $post-&gt;ID AND post_type='page'&quot; );
+  if ($result){
+    foreach($result as $pageID){
+      array_push($relations, $pageID-&gt;ID);
+    }
+  }
+  //add current post to pages
+  array_push($relations, $post-&gt;ID);
+  //get comma delimited list of children and parents and self
+  $relations_string = implode(&quot;,&quot;,$relations);
+  //use include to list only the collected pages. 
+  $sidelinks = wp_list_pages(&quot;title_li=&amp;echo=0&amp;include=&quot;.$relations_string);
+}else{
+  // display only main level and children
+  $sidelinks = wp_list_pages(&quot;title_li=&amp;echo=0&amp;depth=1&amp;child_of=&quot;.$post-&gt;ID);
+}
+
+if ($sidelinks) {&nbsp;?&gt;
+  &lt;h2&gt;&lt;?php the_title();&nbsp;?&gt;&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;?php //links in &lt;li&gt; tags
+    echo $sidelinks;&nbsp;?&gt;
+  &lt;/ul&gt;         
+&lt;?php }&nbsp;?&gt;
+</pre>
+<a name="List_topmost_ancestor_and_its_immediate_children" id="List_topmost_ancestor_and_its_immediate_children"></a><h4> <span class="mw-headline"> List topmost ancestor and its immediate children </span></h4>
+<p>This method will show the topmost ancestor of the current page as well as the topmost ancestor's immediate children. This can be used for clean secondary subnavigation.
+</p><p>First, create the following function (preferably in functions.php, assuming this is for a theme):
+</p>
+<pre>
+if(!function_exists('get_post_top_ancestor_id')){
+/**
+ * Gets the id of the topmost ancestor of the current page. Returns the current
+ * page's id if there is no parent.
+ * 
+ * @uses object $post
+ * @return int 
+ */
+function get_post_top_ancestor_id(){
+    global $post;
+    
+    if($post-&gt;post_parent){
+        $ancestors = array_reverse(get_post_ancestors($post-&gt;ID));
+        return $ancestors[0];
+    }
+    
+    return $post-&gt;ID;
+}}
+</pre>
+<p>Next, add the following code to your theme (wherever you want the menu to appear):
+</p>
+<pre>
+&lt;ul class=&quot;clearfix&quot;&gt;
+    &lt;?php wp_list_pages( array('title_li'=&gt;'','include'=&gt;get_post_top_ancestor_id()) );&nbsp;?&gt;
+    &lt;?php wp_list_pages( array('title_li'=&gt;'','depth'=&gt;1,'child_of'=&gt;get_post_top_ancestor_id()) );&nbsp;?&gt;
+&lt;/ul&gt;
+</pre>
+<a name="List_the_Home_page" id="List_the_Home_page"></a><h3> <span class="mw-headline"> List the Home page </span></h3>
+<p>If you want a link to the blog page as well use <a href="/Template_Tags/wp_page_menu" title="Template Tags/wp page menu" class="mw-redirect"> wp_page_menu()</a>.
+</p>
+<a name="List_members_of_a_custom_post_type" id="List_members_of_a_custom_post_type"></a><h3> <span class="mw-headline"> List members of a custom post type </span></h3>
+<p>If a given custom post type is hierarchical in nature, then <a href="/Function_Reference/wp_list_pages" title="Function Reference/wp list pages">wp_list_pages()</a> can be used to list the member of that custom post type.  In this example the custom post type Portfolio is listed:
+</p>
+<pre>
+&lt;?php 
+$args = array(
+  'post_type'=&gt;'portfolio',
+  'title_li'=&gt; __('Portfolio')
+);
+wp_list_pages( $args ); 
+?&gt; 
+</pre>
+<p><br />
+</p>
+<a name="Markup_and_styling_of_page_items" id="Markup_and_styling_of_page_items"></a><h3> <span class="mw-headline"> Markup and styling of page items </span></h3>
+<p>By default, <b>wp_list_pages()</b> generates a nested, unordered list of WordPress <a href="/Pages" title="Pages">Pages</a> created with the <a href="/Administration_Panels#Write_Page" title="Administration Panels" class="mw-redirect">Write</a> &gt; <a href="/Write_Page_SubPanel" title="Write Page SubPanel">Page</a> admin panel. You can remove the outermost item (<tt>li.pagenav</tt>) and list (<tt>ul</tt>) by setting the <var>title_li</var> parameter to an empty string.
+</p><p>All list items (<tt>li</tt>) generated by <b>wp_list_pages()</b> are marked with the class <tt>page_item</tt>. When <b>wp_list_pages()</b> is called while displaying a Page, the list item for that Page is given the additional class <tt>current_page_item</tt>.
+</p>
+<pre>&lt;li class=&quot;pagenav&quot;&gt;
+Pages [title_li]
+  &lt;ul&gt;
+    &lt;!-- Output starts here if 'title_li' parameter is empty --&gt;
+    &lt;li class=&quot;page-item-2 page_item current_page_ancestor current_page_parent&quot;&gt;
+      [parent of the current Page]
+      &lt;ul&gt;
+        &lt;li class=&quot;page-item-21 page_item current_page_item&quot;&gt;
+          [the current Page]
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;page-item-3 page_item&quot;&gt;
+      [another Page]
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/li&gt;</pre>
+<p>They can be styled with <a href="/Glossary#CSS" title="Glossary">CSS selectors</a>:
+</p>
+<pre>.pagenav { … } /* the outermost list item; contains whole list */
+.page-item-2 { … } /* item for Page ID 2 */
+.page_item { … } /* any Page item */
+.current_page_item { … } /* the current Page */
+.current_page_parent { … } /* parent of the current Page */
+.current_page_ancestor { … } /* any ancestor of the current Page */
+</pre>
+<p>In order to achieve an accordion menu effect for instance, the following CSS can be used:
+</p>
+<pre>
+.pagenav  ul ul,
+.pagenav .current_page_item ul ul,
+.pagenav .current_page_ancestor ul ul,
+.pagenav .current_page_ancestor .current_page_item ul ul,
+.pagenav .current_page_ancestor .current_page_ancestor ul ul {
+	display: none;
+	}
+
+.pagenav .current_page_item ul,
+.pagenav .current_page_ancestor ul,
+.pagenav .current_page_ancestor .current_page_item ul,
+.pagenav .current_page_ancestor .current_page_ancestor ul,
+.pagenav .current_page_ancestor .current_page_ancestor .current_page_item ul,
+.pagenav .current_page_ancestor .current_page_ancestor .current_page_ancestor ul {
+	display: block;
+	}
+</pre>
+<a name="Menu_Item_CSS_Classes" id="Menu_Item_CSS_Classes"></a><h2> <span class="mw-headline"> Menu Item CSS Classes </span></h2>
+<p>The following classes are applied to menu items, i.e. to the HTML <tt>&lt;li&gt;</tt> tags, generated by wp_list_pages(). <b>Note:</b> The <tt>wp_list_pages()</tt> and <tt>wp_page_menu()</tt> functions output the same CSS classes.
+</p>
+<a name="All_Menu_Items" id="All_Menu_Items"></a><h3> <span class="mw-headline"> All Menu Items </span></h3>
+<ul><li> <b>.page_item</b><br />This class is added to menu items that correspond to a static page.
+</li><li> <b>.page-item-<tt>$ID</tt></b><br />This class is added to menu items that correspond to a static page, where <tt>$ID</tt> is the static page ID.
+</li></ul>
+<a name="Current-Page_Menu_Items" id="Current-Page_Menu_Items"></a><h3> <span class="mw-headline"> Current-Page Menu Items </span></h3>
+<ul><li> <b>.current_page_item</b><br />This class is added to menu items that correspond to the currently rendered static page.
+</li></ul>
+<a name="Current-Page_Parent_Menu_Items" id="Current-Page_Parent_Menu_Items"></a><h3> <span class="mw-headline"> Current-Page Parent Menu Items </span></h3>
+<ul><li> <b>.current_page_parent</b><br />This class is added to menu items that correspond to the hierarchical parent of the currently rendered static page.
+</li></ul>
+<a name="Current-Page_Ancestor_Menu_Items" id="Current-Page_Ancestor_Menu_Items"></a><h3> <span class="mw-headline"> Current-Page Ancestor Menu Items </span></h3>
+<ul><li> <b>.current_page_ancestor</b><br />This class is added to menu items that correspond to a hierarchical ancestor of the currently rendered static page.
+</li></ul>
+<p><br />
+</p>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<ul><li> See Also: <a href="/Template_Tags/wp_page_menu" title="Template Tags/wp page menu" class="mw-redirect"> wp_page_menu()</a>, <a href="/Function_Reference/get_pages" title="Function Reference/get pages"> get_pages()</a>
+</li></ul>
+<a name="Changelog" id="Changelog"></a><h2> <span class="mw-headline"> Changelog </span></h2>
+<ul><li> Since: 1.5.0
+</li><li> <a href="/Version_2.7" title="Version 2.7">2.7</a>&nbsp;: Added the <code>link_before</code>, <code>link_after</code> and <code>exclude_tree</code> parameters.
+</li><li> <a href="/Version_2.8" title="Version 2.8">2.8</a>&nbsp;: Added the <code>number</code> and <code>offset</code> parameters.
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>wp_list_pages()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post-template.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post-template.php#L0">wp-includes/post-template.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Function_Reference/wp_list_authors" title="Function Reference/wp list authors"> wp_list_authors()</a>, 
+<a href="/Function_Reference/wp_list_categories" title="Function Reference/wp list categories" class="mw-redirect"> wp_list_categories()</a>, 
+<a href="/Function_Reference/wp_list_pages" title="Function Reference/wp list pages"> wp_list_pages()</a>, 
+<a href="/Function_Reference/wp_list_bookmarks" title="Function Reference/wp list bookmarks"> wp_list_bookmarks()</a>, 
+<a href="/Function_Reference/wp_list_comments" title="Function Reference/wp list comments"> wp_list_comments()</a>, 
+<a href="/Function_Reference/wp_get_archives" title="Function Reference/wp get archives"> wp_get_archives()</a>, 
+<a href="/Function_Reference/wp_page_menu" title="Function Reference/wp page menu"> wp_page_menu()</a>, 
+<a href="/Function_Reference/wp_dropdown_pages" title="Function Reference/wp dropdown pages"> wp_dropdown_pages()</a>, 
+<a href="/Function_Reference/wp_dropdown_categories" title="Function Reference/wp dropdown categories"> wp_dropdown_categories()</a>, 
+<a href="/Function_Reference/wp_dropdown_users" title="Function Reference/wp dropdown users"> wp_dropdown_users()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 180/1000000
+Post-expand include size: 2156/2097152 bytes
+Template argument size: 511/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/uk:wp_list_pages">http://codex.wordpress.org/Function_Reference/uk:wp_list_pages</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Template_Tags" title="Category:Template Tags">Template Tags</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
+
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
+
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="//www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
+
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
+
+
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="//edge.quantserve.com/quant.js"></script>
+<noscript><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="//gravatar.com/js/gprofiles.js"></script>
+
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130514173205 -->
+</html>
+
+</body>
+<!-- Cached 20130514173205 -->
+</html>
+

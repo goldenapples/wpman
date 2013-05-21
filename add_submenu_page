@@ -1,169 +1,352 @@
-Function Reference/add submenu page « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Add a sub menu page.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/add submenu page,Administration Menus,Function Reference,Function Reference/add comments page,Function Reference/add dashboard page,Function Reference/add links page,Function Reference/add management page,Function Reference/add media page,Function Reference/add menu page,Function Reference/add options page,Function Reference/add pages page" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/add submenu page &laquo; WordPress Codex</title>
 
-**NOTE: If you're running into the "You do not have sufficient
-permissions to access this page." message in a `wp_die()` screen, then
-you've hooked too early. The hook you should use is `admin_menu`.**
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-This function takes a capability which will be used to determine whether
-or not a page is included in the menu.
 
-The function which is hooked in to handle the output of the page must
-check that the user has the required capability as well.
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-This function should normally be hooked in with one of the the
-admin\_menu actions depending on the menu where the sub menu is to
-appear:
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-  -------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------
-  [admin\_menu](/Plugin_API/Action_Reference/admin_menu "Plugin API/Action Reference/admin menu")                            The normal, or site, administration menu
-  [user\_admin\_menu](/Plugin_API/Action_Reference/user_admin_menu "Plugin API/Action Reference/user admin menu")            The user administration menu
-  [network\_admin\_menu](/Plugin_API/Action_Reference/network_admin_menu "Plugin API/Action Reference/network admin menu")   The [network](/Glossary#Network "Glossary") administration menu
-  -------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------
+</head>
 
-Usage
------
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-` <?php add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function ); ?> `
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-Parameters
-----------
 
- `$parent_slug` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) The slug name for the parent menu (or the file name of
-    a standard WordPress admin page). Use `NULL` or set to
-    `'options.php'` if you want to create a page that doesn't appear in
-    any menu (see example below).
-    Default:
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/add_submenu_page">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-Examples:
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/add submenu page</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_values"><span class="tocnumber">4</span> <span class="toctext">Return values</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">6</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Add a sub menu page.
+</p><p><b>NOTE: If you're running into the "You do not have sufficient permissions to access this page." message in a <tt>wp_die()</tt> screen, then you've hooked too early. The hook you should use is <tt>admin_menu</tt>.</b>
+</p><p>This function takes a capability which will be used to determine whether or not a page is included in the menu.
+</p><p>The function which is hooked in to handle the output of the page must check that the user has the required capability as well.
+</p><p>This function should normally be hooked in with one of the the admin_menu actions depending on the menu where the sub menu is to appear:
+</p>
+<dl><dd><table>
+<tr>
+<td><a href="/Plugin_API/Action_Reference/admin_menu" title="Plugin API/Action Reference/admin menu">admin_menu</a>
+</td><td>The normal, or site, administration menu
+</td></tr>
+<tr>
+<td><a href="/Plugin_API/Action_Reference/user_admin_menu" title="Plugin API/Action Reference/user admin menu">user_admin_menu</a>
+</td><td>The user administration menu
+</td></tr>
+<tr>
+<td><a href="/Plugin_API/Action_Reference/network_admin_menu" title="Plugin API/Action Reference/network admin menu">network_admin_menu</a>
+</td><td>The <a href="/Glossary#Network" title="Glossary">network</a> administration menu
+</td></tr></table></dd></dl>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;add_submenu_page</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$parent_slug</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$page_title</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$menu_title</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$capability</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$menu_slug</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$function&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$parent_slug</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) The slug name for the parent menu (or the file name of a standard WordPress admin page). Use <tt><b>NULL</b></tt> or set to <tt>'options.php'</tt> if you want to create a page that doesn't appear in any menu (see example below). 
+<dl><dd> Default:  
+</dd></dl>
+</dd><dd>Examples:
+<ol><li>For <i>Dashboard</i>: <tt>add_submenu_page( 'index.php', ... );</tt> Also see <tt><a href="/Function_Reference/add_dashboard_page" title="Function Reference/add dashboard page">add_dashboard_page()</a></tt>
+</li><li>For <i>Posts</i>: <tt>add_submenu_page( 'edit.php', ... );</tt> Also see Also see <tt><a href="/Function_Reference/add_posts_page" title="Function Reference/add posts page">add_posts_page()</a></tt>
+</li><li>For <i>Media</i>: <tt>add_submenu_page( 'upload.php', ... );</tt> Also see <tt><a href="/Function_Reference/add_media_page" title="Function Reference/add media page">add_media_page()</a></tt>
+</li><li>For <i>Links</i>: <tt>add_submenu_page( 'link-manager.php', ... );</tt> Also see <tt><a href="/Function_Reference/add_links_page" title="Function Reference/add links page">add_links_page()</a></tt>
+</li><li>For <i>Pages</i>: <tt>add_submenu_page( 'edit.php?post_type=page', ... );</tt> Also see <tt><a href="/Function_Reference/add_pages_page" title="Function Reference/add pages page">add_pages_page()</a></tt>
+</li><li>For <i>Comments</i>: <tt>add_submenu_page( 'edit-comments.php', ... );</tt> Also see <tt><a href="/Function_Reference/add_comments_page" title="Function Reference/add comments page">add_comments_page()</a></tt>
+</li><li>For <i>Custom Post Types</i>: <tt>add_submenu_page( 'edit.php?post_type=your_post_type', ... );</tt>
+</li><li>For <i>Appearance</i>: <tt>add_submenu_page( 'themes.php', ... );</tt> Also see <tt><a href="/Function_Reference/add_theme_page" title="Function Reference/add theme page">add_theme_page()</a></tt>
+</li><li>For <i>Plugins</i>: <tt>add_submenu_page( 'plugins.php', ... );</tt> Also see <tt><a href="/Function_Reference/add_plugins_page" title="Function Reference/add plugins page">add_plugins_page()</a></tt>
+</li><li>For <i>Users</i>: <tt>add_submenu_page( 'users.php', ... );</tt> Also see <tt><a href="/Function_Reference/add_users_page" title="Function Reference/add users page">add_users_page()</a></tt>
+</li><li>For <i>Tools</i>: <tt>add_submenu_page( 'tools.php', ... );</tt> Also see <tt><a href="/Function_Reference/add_management_page" title="Function Reference/add management page">add_management_page()</a></tt>
+</li><li>For <i>Settings</i>: <tt>add_submenu_page( 'options-general.php', ... );</tt> Also see <tt><a href="/Function_Reference/add_options_page" title="Function Reference/add options page">add_options_page()</a></tt>
+</li></ol>
+</dd></dl>
+<dl><dt> <tt>$page_title</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) The text to be displayed in the title tags of the page when the menu is selected
+<dl><dd> Default: 
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$menu_title</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) The text to be used for the menu
+<dl><dd> Default: 
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$capability</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) The <a href="/Roles_and_Capabilities" title="Roles and Capabilities">capability</a> required for this menu to be displayed to the user.
+<dl><dd> Default: 
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$menu_slug</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) The slug name to refer to this menu by (should be unique for this menu). If you want to NOT duplicate the parent menu item, you need to set the name of the $menu_slug exactly the same as the parent slug.
+<dl><dd> Default: 
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$function</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Callback" title="How to Pass Tag Parameters"><i>callback</i></a>) (<i>optional</i>) The function to be called to output the content for this page.
+<dl><dd> Default: 
+</dd></dl>
+</dd><dd>The function must be referenced in one of two ways:
+<ol><li> if the function is a member of a class within the plugin it should be referenced as <tt>array( $this, 'function_name' )</tt> if the class is instantiated as an object or <tt> array( __CLASS__, 'function_name' )</tt> if its called statically
+</li><li> in all other cases, using the function name itself is sufficient
+</li></ol>
+</dd></dl>
+<a name="Return_values" id="Return_values"></a><h2> <span class="mw-headline"> Return values </span></h2>
+<dl><dt> <tt>string</tt></dt><dd> The resulting page's hook_suffix, or <tt>false</tt> if the user does not have the capability required.
+</dd></dl>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<ul><li> For $menu_slug please don't use __FILE__ it makes for an ugly URL, and is a minor security nuance.
+</li></ul>
+<ul><li> Within the rendering function $function you may want to access parameters you used in <code>add_submenu_page()</code>, such as the $page_title. Typically, these will work:
+<ul><li> $parent_slug: <code>get_admin_page_parent()</code>
+</li><li> $page_title: <code>get_admin_page_title()</code>, or simply <code>global $title</code>
+</li><li> $menu_slug: <code>global $plugin_page</code>
+</li></ul>
+</li></ul>
+<a name="Example" id="Example"></a><h2> <span class="mw-headline">Example</span></h2>
+<pre>
+add_action('admin_menu', 'register_my_custom_submenu_page');
 
-1.  For *Dashboard*: `add_submenu_page( 'index.php', ... );` Also see
-    `add_dashboard_page()`
-2.  For *Posts*: `add_submenu_page( 'edit.php', ... );` Also see Also
-    see `add_posts_page()`
-3.  For *Media*: `add_submenu_page( 'upload.php', ... );` Also see
-    `add_media_page()`
-4.  For *Links*: `add_submenu_page( 'link-manager.php', ... );` Also see
-    `add_links_page()`
-5.  For *Pages*: `add_submenu_page( 'edit.php?post_type=page', ... );`
-    Also see `add_pages_page()`
-6.  For *Comments*: `add_submenu_page( 'edit-comments.php', ... );` Also
-    see `add_comments_page()`
-7.  For *Custom Post Types*:
-    `add_submenu_page( 'edit.php?post_type=your_post_type', ... );`
-8.  For *Appearance*: `add_submenu_page( 'themes.php', ... );` Also see
-    `add_theme_page()`
-9.  For *Plugins*: `add_submenu_page( 'plugins.php', ... );` Also see
-    `add_plugins_page()`
-10. For *Users*: `add_submenu_page( 'users.php', ... );` Also see
-    `add_users_page()`
-11. For *Tools*: `add_submenu_page( 'tools.php', ... );` Also see
-    `add_management_page()`
-12. For *Settings*: `add_submenu_page( 'options-general.php', ... );`
-    Also see `add_options_page()`
+function register_my_custom_submenu_page() {
+	add_submenu_page( 'tools.php', 'My Custom Submenu Page', 'My Custom Submenu Page', 'manage_options', 'my-custom-submenu-page', 'my_custom_submenu_page_callback' ); 
+}
 
- `$page_title` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) The text to be displayed in the title tags of the page
-    when the menu is selected
-    Default:
+function my_custom_submenu_page_callback() {
+	echo '&lt;h3&gt;My Custom Submenu Page&lt;/h3&gt;';
 
- `$menu_title` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) The text to be used for the menu
-    Default:
+}
+</pre>
+<p>To hide your submenu link from a top level menu item to which it belongs you would instead do, 
+</p>
+<pre>
+add_action('admin_menu', 'register_my_custom_submenu_page');
 
- `$capability` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) The
-    [capability](/Roles_and_Capabilities "Roles and Capabilities")
-    required for this menu to be displayed to the user.
-    Default:
+function register_my_custom_submenu_page() {
+   
+add_submenu_page( 
+          null   //or 'options.php' 
+        , 'My Custom Submenu Page' 
+        , 'My Custom Submenu Page'
+        , 'manage_options'
+        , 'my-custom-submenu-page'
+        , 'my_custom_submenu_page_callback'
+    );
 
- `$menu_slug` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) The slug name to refer to this menu by (should be
-    unique for this menu). If you want to NOT duplicate the parent menu
-    item, you need to set the name of the \$menu\_slug exactly the same
-    as the parent slug.
-    Default:
+}
+</pre>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>add_submenu_page()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-admin/includes/plugin.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-admin/includes/plugin.php#L0">wp-admin/includes/plugin.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Administration_Menus" title="Administration Menus"><b>Administration Menus</b></a>: 
+<a href="/Function_Reference/add_menu_page" title="Function Reference/add menu page"> add_menu_page()</a>, 
+<a href="/Function_Reference/remove_menu_page" title="Function Reference/remove menu page"> remove_menu_page()</a>, 
+<strong class="selflink"> add_submenu_page()</strong>, 
+<a href="/Function_Reference/remove_submenu_page" title="Function Reference/remove submenu page"> remove_submenu_page()</a>, 
+<a href="/Function_Reference/add_dashboard_page" title="Function Reference/add dashboard page"> add_dashboard_page()</a>, 
+<a href="/Function_Reference/add_posts_page" title="Function Reference/add posts page"> add_posts_page()</a>, 
+<a href="/Function_Reference/add_media_page" title="Function Reference/add media page"> add_media_page()</a>, 
+<a href="/Function_Reference/add_links_page" title="Function Reference/add links page"> add_links_page()</a>, 
+<a href="/Function_Reference/add_pages_page" title="Function Reference/add pages page"> add_pages_page()</a>, 
+<a href="/Function_Reference/add_comments_page" title="Function Reference/add comments page"> add_comments_page()</a>, 
+<a href="/Function_Reference/add_theme_page" title="Function Reference/add theme page"> add_theme_page()</a>, 
+<a href="/Function_Reference/add_plugins_page" title="Function Reference/add plugins page"> add_plugins_page()</a>, 
+<a href="/Function_Reference/add_users_page" title="Function Reference/add users page"> add_users_page()</a>, 
+<a href="/Function_Reference/add_management_page" title="Function Reference/add management page"> add_management_page()</a>, 
+<a href="/Function_Reference/add_options_page" title="Function Reference/add options page"> add_options_page()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
- `$function` 
-:   ([*callback*](/How_to_Pass_Tag_Parameters#Callback "How to Pass Tag Parameters"))
-    (*optional*) The function to be called to output the content for
-    this page.
-    Default:
+<!-- 
+NewPP limit report
+Preprocessor node count: 144/1000000
+Post-expand include size: 3015/2097152 bytes
+Template argument size: 1069/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/add_submenu_page">http://codex.wordpress.org/Function_Reference/add_submenu_page</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-The function must be referenced in one of two ways:
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-1.  if the function is a member of a class within the plugin it should
-    be referenced as `array( $this, 'function_name' )` if the class is
-    instantiated as an object or ` array( __CLASS__, 'function_name' )`
-    if its called statically
-2.  in all other cases, using the function name itself is sufficient
 
-Return values
--------------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
- `string`
-:   The resulting page's hook\_suffix, or `false` if the user does not
-    have the capability required.
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Notes
------
 
--   For \$menu\_slug please don't use \_\_FILE\_\_ it makes for an ugly
-    URL, and is a minor security nuance.
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405214122 -->
+</html>
 
--   Within the rendering function \$function you may want to access
-    parameters you used in `add_submenu_page()`, such as the
-    \$page\_title. Typically, these will work:
-    -   \$parent\_slug: `get_admin_page_parent()`
-    -   \$page\_title: `get_admin_page_title()`, or simply
-        `global $title`
-    -   \$menu\_slug: `global $plugin_page`
-
-Example
--------
-
-    add_action('admin_menu', 'register_my_custom_submenu_page');
-
-    function register_my_custom_submenu_page() {
-        add_submenu_page( 'tools.php', 'My Custom Submenu Page', 'My Custom Submenu Page', 'manage_options', 'my-custom-submenu-page', 'my_custom_submenu_page_callback' ); 
-    }
-
-    function my_custom_submenu_page_callback() {
-        echo '<h3>My Custom Submenu Page</h3>';
-
-    }
-
-To hide your submenu link from a top level menu item to which it belongs
-you would instead do,
-
-    add_action('admin_menu', 'register_my_custom_submenu_page');
-
-    function register_my_custom_submenu_page() {
-       
-    add_submenu_page( 
-              null   //or 'options.php' 
-            , 'My Custom Submenu Page' 
-            , 'My Custom Submenu Page'
-            , 'manage_options'
-            , 'my-custom-submenu-page'
-            , 'my_custom_submenu_page_callback'
-        );
-
-    }
-
-Change Log
-----------
-
-Source File
------------
-
-`add_submenu_page()` is located in `wp-admin/includes/plugin.php`.
+</body>
+<!-- Cached 20130405214122 -->
+</html>
 

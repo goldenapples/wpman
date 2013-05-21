@@ -1,141 +1,331 @@
-Function Reference/get post types « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Returns the [registered post
-types](/Function_Reference/register_post_type "Function Reference/register post type")
-as found in *\$wp\_post\_types*.
+<meta charset="utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get post types,Function Reference,Function Reference/add post type support,Function Reference/get post type,Function Reference/get post type capabilities,Function Reference/get post type labels,Function Reference/get post type object,Function Reference/is post type archive,Function Reference/is post type hierarchical,Function Reference/post type archive title,Function Reference/post type exists" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get post types &laquo; WordPress Codex</title>
 
-Usage
------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?36" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-`  <?php get_post_types( $args, $output, $operator ) ?> `
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-Parameters
-----------
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
- `$args` 
-:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
-    (*optional*) An array of key value arguments to match against the
-    post types.
-    Default: *None*
+</head>
 
-Some of these include:
+<body id="wordpress-org" >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>				<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
--   public - *Boolean. If true, only public post types will be
-    returned.*
--   publicly\_queryable - *Boolean*
--   exclude\_from\_search - *Boolean*
--   show\_ui - *Boolean*
--   capability\_type
--   hierarchical
--   menu\_position
--   menu\_icon
--   permalink\_epmask
--   rewrite
--   query\_var
--   \_builtin - *Boolean. If true, will return WordPress default post
-    types. Use false to return only custom post types.*
 
- `$output` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) The type of output to return, either 'names' or
-    'objects'.
-    Default: 'names'
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_post_types">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
- `$operator` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Operator (and/or) to use with multiple \$args.
-    Default: and
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get post types</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Default_Usage"><span class="tocnumber">5.1</span> <span class="toctext">Default Usage</span></a></li>
+<li class="toclevel-2"><a href="#Output_a_list_all_registered_post_types"><span class="tocnumber">5.2</span> <span class="toctext">Output a list all registered post types</span></a></li>
+<li class="toclevel-2"><a href="#Output_a_list_of_all_public_custom_post_types"><span class="tocnumber">5.3</span> <span class="toctext">Output a list of all public custom post types</span></a></li>
+<li class="toclevel-2"><a href="#Output_a_named_post_type"><span class="tocnumber">5.4</span> <span class="toctext">Output a named post type</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Returns the <a href="/Function_Reference/register_post_type" title="Function Reference/register post type">registered post types</a> as found in  <i>$wp_post_types</i>.  
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;get_post_types</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$args</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$operator&nbsp;</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline">Parameters</span></h2>
+<dl><dt> <tt>$args</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Array" title="How to Pass Tag Parameters"><i>array</i></a>) (<i>optional</i>) An array of key value arguments to match against the post types.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<p>Some of these include:
+</p>
+<ul><li> public - <i>Boolean. If true, only public post types will be returned.</i>
+</li><li> publicly_queryable - <i>Boolean</i>
+</li><li> exclude_from_search - <i>Boolean</i>
+</li><li> show_ui - <i>Boolean</i>
+</li><li> capability_type
+</li><li> hierarchical
+</li><li> menu_position
+</li><li> menu_icon
+</li><li> permalink_epmask
+</li><li> rewrite
+</li><li> query_var
+</li><li> _builtin - <i>Boolean. If true, will return WordPress default post types. Use false to return only custom post types.</i> 
+</li></ul>
+<dl><dt> <tt>$output</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) The type of output to return, either 'names' or 'objects'.
+<dl><dd> Default: 'names'
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$operator</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Operator (and/or) to use with multiple $args.
+<dl><dd> Default: and
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<dl><dt> array&nbsp;</dt><dd> A list of post names or objects.
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Default_Usage" id="Default_Usage"></a><h3> <span class="mw-headline"> Default Usage </span></h3>
+<p>The call to <strong class="selflink">get post types</strong> returns the registered post types.
+</p>
+<pre>&lt;?php $post_types=get_post_types();&nbsp;?&gt;
+</pre>
+<a name="Output_a_list_all_registered_post_types" id="Output_a_list_all_registered_post_types"></a><h3> <span class="mw-headline">Output a list all registered post types</span></h3>
+<pre>
+&lt;?php 
+$post_types=get_post_types('','names'); 
+foreach ($post_types as $post_type ) {
+  echo '&lt;p&gt;'. $post_type. '&lt;/p&gt;';
+}
+?&gt;
+</pre>
+<a name="Output_a_list_of_all_public_custom_post_types" id="Output_a_list_of_all_public_custom_post_types"></a><h3> <span class="mw-headline">Output a list of all public custom post types</span></h3>
+<pre>
+&lt;?php 
+$args=array(
+  'public'   =&gt; true,
+  '_builtin' =&gt; false
+); 
+$output = 'names'; // names or objects, note names is the default
+$operator = 'and'; // 'and' or 'or'
+$post_types=get_post_types($args,$output,$operator); 
+  foreach ($post_types  as $post_type ) {
+    echo '&lt;p&gt;'. $post_type. '&lt;/p&gt;';
+  }
+?&gt;
+</pre>
+<a name="Output_a_named_post_type" id="Output_a_named_post_type"></a><h3> <span class="mw-headline">Output a named post type</span></h3>
+<p>This example uses the 'object' output to retrieve the post type called 'property':
+</p>
+<pre>
+&lt;?php 
+$args=array(
+  'name' =&gt; 'property'
+);
+$output = 'objects'; // names or objects
+$post_types=get_post_types($args,$output); 
+  foreach ($post_types  as $post_type ) {
+    echo '&lt;p&gt;' . $post_type-&gt;name . '&lt;/p&gt;';
+  }
+?&gt;
+</pre>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<p>Be careful when retrieving "public" custom post-types that were registered using the <a href="http://codex.wordpress.org/Function_Reference/register_post_type" class="external text" title="http://codex.wordpress.org/Function_Reference/register_post_type">register_post_type()</a> function: the inputs to the register_post_type function are not intelligently processed, so if you verbosely set options for <b>publicly_queriable</b>, <b>show_ui</b>, <b>show_in_nav_menus</b>, and <b>exclude_from_search</b>, this is NOT considered equivalent to setting the <b>public</b> option and querying for public post-types will not yield results that were defined with the equivalent explicit arguments. See <a href="http://core.trac.wordpress.org/ticket/18950" class="external text" title="http://core.trac.wordpress.org/ticket/18950">bug 18950</a>.
+</p><p>WordPress builtin post types:
+</p>
+<ul><li> <tt>post</tt> - WordPress built-in post type
+</li><li> <tt>page</tt> - WordPress built-in post type
+</li><li> <tt>attachment</tt> - WordPress built-in post type
+</li><li> <tt>revision</tt> - WordPress built-in post type
+</li><li> <tt>nav_menu_item</tt> - WordPress built-in post type (Since 3.0)
+</li><li> <tt>custom post type</tt> - any custom post type (Since 3.0)
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> <a href="/Version_3.0" title="Version 3.0">3.0</a>&nbsp;:
+<ul><li> Added the <code>operator</code> parameter.
+</li></ul>
+</li><li> Since: <a href="/Version_2.9" title="Version 2.9">2.9</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>get_post_types()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0">wp-includes/post.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Post_Types" title="Post Types"><b>Post Types</b></a>: 
+<a href="/Function_Reference/register_post_type" title="Function Reference/register post type"> register_post_type()</a>, 
+<a href="/Function_Reference/add_post_type_support" title="Function Reference/add post type support"> add_post_type_support()</a>, 
+<a href="/Function_Reference/remove_post_type_support" title="Function Reference/remove post type support"> remove_post_type_support()</a>, 
+<a href="/Function_Reference/post_type_supports" title="Function Reference/post type supports"> post_type_supports()</a>, 
+<a href="/Function_Reference/post_type_exists" title="Function Reference/post type exists"> post_type_exists()</a>, 
+<a href="/Function_Reference/set_post_type" title="Function Reference/set post type"> set_post_type()</a>, 
+<a href="/Function_Reference/get_post_type" title="Function Reference/get post type"> get_post_type()</a>, 
+<strong class="selflink"> get_post_types()</strong>, 
+<a href="/Function_Reference/get_post_type_object" title="Function Reference/get post type object"> get_post_type_object()</a>, 
+<a href="/Function_Reference/get_post_type_capabilities" title="Function Reference/get post type capabilities"> get_post_type_capabilities()</a>, 
+<a href="/Function_Reference/get_post_type_labels" title="Function Reference/get post type labels"> get_post_type_labels()</a>, 
+<a href="/Function_Reference/is_post_type_hierarchical" title="Function Reference/is post type hierarchical"> is_post_type_hierarchical()</a>, 
+<a href="/Function_Reference/is_post_type_archive" title="Function Reference/is post type archive"> is_post_type_archive()</a>, 
+<a href="/Function_Reference/post_type_archive_title" title="Function Reference/post type archive title"> post_type_archive_title()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-Return Values
--------------
+<!-- 
+NewPP limit report
+Preprocessor node count: 102/1000000
+Post-expand include size: 2159/2097152 bytes
+Template argument size: 422/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_post_types">http://codex.wordpress.org/Function_Reference/get_post_types</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
- array 
-:   A list of post names or objects.
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-Examples
---------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="//www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-### Default Usage
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-The call to **get post types** returns the registered post types.
 
-    <?php $post_types=get_post_types(); ?>
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="//edge.quantserve.com/quant.js"></script>
+<noscript><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="//gravatar.com/js/gprofiles.js"></script>
 
-### Output a list all registered post types
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130514190509 -->
+</html>
 
-    <?php 
-    $post_types=get_post_types('','names'); 
-    foreach ($post_types as $post_type ) {
-      echo '<p>'. $post_type. '</p>';
-    }
-    ?>
-
-### Output a list of all public custom post types
-
-    <?php 
-    $args=array(
-      'public'   => true,
-      '_builtin' => false
-    ); 
-    $output = 'names'; // names or objects, note names is the default
-    $operator = 'and'; // 'and' or 'or'
-    $post_types=get_post_types($args,$output,$operator); 
-      foreach ($post_types  as $post_type ) {
-        echo '<p>'. $post_type. '</p>';
-      }
-    ?>
-
-### Output a named post type
-
-This example uses the 'object' output to retrieve the post type called
-'property':
-
-    <?php 
-    $args=array(
-      'name' => 'property'
-    );
-    $output = 'objects'; // names or objects
-    $post_types=get_post_types($args,$output); 
-      foreach ($post_types  as $post_type ) {
-        echo '<p>' . $post_type->name . '</p>';
-      }
-    ?>
-
-Notes
------
-
-Be careful when retrieving "public" custom post-types that were
-registered using the
-[register\_post\_type()](http://codex.wordpress.org/Function_Reference/register_post_type "http://codex.wordpress.org/Function_Reference/register_post_type")
-function: the inputs to the register\_post\_type function are not
-intelligently processed, so if you verbosely set options for
-**publicly\_queriable**, **show\_ui**, **show\_in\_nav\_menus**, and
-**exclude\_from\_search**, this is NOT considered equivalent to setting
-the **public** option and querying for public post-types will not yield
-results that were defined with the equivalent explicit arguments. See
-[bug
-18950](http://core.trac.wordpress.org/ticket/18950 "http://core.trac.wordpress.org/ticket/18950").
-
-WordPress builtin post types:
-
--   `post` - WordPress built-in post type
--   `page` - WordPress built-in post type
--   `attachment` - WordPress built-in post type
--   `revision` - WordPress built-in post type
--   `nav_menu_item` - WordPress built-in post type (Since 3.0)
--   `custom post type` - any custom post type (Since 3.0)
-
-Change Log
-----------
-
--   [3.0](/Version_3.0 "Version 3.0") :
-    -   Added the `operator` parameter.
-
--   Since: [2.9](/Version_2.9 "Version 2.9")
-
-Source File
------------
-
-`get_post_types()` is located in `wp-includes/post.php`.
+</body>
+<!-- Cached 20130514190509 -->
+</html>
 

@@ -1,93 +1,295 @@
-Function Reference/wp get post terms « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Retrieve the terms for a post.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/wp get post terms,Function Reference,Function Reference/get objects in term,Function Reference/get term,Function Reference/get term by,Function Reference/get term children,Function Reference/get term link,Function Reference/get terms,Function Reference/get the term list,Function Reference/get the terms,Function Reference/has term" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/wp get post terms &laquo; WordPress Codex</title>
 
-There is only one default for this function, called '`fields`' and by
-default is set to '`all`'. Other values can be '`names`' or '`ids`'.
-There are other defaults that can be overridden in
-[`wp_get_object_terms()`](/Function_Reference/wp_get_object_terms "Function Reference/wp get object terms").
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-Usage
------
 
-` <?php $terms = wp_get_post_terms( $post_id, $taxonomy, $args ); ?> `
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-Parameters
-----------
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
- `$post_id` 
-:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
-    (*optional*) The Post ID
-    Default: 0
+</head>
 
- `$taxonomy` 
-:   ([*string|array*](/How_to_Pass_Tag_Parameters#String.7Carray "How to Pass Tag Parameters"))
-    (*optional*) The taxonomy for which to retrieve terms. Defaults to
-    post\_tag.
-    Default: 'post\_tag'
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
- `$args` 
-:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
-    (*optional*) Overwrite the defaults
-    Default: array()
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-Return Values
--------------
 
- (array) 
-:   List of post tags.
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/wp_get_post_terms">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-### Variables in Returned Object
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/wp get post terms</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Variables_in_Returned_Object"><span class="tocnumber">4.1</span> <span class="toctext">Variables in Returned Object</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Retrieve the terms for a post. 
+</p><p>There is only one default for this function, called '<tt>fields</tt>' and by default is set to '<tt>all</tt>'. Other values can be '<tt>names</tt>' or '<tt>ids</tt>'. There are other defaults that can be overridden in <a href="/Function_Reference/wp_get_object_terms" title="Function Reference/wp get object terms"><tt>wp_get_object_terms()</tt></a>.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;$terms&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">wp_get_post_terms</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$post_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$taxonomy</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$args&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$post_id</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Integer" title="How to Pass Tag Parameters"><i>integer</i></a>) (<i>optional</i>) The Post ID
+<dl><dd> Default: 0
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$taxonomy</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String.7Carray" title="How to Pass Tag Parameters"><i>string&#124;array</i></a>) (<i>optional</i>) The taxonomy for which to retrieve terms. Defaults to post_tag.
+<dl><dd> Default: 'post_tag'
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$args</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Array" title="How to Pass Tag Parameters"><i>array</i></a>) (<i>optional</i>) Overwrite the defaults
+<dl><dd> Default: array()
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<dl><dt> (array)&nbsp;</dt><dd> List of post tags.
+</dd></dl>
+<a name="Variables_in_Returned_Object" id="Variables_in_Returned_Object"></a><h3> <span class="mw-headline">Variables in Returned Object</span></h3>
+<dl><dt>term_id&nbsp;</dt><dd>the term id (also stored as 'term_taxonomy_id')
+</dd><dt>name&nbsp;</dt><dd>the term name
+</dd><dt>slug&nbsp;</dt><dd>a slug generated from the term name
+</dd><dt>term_group&nbsp;</dt><dd>the term_id of the parent term (also stored as 'parent')
+</dd><dt>term_taxonomy_id&nbsp;</dt><dd>the id of the taxonomy that the term belongs to
+</dd><dt>taxonomy&nbsp;</dt><dd>the name of the taxonomy that the term belongs to
+</dd><dt>description&nbsp;</dt><dd>the taxonomy description
+</dd><dt>parent&nbsp;</dt><dd>the term_id of the parent term (also stored as 'term_group')
+</dd><dt>count&nbsp;</dt><dd>the number of uses of this term
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<pre>//Returns All Term Items for &quot;my_term&quot;
+$term_list = wp_get_post_terms($post-&gt;ID, 'my_term', array(&quot;fields&quot; =&gt; &quot;all&quot;));
+print_r($term_list);
 
-term\_id 
-:   the term id (also stored as 'term\_taxonomy\_id')
-name 
-:   the term name
-slug 
-:   a slug generated from the term name
-term\_group 
-:   the term\_id of the parent term (also stored as 'parent')
-term\_taxonomy\_id 
-:   the id of the taxonomy that the term belongs to
-taxonomy 
-:   the name of the taxonomy that the term belongs to
-description 
-:   the taxonomy description
-parent 
-:   the term\_id of the parent term (also stored as 'term\_group')
-count 
-:   the number of uses of this term
+//Returns Array of Term Names for &quot;my_term&quot;
+$term_list = wp_get_post_terms($post-&gt;ID, 'my_term', array(&quot;fields&quot; =&gt; &quot;names&quot;));
+print_r($term_list);
 
-Examples
---------
+//Returns Array of Term ID's for &quot;my_term&quot;
+$term_list = wp_get_post_terms($post-&gt;ID, 'my_term', array(&quot;fields&quot; =&gt; &quot;ids&quot;));
+print_r($term_list);</pre>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<ul><li> Uses: <a href="/Function_Reference/wp_get_object_terms" title="Function Reference/wp get object terms"><tt>wp_get_object_terms()</tt></a> Gets the tags for returning.
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<p>Since: 2.8.0
+</p>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>wp_get_post_terms()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0">wp-includes/post.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<ul><li> <a href="/Function_Reference/is_term" title="Function Reference/is term"> is_term()</a>
+</li><li> <a href="/Function_Reference/term_exists" title="Function Reference/term exists"> term_exists()</a>
+</li><li> <a href="/Function_Reference/get_objects_in_term" title="Function Reference/get objects in term"> get_objects_in_term()</a>
+</li><li> <a href="/Function_Reference/get_term" title="Function Reference/get term"> get_term()</a>
+</li><li> <a href="/Function_Reference/get_term_by" title="Function Reference/get term by"> get_term_by()</a>
+</li><li> <a href="/Function_Reference/get_term_children" title="Function Reference/get term children"> get_term_children()</a>
+</li><li> <a href="/Function_Reference/get_term_link" title="Function Reference/get term link"> get_term_link()</a>
+</li><li> <a href="/Function_Reference/get_terms" title="Function Reference/get terms"> get_terms()</a>
+</li><li> <a href="/Function_Reference/get_the_terms" title="Function Reference/get the terms"> get_the_terms()</a>
+</li><li> <a href="/Function_Reference/get_the_term_list" title="Function Reference/get the term list"> get_the_term_list()</a>
+</li><li> <a href="/Function_Reference/has_term" title="Function Reference/has term"> has_term()</a>
+</li><li> <a href="/Function_Reference/sanitize_term" title="Function Reference/sanitize term"> sanitize term()</a>
+</li><li> <a href="/Function_Reference/wp_get_object_terms" title="Function Reference/wp get object terms"> wp_get_object_terms()</a>
+</li><li> <a href="/Function_Reference/wp_set_object_terms" title="Function Reference/wp set object terms"> wp_set_object_terms()</a>
+</li><li> <strong class="selflink"> wp_get_post_terms()</strong>
+</li><li> <a href="/Function_Reference/wp_set_post_terms" title="Function Reference/wp set post terms"> wp_set_post_terms()</a>
+</li></ul>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-    //Returns All Term Items for "my_term"
-    $term_list = wp_get_post_terms($post->ID, 'my_term', array("fields" => "all"));
-    print_r($term_list);
+<!-- 
+NewPP limit report
+Preprocessor node count: 96/1000000
+Post-expand include size: 2049/2097152 bytes
+Template argument size: 384/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/wp_get_post_terms">http://codex.wordpress.org/Function_Reference/wp_get_post_terms</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-    //Returns Array of Term Names for "my_term"
-    $term_list = wp_get_post_terms($post->ID, 'my_term', array("fields" => "names"));
-    print_r($term_list);
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-    //Returns Array of Term ID's for "my_term"
-    $term_list = wp_get_post_terms($post->ID, 'my_term', array("fields" => "ids"));
-    print_r($term_list);
 
-Notes
------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
--   Uses:
-    [`wp_get_object_terms()`](/Function_Reference/wp_get_object_terms "Function Reference/wp get object terms")
-    Gets the tags for returning.
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Change Log
-----------
 
-Since: 2.8.0
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213441 -->
+</html>
 
-Source File
------------
-
-`wp_get_post_terms()` is located in `wp-includes/post.php`.
+</body>
+<!-- Cached 20130405213441 -->
+</html>
 

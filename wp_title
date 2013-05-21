@@ -1,197 +1,355 @@
-Function Reference/wp title « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Displays or returns the title of the page. A separator string can be
-defined, and beginning with [Version 2.5](/Version_2.5 "Version 2.5"),
-that separator can be designated to print before or after the title of
-the page.
+<meta charset="utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/wp title,Function Reference,Function Reference/body class,Function Reference/next image link,Function Reference/next post link,Function Reference/next posts link,Function Reference/post class,Function Reference/post password required,Function Reference/posts nav link,Function Reference/previous image link,Function Reference/previous post link" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/wp title &laquo; WordPress Codex</title>
 
-This tag can be used anywhere within a template as long as it's outside
-[The Loop](/The_Loop "The Loop") on the main page, though is typically
-used in the `<title>` element for the head of a page.
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?36" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-The title text depends on the query:
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
- Single post
-:   the title of the post
- Date-based archive 
-:   the date (e.g., "2006", "2006 - January")
- Category 
-:   the name of the category
- Author page 
-:   the public name of the user
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Usage
------
+</head>
 
-`  <?php wp_title( $sep, $display, $seplocation ); ?> `
+<body id="wordpress-org" >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>				<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-Parameters
-----------
 
- `$sep` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Text to display before or after (specified by
-    `$seplocation`) the post title (i.e. the separator).
-    Default: &raquo; (»)
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/wp_title">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
- `$display` 
-:   ([*boolean*](/How_to_Pass_Tag_Parameters#Boolean "How to Pass Tag Parameters"))
-    (*optional*) Display the title (`TRUE`), or return the title to be
-    used in PHP (`FALSE`).
-    Default: `TRUE`
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/wp title</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<a href="/Template_Tags/wp_title" title="Template Tags/wp title" class="mw-redirect">English</a> • 
+<a href="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_title" class="external text" title="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_title">日本語</a> • 
+<a href="/zh-cn:%E4%B8%AD%E6%96%87(%E7%AE%80%E4%BD%93)/wp_title" title="zh-cn:中文(简体)/wp title">中文(简体)</a> • 
+<a href="/%D0%A2%D0%B5%D0%B3%D0%B8_%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%BE%D0%B2/wp_title" title="Теги шаблонов/wp title">Русский</a> • 
 
- `$seplocation` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Introduced with Version 2.5, this parameter defines the
-    location of where the **sep** string prints in relation to the title
-    of the post. For all values except 'right', the **sep** value is
-    placed in front of (to the left of) the post title. If the value of
-    seplocation is 'right' then the **sep** string will be appended
-    after the post title.
-    Default: *None*
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Note"><span class="tocnumber">5.1</span> <span class="toctext">Note</span></a></li>
+<li class="toclevel-2"><a href="#Default_Usage"><span class="tocnumber">5.2</span> <span class="toctext">Default Usage</span></a></li>
+<li class="toclevel-2"><a href="#Turning_Off_.C2.BB"><span class="tocnumber">5.3</span> <span class="toctext">Turning Off &raquo;</span></a></li>
+<li class="toclevel-2"><a href="#Covering_Homepage"><span class="tocnumber">5.4</span> <span class="toctext">Covering Homepage</span></a></li>
+<li class="toclevel-2"><a href="#Using_Separator"><span class="tocnumber">5.5</span> <span class="toctext">Using Separator</span></a></li>
+<li class="toclevel-2"><a href="#Additional_Separators"><span class="tocnumber">5.6</span> <span class="toctext">Additional Separators</span></a></li>
+<li class="toclevel-2"><a href="#Not_Recommended_Separators"><span class="tocnumber">5.7</span> <span class="toctext">Not Recommended Separators</span></a></li>
+<li class="toclevel-2"><a href="#Separator_with_Blog_Name_and_Title_Reversed"><span class="tocnumber">5.8</span> <span class="toctext">Separator with Blog Name and Title Reversed</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Displays or returns the title of the page.  A separator string can be defined, and beginning with <a href="/Version_2.5" title="Version 2.5">Version 2.5</a>, that separator can be designated to print before or after the title of the page.
+</p><p>This tag can be used anywhere within a template as long as it's outside <a href="/The_Loop" title="The Loop">The Loop</a> on the main page, though is typically used in the <tt>&lt;title&gt;</tt> element for the head of a page.
+</p><p>The title text depends on the query:
+</p>
+<dl><dt> Single post</dt><dd> the title of the post
+</dd><dt> Date-based archive&nbsp;</dt><dd> the date (e.g., "2006", "2006 - January")
+</dd><dt> Category&nbsp;</dt><dd> the name of the category
+</dd><dt> Author page&nbsp;</dt><dd> the public name of the user
+</dd></dl>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;wp_title</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$sep</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$display</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$seplocation&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$sep</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Text to display before or after (specified by <tt>$seplocation</tt>) the post title (i.e. the separator).
+<dl><dd> Default: &amp;raquo; (&raquo;)
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$display</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Boolean" title="How to Pass Tag Parameters"><i>boolean</i></a>) (<i>optional</i>) Display the title (<tt>TRUE</tt>), or return the title to be used in PHP (<tt>FALSE</tt>).
+<dl><dd> Default: <tt>TRUE</tt>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$seplocation</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Introduced with Version 2.5, this parameter defines the location of where the <b>sep</b> string prints in relation to the title of the post.  For all values except 'right', the <b>sep</b> value is placed in front of (to the left of) the post title.  If the value of seplocation is 'right' then the <b>sep</b> string will be appended after the post title.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<p>None.
+</p>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Note" id="Note"></a><h3> <span class="mw-headline"> Note </span></h3>
+<p>The <tt>wp_title()</tt> function should not be used by a theme in conjunction with other strings or functions (like concatenating with <tt>bloginfo('name')</tt>) to write the content of the <tt>&lt;title&gt;</tt> element, because it will render plugins unable to rewrite the whole title in case the plugins use the <a href="/Plugin_API/Filter_Reference/wp_title" title="Plugin API/Filter Reference/wp title">wp_title</a> filter do the rewrite, which is the best practice. The use of this function is now a <i>requirement</i> for theme developers.
+</p>
+<a name="Default_Usage" id="Default_Usage"></a><h3> <span class="mw-headline"> Default Usage </span></h3>
+<p>Displays the blog name (using <a href="/Template_Tags/bloginfo" title="Template Tags/bloginfo" class="mw-redirect"><tt>bloginfo()</tt></a>) and the post title using defaults when accessing a single post page.  If the blog name is "My WordPress Blog", and the title of the post is "Hello world!", then the example below will display the title as <b>My WordPress Blog  &raquo; Hello world!</b>
+</p>
+<pre> &lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt; &lt;?php wp_title();&nbsp;?&gt;&lt;/title&gt;</pre>
+<a name="Turning_Off_.C2.BB" id="Turning_Off_.C2.BB"></a><h3> <span class="mw-headline"> Turning Off &raquo; </span></h3>
+<p>If you don't want it to automatically display the &raquo; before the page title, just call the function as below:
+</p>
+<pre> &lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt; &lt;?php wp_title(&quot;&quot;,true);&nbsp;?&gt;&lt;/title&gt;</pre>
+<a name="Covering_Homepage" id="Covering_Homepage"></a><h3> <span class="mw-headline"> Covering Homepage </span></h3>
+<p>If you are using a custom homepage with custom loops and stuff, you will have an empty wp_title. Here goes a neat hack to add the description/tagline at the wp_title place on homepage:
+</p>
+<pre>&lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt; | &lt;?php is_home()&nbsp;? bloginfo('description')&nbsp;: wp_title('');&nbsp;?&gt;&lt;/title&gt;</pre>
+<p>If you are using a static page as a custom homepage, the above code should be changed to:
+</p>
+<pre>&lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt; | &lt;?php is_front_page()&nbsp;? bloginfo('description')&nbsp;: wp_title('');&nbsp;?&gt;&lt;/title&gt;</pre>
+<a name="Using_Separator" id="Using_Separator"></a><h3> <span class="mw-headline"> Using Separator </span></h3>
+<p>Displays blog name (using <a href="/Template_Tags/bloginfo" title="Template Tags/bloginfo" class="mw-redirect"><tt>bloginfo()</tt></a>) along with post title in the document's title tag, using (pipe) "|" as the separator. This results in (when on a single post page) <b>My WordPress Site | Hello world!</b>.
+</p>
+<pre> &lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt;&lt;?php wp_title('|');&nbsp;?&gt;&lt;/title&gt;</pre>
+<p>This example would do the same thing:
+</p>
+<pre> &lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt;&lt;?php wp_title('|',true,'');&nbsp;?&gt;&lt;/title&gt;</pre>
+<a name="Additional_Separators" id="Additional_Separators"></a><h3> <span class="mw-headline"> Additional Separators </span></h3>
+<p>Most common are so called pipes ('|') however there are few other that could be used.
+</p><p><b>Hyphens</b>
+</p>
+<pre> &lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt;&lt;?php wp_title('-');&nbsp;?&gt;&lt;/title&gt;</pre>
+<p><b>Commas</b>
+</p>
+<pre> &lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt;&lt;?php wp_title(',');&nbsp;?&gt;&lt;/title&gt;</pre>
+<p><b>Spaces</b> 
+</p>
+<pre> &lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt;&lt;?php wp_title(' ');&nbsp;?&gt;&lt;/title&gt;</pre>
+<a name="Not_Recommended_Separators" id="Not_Recommended_Separators"></a><h3> <span class="mw-headline"> Not Recommended Separators </span></h3>
+<p>When using meta titles site owners need to send a clear message to their users as well as Search Engines. Here are two examples of what websites should avoid.
+</p><p><b>Double Hyphens</b>
+</p>
+<pre> &lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt;&lt;?php wp_title('--');&nbsp;?&gt;&lt;/title&gt;</pre>
+<p><b>Underscores</b> 
+</p>
+<pre> &lt;title&gt;&lt;?php bloginfo('name');&nbsp;?&gt;&lt;?php wp_title('_');&nbsp;?&gt;&lt;/title&gt;</pre>
+<p>Underscores will confuse both users and search engines because the title becomes one word instead of several separated words.
+</p><p>Example when using underscores:
+</p><p><b>My_WordPress_Site</b> instead of <b>My WordPress Site</b>.
+</p>
+<a name="Separator_with_Blog_Name_and_Title_Reversed" id="Separator_with_Blog_Name_and_Title_Reversed"></a><h3> <span class="mw-headline"> Separator with Blog Name and Title Reversed </span></h3>
+<p><b>For Wordpress 2.5 and newer</b>
+</p>
+<pre>&lt;title&gt;
+ &lt;?php wp_title('|',true,'right');&nbsp;?&gt;
+ &lt;?php bloginfo('name');&nbsp;?&gt;
+ &lt;/title&gt;</pre>
+<p><b>For previous versions</b>
+</p><p>This lets you reverse page title and blog name in the title tag from example above (<b>Hello world!--My WordPress Blog</b>) by removing the separator (using <tt>wp_title(' ')</tt>, then tests if there is a post title (using <tt>if(wp_title(' ', false))</tt>), and displays the separator between it and <tt>bloginfo()</tt> if it does.
+</p>
+<pre>&lt;title&gt;
+ &lt;?php wp_title(' ');&nbsp;?&gt;
+ &lt;?php if(wp_title(' ', false)) { echo '|'; }&nbsp;?&gt; 
+ &lt;?php bloginfo('name');&nbsp;?&gt;
+ &lt;/title&gt;</pre>
+<a name="See_Also" id="See_Also"></a><h2> <span class="mw-headline"> See Also </span></h2>
+<ul><li>The <a href="/Plugin_API/Filter_Reference/wp_title" title="Plugin API/Filter Reference/wp title">wp_title</a> filter
+</li><li><a href="http://www.deluxeblogtips.com/2012/03/better-title-meta-tag.html" class="external text" title="http://www.deluxeblogtips.com/2012/03/better-title-meta-tag.html">Better Way To Display Title Meta Tag</a>
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<p>Since: <a href="/Version_1.0" title="Version 1.0">1.0.0</a>
+</p>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>wp_title()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/general-template.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/general-template.php#L0">wp-includes/general-template.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Function_Reference/body_class" title="Function Reference/body class"> body_class()</a>, 
+<a href="/Function_Reference/next_image_link" title="Function Reference/next image link"> next_image_link()</a>, 
+<a href="/Function_Reference/next_post_link" title="Function Reference/next post link"> next_post_link()</a>, 
+<a href="/Function_Reference/next_posts_link" title="Function Reference/next posts link"> next_posts_link()</a>, 
+<a href="/Function_Reference/post_class" title="Function Reference/post class"> post_class()</a>, 
+<a href="/Function_Reference/post_password_required" title="Function Reference/post password required"> post_password_required()</a>, 
+<a href="/Function_Reference/posts_nav_link" title="Function Reference/posts nav link"> posts_nav_link()</a>, 
+<a href="/Function_Reference/previous_image_link" title="Function Reference/previous image link"> previous_image_link()</a>, 
+<a href="/Function_Reference/previous_post_link" title="Function Reference/previous post link"> previous_post_link()</a>, 
+<a href="/Function_Reference/previous_posts_link" title="Function Reference/previous posts link"> previous_posts_link()</a>, 
+<a href="/Function_Reference/single_post_title" title="Function Reference/single post title"> single_post_title</a>, 
+<a href="/Function_Reference/sticky_class" title="Function Reference/sticky class"> sticky_class()</a>, 
+<a href="/Function_Reference/the_category" title="Function Reference/the category"> the_category()</a>, 
+<a href="/Function_Reference/the_category_rss" title="Function Reference/the category rss"> the_category_rss()</a>, 
+<a href="/Function_Reference/the_content" title="Function Reference/the content"> the_content()</a>, 
+<a href="/Function_Reference/the_content_rss" title="Function Reference/the content rss"> the_content_rss()</a>, 
+<a href="/Function_Reference/the_excerpt" title="Function Reference/the excerpt"> the_excerpt()</a>, 
+<a href="/Function_Reference/the_excerpt_rss" title="Function Reference/the excerpt rss"> the_excerpt_rss()</a>, 
+<a href="/Function_Reference/the_ID" title="Function Reference/the ID"> the_ID()</a>, 
+<a href="/Function_Reference/the_meta" title="Function Reference/the meta"> the_meta()</a>, 
+<a href="/Function_Reference/the_shortlink" title="Function Reference/the shortlink"> the_shortlink()</a>, 
+<a href="/Function_Reference/the_tags" title="Function Reference/the tags"> the_tags()</a>, 
+<a href="/Function_Reference/the_title" title="Function Reference/the title"> the_title()</a>, 
+<a href="/Function_Reference/the_title_attribute" title="Function Reference/the title attribute"> the_title_attribute()</a>, 
+<a href="/Function_Reference/the_title_rss" title="Function Reference/the title rss"> the_title_rss()</a>, 
+<a href="/Function_Reference/wp_link_pages" title="Function Reference/wp link pages"> wp_link_pages()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-Return Values
--------------
+<!-- 
+NewPP limit report
+Preprocessor node count: 167/1000000
+Post-expand include size: 4040/2097152 bytes
+Template argument size: 1251/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/wp_title">http://codex.wordpress.org/Function_Reference/wp_title</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Template_Tags" title="Category:Template Tags">Template Tags</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-None.
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-Examples
---------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="//www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-### Note
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-The `wp_title()` function should not be used by a theme in conjunction
-with other strings or functions (like concatenating with
-`bloginfo('name')`) to write the content of the `<title>` element,
-because it will render plugins unable to rewrite the whole title in case
-the plugins use the
-[wp\_title](/Plugin_API/Filter_Reference/wp_title "Plugin API/Filter Reference/wp title")
-filter do the rewrite, which is the best practice. The use of this
-function is now a *requirement* for theme developers.
 
-### Default Usage
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="//edge.quantserve.com/quant.js"></script>
+<noscript><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="//gravatar.com/js/gprofiles.js"></script>
 
-Displays the blog name (using
-[`bloginfo()`](/Template_Tags/bloginfo "Template Tags/bloginfo")) and
-the post title using defaults when accessing a single post page. If the
-blog name is "My WordPress Blog", and the title of the post is "Hello
-world!", then the example below will display the title as **My WordPress
-Blog » Hello world!**
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130517040742 -->
+</html>
 
-     <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
-
-### Turning Off »
-
-If you don't want it to automatically display the » before the page
-title, just call the function as below:
-
-     <title><?php bloginfo('name'); ?> <?php wp_title("",true); ?></title>
-
-### Covering Homepage
-
-If you are using a custom homepage with custom loops and stuff, you will
-have an empty wp\_title. Here goes a neat hack to add the
-description/tagline at the wp\_title place on homepage:
-
-    <title><?php bloginfo('name'); ?> | <?php is_home() ? bloginfo('description') : wp_title(''); ?></title>
-
-If you are using a static page as a custom homepage, the above code
-should be changed to:
-
-    <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
-
-### Using Separator
-
-Displays blog name (using
-[`bloginfo()`](/Template_Tags/bloginfo "Template Tags/bloginfo")) along
-with post title in the document's title tag, using (pipe) "|" as the
-separator. This results in (when on a single post page) **My WordPress
-Site | Hello world!**.
-
-     <title><?php bloginfo('name'); ?><?php wp_title('|'); ?></title>
-
-This example would do the same thing:
-
-     <title><?php bloginfo('name'); ?><?php wp_title('|',true,''); ?></title>
-
-### Additional Separators
-
-Most common are so called pipes ('|') however there are few other that
-could be used.
-
-**Hyphens**
-
-     <title><?php bloginfo('name'); ?><?php wp_title('-'); ?></title>
-
-**Commas**
-
-     <title><?php bloginfo('name'); ?><?php wp_title(','); ?></title>
-
-**Spaces**
-
-     <title><?php bloginfo('name'); ?><?php wp_title(' '); ?></title>
-
-### Not Recommended Separators
-
-When using meta titles site owners need to send a clear message to their
-users as well as Search Engines. Here are two examples of what websites
-should avoid.
-
-**Double Hyphens**
-
-     <title><?php bloginfo('name'); ?><?php wp_title('--'); ?></title>
-
-**Underscores**
-
-     <title><?php bloginfo('name'); ?><?php wp_title('_'); ?></title>
-
-Underscores will confuse both users and search engines because the title
-becomes one word instead of several separated words.
-
-Example when using underscores:
-
-**My\_WordPress\_Site** instead of **My WordPress Site**.
-
-### Separator with Blog Name and Title Reversed
-
-**For Wordpress 2.5 and newer**
-
-    <title>
-     <?php wp_title('|',true,'right'); ?>
-     <?php bloginfo('name'); ?>
-     </title>
-
-**For previous versions**
-
-This lets you reverse page title and blog name in the title tag from
-example above (**Hello world!--My WordPress Blog**) by removing the
-separator (using `wp_title(' ')`, then tests if there is a post title
-(using `if(wp_title(' ', false))`), and displays the separator between
-it and `bloginfo()` if it does.
-
-    <title>
-     <?php wp_title(' '); ?>
-     <?php if(wp_title(' ', false)) { echo '|'; } ?> 
-     <?php bloginfo('name'); ?>
-     </title>
-
-See Also
---------
-
--   The
-    [wp\_title](/Plugin_API/Filter_Reference/wp_title "Plugin API/Filter Reference/wp title")
-    filter
--   [Better Way To Display Title Meta
-    Tag](http://www.deluxeblogtips.com/2012/03/better-title-meta-tag.html "http://www.deluxeblogtips.com/2012/03/better-title-meta-tag.html")
-
-Change Log
-----------
-
-Since: [1.0.0](/Version_1.0 "Version 1.0")
-
-Source File
------------
-
-`wp_title()` is located in `wp-includes/general-template.php`.
+</body>
+<!-- Cached 20130517040742 -->
+</html>
 

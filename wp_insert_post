@@ -1,186 +1,354 @@
-Function Reference/wp insert post « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-This function inserts posts (and pages) in the database. It sanitizes
-variables, does some checks, fills in missing variables like date/time,
-etc. It takes an array as its argument and returns the post ID of the
-created post (or `0` if there is an error).
+<meta charset="utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/wp insert post,Class Reference/WP Error,Function Reference,Function Reference/update post meta,Function Reference/wp delete attachment,Function Reference/wp delete post,Function Reference/wp get attachment url,Function Reference/wp insert attachment,Function Reference/wp publish post,Function Reference/wp set object terms,Function Reference/wp set post terms" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/wp insert post &laquo; WordPress Codex</title>
 
-Usage
------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?36" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-`  <?php wp_insert_post( $post, $wp_error ); ?> `
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-Parameters
-----------
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
- `$post` 
-:   ([*array*](/How_to_Pass_Tag_Parameters#Array "How to Pass Tag Parameters"))
-    (*required*) An array representing the elements that make up a post.
-    There is a one-to-one relationship between these elements and the
-    names of columns in the wp\_posts table in the database.
-    Default: *None*
+</head>
 
-**IMPORTANT**: Setting a value for \$post['ID'] WILL NOT create a post
-with that ID number. Setting this value will cause the function to
-update the post with that ID number with the other values specified in
-\$post. In short, to insert a new post, \$post['ID'] must be blank or
-not set at all.
+<body id="wordpress-org" >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>				<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+				<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-The contents of the post array can depend on how much (or little) you
-want to trust the defaults. Here is a list with a short description of
-all the keys you can set for a post:
 
-    $post = array(
-      'ID'             => [ <post id> ] //Are you updating an existing post?
-      'menu_order'     => [ <order> ] //If new post is a page, it sets the order in which it should appear in the tabs.
-      'comment_status' => [ 'closed' | 'open' ] // 'closed' means no comments.
-      'ping_status'    => [ 'closed' | 'open' ] // 'closed' means pingbacks or trackbacks turned off
-      'pinged'         => [ ? ] //?
-      'post_author'    => [ <user ID> ] //The user ID number of the author.
-      'post_category'  => [ array(<category id>, <...>) ] //post_category no longer exists, try wp_set_post_terms() for setting a post's categories
-      'post_content'   => [ <the text of the post> ] //The full text of the post.
-      'post_date'      => [ Y-m-d H:i:s ] //The time post was made.
-      'post_date_gmt'  => [ Y-m-d H:i:s ] //The time post was made, in GMT.
-      'post_excerpt'   => [ <an excerpt> ] //For all your post excerpt needs.
-      'post_name'      => [ <the name> ] // The name (slug) for your post
-      'post_parent'    => [ <post ID> ] //Sets the parent of the new post.
-      'post_password'  => [ ? ] //password for post?
-      'post_status'    => [ 'draft' | 'publish' | 'pending'| 'future' | 'private' | 'custom_registered_status' ] //Set the status of the new post.
-      'post_title'     => [ <the title> ] //The title of your post.
-      'post_type'      => [ 'post' | 'page' | 'link' | 'nav_menu_item' | 'custom_post_type' ] //You may want to insert a regular post, page, link, a menu item or some custom post type
-      'tags_input'     => [ '<tag>, <tag>, <...>' ] //For tags.
-      'to_ping'        => [ ? ] //?
-      'tax_input'      => [ array( 'taxonomy_name' => array( 'term', 'term2', 'term3' ) ) ] // support for custom taxonomies. 
-    );  
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/wp_insert_post">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-**NOTE**: The **page\_template** key was removed from the \$post table
-and is now located in the wp\_postmeta table. To set the page template
-of a page, use
-[update\_post\_meta](/Function_Reference/update_post_meta "Function Reference/update post meta")
-instead with a meta key of **\_wp\_page\_template**.
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/wp insert post</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="/%D0%A1%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA_%D0%BF%D0%BE_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F%D0%BC/wp_insert_post" title="Справочник по функциям/wp insert post">Русский</a> • 
 
-**NOTE 2**: The **post\_status** is documented at [Post Status
-Transitions](/Post_Status_Transitions "Post Status Transitions").
+<a href="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_insert_post" class="external text" title="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wp_insert_post">日本語</a> • 
+<a href="/tr:Fonksiyon_Listesi/wp_insert_post" title="tr:Fonksiyon Listesi/wp insert post">Türkçe</a> • 
 
-**NOTE 3**: If providing a post\_status of 'future' you must specify the
-post\_date in order for WordPress to know when to publish your post.
+<a href="/zh-cn:%E5%87%BD%E6%95%B0%E5%8F%82%E8%80%83/wp_insert_post" title="zh-cn:函数参考/wp insert post">中文(简体)</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return"><span class="tocnumber">4</span> <span class="toctext">Return</span></a></li>
+<li class="toclevel-1"><a href="#Usage_2"><span class="tocnumber">5</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">6</span> <span class="toctext">Example</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Categories"><span class="tocnumber">6.1</span> <span class="toctext">Categories</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Security"><span class="tocnumber">7</span> <span class="toctext">Security</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">8</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">9</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">10</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline">Description</span></h2>
+<p>This function inserts posts (and pages) in the database. It sanitizes variables, does some checks, fills in missing variables like date/time, etc. It takes an array as its argument and returns the post ID of the created post (or <tt>0</tt> if there is an error).
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;wp_insert_post</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$post</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$wp_error&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline">Parameters</span></h2>
+<dl><dt> <tt>$post</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Array" title="How to Pass Tag Parameters"><i>array</i></a>) (<i>required</i>) An array representing the elements that make up a post. There is a one-to-one relationship between these elements and the names of columns in the wp_posts table in the database.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<p><b>IMPORTANT</b>: Setting a value for $post['ID'] WILL NOT create a post with that ID number. Setting this value will cause the function to update the post with that ID number with the other values specified in $post. In short, to insert a new post, $post['ID'] must be blank or not set at all. 
+</p><p>The contents of the post array can depend on how much (or little) you want to trust the defaults. Here is a list with a short description of all the keys you can set for a post:
+</p>
+<pre>
+$post = array(
+  'ID'             =&gt; [ &lt;post id&gt; ] //Are you updating an existing post?
+  'menu_order'     =&gt; [ &lt;order&gt; ] //If new post is a page, it sets the order in which it should appear in the tabs.
+  'comment_status' =&gt; [ 'closed' | 'open' ] // 'closed' means no comments.
+  'ping_status'    =&gt; [ 'closed' | 'open' ] // 'closed' means pingbacks or trackbacks turned off
+  'pinged'         =&gt; [&nbsp;? ] //?
+  'post_author'    =&gt; [ &lt;user ID&gt; ] //The user ID number of the author.
+  'post_category'  =&gt; [ array(&lt;category id&gt;, &lt;...&gt;) ] //post_category no longer exists, try wp_set_post_terms() for setting a post's categories
+  'post_content'   =&gt; [ &lt;the text of the post&gt; ] //The full text of the post.
+  'post_date'      =&gt; [ Y-m-d H:i:s ] //The time post was made.
+  'post_date_gmt'  =&gt; [ Y-m-d H:i:s ] //The time post was made, in GMT.
+  'post_excerpt'   =&gt; [ &lt;an excerpt&gt; ] //For all your post excerpt needs.
+  'post_name'      =&gt; [ &lt;the name&gt; ] // The name (slug) for your post
+  'post_parent'    =&gt; [ &lt;post ID&gt; ] //Sets the parent of the new post.
+  'post_password'  =&gt; [&nbsp;? ] //password for post?
+  'post_status'    =&gt; [ 'draft' | 'publish' | 'pending'| 'future' | 'private' | 'custom_registered_status' ] //Set the status of the new post.
+  'post_title'     =&gt; [ &lt;the title&gt; ] //The title of your post.
+  'post_type'      =&gt; [ 'post' | 'page' | 'link' | 'nav_menu_item' | 'custom_post_type' ] //You may want to insert a regular post, page, link, a menu item or some custom post type
+  'tags_input'     =&gt; [ '&lt;tag&gt;, &lt;tag&gt;, &lt;...&gt;' ] //For tags.
+  'to_ping'        =&gt; [&nbsp;? ] //?
+  'tax_input'      =&gt; [ array( 'taxonomy_name' =&gt; array( 'term', 'term2', 'term3' ) ) ] // support for custom taxonomies. 
+);  
+</pre>
+<p><b>NOTE</b>: The <b>page_template</b> key was removed from the $post table and is now located in the wp_postmeta table. To set the page template of a page, use <a href="/Function_Reference/update_post_meta" title="Function Reference/update post meta">update_post_meta</a> instead with a meta key of <b>_wp_page_template</b>.
+</p><p><b>NOTE 2</b>: The <b>post_status</b> is documented at <a href="/Post_Status_Transitions" title="Post Status Transitions">Post Status Transitions</a>.
+</p><p><b>NOTE 3</b>: If providing a post_status of 'future' you must specify the post_date in order for WordPress to know when to publish your post.
+</p><p><b>NOTE 4</b>: If the current user doesn't have the capability to work with a custom taxonomy then using tax_input to add a term won't work. You will need to use <a href="/Function_Reference/wp_set_object_terms" title="Function Reference/wp set object terms">wp_set_object_terms</a>.
+</p>
+<dl><dt> <tt>$wp_error</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Bool" title="How to Pass Tag Parameters"><i>bool</i></a>) (<i>optional</i>) Allow return of <a href="/Class_Reference/WP_Error" title="Class Reference/WP Error">WP_Error</a> object on failure
+<dl><dd> Default: false
+</dd></dl>
+</dd></dl>
+<a name="Return" id="Return"></a><h2> <span class="mw-headline">Return</span></h2>
+<p>The ID of the post if the post is successfully added to the database. On failure, it returns <tt>0</tt> if $wp_error is set to false, or a <a href="/Class_Reference/WP_Error" title="Class Reference/WP Error">WP_Error</a> object if $wp_error is set to true.
+</p>
+<a name="Usage_2" id="Usage_2"></a><h2> <span class="mw-headline">Usage</span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;wp_insert_post</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$post</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$wp_error&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Example" id="Example"></a><h2> <span class="mw-headline">Example</span></h2>
+<p>Before calling wp_insert_post() it is necessary to create an array to pass the necessary elements that make up a post. The wp_insert_post() will fill out a default list of these but the user is required to provide the title and content otherwise the database write will fail.
+</p><p>The user can provide more elements than are listed here by simply defining new keys in the database. The keys should match the names of the columns in the wp_posts table in the database.
+</p>
+<pre>
+// Create post object
+$my_post = array(
+  'post_title'    =&gt; 'My post',
+  'post_content'  =&gt; 'This is my post.',
+  'post_status'   =&gt; 'publish',
+  'post_author'   =&gt; 1,
+  'post_category' =&gt; array(8,39)
+);
 
-**NOTE 4**: If the current user doesn't have the capability to work with
-a custom taxonomy then using tax\_input to add a term won't work. You
-will need to use
-[wp\_set\_object\_terms](/Function_Reference/wp_set_object_terms "Function Reference/wp set object terms").
+// Insert the post into the database
+wp_insert_post( $my_post );
+</pre>
+<p>Insert a new post and return the new post id.
+</p>
+<pre>
+$post_id = wp_insert_post( $post, $wp_error );
+//now you can use $post_id withing add_post_meta or update_post_meta
+</pre>
+<p>The default list referred to above is defined in the function body. It is as follows:
+</p>
+<pre>
+$defaults = array(
+  'post_status'           =&gt; 'draft', 
+  'post_type'             =&gt; 'post',
+  'post_author'           =&gt; $user_ID,
+  'ping_status'           =&gt; get_option('default_ping_status'), 
+  'post_parent'           =&gt; 0,
+  'menu_order'            =&gt; 0,
+  'to_ping'               =&gt;  '',
+  'pinged'                =&gt; '',
+  'post_password'         =&gt; '',
+  'guid'                  =&gt; '',
+  'post_content_filtered' =&gt; '',
+  'post_excerpt'          =&gt; '',
+  'import_id'             =&gt; 0
+);
+</pre>
+<a name="Categories" id="Categories"></a><h3> <span class="mw-headline">Categories</span></h3>
+<p>Categories need to be passed as an array of integers that match the category IDs in the database. This is the case even where only one category is assigned to the post.
+</p><p>See also: <a href="/Function_Reference/wp_set_post_terms" title="Function Reference/wp set post terms">wp_set_post_terms()</a>
+</p>
+<a name="Security" id="Security"></a><h2> <span class="mw-headline">Security</span></h2>
+<p><tt>wp_insert_post()</tt> passes data through sanitize_post(), which itself handles all necessary sanitization and validation (kses, etc.).
+</p><p>As such, you don't need to worry about that.
+</p><p>You may wish, however, to remove HTML, JavaScript, and PHP tags from the post_title and any other fields. Surprisingly, WordPress does not do this automatically. This can be easily done by using the wp_strip_all_tags() function (as of 2.9) and is especially useful when building front-end post submission forms.
+</p>
+<pre>
+// Create post object
+$my_post = array(
+  'post_title'    =&gt; wp_strip_all_tags( $_POST['post_title'] ),
+  'post_content'  =&gt; $_POST['post_content'],
+  'post_status'   =&gt; 'publish',
+  'post_author'   =&gt; 1,
+  'post_category' =&gt; array( 8,39 )
+);
 
- `$wp_error` 
-:   ([*bool*](/How_to_Pass_Tag_Parameters#Bool "How to Pass Tag Parameters"))
-    (*optional*) Allow return of
-    [WP\_Error](/Class_Reference/WP_Error "Class Reference/WP Error")
-    object on failure
-    Default: false
+// Insert the post into the database
+wp_insert_post( $my_post );
+</pre>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline">Change Log</span></h2>
+<ul><li> Since: <a href="/Version_1.0" title="Version 1.0">1.0</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>wp_insert_post()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0">wp-includes/post.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline">Related</span></h2>
+<p><a href="/Function_Reference/wp_update_post" title="Function Reference/wp update post">wp_update_post()</a>, 
+<a href="/Function_Reference/wp_delete_post" title="Function Reference/wp delete post">wp_delete_post()</a>, 
+<a href="/Function_Reference/wp_publish_post" title="Function Reference/wp publish post">wp_publish_post()</a>, 
+<a href="/Function_Reference/wp_delete_attachment" title="Function Reference/wp delete attachment">wp_delete_attachment()</a>,
+<a href="/Function_Reference/wp_get_attachment_url" title="Function Reference/wp get attachment url">wp_get_attachment_url()</a>,
+<a href="/Function_Reference/wp_insert_attachment" title="Function Reference/wp insert attachment">wp_insert_attachment()</a>,
+<a href="/Plugin_API/Filter_Reference/wp_insert_post_data" title="Plugin API/Filter Reference/wp insert post data">wp_insert_post_data()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
+<div style="clear:both; background-color:#EEEEFF; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">This article is <a href="/Category:Copyedits" title="Category:Copyedits" class="mw-redirect">marked</a> as in need of editing. You can <a href="/Codex:Contributing" title="Codex:Contributing">help</a> Codex by <b><a href="http://codex.wordpress.org/index.php?title=Function_Reference/wp_insert_post&amp;action=edit" class="external text" title="http://codex.wordpress.org/index.php?title=Function_Reference/wp_insert_post&amp;action=edit">editing it</a></b>.</div>
 
-Return
-------
+<!-- 
+NewPP limit report
+Preprocessor node count: 154/1000000
+Post-expand include size: 3179/2097152 bytes
+Template argument size: 1273/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/wp_insert_post">http://codex.wordpress.org/Function_Reference/wp_insert_post</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/Category:Copyedit" title="Category:Copyedit">Copyedit</a></span> | <span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span> | <span dir='ltr'><a href="/Category:New_page_created" title="Category:New page created">New page created</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-The ID of the post if the post is successfully added to the database. On
-failure, it returns `0` if \$wp\_error is set to false, or a
-[WP\_Error](/Class_Reference/WP_Error "Class Reference/WP Error") object
-if \$wp\_error is set to true.
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-Usage
------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="//www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="//platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-`  <?php wp_insert_post( $post, $wp_error ); ?> `
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Example
--------
 
-Before calling wp\_insert\_post() it is necessary to create an array to
-pass the necessary elements that make up a post. The wp\_insert\_post()
-will fill out a default list of these but the user is required to
-provide the title and content otherwise the database write will fail.
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="//edge.quantserve.com/quant.js"></script>
+<noscript><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="//gravatar.com/js/gprofiles.js"></script>
 
-The user can provide more elements than are listed here by simply
-defining new keys in the database. The keys should match the names of
-the columns in the wp\_posts table in the database.
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130514000855 -->
+</html>
 
-    // Create post object
-    $my_post = array(
-      'post_title'    => 'My post',
-      'post_content'  => 'This is my post.',
-      'post_status'   => 'publish',
-      'post_author'   => 1,
-      'post_category' => array(8,39)
-    );
-
-    // Insert the post into the database
-    wp_insert_post( $my_post );
-
-Insert a new post and return the new post id.
-
-    $post_id = wp_insert_post( $post, $wp_error );
-    //now you can use $post_id withing add_post_meta or update_post_meta
-
-The default list referred to above is defined in the function body. It
-is as follows:
-
-    $defaults = array(
-      'post_status'           => 'draft', 
-      'post_type'             => 'post',
-      'post_author'           => $user_ID,
-      'ping_status'           => get_option('default_ping_status'), 
-      'post_parent'           => 0,
-      'menu_order'            => 0,
-      'to_ping'               =>  '',
-      'pinged'                => '',
-      'post_password'         => '',
-      'guid'                  => '',
-      'post_content_filtered' => '',
-      'post_excerpt'          => '',
-      'import_id'             => 0
-    );
-
-### Categories
-
-Categories need to be passed as an array of integers that match the
-category IDs in the database. This is the case even where only one
-category is assigned to the post.
-
-See also:
-[wp\_set\_post\_terms()](/Function_Reference/wp_set_post_terms "Function Reference/wp set post terms")
-
-Security
---------
-
-`wp_insert_post()` passes data through sanitize\_post(), which itself
-handles all necessary sanitization and validation (kses, etc.).
-
-As such, you don't need to worry about that.
-
-You may wish, however, to remove HTML, JavaScript, and PHP tags from the
-post\_title and any other fields. Surprisingly, WordPress does not do
-this automatically. This can be easily done by using the
-wp\_strip\_all\_tags() function (as of 2.9) and is especially useful
-when building front-end post submission forms.
-
-    // Create post object
-    $my_post = array(
-      'post_title'    => wp_strip_all_tags( $_POST['post_title'] ),
-      'post_content'  => $_POST['post_content'],
-      'post_status'   => 'publish',
-      'post_author'   => 1,
-      'post_category' => array( 8,39 )
-    );
-
-    // Insert the post into the database
-    wp_insert_post( $my_post );
-
-Change Log
-----------
-
--   Since: [1.0](/Version_1.0 "Version 1.0")
-
-Source File
------------
-
-`wp_insert_post()` is located in `wp-includes/post.php`.
+</body>
+<!-- Cached 20130514000855 -->
+</html>
 

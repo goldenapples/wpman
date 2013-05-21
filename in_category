@@ -1,186 +1,361 @@
-Function Reference/in category « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Tests if the current post (or any specified post) is assigned to any of
-the specified [categories](/Glossary#Category "Glossary").
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/in category,Class Reference/WP Query,Function Reference,Function Reference/category description,Function Reference/get category by slug,Function Reference/get category link,Function Reference/get category parents,Function Reference/get the category,Function Reference/get the category by ID,Function Reference/get the category list,Function Reference/is category" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/in category &laquo; WordPress Codex</title>
 
-`in_category()` considers only the categories a post is directly
-assigned to (the checked categories in *Write/Edit Post* panel), not the
-parents of the assigned categories (but see [Testing if a post is in a
-descendant category](#Testing_if_a_post_is_in_a_descendant_category)
-below).
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-This tag can be used to test the current post within [The
-Loop](/The_Loop "The Loop") or (since [Version
-2.7](/Version_2.7 "Version 2.7")) outside the Loop during a single post
-request. You can use it anywhere if you specify which post you want to
-test.
 
-Usage
------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-` <?php in_category( $category, $_post ) ?> `
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Parameters
-----------
+</head>
 
- `$category` 
-:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
-    (*required*) One or more categories specified by ID (integer), name
-    or slug (string), or an array of these
-    Default: *None*
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
- `$_post` 
-:   ([*mixed*](/How_to_Pass_Tag_Parameters#Mixed "How to Pass Tag Parameters"))
-    (*optional*) The post (integer ID or object). Defaults to the
-    current post in the Loop or the post in the main query.
-    Default: *None*
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-Return Values
--------------
 
- (boolean) 
-:   Whether the post is assigned to any of the specified categories.
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/in_category">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-Notes
------
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/in category</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/in_category" class="external text" title="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/in_category">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Testing_the_current_post_within_the_Loop"><span class="tocnumber">6.1</span> <span class="toctext">Testing the current post within the Loop</span></a></li>
+<li class="toclevel-2"><a href="#Testing_the_current_post_outside_the_Loop"><span class="tocnumber">6.2</span> <span class="toctext">Testing the current post outside the Loop</span></a></li>
+<li class="toclevel-2"><a href="#Testing_if_a_post_is_in_a_descendant_category"><span class="tocnumber">6.3</span> <span class="toctext">Testing if a post is in a descendant category</span></a>
+<ul>
+<li class="toclevel-3"><a href="#post_is_in_descendant_category_function"><span class="tocnumber">6.3.1</span> <span class="toctext">post_is_in_descendant_category function</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Tests if the current post (or any specified post) is assigned to any of the specified <a href="/Glossary#Category" title="Glossary">categories</a>.
+</p><p><tt>in_category()</tt> considers only the categories a post is directly assigned to (the checked categories in <em>Write/Edit Post</em> panel), not the parents of the assigned categories (but see <a href="#Testing_if_a_post_is_in_a_descendant_category" title="">Testing if a post is in a descendant category</a> below). 
+</p><p>This tag can be used to test the current post within <a href="/The_Loop" title="The Loop">The Loop</a> or (since <a href="/Version_2.7" title="Version 2.7">Version 2.7</a>) outside the Loop during a single post request. You can use it anywhere if you specify which post you want to test.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;in_category</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$category</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$_post&nbsp;</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline">Parameters</span></h2>
+<dl><dt> <tt>$category</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Mixed" title="How to Pass Tag Parameters"><i>mixed</i></a>) (<i>required</i>) One or more categories specified by ID (integer), name or slug (string), or an array of these
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$_post</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Mixed" title="How to Pass Tag Parameters"><i>mixed</i></a>) (<i>optional</i>) The post (integer ID or object). Defaults to the current post in the Loop or the post in the main query.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline">Return Values</span></h2>
+<dl><dt> (boolean)&nbsp;</dt><dd> Whether the post is assigned to any of the specified categories.
+</dd></dl>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline">Notes</span></h2>
+<ul><li> Since <a href="/Version_2.5" title="Version 2.5">Version 2.5</a>, you can specify categories by name.
+</li><li> Since <a href="/Version_2.7" title="Version 2.7">Version 2.7</a>, you can specify categories by slug.
+</li><li> Since <a href="/Version_2.7" title="Version 2.7">Version 2.7</a>, you can check against several categories.
+</li><li> Since <a href="/Version_2.7" title="Version 2.7">Version 2.7</a>, you can use this function outside the WordPress Loop (during a single post query, presumably)
+</li><li> Since <a href="/Version_2.7" title="Version 2.7">Version 2.7</a>, you can specify any post to test (not just the current one). 
+</li></ul>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Testing_the_current_post_within_the_Loop" id="Testing_the_current_post_within_the_Loop"></a><h3> <span class="mw-headline"> Testing the current post within the Loop  </span></h3>
+<p><tt>in_category()</tt> is often used to take different actions within the Loop depending on the current post's category, e.g.
+</p>
+<pre>&lt;?php 
+if ( in_category( 'pachyderms' )) {
+	// They have long trunks...
+} elseif ( in_category( array( 'Tropical Birds', 'small-mammals' ) )) {
+	// They are warm-blooded...
+} else {
+	// &amp; c.
+}
+?&gt;</pre>
+<a name="Testing_the_current_post_outside_the_Loop" id="Testing_the_current_post_outside_the_Loop"></a><h3> <span class="mw-headline"> Testing the current post outside the Loop </span></h3>
+<p>During a request for an individual post (usually handled by the <tt>single.php</tt> template), you can test that post's categories even before the Loop is begun.
+</p><p>You could use this to switch templates like so:
+</p>
+<pre>&lt;?php
+if ( in_category('fruit') ) {
+	include 'single-fruit.php';
+} elseif ( in_category('vegetables') ) {
+	include 'single-vegetables.php';
+} else {
+	// Continue with normal Loop
+	if ( have_posts() )&nbsp;: while ( have_posts() )&nbsp;: the_post();
+	// ...
+}
+?&gt;</pre>
+<p>(The <a href="http://boren.nu/archives/2005/03/13/custom-post-templates-plugin/" class="external text" title="http://boren.nu/archives/2005/03/13/custom-post-templates-plugin/">Custom Post Templates Plugin</a> allows for creation of templates for single posts.  It also shows an example of how to add a template which is used for <i>all</i> posts in a given category, not just a single post.  That example is commented out in the plugin by default but can be easily implemented by uncommenting the appropriate lines.)
+</p>
+<a name="Testing_if_a_post_is_in_a_descendant_category" id="Testing_if_a_post_is_in_a_descendant_category"></a><h3> <span class="mw-headline"> Testing if a post is in a descendant category </span></h3>
+<p>When showing a category archive, or showing a category's posts via <tt><a href="/Class_Reference/WP_Query" title="Class Reference/WP Query">WP_Query()</a></tt> or <tt><a href="/Template_Tags/get_posts" title="Template Tags/get posts">get_posts()</a></tt>, or when hooking into the main query using <tt><a href="/Function_Reference/is_main_query" title="Function Reference/is main query">is_main_query()</a></tt>, WordPress retrieves posts from the specified category <em>and</em> any descendant (child) categories, but <tt>in_category()</tt> tests only against a post's assigned categories, not ancestors (parents) of those categories.
+</p><p>For example, if you have a post assigned to the subcategory <em>Fruit &rarr; Bananas</em> and not the category <em>Fruit</em>, the <em>Fruit</em> category archive will show the "Bananas" post, but calling <code>in_category('fruit')</code> for that post always returns <tt>false</tt>.
+</p><p>You can list both the ancestor category and every possible descendant category, e.g.,
+</p>
+<pre>&lt;?php if ( in_category( array( 'fruits', 'apples', 'bananas', 'cantaloupes', 'guavas', /*etc*/ ) )) {
+	// These are all fruits
+}
+?&gt;</pre>
+<p>but you'd have to edit the code every time you moved or added any of the "Fruit" categories.  
+</p><p>A more-flexible method is to use or adapt the <tt>post_is_in_descendant_category</tt> function defined below (you need to copy the function definition below into a template, plugin, or theme functions file before calling it). You can use it together with <tt>in_category()</tt> like this (in this example 11 is the "Fruit" category's ID number):
+</p>
+<pre> // Post is assigned to &quot;fruit&quot; category or any descendant of &quot;fruit&quot; category?
+&lt;?php if ( in_category( 'fruit' ) || post_is_in_descendant_category( 11 ) ) {
+	// These are all fruits…
+}
+?&gt;</pre>
+<p>If you'd rather refer to the category by name you can use, e.g.,
+</p>
+<pre>
+if ( $category_to_check = get_term_by( 'name', 'fruit', 'category' ))
+   post_is_in_descendant_category($category_to_check-&gt;term_id);
+</pre>
+<a name="post_is_in_descendant_category_function" id="post_is_in_descendant_category_function"></a><h4> <span class="mw-headline"> post_is_in_descendant_category function </span></h4>
+<pre>&lt;?php
+/**
+ * Tests if any of a post's assigned categories are descendants of target categories
+ *
+ * @param int|array $cats The target categories. Integer ID or array of integer IDs
+ * @param int|object $_post The post. Omit to test the current post in the Loop or main query
+ * @return bool True if at least 1 of the post's categories is a descendant of any of the target categories
+ * @see get_term_by() You can get a category by name or slug, then pass ID to this function
+ * @uses get_term_children() Passes $cats
+ * @uses in_category() Passes $_post (can be empty)
+ * @version 2.7
+ * @link http://codex.wordpress.org/Function_Reference/in_category#Testing_if_a_post_is_in_a_descendant_category
+ */
+if (&nbsp;! function_exists( 'post_is_in_descendant_category' ) ) {
+	function post_is_in_descendant_category( $cats, $_post = null ) {
+		foreach ( (array) $cats as $cat ) {
+			// get_term_children() accepts integer ID only
+			$descendants = get_term_children( (int) $cat, 'category' );
+			if ( $descendants &amp;&amp; in_category( $descendants, $_post ) )
+				return true;
+		}
+		return false;
+	}
+}
+?&gt;</pre>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<p>Since: 1.2.0
+</p>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>in_category()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category-template.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/category-template.php#L0">wp-includes/category-template.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Taxonomies" title="Taxonomies"><b>Categories</b></a>: 
+<a href="/Function_Reference/the_category" title="Function Reference/the category"> the_category()</a>, 
+<a href="/Function_Reference/the_category_rss" title="Function Reference/the category rss"> the_category_rss()</a>, 
+<a href="/Function_Reference/single_cat_title" title="Function Reference/single cat title"> single_cat_title()</a>, 
+<a href="/Function_Reference/category_description" title="Function Reference/category description"> category_description()</a>, 
+<a href="/Function_Reference/wp_dropdown_categories" title="Function Reference/wp dropdown categories"> wp_dropdown_categories()</a>, 
+<a href="/Function_Reference/wp_list_categories" title="Function Reference/wp list categories" class="mw-redirect"> wp_list_categories()</a>, 
+<a href="/Function_Reference/get_the_category" title="Function Reference/get the category"> get_the_category()</a>, 
+<a href="/Function_Reference/get_the_category_by_ID" title="Function Reference/get the category by ID"> get_the_category_by_ID()</a>,
+<a href="/Function_Reference/get_category_by_slug" title="Function Reference/get category by slug"> get_category_by_slug()</a>, 
+<a href="/Function_Reference/get_the_category_list" title="Function Reference/get the category list"> get_the_category_list()</a>, 
+<a href="/Function_Reference/get_category_parents" title="Function Reference/get category parents"> get_category_parents()</a>, 
+<a href="/Function_Reference/get_category_link" title="Function Reference/get category link"> get_category_link()</a>, 
+<a href="/Function_Reference/is_category" title="Function Reference/is category"> is_category()</a>, 
+<strong class="selflink"> in_category()</strong>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
--   Since [Version 2.5](/Version_2.5 "Version 2.5"), you can specify
-    categories by name.
--   Since [Version 2.7](/Version_2.7 "Version 2.7"), you can specify
-    categories by slug.
--   Since [Version 2.7](/Version_2.7 "Version 2.7"), you can check
-    against several categories.
--   Since [Version 2.7](/Version_2.7 "Version 2.7"), you can use this
-    function outside the WordPress Loop (during a single post query,
-    presumably)
--   Since [Version 2.7](/Version_2.7 "Version 2.7"), you can specify any
-    post to test (not just the current one).
+<!-- 
+NewPP limit report
+Preprocessor node count: 112/1000000
+Post-expand include size: 2787/2097152 bytes
+Template argument size: 678/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/in_category">http://codex.wordpress.org/Function_Reference/in_category</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-Examples
---------
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-### Testing the current post within the Loop
 
-`in_category()` is often used to take different actions within the Loop
-depending on the current post's category, e.g.
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-    <?php 
-    if ( in_category( 'pachyderms' )) {
-        // They have long trunks...
-    } elseif ( in_category( array( 'Tropical Birds', 'small-mammals' ) )) {
-        // They are warm-blooded...
-    } else {
-        // & c.
-    }
-    ?>
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-### Testing the current post outside the Loop
 
-During a request for an individual post (usually handled by the
-`single.php` template), you can test that post's categories even before
-the Loop is begun.
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213810 -->
+</html>
 
-You could use this to switch templates like so:
-
-    <?php
-    if ( in_category('fruit') ) {
-        include 'single-fruit.php';
-    } elseif ( in_category('vegetables') ) {
-        include 'single-vegetables.php';
-    } else {
-        // Continue with normal Loop
-        if ( have_posts() ) : while ( have_posts() ) : the_post();
-        // ...
-    }
-    ?>
-
-(The [Custom Post Templates
-Plugin](http://boren.nu/archives/2005/03/13/custom-post-templates-plugin/ "http://boren.nu/archives/2005/03/13/custom-post-templates-plugin/")
-allows for creation of templates for single posts. It also shows an
-example of how to add a template which is used for *all* posts in a
-given category, not just a single post. That example is commented out in
-the plugin by default but can be easily implemented by uncommenting the
-appropriate lines.)
-
-### Testing if a post is in a descendant category
-
-When showing a category archive, or showing a category's posts via
-`WP_Query()` or `get_posts()`, or when hooking into the main query using
-`is_main_query()`, WordPress retrieves posts from the specified category
-*and* any descendant (child) categories, but `in_category()` tests only
-against a post's assigned categories, not ancestors (parents) of those
-categories.
-
-For example, if you have a post assigned to the subcategory *Fruit →
-Bananas* and not the category *Fruit*, the *Fruit* category archive will
-show the "Bananas" post, but calling `in_category('fruit')` for that
-post always returns `false`.
-
-You can list both the ancestor category and every possible descendant
-category, e.g.,
-
-    <?php if ( in_category( array( 'fruits', 'apples', 'bananas', 'cantaloupes', 'guavas', /*etc*/ ) )) {
-        // These are all fruits
-    }
-    ?>
-
-but you'd have to edit the code every time you moved or added any of the
-"Fruit" categories.
-
-A more-flexible method is to use or adapt the
-`post_is_in_descendant_category` function defined below (you need to
-copy the function definition below into a template, plugin, or theme
-functions file before calling it). You can use it together with
-`in_category()` like this (in this example 11 is the "Fruit" category's
-ID number):
-
-     // Post is assigned to "fruit" category or any descendant of "fruit" category?
-    <?php if ( in_category( 'fruit' ) || post_is_in_descendant_category( 11 ) ) {
-        // These are all fruits…
-    }
-    ?>
-
-If you'd rather refer to the category by name you can use, e.g.,
-
-    if ( $category_to_check = get_term_by( 'name', 'fruit', 'category' ))
-       post_is_in_descendant_category($category_to_check->term_id);
-
-#### post\_is\_in\_descendant\_category function
-
-    <?php
-    /**
-     * Tests if any of a post's assigned categories are descendants of target categories
-     *
-     * @param int|array $cats The target categories. Integer ID or array of integer IDs
-     * @param int|object $_post The post. Omit to test the current post in the Loop or main query
-     * @return bool True if at least 1 of the post's categories is a descendant of any of the target categories
-     * @see get_term_by() You can get a category by name or slug, then pass ID to this function
-     * @uses get_term_children() Passes $cats
-     * @uses in_category() Passes $_post (can be empty)
-     * @version 2.7
-     * @link http://codex.wordpress.org/Function_Reference/in_category#Testing_if_a_post_is_in_a_descendant_category
-     */
-    if ( ! function_exists( 'post_is_in_descendant_category' ) ) {
-        function post_is_in_descendant_category( $cats, $_post = null ) {
-            foreach ( (array) $cats as $cat ) {
-                // get_term_children() accepts integer ID only
-                $descendants = get_term_children( (int) $cat, 'category' );
-                if ( $descendants && in_category( $descendants, $_post ) )
-                    return true;
-            }
-            return false;
-        }
-    }
-    ?>
-
-Change Log
-----------
-
-Since: 1.2.0
-
-Source File
------------
-
-`in_category()` is located in `wp-includes/category-template.php`.
+</body>
+<!-- Cached 20130405213810 -->
+</html>
 

@@ -1,113 +1,289 @@
-Function Reference/get term « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Get all Term data from database by Term ID. To retrieve term data by
-name, slug or ID, use
-[get\_term\_by()](/Function_Reference/get_term_by "Function Reference/get term by")
-instead
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get term,Class Reference/wpdb,Function Reference,Function Reference/get objects in term,Function Reference/get term by,Function Reference/get term children,Function Reference/get term link,Function Reference/get terms,Function Reference/get the term list,Function Reference/get the terms,Function Reference/has term" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get term &laquo; WordPress Codex</title>
 
-The usage of the get\_term function is to apply filters to a term
-object. It is possible to get a term object from the database before
-applying the filters.
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-`$term` ID must be part of `$taxonomy`, to get from the database.
-Failure, might be able to be captured by the hooks. Failure would be the
-same value as [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
-returns for the get\_row method.
 
-There are two hooks, one is specifically for each term, named
-'`get_term`', and the second is for the taxonomy name,
-'`term_$taxonomy`'. Both hooks gets the term object, and the taxonomy
-name as parameters. Both hooks are expected to return a Term object.
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-'`get_term`' hook - Takes two parameters the term Object and the
-taxonomy name. Must return term object. Used in **`get_term()`** as a
-catch-all filter for every `$term`.
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-'`get_$taxonomy`' hook - Takes two parameters the term Object and the
-taxonomy name. Must return term object. `$taxonomy` will be the taxonomy
-name, so for example, if '`category`', it would be '`get_category`' as
-the filter name. Useful for custom taxonomies or plugging into default
-taxonomies.
+</head>
 
-Usage
------
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-` <?php get_term( $term, $taxonomy, $output, $filter ) ?> `
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
-Parameters
-----------
 
- `$term` 
-:   ([*integer|object*](/How_to_Pass_Tag_Parameters#Integer.7Cobject "How to Pass Tag Parameters"))
-    (*required*) If integer, will get from database. If object will
-    apply filters and return `$term`.
-    Default: *None*
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_term">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
- `$taxonomy` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*required*) Taxonomy name that `$term` is part of.
-    Default: *None*
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get term</h2>
+									<!-- start content -->
+				<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Return_Values"><span class="tocnumber">4</span> <span class="toctext">Return Values</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">7</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">8</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Get all Term data from database by Term ID. To retrieve term data by name, slug or ID, use <a href="/Function_Reference/get_term_by" title="Function Reference/get term by">get_term_by()</a> instead
+</p><p>The usage of the get_term function is to apply filters to a term object. It is possible to get a term object from the database before applying the filters.
+</p><p><tt>$term</tt> ID must be part of <tt>$taxonomy</tt>, to get from the database. Failure, might be able to be captured by the hooks. Failure would be the same value as <a href="/Class_Reference/wpdb" title="Class Reference/wpdb"><tt>$wpdb</tt></a> returns for the get_row method.
+</p><p>There are two hooks, one is specifically for each term, named '<tt>get_term</tt>', and the second is for the taxonomy name, '<tt>term_$taxonomy</tt>'. Both hooks gets the term object, and the taxonomy name as parameters. Both hooks are expected to return a Term object.
+</p><p>'<tt>get_term</tt>' hook - Takes two parameters the term Object and the taxonomy name. Must return term object. Used in <strong class="selflink"><tt>get_term()</tt></strong> as a catch-all filter for every <tt>$term</tt>.
+</p><p>'<tt>get_$taxonomy</tt>' hook - Takes two parameters the term Object and the taxonomy name. Must return term object. <tt>$taxonomy</tt> will be the taxonomy name, so for example, if '<tt>category</tt>', it would be '<tt>get_category</tt>' as the filter name. Useful for custom taxonomies or plugging into default taxonomies.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;get_term</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$term</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$taxonomy</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filter&nbsp;</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$term</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Integer.7Cobject" title="How to Pass Tag Parameters"><i>integer&#124;object</i></a>) (<i>required</i>) If integer, will get from database. If object will apply filters and return <tt>$term</tt>.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$taxonomy</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>required</i>) Taxonomy name that <tt>$term</tt> is part of.
+<dl><dd> Default: <i>None</i>
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$output</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) Constant OBJECT, ARRAY_A, or ARRAY_N
+<dl><dd> Default: OBJECT
+</dd></dl>
+</dd></dl>
+<dl><dt> <tt>$filter</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#String" title="How to Pass Tag Parameters"><i>string</i></a>) (<i>optional</i>) default is raw or no WordPress defined filter will applied.
+<dl><dd> Default: 'raw'
+</dd></dl>
+</dd></dl>
+<a name="Return_Values" id="Return_Values"></a><h2> <span class="mw-headline"> Return Values </span></h2>
+<dl><dt> (mixed&#124;null&#124;WP_Error)&nbsp;</dt><dd> Term Row from database. Will return null if <tt>$term</tt> is empty. If taxonomy does not exist then WP_Error will be returned.
+</dd></dl>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<p>Get Term offers some handy information, but unfortunately lacks a link value.
+</p><p><code>$term = get_term( $term_id, $taxonomy );</code> 
+</p><p>Gives you term slug: e.g.: term-slug-example
+</p><p><code>$slug = $term-&gt;slug;</code>
+</p><p>Gives you term name: e.g. Term Name Example
+</p><p><code>$name = $term-&gt;name;</code>
+</p><p>Gives you term description: e.g. This is my new cool custom term.
+</p><p><code>$desc = $term-&gt;description;</code>
+</p>
+<a name="Notes" id="Notes"></a><h2> <span class="mw-headline"> Notes </span></h2>
+<ul><li> See <a href="/Function_Reference/sanitize_term_field" title="Function Reference/sanitize term field"><tt>sanitize_term_field()</tt></a> The <tt>$context</tt> param lists the available values for <a href="/Function_Reference/get_term_by" title="Function Reference/get term by"><tt>get_term_by()</tt></a> <tt>$filter</tt> param.
+</li><li> Uses: <a href="/Function_Reference/sanitize_term" title="Function Reference/sanitize term"><tt>sanitize_term()</tt></a> Cleanses the term based on <tt>$filter</tt> context before returning.
+</li><li> Uses global: (<tt>object</tt>) <a href="/Class_Reference/wpdb" title="Class Reference/wpdb"><tt>$wpdb</tt></a>
+</li></ul>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<p>Since: 2.3.0
+</p>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>&amp;get_term()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/taxonomy.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/taxonomy.php#L0">wp-includes/taxonomy.php</a></code>.
+</p>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<ul><li> <a href="/Function_Reference/is_term" title="Function Reference/is term"> is_term()</a>
+</li><li> <a href="/Function_Reference/term_exists" title="Function Reference/term exists"> term_exists()</a>
+</li><li> <a href="/Function_Reference/get_objects_in_term" title="Function Reference/get objects in term"> get_objects_in_term()</a>
+</li><li> <strong class="selflink"> get_term()</strong>
+</li><li> <a href="/Function_Reference/get_term_by" title="Function Reference/get term by"> get_term_by()</a>
+</li><li> <a href="/Function_Reference/get_term_children" title="Function Reference/get term children"> get_term_children()</a>
+</li><li> <a href="/Function_Reference/get_term_link" title="Function Reference/get term link"> get_term_link()</a>
+</li><li> <a href="/Function_Reference/get_terms" title="Function Reference/get terms"> get_terms()</a>
+</li><li> <a href="/Function_Reference/get_the_terms" title="Function Reference/get the terms"> get_the_terms()</a>
+</li><li> <a href="/Function_Reference/get_the_term_list" title="Function Reference/get the term list"> get_the_term_list()</a>
+</li><li> <a href="/Function_Reference/has_term" title="Function Reference/has term"> has_term()</a>
+</li><li> <a href="/Function_Reference/sanitize_term" title="Function Reference/sanitize term"> sanitize term()</a>
+</li><li> <a href="/Function_Reference/wp_get_object_terms" title="Function Reference/wp get object terms"> wp_get_object_terms()</a>
+</li><li> <a href="/Function_Reference/wp_set_object_terms" title="Function Reference/wp set object terms"> wp_set_object_terms()</a>
+</li><li> <a href="/Function_Reference/wp_get_post_terms" title="Function Reference/wp get post terms"> wp_get_post_terms()</a>
+</li><li> <a href="/Function_Reference/wp_set_post_terms" title="Function Reference/wp set post terms"> wp_set_post_terms()</a>, get_objects_in_term()
+</li></ul>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
- `$output` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) Constant OBJECT, ARRAY\_A, or ARRAY\_N
-    Default: OBJECT
+<!-- 
+NewPP limit report
+Preprocessor node count: 102/1000000
+Post-expand include size: 2312/2097152 bytes
+Template argument size: 534/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_term">http://codex.wordpress.org/Function_Reference/get_term</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span> | <span dir='ltr'><a href="/Category:New_page_created" title="Category:New page created">New page created</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
- `$filter` 
-:   ([*string*](/How_to_Pass_Tag_Parameters#String "How to Pass Tag Parameters"))
-    (*optional*) default is raw or no WordPress defined filter will
-    applied.
-    Default: 'raw'
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
-Return Values
--------------
 
- (mixed|null|WP\_Error) 
-:   Term Row from database. Will return null if `$term` is empty. If
-    taxonomy does not exist then WP\_Error will be returned.
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-Examples
---------
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-Get Term offers some handy information, but unfortunately lacks a link
-value.
 
-`$term = get_term( $term_id, $taxonomy );`
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405214250 -->
+</html>
 
-Gives you term slug: e.g.: term-slug-example
-
-`$slug = $term->slug;`
-
-Gives you term name: e.g. Term Name Example
-
-`$name = $term->name;`
-
-Gives you term description: e.g. This is my new cool custom term.
-
-`$desc = $term->description;`
-
-Notes
------
-
--   See
-    [`sanitize_term_field()`](/Function_Reference/sanitize_term_field "Function Reference/sanitize term field")
-    The `$context` param lists the available values for
-    [`get_term_by()`](/Function_Reference/get_term_by "Function Reference/get term by")
-    `$filter` param.
--   Uses:
-    [`sanitize_term()`](/Function_Reference/sanitize_term "Function Reference/sanitize term")
-    Cleanses the term based on `$filter` context before returning.
--   Uses global: (`object`)
-    [`$wpdb`](/Class_Reference/wpdb "Class Reference/wpdb")
-
-Change Log
-----------
-
-Since: 2.3.0
-
-Source File
------------
-
-`&get_term()` is located in `wp-includes/taxonomy.php`.
+</body>
+<!-- Cached 20130405214250 -->
+</html>
 

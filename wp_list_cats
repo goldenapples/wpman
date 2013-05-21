@@ -1,184 +1,359 @@
-Function Reference/wp list cats « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Displays a list of [Categories](/Glossary#Category "Glossary") as links.
-When one of those links is clicked, all the posts in that Category will
-display in the appropriate [Category
-Template](/Category_Templates "Category Templates") dictated by the
-[Template Hierarchy rules](/Template_Hierarchy "Template Hierarchy").
-This works in much the same way as
-[list\_cats()](/Template_Tags/list_cats "Template Tags/list cats"), the
-difference being that arguments are given in query string format.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/wp list cats,Category Templates,Function Reference,Function Reference/,Function Reference/category description,Function Reference/get category by slug,Function Reference/get category link,Function Reference/get category parents,Function Reference/get the category,Function Reference/get the category by ID,Function Reference/get the category list" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/wp list cats &laquo; WordPress Codex</title>
 
-Replace With
-------------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
--   [wp\_list\_categories()](/Template_Tags/wp_list_categories "Template Tags/wp list categories")
 
-Usage
------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
-`  <?php wp_list_cats('arguments'); ?> `
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Parameters
-----------
+</head>
 
- optionall 
-:   (*boolean*) Sets whether to display a link to all Categories. Note:
-    This feature no longer works in WordPress 1.5.x and 2.0 but is
-    slated to be added back at Version 2.1. Valid values:
-    -   `1` (True)
-    -   `0` (False - default)
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
- all 
-:   (*string*) If optionall is set to 1 (TRUE), this defines the text to
-    be displayed for the link to all Categories. Note: This feature no
-    longer works in WordPress 1.5.x and 2.0 but is slated to be added
-    back at Version 2.1. Defaults to `'All'`.
- sort\_column 
-:   (*string*) Key to sort options by. Valid values:
-    -   `ID` (Default)
-    -   `name`
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
- sort\_order 
-:   (*string*) Sort order for options. Valid values:
-    -   `asc` (Default)
-    -   `desc`
 
- file 
-:   (*string*) The php file a Category link is to be displayed on.
-    Defaults to `index.php`.
- list 
-:   (*boolean*) Sets whether the Categories are enclosed in an unordered
-    list (\<ul\>\<li\>). Valid values:
-    -   `1` (True - default)
-    -   `0` (False)
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/wp_list_cats">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
- optiondates 
-:   (*string*) Sets whether to display the date of the last post in each
-    Category. Valid values:
-    -   `1` (True, displays
-        [Y-m-d](http://php.net/function.date "http://php.net/function.date"))
-    -   `0` (False - default)
-    -   `string` (Eg. `Y-m-d`, [see all available
-        options](http://php.net/function.date "http://php.net/function.date"))
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/wp list cats</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_list_cats" class="external text" title="http://wpdocs.sourceforge.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_list_cats">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<hr />
+<div style="clear:both; background-color:#FFFFFF; border:1px solid #FFFFFF; color:#c00; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;"><b>This function has been <a href="/Category:Deprecated_Functions" title="Category:Deprecated Functions">deprecated</a>.  That means it has been replaced by a new function or is no longer supported, and may be removed from future versions.  All code that uses this function should be converted to use its replacement if one exists. See also <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/deprecated.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/deprecated.php#L0">wp-includes/deprecated.php</a></code>.</b>
+Use <a href="/Function_Reference/" title="Function Reference/" class="mw-redirect">any of these functions</a> instead.</div>
+<hr />
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Replace_With"><span class="tocnumber">2</span> <span class="toctext">Replace With</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">3</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">4</span> <span class="toctext">Parameters</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Notes_on_use"><span class="tocnumber">4.1</span> <span class="toctext">Notes on use</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Default_Usage"><span class="tocnumber">5.1</span> <span class="toctext">Default Usage</span></a></li>
+<li class="toclevel-2"><a href="#Categories_With_Excludes"><span class="tocnumber">5.2</span> <span class="toctext">Categories With Excludes</span></a></li>
+<li class="toclevel-2"><a href="#Show_Children_Only_of_Category"><span class="tocnumber">5.3</span> <span class="toctext">Show Children Only of Category</span></a></li>
+<li class="toclevel-2"><a href="#Display_Categories_With_RSS_Feed_Links"><span class="tocnumber">5.4</span> <span class="toctext">Display Categories With RSS Feed Links</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Change_Log"><span class="tocnumber">6</span> <span class="toctext">Change Log</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">7</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Displays a list of <a href="/Glossary#Category" title="Glossary">Categories</a> as links.  When one of those links is clicked, all the posts in that Category will display in the appropriate <a href="/Category_Templates" title="Category Templates">Category Template</a> dictated by the <a href="/Template_Hierarchy" title="Template Hierarchy">Template Hierarchy rules</a>.  This works in much the same way as <a href="/Template_Tags/list_cats" title="Template Tags/list cats" class="mw-redirect">list_cats()</a>, the difference being that arguments are given in query string format.
+</p>
+<a name="Replace_With" id="Replace_With"></a><h2> <span class="mw-headline"> Replace With </span></h2>
+<ul><li> <a href="/Template_Tags/wp_list_categories" title="Template Tags/wp list categories"> wp_list_categories()</a>
+</li></ul>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;wp_list_cats</span><span style="color: #007700">(</span><span style="color: #DD0000">'arguments'</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> optionall&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to display a link to all Categories. Note: This feature no longer works in WordPress 1.5.x and 2.0 but is slated to be added back at Version 2.1. Valid values:
+<ul><li> <tt>1</tt> (True)
+</li><li> <tt>0</tt> (False - default)
+</li></ul>
+</dd></dl>
+<dl><dt> all&nbsp;</dt><dd> (<i>string</i>) If optionall is set to 1 (TRUE), this defines the text to be displayed for the link to all Categories. Note: This feature no longer works in WordPress 1.5.x and 2.0 but is slated to be added back at Version 2.1. Defaults to <tt>'All'</tt>.
+</dd><dt> sort_column&nbsp;</dt><dd> (<i>string</i>) Key to sort options by. Valid values:
+<ul><li> <tt>ID</tt> (Default)
+</li><li> <tt>name</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> sort_order&nbsp;</dt><dd> (<i>string</i>) Sort order for options. Valid values:
+<ul><li> <tt>asc</tt> (Default)
+</li><li> <tt>desc</tt>
+</li></ul>
+</dd></dl>
+<dl><dt> file&nbsp;</dt><dd> (<i>string</i>) The php file a Category link is to be displayed on. Defaults to <tt>index.php</tt>.
+</dd><dt> list&nbsp;</dt><dd> (<i>boolean</i>) Sets whether the Categories are enclosed in an unordered list (&lt;ul&gt;&lt;li&gt;). Valid values:
+<ul><li> <tt>1</tt> (True - default)
+</li><li> <tt>0</tt> (False)
+</li></ul>
+</dd></dl>
+<dl><dt> optiondates&nbsp;</dt><dd> (<i>string</i>) Sets whether to display the date of the last post in each Category. Valid values:
+<ul><li> <tt>1</tt> (True, displays <a href="http://php.net/function.date" class="external text" title="http://php.net/function.date">Y-m-d</a>)
+</li><li> <tt>0</tt> (False - default)
+</li><li> <tt>string</tt> (Eg. <tt>Y-m-d</tt>, <a href="http://php.net/function.date" class="external text" title="http://php.net/function.date">see all available options</a>)
+</li></ul>
+</dd></dl>
+<dl><dt> optioncount&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to display a count of posts in each Category. Valid values:
+<ul><li> <tt>1</tt> (True)
+</li><li> <tt>0</tt> (False - default)
+</li></ul>
+</dd></dl>
+<dl><dt> hide_empty&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to hide (not display) Categories with no posts. Valid values:
+<ul><li> <tt>1</tt> (True - default)
+</li><li> <tt>0</tt> (False)
+</li></ul>
+</dd></dl>
+<dl><dt> use_desc_for_title&nbsp;</dt><dd> (<i>boolean</i>) Sets whether the Category description is displayed as link title (i.e. <tt>&lt;a title="<em>Category Description</em>" href="...</tt>). Valid values:
+<ul><li> <tt>1</tt> (True - default)
+</li><li> <tt>0</tt> (False)
+</li></ul>
+</dd></dl>
+<dl><dt> children&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to show children (sub) Categories. Valid values:
+<ul><li> <tt>1</tt> (True - default)
+</li><li> <tt>0</tt> (False)
+</li></ul>
+</dd></dl>
+<dl><dt> child_of&nbsp;</dt><dd> (<i>integer</i>) Display only the Categories that are children of this Category (ID number). There is no default.  If this parameter is used, <tt>hide_empty</tt> gets set to False.
+</dd><dt> feed&nbsp;</dt><dd> (<i>string</i>) Text to display for the link to each Category's <a href="/Glossary#RSS" title="Glossary">RSS2</a> feed. Default is no text, and no feed displayed.
+</dd><dt> feed_image&nbsp;</dt><dd> (<i>string</i>) Path/filename for a graphic to act as a link to each Categories' RSS2 feed. Overrides the <b>feed</b> parameter.
+</dd><dt> exclude&nbsp;</dt><dd> (<i>string</i>) Sets the Categories to be excluded. This must be in the form of an array (ex: <tt>1, 2, 3</tt>).
+</dd><dt> hierarchical&nbsp;</dt><dd> (<i>boolean</i>) Sets whether to display child (sub) Categories in a hierarchical (after parent) list. Valid values:
+<ul><li> <tt>1</tt> (True - default)
+</li><li> <tt>0</tt> (False)
+</li></ul>
+</dd><dd>  <b>Note: The hierarchical parameter is not available in versions of WordPress prior to 1.5</b>
+</dd></dl>
+<a name="Notes_on_use" id="Notes_on_use"></a><h3> <span class="mw-headline"> Notes on use </span></h3>
+<p>When the 'list' parameter is set for an unordered list, the wp_list_cats() tag requires an opening and closing <tt>UL</tt> tag, but will automatically list each item as an <tt>LI</tt>.
+</p>
+<a name="Examples" id="Examples"></a><h2> <span class="mw-headline"> Examples </span></h2>
+<a name="Default_Usage" id="Default_Usage"></a><h3> <span class="mw-headline">Default Usage</span></h3>
+<p>By default, the tag:
+</p>
+<ul><li> <i>optionall</i> - Does not display a link to all Categories
+</li><li> <i>all</i> - Text to display for link to all Categories
+</li><li> <i>sort_column</i> - Sorts by Category ID
+</li><li> <i>sort_order</i> - Sorts in ascending order
+</li><li> <i>file</i> - Displays the Categories using the index.php template
+</li><li> <i>list</i> - Sets the Categories in an unordered list (<tt>&lt;ul&gt;&lt;li&gt;</tt>)
+</li><li> <i>optioncount</i> - Does not display the count of posts within each Category
+</li><li> <i>hide_empty</i> - Does not display links to Categories which have no posts
+</li><li> <i>use_desc_for_title</i> - Uses the Category description as the link title
+</li><li> <i>children</i> - Shows the children (sub-Categories) of every Category listed
+</li><li> <i>hierarchical</i> - Displays the children Categories in a hierarchical order under its Category parent
+</li></ul>
+<pre>&lt;?php wp_list_cats();&nbsp;?&gt;</pre>
+<a name="Categories_With_Excludes" id="Categories_With_Excludes"></a><h3> <span class="mw-headline">Categories With Excludes</span></h3>
+<p>Displays Category links sorted by name, shows # of posts for each Category, and excludes Category IDs 10 and 15 from the list.  
+</p>
+<pre>&lt;ul&gt;
+&lt;?php wp_list_cats('sort_column=name&amp;optioncount=1&amp;exclude=10, 15');&nbsp;?&gt;
+&lt;/ul&gt;
+</pre>
+<a name="Show_Children_Only_of_Category" id="Show_Children_Only_of_Category"></a><h3> <span class="mw-headline"> Show Children Only of Category </span></h3>
+<p>Displays Category links sorted by ID (<tt>sort_column=id</tt>), without showing the number of posts per Category (<tt>optioncount=0</tt>), showing only the sub-Categories titles (<tt>use_desc_for_title=0</tt>), for just the children of Category ID 8 (<tt>child_of=8</tt>).
+</p>
+<pre>&lt;?php wp_list_cats('sort_column=id&amp;optioncount=0&amp;use_desc_for_title=0&amp;child_of=8');&nbsp;?&gt;</pre>
+<p><b>Note:</b> If there are no posts in a parent Category, that parent Category will not display.
+</p>
+<a name="Display_Categories_With_RSS_Feed_Links" id="Display_Categories_With_RSS_Feed_Links"></a><h3> <span class="mw-headline"> Display Categories With RSS Feed Links </span></h3>
+<p>Displays Category links sorted by name, without showing the number of posts per Category, and displays links to the RSS feed for each Category.
+</p>
+<pre>&lt;?php wp_list_cats('sort_column=name&amp;optioncount=0&amp;feed=RSS');&nbsp;?&gt;</pre>
+<a name="Change_Log" id="Change_Log"></a><h2> <span class="mw-headline"> Change Log </span></h2>
+<ul><li> Since: 0.71
+</li><li> Deprecated: 2.1
+</li><li> Replaced By: <a href="/Template_Tags/wp_list_categories" title="Template Tags/wp list categories"> wp_list_categories()</a>
+</li></ul>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Taxonomies" title="Taxonomies"><b>Categories</b></a>: 
+<a href="/Function_Reference/the_category" title="Function Reference/the category"> the_category()</a>, 
+<a href="/Function_Reference/the_category_rss" title="Function Reference/the category rss"> the_category_rss()</a>, 
+<a href="/Function_Reference/single_cat_title" title="Function Reference/single cat title"> single_cat_title()</a>, 
+<a href="/Function_Reference/category_description" title="Function Reference/category description"> category_description()</a>, 
+<a href="/Function_Reference/wp_dropdown_categories" title="Function Reference/wp dropdown categories"> wp_dropdown_categories()</a>, 
+<a href="/Function_Reference/wp_list_categories" title="Function Reference/wp list categories" class="mw-redirect"> wp_list_categories()</a>, 
+<a href="/Function_Reference/get_the_category" title="Function Reference/get the category"> get_the_category()</a>, 
+<a href="/Function_Reference/get_the_category_by_ID" title="Function Reference/get the category by ID"> get_the_category_by_ID()</a>,
+<a href="/Function_Reference/get_category_by_slug" title="Function Reference/get category by slug"> get_category_by_slug()</a>, 
+<a href="/Function_Reference/get_the_category_list" title="Function Reference/get the category list"> get_the_category_list()</a>, 
+<a href="/Function_Reference/get_category_parents" title="Function Reference/get category parents"> get_category_parents()</a>, 
+<a href="/Function_Reference/get_category_link" title="Function Reference/get category link"> get_category_link()</a>, 
+<a href="/Function_Reference/is_category" title="Function Reference/is category"> is_category()</a>, 
+<a href="/Function_Reference/in_category" title="Function Reference/in category"> in_category()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
- optioncount 
-:   (*boolean*) Sets whether to display a count of posts in each
-    Category. Valid values:
-    -   `1` (True)
-    -   `0` (False - default)
+<!-- 
+NewPP limit report
+Preprocessor node count: 97/1000000
+Post-expand include size: 3684/2097152 bytes
+Template argument size: 925/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/wp_list_cats">http://codex.wordpress.org/Function_Reference/wp_list_cats</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="/Category:Deprecated_Functions" title="Category:Deprecated Functions">Deprecated Functions</a></span> | <span dir='ltr'><a href="/Category:Template_Tags" title="Category:Template Tags">Template Tags</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
- hide\_empty 
-:   (*boolean*) Sets whether to hide (not display) Categories with no
-    posts. Valid values:
-    -   `1` (True - default)
-    -   `0` (False)
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
- use\_desc\_for\_title 
-:   (*boolean*) Sets whether the Category description is displayed as
-    link title (i.e. `<a title="Category Description" href="...`). Valid
-    values:
-    -   `1` (True - default)
-    -   `0` (False)
 
- children 
-:   (*boolean*) Sets whether to show children (sub) Categories. Valid
-    values:
-    -   `1` (True - default)
-    -   `0` (False)
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
- child\_of 
-:   (*integer*) Display only the Categories that are children of this
-    Category (ID number). There is no default. If this parameter is
-    used, `hide_empty` gets set to False.
- feed 
-:   (*string*) Text to display for the link to each Category's
-    [RSS2](/Glossary#RSS "Glossary") feed. Default is no text, and no
-    feed displayed.
- feed\_image 
-:   (*string*) Path/filename for a graphic to act as a link to each
-    Categories' RSS2 feed. Overrides the **feed** parameter.
- exclude 
-:   (*string*) Sets the Categories to be excluded. This must be in the
-    form of an array (ex: `1, 2, 3`).
- hierarchical 
-:   (*boolean*) Sets whether to display child (sub) Categories in a
-    hierarchical (after parent) list. Valid values:
-    -   `1` (True - default)
-    -   `0` (False)
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-:   **Note: The hierarchical parameter is not available in versions of
-    WordPress prior to 1.5**
 
-### Notes on use
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405215343 -->
+</html>
 
-When the 'list' parameter is set for an unordered list, the
-wp\_list\_cats() tag requires an opening and closing `UL` tag, but will
-automatically list each item as an `LI`.
-
-Examples
---------
-
-### Default Usage
-
-By default, the tag:
-
--   *optionall* - Does not display a link to all Categories
--   *all* - Text to display for link to all Categories
--   *sort\_column* - Sorts by Category ID
--   *sort\_order* - Sorts in ascending order
--   *file* - Displays the Categories using the index.php template
--   *list* - Sets the Categories in an unordered list (`<ul><li>`)
--   *optioncount* - Does not display the count of posts within each
-    Category
--   *hide\_empty* - Does not display links to Categories which have no
-    posts
--   *use\_desc\_for\_title* - Uses the Category description as the link
-    title
--   *children* - Shows the children (sub-Categories) of every Category
-    listed
--   *hierarchical* - Displays the children Categories in a hierarchical
-    order under its Category parent
-
-<!-- -->
-
-    <?php wp_list_cats(); ?>
-
-### Categories With Excludes
-
-Displays Category links sorted by name, shows \# of posts for each
-Category, and excludes Category IDs 10 and 15 from the list.
-
-    <ul>
-    <?php wp_list_cats('sort_column=name&optioncount=1&exclude=10, 15'); ?>
-    </ul>
-
-### Show Children Only of Category
-
-Displays Category links sorted by ID (`sort_column=id`), without showing
-the number of posts per Category (`optioncount=0`), showing only the
-sub-Categories titles (`use_desc_for_title=0`), for just the children of
-Category ID 8 (`child_of=8`).
-
-    <?php wp_list_cats('sort_column=id&optioncount=0&use_desc_for_title=0&child_of=8'); ?>
-
-**Note:** If there are no posts in a parent Category, that parent
-Category will not display.
-
-### Display Categories With RSS Feed Links
-
-Displays Category links sorted by name, without showing the number of
-posts per Category, and displays links to the RSS feed for each
-Category.
-
-    <?php wp_list_cats('sort_column=name&optioncount=0&feed=RSS'); ?>
-
-Change Log
-----------
-
--   Since: 0.71
--   Deprecated: 2.1
--   Replaced By:
-    [wp\_list\_categories()](/Template_Tags/wp_list_categories "Template Tags/wp list categories")
+</body>
+<!-- Cached 20130405215343 -->
+</html>
 

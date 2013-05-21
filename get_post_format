@@ -1,90 +1,290 @@
-Function Reference/get post format « WordPress Codex
------------
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
 
-Returns the [post format](/Post_Formats "Post Formats") of a post. This
-will usually be called in the [the loop](/The_Loop "The Loop"), but can
-be used anywhere if a post ID is provided.
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--
+<meta property="fb:page_id" content="6427302910" />
+-->
+<link href="https://plus.google.com/107188080561309681193" rel="publisher" />
+<meta name="google-site-verification" content="7VWES_-rcHBcmaQis9mSYamPfNwE03f4vyTj4pfuAw0" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5" />
+		<meta name="keywords" content="Function Reference/get post format,Function Reference,Function Reference/has post format,Function Reference/set post format,Glossary,How to Pass Tag Parameters,Multilingual Codex,Post Formats,Template Tags,The Loop,Version 3.1" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Codex (en)" />
+		<link rel="alternate" type="application/rss+xml" title="Codex RSS feed" href="/index.php?title=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Codex Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<title>Function Reference/get post format &laquo; WordPress Codex</title>
 
-Usage
------
+<link rel="stylesheet" href="//wordpress.org/style/codex-wp4.css?3" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,300,400,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//wordpress.org/style/wp4.css?32" />
+<link media="only screen and (max-device-width: 480px)" href="//wordpress.org/style/iphone.css" type="text/css" rel="stylesheet" />
+<link rel="shortcut icon" href="//wordpress.org/favicon.ico?3" type="image/x-icon" />
 
-` <?php $format = get_post_format( $post_id ); ?> `
 
-Parameters
-----------
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-52447-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+function recordOutboundLink(link, category, action) {
+  pageTracker._trackEvent(category, action);
+  setTimeout('document.location = "' + link.href + '"', 100);
+}
+</script>
+<!--[if lte IE 8]>
+<style type="text/css">
+@import url("//wordpress.org/style/ie.css?1");
+</style>
+<![endif]-->
+	<script type="text/javascript" src="//wordpress.org/wp-includes/js/jquery/jquery.js"></script>
+<script>document.cookie='devicePixelRatio='+((window.devicePixelRatio === undefined) ? 1 : window.devicePixelRatio)+'; path=/';</script>
+<!--[if IE]>
+    <script type="text/javascript" src="/skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" />
+<![endif]-->
 
- `$post_id` 
-:   ([*integer*](/How_to_Pass_Tag_Parameters#Integer "How to Pass Tag Parameters"))
-    (*Optional*) ID of the post.
-    Default: current loop post
+<script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=codex"></script>
+<script type="text/javascript">wgBreakFrames=false;wgContentLanguage='en';</script>
+<script type="text/javascript" src="/skins/common/wikibits.js"></script>
 
-Returns
--------
+</head>
 
- `Format` `(string)`{style="color:gray"} 
-:   The format of the post, or `false` if no format is set.
+<body id="wordpress-org"  >
+<div id="header">
+	<div class="wrapper">
+		<h1><a href="//wordpress.org">WordPress.org</a></h1>
 
-The set of currently defined formats is:
+		<div id="head-search">
+		<form action="http://wordpress.org/search/do-search.php" method="get">
+			<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" /> <input type="submit" class="button" value="" />
+		</form>
+		</div>
+		<div style="clear:both"></div>
+		
+<ul>
+<li><a href='http://wordpress.org/showcase/' title='See some of the sites built on WordPress.'>Showcase</a></li>
+<li><a href='http://wordpress.org/extend/themes/' title='Find just the right look for your website.'>Themes</a></li>
+<li><a href='http://wordpress.org/extend/plugins/' title='Plugins can extend WordPress to do almost anything you can imagine.'>Plugins</a></li>
+<li><a href='http://wordpress.org/extend/mobile/' title='Take your website on the go!'>Mobile</a></li>
+<li><a href='http://wordpress.org/support/' title='Forums, documentation, help.' class="current">Support</a><ul class="nav-submenu"><li><a href='http://wordpress.org/support/' title='Support and discussion forums.'>Forums</a></li><li><a href='http://codex.wordpress.org/Main_Page' title='Documentation, tutorials, best practices.'>Documentation</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://make.wordpress.org/' title='Contribute your knowledge.'>Get Involved</a><ul class="nav-submenu"><li><a href='http://make.wordpress.org/core/' title='Write the code.'>Core</a></li><li><a href='http://make.wordpress.org/ui/' title='Improve the interface.'>UI</a></li><li><a href='http://make.wordpress.org/accessibility/' title='Create a better experience.'>Accessibility</a></li><li><a href='http://make.wordpress.org/plugins/' title='Extend the system.'>Plugins</a></li><li><a href='http://make.wordpress.org/themes/' title='Beautify the web.'>Themes</a></li><li><a href='http://make.wordpress.org/support/' title='Help the users.'>Support</a></li><li><a href='http://make.wordpress.org/polyglots/' title='Translate for the world.'>Polyglots</a></li><li><a href='http://make.wordpress.org/mobile/' title='On the go.'>Mobile</a></li></ul><div class="uparrow"></div></li>
+<li><a href='http://wordpress.org/about/' title='About the WordPress Organization, and where we&#039;re going.'>About</a></li>
+<li><a href='http://wordpress.org/news/' title='Come here for the latest scoop.'>Blog</a></li>
+<li><a href='http://wordpress.org/hosting/' title='Find a home for your blog.'>Hosting</a></li>
+<li id="download" class="button download-button"><a href='http://wordpress.org/download/' title='Get it. Got it? Good.'>Download WordPress</a></li>
+</ul>
+		<div style="clear:both"></div>
+	</div>
+</div>
 
--   aside
--   chat
--   gallery
--   link
--   image
--   quote
--   status
--   video
--   audio
 
-Note also that the default format (i.e., a normal post) returns `false`,
-but this is also referred in some places as the 'standard' format. In
-some cases, developers may wish to do something like the following to
-maintain consistency:
+<div id="headline">
+	<div class="wrapper">
+		<h2>Codex</h2>
+		
+		<div class="portlet" id="p-personal">
+		  <p class="login">Codex tools:
+		     <a href="/index.php?title=Special:UserLogin&amp;returnto=Function_Reference/get_post_format">Log in</a> 		  </p>
+		</div>
+	</div>
+</div>
 
-    $format = get_post_format();
-    if ( false === $format )
-        $format = 'standard';
+<div id="pagebody">
+	<div class="wrapper">	
+		<div class="col-10" id="bodyContent">
+						<h2 class="pagetitle">Function Reference/get post format</h2>
+									<!-- start content -->
+				<p class="LanguageLinks" style="border:1px solid #CCCCCC; line-height:1.5; text-align:left; color:#333333; font-size:90%; padding:10px;"><span style="white-space:nowrap;"><a href="/Multilingual_Codex" title="Multilingual Codex" class="mw-redirect">Languages</a>:</span> 
+<strong class="selflink">English</strong> • 
+<a href="/es:Function_Reference/get_post_format" title="es:Function Reference/get post format">Español</a> • 
 
-Example
--------
+<a href="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_post_format" class="external text" title="http://wpdocs.sourceforge.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/get_post_format">日本語</a> • 
+ <small>(<a href="/Multilingual_Codex#Language_Cross_Reference" title="Multilingual Codex" class="mw-redirect">Add your language</a>)</small>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Parameters"><span class="tocnumber">3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-1"><a href="#Returns"><span class="tocnumber">4</span> <span class="toctext">Returns</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Changelog"><span class="tocnumber">6</span> <span class="toctext">Changelog</span></a></li>
+<li class="toclevel-1"><a href="#Source_File"><span class="tocnumber">7</span> <span class="toctext">Source File</span></a></li>
+<li class="toclevel-1"><a href="#External_Resources"><span class="tocnumber">8</span> <span class="toctext">External Resources</span></a></li>
+<li class="toclevel-1"><a href="#Related"><span class="tocnumber">9</span> <span class="toctext">Related</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Description" id="Description"></a><h2> <span class="mw-headline"> Description </span></h2>
+<p>Returns the <a href="/Post_Formats" title="Post Formats">post format</a> of a post.  This will usually be called in the <a href="/The_Loop" title="The Loop">the loop</a>, but can be used anywhere if a post ID is provided.
+</p>
+<a name="Usage" id="Usage"></a><h2> <span class="mw-headline"> Usage </span></h2>
+<p><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;$format&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">get_post_format</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$post_id&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code>
+</p>
+<a name="Parameters" id="Parameters"></a><h2> <span class="mw-headline"> Parameters </span></h2>
+<dl><dt> <tt>$post_id</tt>
+</dt><dd> (<a href="/How_to_Pass_Tag_Parameters#Integer" title="How to Pass Tag Parameters"><i>integer</i></a>) (<i>Optional</i>) ID of the post.
+<dl><dd> Default: current loop post
+</dd></dl>
+</dd></dl>
+<a name="Returns" id="Returns"></a><h2> <span class="mw-headline"> Returns </span></h2>
+<dl><dt> <tt>Format</tt> <tt style="color:gray">(<a href="/Glossary#String" title="Glossary"><i>string</i></a>)</tt>&nbsp;</dt><dd> The format of the post, or <tt>false</tt> if no format is set.
+</dd></dl>
+<p>The set of currently defined formats is:
+</p>
+<ul><li> aside
+</li><li> chat
+</li><li> gallery
+</li><li> link
+</li><li> image
+</li><li> quote
+</li><li> status
+</li><li> video
+</li><li> audio
+</li></ul>
+<p>Note also that the default format (i.e., a normal post) returns <tt>false</tt>, but this is also referred in some places as the 'standard' format. In some cases, developers may wish to do something like the following to maintain consistency:
+</p>
+<pre>
+$format = get_post_format();
+if ( false === $format )
+	$format = 'standard';
+</pre>
+<a name="Example" id="Example"></a><h2> <span class="mw-headline"> Example </span></h2>
+<pre>
+&lt;?php
+/*
+ * Pull in a different sub-template, depending on the Post Format.
+ * 
+ * Make sure that there is a default '&lt;tt&gt;format.php&lt;/tt&gt;' file to fall back to
+ * as a default. Name templates '&lt;tt&gt;format-link.php&lt;/tt&gt;', '&lt;tt&gt;format-aside.php&lt;/tt&gt;', etc.
+ *
+ * You should use this in the loop.
+ */
 
-    <?php
-    /*
-     * Pull in a different sub-template, depending on the Post Format.
-     * 
-     * Make sure that there is a default '<tt>format.php</tt>' file to fall back to
-     * as a default. Name templates '<tt>format-link.php</tt>', '<tt>format-aside.php</tt>', etc.
-     *
-     * You should use this in the loop.
-     */
+$format = get_post_format();
+get_template_part( 'format', $format );
+?&gt;
+</pre>
+<a name="Changelog" id="Changelog"></a><h2> <span class="mw-headline"> Changelog </span></h2>
+<ul><li> Since: <a href="/Version_3.1" title="Version 3.1">3.1</a>
+</li></ul>
+<a name="Source_File" id="Source_File"></a><h2> <span class="mw-headline"> Source File </span></h2>
+<p><tt>get_post_format()</tt> is located in <code><a href="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0" class="external text" title="http://core.trac.wordpress.org/browser/tags/3.5.1/wp-includes/post.php#L0">wp-includes/post.php</a></code>.
+</p>
+<a name="External_Resources" id="External_Resources"></a><h2> <span class="mw-headline"> External Resources </span></h2>
+<ul><li> <a href="http://ottopress.com/2010/post-types-and-formats-and-taxonomies-oh-my/" class="external text" title="http://ottopress.com/2010/post-types-and-formats-and-taxonomies-oh-my/">Post types and formats and taxonomies, oh my!</a> by Otto
+</li><li> <a href="http://lisasabin-wilson.com/wordpress-3-1-post-formats-reference" class="external text" title="http://lisasabin-wilson.com/wordpress-3-1-post-formats-reference">WordPress 3.1 Post Formats Reference</a> by Lisa Sabin-Wilson
+</li><li> <a href="http://dougal.gunters.org/blog/2010/12/10/smarter-post-formats" class="external text" title="http://dougal.gunters.org/blog/2010/12/10/smarter-post-formats">Smarter Post Formats?</a> by Dougal Campbell
+</li><li> <a href="http://alexking.org/blog/2010/12/14/smarter-post-formats-use-carrington" class="external text" title="http://alexking.org/blog/2010/12/14/smarter-post-formats-use-carrington">Smarter Post Formats? Use Carrington</a> by Alex King
+</li></ul>
+<a name="Related" id="Related"></a><h2> <span class="mw-headline"> Related </span></h2>
+<p><a href="/Post_Formats" title="Post Formats"><b>Post Formats</b></a>: 
+<a href="/Function_Reference/set_post_format" title="Function Reference/set post format">set_post_format()</a>, 
+<strong class="selflink">get_post_format()</strong>, 
+<a href="/Function_Reference/has_post_format" title="Function Reference/has post format">has_post_format()</a>
+</p>
+<div style="clear:both; background-color:#F7F7F7; border:1px solid #CCCCCC; color:#000000; padding:7px; margin:0.5em auto 0.5em auto; vertical-align:middle;">See also index of <a href="/Function_Reference" title="Function Reference">Function Reference</a> and index of <a href="/Template_Tags" title="Template Tags">Template Tags</a>.</div>
 
-    $format = get_post_format();
-    get_template_part( 'format', $format );
-    ?>
+<!-- 
+NewPP limit report
+Preprocessor node count: 102/1000000
+Post-expand include size: 2030/2097152 bytes
+Template argument size: 661/2097152 bytes
+Expensive parser function count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://codex.wordpress.org/Function_Reference/get_post_format">http://codex.wordpress.org/Function_Reference/get_post_format</a>"</div>
+				<div id="catlinks"><div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:Categories" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="/Category:Functions" title="Category:Functions">Functions</a></span></div></div></div>			<!-- end content -->
+		</div>
+		<div class="col-2">
+			
+						
+			<ul class="submenu">
+				<li id="n-mainpage"><a href="/Main_Page">Home Page</a></li>	
+				<li><a href="/WordPress_Lessons">WordPress Lessons</a></li>
+				<li><a href="/Getting_Started_with_WordPress">Getting Started</a></li>
+				<li><a href="/Working_with_WordPress">Working with WordPress</a></li>
+				<li><a href="/Blog_Design_and_Layout">Design and Layout</a></li>
+				<li><a href="/Advanced_Topics">Advanced Topics</a></li>
+				<li><a href="/Troubleshooting">Troubleshooting</a></li>
+				<li><a href="/Developer_Documentation">Developer Docs</a></li>
+				<li><a href="/About_WordPress">About WordPress</a></li>
+			</ul>
 
-Changelog
----------
+			<h3>Codex Resources</h3>
+			<ul class="submenu">
+				<li id="n-portal"><a href="/Codex:Community_Portal">Community portal</a></li>	      
+				<li id="n-currentevents"><a href="/Current_events">Current events</a></li>	      
+				<li id="n-recentchanges"><a href="/Special:RecentChanges">Recent changes</a></li>	      
+				<li id="n-randompage"><a href="/Special:Random">Random page</a></li>	      
+				<li id="n-help"><a href="/Help:Contents">Help</a></li>	
+			</ul>
+			
+		</div>
+	</div>
+</div>
 
--   Since: [3.1](/Version_3.1 "Version 3.1")
 
-Source File
------------
+<div id="footer">
+	<div class="wrapper">
+		<p> 
+			<a href="http://wordpress.org/about/privacy/">Privacy</a> | 
+			<a href="http://wordpress.org/about/license/">License / GPLv2</a>
+            &nbsp; &nbsp; See also: 
+            <a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WP hosting">Hosted WordPress.com</a> |
+			<a href="http://wordpress.tv/" title="Videos, tutorials, WordCamps">WordPress.TV Videos</a> |
+			<a href="http://central.wordcamp.org/" title="Find a WordPress event near your home">WordCamp Events</a> |
+			<a href="http://buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress Social Layer</a> |
+			<a href="http://bbpress.org/" title="Fast, slick forums built on WordPress">bbPress Forums</a> |
+			<a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">WP Jobs</a> | 
+            <a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a>
+		</p>
+<br />
+<iframe src="http://www.facebook.com/plugins/like.php?app_id=121415197926116&amp;href=http%3A%2F%2Fwww.facebook.com%2Fwordpress&amp;send=false&amp;layout=button_count&amp;width=150&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+<!-- <div class="g-plusone" data-size="medium" data-href="https://plus.google.com/107188080561309681193"></div> -->
+<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.html?screen_name=WordPress&show_count=false" style="width:150px; height:20px;"></iframe>
 
-`get_post_format()` is located in `wp-includes/post.php`.
+		<h6>Code is Poetry</h6>
+	</div>
+</div>
 
-External Resources
-------------------
 
--   [Post types and formats and taxonomies, oh
-    my!](http://ottopress.com/2010/post-types-and-formats-and-taxonomies-oh-my/ "http://ottopress.com/2010/post-types-and-formats-and-taxonomies-oh-my/")
-    by Otto
--   [WordPress 3.1 Post Formats
-    Reference](http://lisasabin-wilson.com/wordpress-3-1-post-formats-reference "http://lisasabin-wilson.com/wordpress-3-1-post-formats-reference")
-    by Lisa Sabin-Wilson
--   [Smarter Post
-    Formats?](http://dougal.gunters.org/blog/2010/12/10/smarter-post-formats "http://dougal.gunters.org/blog/2010/12/10/smarter-post-formats")
-    by Dougal Campbell
--   [Smarter Post Formats? Use
-    Carrington](http://alexking.org/blog/2010/12/14/smarter-post-formats-use-carrington "http://alexking.org/blog/2010/12/14/smarter-post-formats-use-carrington")
-    by Alex King
+<script type="text/javascript">_qoptions={qacct:"p-18-mFEk4J448M"};</script>
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt=""/></noscript>
+<!--  -->
+<script type="text/javascript" src="http://s.gravatar.com/js/gprofiles.js"></script>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+<script type="text/javascript">
+(function($){
+$(document).ready(function() {
+	$('#footer a').click(function() {
+		if (this.href.indexOf('wordpress.org') == -1 && this.href.indexOf('http') == 0) {
+			recordOutboundLink(this, 'Outbound Links', this.href);
+			return false;
+		}
+	});
+});
+})(jQuery);
+</script>
+</body>
+<!-- Cached 20130405213705 -->
+</html>
+
+</body>
+<!-- Cached 20130405213705 -->
+</html>
 
